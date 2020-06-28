@@ -1,6 +1,9 @@
 ---
 title: "PSY317L Guides"
-output: html_document
+author: "James P. Curley & Tyler M. Milewski"
+date: "June 28, 2020"
+output: bookdown::gitbook
+site: bookdown::bookdown_site
 ---
 
 ```{r setup, include=FALSE}
