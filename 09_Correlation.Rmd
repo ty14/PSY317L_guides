@@ -45,7 +45,8 @@ When we have a population, we can use the formula:
 $r = \frac{\sum_{}^{} z_{x}z_{y}}{N}$
 
 
-Essentially, the steps are to convert all the `X` and `Y` scores into their respective z-scores. Then you mutliply these two values together to get the `cross-product`.  After summing up all the cross-products for each data point, we divide this number by `n-1` if we're dealing with a sample (we usually are), or `n` if we're dealing with a population.  The above formula is for a sample.
+Essentially, the steps are to convert all the `X` and `Y` scores into their respective z-scores. Then you mutliply these two values together to get the `cross-product`.  After summing up all the cross-products for each data point, we divide this number by `n-1` if we're dealing with a sample (we usually are), or `N` if we're dealing with a population.  
+
 
 The sum of the cross-products will therefore be largely positive if positive z-scores are multiple together or if negative z-scores are multiplied together.  The sum of the cross-products will be largely negative if negative z-scores are multipled with positive z-scores.
 
