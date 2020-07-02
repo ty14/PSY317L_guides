@@ -1,0 +1,101 @@
+# Basic Syntax
+
+We kind of need to know at least a tiny bit of syntax before we move forward...
+
+
+keep it very simple.
+
+
+## assignment
+e.g. what the assignment operator is.
+
+This symbol `<-` which is just a "greater than sign" followed by a "hyphen" is called an assignment operator. It basically is equivalent to saying you want to save something.  You write what you want to be saved on the right hand side of it, and the name of your newly saved thing on the left of it.  We call the 'thing' that you've saved an 'object' in programming speak.
+
+For instance, say you wanted to save the number `17`, and you wanted to call that saved number an object called `x`. You'd do it like this:
+
+
+```{r}
+x <- 17
+```
+
+Now, whenever you type, `x`, R thinks that it is the number 17.
+
+
+```{r}
+x 
+```
+
+
+
+## vectors
+
+Of course, you can save even more complex things as the object. For example, if you wished to save the numbers `5, 6, 7, 8, 9, 10`, you have two ways of doing that.  Let's just see them in action, and then we'll explain the syntax:
+
+```{r}
+
+v1 <- 5:10
+
+v1
+
+v2 <- c(5,6,7,8,9,10)
+
+v2
+
+```
+
+
+As you can see both `v1` and `v2` are our newly saved objects and they both contain the numbers 5 through 10.  For `v1` we separated the numbers 5 and 10 with a colon `:`.  In R, the `:` sign can be used to mean "to" when talking about a series of numbers. e.g.
+
+```{r}
+5:10
+
+101:103
+```
+
+
+The other way we did it with `v2` was to use the `c()` function. This stands for `concatenate` which is a mouthful.  Basically, it's a way of sticking things together.  You write `c()` and then put the stuff you want to stick together inside the brackets, but make sure you separate each thing by a comma `,`.  For example,
+
+```{r}
+c(1,10,100,1000)
+
+c(4,6,8,10,8,6,1)
+
+```
+
+
+Another bit of terminology might be worth mentioning right now.  Our saved objects `x`, `v1` and `v2`, as well as being called `objects` can also be called `vectors`.  A vector is something in R that contains several items. These items are actually called `elements`.  Importantly the items are indexed, which means that they are in order, not all jumbled up.  That means that you can directly grab an element by it's position.  So, if you wished to get the first element (or item) of the object `v1` you'd type like this:
+
+```{r}
+v1[1]
+```
+
+That returns '5' which was our first element we put into the vector.
+
+If we wish to get the 3rd element of `v1` we'd do this:
+
+```{r}
+v1[3]
+```
+
+And, if we wished to get the first, second and third element of `v1` we'd do this:
+
+```{r}
+v1[1:3]
+```
+
+
+blah blah blah
+
+![summary image](img/vector.png)
+
+does the image appear above?
+
+
+I just remembered that if you don't want the image to appear inline, then you leave out the ! from the markdown syntax.
+
+[summary image](img/vector.png)
+
+
+
+
+

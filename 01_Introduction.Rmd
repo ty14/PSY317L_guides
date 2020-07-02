@@ -1,0 +1,62 @@
+# Introduction
+
+This chapter details how to get started using R.
+
+The initial steps are downloading and installing R. This may differ slightly based on your machine.
+
+## Downloading R
+
+Go to the [R website](https://cran.r-project.org). The first box has options for downloading R for Mac, Windows or Linux. Click on the appropriate link.  Then you will want to click on  $\color{blue}{\text{"install R for the first time"}}$. Then follow the instructions.
+
+
+## Downloading RStudio
+
+blah blah blah
+
+
+## Another subheader of something
+
+blah blah blah
+
+
+## Importing Data
+
+There are different options for importing data. It's possible to import data of all different formats into RStudio. We will primarily use spreadsheet type files that have been saved with the ".csv" suffix.  These are called 'comma separated files'.  
+
+**Option 1. Import Tab** You can click on the "Import Dataset" tab in the top right of RStudio - it's located just above your global environment.  Tyler - perhaps we can insert images here?
+
+![like this](img/import_dataset.png){width=500px}
+
+Of course, we should look into how to chaneg image sizes.
+
+You then need to click on the appropriate file type that you wish to import. As I mentioned, nearly all our files will be ".csv" files, so you should click on "From CSV".  In other versions of RStudio, this may say "from text (readR)" instead. 
+
+blah blah blah
+
+
+I can't remember how to insert more space between sections, so I just write <br> to try and force space.
+
+<br>
+
+**Option 2. Writing code.**  This is the option that we will use in our scripts for this course. You may notice that all the datasets that we wish to use are in a folder called "data".  To read in any of these datasets, what we need to do is use the `read_csv()` function.  This comes from a package contained with the `tidyverse` package, so we must have imported that library first.  We then tell it which dataset to find within the 'data' folder. We use the notation "data/..." to tell it to look inside the data folder.  For instance, if we wished to load in the `bmi.csv` dataset, and assign it the name `bmi`, we would do it like this - make sure to put quotes around the whole file name and location:
+
+```{r}
+library(tidyverse)  #load package
+
+bmi <- read_csv("data/bmi.csv") # bring in data
+
+head(bmi) # first six rows
+
+```
+
+
+Tyler.....Perhaps we should either suppress the warnings and messages (which you can do in the r chunk header in markdown)?  Or we should explain what it means when it gets churned out.
+
+blah blah blah
+
+more stuff.
+
+
+
+
+
