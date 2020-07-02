@@ -6,7 +6,11 @@
 Pearson's correlation is measured by `r` and ranges between -1 and +1.  +1 indicates that the variables `X` and `Y` are maximally positively correlated, such that as values of X increase so do values of Y. -1 indicates a compleltely negative correlation such that as values of `X` increase, values of `Y` decrease.  A value of 0 indicates that there is no overall relationship.
 
 
-Examples of different slopes image in here...
+
+The below image shows scatterplots, each with a sample size of 30. The trendline is to help demonstrate how correlations of different magnitudes look in terms of their association.
+
+![Correlations](img/correlations.png)
+
 
 
 ## Calculating the Pearson Correlation in R
@@ -40,10 +44,6 @@ Essentially, the steps are to convert all the `X` and `Y` scores into their resp
 
 The sum of the cross-products will therefore be largely positive if positive z-scores are multiple together or if negative z-scores are multiplied together.  The sum of the cross-products will be largely negative if negative z-scores are multipled with positive z-scores.
 
-
-The below image shows scatterplots, each with a sample size of 30. The trendline is to help demonstrate how correlations of different magnitudes look in terms of their association.
-
-![Correlations](img/correlations.png)
 
 
 The following example should help make this clearer.  Look at the following data, its  scatterplot and the correlation coefficient.  They show that we have a positive correlation of `r=0.84`.  Let's break it down how we got that value.
