@@ -14,9 +14,11 @@ Next you need to read in your data!
 # ```
 
 
-# Scatter Plots
+## Scatter Plots
 
 # ```{r}
 # ggplot(df, (x = , y = )) +
 #   geom_point()
 #  ```
+
+
