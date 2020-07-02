@@ -3,9 +3,20 @@
 The package `ggplot2` is used to visualize data. Before starting you should load the `tidyverse` package, which includes `ggplot2` and other tools, at the very top of your script. 
 
 See example below.
-
+You need to do it once for every script.
 ```{r}
 library(tidyverse)
 ```
 
-You need to do it once for every script.
+Next you need to read in your data!
+# ```{r}
+# df <- read.csv("")
+# ```
+
+
+# Scatter Plots
+
+# ```{r}
+# ggplot(df, (x = , y = )) +
+#   geom_point()
+#  ```
