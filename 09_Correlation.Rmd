@@ -302,29 +302,37 @@ examples....
 
 when I can be bothered, edit this code chunk down into words + code
 
+
+When at least on of our variables are not normal, then we need to consider alternative approaches to the Pearson correlation for assessing correlations. 
+
+Let's take this example, where we are interested in seeing if there's an association between saturated fat and cholesterol levels across a bunch of different cheeses:
+
+
 ```{r}
-
-
-# Example 1.
 
 library(tidyverse)
 
 cheese <- read_csv("data/cheese.csv")
 
-nrow(cheese)
-
 head(cheese)
 
 # let's make a scatterplot of saturated fat against cholesterol
-ggplot(cheese, aes(x = sat_fat, y = chol)) + geom_point()
+ggplot(cheese, aes(x = sat_fat, y = chol)) + geom_point() +
+  stat_smooth(method="lm",se=F)
+
+```
 
 
-# looks like there's a pretty obvious relationship.
+It looks like there is a pretty obvious relationship, but let's check the normality of each variable before progressing. Firstly the Shapiro-Wilk tests suggest that our data do not come from a normal distribution:
 
-# let's do our checks for normality...
+```{r}
+shapiro.test(cheese$sat_fat)  # P < 0.05, therefore data may not be normal
+shapiro.test(cheese$chol)  # P < 0.05,  therefore data may not be normal
+```
 
-shapiro.test(cheese$sat_fat)  # P < 0.05, therefore can reject null that data is normal
-shapiro.test(cheese$chol)  # P < 0.05, therefore cannot reject null that data is normal
+Secondly, we have quite dramatic deviation from the straight line of our datapoints in our QQ plots. This indicates that our dat are likley skewed.
+
+```{r}
 
 qqnorm(cheese$sat_fat)
 qqline(cheese$sat_fat, col = "steelblue", lwd = 2)
@@ -332,41 +340,65 @@ qqline(cheese$sat_fat, col = "steelblue", lwd = 2)
 qqnorm(cheese$chol)
 qqline(cheese$chol, col = "steelblue", lwd = 2)
 
+```
 
 
-## OK, so doing a Pearson correlation is not best...
+We could be thorough and check this by plotting histograms of our data:
 
 
-# Option 1.  Spearman's Rank Test
+```{r}
 
-ggplot(cheese, aes(x = sat_fat, y = chol)) + geom_point()
+library(gridExtra)
 
-cor(cheese$sat_fat, cheese$chol, method = "spearman")      # rho = 0.87
+p1 <- ggplot(cheese, aes(x=sat_fat)) + geom_histogram(color="black", fill="lightseagreen")
+p2 <- ggplot(cheese, aes(x=chol)) + geom_histogram(color="black", fill="lightseagreen")
 
-cor.test(cheese$sat_fat, cheese$chol, method = "spearman") 
-
-# p<.05 therefore reject null that rho = 0
-# don't worry about the warning message.
-
-
-# you can do 1-tailed tests as with Pearson
-
-cor.test(cheese$sat_fat, cheese$chol, method = "spearman", alternative = "greater") 
-
-
-## Option 2 - other types...
-
-## There are other types of non-parametric correlation...
-# Kendall's tau-b is commonly used also.
-
-cor.test(cheese$sat_fat, cheese$chol, method = "kendall") 
-
-
-
-
+grid.arrange(p1,p2,nrow=1)
 
 ```
 
+
+Because our data do not appear to be normal, we cannot do a Pearson correlation coefficient. We should instead use a non-parametric correlation method.  There are several of these to choose from. We don't plan to go into the details here of how these methods determine their correlation coefficients or conduct significance test. In brief, these methods generally rank order the datapoints along the `x` and `y` axes and then determine how ordered these ranks are with respect to each other. 
+
+Probably the most commonly used non-parametric correlation test is called the Spearman Rank Correlation test.
+
+To run this, we can use `cor()` to get the correlation or `cor.test()` to run the signficance test in the same way we did the Pearson test. However, the difference here is that we specify `method="spearman"` at the end.
+
+```{r}
+cor(cheese$sat_fat, cheese$chol, method = "spearman")      
+
+cor.test(cheese$sat_fat, cheese$chol, method = "spearman") 
+
+```
+
+The correlation coefficient here is 0.87 and is termed `rho` instead of `r`. With the significance test, you get a test-statistic `S` which relates to how well ordered the ranked data are. Also provided is a p-value. As with the Pearson, the default is a 2-tailed test, testing whether the obsvered correlation could have come from a population with a correlation of 0. If the p-value is below 0.05 (using alpha = 0.05 as our criterion), then that is reasonable evidence that there is a significant correlation. 
+
+You may also notice with Spearman Rank correlations that you are forever getting warnings about computing p-values with ties. Don't worry at all about this - although this is an issue with the test and how it calculates the p-value, it isn't of any real practical concern.
+
+If you were interested in conducting a one-tailed correlation test, you could do that in the same way as you did for the Pearson.  For instance, if you predicted that cholesterol and saturated fat would have a positive correlation, you could do the following to do a one-tailed test:
+
+```{r}
+
+cor.test(cheese$sat_fat, cheese$chol, method = "spearman", alternative = "greater") 
+
+```
+
+You may also notice that the output of the Spearman Rank test does not give confidence intervals for the value of rho.  This is unfortunate and is one of the drawbacks of doing a non-parametric correlation.
+
+
+Finally, there are several other types of non-parametric correlations you could choose from if you didn't want to do a Spearman Rank correlation.  We personally recommend using a method called `Kendalls Tau B` correlation, which can be done like this:
+
+```{r}
+cor.test(cheese$sat_fat, cheese$chol, method = "kendall") 
+
+```
+
+This output gives you a `tau` value which is the correlation coefficient, and a p-value which you can interpret in the same way as the other tests.
+
+
+
+
+**Ranked Data**
 
 
 If at least one of your variables of your data are rank (ordinal) data, then you should use non-parametric correlations. 
