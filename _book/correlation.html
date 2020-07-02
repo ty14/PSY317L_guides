@@ -128,7 +128,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8" data-path="distributions.html"><a href="distributions.html"><i class="fa fa-check"></i><b>8</b> Distributions</a></li>
 <li class="chapter" data-level="9" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>9</b> Confidence Intervals</a></li>
 <li class="chapter" data-level="10" data-path="inferential-stats.html"><a href="inferential-stats.html"><i class="fa fa-check"></i><b>10</b> Inferential Stats</a></li>
-<li class="chapter" data-level="11" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>11</b> Correlation</a></li>
+<li class="chapter" data-level="11" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>11</b> Correlation</a><ul>
+<li class="chapter" data-level="11.1" data-path="correlation.html"><a href="correlation.html#pearson-correlation"><i class="fa fa-check"></i><b>11.1</b> Pearson Correlation</a></li>
+<li class="chapter" data-level="11.2" data-path="correlation.html"><a href="correlation.html#calculating-the-pearson-correlation-in-r"><i class="fa fa-check"></i><b>11.2</b> Calculating the Pearson Correlation in R</a></li>
+<li class="chapter" data-level="11.3" data-path="correlation.html"><a href="correlation.html#cross-products"><i class="fa fa-check"></i><b>11.3</b> Cross-products</a></li>
+<li class="chapter" data-level="11.4" data-path="correlation.html"><a href="correlation.html#conducting-a-pearson-correlation-test"><i class="fa fa-check"></i><b>11.4</b> Conducting a Pearson Correlation Test</a></li>
+<li class="chapter" data-level="11.5" data-path="correlation.html"><a href="correlation.html#assumptions-of-pearsons-correlation"><i class="fa fa-check"></i><b>11.5</b> Assumptions of Pearson's Correlation</a></li>
+<li class="chapter" data-level="11.6" data-path="correlation.html"><a href="correlation.html#alternatives-to-pearsons-correlation"><i class="fa fa-check"></i><b>11.6</b> Alternatives to Pearson's Correlation</a></li>
+</ul></li>
 <li class="chapter" data-level="12" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>12</b> Regression</a></li>
 </ul>
 
@@ -149,8 +156,162 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="correlation" class="section level1">
 <h1><span class="header-section-number">11</span> Correlation</h1>
-<p>blah</p>
+<div id="pearson-correlation" class="section level2">
+<h2><span class="header-section-number">11.1</span> Pearson Correlation</h2>
+<p>Pearson's correlation is measured by <code>r</code> and ranges between -1 and +1. +1 indicates that the variables <code>X</code> and <code>Y</code> are maximally positively correlated, such that as values of X increase so do values of Y. -1 indicates a compleltely negative correlation such that as values of <code>X</code> increase, values of <code>Y</code> decrease. A value of 0 indicates that there is no overall relationship.</p>
+<p>Examples of different slopes image in here...</p>
+</div>
+<div id="calculating-the-pearson-correlation-in-r" class="section level2">
+<h2><span class="header-section-number">11.2</span> Calculating the Pearson Correlation in R</h2>
+<p>To calculate the correlation coefficient in R, it's pretty straightforward. You simply can use the <code>cor()</code> function. For instance, let's correlate...</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(<span class="dv">1</span>:<span class="dv">10</span>,<span class="dv">1</span>:<span class="dv">10</span>) <span class="co"># replace with an example</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>Before we go further into what we should do with these correlations, and how to signficance test them, let's learn a little bit more about how they come about.</p>
+</div>
+<div id="cross-products" class="section level2">
+<h2><span class="header-section-number">11.3</span> Cross-products</h2>
+<p>The formula for calculating the Pearson's correlation coefficient for a sample is:</p>
+<p>$r =  $</p>
+<p>When we have a population, we can use the formula:</p>
+<p>$r =  $</p>
+<p>Essentially, the steps are to convert all the <code>X</code> and <code>Y</code> scores into their respective z-scores. Then you mutliply these two values together to get the <code>cross-product</code>. After summing up all the cross-products for each data point, we divide this number by <code>n-1</code> if we're dealing with a sample (we usually are), or <code>n</code> if we're dealing with a population. The above formula is for a sample.</p>
+<p>The sum of the cross-products will therefore be largely positive if positive z-scores are multiple together or if negative z-scores are multiplied together. The sum of the cross-products will be largely negative if negative z-scores are multipled with positive z-scores.</p>
+<p>insert image here.</p>
+<p>The following example should help make this clearer. Look at the following data, its scatterplot and the correlation coefficient. They show that we have a positive correlation of <code>r=0.84</code>. Let's break it down how we got that value.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">1.1</span>, <span class="fl">1.5</span>, <span class="fl">2.1</span>, <span class="fl">3.5</span>, <span class="fl">3.6</span>, <span class="fl">3.5</span>, <span class="fl">2.6</span>, <span class="fl">5.6</span>, <span class="fl">4.4</span>, <span class="fl">3.9</span>)
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.8</span>, <span class="fl">2.9</span>, <span class="fl">1.6</span>, <span class="fl">5.5</span>, <span class="fl">4.7</span>, <span class="fl">8.1</span>, <span class="fl">3.3</span>, <span class="fl">7.7</span>, <span class="fl">7.1</span>, <span class="fl">5.8</span>)
 
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(x, y)
+
+df</code></pre></div>
+<pre><code>##      x   y
+## 1  1.1 2.8
+## 2  1.5 2.9
+## 3  2.1 1.6
+## 4  3.5 5.5
+## 5  3.6 4.7
+## 6  3.5 8.1
+## 7  2.6 3.3
+## 8  5.6 7.7
+## 9  4.4 7.1
+## 10 3.9 5.8</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size=</span><span class="dv">2</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(x,y)</code></pre></div>
+<pre><code>## [1] 0.8418262</code></pre>
+<p>First, let's calculate the means and standard deviation (using <code>sd</code> so a sample standard deviation) of <code>x</code> and <code>y</code>. We need to get these values so we can calculate the z-scores of each.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># step 1:  Get the mean and sd of x and y</span>
+
+
+<span class="kw">mean</span>(x)</code></pre></div>
+<pre><code>## [1] 3.18</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(x)</code></pre></div>
+<pre><code>## [1] 1.370158</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(y)</code></pre></div>
+<pre><code>## [1] 4.95</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(y)</code></pre></div>
+<pre><code>## [1] 2.259916</code></pre>
+<p>Now, we can calculate the z-scores, remembering that the formula for that is:</p>
+<p>$z =  $</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># step 2. Calculate z-scores of x, and z-scores of y.</span>
+
+df$zx &lt;-<span class="st"> </span>(x -<span class="st"> </span><span class="kw">mean</span>(x)) /<span class="st"> </span><span class="kw">sd</span>(x)  <span class="co"># z scores of x</span>
+df$zy &lt;-<span class="st"> </span>(y -<span class="st"> </span><span class="kw">mean</span>(y)) /<span class="st"> </span><span class="kw">sd</span>(y)  <span class="co"># z scores of y</span>
+
+df</code></pre></div>
+<pre><code>##      x   y         zx         zy
+## 1  1.1 2.8 -1.5180729 -0.9513626
+## 2  1.5 2.9 -1.2261358 -0.9071132
+## 3  2.1 1.6 -0.7882302 -1.4823557
+## 4  3.5 5.5  0.2335497  0.2433718
+## 5  3.6 4.7  0.3065340 -0.1106236
+## 6  3.5 8.1  0.2335497  1.3938569
+## 7  2.6 3.3 -0.4233088 -0.7301155
+## 8  5.6 7.7  1.7662195  1.2168592
+## 9  4.4 7.1  0.8904082  0.9513626
+## 10 3.9 5.8  0.5254868  0.3761201</code></pre>
+<p>Following this, we simply multiple the z-scores of <code>x</code> and <code>y</code> against each other for every data point:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># step 3. Calculate the cross-product:  zx * zy</span>
+
+df$zxzy &lt;-<span class="st"> </span>df$zx *<span class="st"> </span>df$zy
+
+df</code></pre></div>
+<pre><code>##      x   y         zx         zy        zxzy
+## 1  1.1 2.8 -1.5180729 -0.9513626  1.44423785
+## 2  1.5 2.9 -1.2261358 -0.9071132  1.11224399
+## 3  2.1 1.6 -0.7882302 -1.4823557  1.16843751
+## 4  3.5 5.5  0.2335497  0.2433718  0.05683941
+## 5  3.6 4.7  0.3065340 -0.1106236 -0.03390988
+## 6  3.5 8.1  0.2335497  1.3938569  0.32553483
+## 7  2.6 3.3 -0.4233088 -0.7301155  0.30906432
+## 8  5.6 7.7  1.7662195  1.2168592  2.14924036
+## 9  4.4 7.1  0.8904082  0.9513626  0.84710104
+## 10 3.9 5.8  0.5254868  0.3761201  0.19764615</code></pre>
+<p>We now have all of our cross-products. Notice why the majority are positive. This is because we have multiplied positive <span class="math inline">\(z_{x}\)</span> with positive <span class="math inline">\(z_{y}\)</span> or we multiplied negative <span class="math inline">\(z_{x}\)</span> with negative <span class="math inline">\(z_{y}\)</span>. This happens because datapoints that tend to be above the mean for <code>x</code> are also above the mean for <code>y</code>, and points that are below the mean of <code>x</code> are also below the mean of <code>y</code>.</p>
+<p>We can add this up to get the sum of the cross-products. That is the <span class="math inline">\(\sum_{}^{} z_{x}z_{y}\)</span> in the formula.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># step 4.  Sum up the cross products.</span>
+
+<span class="kw">sum</span>(df$zxzy) <span class="co"># 7.58</span></code></pre></div>
+<pre><code>## [1] 7.576436</code></pre>
+<p>We now divide that by <code>n-1</code> as we have a sample, to get the correlation coefficient <code>r</code>. That gives us an estimation of the average cross-product.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># step 5- calculate &#39;r&#39; by dividing by n-1. (for a sample)</span>
+
+<span class="kw">sum</span>(df$zxzy) /<span class="st"> </span><span class="dv">9</span>   <span class="co"># our n was 10, so n-1 = 9</span></code></pre></div>
+<pre><code>## [1] 0.8418262</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(df$zxzy) /<span class="st"> </span>(<span class="kw">nrow</span>(df) -<span class="st"> </span><span class="dv">1</span>)  <span class="co"># nrow(df) is more generalizable</span></code></pre></div>
+<pre><code>## [1] 0.8418262</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># r=0.84</span></code></pre></div>
+<p>Just as a quick second example, here is a work through calculating a negative correlation. Notice the <span class="math inline">\(z_{x}\)</span> and <span class="math inline">\(z_{y}\)</span> scores that are multiplied together. They are largely opposite in terms of signs. This is what leads to a negative sum of cross-products and the negative correlation. Why? Because data points that are above the mean for <code>x</code> are generally below the mean in terms of <code>y</code> and visa-versa.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">### Example 2.   Negative Correlation.
+
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">1.1</span>, <span class="fl">1.5</span>, <span class="fl">2.1</span>, <span class="fl">3.5</span>, <span class="fl">3.6</span>, <span class="fl">3.5</span>, <span class="fl">2.6</span>, <span class="fl">5.6</span>, <span class="fl">4.4</span>, <span class="fl">3.9</span>)
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">10.4</span>, <span class="fl">10.0</span>, <span class="fl">8.4</span>, <span class="fl">8.5</span>, <span class="fl">8.4</span>, <span class="fl">6.3</span>, <span class="fl">7.1</span>, <span class="fl">6.2</span>, <span class="fl">8.1</span>, <span class="fl">10.0</span>)
+
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(x, y)
+
+<span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size=</span><span class="dv">2</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(df$x,df$y) </code></pre></div>
+<pre><code>## [1] -0.6112965</code></pre>
+<p>Here is the code, truncated for space:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate z-scores for each x and each y</span>
+df$zx &lt;-<span class="st"> </span>(x -<span class="st"> </span><span class="kw">mean</span>(x)) /<span class="st"> </span><span class="kw">sd</span>(x)
+df$zy &lt;-<span class="st"> </span>(y -<span class="st"> </span><span class="kw">mean</span>(y)) /<span class="st"> </span><span class="kw">sd</span>(y)
+
+<span class="co"># Calculate the cross-product:  zx * zy</span>
+df$zxzy &lt;-<span class="st"> </span>df$zx *<span class="st"> </span>df$zy
+
+<span class="co"># let&#39;s look at the dataframe</span>
+<span class="co"># notice the cross products:</span>
+df</code></pre></div>
+<pre><code>##      x    y         zx          zy        zxzy
+## 1  1.1 10.4 -1.5180729  1.37762597 -2.09133671
+## 2  1.5 10.0 -1.2261358  1.11012578 -1.36116500
+## 3  2.1  8.4 -0.7882302  0.04012503 -0.03162776
+## 4  3.5  8.5  0.2335497  0.10700008  0.02498983
+## 5  3.6  8.4  0.3065340  0.04012503  0.01229968
+## 6  3.5  6.3  0.2335497 -1.36425096 -0.31862038
+## 7  2.6  7.1 -0.4233088 -0.82925058  0.35102907
+## 8  5.6  6.2  1.7662195 -1.43112601 -2.52768263
+## 9  4.4  8.1  0.8904082 -0.16050011 -0.14291061
+## 10 3.9 10.0  0.5254868  1.11012578  0.58335643</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Sum up the cross products and Calculate &#39;r&#39; by dividing by N-1.</span>
+
+<span class="kw">sum</span>(df$zxzy) /<span class="st"> </span>(<span class="kw">nrow</span>(df) -<span class="st"> </span><span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] -0.6112965</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(df$x,df$y) </code></pre></div>
+<pre><code>## [1] -0.6112965</code></pre>
+</div>
+<div id="conducting-a-pearson-correlation-test" class="section level2">
+<h2><span class="header-section-number">11.4</span> Conducting a Pearson Correlation Test</h2>
+</div>
+<div id="assumptions-of-pearsons-correlation" class="section level2">
+<h2><span class="header-section-number">11.5</span> Assumptions of Pearson's Correlation</h2>
+</div>
+<div id="alternatives-to-pearsons-correlation" class="section level2">
+<h2><span class="header-section-number">11.6</span> Alternatives to Pearson's Correlation</h2>
+
+</div>
 </div>
             </section>
 
