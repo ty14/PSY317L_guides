@@ -1,5 +1,7 @@
 # Correlation
 
+intro lines about what correlation is etc...
+
 
 ## Pearson Correlation
 
