@@ -1,5 +1,11 @@
 # Introduction
 
+Possibly we need a chapter before this chapter detailing how to use this guide, and what this guide contains....  That it's mainly a how to implement stuff in R, but it also touches on bits of stats and data theory where applicable
+
+
+## Introduction
+
+
 This chapter details how to get started using R.
 
 The initial steps are downloading and installing R. This may differ slightly based on your machine.
