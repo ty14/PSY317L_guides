@@ -1,0 +1,8 @@
+# Permutation Testing
+
+An example of permutation testing and the theory behind it.
+
+e.g. a correlation permutation test
+
+
+e.g. a 2 sample t-test permutation test.

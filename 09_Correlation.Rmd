@@ -187,11 +187,122 @@ cor(df$x,df$y)
 
 ## Conducting a Pearson Correlation Test
 
+Although `cor()` gives you the correlation between two continuous variables, to actually run a significance test, you need to use `cor.test()`.
+
+Let's use some BlueJay data to do this. We'll just use data on male birds.
+
+```{r}
+library(tidyverse)
+jays <- read_csv("data/BlueJays.csv")
+jayM <- jays %>% filter(KnownSex == "M") # we'll just look at Males
+
+nrow(jayM) # 63 observations
+
+head(jayM)
+```
+
+
+Let's say you're interested in examining whether there is an association between Body Mass and Head Size.  First we'll make a scatterplot between the `Mass` and `Head` columns.  We'll also investigate the correlation using `cor()`.
+
+```{r}
+ggplot(jayM, aes(x=Mass, y=Head)) + 
+  geom_point(shape = 21, colour = "navy", fill = "dodgerblue") +
+  stat_smooth(method="lm", se=F)
+
+
+cor(jayM$Mass, jayM$Head)  # r = 0.58,  a strong positive correlation.
+
+```
+
+
+To run the significance test, we do the following:
+
+```{r}
+cor.test(jayM$Head, jayM$Mass) 
+
+```
+
+This gives us a lot of information. Firstly, at the bottom it repeats the correlation coefficient `cor`. At the top, it gives us the value of `t` which is essentially how surprising it is for us to get the correlation we did assuming we were drawing our sample from a population where there is no correlation.  Associated with this `t` value is the degrees of freedom which is equal to `n-2`, so in this case that is `63-2 = 61`. The p-value is also given. If we are using `alpha=0.05` as our significance level, then we can reject the hypothesis that there is no overall correlation in the population between Body Mass and Head size if `p<0.05`.  
+
+The default for `cor.test()` is to do a two-tailed test.  This is testing whether your observed correlation `r` is different from `r=0` in either the positive or negative direction.  This default version also gives us the confidence interval for the correlation coefficient. Essentially, this gives us the interval in which we have a 95% confidence that the true population `r` lies (remember we just have data from one sample that theoretically comes from a population).
+
+It's also possible however that you had an **a priori** prediction about the direction of the effect. For instance, you may have predicted that Body Mass would be positively correlated with Head Size. In this case, you could do a one-tailed correlation test, where your alternative hypothesis is that there is a positive correlation and the null is that the correlation coefficient is equal to 0 or less than 0.
+
+To do one-tailed tests you need to add the `alternative` argument.
+
+```{r}
+
+# testing if there is a positive correlation
+cor.test(jayM$Head, jayM$Mass, alternative = "greater") 
+
+```
+
+
+```{r}
+
+# testing if there is a negative correlation
+cor.test(jayM$Head, jayM$Mass, alternative = "less") 
+```
+
+
+
 
 
 
 ## Assumptions of Pearson's Correlation
 
+The Pearson Correlation Coefficient requires your data to be approximately normally distributed. To do this we have various options how to test for normality.
+
+Firstly, we could do a Shapiro-Wilk test, which formally determines whether our data are normal. This is done using `shapiro.test()`, where we assume our data are from a normal population if the resulting p-value is above 0.05.  If the p-value is below 0.05 then we have evidence to reject that our data come from a normal population.
+
+With our data above, this would look like this when running the test on each variable:
+
+```{r}
+shapiro.test(jayM$Mass)  # P > 0.05, therefore cannot reject null that data is not normal
+shapiro.test(jayM$Head)  # P > 0.05, therefore cannot reject null that data is not normal
+
+```
 
 
-## Alternatives to Pearson's Correlation
+We can also make a QQ-plot for each variable. Essentially what we require from this plot is for the majority of our data to fall on the straight line - especially the datapoints in the middle. Some deviation at the tails is ok.  This plot orders our data and plots the observed data against values on the x-axis that we would expect to get if our data was truly from a normal population.
+
+```{r}
+qqnorm(jayM$Mass)
+qqline(jayM$Mass, col = "steelblue", lwd = 2)
+```
+
+```{r}
+qqnorm(jayM$Head)
+qqline(jayM$Head, col = "steelblue", lwd = 2)
+
+```
+
+Both of these QQ plots are ok, and indicate normality, as does our Shapiro-Wilk tests. Therefore we would be ok to use a Pearson Correlation test with these data.
+
+What should you do though if either of your continuous variables are not approximately normally distributed? In that case, there are other correlation coefficients and associated significance tests that you could run instead.  We describe these in more detail in Section x.xxx
+
+
+
+
+
+## Confidence Intervals for R
+
+bit more on this and the theory.
+
+
+
+## Partial Correlations
+
+why.... the stupid formula.... and how to do in R.... and that there are technically better ways...
+
+
+## Non-parametric Correlations
+
+examples....
+
+
+
+## Point-Biserial Correlation
+
+why, what....
+
