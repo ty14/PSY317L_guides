@@ -27,20 +27,23 @@ Before we go further into what we should do with these correlations, and how to 
 
 The formula for calculating the Pearson's correlation coefficient for a sample is:
 
-$r = \frac{\sum_{}^{} z_{x}z_{y}}{n - 1} $
+$r = \frac{\sum_{}^{} z_{x}z_{y}}{n - 1}$
 
 
 When we have a population, we can use the formula: 
 
 
-$r = \frac{\sum_{}^{} z_{x}z_{y}}{N} $
+$r = \frac{\sum_{}^{} z_{x}z_{y}}{N}$
 
 
 Essentially, the steps are to convert all the `X` and `Y` scores into their respective z-scores. Then you mutliply these two values together to get the `cross-product`.  After summing up all the cross-products for each data point, we divide this number by `n-1` if we're dealing with a sample (we usually are), or `n` if we're dealing with a population.  The above formula is for a sample.
 
 The sum of the cross-products will therefore be largely positive if positive z-scores are multiple together or if negative z-scores are multiplied together.  The sum of the cross-products will be largely negative if negative z-scores are multipled with positive z-scores.
 
-insert image here.
+
+The below image shows scatterplots, each with a sample size of 30. The trendline is to help demonstrate how correlations of different magnitudes look in terms of their association.
+
+![Correlations](img/correlations.png)
 
 
 The following example should help make this clearer.  Look at the following data, its  scatterplot and the correlation coefficient.  They show that we have a positive correlation of `r=0.84`.  Let's break it down how we got that value.
@@ -75,7 +78,7 @@ sd(y)
 
 Now, we can calculate the z-scores, remembering that the formula for that is:  
 
-$z = \frac{x - \overline{x}}{s_{x}} $
+$z = \frac{x - \overline{x}}{s_{x}}$
 
 ```{r}
 # step 2. Calculate z-scores of x, and z-scores of y.
@@ -110,7 +113,7 @@ We can add this up to get the sum of the cross-products.  That is the $\sum_{}^{
 
 sum(df$zxzy) # 7.58
 
-````
+```
 
 We now divide that by `n-1` as we have a sample, to get the correlation coefficient `r`. That gives us an estimation of the average cross-product.
 

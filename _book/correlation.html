@@ -171,12 +171,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="cross-products" class="section level2">
 <h2><span class="header-section-number">11.3</span> Cross-products</h2>
 <p>The formula for calculating the Pearson's correlation coefficient for a sample is:</p>
-<p>$r =  $</p>
+<p><span class="math inline">\(r = \frac{\sum_{}^{} z_{x}z_{y}}{n - 1}\)</span></p>
 <p>When we have a population, we can use the formula:</p>
-<p>$r =  $</p>
+<p><span class="math inline">\(r = \frac{\sum_{}^{} z_{x}z_{y}}{N}\)</span></p>
 <p>Essentially, the steps are to convert all the <code>X</code> and <code>Y</code> scores into their respective z-scores. Then you mutliply these two values together to get the <code>cross-product</code>. After summing up all the cross-products for each data point, we divide this number by <code>n-1</code> if we're dealing with a sample (we usually are), or <code>n</code> if we're dealing with a population. The above formula is for a sample.</p>
 <p>The sum of the cross-products will therefore be largely positive if positive z-scores are multiple together or if negative z-scores are multiplied together. The sum of the cross-products will be largely negative if negative z-scores are multipled with positive z-scores.</p>
-<p>insert image here.</p>
+<p>The below image shows scatterplots, each with a sample size of 30. The trendline is to help demonstrate how correlations of different magnitudes look in terms of their association.</p>
+<div class="figure">
+<img src="img/correlations.png" alt="Correlations" />
+<p class="caption">Correlations</p>
+</div>
 <p>The following example should help make this clearer. Look at the following data, its scatterplot and the correlation coefficient. They show that we have a positive correlation of <code>r=0.84</code>. Let's break it down how we got that value.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">1.1</span>, <span class="fl">1.5</span>, <span class="fl">2.1</span>, <span class="fl">3.5</span>, <span class="fl">3.6</span>, <span class="fl">3.5</span>, <span class="fl">2.6</span>, <span class="fl">5.6</span>, <span class="fl">4.4</span>, <span class="fl">3.9</span>)
 y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">2.8</span>, <span class="fl">2.9</span>, <span class="fl">1.6</span>, <span class="fl">5.5</span>, <span class="fl">4.7</span>, <span class="fl">8.1</span>, <span class="fl">3.3</span>, <span class="fl">7.7</span>, <span class="fl">7.1</span>, <span class="fl">5.8</span>)
@@ -212,7 +216,7 @@ df</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(y)</code></pre></div>
 <pre><code>## [1] 2.259916</code></pre>
 <p>Now, we can calculate the z-scores, remembering that the formula for that is:</p>
-<p>$z =  $</p>
+<p><span class="math inline">\(z = \frac{x - \overline{x}}{s_{x}}\)</span></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># step 2. Calculate z-scores of x, and z-scores of y.</span>
 
 df$zx &lt;-<span class="st"> </span>(x -<span class="st"> </span><span class="kw">mean</span>(x)) /<span class="st"> </span><span class="kw">sd</span>(x)  <span class="co"># z scores of x</span>
