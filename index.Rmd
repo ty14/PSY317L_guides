@@ -12,3 +12,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Welcome to PSY317! 
 The following is a simple guide to R studio. 
+
+
+What this guide contains....  That it's mainly a how to implement stuff in R, but it also touches on bits of stats and data theory where applicable

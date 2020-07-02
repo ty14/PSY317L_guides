@@ -1,7 +1,5 @@
 # Introduction
 
-Possibly we need a chapter before this chapter detailing how to use this guide, and what this guide contains....  That it's mainly a how to implement stuff in R, but it also touches on bits of stats and data theory where applicable
-
 
 ## Introduction
 
