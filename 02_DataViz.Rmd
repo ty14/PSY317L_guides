@@ -1,2 +1,11 @@
 # Data Visualization 
 
+The package `ggplot2` is used to visualize data. Before starting you should load the `tidyverse` package, which includes `ggplot2` and other tools, at the very top of your script. 
+
+See example below.
+
+```{r}
+library(tidyverse)
+```
+
+You need to do it once for every script.
