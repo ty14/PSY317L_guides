@@ -62,7 +62,7 @@ i.e. being ‘significantly different’ doesn’t tell you how *BIG* the differ
 
 The formula for Cohen's $\delta$ is as follows:
 
-$\delta = \frac{\overline{X}_{1} - \overline{X}_{2}}{\hat{\sigma}_{\rho}}$
+$\Huge \delta = \frac{\overline{X}_{1} - \overline{X}_{2}}{\hat{\sigma}_{\rho}}$
 
 
 
