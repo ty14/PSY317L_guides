@@ -6,7 +6,7 @@ Data carpentry gives us the tools to work with large data sets. During this chap
 
 ## tidyverse
 
-The package `tidyverse` is what we will be using for most of our data carpentry. `tidyverse` is a larger package which includes several packages useful for data visualization, manipulation, and analysis such as `tidyr`, `dplyr`, `ggplot2`, and more. 
+The package `tidyverse` is what we will be using for most of our data carpentry. `tidyverse` is a larger package which includes several packages useful for dealing with data such as `tidyr`, `dplyr`, `ggplot2`, and more. 
 
 All of these packages work together to manipulate, reshape, and visual data. 
 
