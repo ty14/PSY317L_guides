@@ -17,6 +17,12 @@ You can add with the `+` key:
 4 + 6
 ```
 
+You can see that the output returned `10` indicating that that is the answer to `4 + 6`.  However, we also see in the output a `[1]` before it. What does this mean?  This is an index - which we'll talk about in more detail later- but essentially all it is telling us is that the number that comes directly after it is the first bit of the output. We only have one thing in our output here - the number `10`, so it's pretty pointless - but it does have relevance in the future.  For now though, you can safely ignore it.
+
+
+
+
+
 
 Subtracting uses a hyphen or minus key `-`:
 
@@ -100,6 +106,30 @@ Now, whenever you type, `x`, R thinks that it is the number 17.
 
 ```{r}
 x 
+```
+
+
+
+
+
+
+We should probably fess up right now and tell you that there is another way that you can assign things in R. On the face of it, it's a much easier way too, but we're going to recommend you don't do it. The only reason that we're bringing it up at this point is that if you look up help on the internet or in some books, you'll see people doing it - so we should mention it.
+
+You can assign using the equal key `=` like this:
+
+```{r}
+
+y = 10 - 2
+
+y
+```
+
+So, as you can see, we created an object called `y` that was equal to 10 minus 2, that is 8. Using `=` seems so much easier than using `<-` so what is the reason not to do it?  Well, the equal sign gets used for a ton of other commands and sometimes it gets a little messy and confusing if too many equal signs fly around.  Thefore, we're going to politely ask that whenever you assign things, please use the `<-` operator, even though it's two bits of punctuation stuck together:
+
+```{r}
+
+hooray <- 17 + 4  # thanks for using this sign
+hooray
 ```
 
 
@@ -193,4 +223,5 @@ sum(v1)
 ```
 
 and it added 5+6+7+8+9+10 to give one answer!
+
 

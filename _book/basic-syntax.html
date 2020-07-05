@@ -189,6 +189,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>You can add with the <code>+</code> key:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4</span> +<span class="st"> </span><span class="dv">6</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
+<p>You can see that the output returned <code>10</code> indicating that that is the answer to <code>4 + 6</code>. However, we also see in the output a <code>[1]</code> before it. What does this mean? This is an index - which we'll talk about in more detail later- but essentially all it is telling us is that the number that comes directly after it is the first bit of the output. We only have one thing in our output here - the number <code>10</code>, so it's pretty pointless - but it does have relevance in the future. For now though, you can safely ignore it.</p>
 <p>Subtracting uses a hyphen or minus key <code>-</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">43</span> -<span class="st"> </span><span class="dv">18</span></code></pre></div>
 <pre><code>## [1] 25</code></pre>
@@ -227,6 +228,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Now, whenever you type, <code>x</code>, R thinks that it is the number 17.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x </code></pre></div>
 <pre><code>## [1] 17</code></pre>
+<p>We should probably fess up right now and tell you that there is another way that you can assign things in R. On the face of it, it's a much easier way too, but we're going to recommend you don't do it. The only reason that we're bringing it up at this point is that if you look up help on the internet or in some books, you'll see people doing it - so we should mention it.</p>
+<p>You can assign using the equal key <code>=</code> like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y =<span class="st"> </span><span class="dv">10</span> -<span class="st"> </span><span class="dv">2</span>
+
+y</code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<p>So, as you can see, we created an object called <code>y</code> that was equal to 10 minus 2, that is 8. Using <code>=</code> seems so much easier than using <code>&lt;-</code> so what is the reason not to do it? Well, the equal sign gets used for a ton of other commands and sometimes it gets a little messy and confusing if too many equal signs fly around. Thefore, we're going to politely ask that whenever you assign things, please use the <code>&lt;-</code> operator, even though it's two bits of punctuation stuck together:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hooray &lt;-<span class="st"> </span><span class="dv">17</span> +<span class="st"> </span><span class="dv">4</span>  <span class="co"># thanks for using this sign</span>
+hooray</code></pre></div>
+<pre><code>## [1] 21</code></pre>
 </div>
 <div id="vectors" class="section level2">
 <h2><span class="header-section-number">3.3</span> vectors</h2>
