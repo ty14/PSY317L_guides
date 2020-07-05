@@ -18,7 +18,7 @@ Go to the [R website](https://cran.r-project.org). The first box has options for
 blah blah blah
 
 
-## Another subheader of something
+## Using RCloud instead of RStudio
 
 blah blah blah
 
