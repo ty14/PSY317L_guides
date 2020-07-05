@@ -29,3 +29,16 @@ blah
 ## mutate()
 
 new column blah blah
+
+
+## Wide vs Long Data
+
+blah
+
+`pivot_wide()`  `pivot_long()`
+
+
+
+## Joins
+
+really important....  maybe one day we'll write about this

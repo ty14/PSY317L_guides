@@ -117,8 +117,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5" data-path="introduction.html"><a href="introduction.html#importing-data"><i class="fa fa-check"></i><b>2.5</b> Importing Data</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="basic-syntax.html"><a href="basic-syntax.html"><i class="fa fa-check"></i><b>3</b> Basic Syntax</a><ul>
-<li class="chapter" data-level="3.1" data-path="basic-syntax.html"><a href="basic-syntax.html#assignment"><i class="fa fa-check"></i><b>3.1</b> assignment</a></li>
-<li class="chapter" data-level="3.2" data-path="basic-syntax.html"><a href="basic-syntax.html#vectors"><i class="fa fa-check"></i><b>3.2</b> vectors</a></li>
+<li class="chapter" data-level="3.1" data-path="basic-syntax.html"><a href="basic-syntax.html#boring-mathematical-stuff"><i class="fa fa-check"></i><b>3.1</b> boring mathematical stuff</a></li>
+<li class="chapter" data-level="3.2" data-path="basic-syntax.html"><a href="basic-syntax.html#assignment"><i class="fa fa-check"></i><b>3.2</b> assignment</a></li>
+<li class="chapter" data-level="3.3" data-path="basic-syntax.html"><a href="basic-syntax.html#vectors"><i class="fa fa-check"></i><b>3.3</b> vectors</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html"><i class="fa fa-check"></i><b>4</b> Introduction to Data Carpentry</a><ul>
 <li class="chapter" data-level="4.1" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#tidyverse"><i class="fa fa-check"></i><b>4.1</b> tidyverse</a></li>
@@ -126,6 +127,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.3" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#select"><i class="fa fa-check"></i><b>4.3</b> select()</a></li>
 <li class="chapter" data-level="4.4" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#arrange"><i class="fa fa-check"></i><b>4.4</b> arrange()</a></li>
 <li class="chapter" data-level="4.5" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#mutate"><i class="fa fa-check"></i><b>4.5</b> mutate()</a></li>
+<li class="chapter" data-level="4.6" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#wide-vs-long-data"><i class="fa fa-check"></i><b>4.6</b> Wide vs Long Data</a></li>
+<li class="chapter" data-level="4.7" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#joins"><i class="fa fa-check"></i><b>4.7</b> Joins</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a><ul>
 <li class="chapter" data-level="5.1" data-path="data-visualization.html"><a href="data-visualization.html#scatter-plots"><i class="fa fa-check"></i><b>5.1</b> Scatter Plots</a></li>
@@ -180,8 +183,43 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">3</span> Basic Syntax</h1>
 <p>We kind of need to know at least a tiny bit of syntax before we move forward...</p>
 <p>keep it very simple.</p>
+<div id="boring-mathematical-stuff" class="section level2">
+<h2><span class="header-section-number">3.1</span> boring mathematical stuff</h2>
+<p>R is, first and foremost, a statistical programming language. So, unsurprisingly, you can do a bunch of mathematical operations fairly easily. Let's do some really tedious math:</p>
+<p>You can add with the <code>+</code> key:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4</span> +<span class="st"> </span><span class="dv">6</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>Subtracting uses a hyphen or minus key <code>-</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">43</span> -<span class="st"> </span><span class="dv">18</span></code></pre></div>
+<pre><code>## [1] 25</code></pre>
+<p>Multiplying uses the asterisk <code>*</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span> *<span class="st"> </span><span class="dv">3</span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
+<p>Dividing uses this slash key <code>/</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">34</span> /<span class="st"> </span><span class="dv">7</span></code></pre></div>
+<pre><code>## [1] 4.857143</code></pre>
+<p>You can square root like so by typing <code>sqrt()</code> and putting your number to square root in the brackets:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sqrt</span>(<span class="dv">45</span>)</code></pre></div>
+<pre><code>## [1] 6.708204</code></pre>
+<p>Squaring a number requires us to use the cute <code>^</code> key followed by a number <code>2</code> to indicate that we are raising to the power 2 (which is squaring):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">12</span>^<span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 144</code></pre>
+<p><em>Our first little warning</em></p>
+<p>Like all programming languages, R will only do what it's told. One thing that catches people out is that it will read code in order from left to right. So, if you're doing several things at once, you may need to insert brackets to make sure that it does what you want it to. For instance, say you want to multiply 5 by the sum of 7 and 9.</p>
+<p>You might write that like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span> *<span class="st"> </span><span class="dv">7</span> +<span class="st"> </span><span class="dv">9</span> </code></pre></div>
+<pre><code>## [1] 44</code></pre>
+<p>but <code>44</code> is not the answer you're looking for! What it has done is to take 5, then multiply it by 7 (makes 35) and then add 9 to make 44.</p>
+<p>OK, how about you write it like this instead:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">7</span> +<span class="st"> </span><span class="dv">9</span> *<span class="st"> </span><span class="dv">5</span></code></pre></div>
+<pre><code>## [1] 52</code></pre>
+<p>Erm, this time it multiplied 9 by 5 to get 45 and then added 7 to make 52. What is happening is that some mathematical operations are taking precedence over others and R does things in certain order. To explicitly make sure that it does what you want, insert some brackets like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span> *<span class="st"> </span>(<span class="dv">7</span> +<span class="st"> </span><span class="dv">9</span>) </code></pre></div>
+<pre><code>## [1] 80</code></pre>
+<p>Now it <strong>knows</strong> that what you wanted to do was to add 7 and 9 to get 16 and have that number multiplied by 5 to get 80. This sort of thing is something to look out for, but as you get experienced you'll have a sense for it. Well placed brackets can save you a headache.</p>
+</div>
 <div id="assignment" class="section level2">
-<h2><span class="header-section-number">3.1</span> assignment</h2>
+<h2><span class="header-section-number">3.2</span> assignment</h2>
 <p>e.g. what the assignment operator is.</p>
 <p>This symbol <code>&lt;-</code> which is just a &quot;greater than sign&quot; followed by a &quot;hyphen&quot; is called an assignment operator. It basically is equivalent to saying you want to save something. You write what you want to be saved on the right hand side of it, and the name of your newly saved thing on the left of it. We call the 'thing' that you've saved an 'object' in programming speak.</p>
 <p>For instance, say you wanted to save the number <code>17</code>, and you wanted to call that saved number an object called <code>x</code>. You'd do it like this:</p>
@@ -191,7 +229,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## [1] 17</code></pre>
 </div>
 <div id="vectors" class="section level2">
-<h2><span class="header-section-number">3.2</span> vectors</h2>
+<h2><span class="header-section-number">3.3</span> vectors</h2>
 <p>Of course, you can save even more complex things as the object. For example, if you wished to save the numbers <code>5, 6, 7, 8, 9, 10</code>, you have two ways of doing that. Let's just see them in action, and then we'll explain the syntax:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v1 &lt;-<span class="st"> </span><span class="dv">5</span>:<span class="dv">10</span>
 
@@ -229,6 +267,14 @@ v2</code></pre></div>
 <p>does the image appear above?</p>
 <p>I just remembered that if you don't want the image to appear inline, then you leave out the ! from the markdown syntax.</p>
 <p><a href="img/vector.png">summary image</a></p>
+<p>Now, one of the great advantages of vectors is that you can do things to all of the numbers inside the vectors at once. For instance, say we wanted to square all the numbers inside of <code>v1</code>, then all we need to do is:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v1^<span class="dv">2</span></code></pre></div>
+<pre><code>## [1]  25  36  49  64  81 100</code></pre>
+<p>and notice how it squared the numbers 5 through 10 that are the contents of <code>v1</code>.</p>
+<p>You can also do things to the entire contents of a vector at once. For instance, if you wanted to add up all the numbers in <code>v1</code> you could do this by using the function <code>sum()</code> like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(v1)</code></pre></div>
+<pre><code>## [1] 45</code></pre>
+<p>and it added 5+6+7+8+9+10 to give one answer!</p>
 
 </div>
 </div>

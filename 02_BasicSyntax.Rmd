@@ -6,6 +6,83 @@ We kind of need to know at least a tiny bit of syntax before we move forward...
 keep it very simple.
 
 
+## boring mathematical stuff
+
+R is, first and foremost, a statistical programming language. So, unsurprisingly, you can do a bunch of mathematical operations fairly easily. Let's do some really tedious math:
+
+
+You can add with the `+` key:
+
+```{r}
+4 + 6
+```
+
+
+Subtracting uses a hyphen or minus key `-`:
+
+```{r}
+43 - 18
+```
+
+Multiplying uses the asterisk `*`:
+
+```{r}
+5 * 3
+```
+
+Dividing uses this slash key `/`:
+
+```{r}
+34 / 7
+```
+
+
+You can square root like so by typing `sqrt()` and putting your number to square root in the brackets:
+
+```{r}
+sqrt(45)
+```
+
+
+Squaring a number requires us to use the cute `^` key followed by a number `2` to indicate that we are raising to the power 2 (which is squaring):
+
+```{r}
+12^2
+```
+
+
+*Our first little warning*
+
+Like all programming languages, R will only do what it's told. One thing that catches people out is that it will read code in order from left to right.  So, if you're doing several things at once, you may need to insert brackets to make sure that it does what you want it to.  For instance, say you want to multiply 5 by the sum of 7 and 9.
+
+You might write that like this:
+
+```{r}
+5 * 7 + 9 
+```
+
+but `44` is not the answer you're looking for!  What it has done is to take 5, then multiply it by 7 (makes 35) and then add 9 to make 44. 
+
+
+OK, how about you write it like this instead:
+
+```{r}
+7 + 9 * 5
+```
+
+Erm, this time it multiplied 9 by 5 to get 45 and then added 7 to make 52.  What is happening is that some mathematical operations are taking precedence over others and R does things in certain order. To explicitly make sure that it does what you want, insert some brackets like this:
+
+
+```{r}
+5 * (7 + 9) 
+```
+
+Now it **knows** that what you wanted to do was to add 7 and 9 to get 16 and have that number multiplied by 5 to get 80.  This sort of thing is something to look out for, but as you get experienced you'll have a sense for it. Well placed brackets can save you a headache.
+
+
+
+
+
 ## assignment
 e.g. what the assignment operator is.
 
@@ -97,5 +174,23 @@ I just remembered that if you don't want the image to appear inline, then you le
 
 
 
+    
+    
 
+Now, one of the great advantages of vectors is that you can do things to all of the numbers inside the vectors at once.  For instance, say we wanted to square all the numbers inside of `v1`, then all we need to do is:
+
+```{r}
+v1^2
+```
+
+and notice how it squared the numbers 5 through 10 that are the contents of `v1`.
+
+
+You can also do things to the entire contents of a vector at once.  For instance, if you wanted to add up all the numbers in `v1` you could do this by using the function `sum()` like this:
+
+```{r}
+sum(v1)
+```
+
+and it added 5+6+7+8+9+10 to give one answer!
 
