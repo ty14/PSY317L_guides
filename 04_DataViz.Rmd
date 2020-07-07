@@ -8,17 +8,20 @@ You need to do it once for every script.
 library(tidyverse)
 ```
 
-Next you need to read in your data!
-# ```{r}
-# df <- read.csv("")
-# ```
+
+## Histogram 
 
 
-## Scatter Plots
+## Scatter
 
-# ```{r}
-# ggplot(df, (x = , y = )) +
-#   geom_point()
-#  ```
+
+## Boxplot 
+
+
+## Adding details 
+
+
+
+
 
 

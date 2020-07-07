@@ -5,8 +5,39 @@ Descriptive statistics describe basic features of the data in simple summaries s
 ```{r}
 library(tidyverse)
 
-df <- read_csv("data/austin_weather.csv")
+atx <- read_csv("data/austin_weather.csv")
 
-head(df) # first 6 rows
+head(atx) # first 6 rows
 ```
 
+
+## Mean, Median, and Standard Deviation
+
+```{r}
+mean(atx$temp)
+median(atx$temp)
+sd(atx$temp)
+
+```
+
+## Other descriptives 
+
+```{r}
+
+length(atx$temp)
+var(atx$temp)
+range(atx$temp)
+min(atx$temp)
+max(atx$temp)
+
+```
+
+
+## Inter-quartile Ranges 
+
+``` {r}
+quantile(atx$temp, .25)  # this is the lower quartile
+quantile(atx$temp, .75)  # this is the upper quartile
+IQR(atx$temp)   # this is the inter-quartile range.
+
+```
