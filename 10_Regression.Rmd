@@ -5,3 +5,10 @@ blah
 blah
 
 blah
+
+```{r}
+library(tidyverse)
+
+ggplot(mtcars, aes(x=mpg, y=wt)) + geom_point()
+
+```
