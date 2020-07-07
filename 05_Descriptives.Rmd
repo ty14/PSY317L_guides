@@ -2,6 +2,9 @@
 
 Descriptive statistics describe basic features of the data in simple summaries such as mean, median, and mode. These statistics used to present quantitative descriptions of data in graphing. You can use functions in base R and `tidyverse` to get descriptive statistics. 
 
+
+talk about central tendency? frequency distribution?
+
 ```{r}
 library(tidyverse)
 
