@@ -14,15 +14,16 @@ Before using `tidyverse` you will need to install and load the package.
 
 You will only need to install a package once, but will have to load a library on every script you plan to use it. 
 
-```{r}
+```{r, eval=FALSE}
 install.package(tidyverse) #install
 
-library(tidyverse) #load
+
 ```
 
 From the `tidyverse` package `rread` we can read in our data.
 
 ```{r}
+library(tidyverse) #load
 df <- read_csv("data/bloodwork.csv")
 
 ```
@@ -53,14 +54,14 @@ df %>%
 Or use %>% and 'filter' to only keep rows where the sex is equal to female.
 ```{r} 
 df %>% 
-  filter(sex == female)
+  filter(sex == "female")
 ```
 
 You can create new datasets from filtered data.
 
 ```{r} 
 female <- df %>% 
-  filter(sex == female)
+  filter(sex == "female")
 ```
 
 
@@ -69,7 +70,7 @@ Use %>% then `select` to just select the rows you want.
 
 ```{r}
 df %>%  
-  select(id, sex, smoke,hrate)
+  select(ids, sex, smoker,hrate)
 ```
 
 Or if you just want to get rid of one column you can just use %>% then `select(-var)`

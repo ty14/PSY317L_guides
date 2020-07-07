@@ -181,18 +181,132 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="introduction-to-data-carpentry" class="section level1">
 <h1><span class="header-section-number">4</span> Introduction to Data Carpentry</h1>
-<p>What data carpentry is blah blah blah</p>
+<p>Data carpentry gives us the tools to work with large data sets. During this chapter you will learn basic concepts, skills to help you work with functions to help tidy and manage your data.</p>
 <div id="tidyverse" class="section level2">
 <h2><span class="header-section-number">4.1</span> tidyverse</h2>
-<p>blah blah blah</p>
+<p>The package <code>tidyverse</code> is what we will be using for most of our data carpentry. <code>tidyverse</code> is a larger package which includes several packages useful for dealing with data such as <code>tidyr</code>, <code>dplyr</code>, <code>ggplot2</code>, and more.</p>
+<p>All of these packages work together to manipulate, reshape, and visual data.</p>
+<p>Before using <code>tidyverse</code> you will need to install and load the package.</p>
+<p>You will only need to install a package once, but will have to load a library on every script you plan to use it.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.package</span>(tidyverse) <span class="co">#install</span></code></pre></div>
+<p>From the <code>tidyverse</code> package <code>rread</code> we can read in our data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse) <span class="co">#load</span>
+df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/bloodwork.csv&quot;</span>)</code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   ids = col_character(),
+##   age = col_integer(),
+##   sex = col_character(),
+##   state = col_character(),
+##   children = col_integer(),
+##   smoker = col_character(),
+##   hrate = col_integer(),
+##   bpsyst = col_integer(),
+##   cellcount = col_double(),
+##   immuncount = col_double(),
+##   immuncount2 = col_double()
+## )</code></pre>
+<p>df is the name of our new dataframe, which will include all data from the bloodwork.csv file.</p>
+<p>Before we can work with our data we need to what we have to work with using the functions <code>head()</code> and <code>tail()</code> allows you to see the first and last 6 rows, respectfully.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(df)</code></pre></div>
+<pre><code>## # A tibble: 6 x 11
+##   ids     age sex   state children smoker hrate bpsyst cellcount immuncount
+##   &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;  &lt;int&gt;  &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+## 1 JEC      19 fema~ NJ           1 no        63    101     0.126      0.993
+## 2 GBH      20 male  NY           1 yes       73    120     0.169      1.18 
+## 3 EDH      21 fema~ NJ           0 no        65    100     0.281      4.34 
+## 4 AAA      21 fema~ CT           3 no        66    109     0.244      2.56 
+## 5 AJF      24 fema~ NJ           0 no        67    108     0.092      6.45 
+## 6 FJC      25 fema~ NY           1 yes       80    118     0.014      3.97 
+## # ... with 1 more variable: immuncount2 &lt;dbl&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(df)</code></pre></div>
+<pre><code>## # A tibble: 6 x 11
+##   ids     age sex   state children smoker hrate bpsyst cellcount immuncount
+##   &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;  &lt;int&gt;  &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+## 1 JIB      66 fema~ NY           0 no        62    121     0.097      1.39 
+## 2 HBB      67 fema~ NJ           1 yes       74    147     0.288      2.27 
+## 3 HDG      68 fema~ NY           3 yes       65    129     0.11       2.65 
+## 4 ECD      68 fema~ NJ           2 yes       77    129     0.404      2.02 
+## 5 HHJ      69 male  CT           2 no        71    121     0.475      0.463
+## 6 CCG      70 male  CT           0 yes       80    132     0.078      1.06 
+## # ... with 1 more variable: immuncount2 &lt;dbl&gt;</code></pre>
+<p>should we explain the dataset?? idk</p>
 </div>
 <div id="filter" class="section level2">
 <h2><span class="header-section-number">4.2</span> filter()</h2>
-<p>blah</p>
+<p>Use %&gt;% and 'filter' to only keep rows where the hrate, heart rate, is over 85. &gt; means greater than.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(hrate &gt;<span class="st"> </span><span class="dv">85</span>)</code></pre></div>
+<pre><code>## # A tibble: 0 x 11
+## # ... with 11 variables: ids &lt;chr&gt;, age &lt;int&gt;, sex &lt;chr&gt;, state &lt;chr&gt;,
+## #   children &lt;int&gt;, smoker &lt;chr&gt;, hrate &lt;int&gt;, bpsyst &lt;int&gt;, cellcount &lt;dbl&gt;,
+## #   immuncount &lt;dbl&gt;, immuncount2 &lt;dbl&gt;</code></pre>
+<p>Or use %&gt;% and 'filter' to only keep rows where the sex is equal to female.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(sex ==<span class="st"> &quot;female&quot;</span>)</code></pre></div>
+<pre><code>## # A tibble: 18 x 11
+##    ids     age sex   state children smoker hrate bpsyst cellcount immuncount
+##    &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;  &lt;int&gt;  &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##  1 JEC      19 fema~ NJ           1 no        63    101     0.126      0.993
+##  2 EDH      21 fema~ NJ           0 no        65    100     0.281      4.34 
+##  3 AAA      21 fema~ CT           3 no        66    109     0.244      2.56 
+##  4 AJF      24 fema~ NJ           0 no        67    108     0.092      6.45 
+##  5 FJC      25 fema~ NY           1 yes       80    118     0.014      3.97 
+##  6 IEE      26 fema~ NY           2 no        71    118     0.093      5.41 
+##  7 BED      28 fema~ CT           0 no        62    104     0.082      1.18 
+##  8 BFB      28 fema~ NJ           0 no        68    118     0.197      0.724
+##  9 IEA      29 fema~ CT           0 yes       74    117     0.429      5.15 
+## 10 CDC      38 fema~ NJ           0 no        66    133     0.038      8.00 
+## 11 FJG      40 fema~ NJ           0 yes       80    109     0.253      5.63 
+## 12 DAG      41 fema~ CT           0 yes       70    142     0.339      5.52 
+## 13 FHA      53 fema~ CT           2 no        77    125     0.099      0.034
+## 14 JHC      55 fema~ CT           0 no        73    121     0.093      1.32 
+## 15 JIB      66 fema~ NY           0 no        62    121     0.097      1.39 
+## 16 HBB      67 fema~ NJ           1 yes       74    147     0.288      2.27 
+## 17 HDG      68 fema~ NY           3 yes       65    129     0.11       2.65 
+## 18 ECD      68 fema~ NJ           2 yes       77    129     0.404      2.02 
+## # ... with 1 more variable: immuncount2 &lt;dbl&gt;</code></pre>
+<p>You can create new datasets from filtered data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">female &lt;-<span class="st"> </span>df %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(sex ==<span class="st"> &quot;female&quot;</span>)</code></pre></div>
 </div>
 <div id="select" class="section level2">
 <h2><span class="header-section-number">4.3</span> select()</h2>
-<p>blah</p>
+<p>Use %&gt;% then <code>select</code> to just select the rows you want.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%<span class="st">  </span>
+<span class="st">  </span><span class="kw">select</span>(ids, sex, smoker,hrate)</code></pre></div>
+<pre><code>## # A tibble: 30 x 4
+##    ids   sex    smoker hrate
+##    &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt;
+##  1 JEC   female no        63
+##  2 GBH   male   yes       73
+##  3 EDH   female no        65
+##  4 AAA   female no        66
+##  5 AJF   female no        67
+##  6 FJC   female yes       80
+##  7 IEE   female no        71
+##  8 BED   female no        62
+##  9 BFB   female no        68
+## 10 IEA   female yes       74
+## # ... with 20 more rows</code></pre>
+<p>Or if you just want to get rid of one column you can just use %&gt;% then <code>select(-var)</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%<span class="st"> </span><span class="kw">select</span>(-bpsyst)</code></pre></div>
+<pre><code>## # A tibble: 30 x 10
+##    ids     age sex   state children smoker hrate cellcount immuncount
+##    &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;  &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##  1 JEC      19 fema~ NJ           1 no        63     0.126      0.993
+##  2 GBH      20 male  NY           1 yes       73     0.169      1.18 
+##  3 EDH      21 fema~ NJ           0 no        65     0.281      4.34 
+##  4 AAA      21 fema~ CT           3 no        66     0.244      2.56 
+##  5 AJF      24 fema~ NJ           0 no        67     0.092      6.45 
+##  6 FJC      25 fema~ NY           1 yes       80     0.014      3.97 
+##  7 IEE      26 fema~ NY           2 no        71     0.093      5.41 
+##  8 BED      28 fema~ CT           0 no        62     0.082      1.18 
+##  9 BFB      28 fema~ NJ           0 no        68     0.197      0.724
+## 10 IEA      29 fema~ CT           0 yes       74     0.429      5.15 
+## # ... with 20 more rows, and 1 more variable: immuncount2 &lt;dbl&gt;</code></pre>
+<p>if you want these selections to be permanent then you need to rewrite selections in new dataframe.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df1 &lt;-<span class="st"> </span>df %&gt;%<span class="st">  </span><span class="kw">select</span>(-bpsyst)</code></pre></div>
 </div>
 <div id="arrange" class="section level2">
 <h2><span class="header-section-number">4.4</span> arrange()</h2>
@@ -200,7 +314,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="mutate" class="section level2">
 <h2><span class="header-section-number">4.5</span> mutate()</h2>
-<p>new column blah blah</p>
+<p>Create new columns using %&gt;% then <code>mutate</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df2 &lt;-<span class="st"> </span>df %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">totalimmune =</span> immuncount +<span class="st"> </span>immuncount2)</code></pre></div>
+<p>Now df2 will have 12 columns, instead of 11.</p>
 </div>
 <div id="wide-vs-long-data" class="section level2">
 <h2><span class="header-section-number">4.6</span> Wide vs Long Data</h2>
