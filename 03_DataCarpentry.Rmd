@@ -2,6 +2,8 @@
 
 Data carpentry gives us the tools to work with large data sets. During this chapter you will learn basic concepts, skills to help you work with functions to help tidy and manage your data. 
 
+checks 
+
 
 
 ## tidyverse
