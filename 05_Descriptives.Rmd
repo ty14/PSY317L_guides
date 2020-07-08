@@ -3,7 +3,7 @@
 Descriptive statistics describe basic features of the data in simple summaries such as mean, median, and mode. These statistics used to present quantitative descriptions of data in graphing. You can use functions in base R and `tidyverse` to get descriptive statistics. 
 
 
-```{r echo=FALSE}
+```{r message=FALSE}
 library(tidyverse)
 
 atx <- read_csv("data/austin_weather.csv")
@@ -17,8 +17,6 @@ Focus in the temperature column for now
 ggplot(atx, aes(x= temp)) + 
   geom_histogram(color="black", fill="lightseagreen", binwidth = 10)+
   theme_classic()
-
-atx$temp
 ```
 
 ## Basic Descriptives
@@ -53,9 +51,10 @@ estimate_mode <- function(x) {
   d$x[which.max(d$y)]
 }  
 
-estimate_mode(atx$temp) #estimate mode
+estimate_mode(atx$temp) # using the function to get estimate mode
 ```
 
+For some descriptives, like mode, there is not a function already built into R, so a function needs to be made. The above code has a function for the estimated mode, this function works best with large data sets. 
 
 ## Standard Deviation 
 
@@ -67,10 +66,28 @@ sd(atx$temp) #  sample standard deviation
    sqrt(sum((s - mean(s))^2)/length(s)) 
  } 
 
-pop.sd(atx$temp) # population standard deviation 
+pop.sd(atx$temp) # population standard deviation with the function 
 ```
 
+## Standard Error 
 
+What about standard error?
+
+``` {r}
+length(atx$temp) # we need to know the N to calculate the SEM
+sd(atx$temp) / sqrt(length(atx$temp)) #SEM by hand
+
+sem <- function(x){sd(x) / sqrt(length(x))} # a function to get SEM
+
+sem(atx$temp) #using the function
+
+```
+
+please note  - if you have missing data use this function for SEM
+
+```{r}
+sem <- function(x){sd(x,na.rm=T) / sqrt(length(na.omit(x)))}
+```
 
 ## Inter-quartile Ranges 
 
@@ -82,7 +99,8 @@ quantile(atx$temp, .75)  # this is the upper quartile
 IQR(atx$temp)   # this is the inter-quartile range.
 
 ```
-these quartiles may be slightly different to what you'd get by hand.
+
+Don't be worried if these quartiles are slightly different to what you'd get by hand.
 
 ```{r}
 ggplot(atx, aes(y=temp)) + 
@@ -98,4 +116,84 @@ ggplot(atx, aes(y=temp)) +
   scale_x_discrete(breaks = NULL)
 ```
 
-## Finding 
+## Descriptives for Groups
+ 
+Often in experiments you are looking for group differences, the following code will show you how to get descriptive statistics for each group. 
+
+This is a time where `tidyverse` comes in handy!
+
+First read in the data and notice it has a group column, genre. 
+
+```{r message=FALSE}
+vg <- read_csv("data/videogames.csv")
+
+head(vg)
+```
+
+The function `table()` can show you the n for all groups. 
+```{r}
+table(vg$genre)
+```
+
+Using `describeBy()` from the `psych` package can be a very quick and easy, but a bit annoying to look at. It also ignores missing data which is helpful.
+
+* remember to install the `psych` package before using it. 
+
+
+```{r, eval=FALSE}
+library(psych)  ## this is not working on my computer
+
+describeBy(vg, group = "genre")
+```
+
+Writing code using `tidyverse` can give us descriptive statistics in a more organized way. 
+
+```{r}
+vg %>% 
+  group_by(genre) %>% 
+  summarise(meanNA = mean(NA_sales))
+
+```
+
+If you had missing data, you'd do it like this. Also, `as.data.frame()` just helps us see decimal places. 
+
+
+```{r}
+vg %>% 
+  group_by(genre) %>% 
+  summarise(meanNA = mean(NA_sales, na.rm = T)) %>% 
+  as.data.frame()
+```
+
+You can do several summaries at once like this
+
+```{r}
+vg %>% 
+  group_by(genre) %>% 
+  summarise(meanNA = mean(NA_sales),
+            sd_NA = sd(NA_sales),
+            meanEU = mean(EU_sales),
+            sd_EU = sd(EU_sales)) %>% 
+  as.data.frame()
+```
+
+To save time, you can tell it to just get the summary of all numeric columns. 
+
+```{r}
+vg$year <- as.factor(vg$year) # just need to make year non-numeric first
+
+
+vg %>%
+  group_by(genre) %>%
+  summarise_if(is.numeric, mean, na.rm = T) %>%
+  as.data.frame()
+
+
+ vg %>%
+  group_by(genre) %>%
+  summarise_if(is.numeric, sd, na.rm = TRUE) %>%
+  as.data.frame()
+
+```
+
+## Comparing population and sample means
