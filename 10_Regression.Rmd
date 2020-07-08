@@ -866,14 +866,15 @@ This plot shows each of our 100 datapoints in the order they appear in the origi
 
 
 
-### Examining individual predictor estimates
+
+## Examining individual predictor estimates
 
 After checking if our model is a good fit and making sure that we did not violate any of the assumptions of the linear regression, we can finally move forward with what we came here to do. That is, we can check whether our predictor is meaningfully useful in predicting our outcome variable. This means, is our observed value of `b` sufficiently different from 0? To do this, we use two strategies. First, we can generate a 95% confidence interval around our estimate of `b`. That is the method that we prefer. Secondly, you can run a significance test.
 
 
 
 
-#### 95% confidence interval of 'b'.
+### 95% confidence interval of 'b'.
 
 First, let's do this the easy way. Then we'll work out how we got the 95% confidence interval.  You can simply find this by running the `confint()` function on our regression model object:
 
@@ -901,7 +902,7 @@ confint(object = mod1, level = .999999)
 How is this 95% confidence interval calculated?  To do this we need to think about those sampling distributions again, and the standard error of `b`.
 
 
-#### Standard Error of b
+### Standard Error of b
 
 As we've discussed earlier, our one single estimate of `b` is just one possible estimate. We estimated this value based on our one single sample of 100 days.  However, if we had sampled a different sample of 100 days, we would have got a slighlty (or maybe greatly) different estimate of `b`.  If we repeated this procedure thousands of times, then we'd have a sampling distribution of `b`'s. 
 
@@ -935,7 +936,7 @@ sb   # this is the standard error of b
 
 
 
-#### Calculating 95% confidence interval of 'b' by hand
+### Calculating 95% confidence interval of 'b' by hand
 
 We can use the following formula to calculate the 95% CI for `b`:
 
@@ -964,7 +965,7 @@ confint(mod1)
 
 
 
-#### Signifcance Testing b
+### Signifcance Testing b
 
 We can also use this sampling distribution to apply a signifiance test.  Our null hypothesis will be that the population value of `b` is 0. Our alternative hypothesis will be that `b` is not equal to 0.
 
