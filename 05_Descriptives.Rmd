@@ -3,9 +3,7 @@
 Descriptive statistics describe basic features of the data in simple summaries such as mean, median, and mode. These statistics used to present quantitative descriptions of data in graphing. You can use functions in base R and `tidyverse` to get descriptive statistics. 
 
 
-talk about central tendency? frequency distribution?
-
-```{r}
+```{r echo=FALSE}
 library(tidyverse)
 
 atx <- read_csv("data/austin_weather.csv")
@@ -13,34 +11,91 @@ atx <- read_csv("data/austin_weather.csv")
 head(atx) # first 6 rows
 ```
 
-
-## Mean, Median, and Standard Deviation
+Focus in the temperature column for now
 
 ```{r}
-mean(atx$temp)
-median(atx$temp)
-sd(atx$temp)
+ggplot(atx, aes(x= temp)) + 
+  geom_histogram(color="black", fill="lightseagreen", binwidth = 10)+
+  theme_classic()
+
+atx$temp
+```
+
+## Basic Descriptives
+```{r}
+length(atx$temp) # length this tells you the 'n'
+
+sum(atx$temp) # sum
+
+range(atx$temp) # range 
+
+min(atx$temp) # minimum
+
+max(atx$temp) # maximum
+
+var(atx$temp) # variance 
 
 ```
 
-## Other descriptives 
+
+## Mean, Median, and Mode 
 
 ```{r}
+mean(atx$temp) # mean
 
-length(atx$temp)
-var(atx$temp)
-range(atx$temp)
-min(atx$temp)
-max(atx$temp)
+sum(atx$temp)/length(atx$temp) # mean
 
+median(atx$temp) # median
+
+#estimate mode function 
+estimate_mode <- function(x) {
+  d <- density(x)
+  d$x[which.max(d$y)]
+}  
+
+estimate_mode(atx$temp) #estimate mode
 ```
+
+
+## Standard Deviation 
+
+``` {r}
+sd(atx$temp) #  sample standard deviation
+
+#population standard deviation function 
+ pop.sd <- function(s) { 
+   sqrt(sum((s - mean(s))^2)/length(s)) 
+ } 
+
+pop.sd(atx$temp) # population standard deviation 
+```
+
 
 
 ## Inter-quartile Ranges 
 
 ``` {r}
 quantile(atx$temp, .25)  # this is the lower quartile
+
 quantile(atx$temp, .75)  # this is the upper quartile
+
 IQR(atx$temp)   # this is the inter-quartile range.
 
 ```
+these quartiles may be slightly different to what you'd get by hand.
+
+```{r}
+ggplot(atx, aes(y=temp)) + 
+  geom_boxplot(color='black', fill='lightseagreen')
+```
+
+nb we get those numbers on the x-axis because there is no 'group'
+we can get rid of them like this:
+
+```{r}
+ggplot(atx, aes(y=temp)) + 
+  geom_boxplot(color='black', fill='lightseagreen') + 
+  scale_x_discrete(breaks = NULL)
+```
+
+## Finding 
