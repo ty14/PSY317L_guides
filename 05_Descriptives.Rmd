@@ -197,3 +197,134 @@ vg %>%
 ```
 
 ## Comparing population and sample means
+
+Why we need the sample standard deviation. 
+
+The sample SD is an estimate of the population SD. We need this estimate because we never have data from the full population but only random samples. 
+
+The formula for population sd is the square root of the variance divided by N, where are the sample sd is the square root of the variance divided by n -1. 
+
+
+```{r}
+x <- c(14, 11, 5, 3, 8, 10, 9, 15)
+
+pop.sd(x) 
+
+sd(x) 
+```
+The is a .3 difference if the standard deviations. However, would the difference be as big with a bigger sample?
+
+```{r}
+set.seed(1) # just so we all get the same results
+
+x <- rnorm(100, mean = 8) #100 random numbers with mean of 8.
+
+pop.sd(x) 
+
+sd(x)      
+```
+
+Sample SD is larger than population SD but this difference gets smaller as sample sizes increase.
+
+For visual proof that using the population SD underestimates for samples. 
+
+For the example say we have a population of 1000, with a mean of 199.91 and population SD of 8.28.
+
+```{r}
+set.seed(1)
+population <- rnorm(1000, mean = 200, sd = 8)
+
+mean(population)  #199.91
+pop.sd(population)    #8.28
+```
+
+What if you did not know the real population SD and you were going to take samples of size 15 to try and estimate the population mean and SD. 
+
+```{r}
+s1 <- sample(population, 15, replace = T)
+
+mean(s1) 
+
+pop.sd(s1)  
+
+sd(s1)   
+```
+
+Let's try another sample:
+
+```{r}
+s2 <- sample(population, 15, replace = T)
+
+mean(s2) 
+
+pop.sd(s2)  
+
+sd(s2)   
+```
+
+So, in one sample the sample SD was closer to the real pop SD in the other, the popSD was closer to the real pop SD.
+
+---- 
+
+Now let's do this for 10,000 samples:
+
+```{r}
+results.means<- vector('list',10000)
+results.popSD<- vector('list',10000)
+results.sampSD<- vector('list',10000)
+
+for(i in 1:10000){
+  s <- sample(population, 15, replace = T)
+  results.means[[i]] <- mean(s)
+  results.popSD[[i]] <- pop.sd(s)
+  results.sampSD[[i]] <- sd(s)
+}
+```
+
+Sample mean, remember the population mean = 199.91
+
+```{r}
+means <- unlist(results.means) # sample means
+
+mean(means) 
+```
+
+Standard deviations using the population SD
+```{r}
+popSDs <- unlist(results.popSD) # SDs using popSD
+
+mean(popSDs)
+```
+
+Sample SDs
+```{r}
+sampSDs <- unlist(results.sampSD) # sample SDs
+
+mean(sampSDs)
+```
+
+Now graph everything!
+
+
+This shows the sample mean is a good etimate of the population mean, on average. 
+```{r}
+ggplot(data.frame(means), aes(x=means)) +
+  geom_histogram(color='black', fill='blue', alpha=.2)+
+  theme_classic() +
+  geom_vline(xintercept = mean(means), lwd=1, color="black") +
+  geom_vline(xintercept = 199.91, lwd=1, color="orange", lty=2) +
+  ggtitle("Sample Means Distribution")
+```
+
+However, this shows the population SD formula with samples, leads us to underestimating the real population SD - on average there is a lot of variation though.
+
+```{r}
+ggplot(data.frame(sampSDs), aes(x=sampSDs)) +
+  geom_histogram(color='black', fill='blue', alpha=.2)+
+  theme_classic() +
+  geom_vline(xintercept = mean(sampSDs), lwd=1, color="black") +
+  geom_vline(xintercept = 8.28, lwd=1, color="orange", lty=2) +
+  ggtitle("SD Distribution when using Sample SD")
+```
+
+Overall, using the sample SD formula with samples, provides a better estimate of the population SD on average. This is why we divided by n-1 for sample SD.
