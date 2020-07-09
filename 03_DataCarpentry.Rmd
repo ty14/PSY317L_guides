@@ -2,9 +2,24 @@
 
 Data carpentry gives us the tools to work with large data sets. During this chapter you will learn basic concepts, skills to help you work with functions to help tidy and manage your data. 
 
-check check 
+Things to know before beginning the chapter: 
+
+filter()    - subsetting data
+
+select()    - selecting columns
+
+arrange()   - sorting a column
+
+mutate()    - adding a new column
 
 
+%>%  means "and next do this"  
+
+==  means "is equal to"
+
+!= means "is not equal to"
+
+|  means "or"
 
 ## tidyverse
 
@@ -19,93 +34,196 @@ You will only need to install a package once, but will have to load a library on
 ```{r, eval=FALSE}
 install.package(tidyverse) #install
 
-
 ```
 
 From the `tidyverse` package `rread` we can read in our data.
 
-```{r}
+```{r message = FALSE}
 library(tidyverse) #load
-df <- read_csv("data/bloodwork.csv")
+bw <- read_csv("data/bloodwork.csv")
 
 ```
 
-df is the name of our new dataframe, which will include all data from the bloodwork.csv file. 
+bw is the name of our new dataframe, which will include all data from the bloodwork.csv file. 
 
 Before we can work with our data we need to what we have to work with using the functions `head()` and `tail()` allows you to see the first and last 6 rows, respectfully. 
 
 ```{r}
-head(df)
+head(bw) # first 6 lines 
 ```
 
 ```{r}
-tail(df)
+tail(bw) #last 6 lines
 ```
 
-should we explain the dataset?? idk 
+should we explain the dataset?? idk
+
+
+`table()` summarizes categorical variables.
+
+table(bw$sex)
+table(bw$children)
+table(bw$sex, bw$children)
+
 
 ## filter()
-Use %>% and 'filter' to only keep rows where the hrate, heart rate, is over 85. > means greater than.
+Use %>% and 'filter' to only keep rows where the hrate, heart rate, is over 60. > means greater than.
+
 
 ```{r} 
-df %>% 
-  filter(hrate > 85)
+bw %>% 
+  filter(hrate > 60)
 ```
 
 
-Or use %>% and 'filter' to only keep rows where the sex is equal to female.
+Use %>% and 'filter' to only keep rows where the sex is equal to female.
 ```{r} 
-df %>% 
+bw %>% 
   filter(sex == "female")
 ```
-
-You can create new datasets from filtered data.
-
-```{r} 
-female <- df %>% 
-  filter(sex == "female")
+You can filter to only include, certain rows, such as state as "NJ" or "NY" in the bloodwork dataset.
+```{r}
+bw %>% 
+  filter(state == "NJ"  |  state == "NY")
 ```
 
+
+You can filter several variables at one time.
+
+```{r}
+bw %>% 
+  filter( sex == "female", hrate > 60, children != "0" )
+
+```
+
+You can create new datasets from filtered data by creating a new object
+
+```{r} 
+female <- bw %>% 
+  filter( sex == "female", hrate > 60, children != "0" )
+```
 
 ## select()
 Use %>% then `select` to just select the rows you want.
 
 ```{r}
-df %>%  
-  select(ids, sex, smoker,hrate)
+bw %>% 
+  select(ids, sex, smoker,hrate,children)
 ```
+
 
 Or if you just want to get rid of one column you can just use %>% then `select(-var)`
 
 ```{r}
-df %>% select(-bpsyst)
+bw %>% select(-children, -bpsyst)
 ```
 
-if you want these selections to be permanent then you need to rewrite selections in new dataframe. 
+You can rename columns as you go
 
 ```{r}
-df1 <- df %>%  select(-bpsyst)
+bw %>% select(subject = ids, gender = sex, smoker,hrate,children)
 ```
 
+if you want these selections to be permanent then you need to rewrite selections in new dataframe. See the difference between bw and bw1 
 
-## arrange()
+```{r}
+bw1 <- bw %>%  
+  select(subject = ids, gender = sex, smoker,hrate,children)
+head(bw)
+head(bw1)
+```
 
-blah
+If you just want to use the column number, you can do that too!
+
+The code below selects for column 1-4, 9, 10, but does not save the information as a new object. 
+
+```{r}
+bw %>% select(1,2,3,4,9,10)
+
+bw %>% select(1:4,9,10)
+
+```
 
 ## mutate()
 
 Create new columns using %>% then `mutate`
 
 ``` {r}
-df2 <- df %>% 
+bw %>% 
   mutate(totalimmune = immuncount + immuncount2)
+```
+
+Saving new column in a new data frame. Now, bw2 will have 12 columns, instead of 11.  
+```{r}
+bw2 <- bw %>% 
+  mutate(totalimmune = immuncount + immuncount2)
+```
+
+You can also create new columns without `tidyverse`
+
+```{r}
+
+bw$totalimmune <- bw$immuncount + bw$immuncount2
+```
+Now bw and bw2 are the same. 
+
+## Arrange
+
+Lets try another example!
+
+```{r}
+pga <- read_csv("data/pga.csv")
+
+head(pga)
+colnames(pga)
+table(pga$year)
+```
+
+let's pick out name, year, total.holes, total.putts, score.avg columns and save as pga1. 
+```{r}
+pga %>% select(name, year, total.holes, total.putts, score.avg) 
+
+pga1 <- pga %>% select(name, year, total.holes, total.putts, score.avg)  
 
 ```
-Now df2 will have 12 columns, instead of 11. 
+
+Here we can sort a column using arrange(). There are many ways you can arrange your data. 
+
+sorts data in ascending order
+```{r}
+pga1 %>% arrange(score.avg)  
+```
+
+sorts data in descending order
+```{r}
+pga1 %>% arrange(-score.avg)  
+```
+
+sorts data in ascending alphabetical order
+```{r}
+pga1 %>% arrange(name) 
+```
+
+sorts data first by year, then by score
+``` {r}
+pga1 %>% arrange(year, score.avg)  
+```
+
+
+You can use the pipe, ` %>% `, in `tidyverse` to run multiple commands at once. 
+
+```{r}
+pga %>%
+  select(name, year, total.holes, total.putts, score.avg)  %>%
+  mutate(putt.avg = total.putts / total.holes) %>%
+  arrange(putt.avg)
+
+```
+
+
 
 ## Wide vs Long Data
 
-blah
 
 `pivot_wide()`  `pivot_long()`
 

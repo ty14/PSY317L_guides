@@ -2,13 +2,58 @@
 
 The package `ggplot2` is used to visualize data. Before starting you should load the `tidyverse` package, which includes `ggplot2` and other tools, at the very top of your script. 
 
-See example below.
-You need to do it once for every script.
-```{r}
+```{r message = FALSE}
 library(tidyverse)
 ```
 
-Read in data 
+## Intro to ggplot2
+
+Read in data
+
+```{r}
+df <- read_csv("data/BlueJays.csv")
+```
+
+Start with a black canvas 
+
+``` {r}
+ggplot()  
+```
+
+Just adding the datset to the blank canvas, but nothing plotted yet.
+
+```{r}
+ggplot(df)   
+```
+
+You need to  use aes() for every ggplot you make, and inside aes() we'll put what our x and y axis will be. 
+
+We say what the x and y are, and it creates scales on each axis, but we didn't tell it what to plot yet.
+
+```{r}
+ggplot(df, aes(x=Mass, y=Head) )   
+```
+
+Need to add points. 
+```{r}
+ggplot(df, aes(x=Mass, y=Head) ) + geom_point()
+```
+
+What if we want to change the color of the points?
+```{r}
+ggplot(df, aes(x=Mass, y=Head) ) + geom_point(color='red')
+```
+
+
+What if we want to color the points based on another variable
+```{r}
+ggplot(df, aes(x=Mass, y=Head, color = KnownSex) ) + geom_point() 
+```
+
+Basically, you can just keep adding to the initial plot to make your graph the best visualization to fit your data. 
+
+
+Another Example!
 ``` {r}
 covid <- read_csv("data/countycovid.csv")
 
