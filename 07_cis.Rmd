@@ -1,4 +1,325 @@
 # Confidence Intervals
 
+This should be one sample tests and confidence intervals.
+
 
 blah
+
+```{r, echo=FALSE, eval=FALSE}
+
+
+
+#### z-test problem examples
+
+library(tidyverse)
+source("distributions/plothist.R")
+
+### A manufacturing company produces metal parts 
+
+# The parts are normally distributed with a length 10mm and SD 0.2mm
+
+# The manager suspects that the manufacturing machine is faulty
+# and that the parts are longer than they should be.
+
+# They select a batch of 25 parts.
+# the sample mean is 10.1mm 
+
+# is this an unepectedly large mean ?
+
+
+### Population:  Mean = 10,  SD = 0.2
+# Sample:  n = 25,  sample mean = 10.1
+
+x <- 10.1
+
+x
+
+# 1. Our one sample mean is one possible sample mean from the sampling distribution of sample means.
+
+# the sampling distribution has:
+# mean = 10
+# sd =  0.2 / sqrt(25)
+0.2 / sqrt(25)  #SD of sampling distribution (standard error of the mean)
+
+sem <- 0.2 / sqrt(25)
+
+sem
+
+
+
+# 2. How many "standard deviations" is our sample mean from the mean of the sampling distribution?
+
+# Calculate the z-score:
+
+(x - 10) / sem
+
+z <- (x - 10) / sem
+
+z
+
+
+# 3. What proportion of the sampling distribution is higher than +2.5 SDs than the mean?
+# same as saying what proportion is 2.5SD higher than 0 in the standard normal curve.
+
+
+pnorm(z)  # this is the area to the left of the line
+
+1 - pnorm(z)  # p = 0.006209665
+
+# as p <.05, this is good evidence that the sample mean is unexpectedly large.
+
+
+
+
+
+#####################  Visualization Code Below Here -----
+
+## Don't worry about this code- I just want to show you what the graphs look like
+
+p1 <- plothist(mean = 10, sd = 0.1) +
+      ggtitle("Population") +
+  xlab("Length of part (mm) ")
+
+p2 <- plothist(mean = 10, sd = sem) +
+  geom_vline(xintercept = 10.1, color = "darkorange", lwd =1) +
+  ggtitle("Sampling Distribution of \n Sample Means for n = 25") +
+  xlab("Mean length (mm) of each sample")
+
+p3 <- plothist(mean = 0, sd = 1) +
+  geom_vline(xintercept = 1.645, color = "red", lwd =1, lty=2) +
+  geom_vline(xintercept = z, color = "darkorange", lwd =1) +
+  ggtitle("Standard Normal Curve") +
+  xlab("z")
+
+library(gridExtra)
+grid.arrange(p1,p2,p3,nrow=1)
+
+### One-sample t-test
+
+# Dr Zeppo example data.
+
+# Psychology Student scores:
+
+zeppo <- c(50,60,60,64,66,66,67,69,70,74,76,76,77,79,79,79,81,82,82,89)
+
+zeppo
+
+length(zeppo)  # 20 - there are 20 students in the sample.
+
+mean(zeppo)  # the mean of the sample is 72.3
+
+sd(zeppo)  # the sample SD is 9.52
+
+n <- length(zeppo)
+
+n 
+
+## 95% confidence interval of the population mean...
+
+#  sample.mean +/-  t * (sampleSD / sqrt(n))
+
+n-1   # degrees of freedom
+
+qt(c(.025, .975), df=n-1)  #95% CI requires 2.5% in each tail
+
+qt(c(.025, .975), df=19)  #
+
+qt(.975, df=19)  # Bit easier to type
+
+tval <- qt(.975, df=19)
+
+tval
+
+
+# So, CI is:
+mean(zeppo) + tval * ( sd(zeppo) / sqrt(n)) # 76.76
+mean(zeppo) - tval * ( sd(zeppo) / sqrt(n)) # 67.84
+
+
+
+#### To run a one-sample t-test, comparing to some hypothesized mean
+
+zeppo
+
+t.test(zeppo, mu = 65.0)  # Default is a 2-tailed test.
+# use this one to get the 95% CI
+
+
+# you can do one-tailed test, with a predicted direction 
+t.test(zeppo, mu = 65.0, alternative = "greater")  
+
+t.test(zeppo, mu = 65.0, alternative = "less")  
+
+
+shapiro.test(zeppo) # p>.05, so assume data approx normal
+
+
+
+
+
+#### Example 2:
+
+# On their second birthday, children know a mean of 50 words, and this is normally distributed.
+
+# Researchers collected data from 12 children who were read to for >two hours per day.
+
+# Did this sample of 12 children have a mean of greater than 50?
+
+
+x <- c(45, 53, 71, 35, 51, 59, 49, 55, 78, 27, 66, 59)
+
+x
+
+shapiro.test(x) # p>.05, so assume approximately normal data.
+
+
+t.test(x, mu = 50)  # two sided test
+
+t.test(x, mu = 50, alternative = "greater")  # two sided test
+
+
+
+
+
+
+
+
+
+
+#### Example 3:
+
+# Data imported ...
+
+library(tidyverse)
+
+xt <- read_csv("data/crosstimes.csv")
+xt
+
+
+
+# one-tailed
+# compare sample mean to hypothesized mean of 16.0
+# for time3
+
+xt$time3  # our sample data
+
+mean(xt$time3)  # sample mean = 15.1
+
+t.test(xt$time3, mu = 16.0) # this is 2-tailed - but has CI
+
+t.test(xt$time3, mu = 16.0, alternative = "less") # this is 1-tailed
+
+
+# assumption is that the data is normally distributed
+shapiro.test(xt$time3)  # borderline
+
+
+
+#### Worked Example - try for yourself...--------------
+
+### Read in the Data BlueJays
+jays <- read_csv("data/BlueJays.csv")
+
+# just look at the females.
+jaysF <- jays %>% filter(KnownSex == "F")
+head(jaysF)
+
+# 1. Is the variable "BillLength" approximately normal? Use a Shapiro-Test.
+
+shapiro.test(jaysF$BillLength)
+
+
+# 2. Use t-test, to 
+# i)  Calculate a 95% CI of the female population BillLength mean
+# ii) Test if the sample mean is meaningfully larger than 23.5mm
+
+t.test(jaysF$BillLength, mu = 23.5)   # Confidence interval
+
+t.test(jaysF$BillLength, mu = 23.5, alternative = "greater")   #t-test
+
+
+
+
+### One-sample t-test - bit more on the theory
+
+
+# We want to test if our data sample could have come from a population with a specific hypothesized mean, or if it was unlikely to have come from that population.
+
+# We need to imagine that our data sample is just one data sample that we could have theoretically collected from the population with that hypothesized mean.
+
+# Our sample mean is therefore one sample mean we could have got from a sampling distribution of sample means.
+
+# that sampling distribution has a t-distribution shape
+
+# the mean of that sampling distribution is the hypothesized population mean.
+
+# we calculate how unlikely our sample mean was to get from that sampling distribution by calculating the t-statistic - a measure of how many SD our sample mean is from the mean of the sampling distribution.
+
+
+
+# e.g. The population mean number of words spoken by two year olds by their 2nd birthday is 50 words and is normally distributed.  
+
+# A researcher wanted to investigate if reading to children increases their word knowledge. They collected data from 12 children who were read to for at least two hours every day. These are the number of words spoken by the 12 children:
+
+x <- c(45, 53, 71, 35, 51, 59, 49, 55, 78, 27, 66, 59)
+
+x
+
+mean(x)  # 54, which is higher than 50.
+# but is it meaningfully higher?
+
+
+## Null H0:  mu <= 50
+## Alternative H1:  mu > 50
+
+
+# Our sample mean is one sample mean that could have come from the sampling distribution of sample means.
+
+# What shape is that sampling distribution?
+
+# t-distribution with df  n-1
+# mean of the distribution is hypothesized mean 50.
+# sd of the distribution is sampleSD/sqrt(n)
+
+
+# We can standardize this sampling distribution to a t-distribution with mean 0.
+
+mean(x)  #54
+sd(x)  #14.4
+
+n <- length(x)
+n
+
+
+t <-  (mean(x) - 50) / (sd(x) / sqrt(n))  #50 is hypothesized mean
+
+t #0.96
+
+
+
+#visualize
+ggplot(data.frame(x = c(-4, 4)), aes(x = x)) +
+  stat_function(fun = dt, args = list(df = 11)) +
+  xlab("t") +
+  ggtitle("t-distribution for df = 11") +
+  geom_vline(xintercept = t, color="orange", lwd=1)
+
+
+# what proportion of curve is above t value ?
+
+pt(t, df=11, lower.tail = FALSE)  # p value 1 tailed test - proportion above t
+# 0.178
+
+pt(t, df=11, lower.tail = TRUE) # proportion below t
+# 0.822
+
+
+t.test(x, mu = 50)  # two sided test
+
+t.test(x, mu = 50, alternative = "greater")  # two sided test
+
+
+
+
+```
+

@@ -157,7 +157,7 @@ So our p-value is `p=0.0215` which is similar to a one-tailed p-value.
 
 
 
-### Example 2:
+**Example 2:**
 
 Let's take a look at a second example.  Here, we have various subjects rating their anxiety levels. They do this after either taking a new anxiolytic drug or a placebo. The subjects in each group are independent of each other.  The placebo group has 19 subjects and the drug group has 21 subjects.
 
