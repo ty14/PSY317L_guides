@@ -58,7 +58,11 @@ There are many different graphs you can make with `ggplot`. What graph you make 
 The next couple sections will take the base of ggplot and show you examples with different types of points. They will start general then show you how to customize plots. 
 
 General information about customizing plots in ggplot:
- 1. change the type of points you plot with `geom_point(pch = blah)`:
+ 1. ALLL THE COLORS IN THE WORLD
+ https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/
+ http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf
+
+ 2.  change the type of points you plot with `geom_point(pch = blah)`:
  
  
 ![Different Types of Points](img/points.png)
@@ -66,7 +70,7 @@ General information about customizing plots in ggplot:
 Also, you can change the color and size of points by `geom_point(size = 3, color = "blue"). 
 
 
-2. Built in themes: 
+3. Built in themes: 
 
 theme_bw() 
 a variation on theme_grey() that uses a white background and thin grey grid lines.
@@ -94,19 +98,319 @@ REFERENCE: your slides elol and https://ggplot2-book.org/
 
 
 ## Histogram
+Why make a histogram?
 
-## Line 
+Histograms are a good place to start with your data, it will give you a visual representation of your data distribution. blah probably needs more, idk what to say. 
+
+Load libraries and data
+```{r}
+library(tidyverse) 
+df <- read_csv("data/films.csv")
+
+head(df)
+
+```
+
+Making a ggplot2 histogram, which will plot imdb scores. 
+
+```{r}
+
+ggplot(df, aes(x=imdb)) + 
+  geom_histogram()  
+```
+
+Now lets make the bars doderblue and border them white. 
+
+```{r}
+ggplot(df, aes(x=imdb)) + 
+  geom_histogram(color='white', fill="dodgerblue") 
+```
+
+You can also control the bin width of histograms, this code has a  bin width of 0.2 rating points
+
+```{r}
+ggplot(df, aes(x = imdb)) + 
+  geom_histogram(binwidth = 0.2, color="white", fill="dodgerblue") 
+```
+
+Further you can control where the boundaries of each bin lie on the x-axis
+
+```{r}
+ggplot(df, aes(x = imdb)) + 
+  geom_histogram(binwidth = 0.2, color="white", fill="dodgerblue",boundary=4) 
+```
+
+Just be careful with using the boundaries that it does not crop your histogram incorrectly. Changing histograms too much can lead to miss representing the data. (idk if that is said correctly)
+
+Here is the full code with some additional customizations 
+
+```{r}
+ggplot(df, aes(x = imdb)) + 
+  geom_histogram(binwidth = 0.2, color="white", fill="dodgerblue",boundary=4) +
+  theme_classic() +
+  ggtitle("Histogram of IMDB Ratings") +
+  xlab("Rating") +
+  ylab("Frequency")
+```
+
+Instead of Viewing as a histogram, you can also show the data as a density curve
+
+```{r}
+ggplot(df, aes(x = imdb)) +  geom_density(color = "navy", fill = "dodgerblue") 
+```
+
+Adding, alpha gives it a bit of transparency
+
+```{r}
+ggplot(df, aes(x = imdb)) +  
+  geom_density(color = "navy", fill = "dodgerblue", alpha=.4)
+```
+
+**Comparing Distributions** with side by side Histograms
+
+Switching to new data 
+
+```{r}
+life <- read_csv("data/lifeexp.csv")
+
+head(life)
+tail(life)
+```
+
+First lets plot a histogram of life Expectancy across all countries
+
+```{r}
+ggplot(life, aes(x=lifeExp)) + 
+  geom_histogram(color='white', fill='lightseagreen') #warning is ok
+```
+
+
+Since we've combined data from the two years - we should separate histograms for each year. We can do this by Overlaiding histograms.
+
+```{r}
+ggplot(life, aes(x=lifeExp, fill=year)) +  
+  geom_histogram(position="identity") #horrible
+```
+
+That graph was horrible, but if you costomize the plot by defining binwith and adding an alpha level it will get better.  
+
+```{r}
+ggplot(life, aes(x=lifeExp, fill=year)) +  
+   geom_histogram(position="identity", alpha=.5, binwidth=2)
+```
+
+Let add color now to make it even better, this makes the borders and fill of the bars black
+
+```{r}
+ggplot(life, aes(x=lifeExp, fill=year)) +  
+  geom_histogram(position="identity", alpha=.5, binwidth=2, color='black') +
+  scale_fill_manual(values = c("#999999", "#E69F00"))
+
+```
+
+Comparing Distributions can also be done with `geom_density()`, this is usually simpler to compare. 
+  
+Initial plot 
+
+```{r}
+ggplot(life, aes(x=lifeExp, fill=year)) +  
+  geom_density(aes(fill = year), alpha = 0.4) 
+```
+
+Adding customized colors 
+
+```{r}
+ggplot(life, aes(x=lifeExp, fill=year)) +  
+  geom_density(aes(fill = year), alpha = 0.4) +
+  scale_fill_manual(values = c("#999999", "#E69F00"))
+```
+
+And adding a theme
+
+```{r}
+ggplot(life, aes(x=lifeExp, fill=year)) +  
+  geom_density(aes(fill = year), alpha = 0.4) +
+  scale_fill_manual(values = c("#999999", "#E69F00"))  + 
+  theme_classic()
+```
 
 ## Scatter
 
+Scatter plots are used when you are trying to illustrate a trend in your data. These plots can be important in statistics because it can help show the correlation between two variables. 
 
-## Boxplot 
+`geom_point()` is used for scatter plots. 
+
+Lets look at the dataframe cheese: 
+
+```{r}
+cheese <- read_csv("data/cheese.csv")
+head(cheese)
+```
+
+Start with a simple plot looking at the outcome of cholesterol on saturated fat intake. 
+
+```{r}
+ggplot(cheese, aes(x=sat_fat, y=chol) ) + geom_point()
+```
+
+Adding color
+
+```{r}
+ggplot(cheese, aes(x=sat_fat, y=chol) ) + 
+  geom_point(color = "purple")
+```
+
+Adding trend line with `geom_smooth`
+
+```{r}
+ggplot(cheese, aes(x=sat_fat, y=chol) ) + 
+  geom_point(color = "purple") +
+ geom_smooth(method = "lm")
+```
+Here you can see it automatically puts a shaded area around your trend line, this is supposed to represent the confident interval. There is a way to get rid of it - 
+
+```{r}
+ggplot(cheese, aes(x=sat_fat, y=chol) ) + 
+  geom_point(color = "purple") +
+ geom_smooth(method = "lm", se = FALSE)
+```
+You can also change the color of the trend line, by adding to `geom_smooth()`
+
+```{r}
+ggplot(cheese, aes(x=sat_fat, y=chol) ) + 
+  geom_point(color = "purple") +
+  geom_smooth(method = "lm", se= F, color = "black")
+```
 
 
-## Adding details 
+
+Label your x and y axis 
+
+```{r}
+ggplot(cheese, aes(x=sat_fat, y=chol) ) + 
+  geom_point(color = "purple") +
+  geom_smooth(method = "lm", se= F, color = "black") +
+  xlab(" Saturated Fat Intake") +
+  ylab("Cholesterol")
+```
+
+Add a title and a theme to make your graph complete
+
+```{r}
+ggplot(cheese, aes(x=sat_fat, y=chol) ) + 
+  geom_point(color = "purple") +
+  geom_smooth(method = "lm", se= F, color = "black") +
+  xlab(" Saturated Fat Intake") +
+  ylab("Cholesterol") +
+  ggtitle("Saturated Fat Intake and Cholesterol") +
+  theme_minimal()
+```
+
+## Line
+
+Line graph help connect values (y-axis) over time (x-axis)
+
+```{r}
+jennifer <- read_csv("data/jennifer.csv")
+
+head(jennifer)
+tail(jennifer)
+```
+
+How to build up a line graph, start just like the other graphs
+
+```{r}
+ggplot(jennifer, aes(x=year, y=n) ) 
+```
+
+Look at data as points first 
+```{r}
+ggplot(jennifer, aes(x=year, y=n) ) + geom_point() # look at data as points
+```
+
+Then as a line 
+```{r}
+ggplot(jennifer, aes(x=year, y=n) ) + geom_line() # instead use a line
+```
+
+You can add points and line together 
+```{r}
+ggplot(jennifer, aes(x=year, y=n) ) + 
+  geom_point() +  
+  geom_line() 
+```
+
+Changing Color of Line, but **not** the points
+```{r}
+ggplot(jennifer, aes(x=year, y=n) ) + 
+  geom_point() +
+  geom_line(color = "purple") 
+```
+
+This will change the color of both the points and the line
+```{r}
+ggplot(jennifer, aes(x=year, y=n) ) + 
+  geom_point(color = "violet") +
+  geom_line(color = "purple") 
+```
+
+Customize axis labels and title
+
+```{r}
+ggplot(jennifer, aes(x=year, y=n) ) + 
+  geom_line(color = "purple") +
+  xlab("Year") +
+  ylab("Number of Children Born") +
+  ggtitle("Popularity of Name Jennifer in USA")
+```
+
+Can change width of lines
+```{r}
+ggplot(jennifer, aes(x=year, y=n) ) + 
+  geom_line(color = 'purple', lwd=2)
+```
 
 
+There are many different style of lines here are a few examples
+
+```{r}
+ggplot(jennifer, aes(x=year, y=n) ) + geom_line(lty=1)
+```
+
+```{r}
+ggplot(jennifer, aes(x=year, y=n) ) + geom_line(lty=2)
+```
+
+```{r}
+ggplot(jennifer, aes(x=year, y=n) ) + geom_line(lty=3)
+```
+
+```{r}
+ggplot(jennifer, aes(x=year, y=n) ) + geom_line(lty=4)
+```
 
 
+Plotting **multiple** lines on same graph
+
+read in data 
+```{r}
+jenlinda <- read_csv("data/jenlinda.csv")
+
+head(jenlinda)
+tail(jenlinda)
+```
+
+Just one line 
+```{r}
+ggplot(jenlinda, aes(x=year, y=n, color=name)) + geom_line()
+```
 
 
+Two lines - one for each name. 
+```{r}
+ggplot(jenlinda, aes(x=year, y=n, color=name)) + 
+  geom_line()+
+  xlab("Year") +
+  ylab("Number of Children Born") +
+  ggtitle("Popularity of Names Jennifer & Linda in USA")
+```
