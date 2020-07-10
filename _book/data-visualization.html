@@ -126,7 +126,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.2" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#filter"><i class="fa fa-check"></i><b>4.2</b> filter()</a></li>
 <li class="chapter" data-level="4.3" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#select"><i class="fa fa-check"></i><b>4.3</b> select()</a></li>
 <li class="chapter" data-level="4.4" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#mutate"><i class="fa fa-check"></i><b>4.4</b> mutate()</a></li>
-<li class="chapter" data-level="4.5" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#arrange"><i class="fa fa-check"></i><b>4.5</b> Arrange</a></li>
+<li class="chapter" data-level="4.5" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#arrange"><i class="fa fa-check"></i><b>4.5</b> arrange()</a></li>
 <li class="chapter" data-level="4.6" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#wide-vs-long-data"><i class="fa fa-check"></i><b>4.6</b> Wide vs Long Data</a></li>
 <li class="chapter" data-level="4.7" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#joins"><i class="fa fa-check"></i><b>4.7</b> Joins</a></li>
 </ul></li>
@@ -262,23 +262,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## )</code></pre>
 <p>Start with a black canvas</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>()  </code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
 <p>Just adding the datset to the blank canvas, but nothing plotted yet.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df)   </code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
 <p>You need to use aes() for every ggplot you make, and inside aes() we'll put what our x and y axis will be.</p>
 <p>We say what the x and y are, and it creates scales on each axis, but we didn't tell it what to plot yet.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>Mass, <span class="dt">y=</span>Head) )   </code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
 <p>Need to add points.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>Mass, <span class="dt">y=</span>Head) ) +<span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
 <p>What if we want to change the color of the points?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>Mass, <span class="dt">y=</span>Head) ) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&#39;red&#39;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
 <p>What if we want to color the points based on another variable</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>Mass, <span class="dt">y=</span>Head, <span class="dt">color =</span> KnownSex) ) +<span class="st"> </span><span class="kw">geom_point</span>() </code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
 <p>Basically, you can just keep adding to the initial plot to make your graph the best visualization to fit your data.</p>
 <p>Another Example!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">covid &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/countycovid.csv&quot;</span>)</code></pre></div>

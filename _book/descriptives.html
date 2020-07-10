@@ -126,7 +126,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.2" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#filter"><i class="fa fa-check"></i><b>4.2</b> filter()</a></li>
 <li class="chapter" data-level="4.3" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#select"><i class="fa fa-check"></i><b>4.3</b> select()</a></li>
 <li class="chapter" data-level="4.4" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#mutate"><i class="fa fa-check"></i><b>4.4</b> mutate()</a></li>
-<li class="chapter" data-level="4.5" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#arrange"><i class="fa fa-check"></i><b>4.5</b> Arrange</a></li>
+<li class="chapter" data-level="4.5" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#arrange"><i class="fa fa-check"></i><b>4.5</b> arrange()</a></li>
 <li class="chapter" data-level="4.6" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#wide-vs-long-data"><i class="fa fa-check"></i><b>4.6</b> Wide vs Long Data</a></li>
 <li class="chapter" data-level="4.7" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#joins"><i class="fa fa-check"></i><b>4.7</b> Joins</a></li>
 </ul></li>
@@ -261,7 +261,7 @@ atx &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(atx, <span class="kw">aes</span>(<span class="dt">x=</span> temp)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;lightseagreen&quot;</span>, <span class="dt">binwidth =</span> <span class="dv">10</span>)+
 <span class="st">  </span><span class="kw">theme_classic</span>()</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
 <div id="basic-descriptives" class="section level2">
 <h2><span class="header-section-number">6.1</span> Basic Descriptives</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(atx$temp) <span class="co"># length this tells you the &#39;n&#39;</span></code></pre></div>
@@ -334,12 +334,12 @@ estimate_mode &lt;-<span class="st"> </span>function(x) {
 <p>Don't be worried if these quartiles are slightly different to what you'd get by hand.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(atx, <span class="kw">aes</span>(<span class="dt">y=</span>temp)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, <span class="dt">fill=</span><span class="st">&#39;lightseagreen&#39;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-70-1.png" width="672" /></p>
 <p>nb we get those numbers on the x-axis because there is no 'group' we can get rid of them like this:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(atx, <span class="kw">aes</span>(<span class="dt">y=</span>temp)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, <span class="dt">fill=</span><span class="st">&#39;lightseagreen&#39;</span>) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">breaks =</span> <span class="ot">NULL</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
 </div>
 <div id="descriptives-for-groups" class="section level2">
 <h2><span class="header-section-number">6.6</span> Descriptives for Groups</h2>
@@ -513,7 +513,7 @@ for(i in <span class="dv">1</span>:<span class="dv">10000</span>){
 <span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="fl">199.91</span>, <span class="dt">lwd=</span><span class="dv">1</span>, <span class="dt">color=</span><span class="st">&quot;orange&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>) +
 <span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sample Means Distribution&quot;</span>)</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
 <p>However, this shows the population SD formula with samples, leads us to underestimating the real population SD - on average there is a lot of variation though.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(sampSDs), <span class="kw">aes</span>(<span class="dt">x=</span>sampSDs)) +
 <span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, <span class="dt">fill=</span><span class="st">&#39;blue&#39;</span>, <span class="dt">alpha=</span>.<span class="dv">2</span>)+
@@ -522,7 +522,7 @@ for(i in <span class="dv">1</span>:<span class="dv">10000</span>){
 <span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="fl">8.28</span>, <span class="dt">lwd=</span><span class="dv">1</span>, <span class="dt">color=</span><span class="st">&quot;orange&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>) +
 <span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;SD Distribution when using Sample SD&quot;</span>)</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
 <p>Overall, using the sample SD formula with samples, provides a better estimate of the population SD on average. This is why we divided by n-1 for sample SD.</p>
 
 </div>

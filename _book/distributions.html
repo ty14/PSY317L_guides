@@ -126,7 +126,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.2" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#filter"><i class="fa fa-check"></i><b>4.2</b> filter()</a></li>
 <li class="chapter" data-level="4.3" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#select"><i class="fa fa-check"></i><b>4.3</b> select()</a></li>
 <li class="chapter" data-level="4.4" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#mutate"><i class="fa fa-check"></i><b>4.4</b> mutate()</a></li>
-<li class="chapter" data-level="4.5" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#arrange"><i class="fa fa-check"></i><b>4.5</b> Arrange</a></li>
+<li class="chapter" data-level="4.5" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#arrange"><i class="fa fa-check"></i><b>4.5</b> arrange()</a></li>
 <li class="chapter" data-level="4.6" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#wide-vs-long-data"><i class="fa fa-check"></i><b>4.6</b> Wide vs Long Data</a></li>
 <li class="chapter" data-level="4.7" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#joins"><i class="fa fa-check"></i><b>4.7</b> Joins</a></li>
 </ul></li>
@@ -251,13 +251,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="uniform-distribution" class="section level3">
 <h3><span class="header-section-number">7.1.1</span> Uniform Distribution</h3>
 <p>The first distribution we'll look at is the uniform. A uniform distribution is one where there's an equal probability of getting each value from the distribution. In the example below, we've grabbed 1,000,000 numbers from a uniform distribution that starts at 0 and ends at 100. Let's look at it's shape:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-85-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
 <p>As you can see, the histogram that we have generated is roughly flat across the top. This means that we have equal frequency counts in each bin. Each bin here is 5 across, so the first bin is 0-5, the next bin is 5-10, and so on. We have 25 bins in total in this histogram, and each has roughly 50,000 values in it. This is the classic shape of the uniform distribution.</p>
 </div>
 <div id="bimodal-distribution" class="section level3">
 <h3><span class="header-section-number">7.1.2</span> Bimodal Distribution</h3>
 <p>Another family of distributions that is worth our attention are bimodal distributions. In these distributions we have two peaks in the distribution. You can see an example below:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-92-1.png" width="672" /></p>
 </div>
 <div id="normal-distribution" class="section level3">
 <h3><span class="header-section-number">7.1.3</span> Normal Distribution</h3>
@@ -281,7 +281,7 @@ p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dfnorm, <span cla
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;values&quot;</span>)
 
 p</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-87-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-93-1.png" width="672" /></p>
 <p>Normal distributions can vary in their means and standard deviations. Below is an image of a selection of four different normal distributions that all vary in their means and standard deviations. The dotted vertical black line in each graph indicates where their respective means lie.</p>
 <p>We use special notation to indicate that a distribution is a Normal Distribution. For instance, for the normal distribution that has a mean of 17 and a standard deviation of 7, we would write:</p>
 <p><span class="math inline">\(N(\mu=17, \sigma^{2}=49)\)</span></p>
@@ -328,7 +328,7 @@ p</code></pre></div>
 <span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">median</span>(x), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)+<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(x), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)+<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">estimate_mode</span>(x), <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-95-1.png" width="672" /></p>
 <p>Now let's look at some skewed distributions as to what happens to the mode, median and mean in such distributions.</p>
 <p>In this dataset, we have 7486 rows of data (observations). Each row is a MLB player. The three numerical columns refer to the career total hits (<code>totalH</code>), career total at bats (<code>totalAB</code>), and career batting average (<code>avg</code>) of each player.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bats &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/batting.csv&quot;</span>)</code></pre></div>
@@ -363,7 +363,7 @@ p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bats, <span clas
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Career Batting Average&quot;</span>)
 
 p1</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
 <p>As you can see, this distribution is very negatively (left) skewed. This means that there are many players who have career batting averages between 0.2 and 0.3. There are relatively few players with career averages over 0.3. There are more averages that are less than 0.2 causing the skew.</p>
 <p>We can directly measure the skewness using the <code>skewness()</code> function from the <code>moments</code> package. We can see that it is highly negatively skewed with a value of -1.01:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(moments)</code></pre></div>
@@ -383,7 +383,7 @@ p1</code></pre></div>
 <span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">median</span>(bats$avg), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)+<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(bats$avg), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)+<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">estimate_mode</span>(bats$avg), <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
 <p>Now let's look at what happens to the mode, median and mean in right skewed distributions. Let's look at the career at-bats of MLB players.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#histogram</span>
 p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bats, <span class="kw">aes</span>(<span class="dt">x =</span> totalAB)) +<span class="st"> </span>
@@ -396,7 +396,7 @@ p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bats, <span clas
 <span class="st">  </span><span class="kw">theme_classic</span>()
 
 p2</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-95-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-101-1.png" width="672" /></p>
 <p>This distribution is extremely right (positive) skewed. If we measure the skewness we find that the skewness is 1.63.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">skewness</span>(bats$totalAB)</code></pre></div>
 <pre><code>## [1] 1.626115</code></pre>
@@ -411,7 +411,7 @@ p2</code></pre></div>
 <span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">median</span>(bats$totalAB), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)+<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(bats$totalAB), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)+<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">estimate_mode</span>(bats$totalAB), <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
 <p>In these severely right skewed distribution, we again see that the median and mean get pulled towards the tail of the distribution, with the mean getting pulled even further than the median.</p>
 <p>Let's have a look at a quick summary figure of where the mean, median and mode lie with respect to each other in skewed distributions. As you can see, the mean always gets pulled the furthest to the tail of distributions.The reason for this is that the mean is much more affected by extreme outliers than the median. The median is simply the boundary which divides the top 50% of the data from the bottom 50% of the data. The mean has to include all values in its calculation, so can be largely affected by extreme values more so than the median.</p>
 <div class="figure">
@@ -615,7 +615,7 @@ archerfish &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span cla
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) +
 <span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Body Sizes of 1 million Archerfish&quot;</span>) +
 <span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="fl">100.0</span>, <span class="dt">lwd=</span><span class="dv">1</span>, <span class="dt">color=</span><span class="st">&#39;black&#39;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-113-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-119-1.png" width="672" /></p>
 <p>OK, let's say that you didn't have the time to go out and catch 1 million Archerfish and measure the body length of every single fish. What shoudld you do? One thing you might decide is to just go and take a random sample of 10 anglerfish (you could have picked another sample size - let's just stick with 10 for now). Once you have your sample of 10 archerfish, you could then measure them and you will be able to calculate the sample mean of that sample.</p>
 <p>We'll use <code>sample()</code> to randomly select 10 archerfish.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1</span>) <span class="co"># so we all get the same sample.</span>
@@ -653,7 +653,7 @@ res &lt;-<span class="st"> </span><span class="kw">unlist</span>(results)</code>
 <span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(res), <span class="dt">lwd=</span><span class="dv">1</span>)
 
 psd</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-117-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
 <p>This distribution that we've just plotted is the <strong>sampling distribution of sample means for samples of size n=10</strong>. We picked 10,000 as the number of samples of size 10 to collect as it's reasonably large enough to get enough sample means that we can see the shape of the distribution. We could have picked 100,000 samples to collect, or 1,000,000... in fact the more the better, but 10,000 is enough to get the point across.</p>
 <p>Out of all of these sample means that we &quot;collected&quot;, what is the average across all of the 10,000 samples? - and what's more, what is the standard deviation of that distribution?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(res)</code></pre></div>
@@ -690,7 +690,7 @@ res1 &lt;-<span class="st"> </span><span class="kw">unlist</span>(results1)</cod
 <span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(res1),<span class="dt">lwd=</span><span class="dv">1</span>)
 
 psd2</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
 <p>If we look at the mean and standard deviation of this sampling distribution, we get the following values:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(res1)  <span class="co"># still same as population mean</span></code></pre></div>
 <pre><code>## [1] 100.0114</code></pre>
@@ -702,7 +702,7 @@ psd2</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">15</span> /<span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">50</span>)</code></pre></div>
 <pre><code>## [1] 2.12132</code></pre>
 <p>Let's directly compare the two sampling distributions for the two different sample sizes. We adjusted the x-axis so it is the same for both figures, so you can see the change in the standard deviation between the two sample sizes:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-124-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-130-1.png" width="672" /></p>
 </div>
 </div>
 <div id="central-limit-theorem." class="section level2">
@@ -726,7 +726,7 @@ x1 &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">
                  <span class="dt">boundary =</span> <span class="dv">0</span>) +
 <span class="st">  </span><span class="kw">theme_classic</span>() +
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Distance from Center of Forest km&quot;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-125-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-131-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">### Population Mean &amp; SD
 <span class="kw">mean</span>(x1)  <span class="co">#37.5</span></code></pre></div>
 <pre><code>## [1] 37.49417</code></pre>
@@ -752,7 +752,7 @@ res &lt;-<span class="st"> </span><span class="kw">unlist</span>(results)
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Mean of each sample&quot;</span>) +
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) +
 <span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sampling Distribution of Sample Means for n=30&quot;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-132-1.png" width="672" /></p>
 <p>This histogram represents our sampling distribution of sample means when we took samples of size 30 from a uniform distribution. Hopefully you notice that it is approximately normally distributed - even though the original population was uniformally distributed! Let's calculate the mean and standard deviation of this sampling distribution:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(res)  <span class="co"># the mean of the sample means is close to 37.5, the population mean</span></code></pre></div>
 <pre><code>## [1] 37.49964</code></pre>
@@ -777,7 +777,7 @@ q &lt;-<span class="st"> </span><span class="kw">rnbinom</span>(<span class="dv"
                  <span class="dt">boundary =</span> <span class="dv">0</span>) +
 <span class="st">  </span><span class="kw">theme_classic</span>() +
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Charity Donation in $&quot;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-129-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-135-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">### Population Mean
 <span class="kw">mean</span>(q)  <span class="co">#7.5</span></code></pre></div>
 <pre><code>## [1] 7.504368</code></pre>
@@ -802,7 +802,7 @@ res &lt;-<span class="st"> </span><span class="kw">unlist</span>(results)
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Mean of each sample&quot;</span>) +
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) +
 <span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sampling Distribution of Sample Means for n=30&quot;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-130-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-136-1.png" width="672" /></p>
 <p>So, it happened again. This is our sampling distribution of sample means, collected from samples of size 30 from a highly skewed distribution. But once again, the sampling distribution is approximately normally distributed. It might not be perfectly normally distributed, but it is close to being normal. We can calculate the mean and the standard deviation of this sampling distribution:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(res)  <span class="co"># the mean of the sample means is close to 7.5</span></code></pre></div>
 <pre><code>## [1] 7.504313</code></pre>
@@ -887,7 +887,7 @@ z</code></pre></div>
 <h2><span class="header-section-number">7.6</span> The t-distribution</h2>
 <p>Another distribution that is important to know about is the t-distribution. Like the normal distribution, this is a symmetrical distribution, but it has slighly fatter tails than the normal distribution.</p>
 <p>The t-distribution comes up most commonly in sampling distributions. In particular, although the central limit theorem prescribes that sampling distributions are approximately normal, it is known that often they aren't approximately normal enough, and instead they follow a t-distribution shape.</p>
-<p>An important detail about the t-distribution is that there are actually several t-distributions. There are different t-distributions for different degrees of freedom. These differ slight in how heavy the tails of the distribution are. The degrees of freedom are usually related to the sample size minus one or two (depending upon the test being employed - see sections xxx.xxx and xxx.xxx). The higher the degrees of freedom, the more closely the t-distribution looks like a normal distribution. You can see this in the image below. The standard normal distribution is in red, and the t-distribution is in black. Each panel shows a different t-distribution. As the degrees of freedom increase, the t-distribution essentially becomes the normal distribution. At lower degrees of freedom, there is a lot more difference between the t-distribution and the normal distribution in the tails.</p>
+<p>An important detail about the t-distribution is that there are actually several t-distributions. There are different t-distributions for different degrees of freedom. These differ slightly in how heavy the tails of the distribution are. The degrees of freedom are usually related to the sample size minus one or two (depending upon the test being employed - see sections xxx.xxx and xxx.xxx). The higher the degrees of freedom, the more closely the t-distribution looks like a normal distribution. You can see this in the image below. The standard normal distribution is in red, and the t-distribution is in black. Each panel shows a different t-distribution. As the degrees of freedom increase, the t-distribution essentially becomes the normal distribution. At lower degrees of freedom, there is a lot more difference between the t-distribution and the normal distribution in the tails.</p>
 <div class="figure">
 <img src="img/t.png" />
 

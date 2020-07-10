@@ -53,66 +53,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 </head>
@@ -128,7 +103,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to PSY317!</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-this-book-includes-and-what-it-doesnt"><i class="fa fa-check"></i><b>1.1</b> What this book includes and what it doesn’t</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-this-book-includes-and-what-it-doesnt"><i class="fa fa-check"></i><b>1.1</b> What this book includes and what it doesn't</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.2</b> Acknowledgements</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#references"><i class="fa fa-check"></i><b>1.3</b> References</a></li>
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#other-places-to-find-help-about-r"><i class="fa fa-check"></i><b>1.4</b> Other places to find help about R</a></li>
@@ -151,7 +126,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#filter"><i class="fa fa-check"></i><b>4.2</b> filter()</a></li>
 <li class="chapter" data-level="4.3" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#select"><i class="fa fa-check"></i><b>4.3</b> select()</a></li>
 <li class="chapter" data-level="4.4" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#mutate"><i class="fa fa-check"></i><b>4.4</b> mutate()</a></li>
-<li class="chapter" data-level="4.5" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#arrange"><i class="fa fa-check"></i><b>4.5</b> Arrange</a></li>
+<li class="chapter" data-level="4.5" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#arrange"><i class="fa fa-check"></i><b>4.5</b> arrange()</a></li>
 <li class="chapter" data-level="4.6" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#wide-vs-long-data"><i class="fa fa-check"></i><b>4.6</b> Wide vs Long Data</a></li>
 <li class="chapter" data-level="4.7" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#joins"><i class="fa fa-check"></i><b>4.7</b> Joins</a></li>
 </ul></li>
@@ -194,7 +169,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9" data-path="inferential-stats.html"><a href="inferential-stats.html"><i class="fa fa-check"></i><b>9</b> Inferential Stats</a><ul>
 <li class="chapter" data-level="9.1" data-path="inferential-stats.html"><a href="inferential-stats.html#comparing-two-samples"><i class="fa fa-check"></i><b>9.1</b> Comparing two Samples</a></li>
 <li class="chapter" data-level="9.2" data-path="inferential-stats.html"><a href="inferential-stats.html#independent-samples-t-test"><i class="fa fa-check"></i><b>9.2</b> Independent Samples t-test</a></li>
-<li class="chapter" data-level="9.3" data-path="inferential-stats.html"><a href="inferential-stats.html#background-to-students-2-sample-t-test"><i class="fa fa-check"></i><b>9.3</b> Background to Student’s 2 Sample t-test</a></li>
+<li class="chapter" data-level="9.3" data-path="inferential-stats.html"><a href="inferential-stats.html#background-to-students-2-sample-t-test"><i class="fa fa-check"></i><b>9.3</b> Background to Student's 2 Sample t-test</a></li>
 <li class="chapter" data-level="9.4" data-path="inferential-stats.html"><a href="inferential-stats.html#sampling-distribution-of-the-difference-in-sample-means"><i class="fa fa-check"></i><b>9.4</b> Sampling Distribution of the Difference in Sample Means</a></li>
 <li class="chapter" data-level="9.5" data-path="inferential-stats.html"><a href="inferential-stats.html#pooled-standard-deviation"><i class="fa fa-check"></i><b>9.5</b> Pooled Standard Deviation</a></li>
 <li class="chapter" data-level="9.6" data-path="inferential-stats.html"><a href="inferential-stats.html#confidence-interval-for-difference-in-means"><i class="fa fa-check"></i><b>9.6</b> Confidence Interval for Difference in Means</a></li>
@@ -208,7 +183,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2" data-path="correlation.html"><a href="correlation.html#calculating-the-pearson-correlation-in-r"><i class="fa fa-check"></i><b>10.2</b> Calculating the Pearson Correlation in R</a></li>
 <li class="chapter" data-level="10.3" data-path="correlation.html"><a href="correlation.html#cross-products"><i class="fa fa-check"></i><b>10.3</b> Cross-products</a></li>
 <li class="chapter" data-level="10.4" data-path="correlation.html"><a href="correlation.html#conducting-a-pearson-correlation-test"><i class="fa fa-check"></i><b>10.4</b> Conducting a Pearson Correlation Test</a></li>
-<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#assumptions-of-pearsons-correlation"><i class="fa fa-check"></i><b>10.5</b> Assumptions of Pearson’s Correlation</a></li>
+<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#assumptions-of-pearsons-correlation"><i class="fa fa-check"></i><b>10.5</b> Assumptions of Pearson's Correlation</a></li>
 <li class="chapter" data-level="10.6" data-path="correlation.html"><a href="correlation.html#confidence-intervals-for-r"><i class="fa fa-check"></i><b>10.6</b> Confidence Intervals for R</a></li>
 <li class="chapter" data-level="10.7" data-path="correlation.html"><a href="correlation.html#partial-correlations"><i class="fa fa-check"></i><b>10.7</b> Partial Correlations</a></li>
 <li class="chapter" data-level="10.8" data-path="correlation.html"><a href="correlation.html#non-parametric-correlations"><i class="fa fa-check"></i><b>10.8</b> Non-parametric Correlations</a></li>
@@ -218,7 +193,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.1" data-path="regression.html"><a href="regression.html#introduction-to-linear-regression"><i class="fa fa-check"></i><b>11.1</b> Introduction to Linear Regression</a></li>
 <li class="chapter" data-level="11.2" data-path="regression.html"><a href="regression.html#a-and-b"><i class="fa fa-check"></i><b>11.2</b> a and b</a><ul>
 <li class="chapter" data-level="11.2.1" data-path="regression.html"><a href="regression.html#how-to-calculate-a-and-b-in-r"><i class="fa fa-check"></i><b>11.2.1</b> How to calculate a and b in R</a></li>
-<li class="chapter" data-level="11.2.2" data-path="regression.html"><a href="regression.html#how-to-calculate-a-and-b-by-hand"><i class="fa fa-check"></i><b>11.2.2</b> How to calculate a and b ‘by hand’</a></li>
+<li class="chapter" data-level="11.2.2" data-path="regression.html"><a href="regression.html#how-to-calculate-a-and-b-by-hand"><i class="fa fa-check"></i><b>11.2.2</b> How to calculate a and b 'by hand'</a></li>
 </ul></li>
 <li class="chapter" data-level="11.3" data-path="regression.html"><a href="regression.html#residuals"><i class="fa fa-check"></i><b>11.3</b> Residuals</a><ul>
 <li class="chapter" data-level="11.3.1" data-path="regression.html"><a href="regression.html#how-to-calculate-the-residuals"><i class="fa fa-check"></i><b>11.3.1</b> How to calculate the residuals</a></li>
@@ -232,15 +207,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.5" data-path="regression.html"><a href="regression.html#goodness-of-fit-test---f-ratio"><i class="fa fa-check"></i><b>11.5</b> Goodness of Fit Test - F-ratio</a></li>
 <li class="chapter" data-level="11.6" data-path="regression.html"><a href="regression.html#assumptions-of-linear-regression"><i class="fa fa-check"></i><b>11.6</b> Assumptions of Linear Regression</a><ul>
 <li class="chapter" data-level="11.6.1" data-path="regression.html"><a href="regression.html#normality-of-residuals"><i class="fa fa-check"></i><b>11.6.1</b> Normality of Residuals</a></li>
-<li class="chapter" data-level="11.6.2" data-path="regression.html"><a href="regression.html#linearity"><i class="fa fa-check"></i><b>11.6.2</b> 2. Linearity —</a></li>
+<li class="chapter" data-level="11.6.2" data-path="regression.html"><a href="regression.html#linearity----"><i class="fa fa-check"></i><b>11.6.2</b> 2. Linearity ---</a></li>
 <li class="chapter" data-level="11.6.3" data-path="regression.html"><a href="regression.html#homogeneity-of-variance-homoscedasticity"><i class="fa fa-check"></i><b>11.6.3</b> 3. Homogeneity of Variance / Homoscedasticity</a></li>
 <li class="chapter" data-level="11.6.4" data-path="regression.html"><a href="regression.html#no-colinearity"><i class="fa fa-check"></i><b>11.6.4</b> No Colinearity</a></li>
 <li class="chapter" data-level="11.6.5" data-path="regression.html"><a href="regression.html#unusual-datapoints"><i class="fa fa-check"></i><b>11.6.5</b> Unusual Datapoints</a></li>
 </ul></li>
 <li class="chapter" data-level="11.7" data-path="regression.html"><a href="regression.html#examining-individual-predictor-estimates"><i class="fa fa-check"></i><b>11.7</b> Examining individual predictor estimates</a><ul>
-<li class="chapter" data-level="11.7.1" data-path="regression.html"><a href="regression.html#confidence-interval-of-b."><i class="fa fa-check"></i><b>11.7.1</b> 95% confidence interval of ‘b’.</a></li>
+<li class="chapter" data-level="11.7.1" data-path="regression.html"><a href="regression.html#confidence-interval-of-b."><i class="fa fa-check"></i><b>11.7.1</b> 95% confidence interval of 'b'.</a></li>
 <li class="chapter" data-level="11.7.2" data-path="regression.html"><a href="regression.html#standard-error-of-b"><i class="fa fa-check"></i><b>11.7.2</b> Standard Error of b</a></li>
-<li class="chapter" data-level="11.7.3" data-path="regression.html"><a href="regression.html#calculating-95-confidence-interval-of-b-by-hand"><i class="fa fa-check"></i><b>11.7.3</b> Calculating 95% confidence interval of ‘b’ by hand</a></li>
+<li class="chapter" data-level="11.7.3" data-path="regression.html"><a href="regression.html#calculating-95-confidence-interval-of-b-by-hand"><i class="fa fa-check"></i><b>11.7.3</b> Calculating 95% confidence interval of 'b' by hand</a></li>
 <li class="chapter" data-level="11.7.4" data-path="regression.html"><a href="regression.html#signifcance-testing-b"><i class="fa fa-check"></i><b>11.7.4</b> Signifcance Testing b</a></li>
 </ul></li>
 </ul></li>
@@ -273,26 +248,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>select() - selecting columns</p>
 <p>arrange() - sorting a column</p>
 <p>mutate() - adding a new column</p>
-<p>%&gt;% means “and next do this”</p>
-<p>== means “is equal to”</p>
-<p>!= means “is not equal to”</p>
-<div class="line-block"> means “or”</div>
+<p>%&gt;% means &quot;and next do this&quot;</p>
+<p>== means &quot;is equal to&quot;</p>
+<p>!= means &quot;is not equal to&quot;</p>
+<p> means &quot;or&quot;</p>
 <div id="tidyverse" class="section level2">
 <h2><span class="header-section-number">4.1</span> tidyverse</h2>
 <p>The package <code>tidyverse</code> is what we will be using for most of our data carpentry. <code>tidyverse</code> is a larger package which includes several packages useful for dealing with data such as <code>tidyr</code>, <code>dplyr</code>, <code>ggplot2</code>, and more.</p>
 <p>All of these packages work together to manipulate, reshape, and visual data.</p>
 <p>Before using <code>tidyverse</code> you will need to install and load the package.</p>
 <p>You will only need to install a package once, but will have to load a library on every script you plan to use it.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.package</span>(tidyverse) <span class="co">#install</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.package</span>(tidyverse) <span class="co">#install</span></code></pre></div>
 <p>From the <code>tidyverse</code> package <code>rread</code> we can read in our data.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">library</span>(tidyverse) <span class="co">#load</span></a>
-<a class="sourceLine" id="cb2-2" title="2">bw &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/bloodwork.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse) <span class="co">#load</span>
+bw &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/bloodwork.csv&quot;</span>)</code></pre></div>
 <p>bw is the name of our new dataframe, which will include all data from the bloodwork.csv file.</p>
 <p>Before we can work with our data we need to what we have to work with using the functions <code>head()</code> and <code>tail()</code> allows you to see the first and last 6 rows, respectfully.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">head</span>(bw) <span class="co"># first 6 lines </span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(bw) <span class="co"># first 6 lines </span></code></pre></div>
 <pre><code>## # A tibble: 6 x 11
 ##   ids     age sex   state children smoker hrate bpsyst cellcount immuncount
-##   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##   &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;  &lt;int&gt;  &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;
 ## 1 JEC      19 fema~ NJ           1 no        63    101     0.126      0.993
 ## 2 GBH      20 male  NY           1 yes       73    120     0.169      1.18 
 ## 3 EDH      21 fema~ NJ           0 no        65    100     0.281      4.34 
@@ -300,10 +275,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 AJF      24 fema~ NJ           0 no        67    108     0.092      6.45 
 ## 6 FJC      25 fema~ NY           1 yes       80    118     0.014      3.97 
 ## # ... with 1 more variable: immuncount2 &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">tail</span>(bw) <span class="co">#last 6 lines</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(bw) <span class="co">#last 6 lines</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 11
 ##   ids     age sex   state children smoker hrate bpsyst cellcount immuncount
-##   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##   &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;  &lt;int&gt;  &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;
 ## 1 JIB      66 fema~ NY           0 no        62    121     0.097      1.39 
 ## 2 HBB      67 fema~ NJ           1 yes       74    147     0.288      2.27 
 ## 3 HDG      68 fema~ NY           3 yes       65    129     0.11       2.65 
@@ -313,17 +288,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ... with 1 more variable: immuncount2 &lt;dbl&gt;</code></pre>
 <p>should we explain the dataset?? idk</p>
 <p><code>table()</code> summarizes categorical variables.</p>
-<p>table(bw<span class="math inline">\(sex) table(bw\)</span>children)
-table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
+<p>table(bw<span class="math inline">\(sex) table(bw\)</span>children) table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 </div>
 <div id="filter" class="section level2">
 <h2><span class="header-section-number">4.2</span> filter()</h2>
-<p>Use %&gt;% and ‘filter’ to only keep rows where the hrate, heart rate, is over 60. &gt; means greater than.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="st">  </span><span class="kw">filter</span>(hrate <span class="op">&gt;</span><span class="st"> </span><span class="dv">60</span>)</a></code></pre></div>
+<p>Use %&gt;% and 'filter' to only keep rows where the hrate, heart rate, is over 60. &gt; means greater than.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bw %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(hrate &gt;<span class="st"> </span><span class="dv">60</span>)</code></pre></div>
 <pre><code>## # A tibble: 30 x 11
 ##    ids     age sex   state children smoker hrate bpsyst cellcount immuncount
-##    &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##    &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;  &lt;int&gt;  &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;
 ##  1 JEC      19 fema~ NJ           1 no        63    101     0.126      0.993
 ##  2 GBH      20 male  NY           1 yes       73    120     0.169      1.18 
 ##  3 EDH      21 fema~ NJ           0 no        65    100     0.281      4.34 
@@ -335,12 +309,12 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ##  9 BFB      28 fema~ NJ           0 no        68    118     0.197      0.724
 ## 10 IEA      29 fema~ CT           0 yes       74    117     0.429      5.15 
 ## # ... with 20 more rows, and 1 more variable: immuncount2 &lt;dbl&gt;</code></pre>
-<p>Use %&gt;% and ‘filter’ to only keep rows where the sex is equal to female.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="st">  </span><span class="kw">filter</span>(sex <span class="op">==</span><span class="st"> &quot;female&quot;</span>)</a></code></pre></div>
+<p>Use %&gt;% and 'filter' to only keep rows where the sex is equal to female.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bw %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(sex ==<span class="st"> &quot;female&quot;</span>)</code></pre></div>
 <pre><code>## # A tibble: 18 x 11
 ##    ids     age sex   state children smoker hrate bpsyst cellcount immuncount
-##    &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##    &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;  &lt;int&gt;  &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;
 ##  1 JEC      19 fema~ NJ           1 no        63    101     0.126      0.993
 ##  2 EDH      21 fema~ NJ           0 no        65    100     0.281      4.34 
 ##  3 AAA      21 fema~ CT           3 no        66    109     0.244      2.56 
@@ -360,12 +334,12 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ## 17 HDG      68 fema~ NY           3 yes       65    129     0.11       2.65 
 ## 18 ECD      68 fema~ NJ           2 yes       77    129     0.404      2.02 
 ## # ... with 1 more variable: immuncount2 &lt;dbl&gt;</code></pre>
-<p>You can filter to only include, certain rows, such as state as “NJ” or “NY” in the bloodwork dataset.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb11-2" title="2"><span class="st">  </span><span class="kw">filter</span>(state <span class="op">==</span><span class="st"> &quot;NJ&quot;</span>  <span class="op">|</span><span class="st">  </span>state <span class="op">==</span><span class="st"> &quot;NY&quot;</span>)</a></code></pre></div>
+<p>You can filter to only include, certain rows, such as state as &quot;NJ&quot; or &quot;NY&quot; in the bloodwork dataset.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bw %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(state ==<span class="st"> &quot;NJ&quot;</span>  |<span class="st">  </span>state ==<span class="st"> &quot;NY&quot;</span>)</code></pre></div>
 <pre><code>## # A tibble: 18 x 11
 ##    ids     age sex   state children smoker hrate bpsyst cellcount immuncount
-##    &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##    &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;  &lt;int&gt;  &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;
 ##  1 JEC      19 fema~ NJ           1 no        63    101     0.126      0.993
 ##  2 GBH      20 male  NY           1 yes       73    120     0.169      1.18 
 ##  3 EDH      21 fema~ NJ           0 no        65    100     0.281      4.34 
@@ -386,11 +360,11 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ## 18 ECD      68 fema~ NJ           2 yes       77    129     0.404      2.02 
 ## # ... with 1 more variable: immuncount2 &lt;dbl&gt;</code></pre>
 <p>You can filter several variables at one time.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb13-2" title="2"><span class="st">  </span><span class="kw">filter</span>( sex <span class="op">==</span><span class="st"> &quot;female&quot;</span>, hrate <span class="op">&gt;</span><span class="st"> </span><span class="dv">60</span>, children <span class="op">!=</span><span class="st"> &quot;0&quot;</span> )</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bw %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>( sex ==<span class="st"> &quot;female&quot;</span>, hrate &gt;<span class="st"> </span><span class="dv">60</span>, children !=<span class="st"> &quot;0&quot;</span> )</code></pre></div>
 <pre><code>## # A tibble: 8 x 11
 ##   ids     age sex   state children smoker hrate bpsyst cellcount immuncount
-##   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##   &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;  &lt;int&gt;  &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;
 ## 1 JEC      19 fema~ NJ           1 no        63    101     0.126      0.993
 ## 2 AAA      21 fema~ CT           3 no        66    109     0.244      2.56 
 ## 3 FJC      25 fema~ NY           1 yes       80    118     0.014      3.97 
@@ -401,17 +375,17 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ## 8 ECD      68 fema~ NJ           2 yes       77    129     0.404      2.02 
 ## # ... with 1 more variable: immuncount2 &lt;dbl&gt;</code></pre>
 <p>You can create new datasets from filtered data by creating a new object</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">female &lt;-<span class="st"> </span>bw <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb15-2" title="2"><span class="st">  </span><span class="kw">filter</span>( sex <span class="op">==</span><span class="st"> &quot;female&quot;</span>, hrate <span class="op">&gt;</span><span class="st"> </span><span class="dv">60</span>, children <span class="op">!=</span><span class="st"> &quot;0&quot;</span> )</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">female &lt;-<span class="st"> </span>bw %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>( sex ==<span class="st"> &quot;female&quot;</span>, hrate &gt;<span class="st"> </span><span class="dv">60</span>, children !=<span class="st"> &quot;0&quot;</span> )</code></pre></div>
 </div>
 <div id="select" class="section level2">
 <h2><span class="header-section-number">4.3</span> select()</h2>
 <p>Use %&gt;% then <code>select</code> to just select the rows you want.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb16-2" title="2"><span class="st">  </span><span class="kw">select</span>(ids, sex, smoker,hrate,children)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bw %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(ids, sex, smoker,hrate,children)</code></pre></div>
 <pre><code>## # A tibble: 30 x 5
 ##    ids   sex    smoker hrate children
-##    &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+##    &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt;    &lt;int&gt;
 ##  1 JEC   female no        63        1
 ##  2 GBH   male   yes       73        1
 ##  3 EDH   female no        65        0
@@ -424,10 +398,10 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ## 10 IEA   female yes       74        0
 ## # ... with 20 more rows</code></pre>
 <p>Or if you just want to get rid of one column you can just use %&gt;% then <code>select(-var)</code></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>children, <span class="op">-</span>bpsyst)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bw %&gt;%<span class="st"> </span><span class="kw">select</span>(-children, -bpsyst)</code></pre></div>
 <pre><code>## # A tibble: 30 x 9
 ##    ids     age sex    state smoker hrate cellcount immuncount immuncount2
-##    &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;
+##    &lt;chr&gt; &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;
 ##  1 JEC      19 female NJ    no        63     0.126      0.993       0.921
 ##  2 GBH      20 male   NY    yes       73     0.169      1.18        1.19 
 ##  3 EDH      21 female NJ    no        65     0.281      4.34        3.21 
@@ -440,10 +414,10 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ## 10 IEA      29 female CT    yes       74     0.429      5.15        4.97 
 ## # ... with 20 more rows</code></pre>
 <p>You can rename columns as you go</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dt">subject =</span> ids, <span class="dt">gender =</span> sex, smoker,hrate,children)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bw %&gt;%<span class="st"> </span><span class="kw">select</span>(<span class="dt">subject =</span> ids, <span class="dt">gender =</span> sex, smoker,hrate,children)</code></pre></div>
 <pre><code>## # A tibble: 30 x 5
 ##    subject gender smoker hrate children
-##    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+##    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt;    &lt;int&gt;
 ##  1 JEC     female no        63        1
 ##  2 GBH     male   yes       73        1
 ##  3 EDH     female no        65        0
@@ -456,12 +430,12 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ## 10 IEA     female yes       74        0
 ## # ... with 20 more rows</code></pre>
 <p>if you want these selections to be permanent then you need to rewrite selections in new dataframe. See the difference between bw and bw1</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1">bw1 &lt;-<span class="st"> </span>bw <span class="op">%&gt;%</span><span class="st">  </span></a>
-<a class="sourceLine" id="cb22-2" title="2"><span class="st">  </span><span class="kw">select</span>(<span class="dt">subject =</span> ids, <span class="dt">gender =</span> sex, smoker,hrate,children)</a>
-<a class="sourceLine" id="cb22-3" title="3"><span class="kw">head</span>(bw)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bw1 &lt;-<span class="st"> </span>bw %&gt;%<span class="st">  </span>
+<span class="st">  </span><span class="kw">select</span>(<span class="dt">subject =</span> ids, <span class="dt">gender =</span> sex, smoker,hrate,children)
+<span class="kw">head</span>(bw)</code></pre></div>
 <pre><code>## # A tibble: 6 x 11
 ##   ids     age sex   state children smoker hrate bpsyst cellcount immuncount
-##   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##   &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;  &lt;int&gt;  &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;
 ## 1 JEC      19 fema~ NJ           1 no        63    101     0.126      0.993
 ## 2 GBH      20 male  NY           1 yes       73    120     0.169      1.18 
 ## 3 EDH      21 fema~ NJ           0 no        65    100     0.281      4.34 
@@ -469,10 +443,10 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ## 5 AJF      24 fema~ NJ           0 no        67    108     0.092      6.45 
 ## 6 FJC      25 fema~ NY           1 yes       80    118     0.014      3.97 
 ## # ... with 1 more variable: immuncount2 &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">head</span>(bw1)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(bw1)</code></pre></div>
 <pre><code>## # A tibble: 6 x 5
 ##   subject gender smoker hrate children
-##   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+##   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;int&gt;    &lt;int&gt;
 ## 1 JEC     female no        63        1
 ## 2 GBH     male   yes       73        1
 ## 3 EDH     female no        65        0
@@ -481,10 +455,10 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ## 6 FJC     female yes       80        1</code></pre>
 <p>If you just want to use the column number, you can do that too!</p>
 <p>The code below selects for column 1-4, 9, 10, but does not save the information as a new object.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">10</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bw %&gt;%<span class="st"> </span><span class="kw">select</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">10</span>)</code></pre></div>
 <pre><code>## # A tibble: 30 x 6
 ##    ids     age sex    state cellcount immuncount
-##    &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##    &lt;chr&gt; &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt;      &lt;dbl&gt;
 ##  1 JEC      19 female NJ        0.126      0.993
 ##  2 GBH      20 male   NY        0.169      1.18 
 ##  3 EDH      21 female NJ        0.281      4.34 
@@ -496,10 +470,10 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ##  9 BFB      28 female NJ        0.197      0.724
 ## 10 IEA      29 female CT        0.429      5.15 
 ## # ... with 20 more rows</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">10</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bw %&gt;%<span class="st"> </span><span class="kw">select</span>(<span class="dv">1</span>:<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">10</span>)</code></pre></div>
 <pre><code>## # A tibble: 30 x 6
 ##    ids     age sex    state cellcount immuncount
-##    &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##    &lt;chr&gt; &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt;      &lt;dbl&gt;
 ##  1 JEC      19 female NJ        0.126      0.993
 ##  2 GBH      20 male   NY        0.169      1.18 
 ##  3 EDH      21 female NJ        0.281      4.34 
@@ -515,11 +489,11 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 <div id="mutate" class="section level2">
 <h2><span class="header-section-number">4.4</span> mutate()</h2>
 <p>Create new columns using %&gt;% then <code>mutate</code></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb30-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">totalimmune =</span> immuncount <span class="op">+</span><span class="st"> </span>immuncount2)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bw %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">totalimmune =</span> immuncount +<span class="st"> </span>immuncount2)</code></pre></div>
 <pre><code>## # A tibble: 30 x 12
 ##    ids     age sex   state children smoker hrate bpsyst cellcount immuncount
-##    &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##    &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;  &lt;int&gt;  &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;
 ##  1 JEC      19 fema~ NJ           1 no        63    101     0.126      0.993
 ##  2 GBH      20 male  NY           1 yes       73    120     0.169      1.18 
 ##  3 EDH      21 fema~ NJ           0 no        65    100     0.281      4.34 
@@ -533,50 +507,66 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ## # ... with 20 more rows, and 2 more variables: immuncount2 &lt;dbl&gt;,
 ## #   totalimmune &lt;dbl&gt;</code></pre>
 <p>Saving new column in a new data frame. Now, bw2 will have 12 columns, instead of 11.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1">bw2 &lt;-<span class="st"> </span>bw <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb32-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">totalimmune =</span> immuncount <span class="op">+</span><span class="st"> </span>immuncount2)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bw2 &lt;-<span class="st"> </span>bw %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">totalimmune =</span> immuncount +<span class="st"> </span>immuncount2)</code></pre></div>
 <p>You can also create new columns without <code>tidyverse</code></p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1">bw<span class="op">$</span>totalimmune &lt;-<span class="st"> </span>bw<span class="op">$</span>immuncount <span class="op">+</span><span class="st"> </span>bw<span class="op">$</span>immuncount2</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bw$totalimmune &lt;-<span class="st"> </span>bw$immuncount +<span class="st"> </span>bw$immuncount2</code></pre></div>
 <p>Now bw and bw2 are the same.</p>
 </div>
 <div id="arrange" class="section level2">
-<h2><span class="header-section-number">4.5</span> Arrange</h2>
+<h2><span class="header-section-number">4.5</span> arrange()</h2>
 <p>Lets try another example!</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1">pga &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/pga.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pga &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/pga.csv&quot;</span>)</code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
-##   .default = col_double(),
+##   .default = col_integer(),
+##   drivepct = col_double(),
 ##   name = col_character(),
+##   driveavg = col_double(),
+##   girpct = col_double(),
+##   goforgreenpct = col_double(),
+##   sandsavepct = col_double(),
+##   scramblingpct = col_double(),
+##   threeputtpct = col_double(),
+##   oneputtpct = col_double(),
+##   putts.avg = col_double(),
+##   birdiepct = col_double(),
+##   score.avg = col_double(),
+##   birdiebogieratio = col_double(),
+##   par3.birdiepct = col_double(),
+##   par4.birdiepct = col_double(),
+##   par5.birdiepct = col_double(),
+##   moneypct = col_double(),
 ##   country = col_character(),
 ##   label = col_character()
 ## )</code></pre>
 <pre><code>## See spec(...) for full column specifications.</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="kw">head</span>(pga)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(pga)</code></pre></div>
 <pre><code>## # A tibble: 6 x 53
 ##   drivepct fairways.hit possible.fairwa~  year name  driveavg total.distance
-##      &lt;dbl&gt;        &lt;dbl&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;          &lt;dbl&gt;
+##      &lt;dbl&gt;        &lt;int&gt;            &lt;int&gt; &lt;int&gt; &lt;chr&gt;    &lt;dbl&gt;          &lt;int&gt;
 ## 1     77.2         1031             1335  2004 Fred~     272.          52198
 ## 2     77.1          978             1268  2004 Scot~     278           50314
 ## 3     76.2          881             1157  2004 Crai~     271.          44959
 ## 4     75.1          886             1180  2004 Joe ~     287.          48829
 ## 5     74.7          861             1153  2004 Tom ~     273.          45246
 ## 6     74.3          664              894  2004 Jose~     279.          35479
-## # ... with 46 more variables: total.drives &lt;dbl&gt;, rounds &lt;dbl&gt;, girpct &lt;dbl&gt;,
-## #   greens.hit &lt;dbl&gt;, total.holes &lt;dbl&gt;, goforgreenpct &lt;dbl&gt;,
-## #   goforgreen.attempts &lt;dbl&gt;, goforgreen.noattempts &lt;dbl&gt;, sandsavepct &lt;dbl&gt;,
-## #   total.sandsaves &lt;dbl&gt;, total.bunkers &lt;dbl&gt;, scramblingpct &lt;dbl&gt;,
-## #   parorbetter &lt;dbl&gt;, missedgir &lt;dbl&gt;, threeputtpct &lt;dbl&gt;,
-## #   threeputt.total &lt;dbl&gt;, oneputtpct &lt;dbl&gt;, oneputt.total &lt;dbl&gt;,
-## #   putts.avg &lt;dbl&gt;, total.putts &lt;dbl&gt;, rounds1 &lt;dbl&gt;, birdiepct &lt;dbl&gt;,
-## #   total.birdies &lt;dbl&gt;, score.avg &lt;dbl&gt;, strokes &lt;dbl&gt;,
-## #   birdiebogieratio &lt;dbl&gt;, total.birdies.better &lt;dbl&gt;,
-## #   total.bogeys.worse &lt;dbl&gt;, par3.birdiepct &lt;dbl&gt;, par3.birdies.better &lt;dbl&gt;,
-## #   par3.holes &lt;dbl&gt;, par4.birdiepct &lt;dbl&gt;, par4.birdies.better &lt;dbl&gt;,
-## #   par4.holes &lt;dbl&gt;, par5.birdiepct &lt;dbl&gt;, par5.birdies.better &lt;dbl&gt;,
-## #   par5.holes &lt;dbl&gt;, total.events &lt;dbl&gt;, top10s &lt;dbl&gt;, firsts &lt;dbl&gt;,
-## #   seconds &lt;dbl&gt;, thirds &lt;dbl&gt;, moneypct &lt;dbl&gt;, totalmoney &lt;dbl&gt;,
+## # ... with 46 more variables: total.drives &lt;int&gt;, rounds &lt;int&gt;, girpct &lt;dbl&gt;,
+## #   greens.hit &lt;int&gt;, total.holes &lt;int&gt;, goforgreenpct &lt;dbl&gt;,
+## #   goforgreen.attempts &lt;int&gt;, goforgreen.noattempts &lt;int&gt;, sandsavepct &lt;dbl&gt;,
+## #   total.sandsaves &lt;int&gt;, total.bunkers &lt;int&gt;, scramblingpct &lt;dbl&gt;,
+## #   parorbetter &lt;int&gt;, missedgir &lt;int&gt;, threeputtpct &lt;dbl&gt;,
+## #   threeputt.total &lt;int&gt;, oneputtpct &lt;dbl&gt;, oneputt.total &lt;int&gt;,
+## #   putts.avg &lt;dbl&gt;, total.putts &lt;int&gt;, rounds1 &lt;int&gt;, birdiepct &lt;dbl&gt;,
+## #   total.birdies &lt;int&gt;, score.avg &lt;dbl&gt;, strokes &lt;int&gt;,
+## #   birdiebogieratio &lt;dbl&gt;, total.birdies.better &lt;int&gt;,
+## #   total.bogeys.worse &lt;int&gt;, par3.birdiepct &lt;dbl&gt;, par3.birdies.better &lt;int&gt;,
+## #   par3.holes &lt;int&gt;, par4.birdiepct &lt;dbl&gt;, par4.birdies.better &lt;int&gt;,
+## #   par4.holes &lt;int&gt;, par5.birdiepct &lt;dbl&gt;, par5.birdies.better &lt;int&gt;,
+## #   par5.holes &lt;int&gt;, total.events &lt;int&gt;, top10s &lt;int&gt;, firsts &lt;int&gt;,
+## #   seconds &lt;int&gt;, thirds &lt;int&gt;, moneypct &lt;dbl&gt;, totalmoney &lt;int&gt;,
 ## #   country &lt;chr&gt;, label &lt;chr&gt;</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1"><span class="kw">colnames</span>(pga)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(pga)</code></pre></div>
 <pre><code>##  [1] &quot;drivepct&quot;              &quot;fairways.hit&quot;          &quot;possible.fairways&quot;    
 ##  [4] &quot;year&quot;                  &quot;name&quot;                  &quot;driveavg&quot;             
 ##  [7] &quot;total.distance&quot;        &quot;total.drives&quot;          &quot;rounds&quot;               
@@ -595,15 +585,15 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ## [46] &quot;top10s&quot;                &quot;firsts&quot;                &quot;seconds&quot;              
 ## [49] &quot;thirds&quot;                &quot;moneypct&quot;              &quot;totalmoney&quot;           
 ## [52] &quot;country&quot;               &quot;label&quot;</code></pre>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1"><span class="kw">table</span>(pga<span class="op">$</span>year)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(pga$year)</code></pre></div>
 <pre><code>## 
 ## 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 
 ##  195  201  195  195  195  183  191  185  190  179  176  184</code></pre>
-<p>let’s pick out name, year, total.holes, total.putts, score.avg columns and save as pga1.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" title="1">pga <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(name, year, total.holes, total.putts, score.avg) </a></code></pre></div>
+<p>let's pick out name, year, total.holes, total.putts, score.avg columns and save as pga1.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pga %&gt;%<span class="st"> </span><span class="kw">select</span>(name, year, total.holes, total.putts, score.avg) </code></pre></div>
 <pre><code>## # A tibble: 2,269 x 5
 ##    name            year total.holes total.putts score.avg
-##    &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;
+##    &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;       &lt;int&gt;     &lt;dbl&gt;
 ##  1 Fred Funk       2004        1728        2774      70.4
 ##  2 Scott Verplank  2004        1638        2619      69.9
 ##  3 Craig Bowden    2004        1494        2401      71.5
@@ -615,13 +605,13 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ##  9 John Cook       2004         954        1550      71.7
 ## 10 Omar Uresti     2004        1530        2470      71.7
 ## # ... with 2,259 more rows</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" title="1">pga1 &lt;-<span class="st"> </span>pga <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(name, year, total.holes, total.putts, score.avg)  </a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pga1 &lt;-<span class="st"> </span>pga %&gt;%<span class="st"> </span><span class="kw">select</span>(name, year, total.holes, total.putts, score.avg)  </code></pre></div>
 <p>Here we can sort a column using arrange(). There are many ways you can arrange your data.</p>
 <p>sorts data in ascending order</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1">pga1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(score.avg)  </a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pga1 %&gt;%<span class="st"> </span><span class="kw">arrange</span>(score.avg)  </code></pre></div>
 <pre><code>## # A tibble: 2,269 x 5
 ##    name            year total.holes total.putts score.avg
-##    &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;
+##    &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;       &lt;int&gt;     &lt;dbl&gt;
 ##  1 Tiger Woods     2007        1080        1736      67.8
 ##  2 Tiger Woods     2009        1116        1763      68.1
 ##  3 Tiger Woods     2006         936        1528      68.1
@@ -634,10 +624,10 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ## 10 Steve Stricker  2013         846        1348      68.9
 ## # ... with 2,259 more rows</code></pre>
 <p>sorts data in descending order</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1">pga1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="op">-</span>score.avg)  </a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pga1 %&gt;%<span class="st"> </span><span class="kw">arrange</span>(-score.avg)  </code></pre></div>
 <pre><code>## # A tibble: 2,269 x 5
 ##    name              year total.holes total.putts score.avg
-##    &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;
+##    &lt;chr&gt;            &lt;int&gt;       &lt;int&gt;       &lt;int&gt;     &lt;dbl&gt;
 ##  1 David Gossett     2004        1026        1693      75.0
 ##  2 Kevin Muncrief    2004         900        1490      73.5
 ##  3 Chris Couch       2004         990        1635      73.5
@@ -650,10 +640,10 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ## 10 Stephen Gangluff  2012         918        1507      73.0
 ## # ... with 2,259 more rows</code></pre>
 <p>sorts data in ascending alphabetical order</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1">pga1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(name) </a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pga1 %&gt;%<span class="st"> </span><span class="kw">arrange</span>(name) </code></pre></div>
 <pre><code>## # A tibble: 2,269 x 5
 ##    name            year total.holes total.putts score.avg
-##    &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;
+##    &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;       &lt;int&gt;     &lt;dbl&gt;
 ##  1 Aaron Baddeley  2004        1530        2411      71.6
 ##  2 Aaron Baddeley  2005        1476        2303      71.3
 ##  3 Aaron Baddeley  2006        1368        2125      71.2
@@ -666,10 +656,10 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ## 10 Aaron Baddeley  2013        1188        1835      71.5
 ## # ... with 2,259 more rows</code></pre>
 <p>sorts data first by year, then by score</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" title="1">pga1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(year, score.avg)  </a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pga1 %&gt;%<span class="st"> </span><span class="kw">arrange</span>(year, score.avg)  </code></pre></div>
 <pre><code>## # A tibble: 2,269 x 5
 ##    name            year total.holes total.putts score.avg
-##    &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;
+##    &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;       &lt;int&gt;     &lt;dbl&gt;
 ##  1 Vijay Singh     2004        1980        3216      68.8
 ##  2 Ernie Els       2004        1044        1653      69.0
 ##  3 Tiger Woods     2004        1296        2048      69.0
@@ -682,13 +672,13 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ## 10 David Toms      2004        1332        2174      70.0
 ## # ... with 2,259 more rows</code></pre>
 <p>You can use the pipe, <code>%&gt;%</code>, in <code>tidyverse</code> to run multiple commands at once.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1">pga <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb54-2" title="2"><span class="st">  </span><span class="kw">select</span>(name, year, total.holes, total.putts, score.avg)  <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb54-3" title="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">putt.avg =</span> total.putts <span class="op">/</span><span class="st"> </span>total.holes) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb54-4" title="4"><span class="st">  </span><span class="kw">arrange</span>(putt.avg)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pga %&gt;%
+<span class="st">  </span><span class="kw">select</span>(name, year, total.holes, total.putts, score.avg)  %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">putt.avg =</span> total.putts /<span class="st"> </span>total.holes) %&gt;%
+<span class="st">  </span><span class="kw">arrange</span>(putt.avg)</code></pre></div>
 <pre><code>## # A tibble: 2,269 x 6
 ##    name            year total.holes total.putts score.avg putt.avg
-##    &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+##    &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;       &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt;
 ##  1 Brian Gay       2013        1422        2173      71.2     1.53
 ##  2 Kevin Na        2011        1512        2331      70.4     1.54
 ##  3 Greg Chalmers   2011        1548        2388      70.6     1.54
@@ -706,7 +696,7 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 <p>Sometimes you will need to rearrange your data for some data analysis and more commonly for data visualization.</p>
 <p><code>tidyverse</code> has built in functions that can turn your dataframe from long format to wide format and vice versa.</p>
 <p><code>pivot_longer</code> makes the dataframes longer by increasing the number of rows by combing the number of columns. This is called long form data, which is needed to tidy data for graphing and some analysis.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1">wheel &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/wheels1.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wheel &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/wheels1.csv&quot;</span>)</code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   strain = col_character(),
@@ -718,35 +708,35 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ##   dob = col_character(),
 ##   mother = col_character(),
 ##   sex = col_character(),
-##   wheel = col_double(),
+##   wheel = col_integer(),
 ##   startdate = col_character(),
 ##   total = col_double(),
-##   age = col_double(),
+##   age = col_integer(),
 ##   group = col_character()
 ## )</code></pre>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1"><span class="kw">head</span>(wheel)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(wheel)</code></pre></div>
 <pre><code>## # A tibble: 6 x 14
 ##   strain id      day1  day2   day3   day4 dob   mother sex   wheel startdate
-##   &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;    
+##   &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;chr&gt;    
 ## 1 B6     692ao 12853  8156.  9028. 12516. 4/18~ 633ax  male      9 10/9/2005
 ## 2 B6     656aa  2644  4012.  5237   7404. 12/1~ 593ar  male      1 9/12/2005
 ## 3 B6     675ag  4004. 3054.  3816.  3761  2/9/~ 593ad  male      5 10/13/20~
 ## 4 B6     675ai 11754. 8863  11784  11684  2/9/~ 593ad  male      4 10/13/20~
 ## 5 B6     656af  6906. 5322. 10424.  8468. 12/1~ 593ar  male      2 10/13/20~
 ## 6 B6     656al  6517  4440   5334.  9291  12/1~ 554aa  male      8 10/9/2005
-## # ... with 3 more variables: total &lt;dbl&gt;, age &lt;dbl&gt;, group &lt;chr&gt;</code></pre>
+## # ... with 3 more variables: total &lt;dbl&gt;, age &lt;int&gt;, group &lt;chr&gt;</code></pre>
 <p>Here we can make the wheel data into long form, by combining day1, day2, day3, and day4 into 2 columns one called day and another called distance.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1">wheel_long &lt;-wheel <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb60-2" title="2"><span class="st">  </span><span class="kw">pivot_longer</span>(</a>
-<a class="sourceLine" id="cb60-3" title="3">  <span class="dt">cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;day&quot;</span>),</a>
-<a class="sourceLine" id="cb60-4" title="4">  <span class="dt">names_to =</span> <span class="st">&quot;day&quot;</span>,</a>
-<a class="sourceLine" id="cb60-5" title="5">  <span class="dt">values_to =</span> <span class="st">&quot;distance&quot;</span></a>
-<a class="sourceLine" id="cb60-6" title="6">)</a>
-<a class="sourceLine" id="cb60-7" title="7"></a>
-<a class="sourceLine" id="cb60-8" title="8"><span class="kw">head</span>(wheel_long)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wheel_long &lt;-wheel %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">pivot_longer</span>(
+  <span class="dt">cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;day&quot;</span>),
+  <span class="dt">names_to =</span> <span class="st">&quot;day&quot;</span>,
+  <span class="dt">values_to =</span> <span class="st">&quot;distance&quot;</span>
+)
+
+<span class="kw">head</span>(wheel_long)</code></pre></div>
 <pre><code>## # A tibble: 6 x 12
 ##   strain id    dob   mother sex   wheel startdate  total   age group day  
-##   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
+##   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
 ## 1 B6     692ao 4/18~ 633ax  male      9 10/9/2005 42552.   174 inbr~ day1 
 ## 2 B6     692ao 4/18~ 633ax  male      9 10/9/2005 42552.   174 inbr~ day2 
 ## 3 B6     692ao 4/18~ 633ax  male      9 10/9/2005 42552.   174 inbr~ day3 
@@ -756,14 +746,14 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ## # ... with 1 more variable: distance &lt;dbl&gt;</code></pre>
 <p>Other ways to do this.</p>
 <p><code>pivot_wider()</code> makes the dataframes longer by decreasing the number of rows by separating the number of columns. This is called wide form data, which id usefull for summarying data in tables and using some functions in R.</p>
-<p>Now let’s make the dataframe wide again.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" title="1">wheel_long <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pivot_wider</span>(</a>
-<a class="sourceLine" id="cb62-2" title="2">  <span class="dt">names_from =</span> day,</a>
-<a class="sourceLine" id="cb62-3" title="3">  <span class="dt">values_from =</span> distance</a>
-<a class="sourceLine" id="cb62-4" title="4">)</a></code></pre></div>
+<p>Now let's make the dataframe wide again.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wheel_long %&gt;%<span class="st"> </span><span class="kw">pivot_wider</span>(
+  <span class="dt">names_from =</span> day,
+  <span class="dt">values_from =</span> distance
+)</code></pre></div>
 <pre><code>## # A tibble: 80 x 14
 ##    strain id    dob   mother sex   wheel startdate  total   age group   day1
-##    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
+##    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt;
 ##  1 B6     692ao 4/18~ 633ax  male      9 10/9/2005 42552.   174 inbr~ 12853 
 ##  2 B6     656aa 12/1~ 593ar  male      1 9/12/2005 19297    270 inbr~  2644 
 ##  3 B6     675ag 2/9/~ 593ad  male      5 10/13/20~ 14634.   246 inbr~  4004.
@@ -781,9 +771,9 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 <h2><span class="header-section-number">4.7</span> Joins</h2>
 <p>When working with sometimes you need to join two different data sets, based on one or more variables.</p>
 <p>Lets make up some data</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1">x &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;id&quot;</span> =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="st">&quot;age&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">21</span>,<span class="dv">25</span>,<span class="dv">17</span>,<span class="dv">34</span>,<span class="dv">25</span>,<span class="dv">33</span>,<span class="dv">22</span>,<span class="dv">27</span>,<span class="dv">29</span>,<span class="dv">24</span>))</a>
-<a class="sourceLine" id="cb64-2" title="2"></a>
-<a class="sourceLine" id="cb64-3" title="3"><span class="kw">head</span>(x)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;id&quot;</span> =<span class="st"> </span><span class="dv">1</span>:<span class="dv">10</span>, <span class="st">&quot;age&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">21</span>,<span class="dv">25</span>,<span class="dv">17</span>,<span class="dv">34</span>,<span class="dv">25</span>,<span class="dv">33</span>,<span class="dv">22</span>,<span class="dv">27</span>,<span class="dv">29</span>,<span class="dv">24</span>))
+
+<span class="kw">head</span>(x)</code></pre></div>
 <pre><code>##   id age
 ## 1  1  21
 ## 2  2  25
@@ -791,9 +781,9 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ## 4  4  34
 ## 5  5  25
 ## 6  6  33</code></pre>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" title="1">y &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;id&quot;</span> =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="st">&quot;height_cm&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">156</span>, <span class="dv">155</span>, <span class="dv">154</span>, <span class="dv">149</span>, <span class="dv">153</span>, <span class="dv">152</span>, <span class="dv">151</span>, <span class="dv">150</span>, <span class="dv">147</span>, <span class="dv">155</span>), <span class="st">&quot;activity_hr&quot;</span>=<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">5</span>), <span class="st">&quot;work_hr&quot;</span> =<span class="kw">c</span>(<span class="dv">40</span>,<span class="dv">35</span>,<span class="dv">38</span>,<span class="dv">46</span>,<span class="dv">50</span>,<span class="dv">42</span>,<span class="dv">40</span>,<span class="dv">46</span>,<span class="dv">41</span>,<span class="dv">40</span>))</a>
-<a class="sourceLine" id="cb66-2" title="2"></a>
-<a class="sourceLine" id="cb66-3" title="3"><span class="kw">head</span>(y)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;id&quot;</span> =<span class="st"> </span><span class="dv">1</span>:<span class="dv">10</span>, <span class="st">&quot;height_cm&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">156</span>, <span class="dv">155</span>, <span class="dv">154</span>, <span class="dv">149</span>, <span class="dv">153</span>, <span class="dv">152</span>, <span class="dv">151</span>, <span class="dv">150</span>, <span class="dv">147</span>, <span class="dv">155</span>), <span class="st">&quot;activity_hr&quot;</span>=<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">5</span>), <span class="st">&quot;work_hr&quot;</span> =<span class="kw">c</span>(<span class="dv">40</span>,<span class="dv">35</span>,<span class="dv">38</span>,<span class="dv">46</span>,<span class="dv">50</span>,<span class="dv">42</span>,<span class="dv">40</span>,<span class="dv">46</span>,<span class="dv">41</span>,<span class="dv">40</span>))
+
+<span class="kw">head</span>(y)</code></pre></div>
 <pre><code>##   id height_cm activity_hr work_hr
 ## 1  1       156           3      40
 ## 2  2       155           5      35
@@ -802,8 +792,8 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ## 5  5       153           7      50
 ## 6  6       152           4      42</code></pre>
 <p><code>full_join()</code> joins 2 different dataframes based on one or more shared variable(s). The following will join based on id.</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1">x <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb68-2" title="2"><span class="st">  </span><span class="kw">full_join</span>(y)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">full_join</span>(y)</code></pre></div>
 <pre><code>## Joining, by = &quot;id&quot;</code></pre>
 <pre><code>##    id age height_cm activity_hr work_hr
 ## 1   1  21       156           3      40
@@ -817,10 +807,10 @@ table(bw<span class="math inline">\(sex, bw\)</span>children)</p>
 ## 9   9  29       147           4      41
 ## 10 10  24       155           5      40</code></pre>
 <p>Save as a new data frame to use again:</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" title="1">new &lt;-<span class="st"> </span>x <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb71-2" title="2"><span class="st">  </span><span class="kw">full_join</span>(y)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new &lt;-<span class="st"> </span>x %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">full_join</span>(y)</code></pre></div>
 <pre><code>## Joining, by = &quot;id&quot;</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" title="1"><span class="kw">head</span>(new)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(new)</code></pre></div>
 <pre><code>##   id age height_cm activity_hr work_hr
 ## 1  1  21       156           3      40
 ## 2  2  25       155           5      35
@@ -892,7 +882,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
