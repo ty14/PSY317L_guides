@@ -70,9 +70,15 @@ pictures?
 
 ## The Command Prompt
 
+ways to run code
+
+
+
+
 
 
 ## What is an RScript File?
+console vs script.
 
 
 
