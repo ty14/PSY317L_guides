@@ -291,3 +291,8 @@ new <- x %>%
   full_join(y)
 head(new)
 ```
+
+
+`left_join`
+
+`right_join`
