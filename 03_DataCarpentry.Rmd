@@ -167,7 +167,7 @@ bw$totalimmune <- bw$immuncount + bw$immuncount2
 ```
 Now bw and bw2 are the same. 
 
-## Arrange
+## arrange()
 
 Lets try another example!
 
@@ -224,11 +224,70 @@ pga %>%
 
 ## Wide vs Long Data
 
+Sometimes you will need to rearrange your data for some data analysis and more commonly for data visualization. 
 
-`pivot_wide()`  `pivot_long()`
+`tidyverse` has built in functions that can turn your dataframe from long format to wide format and vice versa. 
 
 
+`pivot_longer` makes the dataframes longer by increasing the number of rows by combing the number of columns. This is called long form data, which is needed to tidy data for graphing and some analysis.
+
+```{r}
+wheel <- read_csv("data/wheels1.csv")
+
+head(wheel)
+```
+Here we can make the wheel data into long form, by combining day1, day2, day3, and day4 into 2 columns one called day and another called distance. 
+
+```{r}
+wheel_long <-wheel %>% 
+  pivot_longer(
+  cols = starts_with("day"),
+  names_to = "day",
+  values_to = "distance"
+)
+
+head(wheel_long)
+```
+
+Other ways to do this. 
+
+
+`pivot_wider()` makes the dataframes longer by decreasing the number of rows by separating the number of columns. This is called wide form data, which id usefull for summarying data in tables and using some functions in R. 
+
+Now let's make the dataframe wide again. 
+```{r}
+wheel_long %>% pivot_wider(
+  names_from = day,
+  values_from = distance
+)
+````
 
 ## Joins
 
-really important....  maybe one day we'll write about this
+When working with sometimes you need to join two different data sets, based on one  or more variables. 
+
+Lets make up some data
+
+```{r}
+
+x <- data.frame("id" = 1:10, "age" = c(21,25,17,34,25,33,22,27,29,24))
+
+head(x)
+
+y <- data.frame("id" = 1:10, "height_cm" = c(156, 155, 154, 149, 153, 152, 151, 150, 147, 155), "activity_hr"= c(3,5,3,6,7,4,2,8,4,5), "work_hr" =c(40,35,38,46,50,42,40,46,41,40))
+
+head(y)
+
+```
+`full_join()` joins 2 different dataframes based on one or more shared variable(s). The following will join based on id. 
+```{r}
+x %>% 
+  full_join(y)
+```
+
+Save as a new data frame to use again:
+```{r}
+new <- x %>% 
+  full_join(y)
+head(new)
+```
