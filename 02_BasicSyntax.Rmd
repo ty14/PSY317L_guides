@@ -233,26 +233,116 @@ sum(v1)
 and it added 5+6+7+8+9+10 to give one answer!
 
 
+## Some things that are useful to know.
+
+**whitespace**
+
+R doesn't, on the whole, care that much about whitespace - this is space that is between code. It just ignores it.  For instance, all of the following give the same result (what's happening here is that `a` and `b` are `vectors` that each have three `elements`. Telling `a+b` will make it add the first element of `a` to the first element of `b` and then the 2nd element of `a` to the 2nd element of `b` and so on:
+
+```{r}
+a <- c(1,2,3)
+b <- c(4,5,6)
+a + b
+```
 
 
-Navarro book is excellent guide for this.
+
+```{r}
+a<- c(   1,            2,     3)
+b <- c(4,5,6           )
+a +              b
+```
 
 
-whitespace flexible
+```{r}
+a <- c(1    ,2,   3)
+b <-    c(    4,5  ,6)
+            a +    b
+```
+
+
+Hopefully, you get the point.
+
+
+
+
+**Don't typo!**
+
+R can only understand what you tell it. Typos can be bad. In fact, the most common error people make is to misspell or to use the wrong case when typing.  Here are some examples of code that won't work because we typed something wrong:
+
+```{r}
+a <- c(5, 7, 8)
+```
+
+
+
+
+**Other common errors**
+
+
+*Close your brackets*
+
+Missing commas or brackets might be the most common errors! You will get an error message though, and it usually will tell you what you did wrong.  Also, when you start to type `(` RStudio will automatically autocomplete to write `()` which helps you to not forget to close your bracket.  
+
+```{r, error=TRUE}
+a <- c(4, 4, 2, 7
+```
+
+
+When you forget to close your brackets, but you run your code anyway, you'll notice that in your console you get a flashing bar and the cursor still has a plus sign like this :
+
+![](img/plus.png)
+
+
+
+This is telling you that it's waiting for something else to finish the code. It expected you to close your brackets!  If you do this and you want to reset to get back to the `>` cursor sign (which means it's ready for action), then just click next to the plus on the flashing `|` and hit `Esc` key.  This should reset it to the `>` cursor, and look like this:
+
+![](img/plusok.png)
+
+
+*Don't forget commas*
+
+
+Commas need to be watched out for too.  They are usually used to split separate items up, such as numbers in a vector or arguments in a function (see section xxx.xxx).  Missing them out can cause issues! For instance, here we are trying to make the vector `b` have the numbers 3, 6, 9 & 10.  But the way we write it, R might think we mean 3, 6 & 910 because we forgot the comma. Remember, R often ignores spaces. Fortunately, R catches it because it 'knows' numbers need to be paid attention to - and suggests that you've missed out a comma. Well, technically it tells you `Error: unexpected numeric constant in ....` which doesn't help much - but it's because we forgot the comma.
+
+```{r, error=TRUE}
+b <- c(3, 6, 9 10)
+
+```
+
+
+RStudio can help you as you write code. During most of this course, you will be following code already written by us. However, in the `try for yourself` examples, you'll have to fill in blanks.  Whenever there is an issue with code and it won't run, RStudio flags this for you as soon as it realizes. It will give you a big red circle with an X inside of it.  These appear in your script. You can see an example below for our problems with missing brackets and commas.
+
+
+![](img/x.png)
+
+
+
+
+*Check your quote marks*
+
+
+
+
+*Typos are bad!*
+
 
 typos not good 
 
-rows not finished + 
-what to do 
 
 
-ways to run code
 
 
-console vs script.
+## Error Messages
+
+We'll be honest here and say that often times when you get an error message, they aren't massively helpful. Or, at least this was the case until recently.  There still are many error messages that don't really help you too much in learning what you did wrong, but if you make errors when using the `tidyverse` (see section xxx.xxx) such as when making visualization - these error messages are much more helpful now than they once were.
+
+Making errors when coding is part of the learning curve though. It's like learning to play the piano. There is almost no way you can do it just by watching somebody else. You have to practice and be ok with making small mistakes. At first they catch you out, but over time you'll realize when you're about to mess up and you'll avoid it. Or, you'll mess up and be faster at working out how to get past it.
+
+If people are stuck on particular error messages during this course - please do let us know. We'll try and collate an FAQ of error messages that we can provide answers to - that will hopefully make the learning process a lot less painful.
 
 
-errors
+
 
 
 simple math
