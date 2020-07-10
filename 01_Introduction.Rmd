@@ -62,5 +62,59 @@ more stuff.
 
 
 
+## The RStudio Environment 
+
+pictures?
+
+
+
+## The Command Prompt
+
+
+
+## What is an RScript File?
+
+
+
+## What do the buttons do?
+
+e.g. the brush icons you can use to clear your environment or your plot window.
+
+
+## The Plots tab
+
+
+## What are Packages
+
+include the code they should run at the beginning of this course to have all packages installed.
+
+
+## Saving Scripts etc.
+
+
+## Project Folders and Working Directories
+
+how projects and folders are managed.
+
+
+
+
+
+## Where to Get Help for R stuff
+help guides.... how can you use them.?
+?
+stackoverflow
+rstudio cheatsheets
+navarro textbook
+wilke textbook
+our guidebook
+
+
+
+
+## Quitting R 
+
+how to quit from R successful,  you don't have to hit that save object thing all the time....
+
 
 

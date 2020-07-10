@@ -6,6 +6,14 @@ We kind of need to know at least a tiny bit of syntax before we move forward...
 keep it very simple.
 
 
+The Navarro book chapter 3 is excellent for learning syntax.
+
+
+
+
+
+
+
 ## boring mathematical stuff
 
 R is, first and foremost, a statistical programming language. So, unsurprisingly, you can do a bunch of mathematical operations fairly easily. Let's do some really tedious math:
@@ -223,5 +231,180 @@ sum(v1)
 ```
 
 and it added 5+6+7+8+9+10 to give one answer!
+
+
+
+
+Navarro book is excellent guide for this.
+
+
+whitespace flexible
+
+typos not good 
+
+rows not finished + 
+what to do 
+
+
+ways to run code
+
+
+console vs script.
+
+
+errors
+
+
+simple math
+
+doing things in the right order.
+
+
+assignment
+
+obj*obj
+
+
+objects - what you can and can't name them
+
+characters._09  no spaces. no other punctuation
+dont start with _ or 09.
+
+there are some special words to not use.
+if, else, repeat, while, function, for, in, next, break, TRUE, FALSE, NULL, Inf, NaN, NA, NA_integer_, NA_real_, NA_complex_, and finally, NA_character_.
+
+i'd recommend not calling things 'c' or 't' also.
+
+dont make them too long, make them easy to remember.
+
+
+
+
+
+
+logic statements
+
+"is equals to"
+"is not equal to"
+
+2+2 == 4
+2+2 == 5
+<
+<=
+>
+>=
+
+
+
+
+
+
+Functions:
+parameters/arguments...
+
+name()
+
+e.g. sqrt()
+abs()
+round(3.555,1)
+default arguments...
+
+round( x = 3.1415, digits = 2 )
+
+dont put them the wrong way round:
+round( 2, 3.14165 )
+
+
+somethings that can help with rstudio:
+
+autocomplete....
+shows function name as well as arguments
+
+
+
+
+
+
+
+
+
+
+vectors....  what they are
+
+functions can be applied to the whole vector
+or you can do it to each element of the vector
+
+vector output is over the whole console
+
+vector indexing
+
+you could change individual values in vectors
+
+length
+
+
+vectors dont have to be numbers, can be text e.g.
+
+months <- c("January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", 
+            "December")
+
+length still works
+
+obvs cant do math....
+can do other things...
+
+nchar()
+
+substr(1,3)
+
+
+# can also have vector of logicals
+
+x <- c(TRUE, TRUE, FALSE, FALSE, TRUE)
+
+sum(x)  actually works
+
+e.g. 
+
+v <- c(5, 7, 11, 3, 6, 10)
+
+v>=7
+sum(v>=7)
+
+
+# more on indexing vectors
+
+v[c(3,4,5,11)]
+
+v[c(3:8)]
+
+v[v>5]
+
+months[v>5]  # if v had 12 numbers in it.
+
+
+# give vectors names
+
+names(v) <- months
+
+
+
+
+stock.levels<-c("high", "high", "low", "out", "out", "high",
+                "high", "high", "high", "high", "high", "high")
+
+stock.levels
+
+months[stock.levels == "out"]
+months[stock.levels != "out"]
+
+months[stock.levels == "out" | stock.levels == "low"]
+
+months[stock.levels %in% ...]
+
+
+
+
 
 
