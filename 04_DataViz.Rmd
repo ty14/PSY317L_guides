@@ -53,16 +53,49 @@ ggplot(df, aes(x=Mass, y=Head, color = KnownSex) ) + geom_point()
 Basically, you can just keep adding to the initial plot to make your graph the best visualization to fit your data. 
 
 
-Another Example!
-``` {r}
-covid <- read_csv("data/countycovid.csv")
+There are many different graphs you can make with `ggplot`. What graph you make will depend on what type of data you have and what you want to visual from your data. 
 
-head(covid)
-tail(covid)
-```
+The next couple sections will take the base of ggplot and show you examples with different types of points. They will start general then show you how to customize plots. 
 
-## Histogram 
+General information about customizing plots in ggplot:
+ 1. change the type of points you plot with `geom_point(pch = blah)`:
+ 
+ 
+![Different Types of Points](img/points.png)
 
+Also, you can change the color and size of points by `geom_point(size = 3, color = "blue"). 
+
+
+2. Built in themes: 
+
+theme_bw() 
+a variation on theme_grey() that uses a white background and thin grey grid lines.
+
+theme_linedraw() 
+A theme with only black lines of various widths on white backgrounds, reminiscent of a line drawing.
+
+theme_light()
+similar to theme_linedraw() but with light grey lines and axes, to direct more attention towards the data.
+
+theme_dark()
+the dark cousin of theme_light(), with similar line sizes but a dark background. Useful to make thin colored lines pop out.
+
+theme_minimal()
+A minimalistic theme with no background annotations.
+
+theme_classic()
+A classic-looking theme, with x and y axis lines and no gridlines.
+
+theme_void()
+A completely empty theme
+
+
+REFERENCE: your slides elol and https://ggplot2-book.org/
+
+
+## Histogram
+
+## Line 
 
 ## Scatter
 
