@@ -414,3 +414,212 @@ ggplot(jenlinda, aes(x=year, y=n, color=name)) +
   ylab("Number of Children Born") +
   ggtitle("Popularity of Names Jennifer & Linda in USA")
 ```
+
+
+## Boxplot 
+
+Boxplot can also be used when looking at the distribution of data. These plots can show the median value and quartiles ranges of the data. 
+
+
+Import and look at data
+```[r]
+wheels <- read_csv("data/wheels1.csv")
+head(wheels)
+tail(wheels)
+```
+
+You can get more information about the data and general summaries by using the following code
+
+```{r}
+table(wheels$strain)
+
+summary(wheels)
+```
+
+
+Plotting the data with `geom_boxplot()` 
+```{r}
+ggplot(wheels, aes(x = strain, y = total)) + 
+  geom_boxplot()  
+```
+
+
+The warning message is ok - it's saying some rows don't have data. However, notice the outlier. 
+
+
+
+You can overlay the points on the boxplot, which can help you visualize the spread of the dta. 
+
+```{r}
+ggplot(wheels, aes(x = strain, y = total)) + 
+  geom_boxplot() + 
+  geom_point()
+```
+
+
+You can customizing colors by chaning the fill and color of boxplots
+```{r}
+ggplot(wheels, aes(x = strain, y = total)) + 
+  geom_boxplot(color="navy", fill="dodgerblue") +
+  geom_point(color="navy")
+```
+
+
+You can also make the points wobble a bit... 
+ but careful it goes crazy...
+
+```{r}
+ggplot(wheels, aes(x = strain, y = total)) + 
+  geom_boxplot(color="navy", fill="dodgerblue") +
+  geom_jitter(color="navy")
+```
+
+You can constrain it by setting a width value of how much wobble.
+
+```{r}
+ggplot(wheels, aes(x = strain, y = total)) + 
+  geom_boxplot(color="navy", fill="dodgerblue") +
+  geom_jitter(color="navy", width = .1) 
+```
+
+Finish the graph by adding titles and labels etc.
+
+```{r}
+ggplot(wheels, aes(x = strain, y = total)) + 
+  geom_boxplot(color="navy", fill="dodgerblue") +
+  geom_jitter(color="navy", width = .1) +
+  xlab("Mouse Strain") +
+  ylab("Total Wheel Revolutions") +
+  ggtitle("Wheel Running By Different Mouse Strains") +
+  theme_classic()
+```
+
+
+A couple of other things you might want to try:
+
+1. Make the outlier more noticeable
+```{r}
+
+ggplot(wheels, aes(x = strain, y = total)) + 
+  geom_boxplot(outlier.color = "green", outlier.size = 8)
+```
+
+2. If you prefer violin shapes to boxplots
+```{r}
+ggplot(wheels, aes(x = strain, y = total)) +  geom_violin()
+```
+
+
+3. You can also color according to the x-axis category
+```{r}
+ggplot(wheels, aes(x = strain, y = total)) + 
+  geom_boxplot()
+
+
+ggplot(wheels, aes(x = strain, y = total, fill = strain)) + 
+  geom_boxplot()
+```
+
+4. Adding points
+```{r}
+ggplot(wheels, aes(x = strain, y = total, fill = strain)) + 
+  geom_boxplot() +
+  geom_jitter(width=.1)
+```
+
+## Bar Graphs  
+
+Bar graphs are used to  visualize groups of differing amounts. Bar graphs are best when the changes between groups are larger. 
+
+
+Example 1. If you have a dataset where you **HAVE** already counted the number of each group
+
+
+Import the number1s.csv data.  This shows how many number 1 songs various artists have had in the UK singles charts.
+
+```{r}
+data <- read_csv("data/number1s.csv")
+head(df)
+```
+
+
+`geom_col()` is used when the data is already counted.
+
+```{r}
+ggplot(df, aes(x = name, y = total) ) + geom_col()
+```
+Notice default order is alphabetical. However, you can reorder by putting reorder around the x-axis column.
+
+```{r}
+ggplot(df, aes(x = reorder(name, total), y = total) ) + geom_col()
+
+ggplot(df, aes(x = reorder(name, -total), y = total) ) + geom_col()
+```
+
+When changing color use 'fill' here because it's a shape.
+```{r}
+ggplot(df, aes(x = reorder(name, -total), y = total) ) + 
+  geom_col(fill = "yellow")
+```
+
+Then for the border of the bars use 'color'. 
+```{r}
+ggplot(df, aes(x = reorder(name, -total), y = total) ) + 
+  geom_col(fill = "yellow", color="black")
+```
+
+Finish with final customizations 
+```{r}
+ggplot(df, aes(x = reorder(name, -total), y = total) ) + 
+  geom_col(fill = "orange", color="brown") +
+  xlab("Artist") +
+  ylab("Total Number 1's") +
+  ggtitle("Number 1 hits in UK") +
+  theme_classic()
+```
+
+
+Example 2. If you have a dataset where you haven't already counted the number of each group
+
+We want to plot how many people have each type of pet.
+
+This means pet will be on x-axis, and count on y-axis.
+
+load in pets.csv dataset and look at the data. 
+
+```{r}
+pets <- read_csv("data/pets.csv")
+
+head(pets)
+tail(pets)
+
+```
+Notice 'pet' is categorical.
+We don't yet have a 'count' of how many of each pet there is.
+
+We can quickly look at the 'count' like this:
+```{r}
+table(pets$pet)
+```
+
+We can make ggplot plot the frequency/count of each pet as a bar graph
+
+Notice here, we use `geom_bar()` - and it counts for us.
+We do not need to supply a y column.
+
+```{r}
+ggplot(pets, aes(x = pet)) + geom_bar()
+```
+
+Then just customize.
+```{r}
+ggplot(pets, aes(pet)) + 
+  geom_bar(color="black", fill="plum3") +
+  xlab("Pet")+
+  ylab("Total")+
+  ggtitle("Popularity of Pets in a Class")
+```
+
+## All the extras 
+
+
