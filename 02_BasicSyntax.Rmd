@@ -57,6 +57,12 @@ Squaring a number requires us to use the cute `^` key followed by a number `2` t
 ```
 
 
+We can also get the logarithm of numbers:
+
+```{r}
+log(12)
+```
+
 *Our first little warning*
 
 Like all programming languages, R will only do what it's told. One thing that catches people out is that it will read code in order from left to right.  So, if you're doing several things at once, you may need to insert brackets to make sure that it does what you want it to.  For instance, say you want to multiply 5 by the sum of 7 and 9.

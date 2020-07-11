@@ -1,10 +1,10 @@
 # Permutation Testing
 
-An example of permutation testing and the theory behind it.
+Permutation tests are a type of randomization test. The theoretial difference between permutation tests and inferential tests is that with permutation tests we build the sampling distribution from the observed data, rather than infering or assuming that a sampling distribution exist.
 
+In practice, what a permutation test does is to take your observed data and then shuffle (or permute) part of it. After each shuffle, some aspect of the data is recalculated. That could be for instance the correlation coefficient, or it could be a difference in means between two groups. The data then get randomly reshuffled again, and the test-statistic is recalculated again. This goes on for thousands of times - for as many shuffles are deemed acceptable. This is usually a minimum of 1,000 but typically at least 10,000 shuffles are done.  After all the permutations (shuffles) are performed, a distribution of the statistic of interest is generated from the permutations. This is comapred to the original observed statistics (e.g. correlation coefficient, difference in group means) to see if the observed value is unusually large compared to the permuted data.
 
-
-
+If this seems a little confusing, hopefully seeing it in action will help...
 
 
 
@@ -153,7 +153,13 @@ To convert this to a p-value, we simply divide this value by the number of shuff
 sum(unlist(results) > 5.48) /10000  # which is 0.0202 proportion of the time
 ```
 
-So our p-value is `p=0.0215` which is similar to a one-tailed p-value.
+So our p-value is `p=0.0215` which is similar to a one-tailed p-value.  If we wished to have a 2-tailed p-value we would simply multiply this value by 2:
+
+
+```{r}
+# 2-tailed value
+2 * (sum(unlist(results) > 5.48) /10000)
+```
 
 
 
@@ -397,7 +403,26 @@ The advantages of running a permutation test is that it is free of the assumptio
 
 
 
+## Permutation tests in Packages
+
+Above we wrote script from scratch to perform our permutation tests. In many ways, this is our preferred approach as it is more customizable. However, in some packages there are some permutation tests already available as functions.  One example is the `independence_test` from the package `coin` that will do a permutation t-test. The code for this is below (this requires dataframes to be in the long format):
+
+```{r}
+library(coin)
+
+head(df)
 
 
+independence_test(anxiety ~ group, data = df, alternative = "less")
+
+```
+
+As you can see, this gives a roughly similar result to our own permutation script.
 
 
+You can also do a 2-tailed version:
+
+```{r}
+#2-tailed permutation test
+independence_test(anxiety ~ group, data = df)
+```
