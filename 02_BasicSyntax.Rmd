@@ -14,7 +14,7 @@ The Navarro book chapter 3 is excellent for learning syntax.
 
 
 
-## boring mathematical stuff
+## Boring mathematical stuff
 
 R is, first and foremost, a statistical programming language. So, unsurprisingly, you can do a bunch of mathematical operations fairly easily. Let's do some really tedious math:
 
@@ -685,7 +685,7 @@ RStudio can help you as you write code. During most of this course, you will be 
 
 Another thing that often happens with commas, is that people forget to put something in between them. Here's this issue:
 
-```{r, error=FALSE}
+```{r, error=TRUE}
 x <- c(5,  8, )
 
 ```
@@ -975,7 +975,7 @@ The code in the previous section was pretty ugly! Here it is:
 round(sum(sqrt(unique(x))), digits = 2)
 ```
 
-If we were to rewrite that by chaining each function it would look like this, which, we think, is more human readable (at least easier to work out where you forgot to put a missing `)`):
+We could rewrite it however by chaining together the outputs of each function using the `pipe` or chaining piece of syntax that looks like this `%>%`.  This is how it would look if we chained each function together:
 
 ```{r}
 x %>%
@@ -986,7 +986,7 @@ x %>%
 
 ```
 
-Let's break down what's happening bit by bit.
+Let's break down what's happening bit by bit.  Essentially you can read the `%>%` as `and next do this`.
 
 This first bit just keeps the numbers that are unique in the vector, removing duplicates:
 
