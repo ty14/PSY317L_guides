@@ -1,14 +1,6 @@
 # Basic Syntax
 
-We kind of need to know at least a tiny bit of syntax before we move forward...
-
-
-keep it very simple.
-
-
-The Navarro book chapter 3 is excellent for learning syntax.
-
-
+Before we move forward it is important to know a little bit of R syntax. This chapter contains lots of information about how R is organized and works. Don't feel like you have to learn all of this now. This chapter is here for reference and for help. Also, these nuts and bolts of programming languages are things that you pick up over time - they are pretty hard to remember at first and you constantly do have to check and copy/paste things. That's ok. Another very helpful resource on basic syntax in R is [Chapter 3 of Danielle' Navarro's book](https://learningstatisticswithr.com/book/introR.html) which we highly recommend.
 
 
 
