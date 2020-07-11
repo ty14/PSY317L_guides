@@ -25,6 +25,11 @@ This is in between a textbook and a study guide. We're trying to build materials
 This book is primarily aimed at the content in PSY317L (and PSY1XXR), but occasionally we describe concepts that we don't directly cover in these courses.  This is when we feel that it's worth explaining things in a bit more detail for those students that want to know a bit more about a subject.
 
 
+## How to use this guide
+
+This guide covers the material presented in the video segments. In some parts, we go beyond what is presented. This is to supplement the material and to help you understand the content or to round out some subjects a little more. You will not be tested directly on information that is in this guide if it did not appear in the video segments. Quizzes and tests are only based on the videos. This guidebook is exactly that - an extra reference to help you understand that material and a place to look for help or answers.
+
+
 ## Acknowledgements
 
 This guidebook is built upon the work of several others' teaching materials.  In particular, Danielle Navarro's book....  also some examples come from Andy Field's intro to statistics using R

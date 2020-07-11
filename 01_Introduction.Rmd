@@ -8,6 +8,9 @@ This chapter details how to get started using R.
 
 The initial steps are downloading and installing R. This may differ slightly based on your machine.
 
+
+
+
 ## Downloading R
 
 Go to the [R website](https://cran.r-project.org). The first box has options for downloading R for Mac, Windows or Linux. Click on the appropriate link.  Then you will want to click on  $\color{blue}{\text{"install R for the first time"}}$. Then follow the instructions.
@@ -79,6 +82,9 @@ ways to run code
 
 ## What is an RScript File?
 console vs script.
+
+what a `#` does in a script ....
+
 
 
 

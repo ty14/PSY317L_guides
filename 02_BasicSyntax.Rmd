@@ -199,20 +199,35 @@ v1[1:3]
 ```
 
 
-blah blah blah
 
-![summary image](img/vector.png)
+We can also get non-consecutive elements of vectors. If we wanted to get the first, fourth and sixth elements of `v1` we'd do this:
 
-does the image appear above?
+```{r}
+v1[c(1,4,6)]
+```
+
+Notice here that you can't do this:
+
+```{r, error=TRUE}
+v1[1,4,6]
+```
+You have to put the indexes of the elements you want inside `c()` and separate each with a comma, if they are non-consecutive.
+
+Be careful to make sure you're referring to elements that actually exist. The vector `v1` has six elements in total, so if you ask it to give the seventh element, then you get the following:
+
+```{r, error=TRUE}
+v1[7]
+```
+
+It just says `NA`. This is R for "nothing" or "doesn't exist" or "missing".  You'll also see `NaN` in some situations to represent missing data.
 
 
-I just remembered that if you don't want the image to appear inline, then you leave out the ! from the markdown syntax.
+That's quite a lot about vectors, their elements, and how to index them. Hopefully the below image will help you remember this terminology:
 
-[summary image](img/vector.png)
+![](img/vector.png)
 
 
-
-    
+**Working with Vectors**    
     
 
 Now, one of the great advantages of vectors is that you can do things to all of the numbers inside the vectors at once.  For instance, say we wanted to square all the numbers inside of `v1`, then all we need to do is:
@@ -230,7 +245,307 @@ You can also do things to the entire contents of a vector at once.  For instance
 sum(v1)
 ```
 
-and it added 5+6+7+8+9+10 to give one answer!
+and it added `5+6+7+8+9+10` to give one answer!
+
+
+
+You can also use the names of the vectors together. For example, if you do `v1 + v2` let's see what happens:
+
+```{r}
+v1
+
+v2
+
+v1 + v2
+
+```
+
+You can see that it added the first element of each vector to each other, then the second element of each vector to each other and so on.  This only works though because `v1` and `v2` are the same length. If they had unequal number of elements, R would get mad and not do anything.
+
+
+
+## Characters
+
+The vectors that we've been looking at so far are all `numeric` meaning that they contain numbers. Another type of information that R uses is text - or `characters`. Sometimes called `strings`.  Let's make a vector of characters:
+
+```{r}
+the_week <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+
+the_week
+
+```
+
+Here we have an object called `the_week` that has 7 elements. Each element is separated by a comma. This is pretty similar to when we enter numbers except for situation when we can use the `:` shortcut such as using `5:8` to mean `5, 6, 7, 8`.  We also stick everything together into a vector using `c()` as we did with numbers.  The major difference is that to make sure R knows that each of these words is a character or text string, we have put quote marks around each word.  If we didn't do that, it would be looking for objects called `Monday`, `Tuesday` etc.  
+
+Actually, let's see an example of using words to create a vector, when the words are actually objects:
+
+
+```{r}
+aa <- 5
+bb <- c(9, 11)
+cc <- 10
+dd <- c("james", "tyler")
+ee <- "hedgehog"
+
+aa
+bb
+cc
+dd
+ee
+
+
+
+
+example <- c(aa, bb, cc, dd, ee)
+
+example
+
+```
+
+Here, each of `aa` to `ee` is assigned to be an object and they contain information. When we write `c(aa, bb, cc, dd, ee)` we don't need to use commas as we're referring to the objects and not to words called `aa`, `ee` etc.  Also notice that we were able to make vectors that mixed together numbers and characters.  Also, some of our original vectors like `bb` and `dd` contained more than one element. When we put them all together with `c(aa, bb, cc, dd, ee)` to create the `example` object, R just stuck them all together in the order we wrote.
+
+
+It's pretty unusual though to mix numeric and character vectors together.  Let's get back to talking about vectors tha contain characters only.
+
+Some functions can work on both character vectors and numeric vectors. One example is `length()` which counts the number of elements in a vector:
+
+
+```{r}
+
+v1
+
+the_week
+
+length(v1)
+
+length(the_week)
+```
+
+However, some functions only make sense when working with one type or the other.  For instance `sum()` to add up the elements of a vector, only works with numeric data:
+
+```{r}
+sum(v1)
+```
+
+If you try it with character data, then it will give you an error:
+
+```{r, error=TRUE}
+sum(the_week)
+```
+
+
+Others work with characters. For example, `nchar()` calculates the number of letters in a piece of character text. Applying it to a vector will tell you how many letters are in each of the days of the week:
+
+```{r}
+nchar(the_week)
+```
+
+If you try this with numeric vectors, it gives you a funny output of how many characters are in each number!
+
+```{r}
+nchar(v1)
+```
+
+
+Regardless of whether you are using numerical or character vectors, indexing works in the same way.
+
+e.g. To get the 3rd element of each vector:
+
+```{r}
+v1[3]
+
+the_week[3]
+
+```
+
+
+e.g. to get the 5th and 5th elements of each vector:
+
+```{r}
+v1[5:6]
+
+the_week[5:6]
+```
+
+
+e.g. to get the first, fourth, and sixth element of each vector:
+
+```{r}
+v1[c(1,4,6)]
+
+the_week[c(1,4,6)]
+```
+
+
+
+
+
+
+
+
+
+## Naming of objects
+
+One of the hardest things in R is deciding what to name things. You run out of ideas very fast! There's only so many times you can call things `x` or `df` or `v1` before you get bored. The best names tend to be short and memorable. If you were saving a vector of color names for example, you might want to call it `mycolors`:
+
+```{r}
+mycolors <- c("mistyrose", "dodgerblue", "pink")
+```
+
+There are some important rules for the naming of objects. These are some DOs and some important DON'Ts:
+
+
+- you can use characters or numbers in object names, or both
+
+- do not use spaces
+
+- try to use lower case ideally
+
+- do not use any puncutation in names for objects, dataframes or column names except for the period `.` or underscore `_`. Everything else is forbidden.
+
+- if you do use an underscore `_` it cannot go at the beginning, e.g.
+
+```{r, error=TRUE}
+_mynumber <- 17
+```
+
+- you can use a period `.` at the beginning of an object name, but please don't.
+
+- periods `.` and underscores `_` are best used in the middle of object names to help read the name, e.g.
+
+```{r}
+prime_numbers <- c(1,3,5,7,11,13)
+prime_numbers
+```
+
+- but even better, use short object names!
+
+```{r}
+primes <- c(1,3,5,7,11,13)
+primes
+```
+
+
+- you should avoid using certain words, as they have other meanings in R and calling something else by that name could confuse things. Examples of words to avoid: `if`, `else`, `repeat`, `library`, `break`, `while`, `stop`, `function`, `for`, `in`, `next`, `TRUE`, `FALSE`, `NULL`, `Inf`, `NaN`, `NA`, `data`, etc.  That still leaves a lot of words you can use.
+
+Usually when you start to write one of these words in R, you'll notice that they change color in the script (to which color depends upon your color settings) - this indicates that these words are 'special'.
+
+- for the same reason, there are several letters that I would avoid using, because they have special meaning: e.g.  `c`, `t`, `T`, `F`.  The last two are short for `TRUE` and `FALSE`.  We've already seen `c()` in action. `t()` means to transpose data. You might find that we've called some objects of numbers `t` in this course - sorry in advance if we broke this 'rule'.
+
+
+
+
+
+
+## Logical Operators
+
+The R language contains several bits of punctuation that can be used for what's termed 'logical operators'. These will lead to an output of either `TRUE` or `FALSE` being printed to the console. It's easiest to work out what they do by just seeing them in action:
+
+```{r}
+"is equals to"
+
+2+2 == 4
+2+2 == 5
+```
+
+The double equals sign `==` checks if the left hand side is equal to the right hands side. In the top example, 2+2 does equal 4 so we get a `TRUE`, while in the bottom example, 2+5 does not equal 5 so we get a `FALSE`.
+
+You don't have to check one thing at a time. You could check all elements of a vector at once:
+
+```{r}
+x <- c(5, 10, 15, 10, 1, 11, 10)
+x == 10
+
+```
+
+Here it is saying which elements of `x` are equal to 10 or not.
+
+
+
+If you want to ask whether something is `not equal to` something, then you use `!=` like this:
+
+```{r}
+x <- c(5, 10, 15, 10, 1, 11, 10)
+x != 10
+
+```
+
+
+Other logical operators are `<`, `<=`, `>` and `>=` and can be used in the usual mathematical way:
+
+
+```{r}
+x <- c(5, 10, 15, 10, 1, 11, 10)
+
+x < 10
+
+x <= 10
+
+x > 10
+
+x >= 10
+
+
+```
+
+
+You can also add up the logical output.   Say you wanted to know how many of your vector of `x` were equal to 10. You can use `sum()` to add up. With the `TRUE` AND `FALSE` output, `sum()` will count up the number of `TRUE`s you have. (It considerds `TRUE` to be 1's and `FALSE` to be 0's)
+
+```{r}
+x <- c(5, 10, 15, 10, 1, 11, 10)
+x == 10
+
+sum(x==10)
+```
+
+
+**Indexing Vectors with Logical Operators**
+
+This is all a bit abstract and vague as to why we should care about logical operators. One common situation we use them is when we want to subset vectors. Remember, we use the square brackets `[]` to index a vector like this:
+
+
+```{r}
+x <- c(5, 10, 15, 10, 1, 11, 10)
+
+x[5]
+
+x[1:2]
+```
+
+Above we first got the 5th element of `x` and then we got the first and second elements of `x`.  We can also grab things from vectors using logic. Effectively keeping those elements that give the output `TRUE` in response to the logic statement. Here are examples:
+
+```{r}
+x <- c(5, 10, 15, 10, 1, 11, 10)
+
+x[x==10]
+
+```
+
+
+```{r}
+x[x!=10]
+
+```
+
+
+
+```{r}
+x[x>10]
+
+```
+
+
+Another funky piece of syntax that comes in useful from time to time is `%in%`. You can basically use it only keep those elements that match those that exist inside another element.
+
+
+```{r}
+stuff <- c(1, 5, 15)
+x[x %in% stuff]
+
+```
+
+
+
 
 
 ## Some things that are useful to know.
@@ -263,16 +578,66 @@ b <-    c(    4,5  ,6)
 
 Hopefully, you get the point.
 
-
-
-
-**Don't typo!**
-
-R can only understand what you tell it. Typos can be bad. In fact, the most common error people make is to misspell or to use the wrong case when typing.  Here are some examples of code that won't work because we typed something wrong:
+You can also leave whitespace across lines and R will, for the most part, jump to the code ahead and not worry about the whitespace. This example looks ugly because the commas, numbers, and brackets are all on different lines, but R reads it ok:
 
 ```{r}
-a <- c(5, 7, 8)
+x <- c(  
+  
+   4, 5, 
+       
+       
+       3,    6
+       
+       ,   14
+       )
+
+
+x
 ```
+
+Although this is possible. Please, please, don't do it!  It's ugly to read, and what's more, there are situations in which it can cause you problems.
+
+
+Indeed, there are some important place where whitespace needs to be adhered to.
+
+Firstly, when using the assignment operator `<-`. R cannot stand it if you put a space in between the `<` and the `-`. e.g.
+
+```{r, error=TRUE}
+eg < - 5:10
+eg
+```
+
+It is stating here that `object 'eg' not found` because it thinks you're trying to ask it if `eg` is `less than` `-5:10`.    If `eg` already existed, then you need to be extra careful here. We won't go into what could happen in that situation, but it could be bad!  So, golden rule,  no spaces with `<-` !
+
+
+Secondly, in future sections on carpentry and visualization, you'll use some syntax that `pipes` or chains together a series of commands. These operators are `+` or `%>%`. When using this syntax, you need to finish each line (expect the last line) with one of these pipe syntaxes. If you do not do that, you'll get an error message, because R won't jump to the later lines when it is chaining things together.  Although this might be a bit early in your R journey to mention - it is such a frequent error, that we just wanted to reference it here.  Hopefully, this will be a useful reference aid if you see this error.
+
+
+Here's a simple example of what this looks like. 
+
+```{r, error=TRUE}
+x <- c(3, 5, 6, 7, 4, 6, 5, 10, 4, 5, 7)
+
+x 
+%>% unique
+  
+
+```
+
+Here we get an error message saying `Error: unexpected SPECIAL in "%>%"`. What has happened is that R read the lines where we assigned the numbers to `x` and then on the line that just had `x` it printed out the numbers.  Then when it got to `%>% unique` it didn't know what this was referring to. When using chain syntax such as `%>%` you cannot start a new line with it. Instead you should write:
+
+```{r}
+x <- c(3, 5, 6, 7, 4, 6, 5, 10, 4, 5, 7)
+
+x  %>% unique
+```
+
+Now, it has processed the code appropriately and the output is what we want. Basically, we took our vector of `x` and extracted all the unique numbers.
+
+A golden rule should be - be neat with your code !!! and this will avoid a lot of errors and problems.
+
+
+
 
 
 
@@ -318,18 +683,150 @@ RStudio can help you as you write code. During most of this course, you will be 
 
 
 
+Another thing that often happens with commas, is that people forget to put something in between them. Here's this issue:
+
+```{r, error=FALSE}
+x <- c(5,  8, )
+
+```
+
+You get warned that one of your `arguments` are empty. If you scroll away from your code, you'll get the X in the red circle telling you something is wrong.  If your cursor is still by your code, you may get a yellow warning triangle telling you to beware, similar to this:
+
+![](img/yellow.png)
+
+
+
+
 
 *Check your quote marks*
 
+Quote marks `"hello"` or `'hello'` are often used in R when we want to make sure something is a character (i.e. text). Most commonly used when we're inputting data that include words, or when we're stating a color, or when we're adding a title or a label to a graph.
+
+An error that we often see is that quote marks are either missing or not closed. Up to this point in the book, we haven't yet covered the situations in which this is most likely to occur - so don't worry about following this code just yet. We're actually trying to make a scatterplot, that we discuss more in section xxx.xxx. Instead, just focus on the error message:
+
+```{r, message=FALSE, warning=FALSE, error=TRUE}
+library(tidyverse)
+ggplot(mtcars, aes(x=wt, y=mpg)) + geom_point(color = purple)
+
+```
+
+Note that it says `object 'purple' not found`.  That's because, even though we are trying to make the points of the scatterplot purple, because we didn't put it in quotes, it's looking for the `object` called purple. It thinks there is something called purple that contains the information it needs.  The actual code should include purple in quotes, to make sure it processes the word 'purple' literally: 
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+ggplot(mtcars, aes(x=wt, y=mpg)) + geom_point(color = "purple")
+
+```
+
+
+For the most part in R, you can choose whether you use double quotes `"` or single quotes `'` when using quotes. Just make sure you match them, and close them.  For example, the following examples are correct:
+
+```{r}
+days <- c("Monday", "Tuesday", "Wednesday")
+days
+```
+
+```{r}
+days <- c('Monday', 'Tuesday', 'Wednesday')
+days
+```
+
+You can also do this, although it looks a bit odd:
+
+```{r}
+days <- c('Monday', "Tuesday", 'Wednesday')
+days
+```
+
+
+Here are some examples of what happens if you don't close your quotes:
+
+```{r, error=TRUE}
+days <- c("Monday, "Tuesday", "Wednesday")
+```
+
+Often you'll get the error message `Error: unexpected symbol...` in such situations. This is usually a clue to look for a punctuation error.
+
+
+Another think you'll notice when you make this error, is that the colors of your code don't look right. Notice that the colors of each day aren't consistent:
+
+![](img/quotes.png)
+
+
+
+In general, we'd recommend that when you need to use quotes, that the double quotes `"hello"` are the better option. There are two reasons for this. First, if you start to type those in R then the second quote mark magically appears. RStudio knows you're using quotes and already produces the closing quote. This doesn't happen (for some reason) when you use the single quote `'hello'`.  Secondly, often we use quote marks because we're adding a title or a label to something. Some example code to add a title to a graph might be:
+
+```{r, eval=FALSE}
+p + ggtitle("Tyler's first graph")
+```
+
+Notice in this title that one of the words requires an apostrophe `'`. If you had used single quotes to wrap around `Tyler's first graph` then this would have caused confusion as to where you wanted to end the text string. This only arises when using single quotes - so we say that double quotes are safer!
 
 
 
 *Typos are bad!*
 
+R can only run the code that you tell it to run.....  (well this is not 100% true... but wait until the end of the paragraph for that).  If you don't precisely tell it what you want, it will get confused or angry. If you typo, then this can cause problems. Let's do an example. Say we want to make two vectors called `apples` and `oranges` and we want to add them togeher. This works:
 
-typos not good 
+```{r}
+apples <- c(4, 7, 10)
+oranges <- c(3, 1, 2)
+
+apples + oranges
+```
+
+but this will not work:
+
+```{r, error=TRUE}
+apples <- c(4, 7, 10)
+oranges <- c(3, 1, 2)
+
+appless + oranges
+```
+
+You'll get the error saying `object 'blah' not found`. This is the most common error that we see. Basically, it cannot find an object (be it a vector or a dataframe) if it's not spelled correctly. This also applies to column names of dataframes and so on.  R is also case sensisitive. The following doesn't work:
 
 
+```{r, error=TRUE}
+apples <- c(4, 7, 10)
+oranges <- c(3, 1, 2)
+
+apples + ORANGES
+```
+
+It will not automatically realize you meant `oranges`. 
+
+However, there is a bit of help that RStudio will give you. Look what happens when we write `ORANGES` in our code script:
+
+![](img/oranges.png)
+
+
+It automatically popped up `oranges` as a suggestion. The little colored icon to the left of it indicates that it is in an object. So - RStudio can be your friend!
+
+
+Actually, when you first start to type the first letter of any object, you can hit the `Tab` key and various options will pop up for you to choose from. You can then either use your up and down arrows or your mouse to click on the thing you want. In the example below, you can see it includes our `oranges` object and ton of other stuff that we don't need right now that also beings with `o`. This is super helpful when you've forgotten what you called something:
+
+![](img/oranges1.png)
+
+
+* We said that it's not 100% true that R cannot 'guess' what you mean. There are a few exceptions. One example, is that sometimes R can guess the name of a column in a dataset if you only type half of it or the first few letters. However, many programmers think this is a terrible thing to be able to do and so perhaps we should just forget about it. We would highly recommend always writing everything precisely.
+
+
+
+### Tab is your friend
+
+As seen from the example above, the `Tab` key can be used to get help as you're writing code. This is a super useful little trick as it can be hard to remember the names of some of the commands (functions) in R.  Earlier in this section we saw that it was possible to calculate ths `sum` of a vector with a function called `sum()`. However, what if you forgot the name of this but you just had a vague recollection that it began with an `s` ?  You could start to type `s` and then hit the `Tab` key. Scroll through the list that pops up by your code until you find the one that you think is correct!
+
+
+
+![](img/sum.png)
+
+
+You'll also notice that you get a big yellow help box that appears to the side. This gives you a bit more information about what the thing you've highlighted does - and this may help jog your memory as to what you were looking for.
+
+After you have clicked on the thing you want- it will automatically include it in your script- and you're good to go:
+
+![](img/sum1.png)
 
 
 
@@ -345,153 +842,194 @@ If people are stuck on particular error messages during this course - please do 
 
 
 
-simple math
+## Functions
 
-doing things in the right order.
+Functions are operations that you can conduct in R. There are many built-in functions to R, and several that come in packages that we can install and load in.
 
+There is usually (although not always) an object that is the focus of the function. Functions have names and end in brackets. We've already met some of these, e.g.:
 
-assignment
+`sum()`
+`length()`
+`c()`
+`sqrt()`
 
-obj*obj
 
+As we go through the course, we'll see lots more functions and it will become second nature to use them.  There is one additional thing that we'll bring up at this point. The things that you put inside functions are called `arguments`. Sometimes you'll see them called `parameters` - but that has other meaninings in statistics, so let's use 'arguments'.  Some functions have one argument, others have more.  Most functions have defaults for these arguments, so if you don't include them, it will still run using it's predefined default.
 
-objects - what you can and can't name them
+Let's illustrate this by introducing you to the function called `round()`.  This function will round numbers to various decimal places. Let's use the number   `17.10771947` as an example. What does round do to this number?
 
-characters._09  no spaces. no other punctuation
-dont start with _ or 09.
+```{r}
+round(17.10771947)
+```
 
-there are some special words to not use.
-if, else, repeat, while, function, for, in, next, break, TRUE, FALSE, NULL, Inf, NaN, NA, NA_integer_, NA_real_, NA_complex_, and finally, NA_character_.
+It's default is to round it to 0 decimal places. Inside of `round()` the number is in the position of the 1st argument. `round()` can have two arguments - the second one relates to how many decimal places you would like to round to. So, if you want to round to 3 decimal places, you need to do this:
 
-i'd recommend not calling things 'c' or 't' also.
+```{r}
+round(17.10771047, 3)
+```
 
-dont make them too long, make them easy to remember.
+Now we have two arguments. In actual fact, those arguments have names, and you can most often work out what the names for the arguments should be from help guides. Technically, what we have just performed is the following:
 
+```{r}
+round(x = 17.10771047, digits = 3)
+```
 
+But as you have already worked out, we didn't need to write the names of the arguments. R worked it out already. What if we'd got the arguments, the wrong way round?
 
+```{r, error=TRUE}
+round(3, 17.10771047)
+```
 
+Now it defaulted to giving us the first argument to zero decimal places. Because the second argument isn't a whole number (integer) then it just ignored it. What if you keep these in this order, but give them their correct argument names?
 
+```{r, error=TRUE}
+round(digits = 3, x = 17.10771047)
+```
 
-logic statements
+Now it works as expected again.  The moral of this story is that it is best practice to use the argument names!  If you hit the `Tab` key as you type out a function name, then it will give you a list of possible arguments for that function:
 
-"is equals to"
-"is not equal to"
+![](img/round.png)
 
-2+2 == 4
-2+2 == 5
-<
-<=
->
->=
 
+Arguments of functions aren't always numeric. Sometimes you need to write in words,  punctuation or the logical statements `TRUE` or `FALSE` to tell the function what you want to do. An example is the function `paste` which joins together two objects.  Here we tell it to paste together three objects with an underscore:
 
+```{r}
+obj1 <- "hello"
+obj2 <- "james"
+obj3 <- "curley"
+paste(obj1, obj2, obj3, sep = "_")
+```
 
+In functions, punctuation and characters need quote marks around them. `TRUE` and `FALSE` should not have punctuation around them.
 
 
+If you want to continue with R then it's also possible to write custom functions that will do what we do whatever we ask them to do - but that is for the future.
 
-Functions:
-parameters/arguments...
 
-name()
 
-e.g. sqrt()
-abs()
-round(3.555,1)
-default arguments...
+**R works from in to out**
 
-round( x = 3.1415, digits = 2 )
+One thing to remember about R as a coding language is that it will apply functions from in to out. It will start with the innermost function in a statement, and then move outwards.
 
-dont put them the wrong way round:
-round( 2, 3.14165 )
+So, if you have the following vector:
 
+```{r}
+x <- c(1, 5, 3, 7, 10, 11, 13, 5, 6, 2, 5, 6, 3, 7)
 
-somethings that can help with rstudio:
+x
+```
 
-autocomplete....
-shows function name as well as arguments
+and you want to get the unique numbers (i.e. get rid of the repeating numbers and only keep one of each of all the numbers), then you could use `unique()`:
 
+```{r}
+unique(x)
+```
 
+If you wanted to take the unique numbers, and then square root each of them you could wrap `unique(x)` in `sqrt()` like this:
 
+```{r}
+sqrt(unique(x))
+```
 
+That code is still just about readable. 
 
+However, say you want to (for some reason), keep the unique numbers, then take the square root of each number, then add them all up, then round the answer to 2 decimal places. This is what it would like:
 
+```{r}
+round(sum(sqrt(unique(x))), digits = 2)
 
+```
 
+It finds the object you are working with `x` then the first function outside of that is `unique()` then the next one outside of `unique(x)` is `sqrt()`, then the next one outside of `sqrt(unique(x))` is `sum()` and the next one outside of `sum(sqrt(unique(x)))` is `round()`. That's quite hard to follow!
 
+Another approach would be to do this in steps and assign objects at each step, like this:
 
-vectors....  what they are
 
-functions can be applied to the whole vector
-or you can do it to each element of the vector
+```{r}
+x
 
-vector output is over the whole console
+x1 <- unique(x)
+x1
 
-vector indexing
+x2 <- sqrt(x1)
+x2
 
-you could change individual values in vectors
+x3 <- sum(x2)
+x3
 
-length
+x4 <- round(x3, digits = 2)
+x4
 
+```
 
-vectors dont have to be numbers, can be text e.g.
+Another alternative is to chain the syntax together (see next section). 
 
-months <- c("January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", 
-            "December")
 
-length still works
 
-obvs cant do math....
-can do other things...
 
-nchar()
+## Chaining Syntax
 
-substr(1,3)
+The code in the previous section was pretty ugly! Here it is:
 
+```{r}
+round(sum(sqrt(unique(x))), digits = 2)
+```
 
-# can also have vector of logicals
+If we were to rewrite that by chaining each function it would look like this, which, we think, is more human readable (at least easier to work out where you forgot to put a missing `)`):
 
-x <- c(TRUE, TRUE, FALSE, FALSE, TRUE)
+```{r}
+x %>%
+  unique %>%
+  sqrt %>%
+  sum %>%
+  round(2)
 
-sum(x)  actually works
+```
 
-e.g. 
+Let's break down what's happening bit by bit.
 
-v <- c(5, 7, 11, 3, 6, 10)
+This first bit just keeps the numbers that are unique in the vector, removing duplicates:
 
-v>=7
-sum(v>=7)
+```{r}
+x %>%
+  unique 
+```
 
+Next we square root each of those unique numbers:
+```{r}
+x %>%
+  unique %>%
+  sqrt 
+```
 
-# more on indexing vectors
+Then the next step is to add up those six square rooted numbers:
+```{r}
+x %>%
+  unique %>%
+  sqrt %>%
+  sum 
+```
 
-v[c(3,4,5,11)]
+Then we round that value to two decimal places:
 
-v[c(3:8)]
+```{r}
+x %>%
+  unique %>%
+  sqrt %>%
+  sum %>%
+  round(2)
+```
 
-v[v>5]
 
-months[v>5]  # if v had 12 numbers in it.
+It's also worth pointing out that you don't have to start a new line after every `%>%`, you can have these in the middle of rows. Just don't start rows with them (see errors above)!
 
+This also is fine:
 
-# give vectors names
+```{r}
+x %>% unique %>% sqrt %>% sum %>% round(2)
 
-names(v) <- months
+```
 
-
-
-
-stock.levels<-c("high", "high", "low", "out", "out", "high",
-                "high", "high", "high", "high", "high", "high")
-
-stock.levels
-
-months[stock.levels == "out"]
-months[stock.levels != "out"]
-
-months[stock.levels == "out" | stock.levels == "low"]
-
-months[stock.levels %in% ...]
 
 
 
