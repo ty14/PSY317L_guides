@@ -291,16 +291,111 @@ bit more on this and the theory.
 
 
 
+
+
 ## Partial Correlations
 
-why.... the stupid formula.... and how to do in R.... and that there are technically better ways...
+An important consideration when running a correlation is the **third variable** problem. In brief, this is when we have the situation that a purported association between `X` and `Y` is actually being driven by both of their association with a third variable `Z`. It is important to consider that a correlation may only exist because both variables are correlated with something else. Alternatively, we may wish to get an "adjusted" correlation between `X` and `Y` based on their relationship with `Z`. This is essentially the theory behing partial correlations.
+
+
+If we have measured the correlation between `X` and `Y` (which we'll call $r_{xy}$) as well as each of their correlations with `Z` (which we'll call $r_{xz}$ and $r_{yz}$ respectively) then we can calculate this adjusted partial correlation between `X` and `Y` which we'll call $r_{xy.z}$.  To do this, we use this horrible looking formula:
+
+
+$r_{xy.z} = \frac{r_{xy} - (r_{xz}\times r_{yz}) } {\sqrt{1-r_{xz}^2} \times \sqrt{1-r_{yz}^2}}$
+
+In reality though, it's pretty easy to plug the correct values for $r$ or $r^2$ into this formula and get the result required.
+
+
+Let's use an example. In these data we have 50 participants who logged the number of hours that they engaged in a task. We also have a column that shows their score in that task, and a column that records how tired they were. Higher tiredness scores means that they were more tired. (We've changed this from the column name in the original video to make it clear!)
+
+```{r}
+
+gs <- read_csv("data/gamescore.csv")
+colnames(gs)[4]<-"tiredness" # change this column name to make it more clear
+
+nrow(gs)
+
+head(gs)
+```
+
+
+Say we predicted that the more hours played would lead to a higher score in the task. We might make our scatterplot and then run a one-tailed Pearson's correlation significance test:
+
+
+```{r}
+# scatterplot
+ggplot(gs, aes(x=hours, y=score)) + 
+  geom_point(color="navy") +
+  stat_smooth(method="lm",se=F) +
+  theme_classic()
+
+
+cor.test(gs$hours, gs$score, alternative = "greater")  # p=0.049
+
+```
+
+
+We can see from this plot that we have a correlation of `r=0.24` between `hours` and `score`, which is a low to moderate correlation. Our one-tailed significance test also tells us that we have a significant difference of `p=0.049` that this is a significantly positive correlation, although the effect is smallish.
+
+
+What if we considered each of these variables' relationship with `tiredness` ?
+
+![](img/partial.png)
+
+
+
+We can calculate the Pearson correlation for `tiredness` against `score` and for `hours` against `tiredness`, in addition to our original correlation of `hours` against `score`.
+
+
+```{r}
+cor(gs$hours, gs$score)  # r = 0.24
+cor(gs$tiredness, gs$score) # r = -0.21
+cor(gs$hours, gs$tiredness) # r = -0.29
+```
+
+As you can see, tiredness is negatively correlated with score, meaning individuals who reporte themselves as more tired scored lower in the task. Hours was also negatively correlated with tiredness, meaning individuals who were more tired spent fewer hours on the task.
+
+It's therefore possible that an individual's tiredness could affect both the number of hours that an individual engages in the task, as well as their overall performance.  These relationships may affect the overall obseved relationship between `hours` and `score`.
+
+
+If we were to do this in R, we'd use the `pcor.test()` function from the `ppcor` package. We just need to tell it what our original `X` and `Y` are as well as our third variable `Z`.
+
+
+```{r}
+library(ppcor)
+
+pcor.test(x=gs$hours, y=gs$score, z=gs$tiredness)
+
+```
+
+This output tells us that the adjust correlation, i.e. the `partial correlation` for $r_{xy}$ is 0.19.  There is a p-value associated with that correlation of `p=0.194` which indicates that the correlation is no longer significant. This means that the relationship between test score and hours is no longer signficant after you take into account that they are both related to tiredness.
+
+
+We can also look at this 'by hand' using the formula above:
+
+```{r}
+r.xy <- cor(gs$hours, gs$score)  # r = 0.24
+r.xz <- cor(gs$tiredness, gs$score) # r = -0.21
+r.yz <- cor(gs$hours, gs$tiredness) # r = -0.29
+```
+
+
+```{r}
+numerator <- r.xy - (r.xz * r.yz)
+denominator <- (sqrt(1 - r.xz^2) * (sqrt(1  - r.yz^2)) )
+
+numerator/denominator
+
+```
+
+We get the same result!
+
+
+
+
 
 
 ## Non-parametric Correlations
-
-examples....
-
-when I can be bothered, edit this code chunk down into words + code
 
 
 When at least on of our variables are not normal, then we need to consider alternative approaches to the Pearson correlation for assessing correlations. 
@@ -436,10 +531,124 @@ cor.test(test$drank, test$testosterone, method = "spearman", alternative = "less
 
 
 
+**Non-parametric Partial Correlation**
+
+If you look back to section xxx.xxx you'll see that we used a very long formula to calculate the partial correlation for a Pearson correlation. We also used the funtion `pcor.test()` from the `ppcor` package to do this for us. We can actually use the same formula or function to do partial correlations for non-parametric correlations.
+
+For example, let's examine the Spearman correlations between anxiety, exam score and revision.
+
+These are the data:
+
+```{r}
+
+exams <- read_csv("data/exams1.csv")
+
+nrow(exams)
+
+head(exams)
+
+```
+
+
+Using the Shapiro-Wilk test we note that our data are not approximately normal:
+
+```{r}
+# note these data are not approximately normal:
+# all p<0.05, therefore reject null that they are approximately normal
+
+shapiro.test(exams$revise)
+shapiro.test(exams$exam)
+shapiro.test(exams$anxiety)
+
+```
+
+
+We can investigate the individual correlations by plotting the scatterplots and calculating the Spearman correlations:
+
+![](img/partial1.png)
+
+
+```{r}
+cor(exams$revise, exams$exam, method = "spearman")  
+
+cor(exams$revise, exams$anxiety, method = "spearman") 
+
+cor(exams$anxiety, exams$exam, method= "spearman") 
+```
+
+If we were interested in the correlation between revision time and exam performance controlling for anxiety, we would need to do a partial correlation. We can just use the `ppcor.test()` function:
+
+```{r}
+pcor.test(x=exams$revise, y=exams$exam, z=exams$anxiety, method = "spearman")
+```
+
+Again, we see that the relationship between these two variables is reduced considerably to $\rho=0.13$ when we controll for each of their relationships with anxiety.
+
 
 
 
 ## Point-Biserial Correlation
 
-why, what....
+Throughout the entirety of this chapter we've been discussing various correlation measures between two continuous variables. This little subsection is here just to point out that you can in fact also measure the correlation between a categorical variable and a continuous variable. 
 
+In the following dataset, we have data on the number of hours that various cats spend away from their house over a one week period. They are tracked via cool GPS collars, and these data make pretty pictures of how far they traveled from their homes.
+
+
+![](img/pbs.png)
+
+
+
+```{r}
+cats <- read_csv("data/cats.csv")  
+
+nrow(cats)
+
+head(cats)
+
+```
+
+The data have a `time` column that is the number of hours away from home. A `sex` column which is the sex of the cat, and a `sex1` column which is the sex of the cat coded as a number. This final column exists to help us make the dotplot below and to help run a correlation:
+
+
+```{r}
+# dot plot
+ggplot(cats, aes(sex1,time)) + 
+  geom_jitter(width = .05) +
+  scale_x_continuous(breaks=c(0,1), labels=c("female", "male"))+
+  stat_smooth(method='lm',se=F) +
+  theme_classic()
+
+```
+
+What we have in this plot are individual points representing each cat. The points are jittered to make overlapping datapoints more readable. We have also put a trendline through the data. How was this achieved?   Essentially, all the  females are given the value 0, and all the males are given the value 1. We then run a Pearson's correlation using the `X` values to be 0 or 1, and the `Y` values to be the `time` measurement.
+
+Doing this, we can simply run a Pearson's correlation test using `cor.test()`:
+
+```{r}
+cor.test(cats$sex1, cats$time)
+```
+
+These results suggests that there is a positive relationship between cat sex and time spent away from home, with male cats spending more time away than female cats.
+
+
+Looking at the dotplot again, it looks like the female data are possibly bimodal. As the data are in long format, we can filter out the male and female data:
+
+```{r}
+catsF_time <- cats %>% filter(sex=="female") %>% .$time
+catsM_time <- cats %>% filter(sex=="male") %>% .$time
+
+shapiro.test(catsF_time)
+
+shapiro.test(catsM_time)
+
+```
+
+Clearly our suspicions about the female data are true, they do not appear to come from an approximately normal distribution.  In that case, we could run a point-biserial Spearman correlation. This is just the same procedure, but instead we apply the Spearman test:
+
+
+```{r}
+cor.test(cats$time, cats$sex1, method="spearman") 
+```
+
+
+Just as a note - there are probably 'better' ways of running such a point-biserial correlation than using `cor.test()`, but what we've shown here is probably sufficient to get the idea across that you can convert two groups to 0's and 1's and then run a correlation to test for group differences.
