@@ -198,16 +198,16 @@ Let's first plot the data, and then look at our observed difference in anxiety s
 
 ```{r}
 # put into dataframe - long format
-df <- data.frame(anxiety = c(placebo, drug),
+ddf <- data.frame(anxiety = c(placebo, drug),
                  group = c(rep("placebo", length(placebo)), 
                            rep("drug", length(drug))
                  )
 )
 
-head(df)
+head(ddf)
 
 #boxplots
-ggplot(df, aes(x=group, y=anxiety, fill=group)) + 
+ggplot(ddf, aes(x=group, y=anxiety, fill=group)) + 
   geom_boxplot(outlier.shape = NA, alpha=.4) +
   geom_jitter(width=.1) +
   theme_classic() +
@@ -410,10 +410,10 @@ Above we wrote script from scratch to perform our permutation tests. In many way
 ```{r}
 library(coin)
 
-head(df)
+head(ddf)
 
 
-independence_test(anxiety ~ group, data = df, alternative = "less")
+independence_test(anxiety ~ group, data = ddf, alternative = "less")
 
 ```
 
@@ -424,5 +424,5 @@ You can also do a 2-tailed version:
 
 ```{r}
 #2-tailed permutation test
-independence_test(anxiety ~ group, data = df)
+independence_test(anxiety ~ group, data = ddf)
 ```

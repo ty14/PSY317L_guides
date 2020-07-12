@@ -422,7 +422,8 @@ Boxplot can also be used when looking at the distribution of data. These plots c
 
 
 Import and look at data
-```[r]
+
+```{r}
 wheels <- read_csv("data/wheels1.csv")
 head(wheels)
 tail(wheels)
@@ -538,7 +539,7 @@ Example 1. If you have a dataset where you **HAVE** already counted the number o
 Import the number1s.csv data.  This shows how many number 1 songs various artists have had in the UK singles charts.
 
 ```{r}
-data <- read_csv("data/number1s.csv")
+df <- read_csv("data/number1s.csv")
 head(df)
 ```
 

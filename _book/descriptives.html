@@ -156,6 +156,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.2" data-path="data-visualization.html"><a href="data-visualization.html#histogram"><i class="fa fa-check"></i><b>5.2</b> Histogram</a></li>
 <li class="chapter" data-level="5.3" data-path="data-visualization.html"><a href="data-visualization.html#scatter"><i class="fa fa-check"></i><b>5.3</b> Scatter</a></li>
 <li class="chapter" data-level="5.4" data-path="data-visualization.html"><a href="data-visualization.html#line"><i class="fa fa-check"></i><b>5.4</b> Line</a></li>
+<li class="chapter" data-level="5.5" data-path="data-visualization.html"><a href="data-visualization.html#boxplot"><i class="fa fa-check"></i><b>5.5</b> Boxplot</a></li>
+<li class="chapter" data-level="5.6" data-path="data-visualization.html"><a href="data-visualization.html#bar-graphs"><i class="fa fa-check"></i><b>5.6</b> Bar Graphs</a></li>
+<li class="chapter" data-level="5.7" data-path="data-visualization.html"><a href="data-visualization.html#all-the-extras"><i class="fa fa-check"></i><b>5.7</b> All the extras</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="descriptives.html"><a href="descriptives.html"><i class="fa fa-check"></i><b>6</b> Descriptives</a><ul>
 <li class="chapter" data-level="6.1" data-path="descriptives.html"><a href="descriptives.html#basic-descriptives"><i class="fa fa-check"></i><b>6.1</b> Basic Descriptives</a></li>
@@ -242,6 +245,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12" data-path="permutation-testing.html"><a href="permutation-testing.html"><i class="fa fa-check"></i><b>12</b> Permutation Testing</a><ul>
 <li class="chapter" data-level="12.1" data-path="permutation-testing.html"><a href="permutation-testing.html#t-test-permutation"><i class="fa fa-check"></i><b>12.1</b> t-test Permutation</a></li>
 <li class="chapter" data-level="12.2" data-path="permutation-testing.html"><a href="permutation-testing.html#correlation-coefficient-permutation-tests"><i class="fa fa-check"></i><b>12.2</b> Correlation Coefficient Permutation Tests</a></li>
+<li class="chapter" data-level="12.3" data-path="permutation-testing.html"><a href="permutation-testing.html#permutation-tests-in-packages"><i class="fa fa-check"></i><b>12.3</b> Permutation tests in Packages</a></li>
 </ul></li>
 </ul>
 
@@ -281,7 +285,7 @@ atx &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(atx, <span class="kw">aes</span>(<span class="dt">x=</span> temp)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;lightseagreen&quot;</span>, <span class="dt">binwidth =</span> <span class="dv">10</span>)+
 <span class="st">  </span><span class="kw">theme_classic</span>()</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-168-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-191-1.png" width="672" /></p>
 <div id="basic-descriptives" class="section level2">
 <h2><span class="header-section-number">6.1</span> Basic Descriptives</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(atx$temp) <span class="co"># length this tells you the &#39;n&#39;</span></code></pre></div>
@@ -354,12 +358,12 @@ estimate_mode &lt;-<span class="st"> </span>function(x) {
 <p>Don't be worried if these quartiles are slightly different to what you'd get by hand.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(atx, <span class="kw">aes</span>(<span class="dt">y=</span>temp)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, <span class="dt">fill=</span><span class="st">&#39;lightseagreen&#39;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-175-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-198-1.png" width="672" /></p>
 <p>nb we get those numbers on the x-axis because there is no 'group' we can get rid of them like this:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(atx, <span class="kw">aes</span>(<span class="dt">y=</span>temp)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, <span class="dt">fill=</span><span class="st">&#39;lightseagreen&#39;</span>) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">breaks =</span> <span class="ot">NULL</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-176-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-199-1.png" width="672" /></p>
 </div>
 <div id="descriptives-for-groups" class="section level2">
 <h2><span class="header-section-number">6.6</span> Descriptives for Groups</h2>
@@ -533,7 +537,7 @@ for(i in <span class="dv">1</span>:<span class="dv">10000</span>){
 <span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="fl">199.91</span>, <span class="dt">lwd=</span><span class="dv">1</span>, <span class="dt">color=</span><span class="st">&quot;orange&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>) +
 <span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sample Means Distribution&quot;</span>)</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-193-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-216-1.png" width="672" /></p>
 <p>However, this shows the population SD formula with samples, leads us to underestimating the real population SD - on average there is a lot of variation though.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(sampSDs), <span class="kw">aes</span>(<span class="dt">x=</span>sampSDs)) +
 <span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, <span class="dt">fill=</span><span class="st">&#39;blue&#39;</span>, <span class="dt">alpha=</span>.<span class="dv">2</span>)+
@@ -542,7 +546,7 @@ for(i in <span class="dv">1</span>:<span class="dv">10000</span>){
 <span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="fl">8.28</span>, <span class="dt">lwd=</span><span class="dv">1</span>, <span class="dt">color=</span><span class="st">&quot;orange&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>) +
 <span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;SD Distribution when using Sample SD&quot;</span>)</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-194-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-217-1.png" width="672" /></p>
 <p>Overall, using the sample SD formula with samples, provides a better estimate of the population SD on average. This is why we divided by n-1 for sample SD.</p>
 
 </div>
