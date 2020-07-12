@@ -156,6 +156,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.2" data-path="data-visualization.html"><a href="data-visualization.html#histogram"><i class="fa fa-check"></i><b>5.2</b> Histogram</a></li>
 <li class="chapter" data-level="5.3" data-path="data-visualization.html"><a href="data-visualization.html#scatter"><i class="fa fa-check"></i><b>5.3</b> Scatter</a></li>
 <li class="chapter" data-level="5.4" data-path="data-visualization.html"><a href="data-visualization.html#line"><i class="fa fa-check"></i><b>5.4</b> Line</a></li>
+<li class="chapter" data-level="5.5" data-path="data-visualization.html"><a href="data-visualization.html#boxplot"><i class="fa fa-check"></i><b>5.5</b> Boxplot</a></li>
+<li class="chapter" data-level="5.6" data-path="data-visualization.html"><a href="data-visualization.html#bar-graphs"><i class="fa fa-check"></i><b>5.6</b> Bar Graphs</a></li>
+<li class="chapter" data-level="5.7" data-path="data-visualization.html"><a href="data-visualization.html#all-the-extras"><i class="fa fa-check"></i><b>5.7</b> All the extras</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="descriptives.html"><a href="descriptives.html"><i class="fa fa-check"></i><b>6</b> Descriptives</a><ul>
 <li class="chapter" data-level="6.1" data-path="descriptives.html"><a href="descriptives.html#basic-descriptives"><i class="fa fa-check"></i><b>6.1</b> Basic Descriptives</a></li>
@@ -242,6 +245,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12" data-path="permutation-testing.html"><a href="permutation-testing.html"><i class="fa fa-check"></i><b>12</b> Permutation Testing</a><ul>
 <li class="chapter" data-level="12.1" data-path="permutation-testing.html"><a href="permutation-testing.html#t-test-permutation"><i class="fa fa-check"></i><b>12.1</b> t-test Permutation</a></li>
 <li class="chapter" data-level="12.2" data-path="permutation-testing.html"><a href="permutation-testing.html#correlation-coefficient-permutation-tests"><i class="fa fa-check"></i><b>12.2</b> Correlation Coefficient Permutation Tests</a></li>
+<li class="chapter" data-level="12.3" data-path="permutation-testing.html"><a href="permutation-testing.html#permutation-tests-in-packages"><i class="fa fa-check"></i><b>12.3</b> Permutation tests in Packages</a></li>
 </ul></li>
 </ul>
 
@@ -298,7 +302,7 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 <span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> dan.sleep, <span class="dt">y =</span> dan.grump)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span>
 <span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>, <span class="dt">se=</span>F) </code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-277-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-315-1.png" width="672" /></p>
 <p>It looks like these variables are clearly associated, with higher levels of sleep being related to lower levels of grumpiness.</p>
 <p>To get a measure of how big this relationship is, we could run a correlation test.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor.test</span>(df$dan.sleep, df$dan.grump)</code></pre></div>
@@ -340,7 +344,7 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 <span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span><span class="fl">125.956</span> , <span class="dt">slope =</span> -<span class="fl">8.937</span>, <span class="dt">lty=</span><span class="dv">2</span>)+
 <span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept=</span><span class="dv">0</span>, <span class="dt">color=</span><span class="st">&#39;red&#39;</span>, <span class="dt">lty=</span><span class="dv">2</span>) +
 <span class="st">  </span><span class="kw">geom_segment</span>(<span class="dt">x=</span>-<span class="fl">1.6</span>,<span class="dt">xend=</span><span class="dv">0</span>,<span class="dt">y=</span><span class="fl">125.96</span>,<span class="dt">yend=</span><span class="fl">125.96</span>, <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">color=</span><span class="st">&#39;orange&#39;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-279-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-317-1.png" width="672" /></p>
 <p>In reality, we do not ever extend the reression lines like this. In fact, a regression line by definition only fits the range of datapoints along the x-axis that we have - it should not extend beyond those points. This is more a theoretical construct to help us understand where the line is on the graph.</p>
 <p>To think a bit more about <code>a</code> and <code>b</code> let's compare these regression lines and their respective equations.</p>
 <div class="figure">
@@ -485,7 +489,7 @@ df$dan.grump -<span class="st"> </span>Y.pred</code></pre></div>
 <span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;OLSR best fit trendline&quot;</span>)
 
 p1</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-287-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-325-1.png" width="672" /></p>
 </div>
 <div id="comparing-our-trendline-to-other-trendlines" class="section level3">
 <h3><span class="header-section-number">11.3.3</span> Comparing our trendline to other trendlines</h3>
@@ -499,7 +503,7 @@ p1</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> dan.sleep, <span class="dt">y =</span> dan.grump)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="kw">mean</span>(df$dan.grump), <span class="dt">color=</span><span class="st">&#39;blue&#39;</span>) </code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-289-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-327-1.png" width="672" /></p>
 <p>It doesn't look like using the mean value of Y is that good a predictor of each datapoint. We could actually visualize how good.bad it is by calculating the residual of each datapoint from this new trendline. This time each residual is equal to:</p>
 <p><span class="math inline">\(residual = y - \overline{y}\)</span></p>
 <p>Let's calculate these residuals, and then graph them on this scatterplot:</p>
@@ -526,11 +530,11 @@ p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(df, <span class=
 <span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Residuals to the mean Y&quot;</span>)
 
 p2</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-290-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-328-1.png" width="672" /></p>
 <p>If we compare both graphs scatterplots side by side, it's pretty clear that our best-fit trendline is doing a much better job of predicting each datapoint's Y value. The horizontal trendline at the mean of Y looks pretty bad for the majority of datapoints - its residuals are much bigger.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gridExtra)
 <span class="kw">grid.arrange</span>(p1,p2,<span class="dt">nrow=</span><span class="dv">1</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-291-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-329-1.png" width="672" /></p>
 <p>In fact, let's actually quantify the difference in residuals between these two trendlines. Because we have both positive and neagative residuals, if we just added them together we'd end up with 0. In statistics, one common way to make numbers positive is to square them. As we saw with standard deviation, this also has the advantage of emphasizing large values.</p>
 <p>What we do to compare our residuals, is to therefore square them. We call the residuals from our trendline the raw residuals. We call the residuals from the horizontal line the total residuals.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df$residuals2 &lt;-<span class="st"> </span>df$residuals ^<span class="st"> </span><span class="dv">2</span>               <span class="co"># raw residuals</span>
@@ -641,7 +645,7 @@ s_est</code></pre></div>
 <span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="fl">125.956</span>+s_est+s_est, <span class="dt">slope =</span> -<span class="fl">8.937</span>, <span class="dt">color =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">lty=</span><span class="dv">2</span>)+
 <span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="fl">125.956</span>-s_est-s_est, <span class="dt">slope =</span> -<span class="fl">8.937</span>, <span class="dt">color =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">lty=</span><span class="dv">2</span>) +
 <span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Regression with 2 x Standard Error of the Estimate&quot;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-299-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-337-1.png" width="672" /></p>
 <p>This is our original scatterplot again. The blue line is still the best fitting trendline. The two dashed red lines are two times <span class="math inline">\(\sigma_{est}\)</span> above and below the blue line respectively. That is they are 2 * 4.332 = 8.644 units of grumpiness above or below the trendline.</p>
 <p>If we count up the number of datapoints that our outside of the dotted red lines, we can see that there are six datapoints out of our 100 datapoints that are just outside, although some of htese are very close indeed to the red line. This is probably ok as we're only expecting 95% of datapoints on average to be inside the red lines.</p>
 </div>
@@ -651,7 +655,7 @@ s_est</code></pre></div>
 <p><span class="math inline">\(R^{2}\)</span> and <span class="math inline">\(\sigma_{est}\)</span> are two calculations that help us determine if our regression model (and trendline) is indeed a good fit to the data. A more formal method is to run a statistical test called the Goodness of Fit Test. To do this we calculate an F-ratio that essentially examines how well our trendline (and model) fit the data compared to the null model which is the model where we use the mean of Y as our prediction.</p>
 <p>As a reminder, these scatterplots show the difference in performance of our fitted model (left) compared to the null model (right).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">grid.arrange</span>(p1,p2,<span class="dt">nrow=</span><span class="dv">1</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-300-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-338-1.png" width="672" /></p>
 <p>The F-ratio is essentially a method of determining the proportion of residual variance compared to total variance. We can calculate it using the following formula:</p>
 <p>$F =  $</p>
 <p>Here, SSM refers to the sum of squares for the model (the model sum of squares). This is equal to:</p>
@@ -741,14 +745,14 @@ Fval  <span class="co">#434.9</span></code></pre></div>
 <span class="st">  </span><span class="kw">theme_classic</span>()+
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Raw Residuals&quot;</span>)+
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Standardized Residuals&quot;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-305-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-343-1.png" width="672" /></p>
 <p>They are effectively the same - just transformed. One advantage of standardized residuals is that they can help us look for unusual datapoints with large residuals. While raw residuals are always in the original units of the y-axis, standardized residuals are, well, standardized. Standardized residuals that are greater than 2 or less than -2 are quite large, those that are larger than 3 or less than 3 are very large indeed and should be looked at in more detail.</p>
 <p>Let's get back to checking the normality of these residuals.</p>
 <p>First up, we could plot a histogram and see if we think it's approximately normal:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#a) histogram plot</span>
 <span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>std_resids)) +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;white&#39;</span>) <span class="co"># possibly ok</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-306-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-344-1.png" width="672" /></p>
 <p>This looks possibly ok. It's not <strong>too</strong> skewed, but it can be harded from a histogram with just 100 datapoints to get a sense of the shape. A second approach would be to use a Shapiro-Wilk test which more formally test whether the data are approximately normally distributed:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#b) Shapiro-Wilk test</span>
 <span class="kw">shapiro.test</span>(df$std_resids)  <span class="co"># shapiro test says normal.</span></code></pre></div>
@@ -762,11 +766,11 @@ Fval  <span class="co">#434.9</span></code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#c) QQ plot</span>
 <span class="kw">qqnorm</span>(df$std_resids)
 <span class="kw">qqline</span>(df$std_resids, <span class="dt">col =</span> <span class="st">&quot;steelblue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)  <span class="co"># it&#39;s ok</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-308-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-346-1.png" width="672" /></p>
 <p>A discussion of precisely what these QQ plots are is beyond the scope here. However, in general terms, what we are plotting is the residual against the theoretical value of each residual that we would expect if our data were normally distributed. In practical terms, what we're looking for is that the bulk of our data fit along the blue line. It's ok to have a bit of wobble at the extremes - that just means that our data distribution probably has slightly fat tails.</p>
 <p>It's also possible to generate a version of the above plot quickly, directly from the saved linear model object.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>( <span class="dt">x =</span> mod1, <span class="dt">which =</span> <span class="dv">2</span> )  <span class="co"># fast way of getting same plot</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-309-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-347-1.png" width="672" /></p>
 </div>
 <div id="linearity----" class="section level3">
 <h3><span class="header-section-number">11.6.2</span> 2. Linearity ---</h3>
@@ -783,7 +787,7 @@ Fval  <span class="co">#434.9</span></code></pre></div>
 <span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> Y.fitted, <span class="dt">y =</span> dan.grump)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span>
 <span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>, <span class="dt">se=</span>F) </code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-310-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-348-1.png" width="672" /></p>
 <p>As you can see from this plot, our fitted (predicted) values of Y on the x-axis have a strong linear relationship with our observed values of Y on the y-axis.</p>
 </div>
 <div id="homogeneity-of-variance-homoscedasticity" class="section level3">
@@ -796,11 +800,11 @@ Fval  <span class="co">#434.9</span></code></pre></div>
 <span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> Y.fitted, <span class="dt">y =</span> std_resids)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span>
 <span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>, <span class="dt">se=</span>F) </code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-311-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-349-1.png" width="672" /></p>
 <p>As you can see, our plot is basically a random scatterplot and there is no overall pattern. That is good, it means we have homoscedasticity. If we did not have homoscedasticity, then we'd see a pattern in this scatterplot - such as the residuals getting larger or smaller for larger fitted (predicted) values of Y.</p>
 <p>You can access a version of this plot directly from the model object like this:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(mod1, <span class="dt">which =</span> <span class="dv">3</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-312-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-350-1.png" width="672" /></p>
 <p>There are some more formal tests of homoscedasticity but we don't need to worry about them.</p>
 </div>
 <div id="no-colinearity" class="section level3">
@@ -843,7 +847,7 @@ ddf</code></pre></div>
 <p>And here, we're plotting the best fitting regression line in blue. The dotted red line represents the best fitting trendline that we would have if we removed the datapoints that has the y value of 11.9. The dashed black line shows the distance from this datapoint to the trendline we would have if it was removed.</p>
 <pre><code>## (Intercept)           x 
 ##   0.8247787   0.8785270</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-314-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-352-1.png" width="672" /></p>
 <p>As you can see from this small example, outliers are datapoints that have very large residuals from the trendline. They have an unusually large Y. Notice though that the slope of the trendline hasn't change too much at all. It is slighly shifted down after you remove that outlier from the calculations, but overall the coefficient of 'b' is similar to before. This type of outlier is not necessarily a big deal.</p>
 </div>
 <div id="ii.-high-leverage" class="section level4">
@@ -898,7 +902,7 @@ ddf1</code></pre></div>
 ## 11 8.00 8.0 8.0
 ## 12 9.70 6.1  NA</code></pre>
 <p>Let's plot these data - I'm sparing you the code for this plot:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-318-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-356-1.png" width="672" /></p>
 <p>What you can see here is the scatterplot of 'x' against 'y2'. The blue trendline is the best fit line to the regression of 'x' against 'y2'. The red dotted line is the regression line when we remove the datapoint at x=9.7. This datapoint has both high leverage and is an outlier (has an overly large residual). As a consequence of this, when you remove this datapoint it significantly shifts the angle of the slope of the regression line. That means that the value of <code>b</code> changes quite considerably.</p>
 <p>Let's add the hat values (measuring leverage) to the data. We can also add what is called <code>Cook's Distance</code> which is a measure of the <strong>influence</strong> of each datapoint.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod.out2 &lt;-<span class="st"> </span><span class="kw">lm</span>(y2~x, <span class="dt">data =</span> ddf1)
@@ -923,13 +927,13 @@ ddf1</code></pre></div>
 <p>As you can see, datapoint 12 (x=9.7) has high leverage and it's also an outlier. Consequently it has a very large Cook's Distance. Typically a Cook's distance &gt; 1 requires more consideration about how to proceed with your model.</p>
 <p>You can also quickly get a plot of the Cook's Distances of all datapoints from a regression model like this:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(mod.out2, <span class="dt">which =</span> <span class="dv">4</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-320-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-358-1.png" width="672" /></p>
 </div>
 <div id="checking-influence" class="section level4">
 <h4><span class="header-section-number">11.6.5.4</span> Checking Influence:</h4>
 <p>Let's look for influential datapoints in our Sleep vs Grumpiness Data. At the beginning of this section, we saved the linear model as <code>mod</code>. We can look at the Cook's Distances with the <code>cooks.distance()</code> function, or we could just plot them:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(mod1, <span class="dt">which =</span> <span class="dv">4</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-321-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-359-1.png" width="672" /></p>
 <p>This plot shows each of our 100 datapoints in the order they appear in the original dataframe along the x-axis. Clearly, looking at the y-axis, all our datapoints have Cook's distances of far below 1, so we are fine to assume that we have no overly influential datapoints.</p>
 </div>
 </div>
