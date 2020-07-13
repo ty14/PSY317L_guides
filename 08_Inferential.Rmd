@@ -10,7 +10,7 @@ blah
 
 blah
 
-![compare 2 distributions](img/compare_dists.png)
+![](img/compare_dists.png)
 
 blah
 

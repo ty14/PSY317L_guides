@@ -30,20 +30,21 @@ DO we really need this?
 
 There are different options for importing data. It's possible to import data of all different formats into RStudio. We will primarily use spreadsheet type files that have been saved with the ".csv" suffix.  These are called 'comma separated files'.  
 
-**Option 1. Import Tab** You can click on the "Import Dataset" tab in the top right of RStudio - it's located just above your global environment.  Tyler - perhaps we can insert images here?
+**Option 1. Import Tab** You can click on the "Import Dataset" tab in the top right of RStudio - it's located just above your global environment. 
 
-![like this](img/import_dataset.png){width=500px}
-
-Of course, we should look into how to chaneg image sizes.
-
-You then need to click on the appropriate file type that you wish to import. As I mentioned, nearly all our files will be ".csv" files, so you should click on "From CSV".  In other versions of RStudio, this may say "from text (readR)" instead. 
-
-blah blah blah
-
-not sure what else you want here?
+Depending on your RStudio version, you will be asked to select from a dropdown menu. When importing `.csv` files, you want to select `From CSV...` if your menu looks like this:
 
 
-I can't remember how to insert more space between sections, so I just write <br> to try and force space.
+![](img/import_dataset.png){width=500px}
+
+
+If your menu looks like the underneath, then you'll want to select `From Text (readr)`:
+
+![](img/import2.png){width=400px}
+
+
+
+
 
 <br>
 
@@ -161,6 +162,14 @@ include the code they should run at the beginning of this course to have all pac
 
 how projects and folders are managed.
 
+The top level of the the project folder is the one that contains all the folders and looks like this:
+
+
+This is where R will automatically look for files when you ask it to find stuff.....
+
+and how to refer to folders... e.g. `data/cheese.csv`  - we write it like this as it's the `cheese.csv` file that exists in the folder `data`.  
+
+If you ever need to check where R is looking for things, run `getwd()` and it will tell you where it thinks you are currently working from.
 
 
 ## Where to Get Help for R stuff

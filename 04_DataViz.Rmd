@@ -72,35 +72,43 @@ Also, you can change the color and size of points by `geom_point(size = 3, color
 
 3. Built in themes: 
 
-theme_bw() 
+`theme_bw()` 
 a variation on theme_grey() that uses a white background and thin grey grid lines.
 
-theme_linedraw() 
+`theme_linedraw()` 
 A theme with only black lines of various widths on white backgrounds, reminiscent of a line drawing.
 
-theme_light()
+`theme_light()`
 similar to theme_linedraw() but with light grey lines and axes, to direct more attention towards the data.
 
-theme_dark()
+`theme_dark()`
 the dark cousin of theme_light(), with similar line sizes but a dark background. Useful to make thin colored lines pop out.
 
-theme_minimal()
+`theme_minimal()`
 A minimalistic theme with no background annotations.
 
-theme_classic()
+`theme_classic()`
 A classic-looking theme, with x and y axis lines and no gridlines.
 
-theme_void()
+`theme_void()`
 A completely empty theme
 
 
-REFERENCE: your slides elol and https://ggplot2-book.org/
+For more information about themes [look here](https://ggplot2-book.org/).
 
 
 ## Histogram
 Why make a histogram?
 
 Histograms are a good place to start with your data, it will give you a visual representation of your data distribution. blah probably needs more, idk what to say. 
+
+
+theory of histograms.....
+
+.... how to make a histogram by hand....
+
+
+
 
 Load libraries and data
 ```{r}
@@ -546,7 +554,7 @@ head(df)
 
 `geom_col()` is used when the data is already counted.
 
-```{r}
+```{r, fig.width=5}
 ggplot(df, aes(x = name, y = total) ) + geom_col()
 ```
 Notice default order is alphabetical. However, you can reorder by putting reorder around the x-axis column.

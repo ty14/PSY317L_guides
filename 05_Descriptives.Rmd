@@ -36,6 +36,11 @@ var(atx$temp) # variance
 ```
 
 
+
+
+
+
+
 ## Mean, Median, and Mode 
 
 ```{r}
@@ -56,7 +61,25 @@ estimate_mode(atx$temp) # using the function to get estimate mode
 
 For some descriptives, like mode, there is not a function already built into R, so a function needs to be made. The above code has a function for the estimated mode, this function works best with large data sets. 
 
+
+
 ## Standard Deviation 
+
+
+### Average Deviation
+explain this concept
+
+
+### Standard Deviation
+explain this concept
+
+
+
+
+
+
+
+
 
 ``` {r}
 sd(atx$temp) #  sample standard deviation
@@ -89,7 +112,27 @@ please note  - if you have missing data use this function for SEM
 sem <- function(x){sd(x,na.rm=T) / sqrt(length(na.omit(x)))}
 ```
 
-## Inter-quartile Ranges 
+
+
+
+
+## Median and Inter-quartile Ranges 
+
+
+### Median
+
+is the marker of 50% of the data......
+
+explain with image.
+
+
+
+### IQRs
+
+markers for 25% and 75%  - essentially medians of the lower half and upper half of the data.
+
+
+
 
 ``` {r}
 quantile(atx$temp, .25)  # this is the lower quartile

@@ -136,6 +136,14 @@ df$food_type <- NULL
 head(df)
 ```
 
+
+    
+    
+    
+<br><br><br><br>
+
+
+
 ## tidyverse
 
 The package `tidyverse` is what we will be using for most of our data carpentry. `tidyverse` is a larger package which includes several packages useful for dealing with data such as `tidyr`, `dplyr`, `ggplot2`, and more. 
@@ -144,22 +152,22 @@ All of these packages work together to manipulate, reshape, and visual data.
 
 Functions and syntax to know before beginning the chapter: 
 
-filter()    - subsetting data
+`filter()`    - subsetting data
 
-select()    - selecting columns
+`select()`    - selecting columns
 
-arrange()   - sorting a column
+`arrange()`   - sorting a column
 
-mutate()    - adding a new column
+`mutate()`    - adding a new column
 
 
-%>%  means "and next do this"  
+`%>%`  means "and next do this"  
 
-==  means "is equal to"
+`==`  means "is equal to"
 
-!= means "is not equal to"
+`!=` means "is not equal to"
 
-|  means "or"
+`|`  means "or"
 
 
 Before using `tidyverse` you will need to install and load the package. 
@@ -171,7 +179,7 @@ install.package(tidyverse) #install
 
 ```
 
-From the `tidyverse` package `rread` we can read in our data.
+From the `tidyverse` package `readr` we can read in our data.
 
 ```{r message = FALSE}
 library(tidyverse) #load
@@ -367,6 +375,13 @@ Sometimes you will need to rearrange your data for some data analysis and more c
 
 `pivot_longer` makes the dataframes longer by increasing the number of rows by combing the number of columns. This is called long form data, which is needed to tidy data for graphing and some analysis.
 
+
+insert 3 column version.
+
+
+
+
+
 ```{r}
 wheel <- read_csv("data/wheels1.csv")
 
@@ -397,6 +412,8 @@ wheel_long %>% pivot_wider(
   values_from = distance
 )
 ```
+
+
 
 ## Joins
 
