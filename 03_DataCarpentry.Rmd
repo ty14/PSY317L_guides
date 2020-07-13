@@ -6,16 +6,143 @@ Data carpentry gives us the tools to work with large data sets. During this chap
 
 ## Introduction to Dataframes
 
-we should introduce what a dataframe is here.
+What is a dataframe and how do we get one from our data. 
+
+A dataframe, in R is like a table that includes your data, each column contains values or characters for one variable. 
+
+In R dataframes need to contain the following:
+
+1. Columns should all be the same length, with unique column names. These column names should not start with number and hold no spaces. 
+
+2. The data stored in datagframes can hold many different structures such as numeric, factor or character type. 
 
 
+Let's divide into all the features of a dataframe.
 
+First import data.
 
+```{r}
+library(tidyverse)
 
+df <- read_csv("data/cheese.csv")
+```
 
+Explore the Data
 
+ 1. look at top rows
+ 
+```{r}
+head(df)
 
-Things to know before beginning the chapter: 
+head(df, 4)
+
+head(df, 8)
+
+```
+
+ 2. look at bottom rows
+```{r}
+tail(df)
+
+tail(df, 10)
+```
+
+3. dataframe Dimensions
+
+```{r}
+nrow(df)  #73
+
+ncol(df)  #9
+
+dim(df) #73 9
+
+length(df) #9
+```
+
+4. Column names in dataframe
+
+```{r}
+head(df)
+
+colnames(df)
+
+```
+
+Changing column names 
+```{r}
+colnames(df)[6] <- "carbo"
+
+colnames(df)
+```
+
+5. Indexing dataframes.
+ The `$` indicates which column to call. 
+
+```{r}
+df$chol
+
+df$type
+
+df$kcal
+```
+
+What if you just want the first 10 rows of kcal:
+```{r}
+df$kcal[1:10]
+```
+
+Call just certain rows and columns. **Important:** rows before comma, columns after comma.
+
+Just get the 7th row:
+```{r}
+df[7,]
+```
+
+Get the 10th to 14th rows:
+```{r}
+df[10:14]
+```
+
+Get the first and second columns:
+```{r}
+df[,1:2]
+```
+
+Get 3rd, 5th, and 9th columns: 
+```{r}
+df[,c(3,5,9)]
+```
+
+Get the 20th to 22nd row, and the 1st, 8th and 9th column:
+
+```{r}
+df[20:22,c(1,8,9)]
+```
+
+6. Creating new column
+```{r}
+head(df)
+
+df$food_type <- "cheese"
+
+head(df)
+```
+ 
+7. Deleting a new column
+
+```{r}
+df$food_type <- NULL
+
+head(df)
+```
+
+## tidyverse
+
+The package `tidyverse` is what we will be using for most of our data carpentry. `tidyverse` is a larger package which includes several packages useful for dealing with data such as `tidyr`, `dplyr`, `ggplot2`, and more. 
+
+All of these packages work together to manipulate, reshape, and visual data. 
+
+Functions and syntax to know before beginning the chapter: 
 
 filter()    - subsetting data
 
@@ -34,11 +161,6 @@ mutate()    - adding a new column
 
 |  means "or"
 
-## tidyverse
-
-The package `tidyverse` is what we will be using for most of our data carpentry. `tidyverse` is a larger package which includes several packages useful for dealing with data such as `tidyr`, `dplyr`, `ggplot2`, and more. 
-
-All of these packages work together to manipulate, reshape, and visual data. 
 
 Before using `tidyverse` you will need to install and load the package. 
 
@@ -64,6 +186,7 @@ Before we can work with our data we need to what we have to work with using the 
 ```{r}
 head(bw) # first 6 lines 
 ```
+
 
 ```{r}
 tail(bw) #last 6 lines
@@ -273,7 +396,7 @@ wheel_long %>% pivot_wider(
   names_from = day,
   values_from = distance
 )
-````
+```
 
 ## Joins
 
