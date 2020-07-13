@@ -70,9 +70,9 @@ colnames(bmi) # column names
 ```
 
 If you just want to view your entire dataset, there is a function for that. 
-```{r}
-View(bmi)
-```
+
+`View(bmi)`
+
 
 You can also see the struture of your data, whether each variable is a number, character, factor, etc. This will become extremely important when trying to graph and analysis different types of data.  
 
@@ -129,9 +129,8 @@ The fourth pane, is the most compacted and has tabs for files, plots, packages, 
   
   The Help tab, will give you information to help understand different functions and commands in R. You can also call for help with a function right from the console like this:
   
-```{r}
-?t.test
-```
+`?t.test`
+
   
 
 ## The Command Prompt
