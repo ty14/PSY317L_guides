@@ -2,11 +2,6 @@
 
 How to get started with R and Rstudio.  
 
-## Introduction
-
-
-This chapter details how to get started using R.
-
 The initial steps are downloading and installing R. This may differ slightly based on your machine.
 
 
@@ -117,7 +112,7 @@ Third, you have a Gobal Environment and History in the top right. Your gobal env
 
 Here is an example of a Gobal Environment where you can see dataframes, matrices, values, and functions: 
 
-![Global Environment](img/gobal_envi.PNG)
+![Global Environment](img/gobal_envi.PNG){width=500px}
 
 If you click the play arrow next to the dataframe, you can view the entire dataframe. This is the save as running the function `View(df)`. Another, important button is the broom icon, if you click this it will clear your gobal enviornment and you will have to rerun code to get any dataframes, function, etc. back. 
 
