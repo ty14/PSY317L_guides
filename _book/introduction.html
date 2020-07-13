@@ -53,41 +53,66 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -103,7 +128,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <ul class="summary">
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to PSY317!</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-this-book-includes-and-what-it-doesnt"><i class="fa fa-check"></i><b>1.1</b> What this book includes and what it doesn't</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-this-book-includes-and-what-it-doesnt"><i class="fa fa-check"></i><b>1.1</b> What this book includes and what it doesn’t</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i><b>1.2</b> How to use this guide</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.3</b> Acknowledgements</a></li>
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#references"><i class="fa fa-check"></i><b>1.4</b> References</a></li>
@@ -119,13 +144,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.6" data-path="introduction.html"><a href="introduction.html#the-rstudio-environment"><i class="fa fa-check"></i><b>2.6</b> The RStudio Environment</a></li>
 <li class="chapter" data-level="2.7" data-path="introduction.html"><a href="introduction.html#the-command-prompt"><i class="fa fa-check"></i><b>2.7</b> The Command Prompt</a></li>
 <li class="chapter" data-level="2.8" data-path="introduction.html"><a href="introduction.html#what-is-an-rscript-file"><i class="fa fa-check"></i><b>2.8</b> What is an RScript File?</a></li>
-<li class="chapter" data-level="2.9" data-path="introduction.html"><a href="introduction.html#what-do-the-buttons-do"><i class="fa fa-check"></i><b>2.9</b> What do the buttons do?</a></li>
-<li class="chapter" data-level="2.10" data-path="introduction.html"><a href="introduction.html#the-plots-tab"><i class="fa fa-check"></i><b>2.10</b> The Plots tab</a></li>
-<li class="chapter" data-level="2.11" data-path="introduction.html"><a href="introduction.html#what-are-packages"><i class="fa fa-check"></i><b>2.11</b> What are Packages</a></li>
-<li class="chapter" data-level="2.12" data-path="introduction.html"><a href="introduction.html#saving-scripts-etc."><i class="fa fa-check"></i><b>2.12</b> Saving Scripts etc.</a></li>
-<li class="chapter" data-level="2.13" data-path="introduction.html"><a href="introduction.html#project-folders-and-working-directories"><i class="fa fa-check"></i><b>2.13</b> Project Folders and Working Directories</a></li>
-<li class="chapter" data-level="2.14" data-path="introduction.html"><a href="introduction.html#where-to-get-help-for-r-stuff"><i class="fa fa-check"></i><b>2.14</b> Where to Get Help for R stuff</a></li>
-<li class="chapter" data-level="2.15" data-path="introduction.html"><a href="introduction.html#quitting-r"><i class="fa fa-check"></i><b>2.15</b> Quitting R</a></li>
+<li class="chapter" data-level="2.9" data-path="introduction.html"><a href="introduction.html#what-are-packages"><i class="fa fa-check"></i><b>2.9</b> What are Packages</a></li>
+<li class="chapter" data-level="2.10" data-path="introduction.html"><a href="introduction.html#project-folders-and-working-directories"><i class="fa fa-check"></i><b>2.10</b> Project Folders and Working Directories</a></li>
+<li class="chapter" data-level="2.11" data-path="introduction.html"><a href="introduction.html#where-to-get-help-for-r-stuff"><i class="fa fa-check"></i><b>2.11</b> Where to Get Help for R stuff</a></li>
+<li class="chapter" data-level="2.12" data-path="introduction.html"><a href="introduction.html#quitting-r"><i class="fa fa-check"></i><b>2.12</b> Quitting R</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="basic-syntax.html"><a href="basic-syntax.html"><i class="fa fa-check"></i><b>3</b> Basic Syntax</a><ul>
 <li class="chapter" data-level="3.1" data-path="basic-syntax.html"><a href="basic-syntax.html#boring-mathematical-stuff"><i class="fa fa-check"></i><b>3.1</b> Boring mathematical stuff</a></li>
@@ -192,7 +214,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9" data-path="inferential-stats.html"><a href="inferential-stats.html"><i class="fa fa-check"></i><b>9</b> Inferential Stats</a><ul>
 <li class="chapter" data-level="9.1" data-path="inferential-stats.html"><a href="inferential-stats.html#comparing-two-samples"><i class="fa fa-check"></i><b>9.1</b> Comparing two Samples</a></li>
 <li class="chapter" data-level="9.2" data-path="inferential-stats.html"><a href="inferential-stats.html#independent-samples-t-test"><i class="fa fa-check"></i><b>9.2</b> Independent Samples t-test</a></li>
-<li class="chapter" data-level="9.3" data-path="inferential-stats.html"><a href="inferential-stats.html#background-to-students-2-sample-t-test"><i class="fa fa-check"></i><b>9.3</b> Background to Student's 2 Sample t-test</a></li>
+<li class="chapter" data-level="9.3" data-path="inferential-stats.html"><a href="inferential-stats.html#background-to-students-2-sample-t-test"><i class="fa fa-check"></i><b>9.3</b> Background to Student’s 2 Sample t-test</a></li>
 <li class="chapter" data-level="9.4" data-path="inferential-stats.html"><a href="inferential-stats.html#sampling-distribution-of-the-difference-in-sample-means"><i class="fa fa-check"></i><b>9.4</b> Sampling Distribution of the Difference in Sample Means</a></li>
 <li class="chapter" data-level="9.5" data-path="inferential-stats.html"><a href="inferential-stats.html#pooled-standard-deviation"><i class="fa fa-check"></i><b>9.5</b> Pooled Standard Deviation</a></li>
 <li class="chapter" data-level="9.6" data-path="inferential-stats.html"><a href="inferential-stats.html#confidence-interval-for-difference-in-means"><i class="fa fa-check"></i><b>9.6</b> Confidence Interval for Difference in Means</a></li>
@@ -206,7 +228,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="10.2" data-path="correlation.html"><a href="correlation.html#calculating-the-pearson-correlation-in-r"><i class="fa fa-check"></i><b>10.2</b> Calculating the Pearson Correlation in R</a></li>
 <li class="chapter" data-level="10.3" data-path="correlation.html"><a href="correlation.html#cross-products"><i class="fa fa-check"></i><b>10.3</b> Cross-products</a></li>
 <li class="chapter" data-level="10.4" data-path="correlation.html"><a href="correlation.html#conducting-a-pearson-correlation-test"><i class="fa fa-check"></i><b>10.4</b> Conducting a Pearson Correlation Test</a></li>
-<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#assumptions-of-pearsons-correlation"><i class="fa fa-check"></i><b>10.5</b> Assumptions of Pearson's Correlation</a></li>
+<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#assumptions-of-pearsons-correlation"><i class="fa fa-check"></i><b>10.5</b> Assumptions of Pearson’s Correlation</a></li>
 <li class="chapter" data-level="10.6" data-path="correlation.html"><a href="correlation.html#confidence-intervals-for-r"><i class="fa fa-check"></i><b>10.6</b> Confidence Intervals for R</a></li>
 <li class="chapter" data-level="10.7" data-path="correlation.html"><a href="correlation.html#partial-correlations"><i class="fa fa-check"></i><b>10.7</b> Partial Correlations</a></li>
 <li class="chapter" data-level="10.8" data-path="correlation.html"><a href="correlation.html#non-parametric-correlations"><i class="fa fa-check"></i><b>10.8</b> Non-parametric Correlations</a></li>
@@ -216,7 +238,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.1" data-path="regression.html"><a href="regression.html#introduction-to-linear-regression"><i class="fa fa-check"></i><b>11.1</b> Introduction to Linear Regression</a></li>
 <li class="chapter" data-level="11.2" data-path="regression.html"><a href="regression.html#a-and-b"><i class="fa fa-check"></i><b>11.2</b> a and b</a><ul>
 <li class="chapter" data-level="11.2.1" data-path="regression.html"><a href="regression.html#how-to-calculate-a-and-b-in-r"><i class="fa fa-check"></i><b>11.2.1</b> How to calculate a and b in R</a></li>
-<li class="chapter" data-level="11.2.2" data-path="regression.html"><a href="regression.html#how-to-calculate-a-and-b-by-hand"><i class="fa fa-check"></i><b>11.2.2</b> How to calculate a and b 'by hand'</a></li>
+<li class="chapter" data-level="11.2.2" data-path="regression.html"><a href="regression.html#how-to-calculate-a-and-b-by-hand"><i class="fa fa-check"></i><b>11.2.2</b> How to calculate a and b ‘by hand’</a></li>
 </ul></li>
 <li class="chapter" data-level="11.3" data-path="regression.html"><a href="regression.html#residuals"><i class="fa fa-check"></i><b>11.3</b> Residuals</a><ul>
 <li class="chapter" data-level="11.3.1" data-path="regression.html"><a href="regression.html#how-to-calculate-the-residuals"><i class="fa fa-check"></i><b>11.3.1</b> How to calculate the residuals</a></li>
@@ -230,15 +252,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.5" data-path="regression.html"><a href="regression.html#goodness-of-fit-test---f-ratio"><i class="fa fa-check"></i><b>11.5</b> Goodness of Fit Test - F-ratio</a></li>
 <li class="chapter" data-level="11.6" data-path="regression.html"><a href="regression.html#assumptions-of-linear-regression"><i class="fa fa-check"></i><b>11.6</b> Assumptions of Linear Regression</a><ul>
 <li class="chapter" data-level="11.6.1" data-path="regression.html"><a href="regression.html#normality-of-residuals"><i class="fa fa-check"></i><b>11.6.1</b> Normality of Residuals</a></li>
-<li class="chapter" data-level="11.6.2" data-path="regression.html"><a href="regression.html#linearity----"><i class="fa fa-check"></i><b>11.6.2</b> 2. Linearity ---</a></li>
+<li class="chapter" data-level="11.6.2" data-path="regression.html"><a href="regression.html#linearity"><i class="fa fa-check"></i><b>11.6.2</b> 2. Linearity —</a></li>
 <li class="chapter" data-level="11.6.3" data-path="regression.html"><a href="regression.html#homogeneity-of-variance-homoscedasticity"><i class="fa fa-check"></i><b>11.6.3</b> 3. Homogeneity of Variance / Homoscedasticity</a></li>
 <li class="chapter" data-level="11.6.4" data-path="regression.html"><a href="regression.html#no-colinearity"><i class="fa fa-check"></i><b>11.6.4</b> No Colinearity</a></li>
 <li class="chapter" data-level="11.6.5" data-path="regression.html"><a href="regression.html#unusual-datapoints"><i class="fa fa-check"></i><b>11.6.5</b> Unusual Datapoints</a></li>
 </ul></li>
 <li class="chapter" data-level="11.7" data-path="regression.html"><a href="regression.html#examining-individual-predictor-estimates"><i class="fa fa-check"></i><b>11.7</b> Examining individual predictor estimates</a><ul>
-<li class="chapter" data-level="11.7.1" data-path="regression.html"><a href="regression.html#confidence-interval-of-b."><i class="fa fa-check"></i><b>11.7.1</b> 95% confidence interval of 'b'.</a></li>
+<li class="chapter" data-level="11.7.1" data-path="regression.html"><a href="regression.html#confidence-interval-of-b."><i class="fa fa-check"></i><b>11.7.1</b> 95% confidence interval of ‘b’.</a></li>
 <li class="chapter" data-level="11.7.2" data-path="regression.html"><a href="regression.html#standard-error-of-b"><i class="fa fa-check"></i><b>11.7.2</b> Standard Error of b</a></li>
-<li class="chapter" data-level="11.7.3" data-path="regression.html"><a href="regression.html#calculating-95-confidence-interval-of-b-by-hand"><i class="fa fa-check"></i><b>11.7.3</b> Calculating 95% confidence interval of 'b' by hand</a></li>
+<li class="chapter" data-level="11.7.3" data-path="regression.html"><a href="regression.html#calculating-95-confidence-interval-of-b-by-hand"><i class="fa fa-check"></i><b>11.7.3</b> Calculating 95% confidence interval of ‘b’ by hand</a></li>
 <li class="chapter" data-level="11.7.4" data-path="regression.html"><a href="regression.html#signifcance-testing-b"><i class="fa fa-check"></i><b>11.7.4</b> Signifcance Testing b</a></li>
 </ul></li>
 </ul></li>
@@ -266,6 +288,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">2</span> Introduction</h1>
+<p>How to get started with R and Rstudio.</p>
 <div id="introduction-1" class="section level2">
 <h2><span class="header-section-number">2.1</span> Introduction</h2>
 <p>This chapter details how to get started using R.</p>
@@ -277,104 +300,158 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="downloading-rstudio" class="section level2">
 <h2><span class="header-section-number">2.3</span> Downloading RStudio</h2>
-<p>blah blah blah</p>
+<p>Go to the <a href="https://rstudio.com/products/rstudio/download/">Rstudio website</a>. Click <strong>DOWNLOAD</strong> under RStudio Desktop, open source license FREE. Then click on the appropriate installer for your computer (Mac, Windows, or Linux). Run the installer and follow the instructions.</p>
+<p>You will always use Rstudio, when working with data.</p>
 </div>
 <div id="using-rcloud-instead-of-rstudio" class="section level2">
 <h2><span class="header-section-number">2.4</span> Using RCloud instead of RStudio</h2>
 <p>blah blah blah</p>
+<p>DO we really need this?</p>
+<p><a href="https://rstudio.cloud/">RCloud</a></p>
 </div>
 <div id="importing-data" class="section level2">
 <h2><span class="header-section-number">2.5</span> Importing Data</h2>
-<p>There are different options for importing data. It's possible to import data of all different formats into RStudio. We will primarily use spreadsheet type files that have been saved with the &quot;.csv&quot; suffix. These are called 'comma separated files'.</p>
-<p><strong>Option 1. Import Tab</strong> You can click on the &quot;Import Dataset&quot; tab in the top right of RStudio - it's located just above your global environment. Tyler - perhaps we can insert images here?</p>
+<p>There are different options for importing data. It’s possible to import data of all different formats into RStudio. We will primarily use spreadsheet type files that have been saved with the “.csv” suffix. These are called ‘comma separated files’.</p>
+<p><strong>Option 1. Import Tab</strong> You can click on the “Import Dataset” tab in the top right of RStudio - it’s located just above your global environment. Tyler - perhaps we can insert images here?</p>
 <div class="figure">
 <img src="img/import_dataset.png" alt="like this" width="500" />
 <p class="caption">like this</p>
 </div>
 <p>Of course, we should look into how to chaneg image sizes.</p>
-<p>You then need to click on the appropriate file type that you wish to import. As I mentioned, nearly all our files will be &quot;.csv&quot; files, so you should click on &quot;From CSV&quot;. In other versions of RStudio, this may say &quot;from text (readR)&quot; instead.</p>
+<p>You then need to click on the appropriate file type that you wish to import. As I mentioned, nearly all our files will be “.csv” files, so you should click on “From CSV”. In other versions of RStudio, this may say “from text (readR)” instead.</p>
 <p>blah blah blah</p>
-<p>I can't remember how to insert more space between sections, so I just write <br> to try and force space.</p>
+<p>not sure what else you want here?</p>
+<p>I can’t remember how to insert more space between sections, so I just write <br> to try and force space.</p>
 <p><br></p>
-<p><strong>Option 2. Writing code.</strong> This is the option that we will use in our scripts for this course. You may notice that all the datasets that we wish to use are in a folder called &quot;data&quot;. To read in any of these datasets, what we need to do is use the <code>read_csv()</code> function. This comes from a package contained with the <code>tidyverse</code> package, so we must have imported that library first. We then tell it which dataset to find within the 'data' folder. We use the notation &quot;data/...&quot; to tell it to look inside the data folder. For instance, if we wished to load in the <code>bmi.csv</code> dataset, and assign it the name <code>bmi</code>, we would do it like this - make sure to put quotes around the whole file name and location:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)  <span class="co">#load package</span></code></pre></div>
-<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.2.1 --</code></pre>
-<pre><code>## v ggplot2 3.2.1     v purrr   0.2.4
-## v tibble  2.1.3     v dplyr   0.8.3
-## v tidyr   1.0.2     v stringr 1.3.1
-## v readr   1.1.1     v forcats 0.3.0</code></pre>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.3</code></pre>
-<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.3</code></pre>
-<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.5.3</code></pre>
-<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.3</code></pre>
-<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bmi &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/bmi.csv&quot;</span>) <span class="co"># bring in data</span></code></pre></div>
-<pre><code>## Parsed with column specification:
-## cols(
-##   id = col_integer(),
-##   age = col_double(),
-##   bmi = col_double(),
-##   chol = col_double(),
-##   insulin = col_double(),
-##   dbp = col_double(),
-##   sbp = col_double(),
-##   smoke = col_integer(),
-##   educ = col_character()
-## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(bmi) <span class="co"># first six rows</span></code></pre></div>
+<p><strong>Option 2. Writing code.</strong> This is the option that we will use in our scripts for this course. You may notice that all the datasets that we wish to use are in a folder called “data”. To read in any of these datasets, what we need to do is use the <code>read_csv()</code> function. This comes from a package contained with the <code>tidyverse</code> package, so we must have imported that library first. We then tell it which dataset to find within the ‘data’ folder. We use the notation “data/…” to tell it to look inside the data folder. For instance, if we wished to load in the <code>bmi.csv</code> dataset, and assign it the name <code>bmi</code>, we would do it like this - make sure to put quotes around the whole file name and location:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(tidyverse)  <span class="co">#load package</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3">bmi &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/bmi.csv&quot;</span>) <span class="co"># bring in data</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="kw">head</span>(bmi) <span class="co"># first six rows</span></a></code></pre></div>
 <pre><code>## # A tibble: 6 x 9
 ##      id   age   bmi  chol insulin   dbp   sbp smoke educ 
-##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;chr&gt;
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
 ## 1     1  18.3  15.4  47.2    2.78  29.5  49.7     1 D    
 ## 2     2  19.4  14.5  52.1    3.47  31.3  49.0     2 C    
 ## 3     3  21.1  16.0  52.2    4.06  32.4  51.7     1 B    
 ## 4     4  21.3  19.5  53.2    4.48  32.0  NA       2 A    
 ## 5     5  21.1  18.6  55.4    5.34  33.7  53.8     1 D    
 ## 6     6  23.9  19.5  54.3    6.29  35.0  56.0     2 C</code></pre>
-<p>Tyler.....Perhaps we should either suppress the warnings and messages (which you can do in the r chunk header in markdown)? Or we should explain what it means when it gets churned out.</p>
-<p>blah blah blah</p>
-<p>more stuff.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">tail</span>(bmi) <span class="co"># last six rows</span></a></code></pre></div>
+<pre><code>## # A tibble: 6 x 9
+##      id   age   bmi  chol insulin   dbp   sbp smoke educ 
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+## 1    15  34.8  30.4  63.6    15.3  42.7  64.8     1 B    
+## 2    16  33.6  29.9  65.5    NA    46.4  65.6     2 A    
+## 3    17  33.4  NA    65.2    18.2  46.2  64.6     1 D    
+## 4    18  35.1  32.5  68.6    19.7  45.8  66.1     2 C    
+## 5    19  35.0  33.4  NA      21.1  NA    68.4     1 B    
+## 6    20  37.5  34.1  68.0    22.1  49.3  68.6     2 A</code></pre>
+<p>If you want to see more on what the data looks like the following functions can help.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">nrow</span>(bmi) <span class="co"># how many rows in dataset</span></a></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">ncol</span>(bmi) <span class="co"># how many columns in dataset</span></a></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">colnames</span>(bmi) <span class="co"># column names</span></a></code></pre></div>
+<pre><code>## [1] &quot;id&quot;      &quot;age&quot;     &quot;bmi&quot;     &quot;chol&quot;    &quot;insulin&quot; &quot;dbp&quot;     &quot;sbp&quot;    
+## [8] &quot;smoke&quot;   &quot;educ&quot;</code></pre>
+<p>If you just want to view your entire dataset, there is a function for that.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">View</span>(bmi)</a></code></pre></div>
+<p>You can also see the struture of your data, whether each variable is a number, character, factor, etc. This will become extremely important when trying to graph and analysis different types of data.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">str</span>(bmi)</a></code></pre></div>
+<pre><code>## tibble [20 x 9] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ id     : num [1:20] 1 2 3 4 5 6 7 8 9 10 ...
+##  $ age    : num [1:20] 18.3 19.4 21.1 21.3 21.1 ...
+##  $ bmi    : num [1:20] 15.4 14.5 16 19.5 18.6 ...
+##  $ chol   : num [1:20] 47.2 52.1 52.2 53.2 55.4 ...
+##  $ insulin: num [1:20] 2.78 3.47 4.06 4.48 5.34 ...
+##  $ dbp    : num [1:20] 29.5 31.3 32.4 32 33.7 ...
+##  $ sbp    : num [1:20] 49.7 49 51.7 NA 53.8 ...
+##  $ smoke  : num [1:20] 1 2 1 2 1 2 1 2 1 2 ...
+##  $ educ   : chr [1:20] &quot;D&quot; &quot;C&quot; &quot;B&quot; &quot;A&quot; ...
+##  - attr(*, &quot;spec&quot;)=
+##   .. cols(
+##   ..   id = col_double(),
+##   ..   age = col_double(),
+##   ..   bmi = col_double(),
+##   ..   chol = col_double(),
+##   ..   insulin = col_double(),
+##   ..   dbp = col_double(),
+##   ..   sbp = col_double(),
+##   ..   smoke = col_double(),
+##   ..   educ = col_character()
+##   .. )</code></pre>
+<p>Here you can see that all variables are numeric, except for education with is a character.</p>
+<p>If you need to change the struture of a variable say to a factor to group data in a certain way you would do the following:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">bmi<span class="op">$</span>smoke &lt;-<span class="st"> </span><span class="kw">as.factor</span>(bmi<span class="op">$</span>smoke)</a></code></pre></div>
+<p>The <code>$</code> basically allows you to call certain columns in a datframe. The code <code>bmi$smoke</code> is allowing us to only change that column, or variable to a factor without changing anything else in the dataframe.</p>
+<p>You can also change variables to characters with <code>as.character()</code> and to numbers with <code>as.number()</code>.</p>
 </div>
 <div id="the-rstudio-environment" class="section level2">
 <h2><span class="header-section-number">2.6</span> The RStudio Environment</h2>
-<p>pictures?</p>
+<div class="figure">
+<img src="img/enviornment.png" alt="RStudio Environment" width="500" />
+<p class="caption">RStudio Environment</p>
+</div>
+<p>You Rstudio enviornment is separated into 4 main panes. On your machine these panes by be organized differently. You can also change the order of these panes by going your tools tab, then clicking Global preferences.</p>
+<p>First, in the top left, you have a source pane - or script. This is where you will be writing most of your code. You will have to run the code, before seeing the output in the console. These pane is important because this is where you can write and save code for future use.</p>
+<p>Second, on the bottom left, there is the Console. All of the script’s output will be assess and found in the console. However, objects in the console will not be saved.</p>
+<p>You can also, type right in the console for fast calculations, like this:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="dv">4</span><span class="op">+</span><span class="dv">5</span></a></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<p>Third, you have a Gobal Environment and History in the top right. Your gobal environment will display all the names of objects you defined in your script.</p>
+<p>Here is an example of a Gobal Environment where you can see dataframes, matrices, values, and functions:</p>
+<div class="figure">
+<img src="img/gobal_envi.PNG" alt="Global Environment" />
+<p class="caption">Global Environment</p>
+</div>
+<p>If you click the play arrow next to the dataframe, you can view the entire dataframe. This is the save as running the function <code>View(df)</code>. Another, important button is the broom icon, if you click this it will clear your gobal enviornment and you will have to rerun code to get any dataframes, function, etc. back.</p>
+<p>In the History tab, you can see all the code that was once ran through your console. This tab can be important, because as I said before information in the console is never saved and can be deleted easily. Nevertheless, you should get use to saving your code in R scripts, so you will probably not use this tab to often.</p>
+<p>The fourth pane, is the most compacted and has tabs for files, plots, packages, and help.</p>
+<p>The file tab, allows you access all files on your hard drive.</p>
+<p>The Plot tab, will be filled with plots generated from your code. There are puttons right under the tab to Zoom and Export plots. There is also a button which looks like a broom, this will clear the plots.</p>
+<p>The Packages tab, has a User Library which is just a list of all the packages you already have install on your machine. You can also install a package, by hitting the install button and then search for your wanted package. The update button will update all packages you already have installed.</p>
+<p>The Help tab, will give you information to help understand different functions and commands in R. You can also call for help with a function right from the console like this:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1">?t.test</a></code></pre></div>
+<pre><code>## starting httpd help server ... done</code></pre>
 </div>
 <div id="the-command-prompt" class="section level2">
 <h2><span class="header-section-number">2.7</span> The Command Prompt</h2>
-<p>ways to run code</p>
+<p>There are several ways to run the code in your script file.</p>
+<ol style="list-style-type: decimal">
+<li><p>You can highlight your code, then hit ‘Run’ in the top right corner of the script file.</p></li>
+<li><p>You can click anywhere on the code, then hit ‘Run’</p></li>
+<li><p>You can highlight or click on the code you want to run, then use the keyboard shortcut with is “Command + Return” on Mac, or “Control + Enter” on PC</p></li>
+</ol>
 </div>
 <div id="what-is-an-rscript-file" class="section level2">
 <h2><span class="header-section-number">2.8</span> What is an RScript File?</h2>
 <p>console vs script.</p>
-<p>what a <code>#</code> does in a script ....</p>
-</div>
-<div id="what-do-the-buttons-do" class="section level2">
-<h2><span class="header-section-number">2.9</span> What do the buttons do?</h2>
-<p>e.g. the brush icons you can use to clear your environment or your plot window.</p>
-</div>
-<div id="the-plots-tab" class="section level2">
-<h2><span class="header-section-number">2.10</span> The Plots tab</h2>
+<p>what a <code>#</code> does in a script ….</p>
+<p>Saving Scripts etc.</p>
 </div>
 <div id="what-are-packages" class="section level2">
-<h2><span class="header-section-number">2.11</span> What are Packages</h2>
+<h2><span class="header-section-number">2.9</span> What are Packages</h2>
 <p>include the code they should run at the beginning of this course to have all packages installed.</p>
 </div>
-<div id="saving-scripts-etc." class="section level2">
-<h2><span class="header-section-number">2.12</span> Saving Scripts etc.</h2>
-</div>
 <div id="project-folders-and-working-directories" class="section level2">
-<h2><span class="header-section-number">2.13</span> Project Folders and Working Directories</h2>
+<h2><span class="header-section-number">2.10</span> Project Folders and Working Directories</h2>
 <p>how projects and folders are managed.</p>
 </div>
 <div id="where-to-get-help-for-r-stuff" class="section level2">
-<h2><span class="header-section-number">2.14</span> Where to Get Help for R stuff</h2>
-<p>help guides.... how can you use them.? ? stackoverflow rstudio cheatsheets navarro textbook wilke textbook our guidebook</p>
+<h2><span class="header-section-number">2.11</span> Where to Get Help for R stuff</h2>
+<p>help guides…. how can you use them.?
+?
+stackoverflow
+rstudio cheatsheets
+navarro textbook
+wilke textbook
+our guidebook</p>
 </div>
 <div id="quitting-r" class="section level2">
-<h2><span class="header-section-number">2.15</span> Quitting R</h2>
-<p>how to quit from R successful, you don't have to hit that save object thing all the time....</p>
+<h2><span class="header-section-number">2.12</span> Quitting R</h2>
+<p>how to quit from R successful, you don’t have to hit that save object thing all the time….</p>
 
 </div>
 </div>
@@ -439,7 +516,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

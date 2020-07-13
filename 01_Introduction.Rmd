@@ -1,5 +1,6 @@
 # Introduction
 
+How to get started with R and Rstudio.  
 
 ## Introduction
 
@@ -10,20 +11,24 @@ The initial steps are downloading and installing R. This may differ slightly bas
 
 
 
-
 ## Downloading R
 
 Go to the [R website](https://cran.r-project.org). The first box has options for downloading R for Mac, Windows or Linux. Click on the appropriate link.  Then you will want to click on  $\color{blue}{\text{"install R for the first time"}}$. Then follow the instructions.
 
 
 ## Downloading RStudio
+Go to the [Rstudio website](https://rstudio.com/products/rstudio/download/). Click **DOWNLOAD** under RStudio Desktop, open source license FREE. Then click on the appropriate installer for your computer (Mac, Windows, or Linux). Run the installer and follow the instructions. 
 
-blah blah blah
+You will always use Rstudio, when working with data. 
 
 
 ## Using RCloud instead of RStudio
 
 blah blah blah
+
+DO we really need this? 
+
+[RCloud](https://rstudio.cloud/)
 
 
 ## Importing Data
@@ -40,6 +45,8 @@ You then need to click on the appropriate file type that you wish to import. As 
 
 blah blah blah
 
+not sure what else you want here?
+
 
 I can't remember how to insert more space between sections, so I just write <br> to try and force space.
 
@@ -47,36 +54,99 @@ I can't remember how to insert more space between sections, so I just write <br>
 
 **Option 2. Writing code.**  This is the option that we will use in our scripts for this course. You may notice that all the datasets that we wish to use are in a folder called "data".  To read in any of these datasets, what we need to do is use the `read_csv()` function.  This comes from a package contained with the `tidyverse` package, so we must have imported that library first.  We then tell it which dataset to find within the 'data' folder. We use the notation "data/..." to tell it to look inside the data folder.  For instance, if we wished to load in the `bmi.csv` dataset, and assign it the name `bmi`, we would do it like this - make sure to put quotes around the whole file name and location:
 
-```{r}
+```{r, message=FALSE}
 library(tidyverse)  #load package
 
 bmi <- read_csv("data/bmi.csv") # bring in data
 
 head(bmi) # first six rows
 
+tail(bmi) # last six rows
+
 ```
 
+If you want to see more on what the data looks like the following functions can help. 
+```{r}
+nrow(bmi) # how many rows in dataset
 
-Tyler.....Perhaps we should either suppress the warnings and messages (which you can do in the r chunk header in markdown)?  Or we should explain what it means when it gets churned out.
+ncol(bmi) # how many columns in dataset
 
-blah blah blah
+colnames(bmi) # column names
+```
 
-more stuff.
+If you just want to view your entire dataset, there is a function for that. 
+```{r}
+View(bmi)
+```
 
+You can also see the struture of your data, whether each variable is a number, character, factor, etc. This will become extremely important when trying to graph and analysis different types of data.  
+
+```{r}
+str(bmi)
+```
+Here you can see that all variables are numeric, except for education with is a character. 
+
+If you need to change the struture of a variable say to a factor to group data in a certain way you would do the following: 
+
+```{r}
+bmi$smoke <- as.factor(bmi$smoke)
+```
+
+The `$` basically allows you to call certain columns in a datframe. The code `bmi$smoke` is allowing us to only change that column, or variable to a factor without changing anything else in the dataframe. 
+
+You can also change variables to characters with `as.character()` and to numbers with `as.number()`. 
 
 
 ## The RStudio Environment 
 
-pictures?
+![RStudio Environment](img/enviornment.png){width=500px}
+
+You Rstudio enviornment is separated into 4 main panes. On your machine these panes by be organized differently. You can also change the order of these panes by going your tools tab, then clicking Global preferences. 
+
+First, in the top left, you have a source pane - or script. This is where you will be writing most of your code. You will have to run the code, before seeing the output in the console. These pane is important because this is where you can write and save code for future use. 
+
+Second, on the bottom left, there is the Console. All of the script's output will be assess and found in the console. However, objects in the console will not be saved. 
+
+You can also, type right in the console for fast calculations, like this: 
+
+```{r}
+4+5
+```
+
+Third, you have a Gobal Environment and History in the top right. Your gobal environment will display all the names of objects you defined in your script. 
+
+Here is an example of a Gobal Environment where you can see dataframes, matrices, values, and functions: 
+
+![Global Environment](img/gobal_envi.PNG)
+
+If you click the play arrow next to the dataframe, you can view the entire dataframe. This is the save as running the function `View(df)`. Another, important button is the broom icon, if you click this it will clear your gobal enviornment and you will have to rerun code to get any dataframes, function, etc. back. 
+
+  In the History tab, you can see all the code that was once ran through your console. This tab can be important, because as I said before information in the console is never saved and can be deleted easily. Nevertheless, you should get use to saving your code in R scripts, so you will probably not use this tab to often. 
 
 
+The fourth pane, is the most compacted and has tabs for files, plots, packages, and help. 
+
+  The file tab, allows you access all files on your hard drive.
+
+  The Plot tab, will be filled with plots generated from your code. There are puttons right under the tab to Zoom and Export plots. There is also a button which looks like a broom, this will clear the plots. 
+
+  The Packages tab, has a User Library which is just a list of all the packages you already have install on your machine. You can also install a package, by hitting the install button and then search for your wanted package. The update button will update all packages you already have installed. 
+  
+  The Help tab, will give you information to help understand different functions and commands in R. You can also call for help with a function right from the console like this:
+  
+```{r}
+?t.test
+```
+  
 
 ## The Command Prompt
+There are several ways to run the code in your script file. 
 
-ways to run code
+1. You can highlight your code, then hit 'Run' in the top right corner of the script file. 
 
+2. You can click anywhere on the code, then hit 'Run'
 
-
+3. You can highlight or click on the code you want to run, then use the keyboard shortcut with is “Command + Return” on Mac, or “Control + Enter” on PC 
 
 
 
@@ -85,15 +155,7 @@ console vs script.
 
 what a `#` does in a script ....
 
-
-
-
-## What do the buttons do?
-
-e.g. the brush icons you can use to clear your environment or your plot window.
-
-
-## The Plots tab
+Saving Scripts etc.
 
 
 ## What are Packages
@@ -101,14 +163,9 @@ e.g. the brush icons you can use to clear your environment or your plot window.
 include the code they should run at the beginning of this course to have all packages installed.
 
 
-## Saving Scripts etc.
-
-
 ## Project Folders and Working Directories
 
 how projects and folders are managed.
-
-
 
 
 
@@ -120,8 +177,6 @@ rstudio cheatsheets
 navarro textbook
 wilke textbook
 our guidebook
-
-
 
 
 ## Quitting R 
