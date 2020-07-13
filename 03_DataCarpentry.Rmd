@@ -100,7 +100,7 @@ df[7,]
 
 Get the 10th to 14th rows:
 ```{r}
-df[10:14]
+df[10:14,]
 ```
 
 Get the first and second columns:
