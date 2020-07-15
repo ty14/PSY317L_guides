@@ -19,6 +19,13 @@ ggplot(atx, aes(x= temp)) +
   theme_classic()
 ```
 
+
+## Sample vs Population
+
+statistics vs parameters.... insert more here
+
+
+
 ## Basic Descriptives
 ```{r}
 length(atx$temp) # length this tells you the 'n'

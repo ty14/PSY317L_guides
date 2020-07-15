@@ -109,6 +109,15 @@ theory of histograms.....
 
 
 
+#### Stem-and-Leaf Plots
+- related to histograms.
+
+
+
+
+
+
+
 
 Load libraries and data
 ```{r}
