@@ -436,11 +436,74 @@ You can see that the $z$-distribution CIs are all equal in length, whereas the $
 
 #### t-distribution and sample size.
 
-in tail is different value.... have to calculate for each one....
+With the $z$-distribution based confidence intervals, when we increased the sample size $n$, the margin of error always decreased because both $z$ and $\sigma$ are fixed in the formula.  The situation is not as consistent when constructing confidence intervals with the $t$-distribution.
 
-... also affects sample mean,,,,, and sample standard deviation....
+```{r}
+1.96 * (10/sqrt(10))
 
 
+1.96 * (10/sqrt(30))
+
+```
+
+When we collect samples of different sample sizes, two things change in the $t$-distribution confidence interval formula. Firstly, the value of $t$ used is dependent upon the degrees of freedom.  As sample sizes increase, the $t$- distribution becomes more normal shaped and less heavy in the tails. If, for example, we are interested in making 95% Confidence Intervals, then the value of $t$ that leaves 2.5% in each tail (and 95% of the distribution in the middle) is going to get closer to 1.96 (and negative -1.96) as the sample size increases. This is illustrated in the figure below:
+
+![](img/ci12.png)
+
+Each of these $t$ values can be calculated, by finding the value of $t$ on the $t$-distribution for the respective degrees of freedom that leaves 2.5% in the upper tail:
+
+```{r}
+qt(.975, df = 9)
+qt(.975, df = 19)
+qt(.975, df = 29)
+```
+
+
+So, as sample size increases, the value of $t$ decreases for a given confidence interval. This would seem to suggest that this would decrease the margin of error for the confidence interval. This is for the most part true, but not always.  Remember the $t$ value is multiplied by the estimated standard deviation of the sampling distribution (the standard error) which is $\frac{s}{\sqrt{n}}$. Now again, it looks like increasing $n$ would lead to a larger denominator and a smaller overall margin of error. This is also true.  But, because we are using the sample standard deviation $s$ in the formula to estimate the standard error, then $s$ is going to vary from one sample to another. This means that for any given sample, we may actually end up with a tighter confidence interval even if we increase our sample size.  However, the main point remains - generally increasing your sample size, will lead to a tighter confidence interval for a given CI range.  
+
+The final thing that is worth mentioning is a repeat of what is discussed above in the $z$-distribution section. Increasing sample sizes also leads to sample means that will be, on average, much closer to the true population mean $\mu$ than you get when using smaller sample sizes.
+
+
+
+
+#### Other Confidence Intervals ranges for t-distribution
+
+Like with the confidence intervals made with the $z$-distribution, we can create confidence intervals for any range with the $t$-distribution.  The rationiale is the same. If we were to make an 80% CI around a sample mean, what we are effectively saying is that in 80% of all samples that we could collect, we would capture the true population mean $\mu$.  Practically, we use a different value of $t$ for each CI range. This value of $t$ will be the positive and negative value of the $t$-distribution for a given degree of freedom that leaves the appropriate percentage in the middle of the distribution.  For instance, for an 80% CI for a sample size of 25, which had degrees of freedom 24, the value would be $t=1.32$. 
+
+We calculated this as follows:  For an 80% CI, we wish to have 80% of the distribution in the middle (40% either side of our sample mean), leaving 20% in the tails - i.e. 10% in each tail. Therefore, we wish to know the value of $t$ that demarks this boundary. The easiest way to do that is to use the `qt()` function in R, and ask for the 90%th percentile (the value that leaves 10% in the upper tail) for a $t$ distribution of degrees of freedom = 24.  We do that like this:
+
+```{r}
+qt(0.90, df=24)
+
+```
+
+![](img/ci11.png)
+
+Thus, if we had a sample mean of $\overline{x}=15.52$, a sample standard deviation of $s=3.3$ and a sample size of $n=25$, then our 80% confidence interval of the true population mean $\mu$ would be $CI = 15.52[14.65, 16.39]$:
+
+```{r}
+15.52 + (1.32 * (3.3 / sqrt(25)))
+15.52 - (1.32 * (3.3 / sqrt(25)))
+
+```
+
+
+
+The value of $t$ used in the confidence interval formula therefore changes based on both your confidence interval size, and your degrees of freedom. Below are some other values of $t$ that would be used for different sample sizes and CI ranges:
+
+```{r}
+# 99% CI, n = 20
+qt(.995, df = 19)
+
+
+# 90% CI, n = 12
+qt(.95, df = 11)
+
+
+# 99.9% CI, n = 35
+qt(.9995, df = 34)
+
+```
 
 
 
