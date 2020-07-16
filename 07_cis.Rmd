@@ -434,9 +434,9 @@ You can see that the $z$-distribution CIs are all equal in length, whereas the $
 
 
 
-#### t-distribution and sample size.
+#### t-distribution CIs and sample size.
 
-With the $z$-distribution based confidence intervals, when we increased the sample size $n$, the margin of error always decreased because both $z$ and $\sigma$ are fixed in the formula.  The situation is not as consistent when constructing confidence intervals with the $t$-distribution.
+With the $z$-distribution based confidence intervals, when we increased the sample size $n$, the margin of error always decreased because both $z$ and $\sigma$ are fixed in the formula. For instance, for a 95% CI with a population standard deviation $\sigma=10$ and sample size $n=10$ or $n=30$, the margin of error using the $z$-distribution in the CI would be for each sample size:
 
 ```{r}
 1.96 * (10/sqrt(10))
@@ -445,6 +445,8 @@ With the $z$-distribution based confidence intervals, when we increased the samp
 1.96 * (10/sqrt(30))
 
 ```
+
+Clearly, increaseing the sample size reduces the margin of error. The situation is not as consistent when constructing confidence intervals with the $t$-distribution, although the general pattern remains true.
 
 When we collect samples of different sample sizes, two things change in the $t$-distribution confidence interval formula. Firstly, the value of $t$ used is dependent upon the degrees of freedom.  As sample sizes increase, the $t$- distribution becomes more normal shaped and less heavy in the tails. If, for example, we are interested in making 95% Confidence Intervals, then the value of $t$ that leaves 2.5% in each tail (and 95% of the distribution in the middle) is going to get closer to 1.96 (and negative -1.96) as the sample size increases. This is illustrated in the figure below:
 
