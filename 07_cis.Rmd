@@ -511,32 +511,28 @@ qt(.9995, df = 34)
 
 
 #### Comparing CIs using the z- and t-distributions
-comparing z, t*s, z*s
+
+You might be thinking that using the $t$-distribution to make 95% confidence intervals seems like a lot of extra legwork to figure out what value of $t$ to use, compared to just using $z=1.96$ when using the $z$-distribution.  This mini section hopefully is an illustration of why you have to do this.  
+
+These are the two formulas that we use to generate confidence intervals:
 
 
+$CI_{95\%} = \overline{x} \pm z \times \frac{\sigma}{\sqrt{n}}$
+
+$CI_{95\%} = \overline{x} \pm t \times \frac{s}{\sqrt{n}}$
 
 
-sample standard deviation....
+But, what if we did just decide to use $z$ when we don't know the population standard deviation $\sigma$ and we used this formula:
+
+$CI_{95\%} = \overline{x} \pm z \times \frac{s}{\sqrt{n}}$
 
 
+Well, in the figure below, we did just that for 25 sample means collected from samples of size $n=8$ from a population with a mean of $\mu=4$ and standard deviation of $\sigma=1.5$.  As you can see, the first and third columns that are using the appropriate $z$- and $t$-distribution formulas have 23/25 confidence interals that include the true population mean.  In fact, out of 1000 simulations of these data (i.e. 1000 sample means collected) precisely 95% of confidence intervals included the population mean for both, which is what we would expect.
 
 
+![](img/ci13.png)
 
-
-Have sample mean - want to estimate population mean.... but you don't know the population standard deviation !
-
-
-
-mu4, sig1.5, n8.
-
-graph 25 times,,, show out of 10000s sims...
-
-smaller samples, sampling distributino doesn't follow perfect normal distribution - it follows t-distribution...
-
-show different distributions for different sample sizes...
-really different d.f.s   use n-1.
-
-show where 95% is further from the mean for t-distributions than for normal distribution.
+Conversely, the middle column include the confidence intervals calculated using $z=1.96$ and using $s$ as an estimate of the population standard deviation.  With this formula, 6/25 confidence intervals fail to include the true population mean. Out of the 1000 simulations of the data, actually 9.X% of CIs failed to capture the true population mean.  This shows that the margin of error calculated using this formula is consistently too small.  The reason for this is that when we estimate the population standard deviation, we generally are under-estimating the true value. This is another reason why we should be using the $t$-distribution.
 
 
 
@@ -545,6 +541,8 @@ show where 95% is further from the mean for t-distributions than for normal dist
 
 
 ## One-sample Z-tests
+
+
 
 
 

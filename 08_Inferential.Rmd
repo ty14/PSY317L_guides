@@ -69,3 +69,11 @@ $\Huge \delta = \frac{\overline{X}_{1} - \overline{X}_{2}}{\hat{\sigma}_{\rho}}$
 ## Paired t-tests
 
 more sections to add...
+
+
+
+
+## Confidence Intervals with Paired Data
+
+
+
