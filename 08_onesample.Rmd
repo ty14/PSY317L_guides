@@ -1,11 +1,16 @@
 # One Sample Inferential Statistics
 
+The general question at hand with one-sample inferential tests, is that we wish to test the probability that  our one sample of data comes from a population that has a true population mean $\mu$ that is equal to some specific value.
 
 
-
+z  or  t
 
 
 ## One-sample Z-tests
+
+
+```{r, echo=FALSE, eval=FALSE}
+
 
 
 
@@ -98,17 +103,10 @@ p3 <- plothist(mean = 0, sd = 1) +
 library(gridExtra)
 grid.arrange(p1,p2,p3,nrow=1)
 
+```
 
 
 
-
-
-
-## Confidence Intervals with Z - Normal Distribution
-
-
-
-## Confidence Intervals with t Distribution
 
 
 

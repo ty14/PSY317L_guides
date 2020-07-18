@@ -404,14 +404,126 @@ The advantages of running a permutation test is that it is free of the assumptio
 
 ## Permutation test for a Paired t-test
 
-fill in
+We can apply the same principle of permutation to the paired t-test. Rememeber, essentially the paired t-test is focused on performing a one-sample t-test on the difference in scores between the paired data - testing whether the mean of the differences could potentially come from a population with $\mu=0$.
+
+Let's look at the following data that record scores for the same individual over two time points - 'before' and 'after'.
+
+
+```{r}
+
+# take a look at these before and after scores
+
+ba <- read_csv("data/beforeafter1.csv")
+
+head(ba)
+```
+
+
+We could plot these data using a scatterplot to examine the overall trend of how scores change from before to after:
+
+```{r}
+# make a scatterplot with the x being 'before' and y being 'after'
+ggplot(ba, aes(x=before, y=after)) +
+  geom_point() +
+  theme_classic()+
+  geom_abline(intercept =0 , slope = 1) +
+  xlim(2,8)+
+  ylim(2,8)
+
+```
+
+As most of these points are below the diagonal line, this seems to suggest that the scores for the 'before' data seem to be lower on the whole than the scores for the 'above' data.
+
+Typically, we would run a paired t-test with such data to examine if there was a difference:
+
+```{r}
+t.test(ba$before, ba$after, paired=T)
+```
+
+This suggests that there is a significant difference `p<.05` with the 95% confidence interval of the true difference in means being between 0.13 and 1.47. However, the paired t-test assumes that the data are from an approximately normal distribution. In particular, that the differences scores (the difference between the 'before' and 'after' scores for each individual) are normally distributed.  We can check that using a Shapiro-Wilk test:
+
+
+```{r}
+# create a difference column for the difference between before and after
+ba$difference <- ba$before - ba$after
+
+# run a Shapiro test on the difference column
+shapiro.test(ba$difference)
+```
+
+With the p-value here being `p<.05`, this suggests that our data are not normally distributed. One option would be to do a non-parametric Wilcoxon-signed rank test (see section xxxx.xxx). Alternatively, we could do a permutation test.
+
+
+Let's look at our data again, and focus on the difference column. 
+
+
+```{r}
+ba
+```
+
+Our observed mean for the differences scores is 0.8.
+
+```{r}
+mean(ba$difference)
+```
+
+How likely were we to get this mean difference if our 'before' and 'after' conditions were randomized?  For example, for individaul 'mj', their before score was 6.6 and after was 3.9 leading to a difference of 2.7. But what if their before and after were switched?  Then the difference score would be -2.7.  What we would like to do, is to randomly flip the before and after columns for each individual and recalculate the difference scores. Each time we do this, we will calculate the mean of the difference scores.  A programmatic shortcut to doing this is to multiple each difference score randomly by either +1 or -1. Here is the first shuffle we could perform:
+
+```{r}
+set.seed(1)
+shuffle1 <- ba$difference * sample(c(-1,1), 11, replace = T)
+shuffle1
+mean(shuffle1)
+```
+
+In this example, the 'before' and 'after' scores were randomly flipped for individuals 'mc', 'ma', 'mj' and 'kb'.  Let's do a second shuffle:
 
 
 
+```{r}
+shuffle2 <- ba$difference * sample(c(-1,1), 11, replace = T)
+shuffle2
+mean(shuffle2)
+```
+In this example, the 'before' and 'after' scores were randomly flipped for individuals 'mc', 'co', 'kj', 'oe', 'mb', 'dg' and 'mj'.  In both shuffles the mean of the difference scores was less than our observed mean of 0.8.  
+
+We can put this into a loop to do it 10,000 times:
+
+```{r}
+results <- vector('list',10000)
+for(i in 1:10000){
+results[[i]] <-  mean(ba$difference * sample(c(-1,1), 11, replace = T))
+}
+```
+
+And we can plot these results as a histogram:
+
+```{r}
+
+df1 <- data.frame(difs = unlist(results))
+
+ggplot(df1, aes(x=difs)) +
+  geom_histogram(color="black", fill="pink", alpha=.4, binwidth = .05) +
+  geom_vline(color="navy",lwd=1,lty=2,xintercept = .8) +
+  theme_classic()+
+  ggtitle("Mean Differences from \n 10000 Permutations of Raw Data")
+
+```
+
+We can also calculate the number of times out of 10,000 that we observed a mean difference higher than the mean of 0.8 in our original data, which is only in 19 shuffles out fo 10,000:
+
+```{r}
+sum(unlist(results)>0.8)
+```
+
+We divide this number by 10,000 to get our p-value:
+
+```{r}
+sum(unlist(results)>0.8) / 10000
+```
 
 
-
-
+This suggests that we have a highly significant `p=0.002` difference between our 'before' and 'after' data within subjects.
 
 
 

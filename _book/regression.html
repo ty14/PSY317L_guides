@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>11 Regression | PSY317L Guides</title>
-  <meta name="description" content="11 Regression | PSY317L Guides" />
+  <title>12 Regression | PSY317L Guides</title>
+  <meta name="description" content="12 Regression | PSY317L Guides" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="11 Regression | PSY317L Guides" />
+  <meta property="og:title" content="12 Regression | PSY317L Guides" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="11 Regression | PSY317L Guides" />
+  <meta name="twitter:title" content="12 Regression | PSY317L Guides" />
   
   
   
@@ -53,66 +53,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 </head>
@@ -128,7 +103,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to PSY317!</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-this-book-includes-and-what-it-doesnt"><i class="fa fa-check"></i><b>1.1</b> What this book includes and what it doesn’t</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-this-book-includes-and-what-it-doesnt"><i class="fa fa-check"></i><b>1.1</b> What this book includes and what it doesn't</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i><b>1.2</b> How to use this guide</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.3</b> Acknowledgements</a></li>
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#references"><i class="fa fa-check"></i><b>1.4</b> References</a></li>
@@ -182,13 +157,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.7" data-path="data-visualization.html"><a href="data-visualization.html#all-the-extras"><i class="fa fa-check"></i><b>5.7</b> All the extras</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="descriptives.html"><a href="descriptives.html"><i class="fa fa-check"></i><b>6</b> Descriptives</a><ul>
-<li class="chapter" data-level="6.1" data-path="descriptives.html"><a href="descriptives.html#basic-descriptives"><i class="fa fa-check"></i><b>6.1</b> Basic Descriptives</a></li>
-<li class="chapter" data-level="6.2" data-path="descriptives.html"><a href="descriptives.html#mean-median-and-mode"><i class="fa fa-check"></i><b>6.2</b> Mean, Median, and Mode</a></li>
-<li class="chapter" data-level="6.3" data-path="descriptives.html"><a href="descriptives.html#standard-deviation"><i class="fa fa-check"></i><b>6.3</b> Standard Deviation</a></li>
-<li class="chapter" data-level="6.4" data-path="descriptives.html"><a href="descriptives.html#standard-error"><i class="fa fa-check"></i><b>6.4</b> Standard Error</a></li>
-<li class="chapter" data-level="6.5" data-path="descriptives.html"><a href="descriptives.html#inter-quartile-ranges"><i class="fa fa-check"></i><b>6.5</b> Inter-quartile Ranges</a></li>
-<li class="chapter" data-level="6.6" data-path="descriptives.html"><a href="descriptives.html#descriptives-for-groups"><i class="fa fa-check"></i><b>6.6</b> Descriptives for Groups</a></li>
-<li class="chapter" data-level="6.7" data-path="descriptives.html"><a href="descriptives.html#comparing-population-and-sample-means"><i class="fa fa-check"></i><b>6.7</b> Comparing population and sample means</a></li>
+<li class="chapter" data-level="6.1" data-path="descriptives.html"><a href="descriptives.html#sample-vs-population"><i class="fa fa-check"></i><b>6.1</b> Sample vs Population</a></li>
+<li class="chapter" data-level="6.2" data-path="descriptives.html"><a href="descriptives.html#basic-descriptives"><i class="fa fa-check"></i><b>6.2</b> Basic Descriptives</a></li>
+<li class="chapter" data-level="6.3" data-path="descriptives.html"><a href="descriptives.html#mean-median-and-mode"><i class="fa fa-check"></i><b>6.3</b> Mean, Median, and Mode</a></li>
+<li class="chapter" data-level="6.4" data-path="descriptives.html"><a href="descriptives.html#standard-deviation"><i class="fa fa-check"></i><b>6.4</b> Standard Deviation</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="descriptives.html"><a href="descriptives.html#average-deviation"><i class="fa fa-check"></i><b>6.4.1</b> Average Deviation</a></li>
+<li class="chapter" data-level="6.4.2" data-path="descriptives.html"><a href="descriptives.html#standard-deviation-1"><i class="fa fa-check"></i><b>6.4.2</b> Standard Deviation</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="descriptives.html"><a href="descriptives.html#standard-error"><i class="fa fa-check"></i><b>6.5</b> Standard Error</a></li>
+<li class="chapter" data-level="6.6" data-path="descriptives.html"><a href="descriptives.html#median-and-inter-quartile-ranges"><i class="fa fa-check"></i><b>6.6</b> Median and Inter-quartile Ranges</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="descriptives.html"><a href="descriptives.html#median"><i class="fa fa-check"></i><b>6.6.1</b> Median</a></li>
+<li class="chapter" data-level="6.6.2" data-path="descriptives.html"><a href="descriptives.html#iqrs"><i class="fa fa-check"></i><b>6.6.2</b> IQRs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="descriptives.html"><a href="descriptives.html#descriptives-for-groups"><i class="fa fa-check"></i><b>6.7</b> Descriptives for Groups</a></li>
+<li class="chapter" data-level="6.8" data-path="descriptives.html"><a href="descriptives.html#comparing-population-and-sample-means"><i class="fa fa-check"></i><b>6.8</b> Comparing population and sample means</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="distributions.html"><a href="distributions.html"><i class="fa fa-check"></i><b>7</b> Distributions</a><ul>
 <li class="chapter" data-level="7.1" data-path="distributions.html"><a href="distributions.html#what-is-a-distribution"><i class="fa fa-check"></i><b>7.1</b> What is a distribution ?</a><ul>
@@ -209,64 +191,82 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5" data-path="distributions.html"><a href="distributions.html#sampling-distribution-problems."><i class="fa fa-check"></i><b>7.5</b> Sampling distribution problems.</a></li>
 <li class="chapter" data-level="7.6" data-path="distributions.html"><a href="distributions.html#the-t-distribution"><i class="fa fa-check"></i><b>7.6</b> The t-distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>8</b> Confidence Intervals</a></li>
-<li class="chapter" data-level="9" data-path="inferential-stats.html"><a href="inferential-stats.html"><i class="fa fa-check"></i><b>9</b> Inferential Stats</a><ul>
-<li class="chapter" data-level="9.1" data-path="inferential-stats.html"><a href="inferential-stats.html#comparing-two-samples"><i class="fa fa-check"></i><b>9.1</b> Comparing two Samples</a></li>
-<li class="chapter" data-level="9.2" data-path="inferential-stats.html"><a href="inferential-stats.html#independent-samples-t-test"><i class="fa fa-check"></i><b>9.2</b> Independent Samples t-test</a></li>
-<li class="chapter" data-level="9.3" data-path="inferential-stats.html"><a href="inferential-stats.html#background-to-students-2-sample-t-test"><i class="fa fa-check"></i><b>9.3</b> Background to Student’s 2 Sample t-test</a></li>
-<li class="chapter" data-level="9.4" data-path="inferential-stats.html"><a href="inferential-stats.html#sampling-distribution-of-the-difference-in-sample-means"><i class="fa fa-check"></i><b>9.4</b> Sampling Distribution of the Difference in Sample Means</a></li>
-<li class="chapter" data-level="9.5" data-path="inferential-stats.html"><a href="inferential-stats.html#pooled-standard-deviation"><i class="fa fa-check"></i><b>9.5</b> Pooled Standard Deviation</a></li>
-<li class="chapter" data-level="9.6" data-path="inferential-stats.html"><a href="inferential-stats.html#confidence-interval-for-difference-in-means"><i class="fa fa-check"></i><b>9.6</b> Confidence Interval for Difference in Means</a></li>
-<li class="chapter" data-level="9.7" data-path="inferential-stats.html"><a href="inferential-stats.html#conducting-student-t-test"><i class="fa fa-check"></i><b>9.7</b> Conducting Student t-test</a></li>
-<li class="chapter" data-level="9.8" data-path="inferential-stats.html"><a href="inferential-stats.html#doing-student-t-test-in-r"><i class="fa fa-check"></i><b>9.8</b> Doing Student t-test in R</a></li>
-<li class="chapter" data-level="9.9" data-path="inferential-stats.html"><a href="inferential-stats.html#effect-sizes"><i class="fa fa-check"></i><b>9.9</b> Effect Sizes</a></li>
-<li class="chapter" data-level="9.10" data-path="inferential-stats.html"><a href="inferential-stats.html#paired-t-tests"><i class="fa fa-check"></i><b>9.10</b> Paired t-tests</a></li>
+<li class="chapter" data-level="8" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>8</b> Confidence Intervals</a><ul>
+<li class="chapter" data-level="8.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#sample-means-as-estimates."><i class="fa fa-check"></i><b>8.1</b> Sample means as estimates.</a></li>
+<li class="chapter" data-level="8.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#calculating-a-confidence-interval-with-z-distribution"><i class="fa fa-check"></i><b>8.2</b> Calculating a confidence interval with z-distribution</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#other-confidence-intervals-ranges"><i class="fa fa-check"></i><b>8.2.1</b> Other Confidence Intervals ranges</a></li>
+<li class="chapter" data-level="8.2.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#confidence-intervals-and-sample-size"><i class="fa fa-check"></i><b>8.2.2</b> Confidence Intervals and Sample Size</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>10</b> Correlation</a><ul>
-<li class="chapter" data-level="10.1" data-path="correlation.html"><a href="correlation.html#pearson-correlation"><i class="fa fa-check"></i><b>10.1</b> Pearson Correlation</a></li>
-<li class="chapter" data-level="10.2" data-path="correlation.html"><a href="correlation.html#calculating-the-pearson-correlation-in-r"><i class="fa fa-check"></i><b>10.2</b> Calculating the Pearson Correlation in R</a></li>
-<li class="chapter" data-level="10.3" data-path="correlation.html"><a href="correlation.html#cross-products"><i class="fa fa-check"></i><b>10.3</b> Cross-products</a></li>
-<li class="chapter" data-level="10.4" data-path="correlation.html"><a href="correlation.html#conducting-a-pearson-correlation-test"><i class="fa fa-check"></i><b>10.4</b> Conducting a Pearson Correlation Test</a></li>
-<li class="chapter" data-level="10.5" data-path="correlation.html"><a href="correlation.html#assumptions-of-pearsons-correlation"><i class="fa fa-check"></i><b>10.5</b> Assumptions of Pearson’s Correlation</a></li>
-<li class="chapter" data-level="10.6" data-path="correlation.html"><a href="correlation.html#confidence-intervals-for-r"><i class="fa fa-check"></i><b>10.6</b> Confidence Intervals for R</a></li>
-<li class="chapter" data-level="10.7" data-path="correlation.html"><a href="correlation.html#partial-correlations"><i class="fa fa-check"></i><b>10.7</b> Partial Correlations</a></li>
-<li class="chapter" data-level="10.8" data-path="correlation.html"><a href="correlation.html#non-parametric-correlations"><i class="fa fa-check"></i><b>10.8</b> Non-parametric Correlations</a></li>
-<li class="chapter" data-level="10.9" data-path="correlation.html"><a href="correlation.html#point-biserial-correlation"><i class="fa fa-check"></i><b>10.9</b> Point-Biserial Correlation</a></li>
+<li class="chapter" data-level="8.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html#confidence-intervals-with-t-distribution"><i class="fa fa-check"></i><b>8.3</b> Confidence Intervals with t-distribution</a></li>
+<li class="chapter" data-level="8.4" data-path="confidence-intervals.html"><a href="confidence-intervals.html#calculating-a-t-distribution-confidence-interval"><i class="fa fa-check"></i><b>8.4</b> Calculating a t-distribution Confidence Interval</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="confidence-intervals.html"><a href="confidence-intervals.html#t-distribution-cis-and-sample-size."><i class="fa fa-check"></i><b>8.4.1</b> t-distribution CIs and sample size.</a></li>
+<li class="chapter" data-level="8.4.2" data-path="confidence-intervals.html"><a href="confidence-intervals.html#other-confidence-intervals-ranges-for-t-distribution"><i class="fa fa-check"></i><b>8.4.2</b> Other Confidence Intervals ranges for t-distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>11</b> Regression</a><ul>
-<li class="chapter" data-level="11.1" data-path="regression.html"><a href="regression.html#introduction-to-linear-regression"><i class="fa fa-check"></i><b>11.1</b> Introduction to Linear Regression</a></li>
-<li class="chapter" data-level="11.2" data-path="regression.html"><a href="regression.html#a-and-b"><i class="fa fa-check"></i><b>11.2</b> a and b</a><ul>
-<li class="chapter" data-level="11.2.1" data-path="regression.html"><a href="regression.html#how-to-calculate-a-and-b-in-r"><i class="fa fa-check"></i><b>11.2.1</b> How to calculate a and b in R</a></li>
-<li class="chapter" data-level="11.2.2" data-path="regression.html"><a href="regression.html#how-to-calculate-a-and-b-by-hand"><i class="fa fa-check"></i><b>11.2.2</b> How to calculate a and b ‘by hand’</a></li>
+<li class="chapter" data-level="8.5" data-path="confidence-intervals.html"><a href="confidence-intervals.html#comparing-cis-using-the-z--and-t-distributions"><i class="fa fa-check"></i><b>8.5</b> Comparing CIs using the z- and t-distributions</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="regression.html"><a href="regression.html#residuals"><i class="fa fa-check"></i><b>11.3</b> Residuals</a><ul>
-<li class="chapter" data-level="11.3.1" data-path="regression.html"><a href="regression.html#how-to-calculate-the-residuals"><i class="fa fa-check"></i><b>11.3.1</b> How to calculate the residuals</a></li>
-<li class="chapter" data-level="11.3.2" data-path="regression.html"><a href="regression.html#visualizing-the-residuals"><i class="fa fa-check"></i><b>11.3.2</b> Visualizing the Residuals</a></li>
-<li class="chapter" data-level="11.3.3" data-path="regression.html"><a href="regression.html#comparing-our-trendline-to-other-trendlines"><i class="fa fa-check"></i><b>11.3.3</b> Comparing our trendline to other trendlines</a></li>
-<li class="chapter" data-level="11.3.4" data-path="regression.html"><a href="regression.html#coefficient-of-determination-r2"><i class="fa fa-check"></i><b>11.3.4</b> Coefficient of Determination R2</a></li>
+<li class="chapter" data-level="9" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html"><i class="fa fa-check"></i><b>9</b> One Sample Inferential Statistics</a><ul>
+<li class="chapter" data-level="9.1" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#one-sample-z-tests"><i class="fa fa-check"></i><b>9.1</b> One-sample Z-tests</a></li>
+<li class="chapter" data-level="9.2" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#one-sample-t-tests"><i class="fa fa-check"></i><b>9.2</b> One-sample t-tests</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="regression.html"><a href="regression.html#standard-error-of-the-estimate"><i class="fa fa-check"></i><b>11.4</b> Standard Error of the Estimate</a><ul>
-<li class="chapter" data-level="11.4.1" data-path="regression.html"><a href="regression.html#what-to-do-with-the-standard-error-of-the-estimate"><i class="fa fa-check"></i><b>11.4.1</b> What to do with the Standard Error of the Estimate ?</a></li>
+<li class="chapter" data-level="10" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html"><i class="fa fa-check"></i><b>10</b> Two Sample Inferential Statistics</a><ul>
+<li class="chapter" data-level="10.1" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#comparing-two-samples"><i class="fa fa-check"></i><b>10.1</b> Comparing two Samples</a></li>
+<li class="chapter" data-level="10.2" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#independent-samples-t-test"><i class="fa fa-check"></i><b>10.2</b> Independent Samples t-test</a></li>
+<li class="chapter" data-level="10.3" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#background-to-students-2-sample-t-test"><i class="fa fa-check"></i><b>10.3</b> Background to Student's 2 Sample t-test</a></li>
+<li class="chapter" data-level="10.4" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#sampling-distribution-of-the-difference-in-sample-means"><i class="fa fa-check"></i><b>10.4</b> Sampling Distribution of the Difference in Sample Means</a></li>
+<li class="chapter" data-level="10.5" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#pooled-standard-deviation"><i class="fa fa-check"></i><b>10.5</b> Pooled Standard Deviation</a></li>
+<li class="chapter" data-level="10.6" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#confidence-interval-for-difference-in-means"><i class="fa fa-check"></i><b>10.6</b> Confidence Interval for Difference in Means</a></li>
+<li class="chapter" data-level="10.7" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#conducting-student-t-test"><i class="fa fa-check"></i><b>10.7</b> Conducting Student t-test</a></li>
+<li class="chapter" data-level="10.8" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#doing-student-t-test-in-r"><i class="fa fa-check"></i><b>10.8</b> Doing Student t-test in R</a></li>
+<li class="chapter" data-level="10.9" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#effect-sizes"><i class="fa fa-check"></i><b>10.9</b> Effect Sizes</a></li>
+<li class="chapter" data-level="10.10" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#paired-t-tests"><i class="fa fa-check"></i><b>10.10</b> Paired t-tests</a></li>
+<li class="chapter" data-level="10.11" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#confidence-intervals-with-paired-data"><i class="fa fa-check"></i><b>10.11</b> Confidence Intervals with Paired Data</a></li>
 </ul></li>
-<li class="chapter" data-level="11.5" data-path="regression.html"><a href="regression.html#goodness-of-fit-test---f-ratio"><i class="fa fa-check"></i><b>11.5</b> Goodness of Fit Test - F-ratio</a></li>
-<li class="chapter" data-level="11.6" data-path="regression.html"><a href="regression.html#assumptions-of-linear-regression"><i class="fa fa-check"></i><b>11.6</b> Assumptions of Linear Regression</a><ul>
-<li class="chapter" data-level="11.6.1" data-path="regression.html"><a href="regression.html#normality-of-residuals"><i class="fa fa-check"></i><b>11.6.1</b> Normality of Residuals</a></li>
-<li class="chapter" data-level="11.6.2" data-path="regression.html"><a href="regression.html#linearity"><i class="fa fa-check"></i><b>11.6.2</b> 2. Linearity —</a></li>
-<li class="chapter" data-level="11.6.3" data-path="regression.html"><a href="regression.html#homogeneity-of-variance-homoscedasticity"><i class="fa fa-check"></i><b>11.6.3</b> 3. Homogeneity of Variance / Homoscedasticity</a></li>
-<li class="chapter" data-level="11.6.4" data-path="regression.html"><a href="regression.html#no-colinearity"><i class="fa fa-check"></i><b>11.6.4</b> No Colinearity</a></li>
-<li class="chapter" data-level="11.6.5" data-path="regression.html"><a href="regression.html#unusual-datapoints"><i class="fa fa-check"></i><b>11.6.5</b> Unusual Datapoints</a></li>
+<li class="chapter" data-level="11" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>11</b> Correlation</a><ul>
+<li class="chapter" data-level="11.1" data-path="correlation.html"><a href="correlation.html#pearson-correlation"><i class="fa fa-check"></i><b>11.1</b> Pearson Correlation</a></li>
+<li class="chapter" data-level="11.2" data-path="correlation.html"><a href="correlation.html#calculating-the-pearson-correlation-in-r"><i class="fa fa-check"></i><b>11.2</b> Calculating the Pearson Correlation in R</a></li>
+<li class="chapter" data-level="11.3" data-path="correlation.html"><a href="correlation.html#cross-products"><i class="fa fa-check"></i><b>11.3</b> Cross-products</a></li>
+<li class="chapter" data-level="11.4" data-path="correlation.html"><a href="correlation.html#conducting-a-pearson-correlation-test"><i class="fa fa-check"></i><b>11.4</b> Conducting a Pearson Correlation Test</a></li>
+<li class="chapter" data-level="11.5" data-path="correlation.html"><a href="correlation.html#assumptions-of-pearsons-correlation"><i class="fa fa-check"></i><b>11.5</b> Assumptions of Pearson's Correlation</a></li>
+<li class="chapter" data-level="11.6" data-path="correlation.html"><a href="correlation.html#confidence-intervals-for-r"><i class="fa fa-check"></i><b>11.6</b> Confidence Intervals for R</a></li>
+<li class="chapter" data-level="11.7" data-path="correlation.html"><a href="correlation.html#partial-correlations"><i class="fa fa-check"></i><b>11.7</b> Partial Correlations</a></li>
+<li class="chapter" data-level="11.8" data-path="correlation.html"><a href="correlation.html#non-parametric-correlations"><i class="fa fa-check"></i><b>11.8</b> Non-parametric Correlations</a></li>
+<li class="chapter" data-level="11.9" data-path="correlation.html"><a href="correlation.html#point-biserial-correlation"><i class="fa fa-check"></i><b>11.9</b> Point-Biserial Correlation</a></li>
 </ul></li>
-<li class="chapter" data-level="11.7" data-path="regression.html"><a href="regression.html#examining-individual-predictor-estimates"><i class="fa fa-check"></i><b>11.7</b> Examining individual predictor estimates</a><ul>
-<li class="chapter" data-level="11.7.1" data-path="regression.html"><a href="regression.html#confidence-interval-of-b."><i class="fa fa-check"></i><b>11.7.1</b> 95% confidence interval of ‘b’.</a></li>
-<li class="chapter" data-level="11.7.2" data-path="regression.html"><a href="regression.html#standard-error-of-b"><i class="fa fa-check"></i><b>11.7.2</b> Standard Error of b</a></li>
-<li class="chapter" data-level="11.7.3" data-path="regression.html"><a href="regression.html#calculating-95-confidence-interval-of-b-by-hand"><i class="fa fa-check"></i><b>11.7.3</b> Calculating 95% confidence interval of ‘b’ by hand</a></li>
-<li class="chapter" data-level="11.7.4" data-path="regression.html"><a href="regression.html#signifcance-testing-b"><i class="fa fa-check"></i><b>11.7.4</b> Signifcance Testing b</a></li>
+<li class="chapter" data-level="12" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>12</b> Regression</a><ul>
+<li class="chapter" data-level="12.1" data-path="regression.html"><a href="regression.html#introduction-to-linear-regression"><i class="fa fa-check"></i><b>12.1</b> Introduction to Linear Regression</a></li>
+<li class="chapter" data-level="12.2" data-path="regression.html"><a href="regression.html#a-and-b"><i class="fa fa-check"></i><b>12.2</b> a and b</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="regression.html"><a href="regression.html#how-to-calculate-a-and-b-in-r"><i class="fa fa-check"></i><b>12.2.1</b> How to calculate a and b in R</a></li>
+<li class="chapter" data-level="12.2.2" data-path="regression.html"><a href="regression.html#how-to-calculate-a-and-b-by-hand"><i class="fa fa-check"></i><b>12.2.2</b> How to calculate a and b 'by hand'</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="regression.html"><a href="regression.html#residuals"><i class="fa fa-check"></i><b>12.3</b> Residuals</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="regression.html"><a href="regression.html#how-to-calculate-the-residuals"><i class="fa fa-check"></i><b>12.3.1</b> How to calculate the residuals</a></li>
+<li class="chapter" data-level="12.3.2" data-path="regression.html"><a href="regression.html#visualizing-the-residuals"><i class="fa fa-check"></i><b>12.3.2</b> Visualizing the Residuals</a></li>
+<li class="chapter" data-level="12.3.3" data-path="regression.html"><a href="regression.html#comparing-our-trendline-to-other-trendlines"><i class="fa fa-check"></i><b>12.3.3</b> Comparing our trendline to other trendlines</a></li>
+<li class="chapter" data-level="12.3.4" data-path="regression.html"><a href="regression.html#coefficient-of-determination-r2"><i class="fa fa-check"></i><b>12.3.4</b> Coefficient of Determination R2</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="regression.html"><a href="regression.html#standard-error-of-the-estimate"><i class="fa fa-check"></i><b>12.4</b> Standard Error of the Estimate</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="regression.html"><a href="regression.html#what-to-do-with-the-standard-error-of-the-estimate"><i class="fa fa-check"></i><b>12.4.1</b> What to do with the Standard Error of the Estimate ?</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="regression.html"><a href="regression.html#goodness-of-fit-test---f-ratio"><i class="fa fa-check"></i><b>12.5</b> Goodness of Fit Test - F-ratio</a></li>
+<li class="chapter" data-level="12.6" data-path="regression.html"><a href="regression.html#assumptions-of-linear-regression"><i class="fa fa-check"></i><b>12.6</b> Assumptions of Linear Regression</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="regression.html"><a href="regression.html#normality-of-residuals"><i class="fa fa-check"></i><b>12.6.1</b> Normality of Residuals</a></li>
+<li class="chapter" data-level="12.6.2" data-path="regression.html"><a href="regression.html#linearity----"><i class="fa fa-check"></i><b>12.6.2</b> 2. Linearity ---</a></li>
+<li class="chapter" data-level="12.6.3" data-path="regression.html"><a href="regression.html#homogeneity-of-variance-homoscedasticity"><i class="fa fa-check"></i><b>12.6.3</b> 3. Homogeneity of Variance / Homoscedasticity</a></li>
+<li class="chapter" data-level="12.6.4" data-path="regression.html"><a href="regression.html#no-colinearity"><i class="fa fa-check"></i><b>12.6.4</b> No Colinearity</a></li>
+<li class="chapter" data-level="12.6.5" data-path="regression.html"><a href="regression.html#unusual-datapoints"><i class="fa fa-check"></i><b>12.6.5</b> Unusual Datapoints</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="regression.html"><a href="regression.html#examining-individual-predictor-estimates"><i class="fa fa-check"></i><b>12.7</b> Examining individual predictor estimates</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="regression.html"><a href="regression.html#confidence-interval-of-b."><i class="fa fa-check"></i><b>12.7.1</b> 95% confidence interval of 'b'.</a></li>
+<li class="chapter" data-level="12.7.2" data-path="regression.html"><a href="regression.html#standard-error-of-b"><i class="fa fa-check"></i><b>12.7.2</b> Standard Error of b</a></li>
+<li class="chapter" data-level="12.7.3" data-path="regression.html"><a href="regression.html#calculating-95-confidence-interval-of-b-by-hand"><i class="fa fa-check"></i><b>12.7.3</b> Calculating 95% confidence interval of 'b' by hand</a></li>
+<li class="chapter" data-level="12.7.4" data-path="regression.html"><a href="regression.html#signifcance-testing-b"><i class="fa fa-check"></i><b>12.7.4</b> Signifcance Testing b</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="permutation-testing.html"><a href="permutation-testing.html"><i class="fa fa-check"></i><b>12</b> Permutation Testing</a><ul>
-<li class="chapter" data-level="12.1" data-path="permutation-testing.html"><a href="permutation-testing.html#t-test-permutation"><i class="fa fa-check"></i><b>12.1</b> t-test Permutation</a></li>
-<li class="chapter" data-level="12.2" data-path="permutation-testing.html"><a href="permutation-testing.html#correlation-coefficient-permutation-tests"><i class="fa fa-check"></i><b>12.2</b> Correlation Coefficient Permutation Tests</a></li>
-<li class="chapter" data-level="12.3" data-path="permutation-testing.html"><a href="permutation-testing.html#permutation-tests-in-packages"><i class="fa fa-check"></i><b>12.3</b> Permutation tests in Packages</a></li>
+<li class="chapter" data-level="13" data-path="permutation-testing.html"><a href="permutation-testing.html"><i class="fa fa-check"></i><b>13</b> Permutation Testing</a><ul>
+<li class="chapter" data-level="13.1" data-path="permutation-testing.html"><a href="permutation-testing.html#t-test-permutation"><i class="fa fa-check"></i><b>13.1</b> t-test Permutation</a></li>
+<li class="chapter" data-level="13.2" data-path="permutation-testing.html"><a href="permutation-testing.html#correlation-coefficient-permutation-tests"><i class="fa fa-check"></i><b>13.2</b> Correlation Coefficient Permutation Tests</a></li>
+<li class="chapter" data-level="13.3" data-path="permutation-testing.html"><a href="permutation-testing.html#permutation-test-for-a-paired-t-test"><i class="fa fa-check"></i><b>13.3</b> Permutation test for a Paired t-test</a></li>
+<li class="chapter" data-level="13.4" data-path="permutation-testing.html"><a href="permutation-testing.html#permutation-tests-in-packages"><i class="fa fa-check"></i><b>13.4</b> Permutation tests in Packages</a></li>
 </ul></li>
 </ul>
 
@@ -286,50 +286,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="regression" class="section level1">
-<h1><span class="header-section-number">11</span> Regression</h1>
-<p>Introduction to what regression is… predicting etc…</p>
+<h1><span class="header-section-number">12</span> Regression</h1>
+<p>Introduction to what regression is... predicting etc...</p>
 <div id="introduction-to-linear-regression" class="section level2">
-<h2><span class="header-section-number">11.1</span> Introduction to Linear Regression</h2>
-<p>The regression method that we are going to start with is called <em>Ordinary Least Squares Regression</em>. Hopefully the reason why it’s called “least squares” will be come obvious, although we’re not too sure why it’s called “ordinary”.</p>
-<p>Let’s illustrate the question at hand with some data:</p>
-<div class="sourceCode" id="cb902"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb902-1" title="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb902-2" title="2"></a>
-<a class="sourceLine" id="cb902-3" title="3"></a>
-<a class="sourceLine" id="cb902-4" title="4"><span class="co"># Import Data</span></a>
-<a class="sourceLine" id="cb902-5" title="5"></a>
-<a class="sourceLine" id="cb902-6" title="6">df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/parenthood.csv&quot;</span>)</a></code></pre></div>
+<h2><span class="header-section-number">12.1</span> Introduction to Linear Regression</h2>
+<p>The regression method that we are going to start with is called <em>Ordinary Least Squares Regression</em>. Hopefully the reason why it's called &quot;least squares&quot; will be come obvious, although we're not too sure why it's called &quot;ordinary&quot;.</p>
+<p>Let's illustrate the question at hand with some data:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+
+
+<span class="co"># Import Data</span>
+
+df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/parenthood.csv&quot;</span>)</code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   dan.sleep = col_double(),
 ##   baby.sleep = col_double(),
-##   dan.grump = col_double(),
-##   day = col_double()
+##   dan.grump = col_integer(),
+##   day = col_integer()
 ## )</code></pre>
-<div class="sourceCode" id="cb904"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb904-1" title="1"><span class="kw">nrow</span>(df)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">nrow</span>(df)</code></pre></div>
 <pre><code>## [1] 100</code></pre>
-<div class="sourceCode" id="cb906"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb906-1" title="1"><span class="kw">head</span>(df)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(df)</code></pre></div>
 <pre><code>## # A tibble: 6 x 4
 ##   dan.sleep baby.sleep dan.grump   day
-##       &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;
+##       &lt;dbl&gt;      &lt;dbl&gt;     &lt;int&gt; &lt;int&gt;
 ## 1      7.59      10.2         56     1
 ## 2      7.91      11.7         60     2
 ## 3      5.14       7.92        82     3
 ## 4      7.71       9.61        55     4
 ## 5      6.68       9.75        67     5
 ## 6      5.99       5.04        72     6</code></pre>
-<p>As you can see, what we have are four columns of data. The first column shows the amount of sleep that Dan got in an evening. The second column relates to the amount of sleep a baby got. The third column is a rating of Dan’s grumpiness. The last column is a day identifier. Each row represents a different day.</p>
-<p>Say we’re interested in seeing whether there was an association between Dan’s sleep and her grumpiness. We could examine this using a scatterplot:</p>
-<div class="sourceCode" id="cb908"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb908-1" title="1"><span class="co"># Scatterplot</span></a>
-<a class="sourceLine" id="cb908-2" title="2"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> dan.sleep, <span class="dt">y =</span> dan.grump)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb908-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb908-4" title="4"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>, <span class="dt">se=</span>F) </a></code></pre></div>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-334-1.png" width="672" /></p>
+<p>As you can see, what we have are four columns of data. The first column shows the amount of sleep that Dan got in an evening. The second column relates to the amount of sleep a baby got. The third column is a rating of Dan's grumpiness. The last column is a day identifier. Each row represents a different day.</p>
+<p>Say we're interested in seeing whether there was an association between Dan's sleep and her grumpiness. We could examine this using a scatterplot:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Scatterplot</span>
+<span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> dan.sleep, <span class="dt">y =</span> dan.grump)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>, <span class="dt">se=</span>F) </code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-357-1.png" width="672" /></p>
 <p>It looks like these variables are clearly associated, with higher levels of sleep being related to lower levels of grumpiness.</p>
 <p>To get a measure of how big this relationship is, we could run a correlation test.</p>
-<div class="sourceCode" id="cb910"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb910-1" title="1"><span class="kw">cor.test</span>(df<span class="op">$</span>dan.sleep, df<span class="op">$</span>dan.grump)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor.test</span>(df$dan.sleep, df$dan.grump)</code></pre></div>
 <pre><code>## 
-## 	Pearson&#39;s product-moment correlation
+##  Pearson&#39;s product-moment correlation
 ## 
 ## data:  df$dan.sleep and df$dan.grump
 ## t = -20.854, df = 98, p-value &lt; 2.2e-16
@@ -339,51 +338,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## sample estimates:
 ##       cor 
 ## -0.903384</code></pre>
-<p>This shows that the variables are highly correlated with r=-0.90. It’s also a highly significant relationship.</p>
+<p>This shows that the variables are highly correlated with r=-0.90. It's also a highly significant relationship.</p>
 <p>Using <code>stat_smooth()</code> we also applied a best fitting trendline through the data. This line was actually calculated to be in the position that it is in using regression.</p>
 <p>The line also has the equation:</p>
 <pre><code>$y&#39; = a + xb$</code></pre>
 <p>You may also se this written in other ways such as:</p>
 <pre><code>$y&#39; = \beta_{0} + x\beta_{1}$</code></pre>
-<p>but we’ll stick with</p>
+<p>but we'll stick with</p>
 <pre><code>$y&#39; = a + xb$</code></pre>
 </div>
 <div id="a-and-b" class="section level2">
-<h2><span class="header-section-number">11.2</span> a and b</h2>
+<h2><span class="header-section-number">12.2</span> a and b</h2>
 <p>In the equation for a regression line,</p>
 <pre><code>$y&#39; = a + xb$</code></pre>
 <p><span class="math inline">\(y&#39;\)</span> is equal to the predicted value of <span class="math inline">\(y\)</span>. Essentially if you go from any value of <span class="math inline">\(x\)</span> and go up to the trendline, and then across to the y-axis, that is your predicted value of y. The trendline represents the predicted values of <span class="math inline">\(y\)</span> for all values of <span class="math inline">\(x\)</span>.</p>
 <p>In regression terms, we often refer to <span class="math inline">\(x\)</span> as the <strong>predictor</strong> variable and <span class="math inline">\(y\)</span> as the <strong>outcome</strong> variable.</p>
-<p>The value of <span class="math inline">\(b\)</span> in the equation represents the <strong>slope</strong> of the regression line. If it’s a positive number then it means that the regression line is going upwards (akin to a positive correlation, where <span class="math inline">\(y\)</span> increases as <span class="math inline">\(x\)</span> increases.) If it’s a negative number, then it means that the regression line is going downwards (akin to a negative correlation, where <span class="math inline">\(y\)</span> decreases as <span class="math inline">\(x\)</span> increases). The value of <span class="math inline">\(b\)</span> can also be considered to be how much <span class="math inline">\(y\)</span> changes for every 1 unit increase in <span class="math inline">\(x\)</span>. So a value of <span class="math inline">\(b = -1.4\)</span> would indicate that as <span class="math inline">\(x\)</span> increases by 1, <span class="math inline">\(y\)</span> will decrease by 1.4.</p>
+<p>The value of <span class="math inline">\(b\)</span> in the equation represents the <strong>slope</strong> of the regression line. If it's a positive number then it means that the regression line is going upwards (akin to a positive correlation, where <span class="math inline">\(y\)</span> increases as <span class="math inline">\(x\)</span> increases.) If it's a negative number, then it means that the regression line is going downwards (akin to a negative correlation, where <span class="math inline">\(y\)</span> decreases as <span class="math inline">\(x\)</span> increases). The value of <span class="math inline">\(b\)</span> can also be considered to be how much <span class="math inline">\(y\)</span> changes for every 1 unit increase in <span class="math inline">\(x\)</span>. So a value of <span class="math inline">\(b = -1.4\)</span> would indicate that as <span class="math inline">\(x\)</span> increases by 1, <span class="math inline">\(y\)</span> will decrease by 1.4.</p>
 <p>The value of <span class="math inline">\(a\)</span> represents the <strong>y-intercept</strong>. This is the value of <code>y'</code> that you would get if you extended the regression line to cross at <span class="math inline">\(x=0\)</span>.</p>
 <p>We can illustrate that in the graph below. We extended the trendline (dotted black line) from its ends until it passes through where <span class="math inline">\(x=0\)</span> (the dotted red line). Where it crosses this point is at <span class="math inline">\(y=125.96\)</span> which is depicted by the orange dotted line. This makes the y-intercept for this trendline equal to 125.96.</p>
-<div class="sourceCode" id="cb916"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb916-1" title="1"><span class="co"># Scatterplot</span></a>
-<a class="sourceLine" id="cb916-2" title="2"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> dan.sleep, <span class="dt">y =</span> dan.grump)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb916-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb916-4" title="4"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>, <span class="dt">se=</span>F) <span class="op">+</span></a>
-<a class="sourceLine" id="cb916-5" title="5"><span class="st">  </span><span class="kw">xlim</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">10</span>)<span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb916-6" title="6"><span class="st">  </span><span class="kw">ylim</span>(<span class="dv">40</span>,<span class="dv">130</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb916-7" title="7"><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span><span class="fl">125.956</span> , <span class="dt">slope =</span> <span class="fl">-8.937</span>, <span class="dt">lty=</span><span class="dv">2</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb916-8" title="8"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept=</span><span class="dv">0</span>, <span class="dt">color=</span><span class="st">&#39;red&#39;</span>, <span class="dt">lty=</span><span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb916-9" title="9"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="dt">x=</span><span class="op">-</span><span class="fl">1.6</span>,<span class="dt">xend=</span><span class="dv">0</span>,<span class="dt">y=</span><span class="fl">125.96</span>,<span class="dt">yend=</span><span class="fl">125.96</span>, <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">color=</span><span class="st">&#39;orange&#39;</span>)</a></code></pre></div>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-336-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Scatterplot</span>
+<span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> dan.sleep, <span class="dt">y =</span> dan.grump)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>, <span class="dt">se=</span>F) +
+<span class="st">  </span><span class="kw">xlim</span>(-<span class="dv">1</span>,<span class="dv">10</span>)+<span class="st"> </span>
+<span class="st">  </span><span class="kw">ylim</span>(<span class="dv">40</span>,<span class="dv">130</span>)+
+<span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span><span class="fl">125.956</span> , <span class="dt">slope =</span> -<span class="fl">8.937</span>, <span class="dt">lty=</span><span class="dv">2</span>)+
+<span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept=</span><span class="dv">0</span>, <span class="dt">color=</span><span class="st">&#39;red&#39;</span>, <span class="dt">lty=</span><span class="dv">2</span>) +
+<span class="st">  </span><span class="kw">geom_segment</span>(<span class="dt">x=</span>-<span class="fl">1.6</span>,<span class="dt">xend=</span><span class="dv">0</span>,<span class="dt">y=</span><span class="fl">125.96</span>,<span class="dt">yend=</span><span class="fl">125.96</span>, <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">color=</span><span class="st">&#39;orange&#39;</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-359-1.png" width="672" /></p>
 <p>In reality, we do not ever extend the reression lines like this. In fact, a regression line by definition only fits the range of datapoints along the x-axis that we have - it should not extend beyond those points. This is more a theoretical construct to help us understand where the line is on the graph.</p>
-<p>To think a bit more about <code>a</code> and <code>b</code> let’s compare these regression lines and their respective equations.</p>
+<p>To think a bit more about <code>a</code> and <code>b</code> let's compare these regression lines and their respective equations.</p>
 <div class="figure">
 <img src="img/ab.png" alt="comparing a and b" />
 <p class="caption">comparing a and b</p>
 </div>
-<p>In the top left image, you can see three parallel regression lines. These all have the same slope value (b = 0.704). How they differ is in their y-intercept. The different values of ‘a’ indicate that they are at different heights. In the top right, we’ve extended the regression lines in red back to where the x-axis is 0. Where the lines cross here (x=0) is the value of each y-intercept i.e. ‘a’.</p>
+<p>In the top left image, you can see three parallel regression lines. These all have the same slope value (b = 0.704). How they differ is in their y-intercept. The different values of 'a' indicate that they are at different heights. In the top right, we've extended the regression lines in red back to where the x-axis is 0. Where the lines cross here (x=0) is the value of each y-intercept i.e. 'a'.</p>
 <p>In the bottom right image, you can see that all the plots have the same y-intercept value (8.32). How they differ is in their slope b. Two are positive values of b, with the larger value having a steeper slope. The negative value of b (-0.622) has a slope going downwards. In the bottom right we extend these trendlines back to where x=0, and you can see that all have the same y-intercept.</p>
 <div id="how-to-calculate-a-and-b-in-r" class="section level3">
-<h3><span class="header-section-number">11.2.1</span> How to calculate a and b in R</h3>
+<h3><span class="header-section-number">12.2.1</span> How to calculate a and b in R</h3>
 <p>To run a regression in R, we use the <code>lm()</code> function. It looks like the following:</p>
-<div class="sourceCode" id="cb918"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb918-1" title="1">mod1 &lt;-<span class="st"> </span><span class="kw">lm</span>(dan.grump <span class="op">~</span><span class="st"> </span>dan.sleep, <span class="dt">data=</span>df)  <span class="co"># build regression model</span></a></code></pre></div>
-<p>The first thing after the bracket is the outcome variable which is <code>dan.grump</code>. Then a tilde (~) and then the predictor variable which is <code>dan.sleep</code>. Finally, we tell <code>lm</code> what dataset we’re using. The best way to read that statement is: <code>"dan.grump 'is predicted by' dan.sleep"</code>.</p>
-<p>We’re also saving the regression model as <code>mod1</code> because there’s tons of information that comes along with the regression.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod1 &lt;-<span class="st"> </span><span class="kw">lm</span>(dan.grump ~<span class="st"> </span>dan.sleep, <span class="dt">data=</span>df)  <span class="co"># build regression model</span></code></pre></div>
+<p>The first thing after the bracket is the outcome variable which is <code>dan.grump</code>. Then a tilde (~) and then the predictor variable which is <code>dan.sleep</code>. Finally, we tell <code>lm</code> what dataset we're using. The best way to read that statement is: <code>&quot;dan.grump 'is predicted by' dan.sleep&quot;</code>.</p>
+<p>We're also saving the regression model as <code>mod1</code> because there's tons of information that comes along with the regression.</p>
 <p>To have a look at what <code>a</code> and <code>b</code> are, we can just look at our saved object <code>mod1</code>.</p>
-<div class="sourceCode" id="cb919"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb919-1" title="1">mod1  </a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod1  </code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = dan.grump ~ dan.sleep, data = df)
@@ -391,63 +389,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Coefficients:
 ## (Intercept)    dan.sleep  
 ##     125.956       -8.937</code></pre>
-<p>Here the value underneath “Intercept” (125.956) refers to the y-intercept <code>a</code>. The value underneath <code>dan.sleep</code>, the predictor variable, is our value of <code>b</code> the slope.</p>
+<p>Here the value underneath &quot;Intercept&quot; (125.956) refers to the y-intercept <code>a</code>. The value underneath <code>dan.sleep</code>, the predictor variable, is our value of <code>b</code> the slope.</p>
 <p>So this would mean that the regression line for these data would be:</p>
 <p><span class="math inline">\(y&#39; = 125.956 + -8.937b\)</span></p>
 <p>We can also get these values directly by running the following code:</p>
-<div class="sourceCode" id="cb921"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb921-1" title="1">mod1<span class="op">$</span>coefficients</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod1$coefficients</code></pre></div>
 <pre><code>## (Intercept)   dan.sleep 
 ##  125.956292   -8.936756</code></pre>
-<p>Now, we should also mention one other thing about these values. These regression coefficients are ‘estimates’. We have one sample of 100 subjects from which we estimated the true population values of ‘a’ and ‘b’. The true population values of ‘a’ and ‘b’ are parameters.</p>
+<p>Now, we should also mention one other thing about these values. These regression coefficients are 'estimates'. We have one sample of 100 subjects from which we estimated the true population values of 'a' and 'b'. The true population values of 'a' and 'b' are parameters.</p>
 </div>
 <div id="how-to-calculate-a-and-b-by-hand" class="section level3">
-<h3><span class="header-section-number">11.2.2</span> How to calculate a and b ‘by hand’</h3>
-<p>To think a bit more about these ‘a’ and ‘b’ values, we could look at how these values are actually calculated.</p>
-<p>First, we calculate ‘b’. The formula for this requires knowing the sample standard deviation of the X and Y variables, as well as their Pearson correlation.</p>
+<h3><span class="header-section-number">12.2.2</span> How to calculate a and b 'by hand'</h3>
+<p>To think a bit more about these 'a' and 'b' values, we could look at how these values are actually calculated.</p>
+<p>First, we calculate 'b'. The formula for this requires knowing the sample standard deviation of the X and Y variables, as well as their Pearson correlation.</p>
 <p><span class="math inline">\(b = r\frac{s_{Y}}{s_{X}}\)</span></p>
-<p>So for our example, we’d calculate ‘b’ like this:</p>
-<div class="sourceCode" id="cb923"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb923-1" title="1">r &lt;-<span class="st">  </span><span class="kw">cor</span>(df<span class="op">$</span>dan.sleep, df<span class="op">$</span>dan.grump)</a>
-<a class="sourceLine" id="cb923-2" title="2"></a>
-<a class="sourceLine" id="cb923-3" title="3">sy &lt;-<span class="st"> </span><span class="kw">sd</span>(df<span class="op">$</span>dan.grump)</a>
-<a class="sourceLine" id="cb923-4" title="4"></a>
-<a class="sourceLine" id="cb923-5" title="5">sx &lt;-<span class="st"> </span><span class="kw">sd</span>(df<span class="op">$</span>dan.sleep)</a>
-<a class="sourceLine" id="cb923-6" title="6"></a>
-<a class="sourceLine" id="cb923-7" title="7">b &lt;-<span class="st"> </span>r <span class="op">*</span><span class="st"> </span>(sy<span class="op">/</span>sx)</a>
-<a class="sourceLine" id="cb923-8" title="8"></a>
-<a class="sourceLine" id="cb923-9" title="9">b</a></code></pre></div>
+<p>So for our example, we'd calculate 'b' like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">r &lt;-<span class="st">  </span><span class="kw">cor</span>(df$dan.sleep, df$dan.grump)
+
+sy &lt;-<span class="st"> </span><span class="kw">sd</span>(df$dan.grump)
+
+sx &lt;-<span class="st"> </span><span class="kw">sd</span>(df$dan.sleep)
+
+b &lt;-<span class="st"> </span>r *<span class="st"> </span>(sy/sx)
+
+b</code></pre></div>
 <pre><code>## [1] -8.936756</code></pre>
-<p>Next, we can calculate ‘a’ using the formula: <span class="math inline">\(a = \overline{Y} - b\overline{X}\)</span> . This requires us to know the sample mean of X and Y.</p>
-<p>So for our example, we calculate ‘a’ like this:</p>
-<div class="sourceCode" id="cb925"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb925-1" title="1">my &lt;-<span class="st"> </span><span class="kw">mean</span>(df<span class="op">$</span>dan.grump)</a>
-<a class="sourceLine" id="cb925-2" title="2"></a>
-<a class="sourceLine" id="cb925-3" title="3">mx &lt;-<span class="st"> </span><span class="kw">mean</span>(df<span class="op">$</span>dan.sleep)</a>
-<a class="sourceLine" id="cb925-4" title="4"></a>
-<a class="sourceLine" id="cb925-5" title="5">a &lt;-<span class="st"> </span>my <span class="op">-</span><span class="st"> </span>(b <span class="op">*</span><span class="st"> </span>mx)</a>
-<a class="sourceLine" id="cb925-6" title="6"></a>
-<a class="sourceLine" id="cb925-7" title="7">a</a></code></pre></div>
+<p>Next, we can calculate 'a' using the formula: <span class="math inline">\(a = \overline{Y} - b\overline{X}\)</span> . This requires us to know the sample mean of X and Y.</p>
+<p>So for our example, we calculate 'a' like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my &lt;-<span class="st"> </span><span class="kw">mean</span>(df$dan.grump)
+
+mx &lt;-<span class="st"> </span><span class="kw">mean</span>(df$dan.sleep)
+
+a &lt;-<span class="st"> </span>my -<span class="st"> </span>(b *<span class="st"> </span>mx)
+
+a</code></pre></div>
 <pre><code>## [1] 125.9563</code></pre>
-<p>Therefore, we have an equation for our trendline which is <code>y' = 125.96 + -8.94b</code>, which means that for every 1 unit increase of sleep, Dan’s grumpiness decreases by 8.94.</p>
+<p>Therefore, we have an equation for our trendline which is <code>y' = 125.96 + -8.94b</code>, which means that for every 1 unit increase of sleep, Dan's grumpiness decreases by 8.94.</p>
 </div>
 </div>
 <div id="residuals" class="section level2">
-<h2><span class="header-section-number">11.3</span> Residuals</h2>
-<p>Once we fit a trendline to the data it’s clear that not all the datapoints fit to the line. In fact, almost none of the datapoints are on the line! This is because the trendline is our prediction of the value of y based on the value of x. Eeach datapoint actually is either larger or smaller in terms of y than the regression line. Sometimes it’s a bit bigger or smaller, other times it might be a lot bigger or smaller. Occasionally, the predicted value of y might be on the regression line.</p>
-<p>Because our trendline isn’t a perfect fit for the data, the formula for the regression line could technically be written as:</p>
+<h2><span class="header-section-number">12.3</span> Residuals</h2>
+<p>Once we fit a trendline to the data it's clear that not all the datapoints fit to the line. In fact, almost none of the datapoints are on the line! This is because the trendline is our prediction of the value of y based on the value of x. Eeach datapoint actually is either larger or smaller in terms of y than the regression line. Sometimes it's a bit bigger or smaller, other times it might be a lot bigger or smaller. Occasionally, the predicted value of y might be on the regression line.</p>
+<p>Because our trendline isn't a perfect fit for the data, the formula for the regression line could technically be written as:</p>
 <p><span class="math inline">\(y&#39; = a + bx + \epsilon\)</span></p>
 <p><span class="math inline">\(\epsilon\)</span> refers to the error, or how far each datapoint is from the predicted value.</p>
 <p>In fact, the difference of each data point from the predicted value is called a <strong>raw residual</strong> or <strong>ordinary residual</strong>. We calculate the size of the residual for each datapoint by the following formula:</p>
 <p><span class="math inline">\(residual = y - y&#39;\)</span></p>
 <p>This essentially is the difference of each data point from the predicted value.</p>
 <div id="how-to-calculate-the-residuals" class="section level3">
-<h3><span class="header-section-number">11.3.1</span> How to calculate the residuals</h3>
+<h3><span class="header-section-number">12.3.1</span> How to calculate the residuals</h3>
 <p>Using our regression line equation of <code>y' = 125.96 + -8.94b</code>, we can manually calculate the raw residuals.</p>
 <p>Firstly, we calculate the predicted values of y <span class="math inline">\(y&#39;\)</span> for each value of <span class="math inline">\(x\)</span>. We can put these back into our original dataframe.</p>
-<div class="sourceCode" id="cb927"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb927-1" title="1">X &lt;-<span class="st"> </span>df<span class="op">$</span>dan.sleep  <span class="co"># the predictor</span></a>
-<a class="sourceLine" id="cb927-2" title="2">Y &lt;-<span class="st"> </span>df<span class="op">$</span>dan.grump  <span class="co"># the outcome</span></a>
-<a class="sourceLine" id="cb927-3" title="3"></a>
-<a class="sourceLine" id="cb927-4" title="4">Y.pred &lt;-<span class="st">  </span><span class="fl">125.96</span>   <span class="op">+</span><span class="st">   </span>(<span class="op">-</span><span class="fl">8.94</span> <span class="op">*</span><span class="st"> </span>X)</a>
-<a class="sourceLine" id="cb927-5" title="5"></a>
-<a class="sourceLine" id="cb927-6" title="6">Y.pred</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X &lt;-<span class="st"> </span>df$dan.sleep  <span class="co"># the predictor</span>
+Y &lt;-<span class="st"> </span>df$dan.grump  <span class="co"># the outcome</span>
+
+Y.pred &lt;-<span class="st">  </span><span class="fl">125.96</span>   +<span class="st">   </span>(-<span class="fl">8.94</span> *<span class="st"> </span>X)
+
+Y.pred</code></pre></div>
 <pre><code>##   [1] 58.1054 55.2446 80.0084 57.0326 66.2408 72.4094 52.7414 61.6814 59.8040
 ##  [10] 67.1348 67.9394 69.9062 72.7670 66.5090 68.6546 69.3698 69.6380 50.2382
 ##  [19] 61.5026 58.6418 54.4400 60.2510 64.6316 55.6916 82.5116 73.4822 50.8640
@@ -460,12 +458,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  [82] 62.7542 48.5396 80.4554 82.0646 63.1118 63.2012 57.3902 53.0990 73.3928
 ##  [91] 74.8232 66.4196 64.7210 76.1642 79.8296 78.4886 56.4962 77.8628 63.2012
 ## [100] 68.2970</code></pre>
-<div class="sourceCode" id="cb929"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb929-1" title="1">df<span class="op">$</span>Y.pred &lt;-<span class="st"> </span>Y.pred</a>
-<a class="sourceLine" id="cb929-2" title="2"></a>
-<a class="sourceLine" id="cb929-3" title="3"><span class="kw">head</span>(df)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df$Y.pred &lt;-<span class="st"> </span>Y.pred
+
+<span class="kw">head</span>(df)</code></pre></div>
 <pre><code>## # A tibble: 6 x 5
 ##   dan.sleep baby.sleep dan.grump   day Y.pred
-##       &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+##       &lt;dbl&gt;      &lt;dbl&gt;     &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;
 ## 1      7.59      10.2         56     1   58.1
 ## 2      7.91      11.7         60     2   55.2
 ## 3      5.14       7.92        82     3   80.0
@@ -473,8 +471,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5      6.68       9.75        67     5   66.2
 ## 6      5.99       5.04        72     6   72.4</code></pre>
 <p>Next, getting the raw residual is simply a matter of taking each observed value of <span class="math inline">\(y\)</span> and subracting the predicted value of <span class="math inline">\(y\)</span>.</p>
-<div class="sourceCode" id="cb931"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb931-1" title="1"><span class="co"># so to get the residual,  y - y&#39;</span></a>
-<a class="sourceLine" id="cb931-2" title="2">df<span class="op">$</span>dan.grump <span class="op">-</span><span class="st"> </span>Y.pred</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># so to get the residual,  y - y&#39;</span>
+df$dan.grump -<span class="st"> </span>Y.pred</code></pre></div>
 <pre><code>##   [1]  -2.1054   4.7554   1.9916  -2.0326   0.7592  -0.4094   0.2586  -1.6814
 ##   [9]   0.1960   3.8652   4.0606  -4.9062   1.2330   0.4910  -2.6546  -0.3698
 ##  [17]   3.3620   1.7618  -0.5026  -5.6418  -0.4400   2.7490   9.3684   0.3084
@@ -488,12 +486,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  [81] -11.0058  -0.7542   1.4604  -0.4554   8.9354  -1.1118   0.7988  -0.3902
 ##  [89]   0.9010  -1.3928   3.1768  -3.4196  -5.7210  -2.1642  -3.8296   0.5114
 ##  [97]  -5.4962   4.1372  -8.2012   5.7030</code></pre>
-<div class="sourceCode" id="cb933"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb933-1" title="1">df<span class="op">$</span>residuals &lt;-<span class="st"> </span>df<span class="op">$</span>dan.grump <span class="op">-</span><span class="st"> </span>Y.pred</a>
-<a class="sourceLine" id="cb933-2" title="2"></a>
-<a class="sourceLine" id="cb933-3" title="3"><span class="kw">head</span>(df)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df$residuals &lt;-<span class="st"> </span>df$dan.grump -<span class="st"> </span>Y.pred
+
+<span class="kw">head</span>(df)</code></pre></div>
 <pre><code>## # A tibble: 6 x 6
 ##   dan.sleep baby.sleep dan.grump   day Y.pred residuals
-##       &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
+##       &lt;dbl&gt;      &lt;dbl&gt;     &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;     &lt;dbl&gt;
 ## 1      7.59      10.2         56     1   58.1    -2.11 
 ## 2      7.91      11.7         60     2   55.2     4.76 
 ## 3      5.14       7.92        82     3   80.0     1.99 
@@ -502,74 +500,71 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6      5.99       5.04        72     6   72.4    -0.409</code></pre>
 </div>
 <div id="visualizing-the-residuals" class="section level3">
-<h3><span class="header-section-number">11.3.2</span> Visualizing the Residuals</h3>
-<p>Now we have a raw residual for all 100 datapoints in our data. The following plot is our same scatterplot, but this time we’ve also added a little red line connecting each observed datapoint to the regression line. The size of each of these red lines represents the residuals.</p>
-<div class="sourceCode" id="cb935"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb935-1" title="1">p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> dan.sleep, <span class="dt">y =</span> dan.grump)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb935-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb935-3" title="3"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">   </span></a>
-<a class="sourceLine" id="cb935-4" title="4"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> dan.sleep, <span class="dt">yend =</span> dan.grump<span class="op">-</span>residuals), <span class="dt">alpha =</span> <span class="fl">.5</span>, <span class="dt">color=</span><span class="st">&#39;red&#39;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb935-5" title="5"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb935-6" title="6"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;OLSR best fit trendline&quot;</span>)</a>
-<a class="sourceLine" id="cb935-7" title="7"></a>
-<a class="sourceLine" id="cb935-8" title="8">p1</a></code></pre></div>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-344-1.png" width="672" /></p>
+<h3><span class="header-section-number">12.3.2</span> Visualizing the Residuals</h3>
+<p>Now we have a raw residual for all 100 datapoints in our data. The following plot is our same scatterplot, but this time we've also added a little red line connecting each observed datapoint to the regression line. The size of each of these red lines represents the residuals.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> dan.sleep, <span class="dt">y =</span> dan.grump)) +
+<span class="st">  </span><span class="kw">geom_point</span>() +
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) +<span class="st">   </span>
+<span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> dan.sleep, <span class="dt">yend =</span> dan.grump-residuals), <span class="dt">alpha =</span> .<span class="dv">5</span>, <span class="dt">color=</span><span class="st">&#39;red&#39;</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_classic</span>() +
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;OLSR best fit trendline&quot;</span>)
+
+p1</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-367-1.png" width="672" /></p>
 </div>
 <div id="comparing-our-trendline-to-other-trendlines" class="section level3">
-<h3><span class="header-section-number">11.3.3</span> Comparing our trendline to other trendlines</h3>
-<p>An important question to consider is why did we end up with our trendline and not some other trendline? The answer is that ours is the ‘best fit’, but what does that really mean? In short, it means that the best-fit regression line is the one that has the smallest squared residuals. The squared residuals are calcualted by squaring every residual and then summing these all up.</p>
-<p>Let’s look at this by looking at one possible trendline that we could have used. The one that we’ll choose is a trendline that goes horizonatally through the data with a y value that is the mean of Y.</p>
-<div class="sourceCode" id="cb937"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb937-1" title="1"><span class="kw">mean</span>(df<span class="op">$</span>dan.grump)</a></code></pre></div>
+<h3><span class="header-section-number">12.3.3</span> Comparing our trendline to other trendlines</h3>
+<p>An important question to consider is why did we end up with our trendline and not some other trendline? The answer is that ours is the 'best fit', but what does that really mean? In short, it means that the best-fit regression line is the one that has the smallest squared residuals. The squared residuals are calcualted by squaring every residual and then summing these all up.</p>
+<p>Let's look at this by looking at one possible trendline that we could have used. The one that we'll choose is a trendline that goes horizonatally through the data with a y value that is the mean of Y.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(df$dan.grump)</code></pre></div>
 <pre><code>## [1] 63.71</code></pre>
-<p>So, the mean of the Y variable <code>dan.grump</code> is 63.71. Let’s put a trendline through our data that is horizontal at 63.71. The equation for this line would be:</p>
+<p>So, the mean of the Y variable <code>dan.grump</code> is 63.71. Let's put a trendline through our data that is horizontal at 63.71. The equation for this line would be:</p>
 <p><span class="math inline">\(y&#39; = 63.71 + 0x\)</span></p>
-<p>Let’s visualize this:</p>
-<div class="sourceCode" id="cb939"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb939-1" title="1"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> dan.sleep, <span class="dt">y =</span> dan.grump)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb939-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb939-3" title="3"><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="kw">mean</span>(df<span class="op">$</span>dan.grump), <span class="dt">color=</span><span class="st">&#39;blue&#39;</span>) </a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-346-1.png" width="672" /></p>
-<p>It doesn’t look like using the mean value of Y is that good a predictor of each datapoint. We could actually visualize how good.bad it is by calculating the residual of each datapoint from this new trendline. This time each residual is equal to:</p>
+<p>Let's visualize this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> dan.sleep, <span class="dt">y =</span> dan.grump)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="kw">mean</span>(df$dan.grump), <span class="dt">color=</span><span class="st">&#39;blue&#39;</span>) </code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-369-1.png" width="672" /></p>
+<p>It doesn't look like using the mean value of Y is that good a predictor of each datapoint. We could actually visualize how good.bad it is by calculating the residual of each datapoint from this new trendline. This time each residual is equal to:</p>
 <p><span class="math inline">\(residual = y - \overline{y}\)</span></p>
-<p>Let’s calculate these residuals, and then graph them on this scatterplot:</p>
-<div class="sourceCode" id="cb940"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb940-1" title="1"><span class="co"># we can work out what the &#39;residuals&#39; would be for this trendline:</span></a>
-<a class="sourceLine" id="cb940-2" title="2">df<span class="op">$</span>Ymean &lt;-<span class="st"> </span><span class="kw">mean</span>(df<span class="op">$</span>dan.grump)</a>
-<a class="sourceLine" id="cb940-3" title="3">df<span class="op">$</span>resid_Ymean &lt;-<span class="st"> </span>df<span class="op">$</span>dan.grump <span class="op">-</span><span class="st"> </span>df<span class="op">$</span>Ymean  <span class="co">#residual from Ymean</span></a>
-<a class="sourceLine" id="cb940-4" title="4"><span class="kw">head</span>(df)</a></code></pre></div>
+<p>Let's calculate these residuals, and then graph them on this scatterplot:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># we can work out what the &#39;residuals&#39; would be for this trendline:</span>
+df$Ymean &lt;-<span class="st"> </span><span class="kw">mean</span>(df$dan.grump)
+df$resid_Ymean &lt;-<span class="st"> </span>df$dan.grump -<span class="st"> </span>df$Ymean  <span class="co">#residual from Ymean</span>
+<span class="kw">head</span>(df)</code></pre></div>
 <pre><code>## # A tibble: 6 x 8
 ##   dan.sleep baby.sleep dan.grump   day Y.pred residuals Ymean resid_Ymean
-##       &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;
+##       &lt;dbl&gt;      &lt;dbl&gt;     &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;
 ## 1      7.59      10.2         56     1   58.1    -2.11   63.7       -7.71
 ## 2      7.91      11.7         60     2   55.2     4.76   63.7       -3.71
 ## 3      5.14       7.92        82     3   80.0     1.99   63.7       18.3 
 ## 4      7.71       9.61        55     4   57.0    -2.03   63.7       -8.71
 ## 5      6.68       9.75        67     5   66.2     0.759  63.7        3.29
 ## 6      5.99       5.04        72     6   72.4    -0.409  63.7        8.29</code></pre>
-<div class="sourceCode" id="cb942"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb942-1" title="1"><span class="co">## visualize this:</span></a>
-<a class="sourceLine" id="cb942-2" title="2">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> dan.sleep, <span class="dt">y =</span> dan.grump)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb942-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb942-4" title="4"><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="kw">mean</span>(df<span class="op">$</span>dan.grump), <span class="dt">color=</span><span class="st">&#39;blue&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb942-5" title="5"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> dan.sleep, <span class="dt">yend =</span> dan.grump<span class="op">-</span>resid_Ymean), <span class="dt">alpha =</span> <span class="fl">.5</span>, <span class="dt">color=</span><span class="st">&#39;red&#39;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb942-6" title="6"><span class="st">  </span><span class="co"># geom_point(aes(y = dan.grump+residuals), shape = 1) +</span></a>
-<a class="sourceLine" id="cb942-7" title="7"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb942-8" title="8"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Residuals to the mean Y&quot;</span>)</a>
-<a class="sourceLine" id="cb942-9" title="9"></a>
-<a class="sourceLine" id="cb942-10" title="10">p2</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-347-1.png" width="672" /></p>
-<p>If we compare both graphs scatterplots side by side, it’s pretty clear that our best-fit trendline is doing a much better job of predicting each datapoint’s Y value. The horizontal trendline at the mean of Y looks pretty bad for the majority of datapoints - its residuals are much bigger.</p>
-<div class="sourceCode" id="cb943"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb943-1" title="1"><span class="kw">library</span>(gridExtra)</a>
-<a class="sourceLine" id="cb943-2" title="2"><span class="kw">grid.arrange</span>(p1,p2,<span class="dt">nrow=</span><span class="dv">1</span>)</a></code></pre></div>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-348-1.png" width="672" /></p>
-<p>In fact, let’s actually quantify the difference in residuals between these two trendlines.
-Because we have both positive and neagative residuals, if we just added them together we’d end up with 0. In statistics, one common way to make numbers positive is to square them. As we saw with standard deviation, this also has the advantage of emphasizing large values.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## visualize this:
+p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> dan.sleep, <span class="dt">y =</span> dan.grump)) +
+<span class="st">  </span><span class="kw">geom_point</span>() +
+<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="kw">mean</span>(df$dan.grump), <span class="dt">color=</span><span class="st">&#39;blue&#39;</span>) +
+<span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> dan.sleep, <span class="dt">yend =</span> dan.grump-resid_Ymean), <span class="dt">alpha =</span> .<span class="dv">5</span>, <span class="dt">color=</span><span class="st">&#39;red&#39;</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="co"># geom_point(aes(y = dan.grump+residuals), shape = 1) +</span>
+<span class="st">  </span><span class="kw">theme_classic</span>() +
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Residuals to the mean Y&quot;</span>)
+
+p2</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-370-1.png" width="672" /></p>
+<p>If we compare both graphs scatterplots side by side, it's pretty clear that our best-fit trendline is doing a much better job of predicting each datapoint's Y value. The horizontal trendline at the mean of Y looks pretty bad for the majority of datapoints - its residuals are much bigger.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gridExtra)
+<span class="kw">grid.arrange</span>(p1,p2,<span class="dt">nrow=</span><span class="dv">1</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-371-1.png" width="672" /></p>
+<p>In fact, let's actually quantify the difference in residuals between these two trendlines. Because we have both positive and neagative residuals, if we just added them together we'd end up with 0. In statistics, one common way to make numbers positive is to square them. As we saw with standard deviation, this also has the advantage of emphasizing large values.</p>
 <p>What we do to compare our residuals, is to therefore square them. We call the residuals from our trendline the raw residuals. We call the residuals from the horizontal line the total residuals.</p>
-<div class="sourceCode" id="cb945"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb945-1" title="1">df<span class="op">$</span>residuals2 &lt;-<span class="st"> </span>df<span class="op">$</span>residuals <span class="op">^</span><span class="st"> </span><span class="dv">2</span>               <span class="co"># raw residuals</span></a>
-<a class="sourceLine" id="cb945-2" title="2">df<span class="op">$</span>resid_Ymean2 &lt;-<span class="st"> </span>df<span class="op">$</span>resid_Ymean <span class="op">^</span><span class="st"> </span><span class="dv">2</span>           <span class="co"># total residuals</span></a>
-<a class="sourceLine" id="cb945-3" title="3"></a>
-<a class="sourceLine" id="cb945-4" title="4"><span class="kw">head</span>(df[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)]) <span class="co"># just showing the relevant columns</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df$residuals2 &lt;-<span class="st"> </span>df$residuals ^<span class="st"> </span><span class="dv">2</span>               <span class="co"># raw residuals</span>
+df$resid_Ymean2 &lt;-<span class="st"> </span>df$resid_Ymean ^<span class="st"> </span><span class="dv">2</span>           <span class="co"># total residuals</span>
+
+<span class="kw">head</span>(df[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)]) <span class="co"># just showing the relevant columns</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 6
 ##   dan.sleep dan.grump residuals resid_Ymean residuals2 resid_Ymean2
-##       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;        &lt;dbl&gt;
+##       &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;        &lt;dbl&gt;
 ## 1      7.59        56    -2.11        -7.71      4.43          59.4
 ## 2      7.91        60     4.76        -3.71     22.6           13.8
 ## 3      5.14        82     1.99        18.3       3.97         335. 
@@ -577,28 +572,28 @@ Because we have both positive and neagative residuals, if we just added them tog
 ## 5      6.68        67     0.759        3.29      0.576         10.8
 ## 6      5.99        72    -0.409        8.29      0.168         68.7</code></pre>
 <p>You can see the squared raw residual and squared total residual for the first six datapoints. Ideally, we want the raw residuals to be as small a fraction as possible of the total residuals. If we sum up the squared raw residuals and squared total residuals, we can determine this:</p>
-<div class="sourceCode" id="cb947"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb947-1" title="1">SS.resid &lt;-<span class="st"> </span><span class="kw">sum</span>(df<span class="op">$</span>residuals2)</a>
-<a class="sourceLine" id="cb947-2" title="2">SS.resid  <span class="co">#1838.722</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SS.resid &lt;-<span class="st"> </span><span class="kw">sum</span>(df$residuals2)
+SS.resid  <span class="co">#1838.722</span></code></pre></div>
 <pre><code>## [1] 1838.75</code></pre>
-<div class="sourceCode" id="cb949"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb949-1" title="1">SS.tot &lt;-<span class="st"> </span><span class="kw">sum</span>(df<span class="op">$</span>resid_Ymean2)</a>
-<a class="sourceLine" id="cb949-2" title="2">SS.tot    <span class="co">#9998.59</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SS.tot &lt;-<span class="st"> </span><span class="kw">sum</span>(df$resid_Ymean2)
+SS.tot    <span class="co">#9998.59</span></code></pre></div>
 <pre><code>## [1] 9998.59</code></pre>
 <p>As you can clearly see, the summed squared residuals for our best fit regression line are much smaller than the summed squared residuals when using the mean of y as the regression line.</p>
 </div>
 <div id="coefficient-of-determination-r2" class="section level3">
-<h3><span class="header-section-number">11.3.4</span> Coefficient of Determination R2</h3>
+<h3><span class="header-section-number">12.3.4</span> Coefficient of Determination R2</h3>
 <p>One way to make these summed squares of residuals numbers more interpretable is to convert them to <span class="math inline">\(R^{2}\)</span>.</p>
 <p>The logic goes as following. If the trendline is absolutely useless at predicting the y values, then the trendline would have residuals as high as the total residuals. If the trendline is perfect at predicting the y values, then the residual SS total would be 0.</p>
 <p>If we look at the sum of the squares of the raw residuals as a ratio of a sum of the squared total residuals then we can work out how well our trendline fits.</p>
 <p>We calculate this using the formula,</p>
 <p><span class="math inline">\(R^{2} = 1 - \frac{SS_{raw}}{SS_{total}}\)</span></p>
 <p>in the following way:</p>
-<div class="sourceCode" id="cb951"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb951-1" title="1"><span class="dv">1</span> <span class="op">-</span><span class="st">  </span>(SS.resid<span class="op">/</span>SS.tot)   <span class="co"># 0.816   (this is R2)</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> -<span class="st">  </span>(SS.resid/SS.tot)   <span class="co"># 0.816   (this is R2)</span></code></pre></div>
 <pre><code>## [1] 0.816099</code></pre>
 <p>So for our data, <span class="math inline">\(R^{2} = 0.816\)</span>. This means that our regression model (and trendline) is a very good fit to the data.</p>
-<p><span class="math inline">\(R^{2}\)</span> ranges from 0 to 1. If its value was 1, then that would indicate that the best-fit trendline perfectly fits the data with no raw residuals. If its value was 0, then that would mean that the best-fit trendline is no better at fitting the data than the horizontal line at the mean of Y. Values of <span class="math inline">\(R^{2}\)</span> that get closer to 1 indicate that the model is doing a better job at estimating each value of Y. We say that the model has a better ‘fit’ to the data.</p>
+<p><span class="math inline">\(R^{2}\)</span> ranges from 0 to 1. If its value was 1, then that would indicate that the best-fit trendline perfectly fits the data with no raw residuals. If its value was 0, then that would mean that the best-fit trendline is no better at fitting the data than the horizontal line at the mean of Y. Values of <span class="math inline">\(R^{2}\)</span> that get closer to 1 indicate that the model is doing a better job at estimating each value of Y. We say that the model has a better 'fit' to the data.</p>
 <p>There is a way to directly get the value of <span class="math inline">\(R^{2}\)</span> in R. You may remember earlier in this chapter that we ran our linear model using the function <code>lm()</code>. We saved the output of this regression model as the object <code>mod1</code>. You can use <code>summary()</code> to get lots of information about the regression model.</p>
-<div class="sourceCode" id="cb953"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb953-1" title="1"><span class="kw">summary</span>(mod1)  <span class="co"># the R2 matches</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mod1)  <span class="co"># the R2 matches</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = dan.grump ~ dan.sleep, data = df)
@@ -615,33 +610,33 @@ Because we have both positive and neagative residuals, if we just added them tog
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Residual standard error: 4.332 on 98 degrees of freedom
-## Multiple R-squared:  0.8161,	Adjusted R-squared:  0.8142 
+## Multiple R-squared:  0.8161, Adjusted R-squared:  0.8142 
 ## F-statistic: 434.9 on 1 and 98 DF,  p-value: &lt; 2.2e-16</code></pre>
-<p>The thing to focus on from this output right now, is the value called <code>Multiple R-squared</code>. This gives us the same value of <span class="math inline">\(R^{2}\)</span> that we calculated by hand: <span class="math inline">\(R^{2}=0.816\)</span>. The other value of <span class="math inline">\(R^{2}\)</span> is called <code>Adjusted R-squared</code>. This is relevant when you are conducting multiple regression with more than one predictor in the model. We only have one predictor in the model (<code>dan.sleep</code>) so we won’t talk more about Adjusted R squared here.</p>
-<p>Finally, there is a shortcut way in which we can calculate <span class="math inline">\(R^{2}\)</span>. It is simply to square the Pearson’s correlation coefficient:</p>
+<p>The thing to focus on from this output right now, is the value called <code>Multiple R-squared</code>. This gives us the same value of <span class="math inline">\(R^{2}\)</span> that we calculated by hand: <span class="math inline">\(R^{2}=0.816\)</span>. The other value of <span class="math inline">\(R^{2}\)</span> is called <code>Adjusted R-squared</code>. This is relevant when you are conducting multiple regression with more than one predictor in the model. We only have one predictor in the model (<code>dan.sleep</code>) so we won't talk more about Adjusted R squared here.</p>
+<p>Finally, there is a shortcut way in which we can calculate <span class="math inline">\(R^{2}\)</span>. It is simply to square the Pearson's correlation coefficient:</p>
 <p><span class="math inline">\(R^{2} = r^{2}\)</span>.</p>
-<div class="sourceCode" id="cb955"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb955-1" title="1">r &lt;-<span class="st"> </span><span class="kw">cor</span>(df<span class="op">$</span>dan.sleep, df<span class="op">$</span>dan.grump)</a>
-<a class="sourceLine" id="cb955-2" title="2"></a>
-<a class="sourceLine" id="cb955-3" title="3">r</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">r &lt;-<span class="st"> </span><span class="kw">cor</span>(df$dan.sleep, df$dan.grump)
+
+r</code></pre></div>
 <pre><code>## [1] -0.903384</code></pre>
-<div class="sourceCode" id="cb957"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb957-1" title="1">r<span class="op">^</span><span class="dv">2</span>  <span class="co"># same R2 as above</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">r^<span class="dv">2</span>  <span class="co"># same R2 as above</span></code></pre></div>
 <pre><code>## [1] 0.8161027</code></pre>
 </div>
 </div>
 <div id="standard-error-of-the-estimate" class="section level2">
-<h2><span class="header-section-number">11.4</span> Standard Error of the Estimate</h2>
-<p><span class="math inline">\(R^{2}\)</span> is one value that gives us a sense of how well our regression model is doing. Another method to assess ‘model fit’ is to examine the Standard Error of the Estimate. Unfortunately, this value has a number of names. You’ll see it referred to as the Standard Error of the Regression, Residual Standard Error, Regression Standard Error, <span class="math inline">\(S\)</span>, or <span class="math inline">\(\sigma_{est}\)</span>. We prefer to call it the Standard Error of the Estimate or <span class="math inline">\(\sigma_{est}\)</span>.</p>
+<h2><span class="header-section-number">12.4</span> Standard Error of the Estimate</h2>
+<p><span class="math inline">\(R^{2}\)</span> is one value that gives us a sense of how well our regression model is doing. Another method to assess 'model fit' is to examine the Standard Error of the Estimate. Unfortunately, this value has a number of names. You'll see it referred to as the Standard Error of the Regression, Residual Standard Error, Regression Standard Error, <span class="math inline">\(S\)</span>, or <span class="math inline">\(\sigma_{est}\)</span>. We prefer to call it the Standard Error of the Estimate or <span class="math inline">\(\sigma_{est}\)</span>.</p>
 <p>This is calculated as follows:</p>
 <p><span class="math inline">\(\sigma_{est} = \sqrt{\frac{\Sigma (y - y&#39;)^{2}}{n-2}}\)</span></p>
 <p>The <span class="math inline">\(\Sigma (y - y&#39;)^{2}\)</span> part of this equation is the Sum of the raw residuals squared that we already calculated when calculating <span class="math inline">\(R^{2}\)</span>.</p>
 <p>We can therefore calculate <span class="math inline">\(\sigma_{est}\)</span> quite straightforwardly in R manually.</p>
-<div class="sourceCode" id="cb959"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb959-1" title="1">s_est &lt;-<span class="st"> </span><span class="kw">sqrt</span>(SS.resid <span class="op">/</span><span class="st"> </span><span class="dv">98</span>) <span class="co"># n=100</span></a>
-<a class="sourceLine" id="cb959-2" title="2"></a>
-<a class="sourceLine" id="cb959-3" title="3">s_est</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">s_est &lt;-<span class="st"> </span><span class="kw">sqrt</span>(SS.resid /<span class="st"> </span><span class="dv">98</span>) <span class="co"># n=100</span>
+
+s_est</code></pre></div>
 <pre><code>## [1] 4.3316</code></pre>
 <p>Therefore <span class="math inline">\(\sigma_{est} = 4.332\)</span> for our model.</p>
-<p>It’s acutally possible to see this value in the output of the summary of the model in R. Here, it’s called the ‘residual standard error’:</p>
-<div class="sourceCode" id="cb961"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb961-1" title="1"><span class="kw">summary</span>(mod1) </a></code></pre></div>
+<p>It's acutally possible to see this value in the output of the summary of the model in R. Here, it's called the 'residual standard error':</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mod1) </code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = dan.grump ~ dan.sleep, data = df)
@@ -658,57 +653,55 @@ Because we have both positive and neagative residuals, if we just added them tog
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Residual standard error: 4.332 on 98 degrees of freedom
-## Multiple R-squared:  0.8161,	Adjusted R-squared:  0.8142 
+## Multiple R-squared:  0.8161, Adjusted R-squared:  0.8142 
 ## F-statistic: 434.9 on 1 and 98 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div id="what-to-do-with-the-standard-error-of-the-estimate" class="section level3">
-<h3><span class="header-section-number">11.4.1</span> What to do with the Standard Error of the Estimate ?</h3>
-<p>What we are generally looking for with <span class="math inline">\(\sigma_{est}\)</span> is a number as small as possible. This is because what essentially it is a measure of is an approximate estimate of the average raw residual. The question is, how small is small? This is difficult to answer. One reason is because <span class="math inline">\(\sigma_{est}\)</span> is actually in the original units of the Y-axis (the outcome variable). Thefore it’s not as simple as saying that it should be close to 0, because the Y-axis may be in units that are very large. In other ways, having this value in the original units of Y can be quite helpful as it is easy to envisage what the size of the average residual is.</p>
+<h3><span class="header-section-number">12.4.1</span> What to do with the Standard Error of the Estimate ?</h3>
+<p>What we are generally looking for with <span class="math inline">\(\sigma_{est}\)</span> is a number as small as possible. This is because what essentially it is a measure of is an approximate estimate of the average raw residual. The question is, how small is small? This is difficult to answer. One reason is because <span class="math inline">\(\sigma_{est}\)</span> is actually in the original units of the Y-axis (the outcome variable). Thefore it's not as simple as saying that it should be close to 0, because the Y-axis may be in units that are very large. In other ways, having this value in the original units of Y can be quite helpful as it is easy to envisage what the size of the average residual is.</p>
 <p>However, a good rule of thumb is that approximately 95% of the observations (raw datapoints) should fall within plus or minus 2 times the standard error of the estimates from the regression line. We can illustrate this with the following plot:</p>
-<div class="sourceCode" id="cb963"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb963-1" title="1"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> dan.sleep, <span class="dt">y =</span> dan.grump)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb963-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb963-3" title="3"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb963-4" title="4"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb963-5" title="5"><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="fl">125.956</span><span class="op">+</span>s_est<span class="op">+</span>s_est, <span class="dt">slope =</span> <span class="fl">-8.937</span>, <span class="dt">color =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">lty=</span><span class="dv">2</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb963-6" title="6"><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="fl">125.956</span><span class="op">-</span>s_est<span class="op">-</span>s_est, <span class="dt">slope =</span> <span class="fl">-8.937</span>, <span class="dt">color =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">lty=</span><span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb963-7" title="7"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Regression with 2 x Standard Error of the Estimate&quot;</span>)</a></code></pre></div>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-356-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> dan.sleep, <span class="dt">y =</span> dan.grump)) +
+<span class="st">  </span><span class="kw">geom_point</span>() +
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) +
+<span class="st">  </span><span class="kw">theme_classic</span>() +
+<span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="fl">125.956</span>+s_est+s_est, <span class="dt">slope =</span> -<span class="fl">8.937</span>, <span class="dt">color =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">lty=</span><span class="dv">2</span>)+
+<span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="fl">125.956</span>-s_est-s_est, <span class="dt">slope =</span> -<span class="fl">8.937</span>, <span class="dt">color =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">lty=</span><span class="dv">2</span>) +
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Regression with 2 x Standard Error of the Estimate&quot;</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-379-1.png" width="672" /></p>
 <p>This is our original scatterplot again. The blue line is still the best fitting trendline. The two dashed red lines are two times <span class="math inline">\(\sigma_{est}\)</span> above and below the blue line respectively. That is they are 2 * 4.332 = 8.644 units of grumpiness above or below the trendline.</p>
-<p>If we count up the number of datapoints that our outside of the dotted red lines, we can see that there are six datapoints out of our 100 datapoints that are just outside, although some of htese are very close indeed to the red line. This is probably ok as we’re only expecting 95% of datapoints on average to be inside the red lines.</p>
+<p>If we count up the number of datapoints that our outside of the dotted red lines, we can see that there are six datapoints out of our 100 datapoints that are just outside, although some of htese are very close indeed to the red line. This is probably ok as we're only expecting 95% of datapoints on average to be inside the red lines.</p>
 </div>
 </div>
 <div id="goodness-of-fit-test---f-ratio" class="section level2">
-<h2><span class="header-section-number">11.5</span> Goodness of Fit Test - F-ratio</h2>
+<h2><span class="header-section-number">12.5</span> Goodness of Fit Test - F-ratio</h2>
 <p><span class="math inline">\(R^{2}\)</span> and <span class="math inline">\(\sigma_{est}\)</span> are two calculations that help us determine if our regression model (and trendline) is indeed a good fit to the data. A more formal method is to run a statistical test called the Goodness of Fit Test. To do this we calculate an F-ratio that essentially examines how well our trendline (and model) fit the data compared to the null model which is the model where we use the mean of Y as our prediction.</p>
 <p>As a reminder, these scatterplots show the difference in performance of our fitted model (left) compared to the null model (right).</p>
-<div class="sourceCode" id="cb965"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb965-1" title="1"><span class="kw">grid.arrange</span>(p1,p2,<span class="dt">nrow=</span><span class="dv">1</span>)</a></code></pre></div>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-357-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">grid.arrange</span>(p1,p2,<span class="dt">nrow=</span><span class="dv">1</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-380-1.png" width="672" /></p>
 <p>The F-ratio is essentially a method of determining the proportion of residual variance compared to total variance. We can calculate it using the following formula:</p>
 <p>$F =  $</p>
 <p>Here, SSM refers to the sum of squares for the model (the model sum of squares). This is equal to:</p>
 <p><span class="math inline">\(SSM = SST - SSR\)</span></p>
-<p>That is, it’s the difference between the total sum of squares (the sum of the squared residuals for the null model) minus the residual sum of squares (the sum of the squared residuals for the fitted model).</p>
+<p>That is, it's the difference between the total sum of squares (the sum of the squared residuals for the null model) minus the residual sum of squares (the sum of the squared residuals for the fitted model).</p>
 <p>The <code>d.f.SSM</code> refers to the degrees of freedom for the model sum of squares, which is equal to the number of predictors in the model. We only have one predictor (<code>dan.sleep</code>), so that means the degrees of freedom are 1.</p>
 <p>The <code>d.f.SSR</code> refers to the degrees of freedom for the raw residuals. This is equal to the number of observations minus the number of predictors minus 1. Therefore it is equal to 100 - 1 - 1 = 98 as we had 100 datapoints (or obsevations).</p>
-<p>Let’s calculate this in R. Firstly, we’ll calculate the model sum of squares:</p>
-<div class="sourceCode" id="cb967"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb967-1" title="1">SS.mod &lt;-<span class="st"> </span>SS.tot <span class="op">-</span><span class="st"> </span>SS.resid</a>
-<a class="sourceLine" id="cb967-2" title="2">SS.mod  <span class="co">#8159.868</span></a></code></pre></div>
+<p>Let's calculate this in R. Firstly, we'll calculate the model sum of squares:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SS.mod &lt;-<span class="st"> </span>SS.tot -<span class="st"> </span>SS.resid
+SS.mod  <span class="co">#8159.868</span></code></pre></div>
 <pre><code>## [1] 8159.84</code></pre>
 <p>Next we divide the model sum of squares and the residual sum of squares by their respective degrees of freedom to get the mean sum of squares for each. <span class="math inline">\(F\)</span> is then calculated by dividing the former by the latter:</p>
-<div class="sourceCode" id="cb969"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb969-1" title="1">MS.resid &lt;-<span class="st"> </span>SS.resid <span class="op">/</span><span class="st"> </span><span class="dv">98</span></a>
-<a class="sourceLine" id="cb969-2" title="2">MS.resid  <span class="co">#18.76</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">MS.resid &lt;-<span class="st"> </span>SS.resid /<span class="st"> </span><span class="dv">98</span>
+MS.resid  <span class="co">#18.76</span></code></pre></div>
 <pre><code>## [1] 18.76276</code></pre>
-<div class="sourceCode" id="cb971"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb971-1" title="1">MS.mod &lt;-<span class="st"> </span>SS.mod <span class="op">/</span><span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb971-2" title="2">MS.mod    <span class="co">#8159.868</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">MS.mod &lt;-<span class="st"> </span>SS.mod /<span class="st"> </span><span class="dv">1</span>
+MS.mod    <span class="co">#8159.868</span></code></pre></div>
 <pre><code>## [1] 8159.84</code></pre>
-<div class="sourceCode" id="cb973"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb973-1" title="1">Fval &lt;-<span class="st">  </span>MS.mod <span class="op">/</span><span class="st"> </span>MS.resid</a>
-<a class="sourceLine" id="cb973-2" title="2">Fval  <span class="co">#434.9</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Fval &lt;-<span class="st">  </span>MS.mod /<span class="st"> </span>MS.resid
+Fval  <span class="co">#434.9</span></code></pre></div>
 <pre><code>## [1] 434.8955</code></pre>
 <p>So <span class="math inline">\(F = 434.9\)</span> which is a large value. Larger values indicate that we were less likely to get a difference between the sum of squares for our fitted and null models by chance alone.</p>
 <p>Essentially, the observed value of F is compared to the sampling distribution for F if the null hypothesis is true. The null is that our model (trendline) is no better than random in fitting the datapoints</p>
 <p>Whether our <span class="math inline">\(F\)</span> value is sufficiently large can be looked up in an F-table (not recommended), or you can simply let R do the work for you. If you use <code>summary()</code> on your saved regression model, it will give you the <span class="math inline">\(F\)</span> value as well as a p-value to go along with it.</p>
-<div class="sourceCode" id="cb975"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb975-1" title="1"><span class="kw">summary</span>(mod1)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mod1)</code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = dan.grump ~ dan.sleep, data = df)
@@ -725,13 +718,13 @@ Because we have both positive and neagative residuals, if we just added them tog
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Residual standard error: 4.332 on 98 degrees of freedom
-## Multiple R-squared:  0.8161,	Adjusted R-squared:  0.8142 
+## Multiple R-squared:  0.8161, Adjusted R-squared:  0.8142 
 ## F-statistic: 434.9 on 1 and 98 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>You can see from the model output that the F-statistic is given on the bottom row along with the degrees of freedom for the model (1) and the residuals (98). The p-value here is 0.0000000000000022 which is basically 0. Typically, if the p-value is less than 0.05 we will say that our fitted model is a better fit to the data than the null model.</p>
 </div>
 <div id="assumptions-of-linear-regression" class="section level2">
-<h2><span class="header-section-number">11.6</span> Assumptions of Linear Regression</h2>
-<p>Even if your model is a good fit to the data, there are still several things you need to check before progressing to examining whether your predictor is ‘significantly’ (a better term is probably ‘meaningfully’) predicting the outcome variable.</p>
+<h2><span class="header-section-number">12.6</span> Assumptions of Linear Regression</h2>
+<p>Even if your model is a good fit to the data, there are still several things you need to check before progressing to examining whether your predictor is 'significantly' (a better term is probably 'meaningfully') predicting the outcome variable.</p>
 <p>The last series of things we need to do is to check whether we have violated the assumptions of linear regression. In short, here are some of the assumptions that we need to adhere to:</p>
 <ul>
 <li><ol style="list-style-type: decimal">
@@ -750,17 +743,17 @@ Because we have both positive and neagative residuals, if we just added them tog
 <li>No overly influential datapoints</li>
 </ol></li>
 </ul>
-<p>Let’s discuss each of these in turn.</p>
+<p>Let's discuss each of these in turn.</p>
 <div id="normality-of-residuals" class="section level3">
-<h3><span class="header-section-number">11.6.1</span> Normality of Residuals</h3>
+<h3><span class="header-section-number">12.6.1</span> Normality of Residuals</h3>
 <p>One assumption of linear regression is that our residuals are approximately normally distributed. We can check this in several ways. But first, we should probably own up and mention that there are several types of residuals. The residuals we have been dealing with from the regression model have been the <strong>raw residuals</strong>. We got these by simply subtracting the predicted value of y from the observed value of y <span class="math inline">\(residual = y - y&#39;\)</span>. However, statisticians like to modify these residuals. One modification they make is to turn these residuals into what are called <strong>standardized residuals</strong>. These are the raw residuals divided by the standard deviation of the residuals.</p>
 <p>You can directly access the standardized residuals in R by using the <code>rstandard()</code> function with your model output:</p>
-<div class="sourceCode" id="cb977"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb977-1" title="1">df<span class="op">$</span>std_resids &lt;-<span class="st"> </span><span class="kw">rstandard</span>(mod1)</a>
-<a class="sourceLine" id="cb977-2" title="2"></a>
-<a class="sourceLine" id="cb977-3" title="3"><span class="kw">head</span>(df[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">11</span>)]) <span class="co"># just showing the relevant columns</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df$std_resids &lt;-<span class="st"> </span><span class="kw">rstandard</span>(mod1)
+
+<span class="kw">head</span>(df[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">11</span>)]) <span class="co"># just showing the relevant columns</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 4
 ##   dan.sleep dan.grump residuals std_resids
-##       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##       &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;
 ## 1      7.59        56    -2.11     -0.494 
 ## 2      7.91        60     4.76      1.10  
 ## 3      5.14        82     1.99      0.467 
@@ -768,40 +761,40 @@ Because we have both positive and neagative residuals, if we just added them tog
 ## 5      6.68        67     0.759     0.172 
 ## 6      5.99        72    -0.409    -0.0991</code></pre>
 <p>We can demonstrate that the standardized residuals really are highly correlated with the raw residuals by plotting them on a scatterplot:</p>
-<div class="sourceCode" id="cb979"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb979-1" title="1"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>residuals, <span class="dt">y=</span>std_resids)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb979-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb979-3" title="3"><span class="st">  </span><span class="kw">theme_classic</span>()<span class="op">+</span></a>
-<a class="sourceLine" id="cb979-4" title="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Raw Residuals&quot;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb979-5" title="5"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Standardized Residuals&quot;</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-362-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>residuals, <span class="dt">y=</span>std_resids)) +
+<span class="st">  </span><span class="kw">geom_point</span>() +
+<span class="st">  </span><span class="kw">theme_classic</span>()+
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Raw Residuals&quot;</span>)+
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Standardized Residuals&quot;</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-385-1.png" width="672" /></p>
 <p>They are effectively the same - just transformed. One advantage of standardized residuals is that they can help us look for unusual datapoints with large residuals. While raw residuals are always in the original units of the y-axis, standardized residuals are, well, standardized. Standardized residuals that are greater than 2 or less than -2 are quite large, those that are larger than 3 or less than 3 are very large indeed and should be looked at in more detail.</p>
-<p>Let’s get back to checking the normality of these residuals.</p>
-<p>First up, we could plot a histogram and see if we think it’s approximately normal:</p>
-<div class="sourceCode" id="cb980"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb980-1" title="1"><span class="co">#a) histogram plot</span></a>
-<a class="sourceLine" id="cb980-2" title="2"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>std_resids)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;white&#39;</span>) <span class="co"># possibly ok</span></a></code></pre></div>
+<p>Let's get back to checking the normality of these residuals.</p>
+<p>First up, we could plot a histogram and see if we think it's approximately normal:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#a) histogram plot</span>
+<span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>std_resids)) +<span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;white&#39;</span>) <span class="co"># possibly ok</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-363-1.png" width="672" /></p>
-<p>This looks possibly ok. It’s not <strong>too</strong> skewed, but it can be harded from a histogram with just 100 datapoints to get a sense of the shape. A second approach would be to use a Shapiro-Wilk test which more formally test whether the data are approximately normally distributed:</p>
-<div class="sourceCode" id="cb982"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb982-1" title="1"><span class="co">#b) Shapiro-Wilk test</span></a>
-<a class="sourceLine" id="cb982-2" title="2"><span class="kw">shapiro.test</span>(df<span class="op">$</span>std_resids)  <span class="co"># shapiro test says normal.</span></a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-386-1.png" width="672" /></p>
+<p>This looks possibly ok. It's not <strong>too</strong> skewed, but it can be harded from a histogram with just 100 datapoints to get a sense of the shape. A second approach would be to use a Shapiro-Wilk test which more formally test whether the data are approximately normally distributed:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#b) Shapiro-Wilk test</span>
+<span class="kw">shapiro.test</span>(df$std_resids)  <span class="co"># shapiro test says normal.</span></code></pre></div>
 <pre><code>## 
-## 	Shapiro-Wilk normality test
+##  Shapiro-Wilk normality test
 ## 
 ## data:  df$std_resids
 ## W = 0.99201, p-value = 0.8221</code></pre>
 <p>Given that the p-value here is above our cut-off of 0.05, this suggests that we have no evidence to reject the hypothesis that our data came from a normal distribution. An easier way of saying this is, our residuals are likey approximately normally distributed.</p>
 <p>The other method we can employ to check normality is to use a QQ plot:</p>
-<div class="sourceCode" id="cb984"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb984-1" title="1"><span class="co">#c) QQ plot</span></a>
-<a class="sourceLine" id="cb984-2" title="2"><span class="kw">qqnorm</span>(df<span class="op">$</span>std_resids)</a>
-<a class="sourceLine" id="cb984-3" title="3"><span class="kw">qqline</span>(df<span class="op">$</span>std_resids, <span class="dt">col =</span> <span class="st">&quot;steelblue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)  <span class="co"># it&#39;s ok</span></a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-365-1.png" width="672" /></p>
-<p>A discussion of precisely what these QQ plots are is beyond the scope here. However, in general terms, what we are plotting is the residual against the theoretical value of each residual that we would expect if our data were normally distributed. In practical terms, what we’re looking for is that the bulk of our data fit along the blue line. It’s ok to have a bit of wobble at the extremes - that just means that our data distribution probably has slightly fat tails.</p>
-<p>It’s also possible to generate a version of the above plot quickly, directly from the saved linear model object.</p>
-<div class="sourceCode" id="cb985"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb985-1" title="1"><span class="kw">plot</span>( <span class="dt">x =</span> mod1, <span class="dt">which =</span> <span class="dv">2</span> )  <span class="co"># fast way of getting same plot</span></a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-366-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#c) QQ plot</span>
+<span class="kw">qqnorm</span>(df$std_resids)
+<span class="kw">qqline</span>(df$std_resids, <span class="dt">col =</span> <span class="st">&quot;steelblue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)  <span class="co"># it&#39;s ok</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-388-1.png" width="672" /></p>
+<p>A discussion of precisely what these QQ plots are is beyond the scope here. However, in general terms, what we are plotting is the residual against the theoretical value of each residual that we would expect if our data were normally distributed. In practical terms, what we're looking for is that the bulk of our data fit along the blue line. It's ok to have a bit of wobble at the extremes - that just means that our data distribution probably has slightly fat tails.</p>
+<p>It's also possible to generate a version of the above plot quickly, directly from the saved linear model object.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>( <span class="dt">x =</span> mod1, <span class="dt">which =</span> <span class="dv">2</span> )  <span class="co"># fast way of getting same plot</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-389-1.png" width="672" /></p>
 </div>
-<div id="linearity" class="section level3">
-<h3><span class="header-section-number">11.6.2</span> 2. Linearity —</h3>
+<div id="linearity----" class="section level3">
+<h3><span class="header-section-number">12.6.2</span> 2. Linearity ---</h3>
 <p>The second major assumption of linear regression is that the relationship between our predictor and outcome is linear! So, data that look like the following would not have a linear relationship.</p>
 <div class="figure">
 <img src="img/curvi.png" alt="comparing a and b" />
@@ -809,40 +802,38 @@ Because we have both positive and neagative residuals, if we just added them tog
 </div>
 <p>One simple approach is to examine the scatterplot of your predictor (X) and outcome (Y) variables. We already did this, and our data looked pretty linear! Another approach is to examine the relationship between your observed Y values and the predicted Y values <span class="math inline">\(y&#39;\)</span>. This should also be a linear relationship.</p>
 <p>Although we calculated the <span class="math inline">\(y&#39;\)</span> values earlier using the formula for the regression line, we can actually grab them directly from the model object with the <code>fitted.values()</code> command.</p>
-<div class="sourceCode" id="cb986"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb986-1" title="1">df<span class="op">$</span>Y.fitted &lt;-<span class="st"> </span><span class="kw">fitted.values</span>(mod1)</a>
-<a class="sourceLine" id="cb986-2" title="2"></a>
-<a class="sourceLine" id="cb986-3" title="3"><span class="co"># plot this relationship</span></a>
-<a class="sourceLine" id="cb986-4" title="4"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> Y.fitted, <span class="dt">y =</span> dan.grump)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb986-5" title="5"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb986-6" title="6"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>, <span class="dt">se=</span>F) </a></code></pre></div>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-367-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df$Y.fitted &lt;-<span class="st"> </span><span class="kw">fitted.values</span>(mod1)
+
+<span class="co"># plot this relationship</span>
+<span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> Y.fitted, <span class="dt">y =</span> dan.grump)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>, <span class="dt">se=</span>F) </code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-390-1.png" width="672" /></p>
 <p>As you can see from this plot, our fitted (predicted) values of Y on the x-axis have a strong linear relationship with our observed values of Y on the y-axis.</p>
 </div>
 <div id="homogeneity-of-variance-homoscedasticity" class="section level3">
-<h3><span class="header-section-number">11.6.3</span> 3. Homogeneity of Variance / Homoscedasticity</h3>
+<h3><span class="header-section-number">12.6.3</span> 3. Homogeneity of Variance / Homoscedasticity</h3>
 <p>The third assumption that we need to check is homoscedasticity (also sometimes referred to as homogeneity of variance).</p>
-<p>What this really means is that the model should be equally good at predicting Y’s across all values of X. Our regression model shouldn’t be better at predicting values of Y for e.g. small values of X but not for large values of X.</p>
+<p>What this really means is that the model should be equally good at predicting Y's across all values of X. Our regression model shouldn't be better at predicting values of Y for e.g. small values of X but not for large values of X.</p>
 <p>Practically, what this means, is that the size of the residuals should be equal across all values of X.</p>
 <p>If we plot the values of X (or the predicted/fitted values of Y) on the x-axis against the residuals (in this case standardized residuals) on the Y-axis, then there should be no overall pattern. We should be equally likely to get small or large residuals for any value of X (or predicted/fitted value of Y). This would mean that any trendline on this graph should be a horizontal line.</p>
-<div class="sourceCode" id="cb988"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb988-1" title="1"><span class="co"># if true, this should be a straight line</span></a>
-<a class="sourceLine" id="cb988-2" title="2"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> Y.fitted, <span class="dt">y =</span> std_resids)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb988-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb988-4" title="4"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>, <span class="dt">se=</span>F) </a></code></pre></div>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-368-1.png" width="672" /></p>
-<p>As you can see, our plot is basically a random scatterplot and there is no overall pattern. That is good, it means we have homoscedasticity. If we did not have homoscedasticity, then we’d see a pattern in this scatterplot - such as the residuals getting larger or smaller for larger fitted (predicted) values of Y.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># if true, this should be a straight line</span>
+<span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> Y.fitted, <span class="dt">y =</span> std_resids)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>, <span class="dt">se=</span>F) </code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-391-1.png" width="672" /></p>
+<p>As you can see, our plot is basically a random scatterplot and there is no overall pattern. That is good, it means we have homoscedasticity. If we did not have homoscedasticity, then we'd see a pattern in this scatterplot - such as the residuals getting larger or smaller for larger fitted (predicted) values of Y.</p>
 <p>You can access a version of this plot directly from the model object like this:</p>
-<div class="sourceCode" id="cb990"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb990-1" title="1"><span class="kw">plot</span>(mod1, <span class="dt">which =</span> <span class="dv">3</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-369-1.png" width="672" /></p>
-<p>There are some more formal tests of homoscedasticity but we don’t need to worry about them.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(mod1, <span class="dt">which =</span> <span class="dv">3</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-392-1.png" width="672" /></p>
+<p>There are some more formal tests of homoscedasticity but we don't need to worry about them.</p>
 </div>
 <div id="no-colinearity" class="section level3">
-<h3><span class="header-section-number">11.6.4</span> No Colinearity</h3>
-<p>This assumption of linear regression only applies when we have more than one predictor in the model. In our model, we do only have one predictor (<code>dan.sleep</code>) so we don’t need to worry about it. If we had added in another variable into the model, e.g. the amount of hours of baby sleep, then we’d have a second predictor. That means, we’re trying to predict <code>dan.grump</code> based on both <code>dan.sleep</code> and <code>baby.sleep</code>. In this case, <code>dan.sleep</code> and <code>baby.sleep</code> should not be correlated with each other.</p>
+<h3><span class="header-section-number">12.6.4</span> No Colinearity</h3>
+<p>This assumption of linear regression only applies when we have more than one predictor in the model. In our model, we do only have one predictor (<code>dan.sleep</code>) so we don't need to worry about it. If we had added in another variable into the model, e.g. the amount of hours of baby sleep, then we'd have a second predictor. That means, we're trying to predict <code>dan.grump</code> based on both <code>dan.sleep</code> and <code>baby.sleep</code>. In this case, <code>dan.sleep</code> and <code>baby.sleep</code> should not be correlated with each other.</p>
 </div>
 <div id="unusual-datapoints" class="section level3">
-<h3><span class="header-section-number">11.6.5</span> Unusual Datapoints</h3>
+<h3><span class="header-section-number">12.6.5</span> Unusual Datapoints</h3>
 <p>There are a number of ways that datapoints could be unusual. We will discuss data points that are:</p>
 <ol style="list-style-type: lower-roman">
 <li>outliers</li>
@@ -851,15 +842,15 @@ Because we have both positive and neagative residuals, if we just added them tog
 </ol>
 <p>Generally linear regression models should not be overly affected by individual data points. Usually the category that we most need to be concerned about are points with high influence.</p>
 <div id="i.-outliers" class="section level4">
-<h4><span class="header-section-number">11.6.5.1</span> i. Outliers</h4>
+<h4><span class="header-section-number">12.6.5.1</span> i. Outliers</h4>
 <p>Outliers are datapoints that are typically highly unusual in terms of outcome Y but not in terms of the predictor X. These will be datapoints that have high residuals.</p>
-<p>Let’s look at an example dataset. We have a predictor ‘x’ and an outcome ‘y’. With ‘y1’ we have the same outcome variables, but have removed the value for one datapoint:</p>
-<div class="sourceCode" id="cb991"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb991-1" title="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">4.1</span>,<span class="fl">4.2</span>,<span class="dv">5</span>,<span class="fl">5.5</span>,<span class="dv">6</span>,<span class="fl">6.1</span>,<span class="fl">6.15</span>,<span class="fl">6.4</span>,<span class="dv">7</span>,<span class="fl">7.2</span>,<span class="fl">7.7</span>,<span class="dv">8</span>,<span class="fl">9.7</span>)</a>
-<a class="sourceLine" id="cb991-2" title="2">y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.9</span>,<span class="fl">4.3</span>,<span class="dv">6</span>,<span class="fl">5.9</span>,<span class="fl">6.1</span>,<span class="fl">11.9</span>,<span class="fl">6.3</span>,<span class="fl">5.8</span>,<span class="fl">7.9</span>,<span class="fl">6.4</span>,<span class="fl">7.8</span>,<span class="dv">8</span>,<span class="fl">9.1</span>)</a>
-<a class="sourceLine" id="cb991-3" title="3">y1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.9</span>,<span class="fl">4.3</span>,<span class="dv">6</span>,<span class="fl">5.9</span>,<span class="fl">6.1</span>,<span class="ot">NA</span>,<span class="fl">6.3</span>,<span class="fl">5.8</span>,<span class="fl">7.9</span>,<span class="fl">6.4</span>,<span class="fl">7.8</span>,<span class="dv">8</span>,<span class="fl">9.1</span>)</a>
-<a class="sourceLine" id="cb991-4" title="4"></a>
-<a class="sourceLine" id="cb991-5" title="5">ddf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(x,y,y1)</a>
-<a class="sourceLine" id="cb991-6" title="6">ddf</a></code></pre></div>
+<p>Let's look at an example dataset. We have a predictor 'x' and an outcome 'y'. With 'y1' we have the same outcome variables, but have removed the value for one datapoint:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">4.1</span>,<span class="fl">4.2</span>,<span class="dv">5</span>,<span class="fl">5.5</span>,<span class="dv">6</span>,<span class="fl">6.1</span>,<span class="fl">6.15</span>,<span class="fl">6.4</span>,<span class="dv">7</span>,<span class="fl">7.2</span>,<span class="fl">7.7</span>,<span class="dv">8</span>,<span class="fl">9.7</span>)
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.9</span>,<span class="fl">4.3</span>,<span class="dv">6</span>,<span class="fl">5.9</span>,<span class="fl">6.1</span>,<span class="fl">11.9</span>,<span class="fl">6.3</span>,<span class="fl">5.8</span>,<span class="fl">7.9</span>,<span class="fl">6.4</span>,<span class="fl">7.8</span>,<span class="dv">8</span>,<span class="fl">9.1</span>)
+y1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.9</span>,<span class="fl">4.3</span>,<span class="dv">6</span>,<span class="fl">5.9</span>,<span class="fl">6.1</span>,<span class="ot">NA</span>,<span class="fl">6.3</span>,<span class="fl">5.8</span>,<span class="fl">7.9</span>,<span class="fl">6.4</span>,<span class="fl">7.8</span>,<span class="dv">8</span>,<span class="fl">9.1</span>)
+
+ddf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(x,y,y1)
+ddf</code></pre></div>
 <pre><code>##       x    y  y1
 ## 1  4.10  3.9 3.9
 ## 2  4.20  4.3 4.3
@@ -874,22 +865,21 @@ Because we have both positive and neagative residuals, if we just added them tog
 ## 11 7.70  7.8 7.8
 ## 12 8.00  8.0 8.0
 ## 13 9.70  9.1 9.1</code></pre>
-<p>And here, we’re plotting the best fitting regression line in blue. The dotted red line represents the best fitting trendline that we would have if we removed the datapoints that has the y value of 11.9. The dashed black line shows the distance from this datapoint to the trendline we would have if it was removed.</p>
+<p>And here, we're plotting the best fitting regression line in blue. The dotted red line represents the best fitting trendline that we would have if we removed the datapoints that has the y value of 11.9. The dashed black line shows the distance from this datapoint to the trendline we would have if it was removed.</p>
 <pre><code>## (Intercept)           x 
 ##   0.8247787   0.8785270</code></pre>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-371-1.png" width="672" /></p>
-<p>As you can see from this small example, outliers are datapoints that have very large residuals from the trendline. They have an unusually large Y. Notice though that the slope of the trendline hasn’t change too much at all. It is slighly shifted down after you remove that outlier from the calculations, but overall the coefficient of ‘b’ is similar to before. This type of outlier is not necessarily a big deal.</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-394-1.png" width="672" /></p>
+<p>As you can see from this small example, outliers are datapoints that have very large residuals from the trendline. They have an unusually large Y. Notice though that the slope of the trendline hasn't change too much at all. It is slighly shifted down after you remove that outlier from the calculations, but overall the coefficient of 'b' is similar to before. This type of outlier is not necessarily a big deal.</p>
 </div>
 <div id="ii.-high-leverage" class="section level4">
-<h4><span class="header-section-number">11.6.5.2</span> ii. High Leverage</h4>
-<p>Datapoints that have high leverage are those that have a high influence on the regression line’s trajectory, but don’t necessarily affect the angle of the slope. They are typically unsual in terms of their X value, but not necessarily in terms of Y, meaning that they don’t have to have a high residual.</p>
+<h4><span class="header-section-number">12.6.5.2</span> ii. High Leverage</h4>
+<p>Datapoints that have high leverage are those that have a high influence on the regression line's trajectory, but don't necessarily affect the angle of the slope. They are typically unsual in terms of their X value, but not necessarily in terms of Y, meaning that they don't have to have a high residual.</p>
 <p>We can measure the leverage of datapoints using the function <code>hatvalues()</code> on the model object. For the scatterplot above, the hat values of each datapoint can be calculated as follows:</p>
-<div class="sourceCode" id="cb995"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb995-1" title="1">mod.out &lt;-<span class="st"> </span><span class="kw">lm</span>(y<span class="op">~</span>x, <span class="dt">data =</span> ddf)</a>
-<a class="sourceLine" id="cb995-2" title="2"></a>
-<a class="sourceLine" id="cb995-3" title="3">ddf<span class="op">$</span>hat_val &lt;-<span class="st"> </span><span class="kw">hatvalues</span>(mod.out)  </a>
-<a class="sourceLine" id="cb995-4" title="4"></a>
-<a class="sourceLine" id="cb995-5" title="5">ddf</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod.out &lt;-<span class="st"> </span><span class="kw">lm</span>(y~x, <span class="dt">data =</span> ddf)
+
+ddf$hat_val &lt;-<span class="st"> </span><span class="kw">hatvalues</span>(mod.out)  
+
+ddf</code></pre></div>
 <pre><code>##       x    y  y1    hat_val
 ## 1  4.10  3.9 3.9 0.25535302
 ## 2  4.20  4.3 4.3 0.24009985
@@ -904,21 +894,21 @@ Because we have both positive and neagative residuals, if we just added them tog
 ## 11 7.70  7.8 7.8 0.13552914
 ## 12 8.00  8.0 8.0 0.16540649
 ## 13 9.70  9.1 9.1 0.45055168</code></pre>
-<p>As you can see, the 6th datapoint was the outlier but it does not have a large leverage as it’s not overly influencing the trajectory of the regression line. Datapoint 13 on the other hand does have a higher leverage. Roughly speaking, a large hatvalue is one which is 2-3 times the average hat value. We can check the mean of the hat values like this:</p>
-<div class="sourceCode" id="cb997"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb997-1" title="1"><span class="kw">mean</span>(<span class="kw">hatvalues</span>(mod.out))</a></code></pre></div>
+<p>As you can see, the 6th datapoint was the outlier but it does not have a large leverage as it's not overly influencing the trajectory of the regression line. Datapoint 13 on the other hand does have a higher leverage. Roughly speaking, a large hatvalue is one which is 2-3 times the average hat value. We can check the mean of the hat values like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(<span class="kw">hatvalues</span>(mod.out))</code></pre></div>
 <pre><code>## [1] 0.1538462</code></pre>
 <p>So clearly, the 13th datapoint does have a high leverage.</p>
 </div>
 <div id="iii.-high-influence" class="section level4">
-<h4><span class="header-section-number">11.6.5.3</span> iii. High Influence</h4>
+<h4><span class="header-section-number">12.6.5.3</span> iii. High Influence</h4>
 <p>The third type of unusual datapoint are ones that you need to be most wary of. These are datapoints that have high influence. Essentially a high influence datapoint is a high leverage datapoint that is also an outlier.</p>
-<p>Let’s look at these example data. We are looking at a predictor variable ‘x’ against an outcome variable ‘y2’. ‘y3’ is the same data as ‘y2’ with one datapoint’s value removed.</p>
-<div class="sourceCode" id="cb999"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb999-1" title="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">4.1</span>,<span class="fl">4.2</span>,<span class="dv">5</span>,<span class="fl">5.5</span>,<span class="dv">6</span>,<span class="fl">6.15</span>,<span class="fl">6.4</span>,<span class="dv">7</span>,<span class="fl">7.2</span>,<span class="fl">7.7</span>,<span class="dv">8</span>,<span class="fl">9.7</span>)</a>
-<a class="sourceLine" id="cb999-2" title="2">y2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.9</span>,<span class="fl">4.3</span>,<span class="dv">6</span>,<span class="fl">5.9</span>,<span class="fl">6.1</span>,<span class="fl">6.3</span>,<span class="fl">5.8</span>,<span class="fl">7.9</span>,<span class="fl">6.4</span>,<span class="fl">7.8</span>,<span class="dv">8</span>,<span class="fl">6.1</span>)</a>
-<a class="sourceLine" id="cb999-3" title="3">y3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.9</span>,<span class="fl">4.3</span>,<span class="dv">6</span>,<span class="fl">5.9</span>,<span class="fl">6.1</span>,<span class="fl">6.3</span>,<span class="fl">5.8</span>,<span class="fl">7.9</span>,<span class="fl">6.4</span>,<span class="fl">7.8</span>,<span class="dv">8</span>,<span class="ot">NA</span>)</a>
-<a class="sourceLine" id="cb999-4" title="4"></a>
-<a class="sourceLine" id="cb999-5" title="5">ddf1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(x,y2,y3)</a>
-<a class="sourceLine" id="cb999-6" title="6">ddf1</a></code></pre></div>
+<p>Let's look at these example data. We are looking at a predictor variable 'x' against an outcome variable 'y2'. 'y3' is the same data as 'y2' with one datapoint's value removed.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">4.1</span>,<span class="fl">4.2</span>,<span class="dv">5</span>,<span class="fl">5.5</span>,<span class="dv">6</span>,<span class="fl">6.15</span>,<span class="fl">6.4</span>,<span class="dv">7</span>,<span class="fl">7.2</span>,<span class="fl">7.7</span>,<span class="dv">8</span>,<span class="fl">9.7</span>)
+y2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.9</span>,<span class="fl">4.3</span>,<span class="dv">6</span>,<span class="fl">5.9</span>,<span class="fl">6.1</span>,<span class="fl">6.3</span>,<span class="fl">5.8</span>,<span class="fl">7.9</span>,<span class="fl">6.4</span>,<span class="fl">7.8</span>,<span class="dv">8</span>,<span class="fl">6.1</span>)
+y3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.9</span>,<span class="fl">4.3</span>,<span class="dv">6</span>,<span class="fl">5.9</span>,<span class="fl">6.1</span>,<span class="fl">6.3</span>,<span class="fl">5.8</span>,<span class="fl">7.9</span>,<span class="fl">6.4</span>,<span class="fl">7.8</span>,<span class="dv">8</span>,<span class="ot">NA</span>)
+
+ddf1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(x,y2,y3)
+ddf1</code></pre></div>
 <pre><code>##       x  y2  y3
 ## 1  4.10 3.9 3.9
 ## 2  4.20 4.3 4.3
@@ -932,17 +922,16 @@ Because we have both positive and neagative residuals, if we just added them tog
 ## 10 7.70 7.8 7.8
 ## 11 8.00 8.0 8.0
 ## 12 9.70 6.1  NA</code></pre>
-<p>Let’s plot these data - I’m sparing you the code for this plot:</p>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-375-1.png" width="672" /></p>
-<p>What you can see here is the scatterplot of ‘x’ against ‘y2’. The blue trendline is the best fit line to the regression of ‘x’ against ‘y2’. The red dotted line is the regression line when we remove the datapoint at x=9.7. This datapoint has both high leverage and is an outlier (has an overly large residual). As a consequence of this, when you remove this datapoint it significantly shifts the angle of the slope of the regression line. That means that the value of <code>b</code> changes quite considerably.</p>
-<p>Let’s add the hat values (measuring leverage) to the data. We can also add what is called <code>Cook's Distance</code> which is a measure of the <strong>influence</strong> of each datapoint.</p>
-<div class="sourceCode" id="cb1002"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1002-1" title="1">mod.out2 &lt;-<span class="st"> </span><span class="kw">lm</span>(y2<span class="op">~</span>x, <span class="dt">data =</span> ddf1)</a>
-<a class="sourceLine" id="cb1002-2" title="2"></a>
-<a class="sourceLine" id="cb1002-3" title="3">ddf1<span class="op">$</span>hat_val &lt;-<span class="st"> </span><span class="kw">hatvalues</span>(mod.out2) </a>
-<a class="sourceLine" id="cb1002-4" title="4">ddf1<span class="op">$</span>cooks_d &lt;-<span class="kw">cooks.distance</span>(mod.out2)</a>
-<a class="sourceLine" id="cb1002-5" title="5"></a>
-<a class="sourceLine" id="cb1002-6" title="6">ddf1</a></code></pre></div>
+<p>Let's plot these data - I'm sparing you the code for this plot:</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-398-1.png" width="672" /></p>
+<p>What you can see here is the scatterplot of 'x' against 'y2'. The blue trendline is the best fit line to the regression of 'x' against 'y2'. The red dotted line is the regression line when we remove the datapoint at x=9.7. This datapoint has both high leverage and is an outlier (has an overly large residual). As a consequence of this, when you remove this datapoint it significantly shifts the angle of the slope of the regression line. That means that the value of <code>b</code> changes quite considerably.</p>
+<p>Let's add the hat values (measuring leverage) to the data. We can also add what is called <code>Cook's Distance</code> which is a measure of the <strong>influence</strong> of each datapoint.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod.out2 &lt;-<span class="st"> </span><span class="kw">lm</span>(y2~x, <span class="dt">data =</span> ddf1)
+
+ddf1$hat_val &lt;-<span class="st"> </span><span class="kw">hatvalues</span>(mod.out2) 
+ddf1$cooks_d &lt;-<span class="kw">cooks.distance</span>(mod.out2)
+
+ddf1</code></pre></div>
 <pre><code>##       x  y2  y3    hat_val      cooks_d
 ## 1  4.10 3.9 3.9 0.26609280 0.2940686663
 ## 2  4.20 4.3 4.3 0.25062833 0.1201644267
@@ -956,49 +945,49 @@ Because we have both positive and neagative residuals, if we just added them tog
 ## 10 7.70 7.8 7.8 0.13998476 0.0808111497
 ## 11 8.00 8.0 8.0 0.16946124 0.1138881520
 ## 12 9.70 6.1  NA 0.45269169 2.8757588661</code></pre>
-<p>As you can see, datapoint 12 (x=9.7) has high leverage and it’s also an outlier. Consequently it has a very large Cook’s Distance. Typically a Cook’s distance &gt; 1 requires more consideration about how to proceed with your model.</p>
-<p>You can also quickly get a plot of the Cook’s Distances of all datapoints from a regression model like this:</p>
-<div class="sourceCode" id="cb1004"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1004-1" title="1"><span class="kw">plot</span>(mod.out2, <span class="dt">which =</span> <span class="dv">4</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-377-1.png" width="672" /></p>
+<p>As you can see, datapoint 12 (x=9.7) has high leverage and it's also an outlier. Consequently it has a very large Cook's Distance. Typically a Cook's distance &gt; 1 requires more consideration about how to proceed with your model.</p>
+<p>You can also quickly get a plot of the Cook's Distances of all datapoints from a regression model like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(mod.out2, <span class="dt">which =</span> <span class="dv">4</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-400-1.png" width="672" /></p>
 </div>
 <div id="checking-influence" class="section level4">
-<h4><span class="header-section-number">11.6.5.4</span> Checking Influence:</h4>
-<p>Let’s look for influential datapoints in our Sleep vs Grumpiness Data. At the beginning of this section, we saved the linear model as <code>mod</code>. We can look at the Cook’s Distances with the <code>cooks.distance()</code> function, or we could just plot them:</p>
-<div class="sourceCode" id="cb1005"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1005-1" title="1"><span class="kw">plot</span>(mod1, <span class="dt">which =</span> <span class="dv">4</span>)</a></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-378-1.png" width="672" /></p>
-<p>This plot shows each of our 100 datapoints in the order they appear in the original dataframe along the x-axis. Clearly, looking at the y-axis, all our datapoints have Cook’s distances of far below 1, so we are fine to assume that we have no overly influential datapoints.</p>
+<h4><span class="header-section-number">12.6.5.4</span> Checking Influence:</h4>
+<p>Let's look for influential datapoints in our Sleep vs Grumpiness Data. At the beginning of this section, we saved the linear model as <code>mod</code>. We can look at the Cook's Distances with the <code>cooks.distance()</code> function, or we could just plot them:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(mod1, <span class="dt">which =</span> <span class="dv">4</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-401-1.png" width="672" /></p>
+<p>This plot shows each of our 100 datapoints in the order they appear in the original dataframe along the x-axis. Clearly, looking at the y-axis, all our datapoints have Cook's distances of far below 1, so we are fine to assume that we have no overly influential datapoints.</p>
 </div>
 </div>
 </div>
 <div id="examining-individual-predictor-estimates" class="section level2">
-<h2><span class="header-section-number">11.7</span> Examining individual predictor estimates</h2>
+<h2><span class="header-section-number">12.7</span> Examining individual predictor estimates</h2>
 <p>After checking if our model is a good fit and making sure that we did not violate any of the assumptions of the linear regression, we can finally move forward with what we came here to do. That is, we can check whether our predictor is meaningfully useful in predicting our outcome variable. This means, is our observed value of <code>b</code> sufficiently different from 0? To do this, we use two strategies. First, we can generate a 95% confidence interval around our estimate of <code>b</code>. That is the method that we prefer. Secondly, you can run a significance test.</p>
 <div id="confidence-interval-of-b." class="section level3">
-<h3><span class="header-section-number">11.7.1</span> 95% confidence interval of ‘b’.</h3>
-<p>First, let’s do this the easy way. Then we’ll work out how we got the 95% confidence interval. You can simply find this by running the <code>confint()</code> function on our regression model object:</p>
-<div class="sourceCode" id="cb1006"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1006-1" title="1"><span class="co"># easy way - gives us the confidence interval:</span></a>
-<a class="sourceLine" id="cb1006-2" title="2"><span class="kw">coefficients</span>(mod1)</a></code></pre></div>
+<h3><span class="header-section-number">12.7.1</span> 95% confidence interval of 'b'.</h3>
+<p>First, let's do this the easy way. Then we'll work out how we got the 95% confidence interval. You can simply find this by running the <code>confint()</code> function on our regression model object:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># easy way - gives us the confidence interval:</span>
+<span class="kw">coefficients</span>(mod1)</code></pre></div>
 <pre><code>## (Intercept)   dan.sleep 
 ##  125.956292   -8.936756</code></pre>
-<div class="sourceCode" id="cb1008"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1008-1" title="1"><span class="kw">confint</span>(<span class="dt">object =</span> mod1, <span class="dt">level =</span> <span class="fl">.95</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confint</span>(<span class="dt">object =</span> mod1, <span class="dt">level =</span> .<span class="dv">95</span>)</code></pre></div>
 <pre><code>##                  2.5 %    97.5 %
 ## (Intercept) 119.971000 131.94158
 ## dan.sleep    -9.787161  -8.08635</code></pre>
-<p>This tells us that the lower bound of the 95% confidence interval of <code>b</code> is -9.79, and the upper bound is -8.09, with our estimate of <code>b</code> being -8.94. This means that if we were to sample 100 days randomly over and over again and measure Dan’s sleep and grumpiness on these days, in 95% of the samples we collect we would have the true population parameter value of <code>b</code>. In lay terms, we can suggest that there is approximately a 95% likelihood that this true population value of <code>b</code> is between -9.79 and -8.09. The only way to really get the true population value would have been to measure Dan’s sleep and grumpiness for every day that Dan has been alive.</p>
+<p>This tells us that the lower bound of the 95% confidence interval of <code>b</code> is -9.79, and the upper bound is -8.09, with our estimate of <code>b</code> being -8.94. This means that if we were to sample 100 days randomly over and over again and measure Dan's sleep and grumpiness on these days, in 95% of the samples we collect we would have the true population parameter value of <code>b</code>. In lay terms, we can suggest that there is approximately a 95% likelihood that this true population value of <code>b</code> is between -9.79 and -8.09. The only way to really get the true population value would have been to measure Dan's sleep and grumpiness for every day that Dan has been alive.</p>
 <p>In big picture terms, what we can draw from this 95% confidence interval is that the relationship between sleep and grumpiness is highly negative and clearly strong. There really seems to be close to no chance that 0 could be the value of <code>b</code> - it is not inside the confidence interval. In fact, we could generate a ridiculously confidence confidence interval, such as a 99.9999% confidence interval:</p>
-<div class="sourceCode" id="cb1010"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1010-1" title="1"><span class="kw">confint</span>(<span class="dt">object =</span> mod1, <span class="dt">level =</span> <span class="fl">.999999</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confint</span>(<span class="dt">object =</span> mod1, <span class="dt">level =</span> .<span class="dv">999999</span>)</code></pre></div>
 <pre><code>##             0.00005 % 99.99995 %
 ## (Intercept) 110.21037 141.702208
 ## dan.sleep   -11.17398  -6.699536</code></pre>
-<p>… and 0 is still nowhere near being included.</p>
+<p>... and 0 is still nowhere near being included.</p>
 <p>How is this 95% confidence interval calculated? To do this we need to think about those sampling distributions again, and the standard error of <code>b</code>.</p>
 </div>
 <div id="standard-error-of-b" class="section level3">
-<h3><span class="header-section-number">11.7.2</span> Standard Error of b</h3>
-<p>As we’ve discussed earlier, our one single estimate of <code>b</code> is just one possible estimate. We estimated this value based on our one single sample of 100 days. However, if we had sampled a different sample of 100 days, we would have got a slighlty (or maybe greatly) different estimate of <code>b</code>. If we repeated this procedure thousands of times, then we’d have a sampling distribution of <code>b</code>’s.</p>
+<h3><span class="header-section-number">12.7.2</span> Standard Error of b</h3>
+<p>As we've discussed earlier, our one single estimate of <code>b</code> is just one possible estimate. We estimated this value based on our one single sample of 100 days. However, if we had sampled a different sample of 100 days, we would have got a slighlty (or maybe greatly) different estimate of <code>b</code>. If we repeated this procedure thousands of times, then we'd have a sampling distribution of <code>b</code>'s.</p>
 <p>This sampling distribution will be t-distribution shaped and has degrees of freedom = number of observations - the number of predictors (1) - 1. Therefore it is t-distribution shaped with d.f.=98. If we know the standard deviation of this sampling distribution (which is known as the standard error of <code>b</code> - <span class="math inline">\(s_{b}\)</span>), then we can create confidence intervals.</p>
 <p>However, it turns out that calculating <span class="math inline">\(s_{b}\)</span> is a bit annoying. Fortunately, there is a quick way to find it out by looking at the summary of the model output:</p>
-<div class="sourceCode" id="cb1012"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1012-1" title="1"><span class="kw">summary</span>(mod1)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mod1)</code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = dan.grump ~ dan.sleep, data = df)
@@ -1015,71 +1004,70 @@ Because we have both positive and neagative residuals, if we just added them tog
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Residual standard error: 4.332 on 98 degrees of freedom
-## Multiple R-squared:  0.8161,	Adjusted R-squared:  0.8142 
+## Multiple R-squared:  0.8161, Adjusted R-squared:  0.8142 
 ## F-statistic: 434.9 on 1 and 98 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>We can see here that <span class="math inline">\(s_{b} = 0.4285\)</span></p>
-<p>If you’re interested, then this is the formula to calculate <span class="math inline">\(s_{b}\)</span>:</p>
+<p>If you're interested, then this is the formula to calculate <span class="math inline">\(s_{b}\)</span>:</p>
 <p><span class="math inline">\(s_{b} = \frac{\sigma_{est}}{\sqrt{\Sigma (x - \overline{x})}}\)</span></p>
-<p>Here’s how we calculate it by hand according to this formula:</p>
-<div class="sourceCode" id="cb1014"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1014-1" title="1">x_dif &lt;-<span class="st"> </span>df<span class="op">$</span>dan.sleep <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(df<span class="op">$</span>dan.sleep) <span class="co"># difference of each x from mean of x</span></a>
-<a class="sourceLine" id="cb1014-2" title="2"></a>
-<a class="sourceLine" id="cb1014-3" title="3">ssx &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">sum</span>(x_dif<span class="op">^</span><span class="dv">2</span>))  <span class="co"># square root of the sum of these differences squared</span></a>
-<a class="sourceLine" id="cb1014-4" title="4"></a>
-<a class="sourceLine" id="cb1014-5" title="5">sb &lt;-<span class="st"> </span>s_est<span class="op">/</span>ssx  <span class="co">#s_est was calculated earlier</span></a>
-<a class="sourceLine" id="cb1014-6" title="6"></a>
-<a class="sourceLine" id="cb1014-7" title="7">sb   <span class="co"># this is the standard error of b</span></a></code></pre></div>
+<p>Here's how we calculate it by hand according to this formula:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x_dif &lt;-<span class="st"> </span>df$dan.sleep -<span class="st"> </span><span class="kw">mean</span>(df$dan.sleep) <span class="co"># difference of each x from mean of x</span>
+
+ssx &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">sum</span>(x_dif^<span class="dv">2</span>))  <span class="co"># square root of the sum of these differences squared</span>
+
+sb &lt;-<span class="st"> </span>s_est/ssx  <span class="co">#s_est was calculated earlier</span>
+
+sb   <span class="co"># this is the standard error of b</span></code></pre></div>
 <pre><code>## [1] 0.4285351</code></pre>
 </div>
 <div id="calculating-95-confidence-interval-of-b-by-hand" class="section level3">
-<h3><span class="header-section-number">11.7.3</span> Calculating 95% confidence interval of ‘b’ by hand</h3>
+<h3><span class="header-section-number">12.7.3</span> Calculating 95% confidence interval of 'b' by hand</h3>
 <p>We can use the following formula to calculate the 95% CI for <code>b</code>:</p>
 <p><span class="math inline">\(CI_{95} = b +/- t * s_{b}\)</span></p>
 <p>As with all confidence intervals, what we do is to presume that our estimate of <code>b</code> is the mean of the sampling distribution. Then knowing that the distribution is t-shaped with d.f.=98, we need to find the value of <code>t</code> that will leave 2.5% of the distribution in each tail. We can look that up in R using <code>qt</code>:</p>
-<div class="sourceCode" id="cb1016"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1016-1" title="1">tval &lt;-<span class="st"> </span><span class="kw">qt</span>(.<span class="dv">975</span>, <span class="dt">df =</span> <span class="dv">98</span>)</a>
-<a class="sourceLine" id="cb1016-2" title="2">tval</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tval &lt;-<span class="st"> </span><span class="kw">qt</span>(.<span class="dv">975</span>, <span class="dt">df =</span> <span class="dv">98</span>)
+tval</code></pre></div>
 <pre><code>## [1] 1.984467</code></pre>
-<p>We’ve now calculated everyting we need to for the Confidence Interval</p>
-<div class="sourceCode" id="cb1018"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1018-1" title="1">b <span class="op">+</span><span class="st"> </span>(tval <span class="op">*</span><span class="st"> </span>sb)  <span class="co">#upper bound</span></a></code></pre></div>
+<p>We've now calculated everyting we need to for the Confidence Interval</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b +<span class="st"> </span>(tval *<span class="st"> </span>sb)  <span class="co">#upper bound</span></code></pre></div>
 <pre><code>## [1] -8.086342</code></pre>
-<div class="sourceCode" id="cb1020"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1020-1" title="1">b <span class="op">-</span><span class="st"> </span>(tval <span class="op">*</span><span class="st"> </span>sb) <span class="co"># lower bound</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b -<span class="st"> </span>(tval *<span class="st"> </span>sb) <span class="co"># lower bound</span></code></pre></div>
 <pre><code>## [1] -9.78717</code></pre>
 <p>As we can see, these match up with the output when using <code>confint()</code>:</p>
-<div class="sourceCode" id="cb1022"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1022-1" title="1"><span class="kw">confint</span>(mod1)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confint</span>(mod1)</code></pre></div>
 <pre><code>##                  2.5 %    97.5 %
 ## (Intercept) 119.971000 131.94158
 ## dan.sleep    -9.787161  -8.08635</code></pre>
 </div>
 <div id="signifcance-testing-b" class="section level3">
-<h3><span class="header-section-number">11.7.4</span> Signifcance Testing b</h3>
+<h3><span class="header-section-number">12.7.4</span> Signifcance Testing b</h3>
 <p>We can also use this sampling distribution to apply a signifiance test. Our null hypothesis will be that the population value of <code>b</code> is 0. Our alternative hypothesis will be that <code>b</code> is not equal to 0.</p>
-<p><span class="math inline">\(H_{0}: b=0\)</span>.
-<span class="math inline">\(H_{1}: b\neq0\)</span></p>
+<p><span class="math inline">\(H_{0}: b=0\)</span>. <span class="math inline">\(H_{1}: b\neq0\)</span></p>
 <p>Given we know the standard deviation of this sampling distribution, <span class="math inline">\(s_{b}\)</span>, we can calculate how far away our observed sample value of <span class="math inline">\(b\)</span> is in terms of how many standard deviations from the mean of 0 it is. We call this value a t-statistic and it is calculated like this:</p>
 <p><span class="math inline">\(t = \frac{b}{s_{b}}\)</span></p>
 <p>Once we have calculated our t-statistic, then we can determine given the shape of the distribution and the degrees of freedom, what proportion of the distribution is more extreme than our observed value.</p>
-<div class="sourceCode" id="cb1024"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1024-1" title="1">tobs &lt;-<span class="st"> </span>b<span class="op">/</span>sb</a>
-<a class="sourceLine" id="cb1024-2" title="2">tobs  <span class="co">#-20.854</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tobs &lt;-<span class="st"> </span>b/sb
+tobs  <span class="co">#-20.854</span></code></pre></div>
 <pre><code>## [1] -20.8542</code></pre>
 <p>Our observed value is therefore <span class="math inline">\(t = -20.854\)</span>.</p>
-<p>Let’s look at this graphically:</p>
+<p>Let's look at this graphically:</p>
 <div class="figure">
 <img src="img/tdf98.png" alt="comparing a and b" />
 <p class="caption">comparing a and b</p>
 </div>
-<p>This shows the t-distribution for d.f. = 98. It looks very strange because we’ve extended the axes to -21 and +21. We did this so that we could include a dotted blue line for our observed t-value of -20.854. Notice that by the time the t-distribution of d.f.=98 gets to close to a value of t=-3 then there is almost nothing left in the tail of the distribution.</p>
-<p>Just for completeness, we can calculate what proportion of times we observe a t-value of more extreme (i.e. less than) -20.854 using <code>pt()</code>.</p>
-<div class="sourceCode" id="cb1026"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1026-1" title="1"><span class="kw">pt</span>(<span class="op">-</span><span class="fl">20.854</span>, <span class="dt">df=</span><span class="dv">98</span>)</a></code></pre></div>
+<p>This shows the t-distribution for d.f. = 98. It looks very strange because we've extended the axes to -21 and +21. We did this so that we could include a dotted blue line for our observed t-value of -20.854. Notice that by the time the t-distribution of d.f.=98 gets to close to a value of t=-3 then there is almost nothing left in the tail of the distribution.</p>
+<p>Just for completeness, we can calculate what proportion of times we observe a t-value of more extreme (i.e. less than) -20.854 using <code>pt()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pt</span>(-<span class="fl">20.854</span>, <span class="dt">df=</span><span class="dv">98</span>)</code></pre></div>
 <pre><code>## [1] 4.094577e-38</code></pre>
 <p>This essentially gives us a one-tailed p-value of p = 0.00000000000000000000000000000000000004094577, which is very small. To get a 2-tailed p-value we just double this value.</p>
 <p>Essentially what we can conclude here is that our one value of <code>b</code> is extremely unlikely to have come from a population where <code>b=0</code>, and thus we reject our null hypothesis and accept the alternative.</p>
-<p>The preceding information was provided to help you think about what’s really going on when we calculate the t-statistic. However, tt turns out there is actually a shortcut way of calculating <code>t</code> using <code>n</code> and the Pearson’s correlation coefficient <code>r</code>.</p>
-<p>It’s the following formula:</p>
+<p>The preceding information was provided to help you think about what's really going on when we calculate the t-statistic. However, tt turns out there is actually a shortcut way of calculating <code>t</code> using <code>n</code> and the Pearson's correlation coefficient <code>r</code>.</p>
+<p>It's the following formula:</p>
 <p><span class="math inline">\(t = \frac{r \times \sqrt{n-2}}{\sqrt{1 - r^{2}}}\)</span></p>
-<div class="sourceCode" id="cb1028"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1028-1" title="1">r &lt;-<span class="st"> </span><span class="kw">cor</span>(df<span class="op">$</span>dan.sleep, df<span class="op">$</span>dan.grump)</a>
-<a class="sourceLine" id="cb1028-2" title="2"></a>
-<a class="sourceLine" id="cb1028-3" title="3">n &lt;-<span class="st"> </span><span class="kw">nrow</span>(df)</a>
-<a class="sourceLine" id="cb1028-4" title="4"></a>
-<a class="sourceLine" id="cb1028-5" title="5">(r <span class="op">*</span><span class="st"> </span><span class="kw">sqrt</span>(n<span class="dv">-2</span>)) <span class="op">/</span><span class="st"> </span>(<span class="kw">sqrt</span>(<span class="dv">1</span><span class="op">-</span>r<span class="op">^</span><span class="dv">2</span>))  <span class="co"># -20.85</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">r &lt;-<span class="st"> </span><span class="kw">cor</span>(df$dan.sleep, df$dan.grump)
+
+n &lt;-<span class="st"> </span><span class="kw">nrow</span>(df)
+
+(r *<span class="st"> </span><span class="kw">sqrt</span>(n<span class="dv">-2</span>)) /<span class="st"> </span>(<span class="kw">sqrt</span>(<span class="dv">1</span>-r^<span class="dv">2</span>))  <span class="co"># -20.85</span></code></pre></div>
 <pre><code>## [1] -20.8544</code></pre>
 <p>As you can see from the above code - it works!</p>
 
@@ -1147,7 +1135,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
