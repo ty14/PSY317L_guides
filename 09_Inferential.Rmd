@@ -1,4 +1,4 @@
-# Inferential Stats
+# Two Sample Inferential Statistics
 
 
 blah

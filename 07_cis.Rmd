@@ -1,8 +1,5 @@
-# One Sample Inferential Statistics
+# Confidence Intervals
 
-
-
-## Confidence Intervals
 
 When we collect a sample, we typically calculate a sample mean $\overline{x}$. We use this as our estimate of the real population mean $\mu$, as this is unknown to us typically.  If we were to collect another sample, we would most likely get a sample mean $\overline{x}$ that is slightly different to the first one, but would also be an estimate of the population mean $\mu$. 
 
@@ -13,7 +10,7 @@ In this course, we use two separate approaches to calculate confidence intervals
 We'll start this chapter by talking about the relationship between the sampling distribution and confidence intervals. Then we'll describe how to use both the $z$- and $t-$distributions to generate confidence intervals.
 
 
-### Sample means as estimates.
+## Sample means as estimates.
 
 Let us imagine we have a population of butterflies and we're interested in their wingspan. The population is normally distributed with a population mean $\mu$ is 7.8cm, with a population standard deviation $\sigma$ is 0.3cm.  This is what this population distribution looks like:
 
@@ -118,7 +115,7 @@ What we have just done is the basic principle behind a confidence interval using
 
 
 
-### Calculating a confidence interval with z-distribution
+## Calculating a confidence interval with z-distribution
 
 Let's go back to our first sample of size 15 that we collected, with $\overline{x}=7.72$.  
 
@@ -226,7 +223,7 @@ Technically, this is the definition of a 95% confidence interval. That is, in 95
 
 
 
-#### Other Confidence Intervals ranges
+### Other Confidence Intervals ranges
 
 We can actually construct confidence intervals for any % value. Most commonly people make 95% confidence intervals, but other common ones include 80%, 90% and 99% confidence intervals.  These have the same interepretation as the 95% CI. For instance, a 99% confidence interval means that if you were to take 100 samples from a population and calculate 99% confidence intervals for each, only 1 out of a 100 on average would not include the true population mean $\mu$.
 
@@ -348,7 +345,7 @@ fig here.
 As we can see, the value of $t$ that leaves 2.5% in each tail is 2.145 which is higher than 1.96.  Consequently, all else being equal, this will increase our margin of error.
 
 
-### Calculating a t-distribution Confidence Interval
+## Calculating a t-distribution Confidence Interval
 
 Let's look more practically at how we calculate a 95% confidence interval for a $t$-distribtuion. We'll use sample 1 from above that had a mean of $\overline{x}=7.72$.
 
@@ -434,7 +431,7 @@ You can see that the $z$-distribution CIs are all equal in length, whereas the $
 
 
 
-#### t-distribution CIs and sample size.
+### t-distribution CIs and sample size.
 
 With the $z$-distribution based confidence intervals, when we increased the sample size $n$, the margin of error always decreased because both $z$ and $\sigma$ are fixed in the formula. For instance, for a 95% CI with a population standard deviation $\sigma=10$ and sample size $n=10$ or $n=30$, the margin of error using the $z$-distribution in the CI would be for each sample size:
 
@@ -468,7 +465,7 @@ The final thing that is worth mentioning is a repeat of what is discussed above 
 
 
 
-#### Other Confidence Intervals ranges for t-distribution
+### Other Confidence Intervals ranges for t-distribution
 
 Like with the confidence intervals made with the $z$-distribution, we can create confidence intervals for any range with the $t$-distribution.  The rationiale is the same. If we were to make an 80% CI around a sample mean, what we are effectively saying is that in 80% of all samples that we could collect, we would capture the true population mean $\mu$.  Practically, we use a different value of $t$ for each CI range. This value of $t$ will be the positive and negative value of the $t$-distribution for a given degree of freedom that leaves the appropriate percentage in the middle of the distribution.  For instance, for an 80% CI for a sample size of 25, which had degrees of freedom 24, the value would be $t=1.32$. 
 
@@ -510,7 +507,7 @@ qt(.9995, df = 34)
 
 
 
-#### Comparing CIs using the z- and t-distributions
+## Comparing CIs using the z- and t-distributions
 
 You might be thinking that using the $t$-distribution to make 95% confidence intervals seems like a lot of extra legwork to figure out what value of $t$ to use, compared to just using $z=1.96$ when using the $z$-distribution.  This mini section hopefully is an illustration of why you have to do this.  
 
@@ -533,124 +530,4 @@ Well, in the figure below, we did just that for 25 sample means collected from s
 ![](img/ci13.png)
 
 Conversely, the middle column include the confidence intervals calculated using $z=1.96$ and using $s$ as an estimate of the population standard deviation.  With this formula, 6/25 confidence intervals fail to include the true population mean. Out of the 1000 simulations of the data, actually 9.X% of CIs failed to capture the true population mean.  This shows that the margin of error calculated using this formula is consistently too small.  The reason for this is that when we estimate the population standard deviation, we generally are under-estimating the true value. This is another reason why we should be using the $t$-distribution.
-
-
-
-
-
-
-
-## One-sample Z-tests
-
-
-
-
-
-
-#### z-test problem examples
-
-library(tidyverse)
-source("distributions/plothist.R")
-
-### A manufacturing company produces metal parts 
-
-# The parts are normally distributed with a length 10mm and SD 0.2mm
-
-# The manager suspects that the manufacturing machine is faulty
-# and that the parts are longer than they should be.
-
-# They select a batch of 25 parts.
-# the sample mean is 10.1mm 
-
-# is this an unepectedly large mean ?
-
-
-### Population:  Mean = 10,  SD = 0.2
-# Sample:  n = 25,  sample mean = 10.1
-
-x <- 10.1
-
-x
-
-# 1. Our one sample mean is one possible sample mean from the sampling distribution of sample means.
-
-# the sampling distribution has:
-# mean = 10
-# sd =  0.2 / sqrt(25)
-0.2 / sqrt(25)  #SD of sampling distribution (standard error of the mean)
-
-sem <- 0.2 / sqrt(25)
-
-sem
-
-
-
-# 2. How many "standard deviations" is our sample mean from the mean of the sampling distribution?
-
-# Calculate the z-score:
-
-(x - 10) / sem
-
-z <- (x - 10) / sem
-
-z
-
-
-# 3. What proportion of the sampling distribution is higher than +2.5 SDs than the mean?
-# same as saying what proportion is 2.5SD higher than 0 in the standard normal curve.
-
-
-pnorm(z)  # this is the area to the left of the line
-
-1 - pnorm(z)  # p = 0.006209665
-
-# as p <.05, this is good evidence that the sample mean is unexpectedly large.
-
-
-
-
-
-
-#####################  Visualization Code Below Here -----
-
-## Don't worry about this code- I just want to show you what the graphs look like
-
-p1 <- plothist(mean = 10, sd = 0.1) +
-      ggtitle("Population") +
-  xlab("Length of part (mm) ")
-
-p2 <- plothist(mean = 10, sd = sem) +
-  geom_vline(xintercept = 10.1, color = "darkorange", lwd =1) +
-  ggtitle("Sampling Distribution of \n Sample Means for n = 25") +
-  xlab("Mean length (mm) of each sample")
-
-p3 <- plothist(mean = 0, sd = 1) +
-  geom_vline(xintercept = 1.645, color = "red", lwd =1, lty=2) +
-  geom_vline(xintercept = z, color = "darkorange", lwd =1) +
-  ggtitle("Standard Normal Curve") +
-  xlab("z")
-
-library(gridExtra)
-grid.arrange(p1,p2,p3,nrow=1)
-
-
-
-
-
-
-
-## Confidence Intervals with Z - Normal Distribution
-
-
-
-## Confidence Intervals with t Distribution
-
-
-
-
-## One-sample t-tests
-
-
-
-
 

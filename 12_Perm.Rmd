@@ -408,6 +408,13 @@ fill in
 
 
 
+
+
+
+
+
+
+
 ## Permutation tests in Packages
 
 Above we wrote script from scratch to perform our permutation tests. In many ways, this is our preferred approach as it is more customizable. However, in some packages there are some permutation tests already available as functions.  One example is the `independence_test` from the package `coin` that will do a permutation t-test for between subjects. The code for this is below (this requires dataframes to be in the long format):
