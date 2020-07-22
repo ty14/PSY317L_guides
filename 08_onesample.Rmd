@@ -281,96 +281,86 @@ As with confidence intervals based on the $z$-distribution (the standard normal 
 If you wish to test whether your observed sample mean is likely or not to come from a population with a given mean, what approach should you take when you do not know $\sigma$?  As with confidence intervals, the approach we take is to use the $t$-distribution.
 
 
+In this situation, because we don't know our population standard deviation $\sigma$, we have to estimate it using the sample standard deviation $s$. Further, because our sampling distribution may not be precisely normal given this estimation, we say that it comes from a $t$-distribution. $t$-distributions have slightly heavier tails than the normal distribution.
+
+
+**One-tailed t-test example**
+
+Let's illustrate the steps we take in a one-sample t-test with an example. These steps are identical to the two-tailed t-test up until we calculate the p-value.
+
+The population mean number of words spoken by two year olds by their 2nd birthday is $\mu=50$ words and this is normally distributed.  We don't know the population standard deviation $\sigma$. A researcher wanted to investigate if reading to children increases their word knowledge. They collected data from 12 children ($n=12$) who were read to for at least two hours every day. These are the number of words spoken by the 12 children:
 
 ```{r}
-### One-sample t-test - bit more on the theory
-
-
-# We want to test if our data sample could have come from a population with a specific hypothesized mean, or if it was unlikely to have come from that population.
-
-# We need to imagine that our data sample is just one data sample that we could have theoretically collected from the population with that hypothesized mean.
-
-# Our sample mean is therefore one sample mean we could have got from a sampling distribution of sample means.
-
-# that sampling distribution has a t-distribution shape
-
-# the mean of that sampling distribution is the hypothesized population mean.
-
-# we calculate how unlikely our sample mean was to get from that sampling distribution by calculating the t-statistic - a measure of how many SD our sample mean is from the mean of the sampling distribution.
-
-
-
-# e.g. The population mean number of words spoken by two year olds by their 2nd birthday is 50 words and is normally distributed.  
-
-# A researcher wanted to investigate if reading to children increases their word knowledge. They collected data from 12 children who were read to for at least two hours every day. These are the number of words spoken by the 12 children:
-
 x <- c(45, 53, 71, 35, 51, 59, 49, 55, 78, 27, 66, 59)
-
 x
-
-mean(x)  # 54, which is higher than 50.
-# but is it meaningfully higher?
-
-
-## Null H0:  mu <= 50
-## Alternative H1:  mu > 50
-
-
-# Our sample mean is one sample mean that could have come from the sampling distribution of sample means.
-
-# What shape is that sampling distribution?
-
-# t-distribution with df  n-1
-# mean of the distribution is hypothesized mean 50.
-# sd of the distribution is sampleSD/sqrt(n)
-
-
-# We can standardize this sampling distribution to a t-distribution with mean 0.
-
-mean(x)  #54
-sd(x)  #14.4
-
-n <- length(x)
-n
-
-
-t <-  (mean(x) - 50) / (sd(x) / sqrt(n))  #50 is hypothesized mean
-
-t #0.96
-
-
-
-#visualize
-ggplot(data.frame(x = c(-4, 4)), aes(x = x)) +
-  stat_function(fun = dt, args = list(df = 11)) +
-  xlab("t") +
-  ggtitle("t-distribution for df = 11") +
-  geom_vline(xintercept = t, color="orange", lwd=1)
-
-
-# what proportion of curve is above t value ?
-
-pt(t, df=11, lower.tail = FALSE)  # p value 1 tailed test - proportion above t
-# 0.178
-
-pt(t, df=11, lower.tail = TRUE) # proportion below t
-# 0.822
-
-
-t.test(x, mu = 50)  # two sided test
-
-t.test(x, mu = 50, alternative = "greater")  # two sided test
+mean(x)  
 ```
 
+Our one observed sample mean $\overline{x}=54$. This is higher than 50, but is it meaningfully higher? If we were to formalize our hypothesis for this test, we would write:
 
+
+$H_{0}: \mu \le 50.0$
+$H_{1}: \mu > 50.0$
+
+We are testing whether our sample was likely to have come from a population with mean 50 or less (null hypothesis), or if it was more likely to come from a population with a mean of greater than 50.
+
+The first step is to think about the sampling distribution. We need to recognize that our one observed sample mean is just one sample mean that we theoretically could have got from a sample distribution. Under the null hypothesis, we are going to assume that the mean of our sampling distribution $\mu_{\overline{x}}$ is equivalent to the population mean $\mu$. Therefore, $\mu_{\overline{x}}=50.0$
+
+Next, we need to calculate the standard deviation of the sampling distribution of sample means for n=12 (i.e. the standard error). As we do not know the population standard deviation $\sigma$, we estimate this by using the following formula:
+
+$\sigma_{\overline{x}} = \frac{s}{\sqrt{n}}$
+
+Therefore, our estimate of the standard error is $\sigma_{\overline{x}}=4.14$:
 
 ```{r}
-### One-sample t-test
+sem <- sd(x) / sqrt(12)
+sem
 
-# Dr Zeppo example data.
+```
 
-# Psychology Student scores:
+Now that we know both the mean and standard deviation of the t-shaped sampling distribution, next we need to calculate how many standard deviations from this mean is our one observed sample mean. We calculate that using the formula that is similar to the $z$ formula:
 
+$t = \frac{\overline{x} - \mu_{\overline{x}}}{\sigma_{\overline{x}}}$
+
+Our sample mean of $\overline{x}=54$ has a $t$ value of $t = 0.965$:
+
+```{r}
+(54-50) / sem
+
+```
+
+This means that it is approximately 0.965 standard deviations higher than the mean.  We can calculate the proportion of sample means in the sampling distribution that are higher than our one observed sample mean by calculating the area under the curve to the right of our $t$-value. Remember, that our sampling distribution is $t$-shaped and has 11 degrees of freedom. The degrees of freedom are $df = n-1$ for a one-sample t-test.
+
+![](img/tt1.png)
+
+
+To determine what proportion of the curve lies to the right of $t=0.965$ we can use `pt()` which calculates the proportion to the left of the given value. 
+
+```{r}
+pt(0.965, df=11)
+```
+
+So, this tells us that for a $t$-distribution with 11 degrees of freedom, that 82.2% of values are to the left (lower than) of this value.  That means that 17.8% of values are to the right, or 17.8% of sample means that could be drawn from the sampling distribution with a mean of 54 and standard deviation of 4.14 will be higher than our observed sample mean.
+
+```{r}
+1 - pt(0.965, df=11)
+```
+
+We can also get this value by setting `lower.tail = FALSE`:
+
+```{r}
+pt(0.965, df=11, lower.tail = FALSE) 
+```
+
+Because we made a prediction as to the direction of the hypothesis - i.e. we predicted that reading to children would *increase* the population mean, we are effectively running a one-tailed test. Our p-value is simply $p=0.177$. As we use an alpha level of 0.05 (a p-value of 0.05 as our critical value), this suggests that we do not have sufficient evidence to suggest that our sample of 12 children have a mean value that comes from a population with a mean that is greater than 50. We do not reject our null hypothesis.
+
+
+
+**Two-tailed t-test example**
+
+There are 20 psychology students in Dr. Zeppo's class. Here are their scores on a test, as well as their sample mean $\overline{x}$ and sample standard deviation $s$:
+
+```{r}
 zeppo <- c(50,60,60,64,66,66,67,69,70,74,76,76,77,79,79,79,81,82,82,89)
 
 zeppo
@@ -380,138 +370,249 @@ length(zeppo)  # 20 - there are 20 students in the sample.
 mean(zeppo)  # the mean of the sample is 72.3
 
 sd(zeppo)  # the sample SD is 9.52
+```
 
-n <- length(zeppo)
+Historically, students in this class get a score of 65 points on this test - that is the population mean $\mu$. Dr Zeppo wishes to test if this one sample (one class) has a mean (technically 'comes from a population with a mean') that is different to 65.  We would write out this hypothesis like this:
 
-n 
+$H_{0}: \mu = 65.0$
+$H_{1}: \mu \ne 65.0$
 
-## 95% confidence interval of the population mean...
-
-#  sample.mean +/-  t * (sampleSD / sqrt(n))
-
-n-1   # degrees of freedom
-
-qt(c(.025, .975), df=n-1)  #95% CI requires 2.5% in each tail
-
-qt(c(.025, .975), df=19)  #
-
-qt(.975, df=19)  # Bit easier to type
-
-tval <- qt(.975, df=19)
-
-tval
+As with all of these tests, our first job is to recognize that our one sample mean is just one sample mean that we 'theoretically' could have got from lots of samples of size $n=20$. All of those sample means together are referred to as the sampling distribution of sample means.  Under the null hypothesis, we assume that the mean of the sampling distribution of sample means $\mu_{\overline{x}}=65$, i.e. it is equivalent to the population mean $\mu$. Next, we have to estimate the standard deviation of the sampling distribution of sample means, i.e. the standard error $\sigma_{\overline{x}}$.  We do this using the same formula as before:
 
 
-# So, CI is:
-mean(zeppo) + tval * ( sd(zeppo) / sqrt(n)) # 76.76
-mean(zeppo) - tval * ( sd(zeppo) / sqrt(n)) # 67.84
+$\sigma_{\overline{x}} = \frac{s}{\sqrt{n}}$
+
+So, our standard error is $\sigma_{\overline{x}} = 2.13$:
+
+```{r}
+sem <- sd(zeppo) / sqrt(20)
+sem
+
+```
+
+Following this, we need to calculate how expected or unexpected our one sample mean $\overline{x}$ was. We do this by calculating it in terms of how many sampling distribution standard deviations is it away from the sampling distribution mean.  We use the formula:
+
+$t = \frac{\overline{x} - \mu_{\overline{x}}}{\sigma_{\overline{x}}}$
+
+```{r}
+(mean(zeppo) - 65) / sem
+```
+
+Our observed sample mean of $\overline{x} = 72.3$ is 3.43 sampling distribution standard deviations from the sampling distribution mean.
+
+We can picture this as follows:
+
+![](img/tt2.png)
 
 
+To calculate our p-value for our 2-tailed t-test, we need to calculate not just the area underneath the curve with values of $t$ greater than our observed $t=3.43$, but also the values under the curve with $t$ values that are more negative than $t=-3.43$. This is because in a 2-tailed test, we need to test for the probability of getting a $t$-value as large in both directions. Our p-value can be calculated using `pt()`:
 
-#### To run a one-sample t-test, comparing to some hypothesized mean
+```{r}
+pt(3.43, df = 19, lower.tail = F) + pt(-3.43, df = 19) 
+```
 
-zeppo
+Or alternatively, we could just multiply those values greater than $t=3.43$ by 2:
 
-t.test(zeppo, mu = 65.0)  # Default is a 2-tailed test.
-# use this one to get the 95% CI
+```{r}
+pt(3.43, df = 19, lower.tail = F) * 2
+```
 
-
-# you can do one-tailed test, with a predicted direction 
-t.test(zeppo, mu = 65.0, alternative = "greater")  
-
-t.test(zeppo, mu = 65.0, alternative = "less")  
-
-
-shapiro.test(zeppo) # p>.05, so assume data approx normal
-
-
-
-
-
-#### Example 2:
-
-# On their second birthday, children know a mean of 50 words, and this is normally distributed.
-
-# Researchers collected data from 12 children who were read to for >two hours per day.
-
-# Did this sample of 12 children have a mean of greater than 50?
-
-
-x <- c(45, 53, 71, 35, 51, 59, 49, 55, 78, 27, 66, 59)
-
-x
-
-shapiro.test(x) # p>.05, so assume approximately normal data.
-
-
-t.test(x, mu = 50)  # two sided test
-
-t.test(x, mu = 50, alternative = "greater")  # two sided test
+Either way, we can see that our p-values is $p = 0.003$, which tells us that our observed mean of $\overline{x}=72.3$ is quite unlikely to have come from a distribution with a population mean $\mu=65$. This leads us to rejecting our null hypothesis and accepting the alternative, that these psychology students come from a population with a mean that is greater than 65.
 
 
 
 
 
 
+### Critical values for the one-sample t-test
 
 
+As with the z-test (see section xxx.xxx), instead of calculating the p-values for our observed values of $t$, you can simply test whether your value of $t$ exceeds (in either the positive or negative direction) some 'critical value' of $t$. Again, this approach was more often taken when it wasn't as easy to run computers to do these tests, so it seems a bit obsolete to do it this way. We recommend just doing it the way outlined above. Nevertheless, just for completeness, here is how to calculate these critical values of $t$.
 
 
-#### Example 3:
+We'll use data from a different dataset.  Here, we have the times taken to complete a crossword puzzle. We have a sample of $n=10$ subjects.  
 
-# Data imported ...
-
+```{r}
 library(tidyverse)
-
 xt <- read_csv("data/crosstimes.csv")
-xt
+xt$time3
+```
+
+Let's say we wish to test whether this sample comes from a population with a mean of less than 16.0.  We would be doing a one-tailed test and our hypotheses would look like this:
+
+
+$H_{0}: \mu \ge 16.0$
+$H_{1}: \mu < 16.0$
+
+
+When using critical values, all the steps up to completing the observed $t$-value are the same as before. So, we assume that our one sample mean $\overline{x}$ comes from a sampling distribution of sample means that has a mean equivalent to the population mean of 16.  The standard deviation of this sampling distribution is:
+
+```{r}
+sem <- sd(xt$time3) / sqrt(10)
+sem
+
+```
+
+Next, we calculate our observed $t$ which is a measure of how many sampling deviation standard deviations our observed sample mean is away from the mean of the sampling distribution:
+
+```{r}
+(mean(xt$time3) - 16) / sem
+```
+
+Our observed $t$ values is $t = -0.99$.
+
+As we are conducting a one-tailed t-test, we need to think in terms of what value of $t$ leaves 5% in the tail for a t-distribution with 9 degrees of freedom. This is visualized below:
+
+![](img/tt3.png)
+
+If our observed sample mean with a $t$-value of -0.99 was unexpectedly small, then it would need to be in the region of rejection (red shaded area). This would mean that it was in the bottom 5% of sample means from such a distribution. The value of $t$ that is the boundary of the the lower 5% can be calculated using the `qt()` function like this:
+
+
+```{r}
+qt(0.05, df=9)
+```
+
+
+** Two-tailed tests **
+
+For this example, let's use the `penguins` data. Say we are interested in the flipper length of male Adelie  penguins on Biscoe island (a bit specific, but let's go with it), and wanted to know if their mean length was different from $\mu = 188$.  Our hypotheses would be:
+
+$H_{0}: \mu = 188.0$
+$H_{1}: \mu \ne 188.0$
 
 
 
-# one-tailed
-# compare sample mean to hypothesized mean of 16.0
-# for time3
+From our data, we can calculate our $n$ and sample mean $\overline{x}$:
 
-xt$time3  # our sample data
-
-mean(xt$time3)  # sample mean = 15.1
-
-t.test(xt$time3, mu = 16.0) # this is 2-tailed - but has CI
-
-t.test(xt$time3, mu = 16.0, alternative = "less") # this is 1-tailed
-
-
-# assumption is that the data is normally distributed
-shapiro.test(xt$time3)  # borderline
-
-
-
-#### Worked Example - try for yourself...--------------
-
-### Read in the Data BlueJays
-jays <- read_csv("data/BlueJays.csv")
+```{r}
+### Read in the Data Penguins
+penguins <- read_csv("data/penguins.csv")
 
 # just look at the females.
-jaysF <- jays %>% filter(KnownSex == "F")
-head(jaysF)
+adelie <- penguins %>% filter(species == "Adelie", sex == "MALE", island == "Biscoe")
 
-# 1. Is the variable "BillLength" approximately normal? Use a Shapiro-Test.
+nrow(adelie)
 
-shapiro.test(jaysF$BillLength)
-
-
-# 2. Use t-test, to 
-# i)  Calculate a 95% CI of the female population BillLength mean
-# ii) Test if the sample mean is meaningfully larger than 23.5mm
-
-t.test(jaysF$BillLength, mu = 23.5)   # Confidence interval
-
-t.test(jaysF$BillLength, mu = 23.5, alternative = "greater")   #t-test
-
-
-
+mean(adelie$flipper_length_mm)
 
 ```
 
 
+We can also represent these data as a boxplot:
+
+```{r, fig.width=6, fig.height=1.5}
+ggplot(adelie, aes(x = 0, y = flipper_length_mm)) +
+  geom_boxplot() +
+  geom_jitter(width = .1, size=2)+
+  theme(axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank()) +
+  coord_flip() +
+  geom_hline(yintercept = 187, color="red")
+
+```
+
+Our sample of penguins has a sample size of $n=22$, with a sample mean of $\overline{x}=190.4$.  Let's calculate our observed value of $t$ for this sample:
+
+```{r}
+sem <- sd(adelie$flipper_length_mm) / sqrt(22)
+
+tobs <- (mean(adelie$flipper_length_mm) - 188) / sem
+
+tobs
+```
+
+This means that our observed sample mean is 1.75 sample standard deviations above the sampling distribution mean. 
+
+In terms of critical regions, for a 2-tailed test, we need to know the values of $t$ that leave 2.5% in each tail for a $t$-distribution with 21 degrees of freedom.
+
+```{r}
+qt(.975, df = 21)
+
+qt(.025, df = 21)
+```
+
+
+![](img/tt4.png)
+
+For a $t$-distribution with 21 degrees of freedom, the top 2.5% of t-values are greater than $t=2.08$, whilst the lowest 2.5% of t-values are below $t=-2.08$. Therefore, for us to reject the null hypothesis, our observed t-value needs to be higher than 2.08 or lower than -2.08. That would leave it in the region of rejection (red shaded areas above).  Our observed t-value is $t=1.75$ which is not in these areas, so we cannot reject the null hypothesis. We do not have sufficient evidence to suggest that our penguins come from a population with a mean of $\mu = 188$. 
+
+
+
+
+
+
+
+
+
+## Conducting one-sample t-tests in R
+
+Conducting one-sample t-tests in R is very straightforward. 
+
+First, let's consider the sample of 12 two-year olds and their word scores.
+
+```{r}
+x <- c(45, 53, 71, 35, 51, 59, 49, 55, 78, 27, 66, 59)
+mean(x)
+
+```
+
+To test whether this sample mean is likely to have come from a population with a mean greater than 50, we use `t.test()` in the following way:
+
+
+```{r}
+t.test(x, mu = 50, alternative = "greater")  # one-tailed test
+```
+
+`mu` specifies the mean that we are testing against.  `alternative = "greater"` states that it is a one-tailed test, where we are testing the prediction that the population mean is greater than 50.  The output gives us the same observed t-value that we calculated by hand $t=0.97$, the degrees of freedom and the p-value.
+
+
+To conduct a two-tailed test, where we just make the prediction that the population mean that the sample came from is not equal to some value, we just drop the `alternative` argument.  For instance, we can test whether the `zeppo` data come from a population with a mean equal to 65:
+
+
+```{r}
+
+t.test(zeppo, mu = 65)  # two tailed test
+
+```
+
+
+Again, we see the same t-value, degrees of freedom and p-value as we calculated by hand.  Also with a two-taield t-test we get the 95% confidence interval of the true population mean (see section xxxx.xxx).
+
+
+Finally, if we wished to do a one-taile t-test where we were testing whether the sample came from a population with a population mean of less than some value, we would use `alternative = "less"`. For example, to test if the sample of puzzle competitors came from a population that completed their puzzles in less than 16 minutes:
+
+```{r}
+t.test(xt$time3, mu = 16, alternative = "less")
+```
+
+
+
+
+## Assumptions of the one-sample t-test
+
+The main assumptions of the one-sample t-test are that the observations should be independent of each other, and the values should be approximately normally distributed.
+
+We can more formally test if our data come from a population that is approximately normally distributed using a Shapiro-Wilk test. This test essentially examines the distribution of our data, and determines the probability that it came from a normal distribution. We can perform this test in R using `shapiro.test()`.
+
+```{r}
+shapiro.test(x)
+
+shapiro.test(zeppo)
+
+shapiro.test(xt$time3)
+
+shapiro.test(adelie$flipper_length_mm)
+
+```
+
+As you can see, all four of the datasets that we have performed one-sample t-tests on have p-values for this test that are greater than p=0.05. This suggests that our data are approximately normally distributed. The p-value for the crossword puzzle times is very low `p=0.0501` which probably suggests that we should look at that data in more detail to be sure that our data are normally distributed.
+
+If your data are not normally distributed, then one option is to perform a non-parametric alternative to the one-sample t-test. This test is called the  one-sample Wilcoxon signed rank test. We will not go into the details of the test, but effectively it tests whether your sample is likely to have come from a population with a median of a specified value.  It is run like this in R:
+
+```{r}
+wilcox.test(xt$time3, mu = 16, alternative = "less")
+```
+
+Again, with this test, we are looking for a p-value lower than 0.05 to reject the null hypothesis and accept the alternative that our sample comes from a population with a median of less than 16.
 

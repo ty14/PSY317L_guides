@@ -205,8 +205,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.5" data-path="confidence-intervals.html"><a href="confidence-intervals.html#comparing-cis-using-the-z--and-t-distributions"><i class="fa fa-check"></i><b>8.5</b> Comparing CIs using the z- and t-distributions</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html"><i class="fa fa-check"></i><b>9</b> One Sample Inferential Statistics</a><ul>
-<li class="chapter" data-level="9.1" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#one-sample-z-tests"><i class="fa fa-check"></i><b>9.1</b> One-sample Z-tests</a></li>
-<li class="chapter" data-level="9.2" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#one-sample-t-tests"><i class="fa fa-check"></i><b>9.2</b> One-sample t-tests</a></li>
+<li class="chapter" data-level="9.1" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#one-sample-z-tests"><i class="fa fa-check"></i><b>9.1</b> One-sample Z-tests</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#sampling-distribution-recap"><i class="fa fa-check"></i><b>9.1.1</b> Sampling Distribution Recap</a></li>
+<li class="chapter" data-level="9.1.2" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#calculating-p-values-for-z-test"><i class="fa fa-check"></i><b>9.1.2</b> Calculating p-values for z-test</a></li>
+<li class="chapter" data-level="9.1.3" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#using-critical-values"><i class="fa fa-check"></i><b>9.1.3</b> Using critical values</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#one-sample-t-tests"><i class="fa fa-check"></i><b>9.2</b> One-sample t-tests</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#critical-values-for-the-one-sample-t-test"><i class="fa fa-check"></i><b>9.2.1</b> Critical values for the one-sample t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#conducting-one-sample-t-tests-in-r"><i class="fa fa-check"></i><b>9.3</b> Conducting one-sample t-tests in R</a></li>
+<li class="chapter" data-level="9.4" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#assumptions-of-the-one-sample-t-test"><i class="fa fa-check"></i><b>9.4</b> Assumptions of the one-sample t-test</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html"><i class="fa fa-check"></i><b>10</b> Two Sample Inferential Statistics</a><ul>
 <li class="chapter" data-level="10.1" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#comparing-two-samples"><i class="fa fa-check"></i><b>10.1</b> Comparing two Samples</a></li>
@@ -332,7 +340,7 @@ df</code></pre></div>
 ## 9  4.4 7.1
 ## 10 3.9 5.8</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size=</span><span class="dv">2</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-316-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-356-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(x,y)</code></pre></div>
 <pre><code>## [1] 0.8418262</code></pre>
 <p>First, let's calculate the means and standard deviation (using <code>sd</code> so a sample standard deviation) of <code>x</code> and <code>y</code>. We need to get these values so we can calculate the z-scores of each.</p>
@@ -406,7 +414,7 @@ y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">10.4<
 df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(x, y)
 
 <span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size=</span><span class="dv">2</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-322-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-362-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(df$x,df$y) </code></pre></div>
 <pre><code>## [1] -0.6112965</code></pre>
 <p>Here is the code, truncated for space:</p>
@@ -474,7 +482,7 @@ jays &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class=
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(jayM, <span class="kw">aes</span>(<span class="dt">x=</span>Mass, <span class="dt">y=</span>Head)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">colour =</span> <span class="st">&quot;navy&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;dodgerblue&quot;</span>) +
 <span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span>F)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-325-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-365-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(jayM$Mass, jayM$Head)  <span class="co"># r = 0.58,  a strong positive correlation.</span></code></pre></div>
 <pre><code>## [1] 0.5773562</code></pre>
 <p>To run the significance test, we do the following:</p>
@@ -541,10 +549,10 @@ jays &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class=
 <p>We can also make a QQ-plot for each variable. Essentially what we require from this plot is for the majority of our data to fall on the straight line - especially the datapoints in the middle. Some deviation at the tails is ok. This plot orders our data and plots the observed data against values on the x-axis that we would expect to get if our data was truly from a normal population.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqnorm</span>(jayM$Mass)
 <span class="kw">qqline</span>(jayM$Mass, <span class="dt">col =</span> <span class="st">&quot;steelblue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-330-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-370-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqnorm</span>(jayM$Head)
 <span class="kw">qqline</span>(jayM$Head, <span class="dt">col =</span> <span class="st">&quot;steelblue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-331-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-371-1.png" width="672" /></p>
 <p>Both of these QQ plots are ok, and indicate normality, as does our Shapiro-Wilk tests. Therefore we would be ok to use a Pearson Correlation test with these data.</p>
 <p>What should you do though if either of your continuous variables are not approximately normally distributed? In that case, there are other correlation coefficients and associated significance tests that you could run instead. We describe these in more detail in Section x.xxx</p>
 </div>
@@ -587,7 +595,7 @@ jays &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class=
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;navy&quot;</span>) +
 <span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>,<span class="dt">se=</span>F) +
 <span class="st">  </span><span class="kw">theme_classic</span>()</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-333-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-373-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor.test</span>(gs$hours, gs$score, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)  <span class="co"># p=0.049</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
@@ -670,7 +678,7 @@ cheese &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span clas
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># let&#39;s make a scatterplot of saturated fat against cholesterol</span>
 <span class="kw">ggplot</span>(cheese, <span class="kw">aes</span>(<span class="dt">x =</span> sat_fat, <span class="dt">y =</span> chol)) +<span class="st"> </span><span class="kw">geom_point</span>() +
 <span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>,<span class="dt">se=</span>F)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-338-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-378-1.png" width="672" /></p>
 <p>It looks like there is a pretty obvious relationship, but let's check the normality of each variable before progressing. Firstly the Shapiro-Wilk tests suggest that our data do not come from a normal distribution:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">shapiro.test</span>(cheese$sat_fat)  <span class="co"># P &lt; 0.05, therefore data may not be normal</span></code></pre></div>
 <pre><code>## 
@@ -687,10 +695,10 @@ cheese &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span clas
 <p>Secondly, we have quite dramatic deviation from the straight line of our datapoints in our QQ plots. This indicates that our dat are likley skewed.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqnorm</span>(cheese$sat_fat)
 <span class="kw">qqline</span>(cheese$sat_fat, <span class="dt">col =</span> <span class="st">&quot;steelblue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-340-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-380-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqnorm</span>(cheese$chol)
 <span class="kw">qqline</span>(cheese$chol, <span class="dt">col =</span> <span class="st">&quot;steelblue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-340-2.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-380-2.png" width="672" /></p>
 <p>We could be thorough and check this by plotting histograms of our data:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gridExtra)
 
@@ -700,7 +708,7 @@ p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(cheese, <span cl
 <span class="kw">grid.arrange</span>(p1,p2,<span class="dt">nrow=</span><span class="dv">1</span>)</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-341-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-381-1.png" width="672" /></p>
 <p>Because our data do not appear to be normal, we cannot do a Pearson correlation coefficient. We should instead use a non-parametric correlation method. There are several of these to choose from. We don't plan to go into the details here of how these methods determine their correlation coefficients or conduct significance test. In brief, these methods generally rank order the datapoints along the <code>x</code> and <code>y</code> axes and then determine how ordered these ranks are with respect to each other.</p>
 <p>Probably the most commonly used non-parametric correlation test is called the Spearman Rank Correlation test.</p>
 <p>To run this, we can use <code>cor()</code> to get the correlation or <code>cor.test()</code> to run the signficance test in the same way we did the Pearson test. However, the difference here is that we specify <code>method=&quot;spearman&quot;</code> at the end.</p>
@@ -773,7 +781,7 @@ p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(cheese, <span cl
 <span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span>F) +
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Dominance Rank&quot;</span>) +
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Testosterone Level&quot;</span>) </code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-345-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-385-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(test$drank, test$testosterone, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>) <span class="co"># rho = -0.91</span></code></pre></div>
 <pre><code>## [1] -0.9083378</code></pre>
 <p>If you had the <em>a priori</em> prediction, that more dominant animals would have higher testosterone, then you could do a one-tailed test. This would mean that you expect there to be a negative correlation - as the rank number gets higher, the levels of testosterone would fall. In this case, you'd use <code>alternative = &quot;less&quot;</code>.</p>
@@ -887,7 +895,7 @@ p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(cheese, <span cl
 <span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>))+
 <span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>,<span class="dt">se=</span>F) +
 <span class="st">  </span><span class="kw">theme_classic</span>()</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-352-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-392-1.png" width="672" /></p>
 <p>What we have in this plot are individual points representing each cat. The points are jittered to make overlapping datapoints more readable. We have also put a trendline through the data. How was this achieved? Essentially, all the females are given the value 0, and all the males are given the value 1. We then run a Pearson's correlation using the <code>X</code> values to be 0 or 1, and the <code>Y</code> values to be the <code>time</code> measurement.</p>
 <p>Doing this, we can simply run a Pearson's correlation test using <code>cor.test()</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor.test</span>(cats$sex1, cats$time)</code></pre></div>

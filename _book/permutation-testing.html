@@ -205,8 +205,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.5" data-path="confidence-intervals.html"><a href="confidence-intervals.html#comparing-cis-using-the-z--and-t-distributions"><i class="fa fa-check"></i><b>8.5</b> Comparing CIs using the z- and t-distributions</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html"><i class="fa fa-check"></i><b>9</b> One Sample Inferential Statistics</a><ul>
-<li class="chapter" data-level="9.1" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#one-sample-z-tests"><i class="fa fa-check"></i><b>9.1</b> One-sample Z-tests</a></li>
-<li class="chapter" data-level="9.2" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#one-sample-t-tests"><i class="fa fa-check"></i><b>9.2</b> One-sample t-tests</a></li>
+<li class="chapter" data-level="9.1" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#one-sample-z-tests"><i class="fa fa-check"></i><b>9.1</b> One-sample Z-tests</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#sampling-distribution-recap"><i class="fa fa-check"></i><b>9.1.1</b> Sampling Distribution Recap</a></li>
+<li class="chapter" data-level="9.1.2" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#calculating-p-values-for-z-test"><i class="fa fa-check"></i><b>9.1.2</b> Calculating p-values for z-test</a></li>
+<li class="chapter" data-level="9.1.3" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#using-critical-values"><i class="fa fa-check"></i><b>9.1.3</b> Using critical values</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#one-sample-t-tests"><i class="fa fa-check"></i><b>9.2</b> One-sample t-tests</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#critical-values-for-the-one-sample-t-test"><i class="fa fa-check"></i><b>9.2.1</b> Critical values for the one-sample t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#conducting-one-sample-t-tests-in-r"><i class="fa fa-check"></i><b>9.3</b> Conducting one-sample t-tests in R</a></li>
+<li class="chapter" data-level="9.4" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#assumptions-of-the-one-sample-t-test"><i class="fa fa-check"></i><b>9.4</b> Assumptions of the one-sample t-test</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html"><i class="fa fa-check"></i><b>10</b> Two Sample Inferential Statistics</a><ul>
 <li class="chapter" data-level="10.1" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#comparing-two-samples"><i class="fa fa-check"></i><b>10.1</b> Comparing two Samples</a></li>
@@ -344,7 +352,7 @@ dd</code></pre></div>
 <span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width=</span>.<span class="dv">1</span>, <span class="dt">size=</span><span class="dv">2</span>) +
 <span class="st">  </span><span class="kw">theme_classic</span>() +
 <span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;firebrick&quot;</span>, <span class="st">&quot;dodgerblue&quot;</span>))</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-413-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-453-1.png" width="672" /></p>
 <p>Now, from our two independent samples, we can directly observe what the difference in sample means is. This is just calculated by subtracting one sample mean from the other:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">meandif &lt;-<span class="st"> </span><span class="kw">mean</span>(anastasia)  -<span class="st"> </span><span class="kw">mean</span>(bernadette)   <span class="co"># 5.48</span>
 meandif</code></pre></div>
@@ -414,7 +422,7 @@ for(i in <span class="dv">1</span>:<span class="dv">10000</span>){
 <span class="st">  </span><span class="kw">theme_classic</span>()+
 <span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Mean Differences from </span><span class="ch">\n</span><span class="st"> 10000 Permutations of Raw Data&quot;</span>)</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-420-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-460-1.png" width="672" /></p>
 <p>This histogram shows that for some of our 10,000 shuffles, we actually got some differences between our two samples of higher than 5.48 (the dotted blue line), but the vast majority of shuffles led to samples that had mean differences lower than 5.48. In fact, several shuffles led to samples where the sample of size 18 (Bernadette in the original data) had a sample mean that was higher than the sample of size 15 (Anastasia in the original data).</p>
 <p>We can directly calculate how many times out of 10,000 shuffles we got a difference in sample means that was greater than 5.48</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="kw">unlist</span>(results) &gt;<span class="st"> </span><span class="fl">5.48</span>)  <span class="co"># 202 times out of 10000</span></code></pre></div>
@@ -473,7 +481,7 @@ ddf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class
 <span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width=</span>.<span class="dv">1</span>) +
 <span class="st">  </span><span class="kw">theme_classic</span>() +
 <span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;orange&quot;</span>, <span class="st">&quot;brown&quot;</span>))</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-426-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-466-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(placebo) -<span class="st"> </span><span class="kw">mean</span>(drug) <span class="co">#2.128</span></code></pre></div>
 <pre><code>## [1] 2.12782</code></pre>
 <p>So our observed difference in sample means is 2.128. In the permutation test, what we'll do is shuffle all the scores randomly between the two groups, creating new samples of the same size (19 and 21). Then we'll see what difference in sample means we get from those shuffled groups. We'll also do this 10,000 times.</p>
@@ -496,7 +504,7 @@ for(i in <span class="dv">1</span>:<span class="dv">10000</span>){
 <span class="st">  </span><span class="kw">theme_classic</span>()+
 <span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Mean Differences from </span><span class="ch">\n</span><span class="st"> 10000 Permutations of Raw Data&quot;</span>)</code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-428-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-468-1.png" width="672" /></p>
 <p>It looks like very few times did we get two samples that had differences in sample means that were greater than 2.128. We can calculate exactly how many times, and express this as the proportion of times we got a difference in sample means greater than 2.128:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="kw">unlist</span>(results) &gt;<span class="st"> </span><span class="fl">2.128</span>)  <span class="co"># 109 times out of 10000</span></code></pre></div>
 <pre><code>## [1] 113</code></pre>
@@ -532,7 +540,7 @@ df &lt;-<span class="st">  </span><span class="kw">read_csv</span>(<span class="
 <span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> time, <span class="dt">y =</span> score)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>() +
 <span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span>F)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-431-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-471-1.png" width="672" /></p>
 <p>Using a standard approach, we could find the correlation of these two variables and run a signficance test using <code>cor.test()</code>. We can see that there is a moderate Pearson's r of <code>r=0.55</code> which is statistically significant (p=0.031).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># regular significance test</span>
 <span class="kw">cor.test</span>(df$time,df$score) <span class="co">#r=0.55, p=0.031</span></code></pre></div>
@@ -583,7 +591,7 @@ df</code></pre></div>
 <span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> time, <span class="dt">y =</span> shuffle1)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>() +
 <span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span>F)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-436-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-476-1.png" width="672" /></p>
 <p>And the correlation for this new scatterplot is really close to 0! r = 0.0005:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor.test</span>(df$time, df$shuffle1) <span class="co"># now relationship is a bit negative</span></code></pre></div>
 <pre><code>## 
@@ -624,7 +632,7 @@ for(i in <span class="dv">1</span>:<span class="dv">10000</span>){
 <span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="fl">0.56</span>, <span class="dt">lwd=</span><span class="dv">1</span>, <span class="dt">lty=</span><span class="dv">2</span>) +
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;r&quot;</span>) </code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-440-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-480-1.png" width="672" /></p>
 <p>As you can see, there were a few shuffles (or permutations) that we got an <code>r</code> value of greater than 0.56, but not that many. In fact, we can directly calculate how many:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="kw">unlist</span>(results) &gt;<span class="st"> </span><span class="fl">0.56</span>) <span class="co">#163 were greater.</span></code></pre></div>
 <pre><code>## [1] 163</code></pre>
@@ -665,7 +673,7 @@ ba &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 <span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span><span class="dv">0</span> , <span class="dt">slope =</span> <span class="dv">1</span>) +
 <span class="st">  </span><span class="kw">xlim</span>(<span class="dv">2</span>,<span class="dv">8</span>)+
 <span class="st">  </span><span class="kw">ylim</span>(<span class="dv">2</span>,<span class="dv">8</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-444-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-484-1.png" width="672" /></p>
 <p>As most of these points are below the diagonal line, this seems to suggest that the scores for the 'before' data seem to be lower on the whole than the scores for the 'above' data.</p>
 <p>Typically, we would run a paired t-test with such data to examine if there was a difference:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(ba$before, ba$after, <span class="dt">paired=</span>T)</code></pre></div>
@@ -680,7 +688,7 @@ ba &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 ## sample estimates:
 ## mean of the differences 
 ##                     0.8</code></pre>
-<p>This suggests that there is a significant difference <code>p&lt;.05</code> with the 95% confidence interval of the true difference in means being between 0.19 and 1.61. However, the paired t-test assumes that the data are from an approximately normal distribution. In particular, that the differences scores (the difference between the 'before' and 'after' scores for each individual) are normally distributed. We can check that using a Shapiro-Wilk test:</p>
+<p>This suggests that there is a significant difference <code>p&lt;.05</code> with the 95% confidence interval of the true difference in means being between 0.13 and 1.47. However, the paired t-test assumes that the data are from an approximately normal distribution. In particular, that the differences scores (the difference between the 'before' and 'after' scores for each individual) are normally distributed. We can check that using a Shapiro-Wilk test:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a difference column for the difference between before and after</span>
 ba$difference &lt;-<span class="st"> </span>ba$before -<span class="st"> </span>ba$after
 
@@ -738,7 +746,7 @@ results[[i]] &lt;-<span class="st">  </span><span class="kw">mean</span>(ba$diff
 <span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">color=</span><span class="st">&quot;navy&quot;</span>,<span class="dt">lwd=</span><span class="dv">1</span>,<span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">xintercept =</span> .<span class="dv">8</span>) +
 <span class="st">  </span><span class="kw">theme_classic</span>()+
 <span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Mean Differences from </span><span class="ch">\n</span><span class="st"> 10000 Permutations of Raw Data&quot;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-452-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-492-1.png" width="672" /></p>
 <p>We can also calculate the number of times out of 10,000 that we observed a mean difference higher than the mean of 0.8 in our original data, which is only in 19 shuffles out fo 10,000:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="kw">unlist</span>(results)&gt;<span class="fl">0.8</span>)</code></pre></div>
 <pre><code>## [1] 17</code></pre>
