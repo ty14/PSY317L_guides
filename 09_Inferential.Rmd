@@ -3,10 +3,6 @@
 
 blah
 
-```{r}
-library(tidyverse)
-```
-
 ## Comparing two Samples
 
 blah
@@ -661,235 +657,182 @@ All of the steps for calculating the observed $t$-value would be the same as abo
 
 ## Confidence Interval for Difference in Means
 
+When we take a sample of two independent groups, we are able to directly calculate the observed difference in sample means $\overline{x}_A - \overline{x}_B$. What we are usually interested in is whether this observed difference is meaningfully different from 0. One way to gain more insight into whether this might be true or not is to generate a 95% confidence interval around our observed sample difference $\overline{x}_A - \overline{x}_B$. If 0 is not inside our confidence interval, then this is pretty good evidence that the true difference in population means $\mu_A - \mu_B$ between the two groups is not 0, and therefore there is a difference in population means.  
+
+As with all confidence intervals, the longer explanation as to what a 95% confidence interval really is, is a bit more long winded. Technically, this 95% confidence intervals means that if we were to take many samples of A and many samples of B, and calculate the difference and confidence intervals for all of them, in 95% of these confidence intervals we would have captured the true difference in population means $\mu_A - \mu_B$.
 
 
+Let's illustrate with a small example, and then we'll turn to our TA data.
 
+*Example 1*
 
-## An example:
+A researcher compares the reaction times of two groups on a motor test. Individuals are different (independent) in each group. GroupA took a stimulant prior to the test. GroupB is the control group.
 
-# A researcher compares the reaction times of two groups on a motor test.
-# individuals are different in each group
-# groupA took some stimulant,  groupB is the control group
-
+```{r}
 groupA <- c(5.5, 5.1, 3.5, 5.1, 4.6, 4.6, 5.9, 4.0, 3.1, 3.8)
 mean(groupA)     # 4.52
 sd(groupA)       # 0.91
-nA<-length(groupA)   # 10
-nA
+
 
 groupB <- c(5.7, 5.3, 5.9, 5.0, 5.0, 4.3, 4.1, 5.9, 5.9, 5.8, 5.4, 5.2, 4.9, 5.5)
 mean(groupB)     # 5.28
 sd(groupB)       # 0.58
-nB <- length(groupB)   # 14
-nB
+```
 
+
+
+
+```{r}
 
 # plot the data:
-d <- data.frame(values = c(groupA, groupB),
+dd <- data.frame(values = c(groupA, groupB),
                 group = c(rep("A",10), rep("B", 14))
 )
 
-d
+head(dd)
 
-ggplot(d, aes(x = group, y = values, fill = group)) +
+ggplot(dd, aes(x = group, y = values, fill = group)) +
   geom_boxplot(alpha=.3) +
   geom_jitter(width=.1, size=2) +
   theme_classic() +
   scale_fill_manual(values = c("firebrick", "dodgerblue"))
 
+```
 
 
 
-# what's the difference in means?
+We can see from our data, that the observed difference in sample means between the two groups is $\overline{x}_A - \overline{x}_B = -0.759$
 
-mean(groupA)  - mean(groupB)   # -0.76
+```{r}
+mean(groupA) - mean(groupB)
+```
 
-# group B is slower by 0.76 seconds on average.
-
-
-## But how meaningful is this difference?
-
+Group B (the control group) is slower by 0.76 seconds on average than group A (the group that took the stimulant).
 
 
 
+The first step in constructing a confidence interval around this observed difference in sample means, is to imagine that this observed difference in sample means came from a sampling distribution of difference in sample means. Our observed value was just one possible sample that we could have got from this sampling distribution.
 
-## We can imagine that this observed difference in sample means came from a 
-# sampling distribution of the difference in sample means
-# our observed value was just one possible sample.
-
-# that sampling distribution is has a mean, and a standard deviation
-
-# if we assume that our observed value of the difference in means 
-# is the mean of that sampling distribution
-# then we can create a 95% confidence interval around it.
-
-
-# CI =  sample_dif +/-  t * SEDM 
+This sampling distribution of differences in sample means, is $t$-shaped with degrees of freedom equal to $n-2$. We assume that our observed value of the difference in sample means is a good estimate of the true difference in population means. If we know the standard deviation of this sampling distribution, then we can create the 95% confidence interval around it using the formula:
 
 
 
-
-# If we assume equal variances between the population of group A and B, we can calculate the
-# standard deviation of this sampling distribution.
+$CI_{95\%} =  \overline{x}_A - \overline{x}_B   \pm   t \times \sigma_{\overline{x}_A - \overline{x}_B}$ 
 
 
-# it's equal to:
-# the pooled estimate of the common standard devation * sqrt(1/n1 + 1/n2)
 
-sd(groupA)  #0.91
+As discussed in the previous sections (see xxx.xxx) the standard deviation of the sampling distribution of differences in sample means, can be calculated using the formula:
 
-sd(groupB)  #0.58
+$\sigma_{\overline{x}_A - \overline{x}_B}  =  \hat{\sigma_{\rho}} \times \sqrt{\frac{1}{n_A} + \frac{1}{n_B}}$
 
 
-# the formula for the pooled estimate of the common standard deviation is long-winded:
-# we discuss it in more detail in another video
+where $\hat{\sigma_{\rho}}$ is the pooled estimate of the standard deviation between the two groups.
 
-# from first principles, calculating deviations from each group mean
+
+The below diagram illustrates how this formula determines the 95% confidence interval. Our margin of error is the value of $t$ for the $t$-distribution with the appropriate degrees of freedom that leaves 2.5% in each tail, and therefore 95% in the middle of the distribution. We multiply this value of $t$ by the standard deviation of the sampling distribution of the differences in sample means to get the margin of error.  
+
+![](img/tt7.png)
+
+
+
+The first step is therefore to calculate the pooled estimate of the common standard deviation $\hat{\sigma_{\rho}}$ (see section xxx.xxx). Using the method of calculating deviations from each group mean, we can find that $\hat{\sigma_{\rho}} = 0.73$
+
+```{r}
 difA2 <- (groupA - mean(groupA))^2
 difB2 <- (groupB - mean(groupB))^2
 sumsq <- sum(difA2) + sum(difB2)
-n <- nA + nB #24
+n <- length(groupA) + length(groupB) #24
 sd.pool <- sqrt(sumsq/(n-2))
+sd.pool
+```
 
-sd.pool # 0.73  this is the estimated pooled s.d.
-
-sedm <-  sd.pool * sqrt( (1/nA) + (1/nB))
-
-sedm
+Putting this value into the above formula, we can calculate the standard deviation of the sampling distribution of the  differences in sample means to be $\sigma_{\overline{x}_A - \overline{x}_B} = 0.302$.
 
 
+```{r}
+sedm1 <-  sd.pool * sqrt( (1/length(groupA)) + (1/length(groupB)))
 
-## So now we have the mean and the sd of our sampling distribution of difference in sample means.
-
-
-# For CIs, we assume the mean to be our estimate of the mean differences:
-
-mean(groupA)  - mean(groupB)  #-0.76
+sedm1
+```
 
 
-# Because our sampling distribution approximates to a t-distribution of d.f. n-2
-# we calculate the value of 't' which leaves 2.5% in the tails.
 
+So now we have the estimated mean $\overline{x}_A - \overline{x}_B$ and the standard deviation $\sigma_{\overline{x}_A - \overline{x}_B}$ of our sampling distribution of differences in sample means. Because our sampling distribution approximates to a $t$-distribution of degrees of freedom = $n-2$, we calculate the value of $t$ which leaves 2.5% in the tails using the `qt()` function in R.
+
+```{r}
+n <- length(groupA) + length(groupB)
 tval <- qt(.975, df = n-2)
 tval
+```
 
+Using this value, we can calculate the margin of error, and the lower and upper bounds of the confidence interval:
 
--0.76 +  (tval*sedm)  # upper bound = -0.13
--0.76 -  (tval*sedm)  # lower bound = -1.39
+```{r}
+dm <- mean(groupA) - mean(groupB)
+dm
 
+tval*sedm1
+dm +  (tval*sedm1)  # upper bound = -0.13
+dm -  (tval*sedm1)  # lower bound = -1.39
 
-t.test(groupA, groupB, var.equal = T)  # this is the t-test function
+```
 
+So the confidence interval is equal to: $CI_{95\%} = -0.76 \pm 0.63$ or  $CI_{95\%} =  -0.76[-0.13, -1.39]$. This shows us that the true difference in population means is unlikely to include 0, so we can conclude that there is likely a true difference in population means between the two groups.
+ 
 
+The above is the 'by hand' way to calculating the confidence interval, that explains the theory behind it. The quickest way is to use the R function `t.test()`. Inside the brackets, you include the two groups of data, and use `var.equal=T`. This last argument ensures that you are assuming that the variances between the two populations that the samples come from are equal.  The `$conf.int` bit on the end just gives us the confidence intervals:
 
-
-### Visualizing this:
-
-# Don't worry about the gross loooking code... just using it to make the plot:
-
-m <- -0.76 # mean
-v <- sedm^2 # variance, sedm squared
-df <- 22
-vals <- rt(n=500000, df=df)*sqrt(v * (df-2)/df) + m
-df1 <- data.frame(val = vals)
-
-
-ggplot(df1, aes(x=val)) +
-  geom_histogram(aes(y = ..density..), color='black', fill='#1930FF', alpha=.3)+
-  theme_classic()+
-  geom_density(alpha = 0.7, fill = "white") + 
-  geom_vline(xintercept = -0.13, lwd=1, color="red") + 
-  geom_vline(xintercept = -1.39, lwd=1, color="red") + 
-  geom_vline(xintercept = -0.76, lwd=1,lty=2, color='black')+
-  xlab("Difference in Sample Means") +
-  ylab("") +
-  ggtitle("Sampling Distribution of Differences in Sample Means",
-          subtitle = "Red Lines Represent 95% CIs")
+```{r}
+t.test(groupA, groupB, var.equal = T)$conf.int
+```
 
 
 
+*Example 2*
 
+Let's look at this with a second example using the `anastasia` and `bernadette` data. 
 
+First, we get the value of $\overline{x}_A - \overline{x}_B$, which is our observed difference in sample means. This is what we assume the mean of the sampling distribution of differences in sample means is.
 
-
-
-
-
-###########
-
-
-### Example 2:  Harpo Data...
-
-anastasia <- c(65, 74, 73, 83, 76, 65, 86, 70, 80, 55, 78, 78, 90, 77, 68)
-bernadette <- c(72, 66, 71, 66, 76, 69, 79, 73, 62, 69, 68, 60, 73, 68, 67, 74, 56, 74)
-
-
-mean(anastasia)            # 74.5
-sd(anastasia)              # 9.0
-nA<-length(anastasia)      # 15
-nA
-
-mean(bernadette)           # 69.1
-sd(bernadette)             # 5.8
-nB <- length(bernadette)   # 18
-nB
-
-
-# plot the data:
-dd <- data.frame(values = c(anastasia, bernadette),
-                group = c(rep("Anastasia",15), rep("Bernadette", 18))
-)
-
-dd
-
-ggplot(dd, aes(x = group, y = values, fill = group)) +
-  geom_boxplot(alpha=.3, outlier.shape = NA) +
-  geom_jitter(width=.1, size=2) +
-  theme_classic() +
-  scale_fill_manual(values = c("firebrick", "dodgerblue"))
-
-
-## assume mean of sampling distribution is
-
+```{r}
 meandif <- mean(anastasia)  - mean(bernadette)   # 5.48
 meandif # this is our observed difference in sample means
+```
 
+We find that $\overline{x}_A - \overline{x}_B=5.48$
 
+Previously in section xxx.xxx we calculated the standard deviation of this sampling distribution to be $\sigma_{\overline{x}_A - \overline{x}_B} = 2.59$. We saved this earlier as `sedm`.
 
-meandif  # we assume that this is the mean of the sampling distribution
+```{r}
+sedm  
+```
 
+To calculate our margin of error, we need to multiply $\sigma_{\overline{x}_A - \overline{x}_B}$ by the value of $t$ that leaves 2.5% in each tail for a $t$-distribution with $n-2$ degrees of freedom:
 
-## to get standard deviation of this sampling distribution:
-
-# 1. get pooled standard variation:
-# this is in the way of calculating average squared deviations.
-
-difA2 <- (anastasia - mean(anastasia))^2
-difB2 <- (bernadette - mean(bernadette))^2
-sumsq <- sum(difA2) + sum(difB2)
-n <- nA + nB #33
-sd.pool <- sqrt(sumsq/(n-2))
-sd.pool  #7.41
-
-# 2. the standard deviation is equal to the pooled standard devation * sqrt(1/n1 + 1/n2)
-
-sedm <-  sd.pool * sqrt( (1/nA) + (1/nB))
-
-sedm  # 2.59   # our standard deviation of the sampling dist.
-
-
-# now we get our value of t for df n-2 that leaves 2.5% in each tail:
-tval <- qt(.975, df = nA + nB -2)
+```{r}
+tval <- qt(.975, df = length(anastasia) + length(bernadette) -2)
 tval  #2.04
+```
 
-meandif
+We can now calculate the confidence intervals:
 
+```{r}
+tval*sedm
 meandif +  (tval*sedm) # 10.76
 meandif -  (tval*sedm) # 0.20
+```
 
-t.test(anastasia, bernadette, var.equal = T)
+So the 95% confidence interval is equal to: $CI_{95\%} = 5.48 \pm 5.28$ or  $CI_{95\%} =  5.48[0.20, 10.76]$.  These CIs suggest that 0 is not likely to be the true difference in population means, therefore it is plausible that the population of students that have Anastasia as a TA score more highly on their exams than the population of students that have Bernadette as a TA.
 
+We could have checked this using `ttest()`:
 
+```{r}
+t.test(anastasia, bernadette, var.equal = T)$conf.int
+```
+
+Finally, we could also plot confidence intervals like this:
+
+```{r}
 ## plotting confidence intervals
 
 dci <- data.frame(group = "", 
@@ -898,7 +841,6 @@ dci <- data.frame(group = "",
                   upper = meandif +  (tval*sedm)
 )
 
-dci
 
 ggplot(dci, aes(x=group, y=mean, ymax=upper, ymin=lower)) +
   geom_errorbar(width=0.2, size=1, color="blue") +
@@ -907,7 +849,7 @@ ggplot(dci, aes(x=group, y=mean, ymax=upper, ymin=lower)) +
   coord_flip() +
   xlab("") +
   ylab("Estimate of Difference in Sample Means")
-  
+```  
    
 
 
@@ -985,6 +927,11 @@ Notice that the observed $t$-value is the same as are the degrees of freedom com
 ## Assumptions of the Independent t-test
 
 The Student's t-test has two important assumptions that should be checked before you can fully be confident in the results of your statistical test.
+
+** Independence fo Data **
+
+As the name suggests, the data in each sample should be independent of each other. That is, individuals in each sample must be different - no individual should be in both  groups. Also, subjects in one sample should not influence subjects in the other sample. e.g. If students who were in the Anastasia group studied with students who were in the  Bernadette group, then the groups are no longer independent.
+
 
 ** Normality **
 
@@ -1098,26 +1045,361 @@ When reporting results of your t-test, you should always give the effect size to
 
 ## Paired t-tests
 
-more sections to add...
+Paired data are data where we have two related scores per individual subject. For instance, we may have a 'before' and 'after' score on some test. Importantly, the scores need to be measured on the same scale. For instance, if we had 'height' and 'weight' of each subject, then these would not be paired data as they are measured on different scales.
+
+When we have paired data, we may be interested in knowning if there is a difference between the two groups of scores in means over all subjects. We cannot proceed with an independent t-test to examine this, as the data all violate the assumption of independence.  These data by their very nature are non-independent of each other. Instead, we need to account for the fact the data are paired.
+
+Let's look at the following data which show exam scores in Dr Chico's class. We have 20 students who took two exams during the class. These are called `grade_test1` and `grade_test2`. As you can see below, the data are currently in "wide format" (see section xxx.xxx).
+
+
+```{r, message=FALSE}
+chico <- read_csv("data/chico.csv")
+chico
+```
+
+A typical visualization would be to look at the boxplot to compare the two samples:
+
+
+
+```{r}
+
+chico.long <- chico %>% pivot_longer(2:3) 
+
+
+# boxplot
+ggplot(chico.long, aes(x=name, y=value, fill=name))+
+  geom_boxplot(outlier.shape = NA, alpha=.5) +
+  geom_jitter(width=.1, size=1) +
+  theme_classic() +
+  scale_fill_manual(values=c("lightseagreen","darkseagreen"))
+
+```
+
+
+The issue with this plot however, is that our data our paired. It looks as if there isn't much of a difference between the two groups. But with paired data we are actually more interested in how each individual changes their own score over time, not how the overall mean of each group changes.
+
+There are two other ways to present paired data. A good visualization to use on paired data is a scatterplot, plotting each subject's twos scores as one datapoint.
+
+```{r}
+## Scatterplot
+head(chico)
+
+ggplot(chico, aes(x=grade_test1, y=grade_test2)) +
+  geom_point() +
+  theme_classic()+
+  geom_abline(intercept =0 , slope = 1)
+```
+
+As you can see with this scatterplot, we have also added a diagonal line through the plot. This line represents values that are equivalent on test 1 and test 2. Most dots are above this diagonal line. This shows us that for most subjects, they have a higher score on test 2 than they do on test 1.  We have 20 dots because we have 20 individual subjects.
+
+
+
+Another option is to use a slope graph. Here we plot the individual dots of each group as if we are doing a boxplot, but then we join dots who are the same individual in each group together:
+
+```{r}
+## Slope Graph
+ggplot(chico.long, aes(x=name, y=value, group=id))+
+  geom_point(alpha=.6, size=2)+
+  geom_line(color="gray50")+
+  theme_classic()
+```
+
+What we are looking for in a plot such as this is whether a majority of the lines are going in the same direction as each other - either up or down.  In this particular example, the absolute increase of each line is quite small and so it's harder to see the differences in this graph than the scatterplot. For other datasets, where there is a lot more variation in the magnitude and direction of the differences for each individual, the slope graph might be better than the scatterplot.
+
+
+### The paired t-test is a one-sample t-test
+
+The general principle behind a paired t-test is that it is not a new test at all. In fact, we will be doing a one-sample t-test based on the difference between the two scores.  We will be testing whether the true population mean difference in scores is likely to include 0. Please see section xxx.xxx for more information on the theory of one-sample t-tests. Here, we'll just walk through how to write the code in R, what assumptions you need to check, and what plots you should make.
+
+Let's first do this by hand, before we see the very quick way to do this in R.
+
+The first step is to calculate the difference scores. We create a new column called `improvement` that shows whether the test 2 score is higher or lower than the test 2 score. Positive scores indidcate that subjects scored more highly on test 2 than on test 1.
+
+
+```{r}
+# Create a new column that is the difference between our two columns:
+chico$improvement <- chico$grade_test2 - chico$grade_test1 
+chico
+```
+
+We can visually inspect these data by doing a historam of the difference scores:
+
+
+```{r}
+# histogram of difference scores
+ggplot(chico, aes(x=improvement)) +
+  geom_histogram(color='black', fill='green', alpha=.4, boundary=0, binwidth = .5) +
+  theme_classic()+
+  geom_vline(xintercept = 0, lty=2, color='black')
+```
+
+This shows us that the vast majority of scores are positive, indicating that the students generally did better on test 2 than test 1. The fist bar contains two values - one is a negative improvement score, and the other is 0.
+
+We can also get the observed sample mean and standard deviation of these differences:
+
+```{r}
+# descriptives of the difference scores
+mean(chico$improvement)
+sd(chico$improvement)
+```
+
+This shows us that the average improvement score from our 'one sample' of difference scores is $\overline{x}=1.405$.
+
+Before we proceed with the test, we need to check that our data is normally distributed, as this is one of the assumptions of the test. We can do that using QQ plots or a Shapiro-Wilk test:
+
+
+```{r}
+# check normality of difference scores
+qqnorm(chico$improvement)
+qqline(chico$improvement, col = "steelblue", lwd = 2) # bit better
+
+shapiro.test(chico$improvement)
+
+```
+
+As the dots fall largely on the line, especially in the middle of our plot, the QQ plot suggests that date are approximately normal. Likewise, because the p-value of the Shapiro-Wilk test is greater than 0.05, this indicates that our data are approximately normal.
+
+
+If you recall back to section xxx.xxx, to run a one-sample t-test in R we use `t.test()` and set `mu=0` to indicate that we are testing whether our sample comes from a population whose mean could be equal to 0.
+
+```{r}
+t.test(chico$improvement, mu=0) 
+```
+
+This output suggests that the 95% confidence interval of the true population mean of difference (improvement)
+ scores is  $CI_{95\%} =  1.405[0.951, 1.859]$. The observed $t$-value is $t=6.475$ suggesting that the observed sample mean difference score is relatively large compare to the range of mean difference scores we could have got. Indeed, we have a significant p-value, $p=0.000003$ which indicates that our difference scores are unlikely to have come from a population with a true mean difference of $\mu=0$.
+ 
+Above, we just performed a one-sample t-test on the difference scores (the improvement column in our data).  To do this, we needed to create the extra column of data. We actually didn't need to do this, we could have just done a paired t-test directly on our data:
+
+```{r} 
+t.test(chico$grade_test2, chico$grade_test1, paired=T)  
+```
+
+By including `paired=T` we are telling R to essentially run a one-sample t-test on the difference scores - this is the paired t-test. Notice the output is identical.
+
+
+
+
+### One-tailed paired t-tests
+
+
+The above test we just completed is a two-tailed t-test. This is testing the null hypothesis that the population mean of the difference scores is equal to 0, and the alternative hypothesis is that it is not equal to 0. If we had made an a priori prediction that test 2 would have higher scores than test 1, we could run a one-tailed test. The hypotheses for a one-tailed test would be:
+
+$H_0: \mu \le 0$
+$H_1: \mu > 0$
+
+
+To run the one-tailed test, we simply add `alternative="greater"` or `alternative="less"` depending upon which direction we are testing. In our case, we predict that test 2 will be greater than test 1, therefore we do the following:
+
+```{r}
+t.test(chico$grade_test2, chico$grade_test1, paired=T, alternative = "greater")  # this is 1-tailed
+```
 
 
 
 
 
+### Calculating effect sizes
 
+As with the independent t-test, just because you observe a 'signficant' difference between the two groups does not indicate that that difference is particularly large or interesting. To get a better indicator of how large or meaningful a difference in group means is, we should calculate an effect size. There are numerous different effect size measures that exist. One that is commonly reported for the paired t-test is another version of Cohen's $\delta$.  For a paired t-test, this is calculated by the formula:
 
+$\delta = \frac{\overline{d}}{s_d}$
 
+where $\overline{d}$ refers to the mean of the differences in scores for each individual, and $s_d$ is the standard deviation of the differences in scores for each individual.
 
+Therefore for our `chico` dataset, the effect size $\delta = 1.45$.
 
+```{r}
+# Effect Size is equal to:
+mean(chico$improvement) / sd(chico$improvement) 
+```
 
-## Confidence Intervals with Paired Data
+This indicates a very large effect.  As with the indendent t-test (see section xxx.xxx) anything above 0.7 can be considered a large effect, anything above 0.5 is a moderate effect, and anything above 0.3 is a small effect.
 
 
 
 
 ## Non-parametric Alternatives for Independent t-tests
 
+One of the key assumptions of the independent t-test is that the data come from populations that are approximately normally distributed. If your data do not appear to be normal, there are several options still available. One of these is to do a permutation t-test (see section xxx.xxx). Another option is to run a non-parametric statistical test. We won't go into the theory here, instead just focsuing on how to run these tests in R. 
+
+Let's look at an example dataset of how we would do these non-parametric tests.
+
+In a study, a researcher measured anxiety scores of subjects 1hour after taking placebo or anti-anxiety drug.  These are the scores. Because different individuals are in different groups, this is a between subjects design, and therefore would be appropriate for an independent t-test.
+
+These are the scores:
+
+```{r}
+placebo <- c(15, 16, 19, 19, 17, 20, 18, 14, 18, 20, 20, 20, 13, 11, 16, 19, 19, 16, 10) 
+
+drug <- c(15, 15, 16, 13, 11, 19, 17, 17, 11, 14, 10, 18, 19, 14, 13, 16, 16, 17, 14, 10, 14)
+
+```
 
 
-## Non-parametric Alternatives for Paired t-tests
+We can put these into a dataframe:
+
+```{r}
+# put into dataframe - long format
+df <- data.frame(anxiety = c(placebo, drug),
+           group = c(rep("placebo", length(placebo)), 
+                     rep("drug", length(drug))
+                     )
+           )
+
+head(df)
+tail(df)
+```
+
+
+We can visualize these data and group differences by making a boxplot:
+
+```{r}
+## Plot Data of anxiety by group
+
+ggplot(df, aes(x=group, y=anxiety, fill=group)) + 
+  geom_boxplot(outlier.shape = NA, alpha=.4) +
+  geom_jitter(width=.1) +
+  theme_classic() +
+  scale_fill_manual(values=c("orange", "brown"))
+  
+```
+
+
+
+Looking at these data, it seems that the anti-anxiety drug group does have subjects with generally lower overall anxiety scores than the placebo group. A logical next step would be to think about doing an independent t-test.
+
+To check whether our data are normally distributed, and therefore appropriate for an independent t-test, we need to perform a Shapiro-Wilk test on the data:
+
+```{r}
+# test if each group is approximately normally distributed
+shapiro.test(drug)    
+shapiro.test(placebo)
+```
+
+As you can see from this output, this suggests that the placebo data are not normally distributed as the p-value is less than 0.05.  This means that continuing with the independent t-test would be inappropriate.
+
+An alternative approach would be to do what's called a non-parametric alternative to the independent t-test. This test is called **Wilcoxon Ranked Sum Test** (also called a Mann-Whitney U test). Essentially this test ranks the data from both groups and examines whether one group has significantly more of the higher or lower ranks.  Practically, what it is testing is whether there is a difference in the medians of the populations that the two samples came from.
+
+To run this test in R, we just use the function `wilcox.test()` and include our two vectors of data:
+
+```{r}
+wilcox.test(placebo, drug) # 2-tailed
+```
+
+The default is to run a 2-tailed test. You are given a test-statistic $W$ and a p-value. Here, $p=0.0191$ which indicates that our two samples have significantly different medians. With this test, you will get a warning about not being able to compute an exact p-value with ties. This isn't really important and can be ignored. In fact, you can turn it off by using the following:
+
+```{r}
+wilcox.test(placebo, drug, exact=F) # this gets rid of obnoxious warnings, but not a big deal
+```
+
+
+We can also get a 95% confidence interval of the difference in population medians between the two groups by including `conf.int=T`:
+
+```{r}
+
+wilcox.test(placebo, drug, exact=F, conf.int = T) 
+
+```
+
+This tells us that the lower bound of the confidence interval is 0.000031 and the upper bound is 4.0.  
+
+
+If your data are in a dataframe, you can run the test if your data are in long format like this:
+
+```{r}
+head(df)
+wilcox.test(anxiety ~ group, data=df, exact=F, conf.int=T)
+```
+
+There is also a one-tailed version of this test, which you can do in the same way as you do for the t-test:
+
+```{r}
+wilcox.test(placebo, drug, exact=F, alternative = "greater") # 1-tailed
+```
+
+
+Finally, as with t-tests, we should also report effect sizes for Wilcoxon Ranked Sum tests. This is because just determining there is a significant difference in population medians, does not tell us enough about how large this difference is.  There are many different effect size measures that exist, all of which effectively evaluate the degree to which one group has higher ranks of data than the other group.  Without going into formulaic details, the easiest way to calculate this effect size is to use the function `wilcoxonR()` from the package `rcompanion`.  This function needs your data to be in long-data format.
+
+```{r, message=FALSE}
+library(rcompanion)
+
+wilcoxonR(x  = df$anxiety,
+          g  = df$group,
+          ci = T)
+```
+
+We can ignore the sign here. What we notice is that the effect size is 0.37, with a possible range of 0.05 to 0.63. With this effect size measure, medium effects are above 0.3, and large effects are over 0.5.
+
+
+
+
+## Non-parametric Alternatives to the Two Sample t-tests
+
+
+Likewise if Paired Data are not normal, you should not perform a paired t-test. Instead, you can use a **Wilcoxon Signed Rank Test**. This is basically the non-parametric version of the one-sample t-test. It essentially assesses how likely your difference scores are to come from a population whose population median is not equal to 0.
+
+In this example, we look at the `bloodwork` dataset. The two columns called `immuncount` and `immuncount2` refer to before and after measurements of some immune cells in blood.
+
+```{r}
+df1 <- read_csv("data/bloodwork.csv") %>% select(ids, immuncount, immuncount2)
+head(df1)
+```
+
+If we examine whether the data are approximately normal, we find out that they are definitely not approximately normally distributed as the Shapio-Wilk test on each give p-values far below 0.05:
+
+```{r}
+shapiro.test(df1$immuncount)
+shapiro.test(df1$immuncount2)
+```
+
+
+We can visualize the differences between time point 1 and time point 2 using a scatterplot:
+
+```{r}
+# scatterplot
+ggplot(df1, aes(x = immuncount, y=immuncount2 )) +
+  geom_point() +
+  theme_classic() +
+  geom_abline(intercept =0 , slope = 1)
+```
+
+Looking at this, it looks like lots of low values are close to the line, some middle values are below the line and some are a long way above the line. 
+
+We can next test if the population median of the difference scores is equal to 0 or not.  We use the `wilcox.test` function but use the `paired=T` argument to ensure we do a paired test.
+
+```{r}
+## Wilcoxon Signed Rank Test
+wilcox.test(df1$immuncount, df1$immuncount2,  paired=T, conf.int = T) #with CIs
+```
+
+This gives us confidence intervals of the population median in differences cores of -0.135[-1.162, 0.137] which includes 0 and therefore suggets that there is no difference in medians between the paired groups. The p-value confirms this being $p=0.54$. The $V$ value is the test-statistic.
+
+Should you need a 1-tailed test you can do it this way - this time we use `alternative="less"` as we're seeing if time point 1 has a lower median that time point 2 across individuals:
+
+```{r}
+wilcox.test(df1$immuncount, df1$immuncount2,  paired=T, alternative = "less") # 1-tailed
+```
+
+
+Again, we have an effct size measure for this test. This can be done using the `wilcoxonPairedR()` function from the `rcompanion` package. 
+
+The downside of this function is that it requires the data to be ordered specifically. The top half of the data are the values for group1. The bottom half of the data are the values for group2. Then the id variable needs to be in the same order for both groups.
+
+```{r}
+
+df2 <- df1 %>% pivot_longer(2:3) %>% arrange(name,ids)
+
+head(df2)
+
+
+wilcoxonPairedR(x  = df2$value,
+          g  = df2$name,
+          ci = T)
+
+```
+What we can see from this output is that the estimate of the effect size is -0.11[-0.45, 0.27]. This suggests that the likely effect size is 0.11 but 0 is also likely to be the effect size as it is inside the confidence interval.  This is further evidence that there is no real effect of changes in scores from time point 1 to time point 2 in these data.
+
+
+
 
