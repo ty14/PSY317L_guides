@@ -1,15 +1,16 @@
 # Correlation
 
-intro lines about what correlation is etc...
+Correlation is the simplest measure of association between two continuous variables. There are a number of different types of correlation measures that will explore in this chapter. All of these measures attempt to define how changess in one variable are associated with changes in another variable.
 
 
 ## Pearson Correlation
 
-Pearson's correlation is measured by `r` and ranges between -1 and +1.  +1 indicates that the variables `X` and `Y` are maximally positively correlated, such that as values of X increase so do values of Y. -1 indicates a compleltely negative correlation such that as values of `X` increase, values of `Y` decrease.  A value of 0 indicates that there is no overall relationship.
+Pearson's correlation is measured by $r$ and ranges between -1 and +1.  +1 indicates that the variables `X` and `Y` are maximally positively correlated, such that as values of X increase so do values of Y. -1 indicates a compleltely negative correlation such that as values of `X` increase, values of `Y` decrease.  A value of 0 indicates that there is no overall relationship.
 
 
-*insert figure of negative 0.6, 0 and positive 0.6 here*
+The below image shows a positive correlation of $r=0.6$, a zero correlation of $r=0$ and a negative correlation of $r=-0.6$ for 20 datapoints in each scatterplot.
 
+![](img/r1.png)
 
 
 The below image shows scatterplots, each with a sample size of 30. The trendline is to help demonstrate how correlations of different magnitudes look in terms of their association.
@@ -19,16 +20,6 @@ The below image shows scatterplots, each with a sample size of 30. The trendline
 
 
 ## Calculating the Pearson Correlation in R
-
-To calculate the correlation coefficient in R, it's pretty straightforward.  You simply can use the `cor()` function. For instance, let's correlate...
-
-
-```{r}
-cor(1:10,1:10) # replace with an example
-```
-
-
-Before we go further into what we should do with these correlations, and how to signficance test them, let's learn a little bit more about how they come about.
 
 
 
@@ -42,8 +33,10 @@ $r = \frac{\sum_{}^{} z_{x}z_{y}}{n - 1}$
 When we have a population, we can use the formula: 
 
 
-$r = \frac{\sum_{}^{} z_{x}z_{y}}{N}$
+$\rho = \frac{\sum_{}^{} z_{x}z_{y}}{N}$
 
+
+Notice that for a population we use a different notation for the Pearson's correlation coefficient.
 
 Essentially, the steps are to convert all the `X` and `Y` scores into their respective z-scores. Then you mutliply these two values together to get the `cross-product`.  After summing up all the cross-products for each data point, we divide this number by `n-1` if we're dealing with a sample (we usually are), or `N` if we're dealing with a population.  
 
@@ -283,11 +276,280 @@ What should you do though if either of your continuous variables are not approxi
 
 
 
+## Running multiple correlations 
+
+blah
+
+
 
 
 ## Confidence Intervals for R
 
-bit more on this and the theory.
+When we run a correlation on our data we get one correlation coefficient $r$ from our sample. Ideally we would be able to give a confidence interval around this correlation coefficient to describe how certain or uncertain we are in the correlation coefficient.  This is possible to do, but it's a bit long-winded.  Let's look at how it is done.
+
+
+The main thing to realize is that our sample of data that we calculate our observed correlation coefficient from is technically just one sample that we could have got from a population. We could have picked a slightly different sample, and got a slightly different correlation.  Let's work through this using an example.
+
+
+Say we have a population of 25,000 subjects (datapoints) and the true population correlation coefficient is $\rho=0.75$ (When we're dealing with a population we use $\rho$ for the Pearson's correlation coefficient rather than $r$.).
+
+This is our population. We have 25,000 rows of `x` and `y` data:
+
+
+```{r}
+dfr <- read_csv("data/popcor.csv")
+head(dfr)
+tail(dfr)
+nrow(dfr)
+```
+
+
+We could plot this to examine the population data:
+
+```{r,message=FALSE,warning=FALSE}
+ggplot(dfr, aes(x=x,y=y))+
+  geom_point(alpha=.05) +
+  theme_classic() +
+  stat_smooth(method='lm',se=F) +
+  ggtitle("Population of 25,000  r=0.75")
+
+```
+
+
+We can check the correlation for the population and we find that $\rho=0.75$.
+
+```{r}
+cor(dfr$x, dfr$y)
+```
+
+
+If we were interested in trying to find the correlation between `x` and `y` but were unable to measure all 25,000 individuals in the population, we might pick one sample to test.  Imagine we pick a sample size of $n=15$. Let's pick 15 datapoints at random from our population and find out the correlation coefficient $r$ of this sample:
+
+
+```{r}
+set.seed(1) # so we get the same results 
+
+# this code selects 15 rows at random
+samp1 <- dfr[sample(1:nrow(dfr),15, T),]
+samp1
+
+```
+
+
+We can make a quick plot of our sample of 15, and calculate the sample correlation:
+
+```{r, message=FALSE}
+
+ggplot(samp1, aes(x=x, y=y)) +
+  geom_point(size=2) +
+  theme_classic() +
+  stat_smooth(method='lm',se=F)
+
+cor(samp1$x, samp1$y)
+
+```
+
+In our sample we get $r=0.57$ which is quite a bit lower than our population correlation. What if we take a few more samples of size 15? What would we get for those sample correlations?  Let's do it:
+
+```{r}
+samp2 <- dfr[sample(1:nrow(dfr),15, T),]
+cor(samp2$x, samp2$y)
+
+samp3 <- dfr[sample(1:nrow(dfr),15, T),]
+cor(samp3$x, samp3$y)
+
+samp4 <- dfr[sample(1:nrow(dfr),15, T),]
+cor(samp4$x, samp4$y)
+
+
+
+```
+
+The next three samples have correlations that are higher, with one of these being higher than the population correlation.  As you might have worked out by now, if we keep doing this over and over again (thousands of times) we would end up with a **sampling distribution of correlation coefficients**.  Let's do that:
+
+```{r}
+#this code is to get 50,000 correlation coefficients from samples of n=15
+
+results <- vector('list',50000)
+for(i in 1:50000){
+samp <- dfr[sample(1:nrow(dfr),15, T),]
+results[[i]] <- cor(samp$x, samp$y)
+}
+
+dfr.results <- data.frame(r = unlist(results))
+
+head(dfr.results)
+```
+
+Because we now have a sampling distribution of correlation coefficients, we can plot this in a histogram.
+
+
+```{r}
+ggplot(dfr.results, aes(x=r)) +
+  geom_histogram(aes(y = ..density..), color = "black", fill = "purple", alpha=.4, binwidth = .01) + 
+  geom_density(alpha = 0.7, fill = "mistyrose") + 
+  theme_classic() +
+  xlab("Sample correlation r") +
+  ggtitle("Sampling Distribution of Correlation Coefficients")+
+  geom_vline(xintercept=0.75, lty=1, lwd=1, color="red")
+
+
+```
+
+What is the first thing that you notice about this sampling distribution?  Hopefully it is that it is *not symmetrical*. It is highly skewed. This is because correlation coefficients are bounded between -1 and +1. We do not get an approximately normally distributed sampling distribution (with the one exception being when the population correlation $\rho=0$.  The red line represents our original population coefficient of $\rho=0.75$.
+
+There is however a trick that we can employ to make this sampling distribution approximately normal. We can do something called **Fisher Transform** our sample correlations in the sampling distribution. So for every value of $r$ in our sampling distribution, we can apply the following formula:
+
+
+$z' = 0.5 \times \log(\frac{1 + r}{1 - r})$
+
+
+$z'$ is referred to as the Fisher Transformed $r$ value.  So, if we had a sample correlation of $r=0.56$, that would equate to a $z'$ value of $z'=0.63$:
+
+```{r}
+0.5 * log( (1+0.56) / (1-0.56) )
+```
+
+Alternatively, a correlation of $r=0.75$ would have a Fisher transformed score of $z'=0.97$:
+
+```{r}
+0.5 * log( (1+0.75) / (1-0.75) )
+```
+
+Notably, a correlation of $r=0.0$ has  a Fisher transformed score of $z'=0.00$:
+
+```{r}
+0.5 * log( (1+0) / (1-0) )
+```
+
+
+
+If we apply this formula to all the $r$ values in our sampling distribution and replot the distribution, it now looks like this:
+
+```{r}
+#put Fisher transformed scores into a column called 'zt'
+dfr.results$zt <-  0.5 * log( (1+dfr.results$r) / (1-dfr.results$r) )
+head(dfr.results)
+
+```
+
+
+```{r}
+ggplot(dfr.results, aes(x=zt)) +
+  geom_histogram(aes(y = ..density..), color = "black", fill = "purple", alpha=.4, binwidth = .05) + 
+  geom_density(alpha = 0.7, fill = "mistyrose") + 
+  theme_classic() +
+  xlab("Fisher Transformed z'") +
+  ggtitle("Sampling Distribution of Correlation Coefficients")+
+  geom_vline(xintercept=0.97, lty=1, lwd=1, color="red")
+
+```
+
+This distribution is approximately symmetrical. The red line here represents the population correlation coefficient of $r=0.75$ which is $z'=0.97$. This is the approximate mean of the distribution. 
+
+The standard deviation of this transformed sampling distribution can be calculated by this formula:
+
+$se = \sqrt{\frac{1}{n-3}}$
+
+So, because we have a sample size of $n=15$ the standard deviation of this sampling distribution is $se = 0.289$:
+
+```{r}
+sqrt(1/12)
+```
+
+Now we have an approximately normal sampling distribution with a standard deviation, we can start to do similar things to what we did with other sampling distributions such as calculate confidence intervals.
+
+
+Let's calculate a confidence interval around our first sample of $r=0.56$.  What we assume is that the Fisher transformed score of $r=0.56$ is the mean of the sampling distribution. Therefore we assume that $z' = 0.63$ is the mean of the sampling distribution. Because we want to have 95% of the distribution inside the confidence interval, then we want to know which values are 1.96 standard deviations away from the mean. This is because we're assuming the transformed sampling distribution to be approximately normal, and in a standard normal curve 95% of the data is $\pm 1.96$ standard deviations of the mean (see section xxx.xxx).
+
+The formula is:
+
+$CI_{95\%} = z' + (1.96 \times se)$
+
+
+In our example, 1.96 standard deviations away from the mean is:
+
+```{r}
+0.63 + (1.96 * 0.289)
+0.63 - (1.96 * 0.289)
+```
+
+We can visualize this as follows:
+
+![](img/r2.png)
+
+Our confidence interval in terms of Fisher Transformed z' values is $z' = 0.63[0.06, 1.20]$. One thing we can immediately draw from that is that a correlation of $r=0$ is unlikely to be the true population correlation. This is because when $r=0$, the transformed value is also equal to 0 and $z'=0$ is not within the 95% confidence interval.  Also, it is notable that our true population correlation coefficient of $
+rho=0.75$ which equates to $z'=0.97$ is included within the correlation coefficient.  
+
+As with other 95% confidence interval measures, what this really means is that in 95% of our samples we will capture the true population correlation coefficient when we create confidence intervals around our sample correlation coefficient.
+
+Although we can directly determine if a population correlation of $\rho=0$ is within our confidence interval or not, leaving the confidence interval in Fisher transformed $z'$ values isn't that interpretable. Thefore, you can tansform $z'$ values back to $r$ values using the following formula:
+
+$r = \frac{\exp(2z')-1}{1 + \exp(2z')}$
+
+So for each bit of our confidence interval, transforming the $z'$ values back to $r$ values we get the following:
+
+
+```{r}
+(exp(2 * 0.63) - 1) / ( 1 + exp(2 * 0.63))
+
+(exp(2 * 0.06) - 1) / ( 1 + exp(2 * 0.06))
+
+(exp(2 * 1.20) - 1) / ( 1 + exp(2 * 1.20))
+
+
+```
+
+Our 95% confidence interval in terms of $r$ is therfore $r = 0.56[0.06, 0.83]$ which is very wide! but doesn't include $r=0$. If we were to increase our sample size then our confidence intervals would get tighter - and our individual estimate of the correlation coefficient would get close to the true population correlation coefficient $\rho$.
+
+
+
+**Correlation Confidence Inteval Example**
+
+Because the above is a little bit tricky, let's look at a second example.  In a study, researchers found a correlation of $r= -0.654$ based on 34 observations. What is the 95% confidence interval of this correlation ?
+
+First, convert the $r$ value to a Fisher Transformed $z'$ value and assume that is the mean of the symmetrical sampling distribution, and we get $z' = -0.78$:
+
+```{r}
+0.5 * log( (1 + -0.654) / (1 - -0.654) )
+```
+
+
+Second, we know the standard deviation of this symmetrical sampling distribution is equal to $se = \sqrt{\frac{1}{n-3}}$, so it's equal to 0.1796: 
+
+```{r}
+sqrt(1 / 31)
+```
+
+
+Third, we want to know the values of $z'$ that are 1.96 times the sampling distribution standard deviation from the mean, to get the lower and upper bounds of our confidence intervals:
+
+```{r}
+ -0.7822566 + (1.96 * 0.1796053)
+ -0.7822566 - (1.96 * 0.1796053)
+
+```
+
+In terms of Fisher transformed values, our 95% confidence interval is therefore $z' = -0.78[-1.13, -0.43]$. Notice that 0 is not inside the confidence interval, suggesting that the population correlation coefficient is not equal to 0.
+
+We can also convert all of these back to $r$ values:
+
+
+```{r}
+(exp(2 * -0.78) - 1) / ( 1 + exp(2 * -0.78))
+
+(exp(2 * -1.13) - 1) / ( 1 + exp(2 * -1.13))
+
+(exp(2 * -0.43) - 1) / ( 1 + exp(2 * -0.43))
+
+
+```
+
+So our 95% Confidence interval is $r = -0.65[-0.41, -0.81]$.  Notice with the larger sample size, we get a much tighter confidence interval.
+
+
+
+
 
 
 
