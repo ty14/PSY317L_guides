@@ -173,13 +173,16 @@ If you ever need to check where R is looking for things, run `getwd()` and it wi
 
 
 ## Where to Get Help for R stuff
-help guides.... how can you use them.?
-?
-stackoverflow
-rstudio cheatsheets
-navarro textbook
-wilke textbook
-our guidebook
+[our guidebook](blah)
+[Learning statistics with R: A tutorial for psychology students and other beginners.](https://learningstatisticswithr.com/book/)
+[Fundamentals of Data Visualization](https://serialmentor.com/dataviz/)
+[Rstudio Cheatsheets](https://rstudio.com/resources/cheatsheets/)
+[R Community](https://community.rstudio.com/)
+[R Cookbook](http://www.cookbook-r.com/)
+[R for Data Science](https://r4ds.had.co.nz/)
+
+
+ 
 
 
 ## Quitting R 
