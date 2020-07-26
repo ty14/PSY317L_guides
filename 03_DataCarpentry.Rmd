@@ -21,8 +21,7 @@ Let's divide into all the features of a dataframe.
 
 First import data.
 
-```{r}
-library(tidyverse)
+```{r, warning=F, message=FALSE}
 
 df <- read_csv("data/cheese.csv")
 ```
@@ -181,7 +180,7 @@ install.package(tidyverse) #install
 
 From the `tidyverse` package `readr` we can read in our data.
 
-```{r message = FALSE}
+```{r, message = FALSE}
 library(tidyverse) #load
 bw <- read_csv("data/bloodwork.csv")
 
