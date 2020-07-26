@@ -1,40 +1,36 @@
 # Two Sample Inferential Statistics
 
+A very common question in statistics is whether two groups differ from each other in their distributions. Most often, what we are really asking is whether the population means $\mu$ of two groups differ from each other. 
 
-blah
+In the figure below, we are plotting four different comparisons of two normal distributions. 
 
-## Comparing two Samples
+In the top left, both populations have the same mean $\mu$ and same variance $\sigma^2$ (remember that variance is standard deviation $\sigma$ squared). These two populations are essentially identical. In the top right, both populations have the same mean $\mu$, but differ in their variance $\sigma^2$. 
 
-blah
+The bottom two distributions show populations with different population means $\mu$ and the same variance $\sigma^2$. In the bottom left, the means are quite far apart, whereas in the bottom right the means are different to each other but the effect is much smaller.
+
 
 ![](img/compare_dists.png)
 
-blah
+It is also possible to have the situation where the means are different to each other, and so is the variance, as is shown in the figure below:
 
 ![compare 2 distributions](img/compare_dists1.png)
-
-blah
 
 
 
 ## Independent Samples t-test
 
-Gather data from two samples..... is there a difference between these samples in their means?  Well if they are samples, then there more than often will be a difference.  For instance, x x x x,. Only if their sample means were precisely the same is there no difference.   The more interesting bigger question is.... could these two indepednent samples theoretically have come from the same population... ie could we have taken our two samples at random from the same population..... or do we have sufficient evidence to suggest that they come from two separate populations that differ in their true population means.
+The most typical situation where we are interested in comparing two means is when we collect two samples of data. Perhaps we collect data on the reaction times of subjects after drinking water or coffee.  We would be able to directly calculate the sample means $\overline{x}$ of both samples and could find out if there was a different or not in these values. But, what we really want to know is whether the respective populations that these two samples come from (i.e. the population of water drinkers vs the population of coffee drinkers) acually differ in their population means $\mu$.
 
-focused on identifying if there is a difference in means between the populations.....  to do this.....
+This is the situation that we will discuss more in this chaper. **Independent t-tests** examine whether two independent samples (meaning different individuals in each group) could theoretically have come from populations with the same population mean $\mu$, or whether this is unlikely and their populations likely had different population means $\mu$. Independent t-tests also get called **two-sample t-tests**.
 
-could get 95% CIs of each..... or a 95% CI of the difference in means from our one observed sample mean difference.... or run t-tests...
+There are two types of independent t-tests. The first, and the one that we will discuss most extensively, is called the **Student's t-test**. This test assumes that the populations we are comparing have the same variances $\sigma^2$. The other independent t-test is called the **Welch's t-test** and makes a correction that allows for the two populations we are comparing to have different variances $\sigma^2$.  We will talk more about this version when performing t-tests in R, as it is actually the default version that R performs. For now, we shall dive deeper into the principles behind the Student's t-test. 
 
-two types...
-types
-Welch's .... Student's.....
 
 
 
 ## Sampling Distribution of the Difference in Sample Means
 
-
-For a two-sample $t$-test, the sampling distribution we use is different to the sampling distribution for a one-sample $t$-test. In a one-sample test, we are focused on the sampling distribution of sample means. In a two-sample test we are focused on the *sampling distribution of the differences in sample means*.
+For a two-sample independent $t$-test, the sampling distribution we use is different to the sampling distribution for a one-sample $t$-test. In a one-sample test, we are focused on the sampling distribution of sample means. In a two-sample test we are focused on the *sampling distribution of the differences in sample means*.
 
 
 

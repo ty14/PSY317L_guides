@@ -276,12 +276,6 @@ What should you do though if either of your continuous variables are not approxi
 
 
 
-## Running multiple correlations 
-
-blah
-
-
-
 
 ## Confidence Intervals for R
 

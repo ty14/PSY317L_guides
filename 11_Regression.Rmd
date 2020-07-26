@@ -1,6 +1,6 @@
-# Regression
+# Linear Regression
 
-Introduction to what regression is... predicting etc...
+With linear regression, we are attempting to further our understanding of the relationship between two continuous variables. In particular, we try to predict the values of the outcome variable based on the values of the predictor variable. In simple linear regression we only include one predictor variable. That is the type of regression that we will discuss in this chapter.
 
 
 ## Introduction to Linear Regression
@@ -554,11 +554,11 @@ Even if your model is a good fit to the data, there are still several things you
 
 The last series of things we need to do is to check whether we have violated the assumptions of linear regression.  In short, here are some of the assumptions that we need to adhere to:
 
-- 1. Normality - Specifically the residuals are normally distributed.
-- 2. Linearity - We need to be examining linear relationships between predictors and outcomes
-- 3. Homogeneity of Variance (homoscedasticity)
-- 4. Uncorrelated Predictors (only relevant if doing more than one predictor)
-- 5. No overly influential datapoints
+1. Normality - Specifically the residuals are normally distributed.
+2. Linearity - We need to be examining linear relationships between predictors and outcomes
+3. Homogeneity of Variance (homoscedasticity)
+4. Uncorrelated Predictors (only relevant if doing more than one predictor)
+5. No overly influential datapoints
 
 Let's discuss each of these in turn.
 
@@ -655,7 +655,7 @@ ggplot(df, aes(x = Y.fitted, y = dan.grump)) +
   geom_point() + 
   stat_smooth(method='lm', se=F) 
 
-````
+```
 
 
 As you can see from this plot, our fitted (predicted) values of Y on the x-axis have a strong linear relationship with our observed values of Y on the y-axis.
@@ -825,7 +825,7 @@ ggplot(ddf1, aes(x = x, y = y2)) +
   geom_abline(intercept = coms3[1], slope = coms3[2], color = 'red', lty=2)+
   geom_segment(aes(x = x[13], y = y2[13], xend = x[13], yend = x13y), lty=2, alpha=.4)
 
-````
+```
 
 What you can see here is the scatterplot of 'x' against 'y2'.  The blue trendline is the best fit line to the regression of 'x' against 'y2'.  The red dotted line is the regression line when we remove the datapoint at x=9.7.  This datapoint has both high leverage and is an outlier (has an overly large residual).  As a consequence of this, when you remove this datapoint it significantly shifts the angle of the slope of the regression line. That means that the value of `b` changes quite considerably.
 
