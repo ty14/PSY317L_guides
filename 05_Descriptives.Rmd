@@ -327,7 +327,7 @@ This is a useful measure of deviation, but unfortunately it is still in the unit
 sqrt(5.333333) 
 ```
 
-The standard deviation is 2.309.  The notation for this is:
+The standard deviation $\sigma=2.309$.  The notation for this is:
 
 $\sigma = \sqrt{\frac{\Sigma(x-\mu)^2)}{N}}$
 
@@ -378,147 +378,312 @@ So why do we have two methods for calculating the deviation from the mean. We ha
 
 
 
-### Sample versus Population Standard Deviation
+### Sample Standard Deviation
+
+Something that is often confusing in introductory statistics is that there are two different formulas for calculating the standard deviation. The one we have already introduced above is called the **population standard deviation** and its formula is:
 
 
-## Comparing population and sample means
+$\sigma = \sqrt{\frac{\Sigma(x-\mu)^2)}{N}}$
 
-Why we need the sample standard deviation. 
 
-The sample SD is an estimate of the population SD. We need this estimate because we never have data from the full population but only random samples. 
+But, we use a different formula when we are calculating the standard deviation for a *sample*. This is called the **sample standard deviation**:
 
-The formula for population sd is the square root of the variance divided by N, where are the sample sd is the square root of the variance divided by n -1. 
+
+$s = \sqrt{\frac{\Sigma(x-\mu)^2)}{n-1}}$
+
+
+Notice two things. First, we use the notation $s$ to indicate a sample standard deviation. Second, instead of divding by $N$ in the formula, we divide by $n-1$.  
+
+
+So, for our example data distribution of `A`, this is how we would calculate $s$:
+
+First, we get the difference scores, by subtracting the mean of the distribution from each score:
+
+```{r}
+#difference scores
+A - mean(A)
+```
+
+Second, we square these difference scores to make them positive and to emphasize larger difference scores:
+
+```{r}
+#square the difference scores
+(A - mean(A))^2
+```
+
+
+Third, we sum up all the squared difference scores:
 
 
 ```{r}
-x <- c(14, 11, 5, 3, 8, 10, 9, 15)
-
-pop.sd(x) 
-
-sd(x) 
+#sum the squared difference scores
+sum((A - mean(A))^2)
 ```
-The is a .3 difference if the standard deviations. However, would the difference be as big with a bigger sample?
+
+Fourth, we divide this sum by $n-1$, which technically gives us the variance:
+
+```{r}
+#divide by n-1 to get the variance
+# the 'n' is 12 here
+(sum((A - mean(A))^2))/(12-1)
+```
+
+Finally, we square root this value to get the sample standard deviation - a measure of the typical deviation of each datapoint from the mean:
+
+```{r}
+#square root to get the SD
+sqrt((sum((A - mean(A))^2))/(12-1))
+```
+
+Here we have manually calculated the sample standard deviation $s=2.412$. Earlier in this chapter we calculated the population standard devation of this same distribution to be $\sigma=2.309$. Notice that the sample standard deviation $s$ is larger than the population standard deviation $\sigma$. This is because $n-1$ will always be smaller than $N$, inflating the final result.
+
+So far, we haven't shown you the shortcut for calculating the standard deviation in R.  It's actually just the function `sd()`:
+
+```{r}
+sd(A)
+```
+
+Hopefully you notice that the output of `sd()` is the sample standard deviation and not the population standard deviation.
+
+There is actually no built in function for calculating the population standard deviation $\sigma$ in R. The below code is a custom function to calculate it that we made. It's called `pop.sd()`.
+
+```{r}
+# this is a custom function to calculate
+# the population standard deviation 
+ pop.sd <- function(s) { 
+   sqrt(sum((s - mean(s))^2)/length(s)) 
+ } 
+```
+
+When we look at the population standard deviation of A we can see that it matches what we worked out by hand earlier:
+
+```{r}
+pop.sd(A) 
+```
+
+
+Let's look at distribution B for its sample and population standard deviations:
+
+```{r}
+sd(B)
+pop.sd(B)
+```
+
+Again you can see that $s=5.543$ is greater than $\sigma=5.307$.  Both these values are higher than the standard deviations for distribution A, indicating that distribution B is more spread out and less clumped than distribution A.
+
+
+
+
+
+### Sample versus Population Standard Deviation
+
+So why are there two formulas, and why do we divide by $n-1$ in the sample standard deviation?  The short answer is that whenever we determine the standard deviation for a sample, our goal is technically not to 'calculate' the standard deviation just for that sample. The bigger goal is that we are trying to **estimate** the population standard deviation $\sigma$. However, when we use the population SD formula on samples, we consistently underestimate the real population standard deviation. Why is this?  Basically it's for two reasons. First, within any one sample we typically have much less variation than we do in our population, so we tend to underestimate the true variation. Secondly, when we have our sample we use our sample mean $\overline{x}$ as an estimate of the population mean $\mu$. Because $\overline{x}$ will be usually slightly different from $\mu$ we will be usually underestimating the true deviation from the mean in the population.
+
+The bottom line is this:  using the population SD formula for a sample generally gives an **underestimate** of the true population standard deviation $\sigma$. The solution is to use a fudge-factor of dividing by $n-1$ which bumps up the standard deviation. This is what we do in the sample standard deviation formula.
+
+
+In the sections below, we are going to visually demonstrate this.  Hopefully this helps to show you that dividing by $n-1$ works. Don't worry too much about any code here, this is just to show you what's going on.
+
+
+
+
+
+
+#### Comparing population and sample means
+
+Before we get to why we need a separate formula for the sample standard deviation, let's show you why we don't need a separate formula for the sample mean compared to the population mean. Both of these formulas are essentially the same:
+
+Sample mean:
+$\overline{x} = \frac{\Sigma{x}}{n}$
+
+
+Population mean:  
+$\mu = \frac{\Sigma{x}}{N}$
+
+
+Let's assume the following data distribution is our population, we'll call it `pop`. The following code creates a population of 10000 numbers drawn from a random normal distribution (see section xxx.xxx) with a population mean of 8 and population standard deviation of 2. Because we're randomly drawing numbers to make our population, the final population won't have a mean and standard deviation that are precisely 8 and 2, but we can calculate what they turn out to be:
+
 
 ```{r}
 set.seed(1) # just so we all get the same results
 
-x <- rnorm(100, mean = 8) #100 random numbers with mean of 8.
+pop <- rnorm(10000, mean = 8, sd = 2) #100 random numbers with mean of 8, popSD of 2.
 
-pop.sd(x) 
-
-sd(x)      
 ```
 
-Sample SD is larger than population SD but this difference gets smaller as sample sizes increase.
-
-For visual proof that using the population SD underestimates for samples. 
-
-For the example say we have a population of 1000, with a mean of 199.91 and population SD of 8.28.
+We now have our population of size $N=10000$. We can precisely calculate the population mean $\mu$ and population standard deviation $\sigma$ of our 10000 numbers using `mean()` and `pop.sd()`:
 
 ```{r}
-set.seed(1)
-population <- rnorm(1000, mean = 200, sd = 8)
+mean(pop)      
 
-mean(population)  #199.91
-pop.sd(population)    #8.28
+pop.sd(pop) 
 ```
 
-What if you did not know the real population SD and you were going to take samples of size 15 to try and estimate the population mean and SD. 
+So our population has a mean $\mu=7.99$ and population standard deviation $\sigma=2.02$.
+
+
+
+Let's now start taking samples. We'll just choose samples of size $n=10$. We can get samples using `sample()` in R. Let's look at the sample mean of each sample:
 
 ```{r}
-s1 <- sample(population, 15, replace = T)
+#first sample
+samp1 <- sample(pop, size = 10, replace = T)
+samp1
 
-mean(s1) 
+mean(samp1)
 
-pop.sd(s1)  
 
-sd(s1)   
 ```
 
-Let's try another sample:
+Here our sample mean $\overline{x}=7.88$ which is close, but a bit below $\mu=7.99$.  
+
+Let's do it again:
 
 ```{r}
-s2 <- sample(population, 15, replace = T)
+#second sample
+samp2 <- sample(pop, size = 10, replace = T)
+samp2
 
-mean(s2) 
+mean(samp2)
 
-pop.sd(s2)  
 
-sd(s2)   
 ```
 
-So, in one sample the sample SD was closer to the real pop SD in the other, the popSD was closer to the real pop SD.
+Again our value of $\overline{x}=7.69$ is below $\mu=7.99$.
 
----- 
-
-Now let's do this for 10,000 samples:
+Let's do a third sample:
 
 ```{r}
-results.means<- vector('list',10000)
-results.popSD<- vector('list',10000)
-results.sampSD<- vector('list',10000)
+#third sample
+samp3 <- sample(pop, size = 10, replace = T)
+samp3
 
-for(i in 1:10000){
-  s <- sample(population, 15, replace = T)
-  results.means[[i]] <- mean(s)
-  results.popSD[[i]] <- pop.sd(s)
-  results.sampSD[[i]] <- sd(s)
+mean(samp3)
+
+
+```
+
+
+This time our value of $\overline{x}=8.58$ is higher than $\mu=7.99$.
+
+
+What if we did this thousands and thousands of times? Would our sample mean be more often lower or higher than the population mean $\mu=7.99$?
+
+This is what the code below is doing - it's effectively grabbing a sample of size 10 and then calculating the sample mean, but it's doing this 20,000 times. It's storing all the sample means in an object called `results.means`.
+
+Note: you don't need to know how this code works!
+
+```{r}
+results.means<- vector('list',20000)
+
+for(i in 1:20000){
+  samp <- sample(pop, size = 10, replace = T)
+  results.means[[i]] <- mean(samp)
 }
 ```
 
-Sample mean, remember the population mean = 199.91
+
+Let's look at 10 of these sample means we just collected:
 
 ```{r}
-means <- unlist(results.means) # sample means
-
-mean(means) 
+unlist(results.means)[1:10]
 ```
 
-Standard deviations using the population SD
-```{r}
-popSDs <- unlist(results.popSD) # SDs using popSD
+Some are above and some are below $\mu=7.99$.
 
-mean(popSDs)
-```
-
-Sample SDs
-```{r}
-sampSDs <- unlist(results.sampSD) # sample SDs
-
-mean(sampSDs)
-```
-
-Now graph everything!
-
-
-This shows the sample mean is a good etimate of the population mean, on average. 
-```{r}
-ggplot(data.frame(means), aes(x=means)) +
-  geom_histogram(color='black', fill='blue', alpha=.2)+
-  theme_classic() +
-  geom_vline(xintercept = mean(means), lwd=1, color="black") +
-  geom_vline(xintercept = 199.91, lwd=1, color="orange", lty=2) +
-  ggtitle("Sample Means Distribution")
-```
-
-However, this shows the population SD formula with samples, leads us to underestimating the real population SD - on average there is a lot of variation though.
+Let's calculate the mean of all the 20,000 sample means:
 
 ```{r}
-ggplot(data.frame(sampSDs), aes(x=sampSDs)) +
-  geom_histogram(color='black', fill='blue', alpha=.2)+
-  theme_classic() +
-  geom_vline(xintercept = mean(sampSDs), lwd=1, color="black") +
-  geom_vline(xintercept = 8.28, lwd=1, color="orange", lty=2) +
-  ggtitle("SD Distribution when using Sample SD")
+mean(unlist(results.means))
 ```
 
-Overall, using the sample SD formula with samples, provides a better estimate of the population SD on average. This is why we divided by n-1 for sample SD.
+It turns out that the average sample mean that we collect using the formula $\overline{x} = \frac{\Sigma{x}}{n}$ is 7.99 which is the same as the population mean $\mu$. What this means is that this formula is perfectly fine to use to **estimate** the population mean. It is what we call an **unbiased estimator**.  Over the long run, it gives us a very good estimate of the population mean $\mu$.  Here is a histogram of our sample means from our 20,000 samples:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+ggplot(data.frame(x = unlist(results.means)), aes(x=x)) +
+         geom_histogram(color="black",fill="lightseagreen", binwidth=.05)+
+         geom_vline(xintercept=7.99, lwd=1)+
+         theme_classic()+
+  xlab("Sample mean")
+
+
+```
+
+The vertical solid black line represents $\mu=7.99$. This histogram is centered on this value, showing that our sample mean formula is unbiased in estimating the population mean - overall, it isn't under- or over-estimating the population mean.
+
+As a side note - what we just did in the exercise above was to calculate a *sampling distribution of sample means* - something we'll discuss much more in chapter xxx. 
 
 
 
+#### Sample standard deviation as an unbiased estimator
+
+Let's do something similar with our two formulas for calculating standard deviation. We'll take samples of size $n=10$ and use the sample standard deviation $s$ and the population standard deviation $\sigma$ formulas to estimate the true $\sigma=2.02$.
 
 
+```{r}
+#first sample
+sd(samp1)
+pop.sd(samp1)
+```
 
+With the first sample, both estimates are higher than $\sigma=2.02$, with the sample standard deviation being even higher.
+
+
+```{r}
+#second sample
+sd(samp2)
+pop.sd(samp2)
+```
+
+With the second sample of 10, both estimates are lower than $\sigma=2.02$, with the sample standard deviation being closer to 2.02.
+
+What if we did this for 20,000 samples of size 10?  We'll save the estimates using the sample SD formula in the object `results.samp.sd` and the estimates using the population SD formula in `results.pop.sd`. Again, don't worry about the code here - just focus on the output:
+
+
+```{r}
+results.samp.sd<- vector('list',20000)
+results.pop.sd<- vector('list',20000)
+
+for(i in 1:20000){
+  samp <- sample(pop, size = 10, replace = T)
+  results.samp.sd[[i]] <- sd(samp)
+  results.pop.sd[[i]] <- pop.sd(samp)
+  }
+```
+
+
+We can work out the average estimate of the standard deviation across all 20,000 samples:
+
+```{r}
+mean(unlist(results.samp.sd))
+mean(unlist(results.pop.sd))
+```
+
+So, over 20,000 samples both formulas actually overall underestimate the true population standard deviation of $\sigma=2.02$, however, the sample standard deviation formula is closer with it's average being 1.97 compared to the population standard deviation's formula being at 1.87.
+
+We can graph this like this:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+ddx <- data.frame(sample_formula = unlist(results.samp.sd),
+           pop_formula = unlist(results.pop.sd) ) %>%
+  pivot_longer(1:2)
+
+ggplot(ddx, aes(x=value)) +
+         geom_histogram(color="black",fill="lightseagreen", binwidth=.05)+
+         geom_vline(xintercept=2.02, lwd=1)+
+         theme_classic()+
+  facet_wrap(~name) +
+  xlab("Estimate of Standard Deviation")+
+  theme(strip.background = element_blank())
+
+
+```
+
+This visualization shows us a few things. First, over all 20,000 samples, some of our estimates of the true standard deviation $\sigma$ are higher and some are lower regardless of which formula we use. However, when we use the population formula (dividing by $N$), we have far more samples with estimates of the standard deviation $\sigma$ which are too low. The distribution is clearly not symmetrical.  If we consider the right histogram, when we use the sample SD formula (dividing by $n-1$), we correct this by and large. This histogram is closer to symmetrical, and we are not underestimating the true population standard deviation nearly as much. In this way, we called the sample standard deviation $s$ an **unbiased estimator**.
+
+If we were to take larger sample sizes, then our estimates of the population standard deviation $\sigma$, would get better and better when using the sample standard deviation formula.
 
 
 
@@ -526,33 +691,34 @@ Overall, using the sample SD formula with samples, provides a better estimate of
 
 ## Descriptive Statistics in R
 
-quick summary using real data...
+The above sections interweaved some theory with how to get descriptive information using R. In this section we'll summarize how to get descriptive summaries from real data in R.
 
+The dataset that we'll use is a year's worth of temperature data from Austin, TX.
 
 ```{r message=FALSE}
-library(tidyverse)
-
 atx <- read_csv("data/austin_weather.csv")
-
 head(atx) # first 6 rows
 ```
 
-Focus in the temperature column for now
+
+The `temp` column shows the average temperature for that day of the year in 2019. Here is a histogram showing the distribution. It is often hot in Texas.
 
 ```{r}
 ggplot(atx, aes(x= temp)) + 
-  geom_histogram(color="black", fill="lightseagreen", binwidth = 10)+
-  theme_classic()
+  geom_histogram(color="black", fill="lightseagreen", binwidth = 2)+
+  theme_classic()+
+  xlab("Average temperature")
 ```
 
 
 
 
-## Basic Descriptives
+**Basic Descriptives**
+
+Here is a list of some the basic descriptive commands such as calculating the $n$, the minimum, maximum and range. We apply each function to the whole column of data `atx$temp`, i.e. all the numbers of the distribution:
+
 ```{r}
 length(atx$temp) # length this tells you the 'n'
-
-sum(atx$temp) # sum
 
 range(atx$temp) # range 
 
@@ -560,61 +726,52 @@ min(atx$temp) # minimum
 
 max(atx$temp) # maximum
 
-var(atx$temp) # variance 
-
 ```
 
 
 
+**Mean, Median, and Mode**
 
-
-
-
-## Mean, Median, and Mode 
+These mean and median are straightforward in R:
 
 ```{r}
 mean(atx$temp) # mean
 
-sum(atx$temp)/length(atx$temp) # mean
-
 median(atx$temp) # median
 
-#estimate mode function 
-estimate_mode <- function(x) {
-  d <- density(x)
-  d$x[which.max(d$y)]
-}  
-
-estimate_mode(atx$temp) # using the function to get estimate mode
 ```
 
-For some descriptives, like mode, there is not a function already built into R, so a function needs to be made. The above code has a function for the estimated mode, this function works best with large data sets. 
+
+For some descriptives, like mode, there is not a function already built into R. One option is to use `table()` to get frequencies - but this isn't useful when you have relatively large datasets. The output is too large. Another option is to use `tidyverse` methods. Here, we use `group_by()` to get each temperature, then we use `count()` to count how many of each temperature we have, and then `arrange()` to determine which is most frequent:
+
+```{r}
+atx %>%
+  group_by(temp) %>%
+  count() %>%
+  arrange(-n)
+```
+
+This shows us that the modal value is 84.8F.  In reality however, the mode is never something that you will calculate outside of an introductory stats class.
 
 
 
+**Variation**
 
-
-
-
-
+The default standard variation measure in R is the sample standard deviation `sd()`, and is the one you should pretty much always use:
 
 ``` {r}
 sd(atx$temp) #  sample standard deviation
-
-#population standard deviation function 
- pop.sd <- function(s) { 
-   sqrt(sum((s - mean(s))^2)/length(s)) 
- } 
-
-pop.sd(atx$temp) # population standard deviation with the function 
 ```
 
 
+Variance can also be calculated using `var()` - remember this is the standard deviation squared. When you calculate this using the sample standard deviation $s$ the formula notation for the variance is $s^2$:
+
+```{r}
+var(atx$temp) # variance 
+```
 
 
-
-
-
+The lower quartile, upper quartile and inter-quartile range can be calculated like this:
 
 
 ``` {r}
@@ -626,29 +783,75 @@ IQR(atx$temp)   # this is the inter-quartile range.
 
 ```
 
-Don't be worried if these quartiles are slightly different to what you'd get by hand.
+
+Remember there are several ways of calculating the quartiles (see above).
+
+
+
+
+### Dealing with Missing Data
+
+Often in datasets we have missing data. In R, missing data in our dataframes or vectors is represented by `NA` or somtimes `NaN`.  A slightly annoying feature of many of the descriptive summary functions is that they do not work if there is missing data.
+
+Here's an illustration. We've created a vector of data called `q` that has some numbers but also a 'missing' piece of data:
 
 ```{r}
-ggplot(atx, aes(y=temp)) + 
-  geom_boxplot(color='black', fill='lightseagreen')
+q <- c(5, 10, 8, 3, NA, 7, 1, 2)
+q
 ```
 
-nb we get those numbers on the x-axis because there is no 'group'
-we can get rid of them like this:
+If we try and calculate some descriptives, R will not like it:
 
 ```{r}
-ggplot(atx, aes(y=temp)) + 
-  geom_boxplot(color='black', fill='lightseagreen') + 
-  scale_x_discrete(breaks = NULL)
+mean(q)
+
+sd(q)
+
+range(q)
+
+median(q)
+
 ```
 
-## Descriptives for Groups
- 
-Often in experiments you are looking for group differences, the following code will show you how to get descriptive statistics for each group. 
+What we have to do in these situations is to override the missing data. We need to tell it that we really do want to get these values and it should remove the missing data before doing that. We do that by adding the argument `na.rm=T` to the end of each function:
 
-This is a time where `tidyverse` comes in handy!
+```{r}
+mean(q, na.rm=T)
 
-First read in the data and notice it has a group column, genre. 
+sd(q, na.rm=T)
+
+range(q, na.rm=T)
+
+median(q, na.rm=T)
+
+```
+
+Now R is happy to do what we want.
+
+
+The only 'gotcha' that you need to watch out for is `length()` which we sometimes use to calculate the $n$ of a vector. If we do this for `q`, we'll get 8, which includes our missing value:
+
+
+```{r}
+length(q)
+```
+
+This is a way of getting around that - it looks odd, so we've just put it here for reference. It's not necessary for you to remember this. It's essentially asking what is the length of `q` when you don't include the `NA`:
+
+```{r}
+length(q[!is.na(q)])
+```
+
+
+
+
+
+## Descriptives for Datasets
+
+Often in studies, we are interested in many different outcome variables at once. We are also interested in how groups differ in various descriptive statistics. The following code will show you how to get descriptive statistics for several columns. In the next section we'll discsus getting descriptives for different groups from data. 
+
+
+First read in these data that are looking at various sales of different video games.
 
 ```{r message=FALSE}
 vg <- read_csv("data/videogames.csv")
@@ -656,23 +859,51 @@ vg <- read_csv("data/videogames.csv")
 head(vg)
 ```
 
-The function `table()` can show you the n for all groups. 
+
+
+One way to get quick summary information is to use the R function `summary()` like this:
+
+```{r}
+summary(vg)
+
+```
+
+
+You'll notice here that it just gives you some summary information for different columns, even those that have no numerical data in them. It's also not broken down by groups.  However, `summary()` can be a quick way to get some summary infomation.
+
+
+A slightly better function is `Describe()` in the `psych` package. Remember to install the `psych` package before using it.  Also, here we are telling it only to provide summaries of the relevant numeric columns (which are the 6th through 11th columns):
+
+```{r, warning=FALSE, message=FALSE}
+library(psych)
+describe(vg[c(6:11)])
+
+```
+
+This function also includes some descriptives that we don't necessarily need to worry about right now, but it does contain most of the ones we are concerned with.
+
+
+
+
+### Descriptives for Groups
+
+There are a few ways of getting descriptives for different groups.  In our videogame dataset `vg`, we have a column called `genre`. We can use the function `table()` to get the $n$ for all groups. 
+
 ```{r}
 table(vg$genre)
 ```
 
-Using `describeBy()` from the `psych` package can be a very quick and easy, but a bit annoying to look at. It also ignores missing data which is helpful.
+We have four different groups of genres, and we might want to get descriptives for each. We can use the function `describeBy()` from the `psych` package to get a very quick and easy, but a bit annoying, look at group summaries. It also ignores missing data which is helpful.  We dictate which group to get summaries by using the `group = "genre"` argument:
 
-* remember to install the `psych` package before using it. 
-
-
-```{r, eval=FALSE}
-library(psych)  ## this is not working on my computer
-
-describeBy(vg, group = "genre")
+```{r, warning=FALSE, message=FALSE}
+describeBy(vg[c(4,6:11)], group = "genre")
 ```
 
-Writing code using `tidyverse` can give us descriptive statistics in a more organized way. 
+
+The above is a quick and dirty way of getting summary information by group. But it is messy. We suggest an alternative method which is to write code using the `tidyverse` package. This can give us descriptive statistics in a more organized way. 
+
+For instance, if we wanted to get the mean of the column `NA_sales` by `genre` we would use `group_by()` and `summarise()` in this way:
+
 
 ```{r}
 vg %>% 
@@ -681,17 +912,20 @@ vg %>%
 
 ```
 
-If you had missing data, you'd do it like this. Also, `as.data.frame()` just helps us see decimal places. 
+The above code can be read as taking the dataset `vg`, and then grouping it by the column `genre`, and then summarizing the data to get the mean of the `NA_sales` column by group/genre.  Please not the British spelling of `summarise()`. The `tidyverse` was originally written using British spelling, and although R is usually fine with British or US spelling, this is one situation in which it is usually helpful to stick with the British spelling for boring reasons.
+
+If you had missing data, you'd do it like this. 
 
 
 ```{r}
 vg %>% 
   group_by(genre) %>% 
-  summarise(meanNA = mean(NA_sales, na.rm = T)) %>% 
-  as.data.frame()
+  summarise(meanNA = mean(NA_sales, na.rm = T)) 
 ```
 
-You can do several summaries at once like this
+
+
+You can do several summaries at once like this. Here we are getting the means and sample standard deviations of the `NA_sales` and `EU_sales` columns by `genre`:
 
 ```{r}
 vg %>% 
@@ -699,14 +933,13 @@ vg %>%
   summarise(meanNA = mean(NA_sales),
             sd_NA = sd(NA_sales),
             meanEU = mean(EU_sales),
-            sd_EU = sd(EU_sales)) %>% 
-  as.data.frame()
+            sd_EU = sd(EU_sales))
 ```
 
-To save time, you can tell it to just get the summary of all numeric columns. 
+To save time, you can tell it to just get the summary of all numeric columns by using `summarise_if()`. 
 
 ```{r}
-vg$year <- as.factor(vg$year) # just need to make year non-numeric first
+vg$year <- as.factor(vg$year) # just need to make year non-numeric first so doesn't get included in the numeric columns
 
 
 vg %>%
