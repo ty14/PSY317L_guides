@@ -10,6 +10,10 @@ site: bookdown::bookdown_site
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+This books is still in progress !!!   This is a draft.
+
+
+
 # Welcome to PSY317! 
 The following is a simple guide to R studio. 
 
