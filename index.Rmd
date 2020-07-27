@@ -10,11 +10,14 @@ site: bookdown::bookdown_site
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
- **This books is still in progress !!!   This is a draft.**
 
 
 
 # Welcome to PSY317! 
+
+
+ **This books is still in progress !!!   This is a draft. Several sections are still incomplete or unedited.**
+
 
 This book is written to help students enrolled in the University of Texas at Austin **Introduction to Statistics for the Behavioral Sciences** (PSY317L) course led by Professor James Curley.
 
