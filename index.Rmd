@@ -10,16 +10,15 @@ site: bookdown::bookdown_site
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This books is still in progress !!!   This is a draft.
+ **This books is still in progress !!!   This is a draft.**
 
 
 
 # Welcome to PSY317! 
-The following is a simple guide to R studio. 
 
+This book is written to help students enrolled in the University of Texas at Austin **Introduction to Statistics for the Behavioral Sciences** (PSY317L) course led by Professor James Curley.
 
-What this guide contains....  That it's mainly a how to implement stuff in R, but it also touches on bits of stats and data theory where applicable
-
+We hope that the book will be a useful resource to help you learn both R and statistics. If you have any suggestions for improvements, please get in touch with Professor Curley.
 
 
 ## What this book includes and what it doesn't
@@ -36,32 +35,25 @@ This guide covers the material presented in the video segments. In some parts, w
 
 ## Acknowledgements
 
-This guidebook is built upon the work of several others' teaching materials.  In particular, Danielle Navarro's book....  also some examples come from Andy Field's intro to statistics using R
+This guidebook is built upon the work of several others' teaching materials.  In particular, Danielle Navarro's book [Learning statistics with R: A tutorial for psychology students and other beginners](https://learningstatisticswithr.com/book/). A couple of data examples also come from the book [Discovering Statistics Using R](https://www.amazon.com/Discovering-Statistics-Using-Andy-Field/dp/1446200469) Field's intro to statistics using R.
 
 
 
 ## References
 
-The following books are all freely avaiable online (like this one!) and are helpful resources
+The following books are all freely avaiable online (like this one!) and are helpful resources. 
 
-wilke - visualizing
-
-wickham grolemund - intro R
-
-other wickham books?
-
-danielle navarro - intro stats
+For Statistics and R Help:
+Danielle Navarro - [Learning statistics with R: A tutorial for psychology students and other beginners](https://learningstatisticswithr.com/book/)
 
 
+For more on Data Visualization including using R:
+Claus O Wilke - [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/)
+
+For more on using R as a programming language:
+Garrett Grolemund & Hadley Wickham - [R for Data Science](https://r4ds.had.co.nz)
 
 
-
-
-## Other places to find help about R
-
-Rstudio - cheatsheets, community pages
-
-???
 
 
 
@@ -69,9 +61,17 @@ Rstudio - cheatsheets, community pages
 
 With statistics stuff, you can never really have enough resources. Although throughout this course we try to explain difficult concepts in terms we hope all students can understand, sometimes you just need to read or hear about these concepts several times before they sink in. Othertimes, it's not until somebody else explains it in a slightly different way that it finally finds a home in your brain.  To that end, we recommend looking over some other help tutorials and reading. You certainly don't have to go looking at these materials - but if you feel like hearing a different voice, then these are some that I recommend.
 
-Albert Kim stuff?
 
-Andrew Field's statistics in R book - probably the next level up from introduction in terms of R.
+**R stuff**
+[Rstudio Cheatsheets](https://rstudio.com/resources/cheatsheets/)
+[R Community](https://community.rstudio.com/)
+[R Cookbook](http://www.cookbook-r.com/)
+[R for Data Science](https://r4ds.had.co.nz/)
 
-Khan Academy videos.(not on R though)
+
+**Stats stuff**
+
+[Modern Dive by Chester Ismay & Albert Kim](https://moderndive.com)
+[Khan Academy videos](https://www.khanacademy.org/math/statistics-probability)
+
 
