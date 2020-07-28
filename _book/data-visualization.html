@@ -50,44 +50,72 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -103,7 +131,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <ul class="summary">
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to PSY317!</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-this-book-includes-and-what-it-doesnt"><i class="fa fa-check"></i><b>1.1</b> What this book includes and what it doesn't</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-this-book-includes-and-what-it-doesnt"><i class="fa fa-check"></i><b>1.1</b> What this book includes and what it doesn’t</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i><b>1.2</b> How to use this guide</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.3</b> Acknowledgements</a></li>
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#references"><i class="fa fa-check"></i><b>1.4</b> References</a></li>
@@ -229,11 +257,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="10.2.1" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#visualizing-the-sampling-distribution"><i class="fa fa-check"></i><b>10.2.1</b> Visualizing the Sampling Distribution</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#pooled-standard-deviation"><i class="fa fa-check"></i><b>10.3</b> Pooled Standard Deviation</a></li>
-<li class="chapter" data-level="10.4" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#theory-behind-students-t-test"><i class="fa fa-check"></i><b>10.4</b> Theory behind Student's t-test</a></li>
+<li class="chapter" data-level="10.4" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#theory-behind-students-t-test"><i class="fa fa-check"></i><b>10.4</b> Theory behind Student’s t-test</a></li>
 <li class="chapter" data-level="10.5" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#confidence-interval-for-difference-in-means"><i class="fa fa-check"></i><b>10.5</b> Confidence Interval for Difference in Means</a></li>
 <li class="chapter" data-level="10.6" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#conducting-the-student-t-test-in-r"><i class="fa fa-check"></i><b>10.6</b> Conducting the Student t-test in R</a></li>
 <li class="chapter" data-level="10.7" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#assumptions-of-the-independent-t-test"><i class="fa fa-check"></i><b>10.7</b> Assumptions of the Independent t-test</a></li>
-<li class="chapter" data-level="10.8" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#welchs-t-test"><i class="fa fa-check"></i><b>10.8</b> Welch's t-test</a></li>
+<li class="chapter" data-level="10.8" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#welchs-t-test"><i class="fa fa-check"></i><b>10.8</b> Welch’s t-test</a></li>
 <li class="chapter" data-level="10.9" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#effect-size-for-independent-two-sample-t-tests"><i class="fa fa-check"></i><b>10.9</b> Effect Size for Independent two sample t-tests:</a></li>
 <li class="chapter" data-level="10.10" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#paired-t-tests"><i class="fa fa-check"></i><b>10.10</b> Paired t-tests</a><ul>
 <li class="chapter" data-level="10.10.1" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#the-paired-t-test-is-a-one-sample-t-test"><i class="fa fa-check"></i><b>10.10.1</b> The paired t-test is a one-sample t-test</a></li>
@@ -248,7 +276,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.2" data-path="correlation.html"><a href="correlation.html#calculating-the-pearson-correlation-in-r"><i class="fa fa-check"></i><b>11.2</b> Calculating the Pearson Correlation in R</a></li>
 <li class="chapter" data-level="11.3" data-path="correlation.html"><a href="correlation.html#cross-products"><i class="fa fa-check"></i><b>11.3</b> Cross-products</a></li>
 <li class="chapter" data-level="11.4" data-path="correlation.html"><a href="correlation.html#conducting-a-pearson-correlation-test"><i class="fa fa-check"></i><b>11.4</b> Conducting a Pearson Correlation Test</a></li>
-<li class="chapter" data-level="11.5" data-path="correlation.html"><a href="correlation.html#assumptions-of-pearsons-correlation"><i class="fa fa-check"></i><b>11.5</b> Assumptions of Pearson's Correlation</a></li>
+<li class="chapter" data-level="11.5" data-path="correlation.html"><a href="correlation.html#assumptions-of-pearsons-correlation"><i class="fa fa-check"></i><b>11.5</b> Assumptions of Pearson’s Correlation</a></li>
 <li class="chapter" data-level="11.6" data-path="correlation.html"><a href="correlation.html#confidence-intervals-for-r"><i class="fa fa-check"></i><b>11.6</b> Confidence Intervals for R</a></li>
 <li class="chapter" data-level="11.7" data-path="correlation.html"><a href="correlation.html#partial-correlations"><i class="fa fa-check"></i><b>11.7</b> Partial Correlations</a></li>
 <li class="chapter" data-level="11.8" data-path="correlation.html"><a href="correlation.html#non-parametric-correlations"><i class="fa fa-check"></i><b>11.8</b> Non-parametric Correlations</a></li>
@@ -258,7 +286,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12.1" data-path="linear-regression.html"><a href="linear-regression.html#introduction-to-linear-regression"><i class="fa fa-check"></i><b>12.1</b> Introduction to Linear Regression</a></li>
 <li class="chapter" data-level="12.2" data-path="linear-regression.html"><a href="linear-regression.html#a-and-b"><i class="fa fa-check"></i><b>12.2</b> a and b</a><ul>
 <li class="chapter" data-level="12.2.1" data-path="linear-regression.html"><a href="linear-regression.html#how-to-calculate-a-and-b-in-r"><i class="fa fa-check"></i><b>12.2.1</b> How to calculate a and b in R</a></li>
-<li class="chapter" data-level="12.2.2" data-path="linear-regression.html"><a href="linear-regression.html#how-to-calculate-a-and-b-by-hand"><i class="fa fa-check"></i><b>12.2.2</b> How to calculate a and b 'by hand'</a></li>
+<li class="chapter" data-level="12.2.2" data-path="linear-regression.html"><a href="linear-regression.html#how-to-calculate-a-and-b-by-hand"><i class="fa fa-check"></i><b>12.2.2</b> How to calculate a and b ‘by hand’</a></li>
 </ul></li>
 <li class="chapter" data-level="12.3" data-path="linear-regression.html"><a href="linear-regression.html#residuals"><i class="fa fa-check"></i><b>12.3</b> Residuals</a><ul>
 <li class="chapter" data-level="12.3.1" data-path="linear-regression.html"><a href="linear-regression.html#how-to-calculate-the-residuals"><i class="fa fa-check"></i><b>12.3.1</b> How to calculate the residuals</a></li>
@@ -272,15 +300,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12.5" data-path="linear-regression.html"><a href="linear-regression.html#goodness-of-fit-test---f-ratio"><i class="fa fa-check"></i><b>12.5</b> Goodness of Fit Test - F-ratio</a></li>
 <li class="chapter" data-level="12.6" data-path="linear-regression.html"><a href="linear-regression.html#assumptions-of-linear-regression"><i class="fa fa-check"></i><b>12.6</b> Assumptions of Linear Regression</a><ul>
 <li class="chapter" data-level="12.6.1" data-path="linear-regression.html"><a href="linear-regression.html#normality-of-residuals"><i class="fa fa-check"></i><b>12.6.1</b> Normality of Residuals</a></li>
-<li class="chapter" data-level="12.6.2" data-path="linear-regression.html"><a href="linear-regression.html#linearity----"><i class="fa fa-check"></i><b>12.6.2</b> 2. Linearity ---</a></li>
+<li class="chapter" data-level="12.6.2" data-path="linear-regression.html"><a href="linear-regression.html#linearity"><i class="fa fa-check"></i><b>12.6.2</b> 2. Linearity —</a></li>
 <li class="chapter" data-level="12.6.3" data-path="linear-regression.html"><a href="linear-regression.html#homogeneity-of-variance-homoscedasticity"><i class="fa fa-check"></i><b>12.6.3</b> 3. Homogeneity of Variance / Homoscedasticity</a></li>
 <li class="chapter" data-level="12.6.4" data-path="linear-regression.html"><a href="linear-regression.html#no-colinearity"><i class="fa fa-check"></i><b>12.6.4</b> No Colinearity</a></li>
 <li class="chapter" data-level="12.6.5" data-path="linear-regression.html"><a href="linear-regression.html#unusual-datapoints"><i class="fa fa-check"></i><b>12.6.5</b> Unusual Datapoints</a></li>
 </ul></li>
 <li class="chapter" data-level="12.7" data-path="linear-regression.html"><a href="linear-regression.html#examining-individual-predictor-estimates"><i class="fa fa-check"></i><b>12.7</b> Examining individual predictor estimates</a><ul>
-<li class="chapter" data-level="12.7.1" data-path="linear-regression.html"><a href="linear-regression.html#confidence-interval-of-b."><i class="fa fa-check"></i><b>12.7.1</b> 95% confidence interval of 'b'.</a></li>
+<li class="chapter" data-level="12.7.1" data-path="linear-regression.html"><a href="linear-regression.html#confidence-interval-of-b."><i class="fa fa-check"></i><b>12.7.1</b> 95% confidence interval of ‘b’.</a></li>
 <li class="chapter" data-level="12.7.2" data-path="linear-regression.html"><a href="linear-regression.html#standard-error-of-b"><i class="fa fa-check"></i><b>12.7.2</b> Standard Error of b</a></li>
-<li class="chapter" data-level="12.7.3" data-path="linear-regression.html"><a href="linear-regression.html#calculating-95-confidence-interval-of-b-by-hand"><i class="fa fa-check"></i><b>12.7.3</b> Calculating 95% confidence interval of 'b' by hand</a></li>
+<li class="chapter" data-level="12.7.3" data-path="linear-regression.html"><a href="linear-regression.html#calculating-95-confidence-interval-of-b-by-hand"><i class="fa fa-check"></i><b>12.7.3</b> Calculating 95% confidence interval of ‘b’ by hand</a></li>
 <li class="chapter" data-level="12.7.4" data-path="linear-regression.html"><a href="linear-regression.html#signifcance-testing-b"><i class="fa fa-check"></i><b>12.7.4</b> Signifcance Testing b</a></li>
 </ul></li>
 </ul></li>
@@ -310,70 +338,80 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="data-visualization" class="section level1">
 <h1><span class="header-section-number">5</span> Data Visualization</h1>
 <p>The package <code>ggplot2</code> is used to visualize data. Before starting you should load the <code>tidyverse</code> package, which includes <code>ggplot2</code> and other tools, at the very top of your script.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="data-visualization.html#cb372-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
 <div id="intro-to-ggplot2" class="section level2">
 <h2><span class="header-section-number">5.1</span> Intro to ggplot2</h2>
 <p>Read in data</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/BlueJays.csv&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="data-visualization.html#cb373-1"></a>df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/BlueJays.csv&quot;</span>)</span></code></pre></div>
 <p>Start with a black canvas</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>()  </code></pre></div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="data-visualization.html#cb374-1"></a><span class="kw">ggplot</span>()  </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-141-1.png" width="288" /></p>
 <p>Just adding the datset to the blank canvas, but nothing plotted yet.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df)   </code></pre></div>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="data-visualization.html#cb375-1"></a><span class="kw">ggplot</span>(df)   </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-142-1.png" width="288" /></p>
-<p>You need to use <code>aes()</code> for every <code>ggplot</code> you make, and inside <code>aes()</code> we'll put what our x and y axis will be.</p>
-<p>We say what the x and y are, and it creates scales on each axis, but we didn't tell it what to plot yet.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>Mass, <span class="dt">y=</span>Head) )   </code></pre></div>
+<p>You need to use <code>aes()</code> for every <code>ggplot</code> you make, and inside <code>aes()</code> we’ll put what our x and y axis will be.</p>
+<p>We say what the x and y are, and it creates scales on each axis, but we didn’t tell it what to plot yet.</p>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="data-visualization.html#cb376-1"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>Mass, <span class="dt">y=</span>Head) )   </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-143-1.png" width="288" /></p>
 <p>Need to add points.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>Mass, <span class="dt">y=</span>Head) ) +<span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="data-visualization.html#cb377-1"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>Mass, <span class="dt">y=</span>Head) ) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-144-1.png" width="288" /></p>
 <p>What if we want to change the color of the points?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>Mass, <span class="dt">y=</span>Head) ) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&#39;red&#39;</span>)</code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="data-visualization.html#cb378-1"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>Mass, <span class="dt">y=</span>Head) ) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&#39;red&#39;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-145-1.png" width="288" /></p>
 <p>What if we want to color the points based on another variable</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>Mass, <span class="dt">y=</span>Head, <span class="dt">color =</span> KnownSex) ) +<span class="st"> </span><span class="kw">geom_point</span>() </code></pre></div>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="data-visualization.html#cb379-1"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>Mass, <span class="dt">y=</span>Head, <span class="dt">color =</span> KnownSex) ) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-146-1.png" width="480" /></p>
 <p>Basically, you can just keep adding to the initial plot to make your graph the best visualization to fit your data.</p>
 <p>There are many different graphs you can make with <code>ggplot</code>. What graph you make will depend on what type of data you have and what you want to visual from your data.</p>
 <p>The next couple sections will take the base of ggplot and show you examples with different types of points. They will start general then show you how to customize plots.</p>
-<p>General information about customizing plots in ggplot: 1. ALLL THE COLORS IN THE WORLD <a href="https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/" class="uri">https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/</a> <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" class="uri">http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf</a></p>
+<p>General information about customizing plots in ggplot:
+1. ALLL THE COLORS IN THE WORLD
+<a href="https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/" class="uri">https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/</a>
+<a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" class="uri">http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf</a></p>
 <ol start="2" style="list-style-type: decimal">
 <li>change the type of points you plot with <code>geom_point(pch = blah)</code>:</li>
 </ol>
 <div class="figure">
-<img src="img/points.png" alt="Different Types of Points" width="400" />
+<img src="img/points.png" width="400" alt="" />
 <p class="caption">Different Types of Points</p>
 </div>
-<p>Also, you can change the color and size of points by `geom_point(size = 3, color = &quot;blue&quot;).</p>
+<p>Also, you can change the color and size of points by `geom_point(size = 3, color = “blue”).</p>
 <ol start="3" style="list-style-type: decimal">
 <li>Built in themes:</li>
 </ol>
-<p><code>theme_bw()</code> a variation on theme_grey() that uses a white background and thin grey grid lines.</p>
-<p><code>theme_linedraw()</code> A theme with only black lines of various widths on white backgrounds, reminiscent of a line drawing.</p>
-<p><code>theme_light()</code> similar to theme_linedraw() but with light grey lines and axes, to direct more attention towards the data.</p>
-<p><code>theme_dark()</code> the dark cousin of theme_light(), with similar line sizes but a dark background. Useful to make thin colored lines pop out.</p>
-<p><code>theme_minimal()</code> A minimalistic theme with no background annotations.</p>
-<p><code>theme_classic()</code> A classic-looking theme, with x and y axis lines and no gridlines.</p>
-<p><code>theme_void()</code> A completely empty theme</p>
+<p><code>theme_bw()</code>
+a variation on theme_grey() that uses a white background and thin grey grid lines.</p>
+<p><code>theme_linedraw()</code>
+A theme with only black lines of various widths on white backgrounds, reminiscent of a line drawing.</p>
+<p><code>theme_light()</code>
+similar to theme_linedraw() but with light grey lines and axes, to direct more attention towards the data.</p>
+<p><code>theme_dark()</code>
+the dark cousin of theme_light(), with similar line sizes but a dark background. Useful to make thin colored lines pop out.</p>
+<p><code>theme_minimal()</code>
+A minimalistic theme with no background annotations.</p>
+<p><code>theme_classic()</code>
+A classic-looking theme, with x and y axis lines and no gridlines.</p>
+<p><code>theme_void()</code>
+A completely empty theme</p>
 <p>For more information about themes <a href="https://ggplot2-book.org/">look here</a>.</p>
 </div>
 <div id="histogram" class="section level2">
 <h2><span class="header-section-number">5.2</span> Histogram</h2>
 <p>Why make a histogram?</p>
 <p>Histograms are a good place to start with your data, it will give you a visual representation of your data distribution. blah probably needs more, idk what to say.</p>
-<p>theory of histograms.....</p>
-<p>.... how to make a histogram by hand....</p>
+<p>theory of histograms…..</p>
+<p>…. how to make a histogram by hand….</p>
 <div id="stem-and-leaf-plots" class="section level4">
 <h4><span class="header-section-number">5.2.0.1</span> Stem-and-Leaf Plots</h4>
 <ul>
 <li>related to histograms.</li>
 </ul>
 <p>Load libraries and data</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse) 
-df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/films.csv&quot;</span>)
-
-<span class="kw">head</span>(df)</code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="data-visualization.html#cb380-1"></a><span class="kw">library</span>(tidyverse) </span>
+<span id="cb380-2"><a href="data-visualization.html#cb380-2"></a>df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/films.csv&quot;</span>)</span>
+<span id="cb380-3"><a href="data-visualization.html#cb380-3"></a></span>
+<span id="cb380-4"><a href="data-visualization.html#cb380-4"></a><span class="kw">head</span>(df)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 5
 ##   film                     year rottentomatoes  imdb metacritic
 ##   &lt;chr&gt;                   &lt;int&gt;          &lt;int&gt; &lt;dbl&gt;      &lt;int&gt;
@@ -384,43 +422,43 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 ## 5 Hot Tub Time Machine 2   2015             14   5.1         29
 ## 6 The Water Diviner        2015             63   7.2         50</code></pre>
 <p>Making a ggplot2 histogram, which will plot imdb scores.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>imdb)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>()  </code></pre></div>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="data-visualization.html#cb382-1"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>imdb)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb382-2"><a href="data-visualization.html#cb382-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>()  </span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-148-1.png" width="288" /></p>
 <p>Now lets make the bars doderblue and border them white.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>imdb)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;white&#39;</span>, <span class="dt">fill=</span><span class="st">&quot;dodgerblue&quot;</span>) </code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="data-visualization.html#cb384-1"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>imdb)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb384-2"><a href="data-visualization.html#cb384-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;white&#39;</span>, <span class="dt">fill=</span><span class="st">&quot;dodgerblue&quot;</span>) </span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-149-1.png" width="288" /></p>
 <p>You can also control the bin width of histograms, this code has a binwidth of 0.2 rating points</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> imdb)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.2</span>, <span class="dt">color=</span><span class="st">&quot;white&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;dodgerblue&quot;</span>) </code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="data-visualization.html#cb386-1"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> imdb)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb386-2"><a href="data-visualization.html#cb386-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.2</span>, <span class="dt">color=</span><span class="st">&quot;white&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;dodgerblue&quot;</span>) </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-150-1.png" width="288" /></p>
 <p>Further you can control where the boundaries of each bin lie on the x-axis</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> imdb)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.2</span>, <span class="dt">color=</span><span class="st">&quot;white&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;dodgerblue&quot;</span>,<span class="dt">boundary=</span><span class="dv">4</span>) </code></pre></div>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="data-visualization.html#cb387-1"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> imdb)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb387-2"><a href="data-visualization.html#cb387-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.2</span>, <span class="dt">color=</span><span class="st">&quot;white&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;dodgerblue&quot;</span>,<span class="dt">boundary=</span><span class="dv">4</span>) </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-151-1.png" width="288" /></p>
 <p>Just be careful with using the boundaries that it does not crop your histogram incorrectly. Changing histograms too much can lead to miss representing the data. (idk if that is said correctly)</p>
 <p>Here is the full code with some additional customizations</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> imdb)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.2</span>, <span class="dt">color=</span><span class="st">&quot;white&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;dodgerblue&quot;</span>,<span class="dt">boundary=</span><span class="dv">4</span>) +
-<span class="st">  </span><span class="kw">theme_classic</span>() +
-<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Histogram of IMDB Ratings&quot;</span>) +
-<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Rating&quot;</span>) +
-<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="data-visualization.html#cb388-1"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> imdb)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb388-2"><a href="data-visualization.html#cb388-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.2</span>, <span class="dt">color=</span><span class="st">&quot;white&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;dodgerblue&quot;</span>,<span class="dt">boundary=</span><span class="dv">4</span>) <span class="op">+</span></span>
+<span id="cb388-3"><a href="data-visualization.html#cb388-3"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb388-4"><a href="data-visualization.html#cb388-4"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Histogram of IMDB Ratings&quot;</span>) <span class="op">+</span></span>
+<span id="cb388-5"><a href="data-visualization.html#cb388-5"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Rating&quot;</span>) <span class="op">+</span></span>
+<span id="cb388-6"><a href="data-visualization.html#cb388-6"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-152-1.png" width="288" /></p>
 <p>Instead of Viewing as a histogram, you can also show the data as a density curve</p>
-<p><code>{, fig.width = 3, fig.height = 2} ggplot(df, aes(x = imdb)) +    geom_density(color = &quot;navy&quot;, fill = &quot;dodgerblue&quot;)</code></p>
+<p><code>{, fig.width = 3, fig.height = 2} ggplot(df, aes(x = imdb)) +    geom_density(color = "navy", fill = "dodgerblue")</code></p>
 <p>Adding, alpha gives it a bit of transparency</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> imdb)) +<span class="st">  </span>
-<span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">color =</span> <span class="st">&quot;navy&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;dodgerblue&quot;</span>, <span class="dt">alpha=</span>.<span class="dv">4</span>)</code></pre></div>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="data-visualization.html#cb389-1"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> imdb)) <span class="op">+</span><span class="st">  </span></span>
+<span id="cb389-2"><a href="data-visualization.html#cb389-2"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">color =</span> <span class="st">&quot;navy&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;dodgerblue&quot;</span>, <span class="dt">alpha=</span>.<span class="dv">4</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-153-1.png" width="288" /></p>
 <p><strong>Comparing Distributions</strong> with side by side Histograms</p>
 <p>Switching to new data</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">life &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/lifeexp.csv&quot;</span>)
-
-<span class="kw">head</span>(life)</code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="data-visualization.html#cb390-1"></a>life &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/lifeexp.csv&quot;</span>)</span>
+<span id="cb390-2"><a href="data-visualization.html#cb390-2"></a></span>
+<span id="cb390-3"><a href="data-visualization.html#cb390-3"></a><span class="kw">head</span>(life)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 6
 ##   country     continent year      lifeExp      pop gdpPercap
 ##   &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
@@ -430,7 +468,7 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 ## 4 Albania     Europe    year_2007    76.4  3600523     5937.
 ## 5 Algeria     Africa    year_1952    43.1  9279525     2449.
 ## 6 Algeria     Africa    year_2007    72.3 33333216     6223.</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(life)</code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="data-visualization.html#cb392-1"></a><span class="kw">tail</span>(life)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 6
 ##   country     continent year      lifeExp      pop gdpPercap
 ##   &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
@@ -442,35 +480,35 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 ## 6 Zimbabwe    Africa    year_2007    43.5 12311143      470.</code></pre>
 <p>First lets plot a histogram of life Expectancy across all countries</p>
 <p><code>{rmessage=FALSE, warning=FALSE, fig.width = 3, fig.height = 2} ggplot(life, aes(x=lifeExp)) +    geom_histogram(color='white', fill='lightseagreen') #warning is ok</code></p>
-<p>Since we've combined data from the two years - we should separate histograms for each year. We can do this by Overlaiding histograms.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(life, <span class="kw">aes</span>(<span class="dt">x=</span>lifeExp, <span class="dt">fill=</span>year)) +<span class="st">  </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">position=</span><span class="st">&quot;identity&quot;</span>) <span class="co">#horrible</span></code></pre></div>
+<p>Since we’ve combined data from the two years - we should separate histograms for each year. We can do this by Overlaiding histograms.</p>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="data-visualization.html#cb394-1"></a><span class="kw">ggplot</span>(life, <span class="kw">aes</span>(<span class="dt">x=</span>lifeExp, <span class="dt">fill=</span>year)) <span class="op">+</span><span class="st">  </span></span>
+<span id="cb394-2"><a href="data-visualization.html#cb394-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">position=</span><span class="st">&quot;identity&quot;</span>) <span class="co">#horrible</span></span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-155-1.png" width="480" /></p>
 <p>That graph was horrible, but if you costomize the plot by defining <code>binwith</code> and adding an alpha level it will get better.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(life, <span class="kw">aes</span>(<span class="dt">x=</span>lifeExp, <span class="dt">fill=</span>year)) +<span class="st">  </span>
-<span class="st">   </span><span class="kw">geom_histogram</span>(<span class="dt">position=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">alpha=</span>.<span class="dv">5</span>, <span class="dt">binwidth=</span><span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="data-visualization.html#cb396-1"></a><span class="kw">ggplot</span>(life, <span class="kw">aes</span>(<span class="dt">x=</span>lifeExp, <span class="dt">fill=</span>year)) <span class="op">+</span><span class="st">  </span></span>
+<span id="cb396-2"><a href="data-visualization.html#cb396-2"></a><span class="st">   </span><span class="kw">geom_histogram</span>(<span class="dt">position=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">alpha=</span>.<span class="dv">5</span>, <span class="dt">binwidth=</span><span class="dv">2</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-156-1.png" width="480" /></p>
 <p>Let add color now to make it even better, this makes the borders and <code>fill</code> of the bars black</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(life, <span class="kw">aes</span>(<span class="dt">x=</span>lifeExp, <span class="dt">fill=</span>year)) +<span class="st">  </span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">position=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">alpha=</span>.<span class="dv">5</span>, <span class="dt">binwidth=</span><span class="dv">2</span>, <span class="dt">color=</span><span class="st">&#39;black&#39;</span>) +
-<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#999999&quot;</span>, <span class="st">&quot;#E69F00&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="data-visualization.html#cb397-1"></a><span class="kw">ggplot</span>(life, <span class="kw">aes</span>(<span class="dt">x=</span>lifeExp, <span class="dt">fill=</span>year)) <span class="op">+</span><span class="st">  </span></span>
+<span id="cb397-2"><a href="data-visualization.html#cb397-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">position=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">alpha=</span>.<span class="dv">5</span>, <span class="dt">binwidth=</span><span class="dv">2</span>, <span class="dt">color=</span><span class="st">&#39;black&#39;</span>) <span class="op">+</span></span>
+<span id="cb397-3"><a href="data-visualization.html#cb397-3"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#999999&quot;</span>, <span class="st">&quot;#E69F00&quot;</span>))</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-157-1.png" width="480" /></p>
 <p>Comparing Distributions can also be done with <code>geom_density</code>, this is usually simpler to compare.</p>
 <p>Initial plot</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(life, <span class="kw">aes</span>(<span class="dt">x=</span>lifeExp, <span class="dt">fill=</span>year)) +<span class="st">  </span>
-<span class="st">  </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> year), <span class="dt">alpha =</span> <span class="fl">0.4</span>) </code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="data-visualization.html#cb398-1"></a><span class="kw">ggplot</span>(life, <span class="kw">aes</span>(<span class="dt">x=</span>lifeExp, <span class="dt">fill=</span>year)) <span class="op">+</span><span class="st">  </span></span>
+<span id="cb398-2"><a href="data-visualization.html#cb398-2"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> year), <span class="dt">alpha =</span> <span class="fl">0.4</span>) </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-158-1.png" width="480" /></p>
 <p>Adding customized colors</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(life, <span class="kw">aes</span>(<span class="dt">x=</span>lifeExp, <span class="dt">fill=</span>year)) +<span class="st">  </span>
-<span class="st">  </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> year), <span class="dt">alpha =</span> <span class="fl">0.4</span>) +
-<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#999999&quot;</span>, <span class="st">&quot;#E69F00&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="data-visualization.html#cb399-1"></a><span class="kw">ggplot</span>(life, <span class="kw">aes</span>(<span class="dt">x=</span>lifeExp, <span class="dt">fill=</span>year)) <span class="op">+</span><span class="st">  </span></span>
+<span id="cb399-2"><a href="data-visualization.html#cb399-2"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> year), <span class="dt">alpha =</span> <span class="fl">0.4</span>) <span class="op">+</span></span>
+<span id="cb399-3"><a href="data-visualization.html#cb399-3"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#999999&quot;</span>, <span class="st">&quot;#E69F00&quot;</span>))</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-159-1.png" width="480" /></p>
 <p>And adding a <code>theme</code></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(life, <span class="kw">aes</span>(<span class="dt">x=</span>lifeExp, <span class="dt">fill=</span>year)) +<span class="st">  </span>
-<span class="st">  </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> year), <span class="dt">alpha =</span> <span class="fl">0.4</span>) +
-<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#999999&quot;</span>, <span class="st">&quot;#E69F00&quot;</span>))  +<span class="st"> </span>
-<span class="st">  </span><span class="kw">theme_classic</span>()</code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="data-visualization.html#cb400-1"></a><span class="kw">ggplot</span>(life, <span class="kw">aes</span>(<span class="dt">x=</span>lifeExp, <span class="dt">fill=</span>year)) <span class="op">+</span><span class="st">  </span></span>
+<span id="cb400-2"><a href="data-visualization.html#cb400-2"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> year), <span class="dt">alpha =</span> <span class="fl">0.4</span>) <span class="op">+</span></span>
+<span id="cb400-3"><a href="data-visualization.html#cb400-3"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#999999&quot;</span>, <span class="st">&quot;#E69F00&quot;</span>))  <span class="op">+</span><span class="st"> </span></span>
+<span id="cb400-4"><a href="data-visualization.html#cb400-4"></a><span class="st">  </span><span class="kw">theme_classic</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-160-1.png" width="480" /></p>
 </div>
 </div>
@@ -479,8 +517,8 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 <p>Scatter plots are used when you are trying to illustrate a trend in your data. These plots can be important in statistics because it can help show the correlation between two variables.</p>
 <p><code>geom_point</code> is used for scatter plots.</p>
 <p>Lets look at the dataframe cheese:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cheese &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/cheese.csv&quot;</span>)
-<span class="kw">head</span>(cheese)</code></pre></div>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="data-visualization.html#cb401-1"></a>cheese &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/cheese.csv&quot;</span>)</span>
+<span id="cb401-2"><a href="data-visualization.html#cb401-2"></a><span class="kw">head</span>(cheese)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 9
 ##   type      sat_fat polysat_fat monosat_fat protein  carb  chol fiber  kcal
 ##   &lt;chr&gt;       &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;int&gt;
@@ -491,49 +529,51 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 ## 5 caraway      18.6       0.83         8.28    25.2  3.06    93     0   376
 ## 6 cheddar      21.1       0.942        9.39    24.9  1.28   105     0   403</code></pre>
 <p>Start with a simple plot looking at the outcome of cholesterol on saturated fat intake.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(cheese, <span class="kw">aes</span>(<span class="dt">x=</span>sat_fat, <span class="dt">y=</span>chol) ) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="data-visualization.html#cb403-1"></a><span class="kw">ggplot</span>(cheese, <span class="kw">aes</span>(<span class="dt">x=</span>sat_fat, <span class="dt">y=</span>chol) ) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb403-2"><a href="data-visualization.html#cb403-2"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-162-1.png" width="288" /></p>
 <p>Adding color in <code>geom_point</code></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(cheese, <span class="kw">aes</span>(<span class="dt">x=</span>sat_fat, <span class="dt">y=</span>chol) ) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="data-visualization.html#cb404-1"></a><span class="kw">ggplot</span>(cheese, <span class="kw">aes</span>(<span class="dt">x=</span>sat_fat, <span class="dt">y=</span>chol) ) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb404-2"><a href="data-visualization.html#cb404-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-163-1.png" width="288" /></p>
 <p>Adding trend line with <code>geom_smooth</code></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(cheese, <span class="kw">aes</span>(<span class="dt">x=</span>sat_fat, <span class="dt">y=</span>chol) ) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) +
-<span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-164-1.png" width="288" /> Here you can see it automatically puts a shaded area around your trend line, this is supposed to represent the confident interval. There is a way to get rid of it -</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(cheese, <span class="kw">aes</span>(<span class="dt">x=</span>sat_fat, <span class="dt">y=</span>chol) ) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) +
-<span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-165-1.png" width="288" /> You can also change the color of the trend line, by adding to <code>geom_smooth</code></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(cheese, <span class="kw">aes</span>(<span class="dt">x=</span>sat_fat, <span class="dt">y=</span>chol) ) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) +
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span> F, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="data-visualization.html#cb405-1"></a><span class="kw">ggplot</span>(cheese, <span class="kw">aes</span>(<span class="dt">x=</span>sat_fat, <span class="dt">y=</span>chol) ) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb405-2"><a href="data-visualization.html#cb405-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span></span>
+<span id="cb405-3"><a href="data-visualization.html#cb405-3"></a><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-164-1.png" width="288" />
+Here you can see it automatically puts a shaded area around your trend line, this is supposed to represent the confident interval. There is a way to get rid of it -</p>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="data-visualization.html#cb406-1"></a><span class="kw">ggplot</span>(cheese, <span class="kw">aes</span>(<span class="dt">x=</span>sat_fat, <span class="dt">y=</span>chol) ) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb406-2"><a href="data-visualization.html#cb406-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span></span>
+<span id="cb406-3"><a href="data-visualization.html#cb406-3"></a><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-165-1.png" width="288" />
+You can also change the color of the trend line, by adding to <code>geom_smooth</code></p>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="data-visualization.html#cb407-1"></a><span class="kw">ggplot</span>(cheese, <span class="kw">aes</span>(<span class="dt">x=</span>sat_fat, <span class="dt">y=</span>chol) ) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb407-2"><a href="data-visualization.html#cb407-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span></span>
+<span id="cb407-3"><a href="data-visualization.html#cb407-3"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span> F, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-166-1.png" width="288" /></p>
 <p>Label your x and y axis</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(cheese, <span class="kw">aes</span>(<span class="dt">x=</span>sat_fat, <span class="dt">y=</span>chol) ) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) +
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span> F, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) +
-<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot; Saturated Fat Intake&quot;</span>) +
-<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Cholesterol&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="data-visualization.html#cb408-1"></a><span class="kw">ggplot</span>(cheese, <span class="kw">aes</span>(<span class="dt">x=</span>sat_fat, <span class="dt">y=</span>chol) ) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb408-2"><a href="data-visualization.html#cb408-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span></span>
+<span id="cb408-3"><a href="data-visualization.html#cb408-3"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span> F, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></span>
+<span id="cb408-4"><a href="data-visualization.html#cb408-4"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot; Saturated Fat Intake&quot;</span>) <span class="op">+</span></span>
+<span id="cb408-5"><a href="data-visualization.html#cb408-5"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Cholesterol&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-167-1.png" width="288" /></p>
 <p>Add a title and a theme to make your graph complete</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(cheese, <span class="kw">aes</span>(<span class="dt">x=</span>sat_fat, <span class="dt">y=</span>chol) ) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) +
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span> F, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) +
-<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot; Saturated Fat Intake&quot;</span>) +
-<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Cholesterol&quot;</span>) +
-<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Saturated Fat Intake and Cholesterol&quot;</span>) +
-<span class="st">  </span><span class="kw">theme_minimal</span>()</code></pre></div>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="data-visualization.html#cb409-1"></a><span class="kw">ggplot</span>(cheese, <span class="kw">aes</span>(<span class="dt">x=</span>sat_fat, <span class="dt">y=</span>chol) ) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb409-2"><a href="data-visualization.html#cb409-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span></span>
+<span id="cb409-3"><a href="data-visualization.html#cb409-3"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span> F, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></span>
+<span id="cb409-4"><a href="data-visualization.html#cb409-4"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot; Saturated Fat Intake&quot;</span>) <span class="op">+</span></span>
+<span id="cb409-5"><a href="data-visualization.html#cb409-5"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Cholesterol&quot;</span>) <span class="op">+</span></span>
+<span id="cb409-6"><a href="data-visualization.html#cb409-6"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Saturated Fat Intake and Cholesterol&quot;</span>) <span class="op">+</span></span>
+<span id="cb409-7"><a href="data-visualization.html#cb409-7"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-168-1.png" width="480" /></p>
 </div>
 <div id="line" class="section level2">
 <h2><span class="header-section-number">5.4</span> Line</h2>
 <p>Line graph help connect values (y-axis) over time (x-axis)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">jennifer &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/jennifer.csv&quot;</span>)
-
-<span class="kw">head</span>(jennifer)</code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="data-visualization.html#cb410-1"></a>jennifer &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/jennifer.csv&quot;</span>)</span>
+<span id="cb410-2"><a href="data-visualization.html#cb410-2"></a></span>
+<span id="cb410-3"><a href="data-visualization.html#cb410-3"></a><span class="kw">head</span>(jennifer)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 5
 ##    year sex    name         n       prop
 ##   &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;    &lt;int&gt;      &lt;dbl&gt;
@@ -543,7 +583,7 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 ## 4  1921 Female Jennifer     5 0.00000391
 ## 5  1922 Female Jennifer     7 0.00000561
 ## 6  1923 Female Jennifer     9 0.00000719</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(jennifer)</code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="data-visualization.html#cb412-1"></a><span class="kw">tail</span>(jennifer)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 5
 ##    year sex    name         n     prop
 ##   &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;    &lt;int&gt;    &lt;dbl&gt;
@@ -554,52 +594,52 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 ## 5  2016 Female Jennifer  1159 0.000601
 ## 6  2017 Female Jennifer  1042 0.000556</code></pre>
 <p>How to build up a line graph, start just like the other graphs</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) </code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="data-visualization.html#cb414-1"></a><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-170-1.png" width="288" /></p>
 <p>Look at data as points first</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) +<span class="st"> </span><span class="kw">geom_point</span>() <span class="co"># look at data as points</span></code></pre></div>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="data-visualization.html#cb415-1"></a><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="co"># look at data as points</span></span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-171-1.png" width="288" /></p>
 <p>Then as a line</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) +<span class="st"> </span><span class="kw">geom_line</span>() <span class="co"># instead use a line</span></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="data-visualization.html#cb416-1"></a><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() <span class="co"># instead use a line</span></span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-172-1.png" width="288" /></p>
 <p>You can add points and line together</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>() +<span class="st">  </span>
-<span class="st">  </span><span class="kw">geom_line</span>() </code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="data-visualization.html#cb417-1"></a><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb417-2"><a href="data-visualization.html#cb417-2"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">  </span></span>
+<span id="cb417-3"><a href="data-visualization.html#cb417-3"></a><span class="st">  </span><span class="kw">geom_line</span>() </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-173-1.png" width="288" /></p>
 <p>Changing Color of Line, but <strong>not</strong> the points</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) </code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="data-visualization.html#cb418-1"></a><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb418-2"><a href="data-visualization.html#cb418-2"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb418-3"><a href="data-visualization.html#cb418-3"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-174-1.png" width="288" /></p>
 <p>This will change the color of both the points and the line</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;violet&quot;</span>) +
-<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) </code></pre></div>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="data-visualization.html#cb419-1"></a><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb419-2"><a href="data-visualization.html#cb419-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;violet&quot;</span>) <span class="op">+</span></span>
+<span id="cb419-3"><a href="data-visualization.html#cb419-3"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-175-1.png" width="288" /></p>
 <p>Customize axis labels and title</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) +
-<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Year&quot;</span>) +
-<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Number of Children Born&quot;</span>) +
-<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Popularity of Name Jennifer in USA&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="data-visualization.html#cb420-1"></a><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb420-2"><a href="data-visualization.html#cb420-2"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;purple&quot;</span>) <span class="op">+</span></span>
+<span id="cb420-3"><a href="data-visualization.html#cb420-3"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Year&quot;</span>) <span class="op">+</span></span>
+<span id="cb420-4"><a href="data-visualization.html#cb420-4"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Number of Children Born&quot;</span>) <span class="op">+</span></span>
+<span id="cb420-5"><a href="data-visualization.html#cb420-5"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Popularity of Name Jennifer in USA&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-176-1.png" width="384" /></p>
 <p>Can change width of lines</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&#39;purple&#39;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="data-visualization.html#cb421-1"></a><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb421-2"><a href="data-visualization.html#cb421-2"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&#39;purple&#39;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-177-1.png" width="288" /></p>
 <p>There are many different style of lines here are a few examples</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) +<span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">lty=</span><span class="dv">1</span>)</code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="data-visualization.html#cb422-1"></a><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">lty=</span><span class="dv">1</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-178-1.png" width="288" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) +<span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">lty=</span><span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="data-visualization.html#cb423-1"></a><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">lty=</span><span class="dv">2</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-179-1.png" width="288" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) +<span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">lty=</span><span class="dv">3</span>)</code></pre></div>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="data-visualization.html#cb424-1"></a><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">lty=</span><span class="dv">3</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-180-1.png" width="288" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) +<span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">lty=</span><span class="dv">4</span>)</code></pre></div>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="data-visualization.html#cb425-1"></a><span class="kw">ggplot</span>(jennifer, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n) ) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">lty=</span><span class="dv">4</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-181-1.png" width="288" /></p>
 <p>Plotting <strong>multiple</strong> lines on same graph</p>
 <p>read in data</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">jenlinda &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/jenlinda.csv&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="data-visualization.html#cb426-1"></a>jenlinda &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/jenlinda.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   year = col_integer(),
@@ -608,7 +648,7 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 ##   n = col_integer(),
 ##   prop = col_double()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(jenlinda)</code></pre></div>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="data-visualization.html#cb428-1"></a><span class="kw">head</span>(jenlinda)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 5
 ##    year sex    name      n     prop
 ##   &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;int&gt;    &lt;dbl&gt;
@@ -618,7 +658,7 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 ## 4  1883 Female Linda    49 0.000408
 ## 5  1884 Female Linda    33 0.000240
 ## 6  1885 Female Linda    60 0.000423</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(jenlinda)</code></pre></div>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="data-visualization.html#cb430-1"></a><span class="kw">tail</span>(jenlinda)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 5
 ##    year sex    name         n     prop
 ##   &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;    &lt;int&gt;    &lt;dbl&gt;
@@ -629,21 +669,21 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 ## 5  2017 Female Jennifer  1042 0.000556
 ## 6  2017 Female Linda      404 0.000215</code></pre>
 <p>Just one line</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(jenlinda, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n, <span class="dt">color=</span>name)) +<span class="st"> </span><span class="kw">geom_line</span>()</code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="data-visualization.html#cb432-1"></a><span class="kw">ggplot</span>(jenlinda, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n, <span class="dt">color=</span>name)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-183-1.png" width="480" /></p>
 <p>Two lines - one for each name.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(jenlinda, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n, <span class="dt">color=</span>name)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_line</span>()+
-<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Year&quot;</span>) +
-<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Number of Children Born&quot;</span>) +
-<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Popularity of Names Jennifer &amp; Linda in USA&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="data-visualization.html#cb433-1"></a><span class="kw">ggplot</span>(jenlinda, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>n, <span class="dt">color=</span>name)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb433-2"><a href="data-visualization.html#cb433-2"></a><span class="st">  </span><span class="kw">geom_line</span>()<span class="op">+</span></span>
+<span id="cb433-3"><a href="data-visualization.html#cb433-3"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Year&quot;</span>) <span class="op">+</span></span>
+<span id="cb433-4"><a href="data-visualization.html#cb433-4"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Number of Children Born&quot;</span>) <span class="op">+</span></span>
+<span id="cb433-5"><a href="data-visualization.html#cb433-5"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Popularity of Names Jennifer &amp; Linda in USA&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-184-1.png" width="480" /></p>
 </div>
 <div id="boxplot" class="section level2">
 <h2><span class="header-section-number">5.5</span> Boxplot</h2>
 <p>Boxplot can also be used when looking at the distribution of data. These plots can show the median value and quartiles ranges of the data.</p>
 <p>Import and look at data</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wheels &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/wheels1.csv&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="data-visualization.html#cb434-1"></a>wheels &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/wheels1.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   strain = col_character(),
@@ -661,7 +701,7 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 ##   age = col_integer(),
 ##   group = col_character()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(wheels)</code></pre></div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="data-visualization.html#cb436-1"></a><span class="kw">head</span>(wheels)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 14
 ##   strain id      day1  day2   day3   day4 dob   mother sex   wheel startdate
 ##   &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;chr&gt;    
@@ -672,7 +712,7 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 ## 5 B6     656af  6906. 5322. 10424.  8468. 12/1~ 593ar  male      2 10/13/20~
 ## 6 B6     656al  6517  4440   5334.  9291  12/1~ 554aa  male      8 10/9/2005
 ## # ... with 3 more variables: total &lt;dbl&gt;, age &lt;int&gt;, group &lt;chr&gt;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(wheels)</code></pre></div>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="data-visualization.html#cb438-1"></a><span class="kw">tail</span>(wheels)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 14
 ##   strain id      day1   day2   day3   day4 dob   mother sex   wheel startdate
 ##   &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;chr&gt;    
@@ -684,11 +724,11 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 ## 6 Swiss  700ar  4021   6878.  5194.  5925  6/3/~ 674bt  male      2 10/9/2005
 ## # ... with 3 more variables: total &lt;dbl&gt;, age &lt;int&gt;, group &lt;chr&gt;</code></pre>
 <p>You can get more information about the data and general summaries by using the following code</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(wheels$strain)</code></pre></div>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="data-visualization.html#cb440-1"></a><span class="kw">table</span>(wheels<span class="op">$</span>strain)</span></code></pre></div>
 <pre><code>## 
 ##       B6 F1-129B6 F1-B6129     S129    Swiss 
 ##       14       22       15       16       13</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(wheels)</code></pre></div>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="data-visualization.html#cb442-1"></a><span class="kw">summary</span>(wheels)</span></code></pre></div>
 <pre><code>##     strain               id                 day1              day2        
 ##  Length:80          Length:80          Min.   :    6.5   Min.   :    0.5  
 ##  Class :character   Class :character   1st Qu.: 5748.9   1st Qu.: 4727.0  
@@ -722,47 +762,48 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 ##  Max.   :311.0                     
 ## </code></pre>
 <p>Plotting the data with <code>geom_boxplot()</code></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(wheels, <span class="kw">aes</span>(<span class="dt">x =</span> strain, <span class="dt">y =</span> total)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>()  </code></pre></div>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="data-visualization.html#cb444-1"></a><span class="kw">ggplot</span>(wheels, <span class="kw">aes</span>(<span class="dt">x =</span> strain, <span class="dt">y =</span> total)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb444-2"><a href="data-visualization.html#cb444-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>()  </span></code></pre></div>
 <pre><code>## Warning: Removed 4 rows containing non-finite values (stat_boxplot).</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-187-1.png" width="384" /></p>
-<p>The warning message is ok - it's saying some rows don't have data. However, notice the outlier.</p>
+<p>The warning message is ok - it’s saying some rows don’t have data. However, notice the outlier.</p>
 <p>You can overlay the points on the boxplot, which can help you visualize the spread of the dta.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(wheels, <span class="kw">aes</span>(<span class="dt">x =</span> strain, <span class="dt">y =</span> total)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>() +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="data-visualization.html#cb446-1"></a><span class="kw">ggplot</span>(wheels, <span class="kw">aes</span>(<span class="dt">x =</span> strain, <span class="dt">y =</span> total)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb446-2"><a href="data-visualization.html#cb446-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb446-3"><a href="data-visualization.html#cb446-3"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 4 rows containing non-finite values (stat_boxplot).</code></pre>
 <pre><code>## Warning: Removed 4 rows containing missing values (geom_point).</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-188-1.png" width="384" /></p>
 <p>You can customizing colors by chaning the <code>fill</code> and color of boxplots</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(wheels, <span class="kw">aes</span>(<span class="dt">x =</span> strain, <span class="dt">y =</span> total)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">color=</span><span class="st">&quot;navy&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;dodgerblue&quot;</span>) +
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;navy&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="data-visualization.html#cb449-1"></a><span class="kw">ggplot</span>(wheels, <span class="kw">aes</span>(<span class="dt">x =</span> strain, <span class="dt">y =</span> total)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb449-2"><a href="data-visualization.html#cb449-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">color=</span><span class="st">&quot;navy&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;dodgerblue&quot;</span>) <span class="op">+</span></span>
+<span id="cb449-3"><a href="data-visualization.html#cb449-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;navy&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 4 rows containing non-finite values (stat_boxplot).</code></pre>
 <pre><code>## Warning: Removed 4 rows containing missing values (geom_point).</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-189-1.png" width="384" /></p>
-<p>You can also make the points wobble a bit... but careful it goes crazy...</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(wheels, <span class="kw">aes</span>(<span class="dt">x =</span> strain, <span class="dt">y =</span> total)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">color=</span><span class="st">&quot;navy&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;dodgerblue&quot;</span>) +
-<span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">color=</span><span class="st">&quot;navy&quot;</span>)</code></pre></div>
+<p>You can also make the points wobble a bit…
+but careful it goes crazy…</p>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="data-visualization.html#cb452-1"></a><span class="kw">ggplot</span>(wheels, <span class="kw">aes</span>(<span class="dt">x =</span> strain, <span class="dt">y =</span> total)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb452-2"><a href="data-visualization.html#cb452-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">color=</span><span class="st">&quot;navy&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;dodgerblue&quot;</span>) <span class="op">+</span></span>
+<span id="cb452-3"><a href="data-visualization.html#cb452-3"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">color=</span><span class="st">&quot;navy&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 4 rows containing non-finite values (stat_boxplot).</code></pre>
 <pre><code>## Warning: Removed 4 rows containing missing values (geom_point).</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-190-1.png" width="384" /></p>
 <p>You can constrain it by setting a width value of how much wobble.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(wheels, <span class="kw">aes</span>(<span class="dt">x =</span> strain, <span class="dt">y =</span> total)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">color=</span><span class="st">&quot;navy&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;dodgerblue&quot;</span>) +
-<span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">color=</span><span class="st">&quot;navy&quot;</span>, <span class="dt">width =</span> .<span class="dv">1</span>) </code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="data-visualization.html#cb455-1"></a><span class="kw">ggplot</span>(wheels, <span class="kw">aes</span>(<span class="dt">x =</span> strain, <span class="dt">y =</span> total)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb455-2"><a href="data-visualization.html#cb455-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">color=</span><span class="st">&quot;navy&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;dodgerblue&quot;</span>) <span class="op">+</span></span>
+<span id="cb455-3"><a href="data-visualization.html#cb455-3"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">color=</span><span class="st">&quot;navy&quot;</span>, <span class="dt">width =</span> <span class="fl">.1</span>) </span></code></pre></div>
 <pre><code>## Warning: Removed 4 rows containing non-finite values (stat_boxplot).</code></pre>
 <pre><code>## Warning: Removed 4 rows containing missing values (geom_point).</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-191-1.png" width="384" /></p>
 <p>Finish the graph by adding titles and labels etc.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(wheels, <span class="kw">aes</span>(<span class="dt">x =</span> strain, <span class="dt">y =</span> total)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">color=</span><span class="st">&quot;navy&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;dodgerblue&quot;</span>) +
-<span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">color=</span><span class="st">&quot;navy&quot;</span>, <span class="dt">width =</span> .<span class="dv">1</span>) +
-<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Mouse Strain&quot;</span>) +
-<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Total Wheel Revolutions&quot;</span>) +
-<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Wheel Running By Different Mouse Strains&quot;</span>) +
-<span class="st">  </span><span class="kw">theme_classic</span>()</code></pre></div>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="data-visualization.html#cb458-1"></a><span class="kw">ggplot</span>(wheels, <span class="kw">aes</span>(<span class="dt">x =</span> strain, <span class="dt">y =</span> total)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb458-2"><a href="data-visualization.html#cb458-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">color=</span><span class="st">&quot;navy&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;dodgerblue&quot;</span>) <span class="op">+</span></span>
+<span id="cb458-3"><a href="data-visualization.html#cb458-3"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">color=</span><span class="st">&quot;navy&quot;</span>, <span class="dt">width =</span> <span class="fl">.1</span>) <span class="op">+</span></span>
+<span id="cb458-4"><a href="data-visualization.html#cb458-4"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Mouse Strain&quot;</span>) <span class="op">+</span></span>
+<span id="cb458-5"><a href="data-visualization.html#cb458-5"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Total Wheel Revolutions&quot;</span>) <span class="op">+</span></span>
+<span id="cb458-6"><a href="data-visualization.html#cb458-6"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Wheel Running By Different Mouse Strains&quot;</span>) <span class="op">+</span></span>
+<span id="cb458-7"><a href="data-visualization.html#cb458-7"></a><span class="st">  </span><span class="kw">theme_classic</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 4 rows containing non-finite values (stat_boxplot).</code></pre>
 <pre><code>## Warning: Removed 4 rows containing missing values (geom_point).</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-192-1.png" width="384" /></p>
@@ -770,29 +811,29 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 <ol style="list-style-type: decimal">
 <li>Make the outlier more noticeable</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(wheels, <span class="kw">aes</span>(<span class="dt">x =</span> strain, <span class="dt">y =</span> total)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">outlier.color =</span> <span class="st">&quot;green&quot;</span>, <span class="dt">outlier.size =</span> <span class="dv">8</span>)</code></pre></div>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="data-visualization.html#cb461-1"></a><span class="kw">ggplot</span>(wheels, <span class="kw">aes</span>(<span class="dt">x =</span> strain, <span class="dt">y =</span> total)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb461-2"><a href="data-visualization.html#cb461-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">outlier.color =</span> <span class="st">&quot;green&quot;</span>, <span class="dt">outlier.size =</span> <span class="dv">8</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 4 rows containing non-finite values (stat_boxplot).</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-193-1.png" width="384" /></p>
 <ol start="2" style="list-style-type: decimal">
 <li>If you prefer violin shapes to boxplots</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(wheels, <span class="kw">aes</span>(<span class="dt">x =</span> strain, <span class="dt">y =</span> total)) +<span class="st">  </span><span class="kw">geom_violin</span>()</code></pre></div>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="data-visualization.html#cb463-1"></a><span class="kw">ggplot</span>(wheels, <span class="kw">aes</span>(<span class="dt">x =</span> strain, <span class="dt">y =</span> total)) <span class="op">+</span><span class="st">  </span><span class="kw">geom_violin</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 4 rows containing non-finite values (stat_ydensity).</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-194-1.png" width="384" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li>You can also color according to the x-axis category</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(wheels, <span class="kw">aes</span>(<span class="dt">x =</span> strain, <span class="dt">y =</span> total, <span class="dt">fill =</span> strain)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="data-visualization.html#cb465-1"></a><span class="kw">ggplot</span>(wheels, <span class="kw">aes</span>(<span class="dt">x =</span> strain, <span class="dt">y =</span> total, <span class="dt">fill =</span> strain)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb465-2"><a href="data-visualization.html#cb465-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 4 rows containing non-finite values (stat_boxplot).</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-195-1.png" width="384" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Adding points</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(wheels, <span class="kw">aes</span>(<span class="dt">x =</span> strain, <span class="dt">y =</span> total, <span class="dt">fill =</span> strain)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>() +
-<span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width=</span>.<span class="dv">1</span>)</code></pre></div>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="data-visualization.html#cb467-1"></a><span class="kw">ggplot</span>(wheels, <span class="kw">aes</span>(<span class="dt">x =</span> strain, <span class="dt">y =</span> total, <span class="dt">fill =</span> strain)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb467-2"><a href="data-visualization.html#cb467-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
+<span id="cb467-3"><a href="data-visualization.html#cb467-3"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width=</span>.<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 4 rows containing non-finite values (stat_boxplot).</code></pre>
 <pre><code>## Warning: Removed 4 rows containing missing values (geom_point).</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-196-1.png" width="384" /></p>
@@ -802,13 +843,13 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 <p>Bar graphs are used to visualize groups of differing amounts. Bar graphs are best when the changes between groups are larger.</p>
 <p>Example 1. If you have a dataset where you <strong>HAVE</strong> already counted the number of each group</p>
 <p>Import the number1s.csv data. This shows how many number 1 songs various artists have had in the UK singles charts.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/number1s.csv&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="data-visualization.html#cb470-1"></a>df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/number1s.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   name = col_character(),
 ##   total = col_integer()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(df)</code></pre></div>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="data-visualization.html#cb472-1"></a><span class="kw">head</span>(df)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 2
 ##   name          total
 ##   &lt;chr&gt;         &lt;int&gt;
@@ -819,39 +860,40 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 ## 5 Madonna          13
 ## 6 Take That        12</code></pre>
 <p><code>geom_col()</code> is used when the data is already counted.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> name, <span class="dt">y =</span> total) ) +<span class="st"> </span><span class="kw">geom_col</span>()</code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-198-1.png" width="480" /> Notice default order is alphabetical. However, you can reorder by putting reorder around the x-axis column.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(name, total), <span class="dt">y =</span> total) ) +<span class="st"> </span><span class="kw">geom_col</span>()</code></pre></div>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="data-visualization.html#cb474-1"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> name, <span class="dt">y =</span> total) ) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-198-1.png" width="480" />
+Notice default order is alphabetical. However, you can reorder by putting reorder around the x-axis column.</p>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="data-visualization.html#cb475-1"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(name, total), <span class="dt">y =</span> total) ) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-199-1.png" width="480" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(name, -total), <span class="dt">y =</span> total) ) +<span class="st"> </span><span class="kw">geom_col</span>()</code></pre></div>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="data-visualization.html#cb476-1"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(name, <span class="op">-</span>total), <span class="dt">y =</span> total) ) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-199-2.png" width="480" /></p>
-<p>When changing color use 'fill' here because it's a shape.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(name, -total), <span class="dt">y =</span> total) ) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">fill =</span> <span class="st">&quot;yellow&quot;</span>)</code></pre></div>
+<p>When changing color use ‘fill’ here because it’s a shape.</p>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="data-visualization.html#cb477-1"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(name, <span class="op">-</span>total), <span class="dt">y =</span> total) ) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb477-2"><a href="data-visualization.html#cb477-2"></a><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">fill =</span> <span class="st">&quot;yellow&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-200-1.png" width="480" /></p>
-<p>Then for the border of the bars use 'color'.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(name, -total), <span class="dt">y =</span> total) ) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">fill =</span> <span class="st">&quot;yellow&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>)</code></pre></div>
+<p>Then for the border of the bars use ‘color’.</p>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="data-visualization.html#cb478-1"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(name, <span class="op">-</span>total), <span class="dt">y =</span> total) ) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb478-2"><a href="data-visualization.html#cb478-2"></a><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">fill =</span> <span class="st">&quot;yellow&quot;</span>, <span class="dt">color=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-201-1.png" width="480" /></p>
 <p>Finish with final customizations</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(name, -total), <span class="dt">y =</span> total) ) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">fill =</span> <span class="st">&quot;orange&quot;</span>, <span class="dt">color=</span><span class="st">&quot;brown&quot;</span>) +
-<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Artist&quot;</span>) +
-<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Total Number 1&#39;s&quot;</span>) +
-<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Number 1 hits in UK&quot;</span>) +
-<span class="st">  </span><span class="kw">theme_classic</span>()</code></pre></div>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="data-visualization.html#cb479-1"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(name, <span class="op">-</span>total), <span class="dt">y =</span> total) ) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb479-2"><a href="data-visualization.html#cb479-2"></a><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">fill =</span> <span class="st">&quot;orange&quot;</span>, <span class="dt">color=</span><span class="st">&quot;brown&quot;</span>) <span class="op">+</span></span>
+<span id="cb479-3"><a href="data-visualization.html#cb479-3"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Artist&quot;</span>) <span class="op">+</span></span>
+<span id="cb479-4"><a href="data-visualization.html#cb479-4"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Total Number 1&#39;s&quot;</span>) <span class="op">+</span></span>
+<span id="cb479-5"><a href="data-visualization.html#cb479-5"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Number 1 hits in UK&quot;</span>) <span class="op">+</span></span>
+<span id="cb479-6"><a href="data-visualization.html#cb479-6"></a><span class="st">  </span><span class="kw">theme_classic</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-202-1.png" width="480" /></p>
-<p>Example 2. If you have a dataset where you haven't already counted the number of each group</p>
+<p>Example 2. If you have a dataset where you haven’t already counted the number of each group</p>
 <p>We want to plot how many people have each type of pet.</p>
 <p>This means pet will be on x-axis, and count on y-axis.</p>
 <p>load in pets.csv dataset and look at the data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pets &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/pets.csv&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="data-visualization.html#cb480-1"></a>pets &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/pets.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   name = col_character(),
 ##   pet = col_character()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(pets)</code></pre></div>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="data-visualization.html#cb482-1"></a><span class="kw">head</span>(pets)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 2
 ##   name    pet  
 ##   &lt;chr&gt;   &lt;chr&gt;
@@ -861,7 +903,7 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 ## 4 Timothy Dog  
 ## 5 Paul    None 
 ## 6 Jody    Cat</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(pets)</code></pre></div>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="data-visualization.html#cb484-1"></a><span class="kw">tail</span>(pets)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 2
 ##   name   pet  
 ##   &lt;chr&gt;  &lt;chr&gt;
@@ -871,22 +913,24 @@ df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="s
 ## 4 Yong   Dog  
 ## 5 Andrea Cat  
 ## 6 Lacy   Dog</code></pre>
-<p>Notice 'pet' is categorical. We don't yet have a 'count' of how many of each pet there is.</p>
-<p>We can quickly look at the 'count' like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(pets$pet)</code></pre></div>
+<p>Notice ‘pet’ is categorical.
+We don’t yet have a ‘count’ of how many of each pet there is.</p>
+<p>We can quickly look at the ‘count’ like this:</p>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="data-visualization.html#cb486-1"></a><span class="kw">table</span>(pets<span class="op">$</span>pet)</span></code></pre></div>
 <pre><code>## 
 ## Bird  Cat  Dog None 
 ##    2    6   11    6</code></pre>
 <p>We can make ggplot plot the frequency/count of each pet as a bar graph</p>
-<p>Notice here, we use <code>geom_bar()</code> - and it counts for us. We do not need to supply a y column.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(pets, <span class="kw">aes</span>(<span class="dt">x =</span> pet)) +<span class="st"> </span><span class="kw">geom_bar</span>()</code></pre></div>
+<p>Notice here, we use <code>geom_bar()</code> - and it counts for us.
+We do not need to supply a y column.</p>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="data-visualization.html#cb488-1"></a><span class="kw">ggplot</span>(pets, <span class="kw">aes</span>(<span class="dt">x =</span> pet)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-205-1.png" width="384" /></p>
 <p>Then just customize.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(pets, <span class="kw">aes</span>(pet)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;plum3&quot;</span>) +
-<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Pet&quot;</span>)+
-<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Total&quot;</span>)+
-<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Popularity of Pets in a Class&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="data-visualization.html#cb489-1"></a><span class="kw">ggplot</span>(pets, <span class="kw">aes</span>(pet)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb489-2"><a href="data-visualization.html#cb489-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;plum3&quot;</span>) <span class="op">+</span></span>
+<span id="cb489-3"><a href="data-visualization.html#cb489-3"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Pet&quot;</span>)<span class="op">+</span></span>
+<span id="cb489-4"><a href="data-visualization.html#cb489-4"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Total&quot;</span>)<span class="op">+</span></span>
+<span id="cb489-5"><a href="data-visualization.html#cb489-5"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Popularity of Pets in a Class&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-206-1.png" width="384" /></p>
 </div>
 <div id="all-the-extras" class="section level2">
@@ -955,7 +999,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
