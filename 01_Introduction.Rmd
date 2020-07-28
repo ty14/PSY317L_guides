@@ -8,23 +8,72 @@ The initial steps are downloading and installing R. This may differ slightly bas
 
 ## Downloading R
 
-Go to the [R website](https://cran.r-project.org). The first box has options for downloading R for Mac, Windows or Linux. Click on the appropriate link.  Then you will want to click on  $\color{blue}{\text{"install R for the first time"}}$. Then follow the instructions.
+Go to the [R website](https://cran.r-project.org). The first box has options for downloading R for Mac, Windows or Linux. Click on the appropriate link.
+
+![](img/download_R.png){width=500px}
+
+**R for Windows**
+You will want to click on  $\color{blue}{\text{"install R for the first time"}}$.
+
+![](img/R_windows.png){width=500px}
+
+Then follow the instructions.
+
+
+**R for Mac OS X**
+You will want to click on $\color{blue}{\text{"R-4.0.2.pkg"}}$.
+
+![](img/R_mac.png){width=500px}
+
+Then follow the instructions.
 
 
 ## Downloading RStudio
-Go to the [Rstudio website](https://rstudio.com/products/rstudio/download/). Click **DOWNLOAD** under RStudio Desktop, open source license FREE. Then click on the appropriate installer for your computer (Mac, Windows, or Linux). Run the installer and follow the instructions. 
+Go to the [Rstudio website](https://rstudio.com/products/rstudio/download/). Click **DOWNLOAD** under RStudio Desktop, open source license FREE.
+
+![](img/download_Rstudio.png){width=500px}
+
+
+Then click on the appropriate installer for your computer (Mac, Windows, or Linux).Run the installer and follow the instructions. 
+
+
+**R for Windows**
+You will want to click on the first link $\color{blue}{\text{"RStudio-1.3.1056.exe"}}$.
+
+
+**R for Mac OS X**
+You will want to click on the second link $\color{blue}{\text{"RStudio-1.3.1056.dmg"}$.
+
+![](img/rstudio_install.png){width=500px}
 
 You will always use Rstudio, when working with data. 
 
 
+<br><br>
+
 ## Using RCloud instead of RStudio
-
-blah blah blah
-
-DO we really need this? 
-
 [RCloud](https://rstudio.cloud/)
 
+RCloud is a web-based platform for Rstudio, which allows you to perform all visualization and analysis with your data, without downloading Rstudio on to your machine. 
+
+Professor Curley will email you during the first week of class with an invitation link to the PSY317L project on RCloud. Remember you only need to use RCloud if you do not have Rstudio available on your machine. 
+
+Here is what the invitation link will look like: 
+![](img/Rcloud_link.png){width=500px}
+
+Once you click on the link, you will need to create an account. Please fill in the all section with your own information. 
+![](img/rcloud_signup.png){width=500px}
+
+RCloud will then prompt you to create a display name for you to go by, remember everyone can see this name so try to make it identifiable and appropriate. After, you enter your display name you will have full excess to the PSY317L project on RCloud. 
+
+![](img/rcloud_env.png){width=500px}
+
+Now that you have the RCloud setup with full access to the PSY317L project, you will be able to perform all exercise you will need to complete for class. 
+
+This is your own work space and changes here can not be seen by classmates. Remember, you will not be able to save all changes to R scripts that are already in the project. However, you could create new Rscripts and save all your code there. 
+
+
+<br><br>
 
 ## Importing Data
 
@@ -41,9 +90,6 @@ Depending on your RStudio version, you will be asked to select from a dropdown m
 If your menu looks like the underneath, then you'll want to select `From Text (readr)`:
 
 ![](img/import2.png){width=400px}
-
-
-
 
 
 <br>
@@ -95,7 +141,7 @@ You can also change variables to characters with `as.character()` and to numbers
 
 ## The RStudio Environment 
 
-![RStudio Environment](img/enviornment.png){width=500px}
+![](img/enviornment.png){width=500px}
 
 You Rstudio enviornment is separated into 4 main panes. On your machine these panes by be organized differently. You can also change the order of these panes by going your tools tab, then clicking Global preferences. 
 
@@ -113,7 +159,7 @@ Third, you have a Gobal Environment and History in the top right. Your gobal env
 
 Here is an example of a Gobal Environment where you can see dataframes, matrices, values, and functions: 
 
-![Global Environment](img/gobal_envi.PNG){width=500px}
+![](img/gobal_envi.PNG){width=500px}
 
 If you click the play arrow next to the dataframe, you can view the entire dataframe. This is the save as running the function `View(df)`. Another, important button is the broom icon, if you click this it will clear your gobal enviornment and you will have to rerun code to get any dataframes, function, etc. back. 
 
@@ -146,16 +192,64 @@ There are several ways to run the code in your script file.
 
 
 ## What is an RScript File?
-console vs script.
+In R, you can code run in the console and a Rscript. 
 
-what a `#` does in a script ....
+In the console, the bottom left panel, you type commands and run them by hitting `Enter` on your keyboard. R will show the results in the console as well. All code and results will be forgotten when the R session is close. This is why it is better to you use Rscripts. 
 
-Saving Scripts etc.
+To open new Rscripts you can:
+1. click on File -> New File -> R Script 
+2. click on the white sheet with green plus sign right under file in your Rstudio environment
+3. hit "Ctrl"+ "Shift" + "N" on your keyboard. 
+
+In Rscripts, you can type commands and then run. The results from these commands will still end up in the console, however you will be able to save these Rscripts by hitting file -> Save As... anywhere on your computer.
+
+This allows you to come back later to finish working on some assignment even after you have closed the R session. 
+
+You can also write notes in Rscripts about your data. Any line of code/text with a `#` infront, R knows not to recognize as a command to run. 
+
+For the sake of this class, you are going to want to save all Rscripts in the PSY317L project folder on your computer. This way all of the datasets you will be working with will be in the same folder. 
+
+
+
+
+
 
 
 ## What are Packages
 
-include the code they should run at the beginning of this course to have all packages installed.
+When working with R, you will hear about different packages that we will utilize to complete a varity of tasks. 
+
+A package is a collection of code, functions, and sometimes data sets development by others organize and share their work with others. Packages include functions and documentation for others to use to help solve common problem when working with data. You can also create your own package!
+
+There are packages to help tidy data, for visualization, and many different packages for analyzing data. 
+
+There are two ways to download packages on to your computer. 
+
+The first way is through the Packages tab in the right bottom panel in your Rstudio enviornment. In this tab you will see all the packages already installed on your machine.
+
+![](img/packages.PNG){width=500px}
+
+Here if you click on install, a box will pop up and your can enter the name of the package you wish to to have then hit install.
+
+![](img/packageinstall.PNG){width=500px}
+
+The second way is through one line of code you can write in the console: 
+
+`install.package("tidyverse")`
+
+To have all the packages you will need for this class on your machine, please copy and paste the following code in your console and hit enter: 
+
+`install.packages(c("car", "cion", "gridExtra", "lsr", "moments", "ppcor", "psych", "rcompanion", "tidyverse"))`
+
+Your Console should look like this
+
+![](img/packcon.PNG){width=500px}
+
+
+
+
+
+
 
 
 ## Project Folders and Working Directories
@@ -174,8 +268,6 @@ If you ever need to check where R is looking for things, run `getwd()` and it wi
 
 
  
-
-
 ## Quitting R 
 
 how to quit from R successful,  you don't have to hit that save object thing all the time....
