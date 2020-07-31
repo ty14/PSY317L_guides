@@ -4,6 +4,71 @@
 Data carpentry gives us the tools to work with large data sets. During this chapter you will learn basic concepts, skills to help you work with functions to help tidy and manage your data. 
 
 
+## Importing Data
+
+There are different options for importing data. It's possible to import data of all different formats into RStudio. We will primarily use spreadsheet type files that have been saved with the ".csv" suffix.  These are called 'comma separated files'.  
+
+**Option 1. Import Tab** You can click on the "Import Dataset" tab in the top right of RStudio - it's located just above your global environment. 
+
+Depending on your RStudio version, you will be asked to select from a dropdown menu. When importing `.csv` files, you want to select `From CSV...` if your menu looks like this:
+
+
+![](img/import_dataset.png){width=800px}
+
+
+If your menu looks like the underneath, then you'll want to select `From Text (readr)`:
+
+![](img/import2.png){width=500px}
+
+
+<br>
+
+**Option 2. Writing code.**  This is the option that we will use in our scripts for this course. You may notice that all the datasets that we wish to use are in a folder called "data".  To read in any of these datasets, what we need to do is use the `read_csv()` function.  This comes from a package contained with the `tidyverse` package, so we must have imported that library first.  We then tell it which dataset to find within the 'data' folder. We use the notation "data/..." to tell it to look inside the data folder.  For instance, if we wished to load in the `bmi.csv` dataset, and assign it the name `bmi`, we would do it like this - make sure to put quotes around the whole file name and location:
+
+```{r, message=FALSE}
+library(tidyverse)  #load package
+
+bmi <- read_csv("data/bmi.csv") # bring in data
+
+head(bmi) # first six rows
+
+tail(bmi) # last six rows
+
+```
+
+If you want to see more on what the data looks like the following functions can help. 
+```{r}
+nrow(bmi) # how many rows in dataset
+
+ncol(bmi) # how many columns in dataset
+
+colnames(bmi) # column names
+```
+
+If you just want to view your entire dataset, there is a function for that. 
+
+`View(bmi)`
+
+
+You can also see the struture of your data, whether each variable is a number, character, factor, etc. This will become extremely important when trying to graph and analysis different types of data.  
+
+```{r}
+str(bmi)
+```
+Here you can see that all variables are numeric, except for education with is a character. 
+
+If you need to change the struture of a variable say to a factor to group data in a certain way you would do the following: 
+
+```{r}
+bmi$smoke <- as.factor(bmi$smoke)
+```
+
+The `$` basically allows you to call certain columns in a datframe. The code `bmi$smoke` is allowing us to only change that column, or variable to a factor without changing anything else in the dataframe. 
+
+You can also change variables to characters with `as.character()` and to numbers with `as.number()`. 
+
+
+
 ## Introduction to Dataframes
 
 What is a dataframe and how do we get one from our data. 
