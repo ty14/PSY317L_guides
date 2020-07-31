@@ -1,5 +1,5 @@
 ---
-title: "PSY317L Guides"
+title: "PSY317L Guidebook"
 author: "James P. Curley & Tyler M. Milewski"
 date: "June 28, 2020"
 output: bookdown::gitbook
