@@ -4,6 +4,9 @@ How to get started with R and Rstudio.
 
 The initial steps are downloading and installing R. This may differ slightly based on your machine.
 
+```{r, echo=FALSE}
+library(tidyverse)
+```
 
 
 ## Downloading R

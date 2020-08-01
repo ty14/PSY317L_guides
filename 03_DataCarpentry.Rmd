@@ -225,7 +225,7 @@ df[,c(3,5,9)]
 
 
 
-You an also combine these. So, to get the 20th to 22nd row, and the 1st, 5th and 9th column, you put `20:22` before the comma, and `c(1,5,9)` after the comma:
+You can also combine these. So, to get the 20th to 22nd row, and the 1st, 5th and 9th column, you put `20:22` before the comma, and `c(1,5,9)` after the comma:
 
 ```{r}
 df[20:22,c(1,5,9)]
@@ -462,14 +462,14 @@ bw %>%
 
 ### filter()  - Subsetting Data
 
-`filter()` is a way to subset data. In other words, it is a way to only keep certain rows in your dataset. These are rows that must fulfil specific criteria.  For example, let's say we wish to only keep rows that have values in the `hrate` column that are over 60.
+`filter()` is a way to subset data. In other words, it is a way to only keep certain rows in your dataset. These are rows that must fulfil specific criteria.  For example, let's say we wish to only keep rows that have values in the `hrate` column that are over 70.
 
-The first step is to take the dataframe `bw()` and then tell R that you are about to do something else with the `%>%` syntax. Then use `filter()` with `hrate > 60` inside it. This mean, *keep* the rows with `hrate>60`.  See section xxx.xxx for a bit more on chaining using `%>%`.
+The first step is to take the dataframe `bw()` and then tell R that you are about to do something else with the `%>%` syntax. Then use `filter()` with `hrate > 70` inside it. This mean, *keep* the rows with `hrate>70`.  See section xxx.xxx for a bit more on chaining using `%>%`.
 
 
 ```{r} 
 bw %>% 
-  filter(hrate > 60)
+  filter(hrate > 70)
 ```
 
 
@@ -505,14 +505,6 @@ bw %>%
 
 
 
-You can also filter several variables at one time. Here, we are keeping all individuals from New York, with a heart rate of over 70, and who have more than 0 children: 
-
-```{r}
-bw %>% 
-  filter( state == "NY", hrate > 70, children != "0" )
-
-```
-
 
 You can also keep rows that are not equal to some value using the syntax `!=` which means "not equal to". For example, to keep rows where the `children` column is not equal to 0:
 
@@ -520,6 +512,14 @@ You can also keep rows that are not equal to some value using the syntax `!=` wh
 bw %>% 
   filter(children != "0" )
 
+
+```
+
+You can also filter several variables at one time. Here, we are keeping all individuals from New York, with a heart rate of over 70, and who have more than 0 children: 
+
+```{r}
+bw %>% 
+  filter( state == "NY", hrate > 70, children != "0" )
 
 ```
 
@@ -702,7 +702,7 @@ You can see that the lowest year in this dataset is 2004, and so it put all the 
 
 ### Chaining together
 
-Just as a quite extra note, the real power of these `tidyverse` commands, is by chaining them all together. So, one thing we could do is select from our original `pga` dataset the columns above, then create a new column called `putt.avg` which is equal to the total number of putts `total.putts` divided by the total number of holes `total.holes` columns, and then arrange in ascending order by the new `putt.avg` column. Here it is in one bit of code:
+Just as an extra note, the real power of these `tidyverse` commands, is by chaining them all together. So, one thing we could do is select from our original `pga` dataset the columns above, then create a new column called `putt.avg` which is equal to the total number of putts `total.putts` divided by the total number of holes `total.holes` columns, and then arrange in ascending order by the new `putt.avg` column. Here it is in one bit of code:
 
 
 ```{r}
@@ -721,30 +721,35 @@ It turns out that Brian Gay in 2013 had the fewest putts per hole.
 <br><br>
 
 
-## Wide vs Long Data
+## Wide versus Long Data
 
-Sometimes you will need to rearrange your data for some data analysis and more commonly for data visualization. 
+Sometimes you will need to rearrange your data for some data analysis and more commonly for data visualization. Dataframes can come in two broad shapes. There is **wide data** where each row is a separate subject and each column has variables that may or may not contain the same type of data.  The other is **long data** where values of the same type are only in one column, and the same subject may appear on several rows.
 
-`tidyverse` has built in functions that can turn your dataframe from long format to wide format and vice versa. 
+This is easier to understand with a visual aid. The image below show data that is in **wide** format. Each row contains all the information for each subject - those being three NHL hockey teams. We see the division that each team belongs to, and the total goals they scored in the seasons beginning in 2016, 2017, 2018.  
 
+![](img/carp1.png)
+
+
+These data are also **untidy** - as we prefer to have each row contain all the information for one unique value. To do that we need to turn the data into **long** format which looks like this:
+
+![](img/carp2.png)
+
+
+
+
+Here, each row contains information related to the team, division, the total number of goals scored, and the year that that piece of data came from. Because each row contains unique information, we call this type of data **tidy**. Essentially, you can see we took columns 3,4, and 5 from the wide data and made these longer.
+
+It can take a bit of practice to fully recognize what data are in wide or long format - sometimes it's not so clear in really large datasets. This does become important though, because some visualization and analyses can only be done with data in wide format, and others with data in long format. It's therefore important to be able to switch our dataframes through these two formats.
+
+Fortunately, the `tidyverse` has built in functions that can turn your dataframe from long format to wide format and vice versa. 
 
 `pivot_longer` makes the dataframes longer by increasing the number of rows by combing the number of columns. This is called long form data, which is needed to tidy data for graphing and some analysis.
 
 
-insert 3 column version.
+First, we'll make some small dataframe examples manually. The first dataframe is a wide dataframe. You could imagine this as showing five subjects and their reaction times at two different timepoints. We call this dataframe `df.wide`:
 
-
-### Wide and Long Data
-
-# sometimes called "Wide" and "Narrow" Data
-
-# Long Data is often called "Tidy Data"
-
-
-
-library(tidyverse)
-
-# Data can be wide or long
+```{r}
+# wide data has more than one score of each type per individual in rows
 
 df.wide <- data.frame(
                  name = c("James", "Tyler", "Stephen", "Jennifer", "Carmen"),
@@ -753,11 +758,16 @@ df.wide <- data.frame(
                  )
 
 
-# wide data has more than one score of each type per individual in rows
 df.wide
 
+```
+
+The second dataframe we'll create manually contains the same data, but in a long tidy format:
+
+```{r}
 
 # long data (also called tidy data) has only one column for each type of score
+# Every row has the information to make each score unique
 
 df.long <- data.frame(
                  name = c("James", "Tyler", "Stephen", "Jennifer", "Carmen"),
@@ -765,176 +775,141 @@ df.long <- data.frame(
                  time = rep(c("time1", "time2"), each = 5)
 )
 
-df.long # Every row has the information to make each score unique
+df.long 
+
+```
 
 
 
-# `tidyverse` has built in functions that can turn your dataframe from 
-#  long format to wide format and vice versa. 
 
-# `pivot_longer` makes the dataframes longer [gather]
-# `pivot_wider` makes the dataframes longer [spread]
+### Wide to Long
 
-df.wide
 
+To go from wide to long format we can use `pivot_longer`. We need to tell R which columns contain the data that are currently in wide format and need to be turned into long format. Here, we put `cols = 2:3` to indicate that the data are in columns 2 and 3. We also use `names_to` to tell it that we want the new column to be called `time`:
+
+```{r}
 # turn columns 2 and 3 into one long column:
-df.wide %>% pivot_longer(cols = 2:3, names_to="time")  
+df.wide %>% 
+  pivot_longer(cols = 2:3, names_to="time")  
+```
 
+Our example dataset was very simple, only containing an identifier (`name`) column and the two columns with data. What if we had other columns in our dataset? Here we add a column called `group` that indicates if our subject are in a control or treatment group:
 
-
-### What if we had other columns in our dataset?
-
-df.wide
-
+```{r}
 df.wide$group <- c("control", "control", "treatment", "treatment", "treatment")
 
 df.wide
+```
 
-df.wide %>% pivot_longer(cols = 2:3, names_to="time")  
+To convert this dataframe to a long dataframe, we still use the same code indicating that the data to make long are contained in columns 2 and 3. Because each individual is always in the same group (e.g. James is always a control, Carmen is always in treatment), R will just make this a new column: 
 
-
-
-
-## going wider:
-
-df.long
-
-df.long %>% pivot_wider(values_from = score, names_from = time)
+```{r}
+df.wide %>% 
+  pivot_longer(cols = 2:3, names_to="time")  
+```
 
 
+
+
+
+### Long to Wide
+
+If we start with data in the long format, we can convert the dataframe to wide format using `pivot_wider()`. Here, we need to provide the name of the column that contains the data to become new wide columns. We do that below with `values_from = score`. We also need to state which column contains the new column headers. In this example they are in the column `time`, so we do that with `names_from = time`.
+
+```{r}
+head(df.long)
+```
+
+```{r}
+df.long %>% 
+  pivot_wider(values_from = score, names_from = time)
+```
+
+Now our data are in a wide format.
+
+Again, it is more common that we have more columns in our dataset. Say we had rated the confidence of each participant on the tasks prior to testing them. We may have a column called confidence that might look like this:
+
+```{r}
 # if we had more columns in our dataset:
+df.long$confidence <- c(3, 8, 9, 4, 10) # this repeats all the way down the dataset
 
 df.long
+```
 
-df.long$confidence <- c(3, 8, 9, 4, 10)
+Even when we have more columns, we still can make our data go wide in the same way:
 
-df.long
 
-df.long %>% pivot_wider(values_from = score, names_from = time)
+```{r}
+df.long %>% 
+  pivot_wider(values_from = score, names_from = time)
+```
+
+Here, it just truncates the `confidence` column into one column to go along with `name`.
+
 
 
 
 
 ### Real Data Example.
 
+It can be quite hard to work out which columns to select when converting data from long to wide. It mainly comes from practice and from trial-and-error. You can always check if you got it right, and correct yourself if you did not.  In this section, we'll just show an example of converting dataframes between these two formats using some real data.
 
+The dataset we'll use is called `wheels1.csv`. We'll read it in and assign the name `wheel`:
+
+```{r, warning=FALSE, message=FALSE}
 wheel <- read_csv("data/wheels1.csv")
 
 head(wheel)
+```
 
-# here, say we were interested in the wheel running by day data
+We're mainly interested in the `id`, `strain` and columns with day in, so we shall use `select()` to select these columns:
 
+
+```{r}
 wheeldf <- wheel %>% select(id, strain, day1,day2,day3,day4)
 
 head(wheeldf)
+```
 
-tail(wheeldf)
+These data represent the number id of individual mice, the strain of that mouse, and the number of wheel revolutions made on day1, day2, day3 and day4.  It's currently in wide format.
 
-#conver to long
-wheeldf %>% pivot_longer(cols = 3:6, names_to="day")  
+Let's convert it to long format, by taking the data in each day column and forcing them to go long:
 
-wheeldf.long <- wheeldf %>% pivot_longer(cols = 3:6, names_to="day")  
-
-
-## We could now get summary data and plot a graph
-# nb. don't worry about this code... we'll go through it in later sections:
-wheeldf.long %>% 
-  group_by(day,strain) %>%
-  summarise(mean = mean(value, na.rm=T)) %>%
-  ggplot(aes(x=day,y=mean,group=strain, color=strain)) +
-  geom_line(lwd=1) +
-  xlab("day")+
-  ylab("Daily Revolutions")
-
-
+```{r}
+#convert to long
+wheeldf.long <- wheeldf %>% 
+  pivot_longer(cols = 3:6, names_to="day")  
 
 wheeldf.long
 
+```
+
+
+If we wished to make our new `wheeldf.long` dataset to go back to a wide format, we could do this:
+
+```{r}
 # to make it go wider again, we do:
-
-wheeldf.long %>% pivot_wider(
+wheeldf.long %>% 
+              pivot_wider(
                  names_from = day,
-                values_from = value
+                 values_from = value
                     )
-
-
-
-
-### Try for yourself example
-
-# 1. Load the data "lifexp.csv"
-# this show life expectancy, population size and gdp for many countries over two time points
-
-df1 <- read_csv("data/lifeexp.csv")
-
-# we only need these columns
-df1 <- df1 %>% select(country, continent, year, lifeExp)
-df1
-
-# make this data wide format putting lifeExp into two separate columns based on the 'year' column.
-
-df1 %>% pivot_wider(
-  names_from = year,
-  values_from = lifeExp
-)
-
-
-## 2. Load the dataset "hurricanes.csv"
-# this shows the number of hurricanes in each of the last 5 decades in 4 states
-# it's in wide format
-
-hu <- read_csv("data/hurricanes.csv")
-hu
-
-# make this dataset into long format, calling the decade column 'decade', 
-
-hu %>% 
-  pivot_longer(
-    cols = 2:6, 
-    names_to="decade")  
-
-
-
-
-
-```{r}
-wheel <- read_csv("data/wheels1.csv")
-
-head(wheel)
-```
-Here we can make the wheel data into long form, by combining day1, day2, day3, and day4 into 2 columns one called day and another called distance. 
-
-```{r}
-wheel_long <-wheel %>% 
-  pivot_longer(
-  cols = starts_with("day"),
-  names_to = "day",
-  values_to = "distance"
-)
-
-head(wheel_long)
 ```
 
-Other ways to do this. 
 
-
-`pivot_wider()` makes the dataframes longer by decreasing the number of rows by separating the number of columns. This is called wide form data, which id usefull for summarying data in tables and using some functions in R. 
-
-Now let's make the dataframe wide again. 
-```{r}
-wheel_long %>% pivot_wider(
-  names_from = day,
-  values_from = distance
-)
-```
 
 
 
 ## Joins
 
-When working with sometimes you need to join two different data sets, based on one  or more variables. 
+A common requirement in data science is to join together two datasets. Usually these two datasets will have some bits of data in common. For instance, you may have one dataset that contains subject names and lots of demographic information. Another dataset might contain the subject names and their performance on various tests.  Ideally, you'd have all of this information in one dataframe.  The `tidyverse` is excellent at joining dataframes quickly and automatically. It is *far* more foolproof than cutting, copying and pasting in excel which should always be a no-no.  
 
-Lets make up some data
+In this course, we won't actually ever ask you to do any joining. All the datasets that we provide are already cleaned up.  However, we are including this small subsection in this guide to introduce you to the topic, should it be something you ever need to do on your own.  Joining is surprisingly a really big topic by itself, so we just scratch the surface here. For much more information on this topic, we highly recommend [Prof Jenny Bryan's guides](https://stat545.com/join-cheatsheet.html) as a good starting point.
+
+
+To illustrate the power of joining, lets make up some data.
+
+The first dataframe, `x` contains ten subjects who are referred to by an `id` and their ages (`age`).
 
 ```{r}
 
@@ -942,25 +917,31 @@ x <- data.frame("id" = 1:10, "age" = c(21,25,17,34,25,33,22,27,29,24))
 
 head(x)
 
-y <- data.frame("id" = 1:10, "height_cm" = c(156, 155, 154, 149, 153, 152, 151, 150, 147, 155), "activity_hr"= c(3,5,3,6,7,4,2,8,4,5), "work_hr" =c(40,35,38,46,50,42,40,46,41,40))
+```
+
+The second dataframe, `y`, contains the `id` of each individual again, but this time we also have data on their height, as well as how many hours they spent on an activity and some work.
+
+```{r}
+y <- data.frame(
+  "id" = 1:10, 
+  "height_cm" = c(156, 155, 154, 149, 153, 152, 151, 150, 147, 155), 
+  "activity_hr"= c(3,5,3,6,7,4,2,8,4,5), 
+  "work_hr" =c(40,35,38,46,50,42,40,46,41,40)
+  )
 
 head(y)
 
 ```
-`full_join()` joins 2 different dataframes based on one or more shared variable(s). The following will join based on id. 
+
+Currently we have 'age' in a separate dataframe. Perhaps we want to join it together with all the other information in our dataframe `y`.  We can use `full_join()` to do this. `full_join()` joins two different dataframes based on one or more shared variable(s). The following will join based on id. 
+
+
 ```{r}
 x %>% 
   full_join(y)
 ```
 
-Save as a new data frame to use again:
-```{r}
-new <- x %>% 
-  full_join(y)
-head(new)
-```
+As you can see, R joined the two dataframes together and `age` is now included in the new dataframe.
 
+For this to work, you must have at least one column in each of your two dataframes that exactly matches by name. If you do not have this, R will not know how to join the dataframes together. If you have multiple matching columns, then R will match based on all columns that match - so be careful!
 
-`left_join`
-
-`right_join`
