@@ -97,15 +97,15 @@ Normal distributions can vary in their means and standard deviations. Below is a
 
 
 
+
+
+![](img/norm.png)
+
 We use special notation to indicate that a distribution is a  Normal Distribution. For instance, for the normal distribution that has a mean of 17 and a standard deviation of 7, we would write:
 
 $N(\mu=17, \sigma^{2}=49)$
 
 which demonstrates that the distribution is approximately normal with a mean of 17 and variance of 49 (which is the standard deviation, 7, squared).
-
-
-![Normal Distributions](img/norm.png)
-
 
 
 
@@ -118,7 +118,7 @@ Although normal distributions can have various means or standard deviations, the
 $N(\mu=0, \sigma^{2}=1)$
 
 
-![Normal Distributions](img/stdnorm.png)
+![](img/stdnorm.png)
 
 How does the standard normal distribution come about?  We will discuss more about this distribution in section xxx.xxx, but briefly it is obtained by converting all the values of a normal distribution into z-scores.  z-scores are calculated by:
 
