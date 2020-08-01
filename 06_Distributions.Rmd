@@ -1,7 +1,5 @@
 # Distributions
 
-blah blah intro blah
-
 
 ```{r, echo=FALSE}
 
@@ -15,8 +13,6 @@ estimate_mode <- function(x) {
 ```
 
 
-
-## What is a distribution ?
 
 In statistical terms a distribution refers to the range of possible values that can come from a sample space. Another way of stating that is to say that a distribution represents how the probabilities of getting various values are distributed.
 
