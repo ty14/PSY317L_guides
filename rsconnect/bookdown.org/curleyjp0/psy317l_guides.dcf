@@ -5,9 +5,9 @@ account: curleyjp0
 server: bookdown.org
 hostUrl: https://bookdown.org/__api__
 appId: 5142
-bundleId: 25892
+bundleId: 26121
 url: https://bookdown.org/curleyjp0/psy317l_guides/
-when: 1596231929.24054
-lastSyncTime: 1596231929.24054
+when: 1596409810.84587
+lastSyncTime: 1596409810.84587
 asMultiple: FALSE
 asStatic: FALSE
