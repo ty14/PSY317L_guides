@@ -282,9 +282,9 @@ To describe how to make histograms with the `ggplot()` function, lets look at th
 
 
 ```{r, message=FALSE, warning=FALSE}
-df <- read_csv("data/films.csv")
+film <- read_csv("data/films.csv")
 
-head(df)
+head(film)
 
 ```
 
@@ -297,7 +297,7 @@ We then add `+ geom_histogram()` to tell it to make a histogram.  All together i
 
 ```{r, fig.width = 5, fig.height = 3}
 
-ggplot(df, aes(x=imdb)) + 
+ggplot(film, aes(x=imdb)) + 
   geom_histogram()  
 ```
 
@@ -308,7 +308,7 @@ Now, this doesn't look great and we have several problems with it.  The two majo
 OK, let's make the bars dodgerblue and border them white. Inside `geom_histogram()` we use `color="white"` to represent the outside *lines* of the bars. We use `fill="dodgerblue` to indicate the color inside the bars should be dodgerblue.
 
 ```{r, fig.width = 5, fig.height = 3}
-ggplot(df, aes(x=imdb)) + 
+ggplot(film, aes(x=imdb)) + 
   geom_histogram(color="white", fill="dodgerblue") 
 ```
 
@@ -317,7 +317,7 @@ Now let's fix that bindwidth.  To resolve this, inside `geom_histogram()` we wri
 
 
 ```{r, fig.width = 5, fig.height = 3}
-ggplot(df, aes(x = imdb)) + 
+ggplot(film, aes(x = imdb)) + 
   geom_histogram(binwidth = 0.2, color="white", fill="dodgerblue") 
 ```
 
@@ -327,7 +327,7 @@ When we set the interval to be some value - here, we chose 0.2 - R doesn't autom
 
 
 ```{r, fig.width = 5, fig.height = 3}
-ggplot(df, aes(x = imdb)) + 
+ggplot(film, aes(x = imdb)) + 
   geom_histogram(binwidth = 0.2, color="white", fill="dodgerblue",boundary=4) 
 ```
 
@@ -337,7 +337,7 @@ Just be careful with using the boundaries that it does not crop your histogram i
 Like with all ggplot figures, you can add as much customization as you wish. Here, we add a new theme, title and x- and y-axis labels:
 
 ```{r, fig.width = 5, fig.height = 3}
-ggplot(df, aes(x = imdb)) + 
+ggplot(film, aes(x = imdb)) + 
   geom_histogram(binwidth = 0.2, color="white", fill="dodgerblue") +
   theme_classic() +
   ggtitle("Histogram of IMDB Ratings") +
@@ -350,6 +350,7 @@ This looks really nice !
 
 
 
+<br><br><br>
 
 ### Density Curves
 
@@ -358,14 +359,14 @@ Instead of plotting the **frequency** or counts of values on the y-axis, we can 
 In the code below we do this for the `imdb` ratings, and we make the line color navy, and the fill of the density curve dodgerblue:
 
 ```{r, fig.width = 5, fig.height = 3}
-ggplot(df, aes(x = imdb)) + 
+ggplot(film, aes(x = imdb)) + 
   geom_density(color = "navy", fill = "dodgerblue") 
 ```
 
 Usually the fill of these plots is too much, so it's nice to add some transparency. You can do that by picking a number between 0 and 1 to provide to the `alpha` argument. Here we choose `alpha = .4`:
 
 ```{r, fig.width = 5, fig.height = 3}
-ggplot(df, aes(x = imdb)) +  
+ggplot(film, aes(x = imdb)) +  
   geom_density(color = "navy", fill = "dodgerblue", alpha=.4)
 ```
 
@@ -463,322 +464,611 @@ There isn't a simple ggplot way of making stem-and-leaf plots, but there is a bu
 For an example, if we return to our imdb ratings:
 
 ```{r}
-head(df)
+head(film)
 ```
 
 We can make a stem-and-leaf plot of the `imdb` column like this.  The `scale=0.6` parameter dictates how long the stem-and-leaf plot should be. You can adjust it to your liking. Lower numbers make the plot shorter:
 
 ```{r}
-stem(df$imdb, scale=0.6)
+stem(film$imdb, scale=0.6)
 ```
 
 Here, the lowest rating we have is 4.0, and the highest is 8.6.
 
 
 
-
+<br><br><br>
 
 ## Scatterplots
 
 In the introduction to `ggplot2`, we already demonstrated how to make a scatterplot. Here we will show a few extra features of these plots. Scatterplots plot continuous variables on the x- and y-axes, and can be very useful to examine the association between the two continuous variables. We use them a lot when plotting data related to correlation (see section xxx.xxx) or regression (see section xxx.xxx).
 
+As we showed earlier, `geom_point` is used to add datapoints to scatter plots. We'll do this for the `cheese.csv` dataset, that contains nutritional information about various cheeses:
 
-`geom_point` is used for scatter plots. 
-
-Lets look at the dataframe cheese: 
 
 ```{r, message=FALSE, warning=FALSE}
 cheese <- read_csv("data/cheese.csv")
 head(cheese)
 ```
 
-Start with a simple plot looking at the outcome of cholesterol on saturated fat intake. 
+We'll start with a simple scatterplot looking at the association betweeen saturated fat on the x-axis and cholesterol on the y-axis intake. 
 
 ```{r, fig.width = 5, fig.height = 3}
 ggplot(cheese, aes(x=sat_fat, y=chol) ) + 
   geom_point()
 ```
 
-Adding color in `geom_point`
+
+
+We can change the color of the points by adding a color inside of `geom_point` - making sure that the color name is in quotes:
 
 ```{r, fig.width = 5, fig.height = 3}
 ggplot(cheese, aes(x=sat_fat, y=chol) ) + 
   geom_point(color = "purple")
 ```
 
-Adding trend line with `geom_smooth`
 
-```{r, fig.width = 5, fig.height = 3}
+To add a straight trendline through the data we use  `+ stat_smooth(method = "lm")`. The `stat_smooth` bit tells it to add a trendline, and the `method="lm"` bit in the middle is telling it to make the straight line:
+
+```{r, fig.width = 5, fig.height = 3, message=FALSE, warning=FALSE}
 ggplot(cheese, aes(x=sat_fat, y=chol) ) + 
   geom_point(color = "purple") +
- geom_smooth(method = "lm")
+ stat_smooth(method = "lm")
 ```
-Here you can see it automatically puts a shaded area around your trend line, this is supposed to represent the confident interval. There is a way to get rid of it - 
+Here you can see it automatically puts a shaded area around your trendline, which represents a confidence interval around the trendline. There is a way to remove it by adding `se = FALSE` or `se = F` inside of `stat_smooth()`: 
 
-```{r, fig.width = 5, fig.height = 3}
+```{r, fig.width = 5, fig.height = 3, message=FALSE, warning=FALSE}
 ggplot(cheese, aes(x=sat_fat, y=chol) ) + 
   geom_point(color = "purple") +
- geom_smooth(method = "lm", se = FALSE)
-```
-You can also change the color of the trend line, by adding to `geom_smooth`
-
-```{r, fig.width = 5, fig.height = 3}
-ggplot(cheese, aes(x=sat_fat, y=chol) ) + 
-  geom_point(color = "purple") +
-  geom_smooth(method = "lm", se= F, color = "black")
+ stat_smooth(method = "lm", se = FALSE)
 ```
 
 
+You can also change the color of the trendline, by adding to `stat_smooth`
 
-Label your x and y axis 
-
-```{r, fig.width = 5, fig.height = 3}
+```{r, fig.width = 5, fig.height = 3, message=FALSE, warning=FALSE}
 ggplot(cheese, aes(x=sat_fat, y=chol) ) + 
   geom_point(color = "purple") +
-  geom_smooth(method = "lm", se= F, color = "black") +
-  xlab(" Saturated Fat Intake") +
-  ylab("Cholesterol")
+  stat_smooth(method = "lm", se= F, color = "black")
 ```
 
-Add a title and a theme to make your graph complete
 
-```{r, fig.width = 5, fig.height = 3}
+As with all `ggplot2` graphs, you can customize the plot. For example changing the theme, adding a title and axes titles:
+
+
+```{r, fig.width = 5, fig.height = 3, message=FALSE, warning=FALSE}
 ggplot(cheese, aes(x=sat_fat, y=chol) ) + 
   geom_point(color = "purple") +
-  geom_smooth(method = "lm", se= F, color = "black") +
-  xlab(" Saturated Fat Intake") +
+  stat_smooth(method = "lm", se= F, color = "black") +
+  xlab(" Saturated Fat") +
   ylab("Cholesterol") +
-  ggtitle("Saturated Fat Intake and Cholesterol") +
+  ggtitle("Saturated Fat vs Cholesterol") +
   theme_minimal()
 ```
 
 
-custom color based on groups.... e.g. bird male/female...
 
+
+If you wish to change the color of the points based on a grouping variable, then we need to put our `color=` into the `aes()`. You then need to provide the column that has the color grouping variable. For example, to change the color of points in our plot of body mass against head size in Blue Jays based on the sex of birds:
+
+```{r, fig.width = 5, fig.height = 3}
+head(df)
+
+ggplot(df, aes(x=Mass, y=Head, color = KnownSex) ) + 
+  geom_point() 
+```
+
+If you wish to customize the colors of your datapoints, then you need to add `scale_color_manual()` like this:
+
+
+```{r, fig.width = 5, fig.height = 3}
+ggplot(df, aes(x=Mass, y=Head, color = KnownSex) ) + 
+  geom_point() +
+  scale_color_manual(values = c("darkorange", "steelblue2")) +
+  theme_classic()
+```
+
+
+If you have a lot of points on your scatterplot, it can get quite hard to see all the datapoints. One way to deal with this is to change the **transparency** of the points. You can do this by adjusting the `alpha` level inside of `geom_point()`. `alpha=` ranges from 0 to 1, with 0 being fully transparent and 1 being fully solid.
+
+
+```{r, fig.width = 5, fig.height = 3}
+ggplot(df, aes(x=Mass, y=Head, color = KnownSex) ) + 
+  geom_point(alpha=.4) +
+  scale_color_manual(values = c("darkorange", "steelblue2")) +
+  theme_classic()
+```
 
 
 ### Bubble Charts
 
+Bubble Charts are an extension to scatterplots. In scatterplots we plot two continuous variables against each other. With a bubble chart we add a third continuous variable and vary the size of our datapoints according to this variable.  For example, say we wish to also plot skull size on our Blue Jay scatterplot. We could increase the size of the points for individuals with larger skull sizes.  We do this by adding `size=Skull` into our `aes()` part:
+
+
+```{r, fig.width = 5, fig.height = 3}
+ggplot(df, aes(x=Mass, y=Head, color = KnownSex, size = Skull) ) + 
+  geom_point(alpha=.4) +
+  scale_color_manual(values = c("darkorange", "steelblue2")) +
+  theme_classic()
+```
+
+The issue with bubble charts is that they can start to look very cluttered, making it hard to actually see any patterns. They should probably be used sparingly.  One trick you can employ to make them a little easier to see is to add `scale_size()` to the plot. Here, you enter two numbers to tell it what size points to scale to. In our example below, we used `scale_size(range = c(.1, 4))` which makes our points range between sizes 0.1 and 4. This makes the plot a little less busy:
 
 
 
-## Line
+```{r, fig.width = 5, fig.height = 3}
+ggplot(df, aes(x=Mass, y=Head, color = KnownSex, size = Skull) ) + 
+  geom_point(alpha=.4) +
+  scale_color_manual(values = c("darkorange", "steelblue2")) +
+  theme_classic() +
+  scale_size(range = c(.1, 4))
+```
 
-Line graph help connect values (y-axis) over time (x-axis)
+
+ 
+<br><br><br>
+
+
+## Line Graphs
+
+Line graphs connect continuous values on the y-axis over time on the x-axis.  They are very useful for show patterns of change over time.
+
+Let's look at the `jennifer.csv` dataset:
+
 
 ```{r, message=FALSE, warning=FALSE}
 jennifer <- read_csv("data/jennifer.csv")
 
 head(jennifer)
+```
+
+
+This dataset shows the number `n` of children born each year (`year`) in the United States with the name Jennifer. In 1916 there were five children born with the name Jennifer.  In 1917 there were 0. In 1923 there were 9. 
+
+This dataset goes up to 2017 where there were 1052 children born with the name Jennifer:
+
+```{r}
 tail(jennifer)
 ```
 
-How to build up a line graph, start just like the other graphs
+Therefore, we have a continuous variable (`n`) and a time variable (`year`). We can plot these as we would plot a scatterplot by supplying `year` to our x-axis and `n` to our y-axis.  We could then add datapoints with `geom_point()` essentially making a scatterplot:
 
 ```{r, fig.width = 5, fig.height = 3}
-ggplot(jennifer, aes(x=year, y=n) ) 
+ggplot(jennifer, aes(x=year, y=n) ) + geom_point() 
 ```
 
-Look at data as points first 
+
+
+But, we aren't dealing with just a scatterplot. These datapoints can be connected to each other as they are ordered in time. Instead of using `geom_point()` we can use `geom_line()` to draw a line instead:
+
 ```{r, fig.width = 5, fig.height = 3}
-ggplot(jennifer, aes(x=year, y=n) ) + geom_point() # look at data as points
+ggplot(jennifer, aes(x=year, y=n) ) + geom_line()
 ```
 
-Then as a line 
-```{r, fig.width = 5, fig.height = 3}
-ggplot(jennifer, aes(x=year, y=n) ) + geom_line() # instead use a line
-```
 
-You can add points and line together 
+If you so desired, you could plot both the points and lines together:
+
 ```{r, fig.width = 5, fig.height = 3}
 ggplot(jennifer, aes(x=year, y=n) ) + 
   geom_point() +  
   geom_line() 
 ```
 
-Changing Color of Line, but **not** the points
+You can adjust the colors of the lines and the points independently by suppling `color=` inside of each geom:
+
+e.g. Changing the color of the line, but *not* the points:
+
 ```{r, fig.width = 5, fig.height = 3}
 ggplot(jennifer, aes(x=year, y=n) ) + 
   geom_point() +
   geom_line(color = "purple") 
 ```
 
-This will change the color of both the points and the line
+Changing the color of both the points and the line:
+
 ```{r, fig.width = 5, fig.height = 3}
 ggplot(jennifer, aes(x=year, y=n) ) + 
   geom_point(color = "violet") +
   geom_line(color = "purple") 
 ```
 
-Customize axis labels and title
+You can also change the width of lines by adding `lwd=` to `geom_line()`:
 
-```{r, fig.width = 4, fig.height = 3}
-ggplot(jennifer, aes(x=year, y=n) ) + 
-  geom_line(color = "purple") +
-  xlab("Year") +
-  ylab("Number of Children Born") +
-  ggtitle("Popularity of Name Jennifer in USA")
-```
-
-Can change width of lines
 ```{r, fig.width = 5, fig.height = 3}
 ggplot(jennifer, aes(x=year, y=n) ) + 
-  geom_line(color = 'purple', lwd=2)
+  geom_line(color = "purple", lwd=2)
 ```
 
 
-There are many different style of lines here are a few examples
 
-```{r, fig.width = 5, fig.height = 3}
-ggplot(jennifer, aes(x=year, y=n) ) + geom_line(lty=1)
-```
+There are also several different styles of lines. You can change these by adjusting the number you provide to `lty=` inside of `geom_line()`. Here are a few examples:
 
-```{r, fig.width = 5, fig.height = 3}
+```{r, fig.width = 3, fig.height = 2}
 ggplot(jennifer, aes(x=year, y=n) ) + geom_line(lty=2)
 ```
 
-```{r, fig.width = 5, fig.height = 3}
+```{r, fig.width = 3, fig.height = 2}
 ggplot(jennifer, aes(x=year, y=n) ) + geom_line(lty=3)
 ```
 
-```{r, fig.width = 5, fig.height = 3}
-ggplot(jennifer, aes(x=year, y=n) ) + geom_line(lty=4)
-```
+This illustration shows some of the linetype options:
+
+![](img/lty.png)
 
 
-Plotting **multiple** lines on same graph
 
-read in data 
-```{r}
+Just a quick reminder:  Please only connect datapoints into a line if it is meaningful to do so! This is almost always when your x-axis is some measure of time.  
+
+
+### Multiple Line Graphs
+
+Often we wish to compare the patterns over time of different groups. We can do that by plotting *multiple* lines on the same graph.
+
+Let's look at this example dataset. 
+
+```{r, message=FALSE, warning=FALSE}
 jenlinda <- read_csv("data/jenlinda.csv")
 
-head(jenlinda)
 tail(jenlinda)
 ```
 
-Just one line 
+Here, we have data in **long** format. We still have our continous outcome variable of `n` in one column. We also have `year` in another column. So we can plot these two against each other. Importantly, we can split our lines based on our grouping variable, which is the `name` column. In that column we have two different groups - Jennifer and Linda.
+
+To plot separate lines based on the `name` column, we need to add `group=name` to our `aes()`. We've also added some custom labels, titles and a theme.
+
 ```{r, fig.width = 5, fig.height = 3}
-ggplot(jenlinda, aes(x=year, y=n, color=name)) + geom_line()
+ggplot(jenlinda, aes(x=year, y=n, group=name)) + 
+  geom_line()+
+  xlab("Year") +
+  ylab("Number of Children Born") +
+  ggtitle("Popularity of Names Jennifer & Linda in USA") +
+  theme_minimal()
 ```
 
 
-Two lines - one for each name. 
+You may notice that both lines are the same color!  To make the lines have different colors, we insert `color=name` into the `aes()` instead of `group=name`:
+
+
 ```{r, fig.width = 5, fig.height = 3}
 ggplot(jenlinda, aes(x=year, y=n, color=name)) + 
   geom_line()+
   xlab("Year") +
   ylab("Number of Children Born") +
-  ggtitle("Popularity of Names Jennifer & Linda in USA")
+  ggtitle("Popularity of Names Jennifer & Linda in USA") +
+  theme_minimal()
 ```
 
 
-## Boxplot 
+Again, we could customize these colors if we did not like them with `scale_color_manual()` like this:
 
-Boxplot can also be used when looking at the distribution of data. These plots can show the median value and quartiles ranges of the data. 
+```{r, fig.width = 5, fig.height = 3}
+ggplot(jenlinda, aes(x=year, y=n, color=name)) + 
+  geom_line()+
+  xlab("Year") +
+  ylab("Number of Children Born") +
+  ggtitle("Popularity of Names Jennifer & Linda in USA") +
+  theme_classic() +
+  scale_color_manual(values=c("#ffadf3", "#800f4f"))
 
 
-Import and look at data
+```
 
-```{r}
+Just insert your favorite colors, and make sure you provide the same number of colors as you have separate groups/lines.
+
+
+
+<br><br><br>
+
+
+
+## Comparing Distributions across Groups
+
+One of the most important data visualizations that we make is to compare the distribution of data across groups. Here we have a categorical variable on the x-axis, and a continuous variable on the y-axis. For some reason, the most common way to represent these data in most of the scientific literature is to plot bar graphs with error bars - so-called dynamite plots. However, in our very strong opinion these plots are dreadful and you should never use them. [Fortunately others agree](http://biostat.mc.vanderbilt.edu/wiki/pub/Main/TatsukiRcode/Poster3.pdf).  Instead, please choose from strip plots, boxplots or violin plots, or a combination, depending upon your data.
+
+In this section we'll use the `wheels1.csv` dataset. These data show the number of revolutions of a running wheel made by mice over a four day period. The mice vary by their strain (type). Here we just select the `id`, `strain` and `day4` columns for this example: 
+
+```{r, warning=FALSE, message=FALSE}
 wheels <- read_csv("data/wheels1.csv")
-head(wheels)
-tail(wheels)
+wheels1 <- wheels %>% select(id, strain, day4) 
+head(wheels1)
 ```
 
-You can get more information about the data and general summaries by using the following code
+The `day4` column represents how many wheel revolutions the mice made on their fourth day running in the wheel. Some mice really like running in the wheel, others aren't as bothered!
+
+Let's have a look at how many datapoints we have in each strain:
 
 ```{r}
 table(wheels$strain)
-
-summary(wheels)
 ```
 
+We hae 80 mice in five different strains.
 
-Plotting the data with `geom_boxplot()` 
-```{r, fig.width = 4, fig.height = 3}
-ggplot(wheels, aes(x = strain, y = total)) + 
-  geom_boxplot()  
+
+
+### Strip Plots
+
+Strip plots essentially just plot the raw data. It's like plotting a scatterplot, except we plot a categorical variable on the x-axis.
+
+So in our example, inside `aes()` we'll put strain on the x-axis with `x=strain`, and on the y-axis we put our outcome variable with `y=day4`. We'll add datapoints with `+ geom_point()`:
+
+
+```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
+ggplot(wheels1, aes(x = strain, y = day4)) + 
+  geom_point()  +
+  theme_classic()
 ```
 
+The major issue with this plot is that all the points are in a very straight line, and it can be difficult to distinguish between different points.  To change this, instead of using `geom_point()` we use `geom_jitter()` which bounces the points around a bit:
 
-The warning message is ok - it's saying some rows don't have data. However, notice the outlier. 
-
-
-
-You can overlay the points on the boxplot, which can help you visualize the spread of the dta. 
-
-```{r, fig.width = 4, fig.height = 3}
-ggplot(wheels, aes(x = strain, y = total)) + 
-  geom_boxplot() + 
-  geom_point()
-```
-
-
-You can customizing colors by chaning the `fill` and color of boxplots
-```{r, fig.width = 4, fig.height = 3}
-ggplot(wheels, aes(x = strain, y = total)) + 
-  geom_boxplot(color="navy", fill="dodgerblue") +
-  geom_point(color="navy")
-```
-
-
-You can also make the points wobble a bit... 
- but careful it goes crazy...
-
-```{r, fig.width = 4, fig.height = 3}
-ggplot(wheels, aes(x = strain, y = total)) + 
-  geom_boxplot(color="navy", fill="dodgerblue") +
-  geom_jitter(color="navy")
-```
-
-You can constrain it by setting a width value of how much wobble.
-
-```{r, fig.width = 4, fig.height = 3}
-ggplot(wheels, aes(x = strain, y = total)) + 
-  geom_boxplot(color="navy", fill="dodgerblue") +
-  geom_jitter(color="navy", width = .1) 
-```
-
-Finish the graph by adding titles and labels etc.
-
-```{r,fig.width = 4, fig.height = 3}
-ggplot(wheels, aes(x = strain, y = total)) + 
-  geom_boxplot(color="navy", fill="dodgerblue") +
-  geom_jitter(color="navy", width = .1) +
-  xlab("Mouse Strain") +
-  ylab("Total Wheel Revolutions") +
-  ggtitle("Wheel Running By Different Mouse Strains") +
+```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
+ggplot(wheels1, aes(x = strain, y = day4)) + 
+  geom_jitter()  +
   theme_classic()
 ```
 
 
-A couple of other things you might want to try:
+Whoops! The points exploded. Now it's not possible to know which points belong to which group. To constrain this, we can set `width=` inside of `geom_jitter()` which tells the points how far they are allowed to bounce around:
 
-1. Make the outlier more noticeable
-```{r,fig.width = 4, fig.height = 3}
-
-ggplot(wheels, aes(x = strain, y = total)) + 
-  geom_boxplot(outlier.color = "green", outlier.size = 8)
+```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
+ggplot(wheels1, aes(x = strain, y = day4)) + 
+  geom_jitter(width = .15)  +
+  theme_classic()
 ```
 
-2. If you prefer violin shapes to boxplots
-```{r, fig.width = 4, fig.height = 3}
-ggplot(wheels, aes(x = strain, y = total)) +  geom_violin()
+This looks a lot better!. 
+
+
+
+
+### Boxplots
+
+Boxplots are a very useful way of summarizing the distribution of data. The image below summarizes what each line in the boxplot represents. For more details on all of these descriptive measures see section xxx.xxx:
+
+
+![](img/box2.png)
+
+The middle horizontal line is at 6. This represents the **median** of the distribution which is the middle value. 50% of the distribution lies above this value and 50% below it. The higher horizontal line at the top of the box represents the **upper quartile**. This is approximately the median of the upper 50% of the data, so is approximately the 75% percentile.  The lower horizontal line at the bottom of the box represents the **lower quartile**. This is approximately the median of the lower 50% of the data, so is approximately the 25% percentile of the data.  Therefore, the middle 50% of the data (from the 25% percentile to the 75% percentile) lies inside the box.  The long vertical lines represent the **range** of the data. The top of that line is the maximum value in the data, and the bottom of that line is the minimum value in the distribution.
+
+
+The above is a basic boxplot. However, `ggplot2` does things a little bit differently. It turns out there is more than one way to calculate the lower and upper quartiles (see section xxx.xxx). Also, R doesn't necessarily extend the vertical lines (**whiskers**) all the way to the minimum and maximum values. If there are datapoints that  are too far away from the upper or lower quartile, then it truncates the whisker and shows datapoints outside of this range as dots.  Here is an illustration of a ggplot boxplot:
+
+![](img/box3.png)
+
+
+
+OK, let's have a look at some boxplots using `ggplot()`.  We provide the same `x=strain` and `y=day4` values as we do with strip plots. Instead of `geom_jitter()` we use `geom_boxplot()`:
+
+
+```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
+ggplot(wheels1, aes(x = strain, y = day4)) + 
+  geom_boxplot()  +
+  theme_classic()
+```
+
+You can see in this example, that the strain "F1-129B6" and the strain "S129" both have two datapoints that are shown as outliers beyond the whiskers. 
+
+
+
+To change the colors of the boxplots, you can change `color=` and `fill=` inside `geom_boxplot()`. Remember that `color` refers to the color of the lines, and `fill` refers to the filled in color of the shape:
+
+
+```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
+ggplot(wheels1, aes(x = strain, y = day4)) + 
+  geom_boxplot(color="navy", fill="lightsteelblue1") +
+  theme_classic()
 ```
 
 
-3. You can also color according to the x-axis category
-```{r, fig.width = 4, fig.height = 3}
-ggplot(wheels, aes(x = strain, y = total, fill = strain)) + 
-  geom_boxplot()
+You can change the size, color and shape of the outliers. For instance, to remove them completely, we do `outlier.shape=NA` inside `geom_boxplot()`
+
+```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
+ggplot(wheels1, aes(x = strain, y = day4)) + 
+  geom_boxplot(color="navy", fill="lightsteelblue1", outlier.shape = NA) +
+  theme_classic()
 ```
 
-4. Adding points
-```{r, fig.width = 4, fig.height = 3}
-ggplot(wheels, aes(x = strain, y = total, fill = strain)) + 
+To change the size and color, you can use `outlier.size` and `outlier.color` respectively inside `geom_boxplot()`
+
+```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
+ggplot(wheels1, aes(x = strain, y = day4)) + 
+  geom_boxplot(color="navy", fill="lightsteelblue1", outlier.size = .5, outlier.color = "gray66") +
+  theme_classic()
+```
+
+
+
+#### Overlaying points
+
+It can often be helpful to overlay your raw datapoints over the top of boxplots, providing that you don't have too much data.  To do this, just add your points with either `geom_point()` or preferably `geom_jitter()`. But one warning - make sure you remove any outliers with `outlier.shape=NA` otherwise those datapoints will show up twice: 
+```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
+ggplot(wheels1, aes(x = strain, y = day4)) + 
+  geom_boxplot(color="navy", fill="lightsteelblue1", outlier.shape = NA) +
+  geom_jitter(width=0.15, color="navy") +
+  theme_classic()
+```
+
+
+Sometimes this can look a bit too busy. One way to contrast things is to set either the points or the boxplots themselves to have some transparency with `alpha=`. 
+
+Here we make the points a bit transparent:
+
+
+```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
+ggplot(wheels1, aes(x = strain, y = day4)) + 
+  geom_boxplot(color="navy", fill="lightsteelblue1", outlier.shape = NA) +
+  geom_jitter(width=0.15, color="navy", alpha = .3) +
+  theme_classic()
+```
+
+
+Here we leave the points solid, but make the boxplot fill transparent:
+
+
+```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
+ggplot(wheels1, aes(x = strain, y = day4)) + 
+  geom_boxplot(color="navy", fill="lightsteelblue1", outlier.shape = NA, alpha = .3) +
+  geom_jitter(width=0.15, color="navy") +
+  theme_classic()
+```
+
+
+And finally, making both a bit transparent, adding some custom titles and labels. You can just choose what you think looks best!
+
+```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
+ggplot(wheels1, aes(x = strain, y = day4)) + 
+  geom_boxplot(color="navy", fill="lightsteelblue1", outlier.shape = NA, alpha = .3) +
+  geom_jitter(width=0.15, color="navy", alpha=.3) +
+  theme_classic()  +
+  xlab("Mouse Strain") +
+  ylab("Total Revolutions") +
+  ggtitle("Mouse Wheel Running")
+```
+
+
+
+
+
+
+#### Reordering categorical x-axes
+
+The boxplot that we made looks ok, but one thing is visually annoying. The boxes are plotted in alphabetical order on the x-axis (B6, F1-129B6..... Swiss). There is no reason why they should be in this order.  A more visually appealing way would be to order the boxplots from the group with the highest median to the lowest median. 
+
+To do this, instead of putting `x=strain` inside of `aes()` we put `x = reorder(strain, strain, median)` inside instead. This is a bit of a mouthful. To break it down, it's saying plot strain on the x-axis, but reorder the groups based on the median of the strain column (that's the second 'strain' in the code).
+
+
+```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
+ggplot(wheels1, aes(x = reorder(strain, strain, median), y = day4)) + 
+  geom_boxplot(color="navy", fill="lightsteelblue1", alpha = .3) +
+  theme_classic()
+```
+
+The output looks pretty good - it is now really easy to notice that one of the groups has a much lower distribution than the others. The major issue is that the label of the x-axis is terrible. So let's fix that: 
+
+```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
+ggplot(wheels1, aes(x = reorder(strain, strain, median), y = day4)) + 
+  geom_boxplot(color="navy", fill="lightsteelblue1", alpha = .3) +
+  theme_classic() +
+  xlab("Mouse Strain") +
+  ylab("Total Revolutions") +
+  ggtitle("Mouse Wheel Running")
+```
+
+Much nicer!
+
+
+
+
+#### Flipping Axes
+
+Often boxplots look perfectly fine with the categorical grouping variable on the x-axis and the continuous variable on the y-axis. If you start to have many groups, then sometimes the boxplots looks too cluttered when placed on the x-axis. In this situation, it might look better to flip the axes, and have the boxplots stacked vertically.  To do this, you write your plot code exactly as you would normally, but you just add `+ coord_flip()` to the end of the code.
+
+
+Let's add this to the reordered boxplots we just made in the previous section:
+
+```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
+ggplot(wheels1, aes(x = reorder(strain, strain, median), y = day4)) + 
+  geom_boxplot(color="navy", fill="lightsteelblue1", alpha = .3) +
+  theme_classic() +
+  xlab("Mouse Strain") +
+  ylab("Total Revolutions") +
+  ggtitle("Mouse Wheel Running") +
+  coord_flip()
+```
+
+
+This is OK, but it would be nicer if the highest values were at the top. There may well be a more straightforward way of doing this, but a quick solution is to wrap `reorder(strain, strain, median)` with `fct_rev`, so you now have  `x = fct_rev(reorder(strain, strain, median))`.  It's a whole lot of code, but it does make the graph really pretty, so it's worth it:
+
+```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
+ggplot(wheels1, aes(x = fct_rev(reorder(strain, strain, median)), y = day4)) + 
+  geom_boxplot(color="navy", fill="lightsteelblue1", alpha = .3) +
+  theme_classic() +
+  xlab("Mouse Strain") +
+  ylab("Total Revolutions") +
+  ggtitle("Mouse Wheel Running") +
+  coord_flip() 
+```
+
+
+
+
+
+
+
+### Violin Plots
+
+
+A disadvantage of boxplots, especially when you have large distributions, is that the box does not tell you much about the overall shape of the distribution. An alternative are **violin plots**, where the width of the shape reflects the shape of the distribution. To make these plots, instead of using `geom_boxplot()` we use `geom_violin()`.
+
+```{r, fig.width = 5, fig.height = 3, warning= FALSE, message = FALSE}
+ggplot(wheels1, aes(x = strain, y = day4)) +  
+  geom_violin() + 
+  theme_classic()
+```
+
+You can do all the customizing, reordering, coloring, tranparency-ing, etc that you do with boxplots:
+
+```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
+ggplot(wheels1, aes(x = fct_rev(reorder(strain, strain, median)), y = day4)) + 
+  geom_violin(color="navy", fill="lightsteelblue1", alpha = .3) +
+  theme_classic() +
+  xlab("Mouse Strain") +
+  ylab("Total Revolutions") +
+  ggtitle("Mouse Wheel Running") +
+  coord_flip() 
+```
+
+
+
+
+### Stacked Boxplots
+
+Sometimes, we want to compare distributions for the same group side by side. For instance, we may not just want to plot the day4 wheel running data, but also plot the day1 data. 
+
+Below, we have data in **wide format**. We have ids, strain, day1 running and day4 running. 
+
+
+```{r}
+wheels2 <- wheels %>% select(id, strain, day1, day4)
+
+head(wheels2)
+
+```
+
+We need to turn this to **long data** to be able to make the stacked boxplot graph. See section xxx.xxx for more on how to switch between wide and long data formats:
+
+```{r}
+wheels2.long <- wheels2 %>% pivot_longer(cols = 3:4, names_to = "day")
+wheels2.long
+
+```
+
+
+Now the wheel running data is in its own column - `value`. So we use `y=value`. The grouping variable is in the `day` column, so we use `fill=day` to make separate boxplots based on the day. This will also make them different fill colors:
+
+```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
+ggplot(wheels2.long, aes(x = strain, y = value, fill=day)) + 
   geom_boxplot() +
-  geom_jitter(width=.1)
+  theme_classic()
 ```
+
+
+This looks ok, but the colors are yucky.  Lets add custom titles, labels, and we'll customize the fill colors using `scale_fill_manual`. We have two groups (day1 and day4) so we need to provide two colors:
+
+```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
+ggplot(wheels2.long, aes(x = strain, y = value, fill=day)) + 
+  geom_boxplot() +
+  theme_classic() +
+  scale_fill_manual(values = c("#9381e3", "#dff77c")) +
+  xlab("Mouse Strain") +
+  ylab("Total Revolutions") +
+  ggtitle("Mouse Wheel Running") 
+```
+
+It turns out all the strains increase their overall running in wheels from day 1 to day 4, except the S129 strain who get bored with wheel running.
+
+
+
+<br><br><br>
 
 ## Bar Graphs  
 
@@ -860,12 +1150,12 @@ We can make ggplot plot the frequency/count of each pet as a bar graph
 Notice here, we use `geom_bar()` - and it counts for us.
 We do not need to supply a y column.
 
-```{r, fig.width = 4, fig.height = 3}
+```{r, fig.width = 5, fig.height = 3}
 ggplot(pets, aes(x = pet)) + geom_bar()
 ```
 
 Then just customize.
-```{r, fig.width = 4, fig.height = 3}
+```{r, fig.width = 5, fig.height = 3}
 ggplot(pets, aes(pet)) + 
   geom_bar(color="black", fill="plum3") +
   xlab("Pet")+
@@ -873,13 +1163,19 @@ ggplot(pets, aes(pet)) +
   ggtitle("Popularity of Pets in a Class")
 ```
 
-## All the extras 
+
+
+<br><br><br>
 
 
 
 
 ## Small Multiples
 
+
+
+
+<br><br><br>
 
 
 
