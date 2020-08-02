@@ -1216,6 +1216,110 @@ ggplot(pets, aes(x = reorder(pet, pet, table))) +
 
 ## Small Multiples
 
+Often we want to compare graphs across multiple categories. One good strategy to do this is to make **small multiples**, which is essentially replicating the same graph for each group several times in different panels. This is probably best explained by doing an example.
+
+
+**Scatterplot small multiple**
+
+Here, we load in the `penguins.csv` dataset. This data shows the size of various penguins culmen (the beak) and flippers:
+
+
+```{r, warning=FALSE, message=FALSE}
+
+penguins <- read_csv("data/penguins.csv")
+head(penguins)
+
+
+```
+
+The dataset contains three different species:
+
+```{r, fig.width = 5, fig.height = 3}
+table(penguins$species)
+```
+
+We might be interested in examining how body mass is associated with flipper length across species and across sex. Here, we have two different columns containing categorical variables. We have `sex` and `species`. If we wanted to show all of this on just one scatterplot, we could change the color of the points to represent species, and the shape of the points to represent sex. We change the shape by a column using `shape=` inside of `aes()`:
+
+```{r, fig.width = 5, fig.height = 3}
+ggplot(penguins, aes(x = body_mass_g,  y = flipper_length_mm, color = species, shape = sex)) + 
+  geom_point() +
+  theme_classic()
+
+```
+
+The problem with this sort of graph is that it is far too cluttered. Using shape to distinguish categories isn't that useful or helpful. You really have to squint at the graph to work out what is a circle and what is a triangle.
+
+
+An alternative approach is to make small multiples. We create a separate scatterplot for each species. Here, we color our points by sex with `color=sex` inside `aes()`. We add to our code the line `facet_wrap(~species)` to tell `ggplot()` to make separate scatterplots for each species. Please note the `~` that comes before the column name that you wish to make separate plots for:
+
+```{r, fig.width = 8, fig.height = 3}
+ggplot(penguins, aes(x = body_mass_g,  y = flipper_length_mm, color = sex)) + 
+  geom_point() +
+  theme_minimal() +
+  facet_wrap(~ species)
+```
+
+
+You may notice that all the scatterplots have the same range of values on the x-axis.  Technically, this is the most appropriate approach as it enables you to make comparisons across groups more easily.  However, if you want to fit the data on each scatterplot to cover the whole canvas, you can make the axes unfixed by adding `scales="free"` to your `facet_wrap()` command:
+
+```{r, fig.width = 8, fig.height = 3}
+ggplot(penguins, aes(x = body_mass_g,  y = flipper_length_mm, color = sex)) + 
+  geom_point() +
+  theme_minimal() +
+  facet_wrap(~ species, scales = "free")
+```
+
+
+
+**Line graph small multiple**
+
+We can also make small multiples for line graphs. Let's illustrate this using the `lifeexp_all.csv` dataset.
+
+```{r, warning=FALSE, message=FALSE}
+le <- read_csv("data/lifeexp_all.csv")
+
+head(le)
+
+```
+
+In this dataset we have a column giving the life expectancy (`lifeExp`) of various countries that are in the `country` column. We also have a `year` column that goes from 1952 to 2007 at five year intervals.  Consequently, we could plot a line graph of year on the x-axis and life expectancy on the y-axis. We could make separate lines for each country. As there are far too many countries to plot, it is not worth making each one a separate color. Because of this, rather than putting `color=country` into `aes()` to indicate to make separate lines for each country, we'll put `group=country`.  This will make separate lines for each country, but make them all the same color. If we make them a light color and a bit transparent, it will look best:
+
+
+```{r, fig.width = 5, fig.height = 3}
+ggplot(le, aes(x = year, y = lifeExp, group = country)) + 
+  geom_line(color="cornflowerblue", alpha=0.2) +
+  theme_minimal()
+
+```
+
+This gives us a sense of the overall pattern of life expectancies from 1952 to 2007. The trend for most countries is generally upwards, though there are some countries that have big crashes.
+
+We also have another categorical variable in our dataset. There is a column called `continent`.  We could replot this line graph, but separate the plots based on which continent the lines/countries belong to.  We do that again using `facet_wrap(~continent)`.
+
+
+```{r, fig.width = 9, fig.height = 7}
+ggplot(le, aes(x = year, y = lifeExp, group = country)) + 
+  geom_line(color="cornflowerblue", alpha=0.5) +
+  theme_minimal() +
+  facet_wrap(~continent)
+
+```
+
+Because there are fewer lines on each graph, we upped the alpha to 0.5 to make the lines a bit darker on this plot.
+
+
+If you wish to make the lines belonging to each panel different colors from each other, you can add `color=continent` to your `aes()`.  You have to remove the color from `geom_line()` to make this work:
+
+
+```{r, fig.width = 9, fig.height = 7}
+ggplot(le, aes(x = year, y = lifeExp, group = country, color = continent)) + 
+  geom_line( alpha=0.5) +
+  theme_minimal() +
+  facet_wrap(~continent)+
+  xlab("Year") +
+  ylab("Life Expectancy")
+
+```
 
 
 
@@ -1224,3 +1328,48 @@ ggplot(pets, aes(x = reorder(pet, pet, table))) +
 
 
 ## Saving and Exporting ggplot2 graphs
+
+How do we save the nice plots that we have made using ggplot2?  There are some quite advanced ways of saving high resolution images.  Here, we'll just run through some quick and easy options.
+
+
+First, you could just hit `zoom` in RStudio to make your plot bigger. Resize the window to your preferred graph size and then take a screenshot. Paste your screenshot into a program such as paint and crop away.  This is a very crude method - but it's fast and reliable if you just want to have an image to insert into some other program.
+
+![](img/zoom.png)
+
+
+A second option is after you have made your plot, you can hit the 'export' tab on the plot viewer. Choose either "Save as Image" or "Save as PDF" and then choose how and where you want to save the image.
+
+![](img/zoom2.png)
+
+
+A more premium option is to use a function from ggplot called `ggsave()`.  The first step you should do is to assign your plot to an object name. In the code below, we are making a scatterplot that we save to the object `plot1`:
+
+```{r, fig.width=5, fig.height=4}
+plot1 <- ggplot(cheese, aes(x = chol, y = kcal)) + 
+     geom_point(color='purple', size=2) + 
+     theme_classic() +
+     xlab("Cholesterol") +
+     ylab("Calories in kcal") +
+     ggtitle("Cheese")
+
+plot1
+```
+
+Next, run a line of code that will save your plot.  You type `ggsave()`. The first thing you put inside this is the location where you want your plot to be stored. You need to write a location on your computer. If you are using an Rproject such as with this course, you could put your plot in a folder called `img`.  Remember to type the file extension `.png` or `.pdf` after the name of your new plot.  The second thing you need to write is the name of the graph object you wish to save. Here our graph is called `plot1`.
+
+```{r, eval=FALSE}
+ggsave("img/cheese_plot.png", plot1)  # save as a png
+
+ggsave("img/cheese_plot.pdf", plot1)  # save as a pdf
+```
+
+
+
+You can also play around with the width and height of your saved image. You probably need to trial and error this a few times to get the proportions that you really like. Here we are making an image that is 10 inches wide and 8 inches high.
+
+```{r, eval=FALSE}
+ggsave("img/cheese_plot2.png", plot1, width = 10, height = 8)  #(in inches, though can be in cm)
+
+```
+
+<br><br><br>
