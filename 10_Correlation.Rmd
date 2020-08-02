@@ -12,6 +12,7 @@ The below image shows a positive correlation of $r=0.6$, a zero correlation of $
 
 ![](img/r1.png)
 
+<br><br>
 
 The below image shows scatterplots, each with a sample size of 30. The trendline is to help demonstrate how correlations of different magnitudes look in terms of their association.
 
@@ -277,7 +278,7 @@ What should you do though if either of your continuous variables are not approxi
 
 
 
-## Confidence Intervals for R
+## Confidence Intervals for r
 
 When we run a correlation on our data we get one correlation coefficient $r$ from our sample. Ideally we would be able to give a confidence interval around this correlation coefficient to describe how certain or uncertain we are in the correlation coefficient.  This is possible to do, but it's a bit long-winded.  Let's look at how it is done.
 
