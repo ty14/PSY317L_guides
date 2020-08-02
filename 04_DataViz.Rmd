@@ -1074,7 +1074,7 @@ It turns out all the strains increase their overall running in wheels from day 1
 
 A common form of data that we wish to show are the amounts of different categories. Often these data could be presented in a table format. For instance, the table below shows the total number of number 1 hits by six different artists in the UK.
 
-![](img/tab1.png)
+![](img/tab1.png){width=30%}
 
 A table is a completely legitimate way to present data. A graphical way of presenting these same data would be to make a **bar graph**. In these plots we have a categorical grouping variable on the x-axis and a numerical value (either continuous or discrete) on the y-axis.  An advantage of bar graphs over tables is that it is often easier to visualize the proportional differences between categories in their values when looking at a bar graph compared to a table. Bar graphs are therefore especially useful when the differences between groups are larger. 
 
@@ -1334,12 +1334,12 @@ How do we save the nice plots that we have made using ggplot2?  There are some q
 
 First, you could just hit `zoom` in RStudio to make your plot bigger. Resize the window to your preferred graph size and then take a screenshot. Paste your screenshot into a program such as paint and crop away.  This is a very crude method - but it's fast and reliable if you just want to have an image to insert into some other program.
 
-![](img/zoom.png)
+![](img/zoom.png){width=50%}
 
 
 A second option is after you have made your plot, you can hit the 'export' tab on the plot viewer. Choose either "Save as Image" or "Save as PDF" and then choose how and where you want to save the image.
 
-![](img/zoom2.png)
+![](img/zoom2.png){width=50%}
 
 
 A more premium option is to use a function from ggplot called `ggsave()`.  The first step you should do is to assign your plot to an object name. In the code below, we are making a scatterplot that we save to the object `plot1`:
