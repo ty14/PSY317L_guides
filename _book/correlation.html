@@ -308,7 +308,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.3" data-path="correlation.html"><a href="correlation.html#cross-products"><i class="fa fa-check"></i><b>11.3</b> Cross-products</a></li>
 <li class="chapter" data-level="11.4" data-path="correlation.html"><a href="correlation.html#conducting-a-pearson-correlation-test"><i class="fa fa-check"></i><b>11.4</b> Conducting a Pearson Correlation Test</a></li>
 <li class="chapter" data-level="11.5" data-path="correlation.html"><a href="correlation.html#assumptions-of-pearsons-correlation"><i class="fa fa-check"></i><b>11.5</b> Assumptions of Pearson’s Correlation</a></li>
-<li class="chapter" data-level="11.6" data-path="correlation.html"><a href="correlation.html#confidence-intervals-for-r"><i class="fa fa-check"></i><b>11.6</b> Confidence Intervals for R</a></li>
+<li class="chapter" data-level="11.6" data-path="correlation.html"><a href="correlation.html#confidence-intervals-for-r"><i class="fa fa-check"></i><b>11.6</b> Confidence Intervals for r</a></li>
 <li class="chapter" data-level="11.7" data-path="correlation.html"><a href="correlation.html#partial-correlations"><i class="fa fa-check"></i><b>11.7</b> Partial Correlations</a></li>
 <li class="chapter" data-level="11.8" data-path="correlation.html"><a href="correlation.html#non-parametric-correlations"><i class="fa fa-check"></i><b>11.8</b> Non-parametric Correlations</a></li>
 <li class="chapter" data-level="11.9" data-path="correlation.html"><a href="correlation.html#point-biserial-correlation"><i class="fa fa-check"></i><b>11.9</b> Point-Biserial Correlation</a></li>
@@ -374,6 +374,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Pearson’s correlation is measured by <span class="math inline">\(r\)</span> and ranges between -1 and +1. +1 indicates that the variables <code>X</code> and <code>Y</code> are maximally positively correlated, such that as values of X increase so do values of Y. -1 indicates a compleltely negative correlation such that as values of <code>X</code> increase, values of <code>Y</code> decrease. A value of 0 indicates that there is no overall relationship.</p>
 <p>The below image shows a positive correlation of <span class="math inline">\(r=0.6\)</span>, a zero correlation of <span class="math inline">\(r=0\)</span> and a negative correlation of <span class="math inline">\(r=-0.6\)</span> for 20 datapoints in each scatterplot.</p>
 <p><img src="img/r1.png" /></p>
+<p><br><br></p>
 <p>The below image shows scatterplots, each with a sample size of 30. The trendline is to help demonstrate how correlations of different magnitudes look in terms of their association.</p>
 <div class="figure">
 <img src="img/correlations.png" alt="" />
@@ -628,7 +629,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>What should you do though if either of your continuous variables are not approximately normally distributed? In that case, there are other correlation coefficients and associated significance tests that you could run instead. We describe these in more detail in Section x.xxx</p>
 </div>
 <div id="confidence-intervals-for-r" class="section level2">
-<h2><span class="header-section-number">11.6</span> Confidence Intervals for R</h2>
+<h2><span class="header-section-number">11.6</span> Confidence Intervals for r</h2>
 <p>When we run a correlation on our data we get one correlation coefficient <span class="math inline">\(r\)</span> from our sample. Ideally we would be able to give a confidence interval around this correlation coefficient to describe how certain or uncertain we are in the correlation coefficient. This is possible to do, but it’s a bit long-winded. Let’s look at how it is done.</p>
 <p>The main thing to realize is that our sample of data that we calculate our observed correlation coefficient from is technically just one sample that we could have got from a population. We could have picked a slightly different sample, and got a slightly different correlation. Let’s work through this using an example.</p>
 <p>Say we have a population of 25,000 subjects (datapoints) and the true population correlation coefficient is <span class="math inline">\(\rho=0.75\)</span> (When we’re dealing with a population we use <span class="math inline">\(\rho\)</span> for the Pearson’s correlation coefficient rather than <span class="math inline">\(r\)</span>.).</p>
