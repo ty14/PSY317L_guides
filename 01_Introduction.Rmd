@@ -45,7 +45,7 @@ You will want to click on the first link $\color{blue}{\text{"RStudio-1.3.1056.e
 
 
 **R for Mac OS X**
-You will want to click on the second link $\color{blue}{\text{"RStudio-1.3.1056.dmg"}$.
+You will want to click on the second link $\color{blue}{\text{"RStudio-1.3.1056.dmg"}}$.
 
 ![](img/rstudio_install.png){width=800px}
 
