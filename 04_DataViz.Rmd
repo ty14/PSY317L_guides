@@ -119,7 +119,7 @@ ggplot(df, aes(x=Mass, y=Head, color = KnownSex) ) +
 ```
 
 
-You'll notice that we are **chaining** together commands with the `+`. This is similar to how we chain together commands with the `%>%` when doing data carpentry. `ggplot()` instead chains with the `+`. Again, be careful not to start a row with a `+`, and you must end a row with a `+` unless its the very last row.
+You'll notice that we are **chaining** together commands with the `+`. This is similar to how we chain together commands with the `%>%` when doing data carpentry. `ggplot()` instead chains with the `+`. Again, be careful not to start a row with a `+`, and you must end a row with a `+` unless it's the very last row.
 
 
 To change the title of the x-axis or the y-axis, we use `xlab` and `ylab` respectively. We can do it like this:
@@ -135,9 +135,9 @@ p + xlab("Body Mass (g)") + ylab("Head Size (mm)")
 R recognizes many default color names. These can be found at either of these places:
  
 <br>
-[https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/](color names 1)
+[Color names 1](https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/)
 <br>
-[http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf](color names 2)
+[Color names 2](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)
 <br>
 Or, you can use a [hex code](https://htmlcolorcodes.com/color-picker/)
 <br>
@@ -159,7 +159,7 @@ ggplot(df, aes(x=Mass, y=Head) ) + geom_point(color="#ababcc")
 
 You can also change the shape of the points you plot with `geom_point(pch = )`. You need to insert the appropriate number according to this guide:
  
-![Different Types of Points](img/points.png){width=600px}
+![](img/points.png){width=600px}
 
 
 For example, to have dodgerblue asterisks, we add `pch = 8`, separating the color and shape commands by a comma:
