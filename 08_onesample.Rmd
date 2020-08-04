@@ -90,22 +90,27 @@ To find the proportion of the curve to the right of the red line (i.e. the propo
 So 20.2% of samples have a sample mean greater than 102.5.  In this situation, our one sample mean was not therefore that unusual or surprising.
 
 
+<br><br>
+
 ### Calculating p-values for z-test
 
 **One-tailed tests** 
 
-We can calculate the proportion of sample means that are greater or less than any value.  For instance, if we were interested in whether a new reading program in a school boosted the IQ of subjects. We might take a sample of 25 of these students and measure their IQ.  If we got a sample mean of $\overline_{x} = 105.7$, we may wish to test whether this value is surprsingly large given that the population of IQ has a $\mu=100.0$ and $\sigma=15.0$.
+We can calculate the proportion of sample means that are greater or less than any value.  For instance, if we were interested in whether a new reading program in a school boosted the IQ of subjects. We might take a sample of 25 of these students and measure their IQ.  If we got a sample mean of $\overline{x}= 105.7$, we may wish to test whether this value is surprisingly large given that the population of IQ has a $\mu=100.0$ and $\sigma=15.0$.
 
 If we were to formally write this in hypothesis terms, it would look like this:
 
+<br>
 $H_{0}: \mu \le 100.0$
+<br>
 $H_{1}: \mu > 100.0$
+<br>
 
 This is saying that the alternative hypothesis $H_{1}$ is that our sample of 25 come from a population whose mean is greater than 100.0.  The null hypothesis that we are testing is that they come from a population whose mean is equal to or less than 100.0.
 
-For the test, we assume with the null hypothesis that our sample did indeed come from a population with  $\mu=100.0$ and $\sigma=15.0$. We already calculated above that the sampling distribution of sample means for $n=25$ has a $\mu_{\overline{x}}=100.0$ and $\sigma_{\overline{x}}=3.0$. How unusual is our one observed sample mean of $\overline{x}=105.7$?  We need to calculate this in terms of z:
+For the test, we assume with the null hypothesis that our sample did indeed come from a population with  $\mu=100.0$ and $\sigma=15.0$. We already calculated above that the sampling distribution of sample means for $n=25$ has a $\mu_{\overline{x}}=100.0$ and $\sigma_{\overline{x}}=3.0$. How unusual is our one observed sample mean of $\overline{x}=105.7$?   We need to calculate this in terms of z:
 
-$z = \frac{\overline{x} - \mu_{\overline{x}}}{\sigma_{\overline{x}}}$
+$\large z = \frac{\overline{x} - \mu_{\overline{x}}}{\sigma_{\overline{x}}}$
 
 ```{r}
 (105.7 - 100.0) / 3
@@ -129,15 +134,17 @@ We can do this with `pnorm()`:
 This shows that only 2.9% of sample means are greater than our observed sample mean, given the population data of $\mu=100.0$ and $\sigma=15.0$. Therefore, our observed sample mean is quite surprising. We can write the likelihood of getting this sample mean as `p = 0.029`. Because we a priori had a prediction as to the direction of the mean in our sample (we predicted it to be higher than the population mean of 100.0), then we have in fact just done a one-tailed test. If we decide that any p-values that are below `p=0.05` are 'significant', then we can say that our reading program in the school has a 'signficant effect' on improving IQ scores.  
 
 
-
+<br><br>
 
 **Two-tailed tests** 
 
 What instead we had implement a reading program that was quite radical, and we were not sure whether it would be successful or not. We were interested in seeing whether it could increase or decrease IQ?  In this situation, we do not have a direction of prediction, and we set up our hypotheses slightly differently:
 
-
+<br>
 $H_{0}: \mu = 100.0$
+<br>
 $H_{1}: \mu \ne 100.0$
+<br>
 
 Here, we are interested in whether our observed sample mean of $\mu=105.7$ could have come from a sampling distribution with a population mean of $\mu_{\overline{x}=100.0} or not.  The initial steps are the same. We calculate how unusual our observed sample mean was in terms of standard deviations away from the mean of the sampling distribution:
 
@@ -166,22 +173,25 @@ But is this really true?   It is important to consider two things here.  One, it
 
 
 
-
+<br><br>
 
 
 ### Using critical values
 
 In the preceding section, we ran one-tailed and two-tailed z-tests and calculated exact p-values. It is reasonably straightforward to do this in R. There is no reason not to use that approach. We prefer it. However, most often in introductory textbooks, a different approach is used. In this approach, the step of calculating the p-value is missed out. Instead, you are asked to just determine whether your obseved z-value is more extreme than you'd expect by chance.  "By chance" in this context means, that your observed z-value is less than 5% likely to occur.
 
+<br>
 
 **One-tailed z-test**
 
 The population mean for SAT scores is $\mu=500$ with a population standard deviation $\sigma=100$. A tutoring company says that they improve SAT scores. A random sample of 12 students who took the tutoring program had a sample mean of $\overline(x)=551$. Let's test whether this sample mean came from the population.
 
 
+<br>
 $H_{0}: \mu \le 500.0$
+<br>
 $H_{1}: \mu > 500.0$
-
+<br>
 
 Next, we calculate the mean and standard deviation of the sampling distribution for a sample size $n=12$.  For the test, we assume that the sampling distribution mean $\mu_{\overline{x}}=500.0$ - i.e. is the same as the population mean. The standard deviation of the sampling distribution $\sigma_{\overline{x}} = 28.87$:
 
@@ -227,7 +237,7 @@ If we get back to our observed $z$ value of $z=1.77$, we can overlay this over t
 
 As you can see, our observed $z$ value is more extreme than the 'critical value' of $z=1.645$. We say that our observed value is therefore in the 'region of rejection' and we can therefore reject the null hypothesis with a p-value of $p<0.05$ and accept the alternate hypothesis that our sample comes from a population with a population mean that is greater than 500. In other words, the tutoring program appears to have a population mean of SAT scroes greater than 500.
 
-
+<br><br>
 
 **Two-tailed z-test**
 
@@ -248,9 +258,11 @@ Let's illustrate this a bit further with the following example.  Say we have a b
 
 If we were to conduct a two-tailed test, to test if the population mean that our sample come from is equal to 6.5 ounces or not,  then our hypotheses would be:
 
-
+<br>
 $H_{0}: \mu = 6.5$
+<br>
 $H_{1}: \mu \ne 6.5$
+<br>
 
 
 We need to calculate the z-score for our sample mean, to determine how many standard deviations of the sampling distribution it is away from the mean.
@@ -271,7 +283,7 @@ Our value of $z=-1.69$ is therefore not inside either of the regions of rejectio
 
 
 
-
+<br><br>
 
 
 ## One-sample t-tests
@@ -283,6 +295,7 @@ If you wish to test whether your observed sample mean is likely or not to come f
 
 In this situation, because we don't know our population standard deviation $\sigma$, we have to estimate it using the sample standard deviation $s$. Further, because our sampling distribution may not be precisely normal given this estimation, we say that it comes from a $t$-distribution. $t$-distributions have slightly heavier tails than the normal distribution.
 
+<br><br>
 
 **One-tailed t-test example**
 
@@ -298,9 +311,11 @@ mean(x)
 
 Our one observed sample mean $\overline{x}=54$. This is higher than 50, but is it meaningfully higher? If we were to formalize our hypothesis for this test, we would write:
 
-
+<br>
 $H_{0}: \mu \le 50.0$
+<br>
 $H_{1}: \mu > 50.0$
+<br>
 
 We are testing whether our sample was likely to have come from a population with mean 50 or less (null hypothesis), or if it was more likely to come from a population with a mean of greater than 50.
 
@@ -308,7 +323,7 @@ The first step is to think about the sampling distribution. We need to recognize
 
 Next, we need to calculate the standard deviation of the sampling distribution of sample means for n=12 (i.e. the standard error). As we do not know the population standard deviation $\sigma$, we estimate this by using the following formula:
 
-$\sigma_{\overline{x}} = \frac{s}{\sqrt{n}}$
+$\large \sigma_{\overline{x}} = \frac{s}{\sqrt{n}}$
 
 Therefore, our estimate of the standard error is $\sigma_{\overline{x}}=4.14$:
 
@@ -320,7 +335,7 @@ sem
 
 Now that we know both the mean and standard deviation of the t-shaped sampling distribution, next we need to calculate how many standard deviations from this mean is our one observed sample mean. We calculate that using the formula that is similar to the $z$ formula:
 
-$t = \frac{\overline{x} - \mu_{\overline{x}}}{\sigma_{\overline{x}}}$
+$\large t = \frac{\overline{x} - \mu_{\overline{x}}}{\sigma_{\overline{x}}}$
 
 Our sample mean of $\overline{x}=54$ has a $t$ value of $t = 0.965$:
 
@@ -354,7 +369,7 @@ pt(0.965, df=11, lower.tail = FALSE)
 
 Because we made a prediction as to the direction of the hypothesis - i.e. we predicted that reading to children would *increase* the population mean, we are effectively running a one-tailed test. Our p-value is simply $p=0.177$. As we use an alpha level of 0.05 (a p-value of 0.05 as our critical value), this suggests that we do not have sufficient evidence to suggest that our sample of 12 children have a mean value that comes from a population with a mean that is greater than 50. We do not reject our null hypothesis.
 
-
+<br><br>
 
 **Two-tailed t-test example**
 
@@ -374,13 +389,16 @@ sd(zeppo)  # the sample SD is 9.52
 
 Historically, students in this class get a score of 65 points on this test - that is the population mean $\mu$. Dr Zeppo wishes to test if this one sample (one class) has a mean (technically 'comes from a population with a mean') that is different to 65.  We would write out this hypothesis like this:
 
+<br>
 $H_{0}: \mu = 65.0$
+<br>
 $H_{1}: \mu \ne 65.0$
+<br>
 
 As with all of these tests, our first job is to recognize that our one sample mean is just one sample mean that we 'theoretically' could have got from lots of samples of size $n=20$. All of those sample means together are referred to as the sampling distribution of sample means.  Under the null hypothesis, we assume that the mean of the sampling distribution of sample means $\mu_{\overline{x}}=65$, i.e. it is equivalent to the population mean $\mu$. Next, we have to estimate the standard deviation of the sampling distribution of sample means, i.e. the standard error $\sigma_{\overline{x}}$.  We do this using the same formula as before:
 
 
-$\sigma_{\overline{x}} = \frac{s}{\sqrt{n}}$
+$\large \sigma_{\overline{x}} = \frac{s}{\sqrt{n}}$
 
 So, our standard error is $\sigma_{\overline{x}} = 2.13$:
 
@@ -392,7 +410,7 @@ sem
 
 Following this, we need to calculate how expected or unexpected our one sample mean $\overline{x}$ was. We do this by calculating it in terms of how many sampling distribution standard deviations is it away from the sampling distribution mean.  We use the formula:
 
-$t = \frac{\overline{x} - \mu_{\overline{x}}}{\sigma_{\overline{x}}}$
+$\large t = \frac{\overline{x} - \mu_{\overline{x}}}{\sigma_{\overline{x}}}$
 
 ```{r}
 (mean(zeppo) - 65) / sem
@@ -401,6 +419,7 @@ $t = \frac{\overline{x} - \mu_{\overline{x}}}{\sigma_{\overline{x}}}$
 Our observed sample mean of $\overline{x} = 72.3$ is 3.43 sampling distribution standard deviations from the sampling distribution mean.
 
 We can picture this as follows:
+<br>
 
 ![](img/tt2.png)
 
@@ -421,7 +440,7 @@ Either way, we can see that our p-values is $p = 0.003$, which tells us that our
 
 
 
-
+<br><br>
 
 
 ### Critical values for the one-sample t-test
@@ -432,7 +451,7 @@ As with the z-test (see section xxx.xxx), instead of calculating the p-values fo
 
 We'll use data from a different dataset.  Here, we have the times taken to complete a crossword puzzle. We have a sample of $n=10$ subjects.  
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 library(tidyverse)
 xt <- read_csv("data/crosstimes.csv")
 xt$time3
@@ -440,10 +459,11 @@ xt$time3
 
 Let's say we wish to test whether this sample comes from a population with a mean of less than 16.0.  We would be doing a one-tailed test and our hypotheses would look like this:
 
-
+<br>
 $H_{0}: \mu \ge 16.0$
+<br>
 $H_{1}: \mu < 16.0$
-
+<br>
 
 When using critical values, all the steps up to completing the observed $t$-value are the same as before. So, we assume that our one sample mean $\overline{x}$ comes from a sampling distribution of sample means that has a mean equivalent to the population mean of 16.  The standard deviation of this sampling distribution is:
 
@@ -472,19 +492,22 @@ If our observed sample mean with a $t$-value of -0.99 was unexpectedly small, th
 qt(0.05, df=9)
 ```
 
+<br><br>
 
-** Two-tailed tests **
+**Two-tailed tests**
 
 For this example, let's use the `penguins` data. Say we are interested in the flipper length of male Adelie  penguins on Biscoe island (a bit specific, but let's go with it), and wanted to know if their mean length was different from $\mu = 188$.  Our hypotheses would be:
 
+<br>
 $H_{0}: \mu = 188.0$
+<br>
 $H_{1}: \mu \ne 188.0$
-
+<br>
 
 
 From our data, we can calculate our $n$ and sample mean $\overline{x}$:
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 ### Read in the Data Penguins
 penguins <- read_csv("data/penguins.csv")
 
@@ -532,6 +555,7 @@ qt(.975, df = 21)
 qt(.025, df = 21)
 ```
 
+<br>
 
 ![](img/tt4.png)
 
@@ -539,7 +563,7 @@ For a $t$-distribution with 21 degrees of freedom, the top 2.5% of t-values are 
 
 
 
-
+<br><br>
 
 
 
@@ -586,7 +610,7 @@ Finally, if we wished to do a one-taile t-test where we were testing whether the
 t.test(xt$time3, mu = 16, alternative = "less")
 ```
 
-
+<br><br>
 
 
 ## Assumptions of the one-sample t-test

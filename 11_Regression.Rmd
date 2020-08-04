@@ -12,7 +12,7 @@ The regression method that we are going to start with is called *Ordinary Least 
 Let's illustrate the question at hand with some data:
 
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 library(tidyverse)
 
 
@@ -32,7 +32,7 @@ As you can see, what we have are four columns of data. The first column shows th
 Say we're interested in seeing whether there was an association between Dan's sleep and her grumpiness.  We could examine this using a scatterplot:
 
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 # Scatterplot
 ggplot(df, aes(x = dan.sleep, y = dan.grump)) + 
   geom_point() + 
@@ -46,7 +46,7 @@ To get a measure of how big this relationship is, we could run a correlation tes
 
 
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 cor.test(df$dan.sleep, df$dan.grump)
 ```
 
@@ -57,15 +57,15 @@ Using `stat_smooth()` we also applied a best fitting trendline through the data.
 
 The line also has the equation:
 
-	$y' = a + xb$
+$y' = a + xb$
 
 You may also se this written in other ways such as:
 
-	$y' = \beta_{0} + x\beta_{1}$
+$y' = \beta_{0} + x\beta_{1}$
 
 but we'll stick with 
 
-	$y' = a + xb$
+$y' = a + xb$
 	
 
 
@@ -73,7 +73,7 @@ but we'll stick with
 
 In the equation for a regression line, 
 	
-	$y' = a + xb$
+$y' = a + xb$
 	
 $y'$ is equal to the predicted value of $y$. Essentially if you go from any value of $x$ and go up to the trendline, and then across to the y-axis, that is your predicted value of y.  The trendline represents the predicted values of $y$ for all values of $x$.
 
@@ -85,7 +85,7 @@ The value of $a$ represents the **y-intercept**. This is the value of `y'` that 
 
 We can illustrate that in the graph below. We extended the trendline (dotted black line) from its ends until it passes through where $x=0$ (the dotted red line). Where it crosses this point is at $y=125.96$ which is depicted by the orange dotted line.  This makes the y-intercept for this trendline equal to 125.96.
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 # Scatterplot
 ggplot(df, aes(x = dan.sleep, y = dan.grump)) + 
   geom_point() + 
@@ -120,7 +120,7 @@ In the bottom right image, you can see that all the plots have the same y-interc
 To run a regression in R, we use the `lm()` function. It looks like the following:
 
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 
 mod1 <- lm(dan.grump ~ dan.sleep, data=df)  # build regression model
 
@@ -132,7 +132,7 @@ We're also saving the regression model as `mod1` because there's tons of informa
 
 To have a look at what `a` and `b` are, we can just look at our saved object `mod1`.
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 mod1  
 
 ```
@@ -146,7 +146,7 @@ $y' = 125.956 + -8.937b$
 
 We can also get these values directly by running the following code:
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 
 mod1$coefficients
 
@@ -342,7 +342,7 @@ p2
 If we compare both graphs scatterplots side by side, it's pretty clear that our best-fit trendline is doing a much better job of predicting each datapoint's Y value. The horizontal trendline at the mean of Y looks pretty bad for the majority of datapoints - its residuals are much bigger.
 
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 
 library(gridExtra)
 grid.arrange(p1,p2,nrow=1)
@@ -462,7 +462,7 @@ What we are generally looking for with $\sigma_{est}$ is a number as small as po
 
 However, a good rule of thumb is that approximately 95% of the observations (raw datapoints) should fall within plus or minus 2 times the standard error of the estimates from the regression line.  We can illustrate this with the following plot:
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 ggplot(df, aes(x = dan.sleep, y = dan.grump)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
@@ -496,7 +496,7 @@ grid.arrange(p1,p2,nrow=1)
 The F-ratio is essentially a method of determining the proportion of residual variance compared to total variance. We can calculate it using the following formula:
 
 
-$F = \frac{SSM/d.f.SSM}{SSR/d.f.SSR} $
+$F = \frac{SSM/d.f.SSM}{SSR/d.f.SSR}$
 
 Here, SSM refers to the sum of squares for the model (the model sum of squares). This is equal to:
 
@@ -594,7 +594,7 @@ Let's get back to checking the normality of these residuals.
 
 First up, we could plot a histogram and see if we think it's approximately normal:
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 #a) histogram plot
 ggplot(df, aes(x=std_resids)) + geom_histogram(color='white') # possibly ok
 ```
@@ -647,7 +647,7 @@ One simple approach is to examine the scatterplot of your predictor (X) and outc
 
 Although we calculated the $y'$ values earlier using the formula for the regression line, we can actually grab them directly from the model object with the `fitted.values()` command.  
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 df$Y.fitted <- fitted.values(mod1)
 
 # plot this relationship
@@ -677,7 +677,7 @@ Practically, what this means, is that the size of the residuals should be equal 
 
 If we plot the values of X (or the predicted/fitted values of Y) on the x-axis against the residuals (in this case standardized residuals) on the Y-axis, then there should be no overall pattern. We should be equally likely to get small or large residuals for any value of X (or predicted/fitted value of Y). This would mean that any trendline on this graph should be a horizontal line.
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 
 # if true, this should be a straight line
 ggplot(df, aes(x = Y.fitted, y = std_resids)) + 
@@ -728,7 +728,7 @@ Outliers are datapoints that are typically highly unusual in terms of outcome Y 
 Let's look at an example dataset. We have a predictor 'x' and an outcome 'y'. With 'y1' we have the same outcome variables, but have removed the value for one datapoint:
 
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 x <- c(4.1,4.2,5,5.5,6,6.1,6.15,6.4,7,7.2,7.7,8,9.7)
 y <- c(3.9,4.3,6,5.9,6.1,11.9,6.3,5.8,7.9,6.4,7.8,8,9.1)
 y1 <- c(3.9,4.3,6,5.9,6.1,NA,6.3,5.8,7.9,6.4,7.8,8,9.1)
@@ -742,7 +742,7 @@ ddf
 And here, we're plotting the best fitting regression line in blue. The dotted red line represents the best fitting trendline that we would have if we removed the datapoints that has the y value of 11.9.  The dashed black line shows the distance from this datapoint to the trendline we would have if it was removed. 
 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
 mod.out <- lm(y~x, data = ddf)
 mod.out1 <- lm(y1~x, data = ddf)
 
@@ -810,7 +810,7 @@ ddf1
 
 Let's plot these data - I'm sparing you the code for this plot:
 
-```{r, echo=FALSE, warning=FALSE}
+```{r, echo=FALSE, warning=FALSE,  message=FALSE}
 mod.out2 <- lm(y2~x, data = ddf1)
 mod.out3 <- lm(y3~x, data = ddf1)
 coms3 <- coefficients(mod.out3)
@@ -969,10 +969,11 @@ confint(mod1)
 
 We can also use this sampling distribution to apply a signifiance test.  Our null hypothesis will be that the population value of `b` is 0. Our alternative hypothesis will be that `b` is not equal to 0.
 
-
-$H_{0}: b=0$. 
+<br>
+$H_{0}: b=0$ 
+<br>
 $H_{1}: b\neq0$
-
+<br>
 
 Given we know the standard deviation of this sampling distribution, $s_{b}$, we can calculate how far away our observed sample value of $b$ is in terms of how many standard deviations from the mean of 0 it is.  We call this value a t-statistic and it is calculated like this: 
 

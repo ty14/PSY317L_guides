@@ -139,14 +139,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
 <li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#downloading-r"><i class="fa fa-check"></i><b>2.1</b> Downloading R</a></li>
-<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#downloading-rstudio"><i class="fa fa-check"></i><b>2.2</b> Downloading RStudio</a></li>
-<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#using-rcloud-instead-of-rstudio"><i class="fa fa-check"></i><b>2.3</b> Using RCloud instead of RStudio</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#downloading-rstudio"><i class="fa fa-check"></i><b>2.2</b> Downloading RStudio</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="introduction.html"><a href="introduction.html#successful-installation"><i class="fa fa-check"></i><b>2.2.1</b> Successful installation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#using-rcloud"><i class="fa fa-check"></i><b>2.3</b> Using RCloud</a></li>
 <li class="chapter" data-level="2.4" data-path="introduction.html"><a href="introduction.html#the-rstudio-environment"><i class="fa fa-check"></i><b>2.4</b> The RStudio Environment</a></li>
-<li class="chapter" data-level="2.5" data-path="introduction.html"><a href="introduction.html#the-command-prompt"><i class="fa fa-check"></i><b>2.5</b> The Command Prompt</a></li>
-<li class="chapter" data-level="2.6" data-path="introduction.html"><a href="introduction.html#what-is-an-rscript-file"><i class="fa fa-check"></i><b>2.6</b> What is an RScript File?</a></li>
-<li class="chapter" data-level="2.7" data-path="introduction.html"><a href="introduction.html#what-are-packages"><i class="fa fa-check"></i><b>2.7</b> What are Packages</a></li>
-<li class="chapter" data-level="2.8" data-path="introduction.html"><a href="introduction.html#project-folders-and-working-directories"><i class="fa fa-check"></i><b>2.8</b> Project Folders and Working Directories</a></li>
-<li class="chapter" data-level="2.9" data-path="introduction.html"><a href="introduction.html#quitting-r"><i class="fa fa-check"></i><b>2.9</b> Quitting R</a></li>
+<li class="chapter" data-level="2.5" data-path="introduction.html"><a href="introduction.html#running-code"><i class="fa fa-check"></i><b>2.5</b> Running Code</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="introduction.html"><a href="introduction.html#the-console"><i class="fa fa-check"></i><b>2.5.1</b> The Console</a></li>
+<li class="chapter" data-level="2.5.2" data-path="introduction.html"><a href="introduction.html#rscript"><i class="fa fa-check"></i><b>2.5.2</b> RScript</a></li>
+<li class="chapter" data-level="2.5.3" data-path="introduction.html"><a href="introduction.html#saving-an-rscript"><i class="fa fa-check"></i><b>2.5.3</b> Saving an RScript</a></li>
+<li class="chapter" data-level="2.5.4" data-path="introduction.html"><a href="introduction.html#open-an-existing-rscript"><i class="fa fa-check"></i><b>2.5.4</b> Open an existing RScript</a></li>
+<li class="chapter" data-level="2.5.5" data-path="introduction.html"><a href="introduction.html#running-code-in-scripts"><i class="fa fa-check"></i><b>2.5.5</b> Running Code in Scripts</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="introduction.html"><a href="introduction.html#packages"><i class="fa fa-check"></i><b>2.6</b> Packages</a></li>
+<li class="chapter" data-level="2.7" data-path="introduction.html"><a href="introduction.html#working-with-rstudio-in-psy317l"><i class="fa fa-check"></i><b>2.7</b> Working with RStudio in PSY317L</a></li>
+<li class="chapter" data-level="2.8" data-path="introduction.html"><a href="introduction.html#quitting-rstudio"><i class="fa fa-check"></i><b>2.8</b> Quitting RStudio</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="basic-syntax.html"><a href="basic-syntax.html"><i class="fa fa-check"></i><b>3</b> Basic Syntax</a><ul>
 <li class="chapter" data-level="3.1" data-path="basic-syntax.html"><a href="basic-syntax.html#boring-mathematical-stuff"><i class="fa fa-check"></i><b>3.1</b> Boring mathematical stuff</a></li>
@@ -368,132 +375,183 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">2</span> Introduction</h1>
-<p>How to get started with R and Rstudio.</p>
-<p>The initial steps are downloading and installing R. This may differ slightly based on your machine.</p>
-<pre><code>## -- Attaching packages ---- tidyverse 1.2.1 --</code></pre>
-<pre><code>## v ggplot2 3.2.1     v purrr   0.2.4
-## v tibble  2.1.3     v dplyr   0.8.3
-## v tidyr   1.0.2     v stringr 1.3.1
-## v readr   1.1.1     v forcats 0.3.0</code></pre>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.3</code></pre>
-<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.3</code></pre>
-<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.5.3</code></pre>
-<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.3</code></pre>
-<pre><code>## -- Conflicts ------- tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
+<p>This chapter will show you how to get started with <code>R</code> and <code>Rstudio</code>.</p>
+<p><code>R</code> is the programming language. It is what enables us to write code and make things happen.</p>
+<p><code>RStudio</code> is the piece of software that we use to make working with <code>R</code> simpler. It is a graphical interface.</p>
+<p>When both of these are downloaded and installed, we always work by openinng <code>RStudio</code>. <code>R</code> just lives happily in the background and we never need to directly open it.</p>
+<p>The first thing to do is to download and install R and RStudio. You should do it in that order - download R first, and then RStudio. The exact steps you need to take for each will differ depending on if you’re using a Windows, Mac or Linux. This is explained below.</p>
+<p>One extra thing to note. At the time of writing this book, the latest R version is <code>R4.0.2</code> and the latest RStudio version is <code>RStudio.1.3.1056</code>. These numbers will almost certainly be different by the time you come to install each of these. That’s not a problem - just download the most recent version that exists - these will be at the top of the screen at the links we explain below.</p>
 <div id="downloading-r" class="section level2">
 <h2><span class="header-section-number">2.1</span> Downloading R</h2>
-<p>Go to the <a href="https://cran.r-project.org">R website</a>. The first box has options for downloading R for Mac, Windows or Linux. Click on the appropriate link.</p>
+<p>Go to the <a href="https://cran.r-project.org">R website</a>. The first box has options for downloading R for Mac, Windows or Linux. Click on the appropriate link for your operating system.</p>
 <p><img src="img/download_R.png" width="800" /></p>
-<p><strong>R for Windows</strong>
-You will want to click on <span class="math inline">\(\color{blue}{\text{&quot;install R for the first time&quot;}}\)</span>.</p>
+<p><br></p>
+<p><strong>R for Windows</strong></p>
+<p>For windows users, after you have clicked the appropriate linke below, you will see the following screen and you should click on <span class="math inline">\(\color{blue}{\text{&quot;install R for the first time&quot;}}\)</span>.</p>
 <p><img src="img/R_windows.png" width="800" /></p>
-<p>Then follow the instructions.</p>
-<p><strong>R for Mac OS X</strong>
-You will want to click on <span class="math inline">\(\color{blue}{\text{&quot;R-4.0.2.pkg&quot;}}\)</span>.</p>
+<p>After this page, you will see the following page:</p>
+<p><img src="img/R_windows2.png" width="800" /></p>
+<p>You want to click the link that says <span class="math inline">\(\color{blue}{\text{&quot;Download R 4.0.2 for Windows&quot;}}\)</span> that is right at the top of the screen. If the version is more recent than 4.0.2, then click on that instead - just make sure it’s the link at the very top of the page in the grey box. This will start downloading R. Just follow the instructions. You do not need to change any of the default settings, just click accept for each. One piece of advice is to try and keep R in a folder on your machine such as <code>Documents</code> and don’t put it in a cloud folder. We have seen some students have issues when R has been located in cloud folders.</p>
+<p><br></p>
+<p><strong>R for Mac OS X</strong></p>
+<p>If you have a Mac operating system, then you will see the image below. You want to click on <span class="math inline">\(\color{blue}{\text{&quot;R-4.0.2.pkg&quot;}}\)</span>. If a more recent version of R is available, then the version number will be higher than 4.0.2 - click on this instead.</p>
 <p><img src="img/R_mac.png" width="800" /></p>
-<p>Then follow the instructions.</p>
+<p>Again, follow the instructions. You can accept all the default settings for the installation, you don’t need to change anything. It is also best to leave this in a folder located on your machine such as <code>Documents</code> and not in a cloud based folder.</p>
+<p><br><br></p>
 </div>
 <div id="downloading-rstudio" class="section level2">
 <h2><span class="header-section-number">2.2</span> Downloading RStudio</h2>
-<p>Go to the <a href="https://rstudio.com/products/rstudio/download/">Rstudio website</a>. Click <strong>DOWNLOAD</strong> under RStudio Desktop, open source license FREE.</p>
-<p><img src="img/download_Rstudio.png" width="800" /></p>
-<p>Then click on the appropriate installer for your computer (Mac, Windows, or Linux).Run the installer and follow the instructions.</p>
-<p><strong>R for Windows</strong>
-You will want to click on the first link <span class="math inline">\(\color{blue}{\text{&quot;RStudio-1.3.1056.exe&quot;}}\)</span>.</p>
-<p><strong>R for Mac OS X</strong>
-You will want to click on the second link <span class="math inline">\(\color{blue}{\text{&quot;RStudio-1.3.1056.dmg&quot;}}\)</span>.</p>
+<p>Go to the <a href="https://rstudio.com/products/rstudio/download/">Rstudio website</a>. Scroll down so you see something that looks like the image below. Click <strong>DOWNLOAD</strong> under RStudio Desktop, open source license FREE.</p>
+<p><img src="img/download_rstudio.png" width="800" /></p>
+<p>After you click on that box, you should see something that looks like the below image on the next page:</p>
+<p><img src="img/rstudio_top.png" width="800" /></p>
+<p>This will name the most recent version of RStudio (here it is 1.3.1056), don’t worry if yours is a higher number than this. It will remind you that you should have installed R already (that’s the number 1 in the image). Then it says you should download RStudio Desktop. It usually gives you a suggested download and that will be in the blue rectangle under point 2. You can just click that to start your RStudio download. You can then download the software.</p>
+<p>If you don’t see that blue rectangle, then you can choose an appropriate installer for your operating system (Mac, Windows, or Linux) from the list that comes further down that webpage. It looks like this:</p>
 <p><img src="img/rstudio_install.png" width="800" /></p>
-<p>You will always use Rstudio, when working with data.</p>
+<p>If you have Windows, you will want to click on the first link <span class="math inline">\(\color{blue}{\text{&quot;RStudio-1.3.1056.exe&quot;}}\)</span>. If you have Mac, you should click on the second link <span class="math inline">\(\color{blue}{\text{&quot;RStudio-1.3.1056.dmg&quot;}}\)</span>.</p>
+<p>Once you have downloaded Rstudio installer, click on it to start the full installation of the program. Again you can just accept all the default settings. We also advise that, as with R, you save RStudio to a location on your machine such as your <code>Documents</code> folder rather than in a cloud folder.</p>
+<p><br></p>
+<div id="successful-installation" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Successful installation</h3>
+<p>If you have successfully installed your <code>R</code> and your <code>RStudio</code> then you can do the following to check that it works. Find the RStudio shortcut on your Desktop, or find RStudio in your programs. Click on the program or shortcut icon to open up RStudio.</p>
+<p>The RStudio icon looks like this:</p>
+<p><img src="img/rstudio_icon.png" width="200" /></p>
+<p>Alternatively the <code>R</code> icon looks like this:</p>
+<p><img src="img/r_icon.png" width="200" /></p>
+<p>We always use <code>RStudio</code> to start our work, we never need to open <code>R</code> or click on the R icon.</p>
+<p>Once you have opened <code>RStudio</code> it should look something like this:</p>
+<p><img src="img/r_first.png" width="800" /></p>
 <p><br><br></p>
 </div>
-<div id="using-rcloud-instead-of-rstudio" class="section level2">
-<h2><span class="header-section-number">2.3</span> Using RCloud instead of RStudio</h2>
+</div>
+<div id="using-rcloud" class="section level2">
+<h2><span class="header-section-number">2.3</span> Using RCloud</h2>
 <p><a href="https://rstudio.cloud/">RCloud</a></p>
 <p>RCloud is a web-based platform for Rstudio, which allows you to perform all visualization and analysis with your data, without downloading Rstudio on to your machine.</p>
-<p>Professor Curley will email you during the first week of class with an invitation link to the PSY317L project on RCloud. Remember you only need to use RCloud if you do not have Rstudio available on your machine.</p>
-<p>Here is what the invitation link will look like:
-<img src="img/Rcloud_link.png" width="500" /></p>
-<p>Once you click on the link, you will need to create an account. Please fill in the all section with your own information.
-<img src="img/rcloud_signup.png" width="800" /></p>
-<p>RCloud will then prompt you to create a display name for you to go by, remember everyone can see this name so try to make it identifiable and appropriate. After, you enter your display name you will have full excess to the PSY317L project on RCloud.</p>
-<p><img src="img/rcloud_env.png" width="800" /></p>
-<p>Now that you have the RCloud setup with full access to the PSY317L project, you will be able to perform all exercise you will need to complete for class.</p>
-<p>This is your own work space and changes here can not be seen by classmates. Remember, you will not be able to save all changes to R scripts that are already in the project. However, you could create new Rscripts and save all your code there.</p>
+<p>We had considered using RCloud as a backup option for students if they had trouble downloading and installing R or RStudio. However, RCloud has changed a lot of its accessibility options recently and so we are no longer going to use this.</p>
 <p><br><br></p>
 </div>
 <div id="the-rstudio-environment" class="section level2">
 <h2><span class="header-section-number">2.4</span> The RStudio Environment</h2>
+<p>Your Rstudio environment is separated into 4 main panes. On your machine these panes by be organized differently. You can also change the order of these panes by going to your tools tab, then clicking Global preferences.</p>
 <p><img src="img/environment.png" width="800" /></p>
-<p>You Rstudio enviornment is separated into 4 main panes. On your machine these panes by be organized differently. You can also change the order of these panes by going your tools tab, then clicking Global preferences.</p>
-<p>First, in the top left, you have a source pane - or script. This is where you will be writing most of your code. You will have to run the code, before seeing the output in the console. These pane is important because this is where you can write and save code for future use.</p>
-<p>Second, on the bottom left, there is the Console. All of the script’s output will be assess and found in the console. However, objects in the console will not be saved.</p>
-<p>You can also, type right in the console for fast calculations, like this:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="introduction.html#cb8-1"></a><span class="dv">4</span><span class="op">+</span><span class="dv">5</span></span></code></pre></div>
-<pre><code>## [1] 9</code></pre>
-<p>Third, you have a Gobal Environment and History in the top right. Your gobal environment will display all the names of objects you defined in your script.</p>
-<p>Here is an example of a Gobal Environment where you can see dataframes, matrices, values, and functions:</p>
+<p>First, in the top left, you have a source pane. This is where you will be writing most of your <strong>code</strong>. You will have to run the code, before seeing the output in the console. This pane is important because this is where you can write and save code for future use.</p>
+<p>Second, on the bottom left, there is the Console. All of the code and the code’s output that you run from the source panel will show up in the console. You can also directly write code in the console. However, objects in the console will not be saved.</p>
+<p>Third, you have a Global Environment panel in the top right. When you first open RStudio this will be empty, but it fills up with things once you start working with the code. You will also see some tabs above the Global Environment. You should see the <code>Environment</code> and <code>History</code> tabs. You may also see other tabs up there including <code>Git</code>, <code>Tutorial</code> depending on the version of RStudio you have downloaded and what other programs you have on your machine. There are also some other buttons including the <code>Import Dataset</code> button above this panel.</p>
+<p>Here is an example of a Goblal Environment where you can see dataframes, matrices, values, and functions that are being worked with:</p>
 <p><img src="img/gobal_envi.PNG" width="500" /></p>
-<p>If you click the play arrow next to the dataframe, you can view the entire dataframe. This is the save as running the function <code>View(df)</code>. Another, important button is the broom icon, if you click this it will clear your gobal enviornment and you will have to rerun code to get any dataframes, function, etc. back.</p>
-<p>In the History tab, you can see all the code that was once ran through your console. This tab can be important, because as I said before information in the console is never saved and can be deleted easily. Nevertheless, you should get use to saving your code in R scripts, so you will probably not use this tab to often.</p>
-<p>The fourth pane, is the most compacted and has tabs for files, plots, packages, and help.</p>
-<p>The file tab, allows you access all files on your hard drive.</p>
-<p>The Plot tab, will be filled with plots generated from your code. There are puttons right under the tab to Zoom and Export plots. There is also a button which looks like a broom, this will clear the plots.</p>
+<p>If you click the play arrow next to the dataframe, you can view the entire dataframe. This is the save as running the function <code>View(df)</code> (see section xxx.xxx). Another, important button is the broom icon, if you click this it will clear your global environment and you will have to rerun code to get any dataframes, function, etc. back.</p>
+<p>In the <code>History</code> tab, you can see all the code that was once ran through your console. This tab can be important, because information in the console is never saved and can be deleted easily. Nevertheless, you should get use to saving your code in <strong>R scripts</strong>, which we’ll describe shortly, so you will probably not use this tab to often.</p>
+<p>The fourth pane, is the most compacted and has tabs for <code>Files</code>, <code>Plots</code>, <code>Packages</code>, <code>Help</code> and possibly <code>Viewer</code> depending on your version.</p>
+<p>The file tab, allows you access all files on your computer. The initial location for this is likely to be the folder that you saved R and Rstudio in - usually <code>My Documents</code> or something similar. You can navigate to other folders on your computer using the button with the three dots <code>...</code> that looks like this:</p>
+<p><img src="img/r_dots.png" />
+That will open up your computers folders and you can click to a new folder.</p>
+<p>The Plot tab, will be filled with plots generated from your code. There are buttons right under the tab to Zoom and Export plots. There is also a button which looks like a broom, this will clear the plots.</p>
 <p>The Packages tab, has a User Library which is just a list of all the packages you already have install on your machine. You can also install a package, by hitting the install button and then search for your wanted package. The update button will update all packages you already have installed.</p>
 <p>The Help tab, will give you information to help understand different functions and commands in R. You can also call for help with a function right from the console like this:</p>
 <p><code>?t.test</code></p>
 </div>
-<div id="the-command-prompt" class="section level2">
-<h2><span class="header-section-number">2.5</span> The Command Prompt</h2>
-<p>There are several ways to run the code in your script file.</p>
+<div id="running-code" class="section level2">
+<h2><span class="header-section-number">2.5</span> Running Code</h2>
+<div id="the-console" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> The Console</h3>
+<p>In R, you can code run in the console and an Rscript file.</p>
+<p>In the console, the bottom left panel, you type code and run it by hitting <code>Enter</code> or <code>Return</code> on your keyboard. R will show the results in the console as well.</p>
+<p>You should write this code immediately after the <code>command prompt</code> which is a blue <code>&gt;</code> sign with a flashing cursor bar after it. Code written in the console looks like this:</p>
+<p><img src="img/r_console.png" /></p>
+<p>A downside of using the console is that all code and results will be forgotten when the R session is closed. This is why it is better to you use Rscripts.</p>
+<p><br></p>
+</div>
+<div id="rscript" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> RScript</h3>
+<p>To open a new Rscript you can:</p>
+<ol style="list-style-type: decimal">
+<li>Click on <code>File -&gt; New File -&gt; R Script</code> in the menu bar of RStudio.</li>
+</ol>
+<p><img src="img/r_script1.png" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Click on the button in the toolbar in RStudio that looks like a white sheet with a green plus sign. This is located right under <code>File</code> in your Rstudio environment:</li>
+</ol>
+<p><img src="img/r_script2.png" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Hit <code>"Ctrl"+ "Shift" + "N"</code> on your keyboard if you have Windows, or <code>"Ctrl"+ "Shift" + "N"</code> if you have Mac.</li>
+</ol>
+<p>Once you have opened a new Rscript it will looks like this:</p>
+<p><img src="img/r_script3.png" /></p>
+<p>You will see that it says <code>Untitled1</code> which means this is a new script file and you haven’t saved it yet. You’ll also see a grey <code>1</code> on the side. This means that that is line 1 of the code. At the moment there is no code.</p>
+<p>Here is a script that has a few lines of code in it:</p>
+<p><img src="img/r_script4.png" /></p>
+<p>There are a few things to point out here. First, notice that the grey numbers now go to <code>11</code>. This means we have 11 lines in the script. Some lines start with a <code>#</code> sign. These lines contain text (in green in our version) that is not code. After you put a <code>#</code> you can write notes to yourself or to others and R will ignore them - it will not run them as code. Anything else that is written, e.g. the <code>x &lt;- 3 + 5</code> and the <code>x + 1</code> is in black or blue text and can be run as code.</p>
+<p><br></p>
+</div>
+<div id="saving-an-rscript" class="section level3">
+<h3><span class="header-section-number">2.5.3</span> Saving an RScript</h3>
+<p>To save your Rscript, hit the blue disk icon on the script toolbar and you can name your script. You can save it anywhere on your computer, but probably best to save it in an easy to remember folder. This allows you to come back later to finish working on some assignment even after you have closed the R session. RScript folders will be saved with an <code>.R</code> extension.</p>
+<p>If you open several scripts, they will arrange themselves as tabs and you can click between them. That could look like this:</p>
+<p><img src="img/r_script5.png" /></p>
+<p><br></p>
+</div>
+<div id="open-an-existing-rscript" class="section level3">
+<h3><span class="header-section-number">2.5.4</span> Open an existing RScript</h3>
+<p>If you already have an RScript that you wish to open, you can go to the folder that contains this <code>.R</code> file and double click on it to open. Alternatively, you could hit the folder icon on the RStudio toolbar and use that to locate the file you wish to open.</p>
+<p>If it is a file that you have viewed recently, then you can hit the down arrow to the side of the folder icon on the toolbar and it will list your most recent files. You can select the one you want from this list. It will look something like this:</p>
+<p><img src="img/r_open.png" /></p>
+<p><br></p>
+</div>
+<div id="running-code-in-scripts" class="section level3">
+<h3><span class="header-section-number">2.5.5</span> Running Code in Scripts</h3>
+<p>There are several ways to run the code in your Rscript file.</p>
 <ol style="list-style-type: decimal">
 <li><p>You can highlight your code, then hit ‘Run’ in the top right corner of the script file.</p></li>
-<li><p>You can click anywhere on the code, then hit ‘Run’</p></li>
-<li><p>You can highlight or click on the code you want to run, then use the keyboard shortcut with is “Command + Return” on Mac, or “Control + Enter” on PC</p></li>
+<li><p>You can click anywhere on the line that contains the code you wish to run, then hit ‘Run’</p></li>
+<li><p>You can highlight or click on the code you want to run, then use the keyboard shortcut <code>Command + Return</code> on Mac, or <code>Control + Enter</code> on Windows.</p></li>
+<li><p>You can click anywhere on the line that contains the code you wish to run, then use the keyboard shortcut <code>Command + Return</code> on Mac, or <code>Control + Enter</code> on Windows.</p></li>
 </ol>
+<p><img src="img/r_runcode.png" /></p>
 </div>
-<div id="what-is-an-rscript-file" class="section level2">
-<h2><span class="header-section-number">2.6</span> What is an RScript File?</h2>
-<p>In R, you can code run in the console and a Rscript.</p>
-<p>In the console, the bottom left panel, you type commands and run them by hitting <code>Enter</code> on your keyboard. R will show the results in the console as well. All code and results will be forgotten when the R session is close. This is why it is better to you use Rscripts.</p>
-<p>To open new Rscripts you can:
-1. click on File -&gt; New File -&gt; R Script
-2. click on the white sheet with green plus sign right under file in your Rstudio environment
-3. hit “Ctrl”+ “Shift” + “N” on your keyboard.</p>
-<p>In Rscripts, you can type commands and then run. The results from these commands will still end up in the console, however you will be able to save these Rscripts by hitting file -&gt; Save As… anywhere on your computer.</p>
-<p>This allows you to come back later to finish working on some assignment even after you have closed the R session.</p>
-<p>You can also write notes in Rscripts about your data. Any line of code/text with a <code>#</code> infront, R knows not to recognize as a command to run.</p>
-<p>For the sake of this class, you are going to want to save all Rscripts in the PSY317L project folder on your computer. This way all of the datasets you will be working with will be in the same folder.</p>
 </div>
-<div id="what-are-packages" class="section level2">
-<h2><span class="header-section-number">2.7</span> What are Packages</h2>
-<p>When working with R, you will hear about different packages that we will utilize to complete a varity of tasks.</p>
-<p>A package is a collection of code, functions, and sometimes data sets development by others organize and share their work with others. Packages include functions and documentation for others to use to help solve common problem when working with data. You can also create your own package!</p>
-<p>There are packages to help tidy data, for visualization, and many different packages for analyzing data.</p>
+<div id="packages" class="section level2">
+<h2><span class="header-section-number">2.6</span> Packages</h2>
+<p>When working with R, you will hear about different packages that we will utilize to complete a variety of tasks. A package is a collection of code, functions, and sometimes data developed by members of the R community with the purpose of freely sharing with other R users. We install packages to help us work more efficiently in R. You can think of them as similar to apps you’d download from the app-store.</p>
 <p>There are two ways to download packages on to your computer.</p>
-<p>The first way is through the Packages tab in the right bottom panel in your Rstudio enviornment. In this tab you will see all the packages already installed on your machine.</p>
+<p>The first way is through the Packages tab in the right bottom panel in your Rstudio environment. In this tab you will see all the packages already installed on your machine.</p>
 <p><img src="img/packages.png" width="500" /></p>
 <p>Here if you click on install, a box will pop up and your can enter the name of the package you wish to to have then hit install.</p>
 <p><img src="img/packageinstall.PNG" width="500" /></p>
-<p>The second way is through one line of code you can write in the console:</p>
-<p><code>install.package("tidyverse")</code></p>
-<p>To have all the packages you will need for this class on your machine, please copy and paste the following code in your console and hit enter:</p>
-<p><code>install.packages(c("car", "cion", "gridExtra", "lsr", "moments", "ppcor", "psych", "rcompanion", "tidyverse"))</code></p>
-<p>Your Console should look like this</p>
+<p>The second way is through one line of code you can write in the console. For example, to just install the <code>tidyverse</code> package (which is actually a package that contains many packages within it) you would type <code>install.package("tidyverse")</code> into your console like this:</p>
+<p><img src="img/r_install.png" /></p>
+<p>At the beginning of this class, you will be asked to install all the packages that you will need to run the various scripts used in this class. You’ll only need to do this once. To do this, please copy and paste the following code in your console and hit enter:</p>
+<p><code>install.packages(c("car", "coin", "gridExtra", "lsr", "moments", "ppcor", "psych", "rcompanion", "tidyverse"))</code></p>
+<p>Your Console should look something like this</p>
 <p><img src="img/packcon.png" width="500" /></p>
+<p>After you do that, your console should start spurting out lots of red, blue and black text. This may take a while (up to 10 minutes) to complete. You may get a prompt that shows up asking you if you want to <code>download from source</code> or some such statement. It’s ok to hit <code>Y</code> in the console if asked there, or to hit <code>OK</code> or <code>Yes</code> on the dialog box that pops up. If this question doesn’t arise, then that’s fine.</p>
+<p>It should look something like this during the middle of the installation:</p>
+<p><img src="img/r_install3.png" /></p>
+<p>If it has finished installing the packages successfully, then you should see something like this at the end:</p>
+<p>If you have any issues with the installation process then please reach out to a TA or Professor Curley through the discussion page. We will get back to you and help.</p>
 </div>
-<div id="project-folders-and-working-directories" class="section level2">
-<h2><span class="header-section-number">2.8</span> Project Folders and Working Directories</h2>
-<p>how projects and folders are managed.</p>
-<p>The top level of the the project folder is the one that contains all the folders and looks like this:</p>
-<p>This is where R will automatically look for files when you ask it to find stuff…..</p>
-<p>and how to refer to folders… e.g. <code>data/cheese.csv</code> - we write it like this as it’s the <code>cheese.csv</code> file that exists in the folder <code>data</code>.</p>
-<p>If you ever need to check where R is looking for things, run <code>getwd()</code> and it will tell you where it thinks you are currently working from.</p>
+<div id="working-with-rstudio-in-psy317l" class="section level2">
+<h2><span class="header-section-number">2.7</span> Working with RStudio in PSY317L</h2>
+<p>For this course, all the files that you will need to work with are contained in a single folder. This contains what’s called a <code>project folder</code> in RStudio. To get this folder, you need to download the <code>PSY317L_files.zip</code> zip folder from Canvas. Once you have done that, double click the folder to extract all the files. The top level should just be a folder called <code>PSY317L</code>. If you click on that folder to open it, you should see the folders and files in the image below.</p>
+<p>Next, move that folder to somewhere on your computer. Ideally in your <code>Documents</code> folder would be the best place. Please check that if you click on that folder you see these folders and files. Importantly, you should see one file that is an <code>RProject</code> file called <code>PSY317L</code>. It will have a blue transparent cube icon with an R inside of it.</p>
+<p><img src="img/docs.png" /></p>
+<p>For our course, the best way to access the R files is to hit the blue Rproject icon <code>PSY317L</code>. Once you click that, RStudio should automatically open and you should see something like this:</p>
+<p><img src="img/docs1.png" /></p>
+<p>Notice the red squares that we’ve added to the image. These all say <code>PSY317L</code> and indicate that you’re working in the PSY317L RProject. You should also see the blue R cube in various (three) places on your Rstudio.</p>
+<p>Finally, you should see in your <code>Files</code> tab in the bottom right a list of all the files and folders that you will need in this course.</p>
+<p>To open any individual file, you just need to click on the appropriate folder. So, if we wanted to open the file <code>paired_t_test.R</code>, we would click on the <code>Statistics</code> folder and then click the <code>paired_t_test.R</code> file. Then our RStudio would look like this:</p>
+<p><img src="img/docs2.png" /></p>
+<p>Notice that the file has opened up in the top-right panel. To navigate back to the top folder that contains all our folders, you can hit the <code>PSY317L</code> label next to <code>Home</code> highlight in the red box.</p>
+<p>To close a file, just hit the <code>x</code> next to the file name in the top-right panel.</p>
 </div>
-<div id="quitting-r" class="section level2">
-<h2><span class="header-section-number">2.9</span> Quitting R</h2>
-<p>how to quit from R successful, you don’t have to hit that save object thing all the time….</p>
+<div id="quitting-rstudio" class="section level2">
+<h2><span class="header-section-number">2.8</span> Quitting RStudio</h2>
+<p>The easiest way to close working with RStudio is to hit the <code>X</code> in the top right corner of RStudio. If you have not done any work, this will just quite the program immediately. If you have been working with any RScript file and have made changes but have not saved it yet, then you’ll get the following prompt:</p>
+<p><img src="img/r_closing2.png" width="800" /></p>
+<p>It is asking you <code>The document xxx.R has unsaved changes.  Do you want to save these changes?</code>. Most of the time you’ll want to hit <code>Save</code> and then it will quit.</p>
+<p>If you have saved all your RScript files, but you also ran code and perhaps have some things still present in the global environment (e.g. dataframes) or your have plots in your Plot window, you may get the following prompt:</p>
+<p><img src="img/r_closing.png" width="800" /></p>
+<p>It asks you <code>Save workspace image to ~/PSY317L/.RData?</code>. You can safely hit <code>Don't Save</code> for this to just quit RStudio.</p>
 
 </div>
 </div>

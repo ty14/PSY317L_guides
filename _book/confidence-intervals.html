@@ -139,14 +139,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
 <li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#downloading-r"><i class="fa fa-check"></i><b>2.1</b> Downloading R</a></li>
-<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#downloading-rstudio"><i class="fa fa-check"></i><b>2.2</b> Downloading RStudio</a></li>
-<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#using-rcloud-instead-of-rstudio"><i class="fa fa-check"></i><b>2.3</b> Using RCloud instead of RStudio</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#downloading-rstudio"><i class="fa fa-check"></i><b>2.2</b> Downloading RStudio</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="introduction.html"><a href="introduction.html#successful-installation"><i class="fa fa-check"></i><b>2.2.1</b> Successful installation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#using-rcloud"><i class="fa fa-check"></i><b>2.3</b> Using RCloud</a></li>
 <li class="chapter" data-level="2.4" data-path="introduction.html"><a href="introduction.html#the-rstudio-environment"><i class="fa fa-check"></i><b>2.4</b> The RStudio Environment</a></li>
-<li class="chapter" data-level="2.5" data-path="introduction.html"><a href="introduction.html#the-command-prompt"><i class="fa fa-check"></i><b>2.5</b> The Command Prompt</a></li>
-<li class="chapter" data-level="2.6" data-path="introduction.html"><a href="introduction.html#what-is-an-rscript-file"><i class="fa fa-check"></i><b>2.6</b> What is an RScript File?</a></li>
-<li class="chapter" data-level="2.7" data-path="introduction.html"><a href="introduction.html#what-are-packages"><i class="fa fa-check"></i><b>2.7</b> What are Packages</a></li>
-<li class="chapter" data-level="2.8" data-path="introduction.html"><a href="introduction.html#project-folders-and-working-directories"><i class="fa fa-check"></i><b>2.8</b> Project Folders and Working Directories</a></li>
-<li class="chapter" data-level="2.9" data-path="introduction.html"><a href="introduction.html#quitting-r"><i class="fa fa-check"></i><b>2.9</b> Quitting R</a></li>
+<li class="chapter" data-level="2.5" data-path="introduction.html"><a href="introduction.html#running-code"><i class="fa fa-check"></i><b>2.5</b> Running Code</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="introduction.html"><a href="introduction.html#the-console"><i class="fa fa-check"></i><b>2.5.1</b> The Console</a></li>
+<li class="chapter" data-level="2.5.2" data-path="introduction.html"><a href="introduction.html#rscript"><i class="fa fa-check"></i><b>2.5.2</b> RScript</a></li>
+<li class="chapter" data-level="2.5.3" data-path="introduction.html"><a href="introduction.html#saving-an-rscript"><i class="fa fa-check"></i><b>2.5.3</b> Saving an RScript</a></li>
+<li class="chapter" data-level="2.5.4" data-path="introduction.html"><a href="introduction.html#open-an-existing-rscript"><i class="fa fa-check"></i><b>2.5.4</b> Open an existing RScript</a></li>
+<li class="chapter" data-level="2.5.5" data-path="introduction.html"><a href="introduction.html#running-code-in-scripts"><i class="fa fa-check"></i><b>2.5.5</b> Running Code in Scripts</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="introduction.html"><a href="introduction.html#packages"><i class="fa fa-check"></i><b>2.6</b> Packages</a></li>
+<li class="chapter" data-level="2.7" data-path="introduction.html"><a href="introduction.html#working-with-rstudio-in-psy317l"><i class="fa fa-check"></i><b>2.7</b> Working with RStudio in PSY317L</a></li>
+<li class="chapter" data-level="2.8" data-path="introduction.html"><a href="introduction.html#quitting-rstudio"><i class="fa fa-check"></i><b>2.8</b> Quitting RStudio</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="basic-syntax.html"><a href="basic-syntax.html"><i class="fa fa-check"></i><b>3</b> Basic Syntax</a><ul>
 <li class="chapter" data-level="3.1" data-path="basic-syntax.html"><a href="basic-syntax.html#boring-mathematical-stuff"><i class="fa fa-check"></i><b>3.1</b> Boring mathematical stuff</a></li>
@@ -375,54 +382,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="sample-means-as-estimates." class="section level2">
 <h2><span class="header-section-number">8.1</span> Sample means as estimates.</h2>
 <p>Let us imagine we have a population of butterflies and we’re interested in their wingspan. The population is normally distributed with a population mean <span class="math inline">\(\mu\)</span> is 7.8cm, with a population standard deviation <span class="math inline">\(\sigma\)</span> is 0.3cm. This is what this population distribution looks like:</p>
-<div class="sourceCode" id="cb887"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb887-1"><a href="confidence-intervals.html#cb887-1"></a>x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100000</span>, <span class="dt">mean =</span> <span class="fl">7.8</span>, <span class="dt">sd =</span> <span class="fl">0.3</span>)</span>
-<span id="cb887-2"><a href="confidence-intervals.html#cb887-2"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb887-3"><a href="confidence-intervals.html#cb887-3"></a>p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(<span class="dt">vals=</span>x),<span class="kw">aes</span>(vals))<span class="op">+</span></span>
-<span id="cb887-4"><a href="confidence-intervals.html#cb887-4"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;purple&quot;</span>, <span class="dt">alpha=</span>.<span class="dv">4</span>, <span class="dt">binwidth =</span> <span class="fl">0.05</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb887-5"><a href="confidence-intervals.html#cb887-5"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">fill =</span> <span class="st">&quot;mistyrose&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb887-6"><a href="confidence-intervals.html#cb887-6"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
-<span id="cb887-7"><a href="confidence-intervals.html#cb887-7"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Wingspan cm&quot;</span>)<span class="op">+</span></span>
-<span id="cb887-8"><a href="confidence-intervals.html#cb887-8"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="fl">7.8</span>, <span class="dt">color=</span><span class="st">&#39;black&#39;</span>,<span class="dt">lwd=</span><span class="dv">1</span>)</span>
-<span id="cb887-9"><a href="confidence-intervals.html#cb887-9"></a>p1</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-400-1.png" width="672" /></p>
+<div class="sourceCode" id="cb944"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb944-1"><a href="confidence-intervals.html#cb944-1"></a>x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100000</span>, <span class="dt">mean =</span> <span class="fl">7.8</span>, <span class="dt">sd =</span> <span class="fl">0.3</span>)</span>
+<span id="cb944-2"><a href="confidence-intervals.html#cb944-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb944-3"><a href="confidence-intervals.html#cb944-3"></a>p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(<span class="dt">vals=</span>x),<span class="kw">aes</span>(vals))<span class="op">+</span></span>
+<span id="cb944-4"><a href="confidence-intervals.html#cb944-4"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;purple&quot;</span>, <span class="dt">alpha=</span>.<span class="dv">4</span>, <span class="dt">binwidth =</span> <span class="fl">0.05</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb944-5"><a href="confidence-intervals.html#cb944-5"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">fill =</span> <span class="st">&quot;mistyrose&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb944-6"><a href="confidence-intervals.html#cb944-6"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb944-7"><a href="confidence-intervals.html#cb944-7"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Wingspan cm&quot;</span>)<span class="op">+</span></span>
+<span id="cb944-8"><a href="confidence-intervals.html#cb944-8"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="fl">7.8</span>, <span class="dt">color=</span><span class="st">&#39;black&#39;</span>,<span class="dt">lwd=</span><span class="dv">1</span>)</span>
+<span id="cb944-9"><a href="confidence-intervals.html#cb944-9"></a>p1</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-399-1.png" width="672" /></p>
 <p>Now, let’s collect samples of size <span class="math inline">\(n=15\)</span>. Here’s one sample, and it’s sample mean <span class="math inline">\(\overline{x}\)</span>:</p>
-<div class="sourceCode" id="cb888"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb888-1"><a href="confidence-intervals.html#cb888-1"></a><span class="kw">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb888-2"><a href="confidence-intervals.html#cb888-2"></a>samp1 &lt;-<span class="st"> </span><span class="kw">sample</span>(x, <span class="dt">size =</span> <span class="dv">15</span>, <span class="dt">replace =</span> T)</span>
-<span id="cb888-3"><a href="confidence-intervals.html#cb888-3"></a>samp1</span></code></pre></div>
+<div class="sourceCode" id="cb945"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb945-1"><a href="confidence-intervals.html#cb945-1"></a><span class="kw">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb945-2"><a href="confidence-intervals.html#cb945-2"></a>samp1 &lt;-<span class="st"> </span><span class="kw">sample</span>(x, <span class="dt">size =</span> <span class="dv">15</span>, <span class="dt">replace =</span> T)</span>
+<span id="cb945-3"><a href="confidence-intervals.html#cb945-3"></a>samp1</span></code></pre></div>
 <pre><code>##  [1] 7.532948 8.233244 8.014278 7.446299 8.294182 7.660900 8.045752 7.251308
 ##  [9] 7.267707 7.742027 8.243312 8.039407 8.367953 8.022449 7.930565</code></pre>
-<div class="sourceCode" id="cb890"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb890-1"><a href="confidence-intervals.html#cb890-1"></a><span class="kw">mean</span>(samp1)</span></code></pre></div>
+<div class="sourceCode" id="cb947"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb947-1"><a href="confidence-intervals.html#cb947-1"></a><span class="kw">mean</span>(samp1)</span></code></pre></div>
 <pre><code>## [1] 7.872822</code></pre>
 <p>Our observed sample mean is <span class="math inline">\(\overline{x}=7.72\)</span> which is pretty close to the population mean of <span class="math inline">\(\mu=7.8\)</span>. But if we were to collect another sample, then that sample mean will be slightly different. Let’s do it again:</p>
-<div class="sourceCode" id="cb892"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb892-1"><a href="confidence-intervals.html#cb892-1"></a>samp2 &lt;-<span class="st"> </span><span class="kw">sample</span>(x, <span class="dt">size =</span> <span class="dv">15</span>, <span class="dt">replace =</span> T)</span>
-<span id="cb892-2"><a href="confidence-intervals.html#cb892-2"></a>samp2</span></code></pre></div>
+<div class="sourceCode" id="cb949"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb949-1"><a href="confidence-intervals.html#cb949-1"></a>samp2 &lt;-<span class="st"> </span><span class="kw">sample</span>(x, <span class="dt">size =</span> <span class="dv">15</span>, <span class="dt">replace =</span> T)</span>
+<span id="cb949-2"><a href="confidence-intervals.html#cb949-2"></a>samp2</span></code></pre></div>
 <pre><code>##  [1] 8.050309 7.831114 7.672871 7.681791 7.198823 8.339807 7.520375 8.258590
 ##  [9] 7.671240 7.189658 8.489073 7.950898 7.670181 7.716136 7.326798</code></pre>
-<div class="sourceCode" id="cb894"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb894-1"><a href="confidence-intervals.html#cb894-1"></a><span class="kw">mean</span>(samp2)</span></code></pre></div>
+<div class="sourceCode" id="cb951"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb951-1"><a href="confidence-intervals.html#cb951-1"></a><span class="kw">mean</span>(samp2)</span></code></pre></div>
 <pre><code>## [1] 7.771178</code></pre>
 <p>This time our sample mean (our estimate) is <span class="math inline">\(\overline{x}=7.95\)</span>.</p>
 <p>If we did this thousands of times, then we’d get our sampling distribution of sample means (see section xxx.xxx). This is what our sampling distribution for sample sizes of <span class="math inline">\(n=15\)</span> looks like:</p>
-<div class="sourceCode" id="cb896"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb896-1"><a href="confidence-intervals.html#cb896-1"></a><span class="co">#get sample means for sampling distribution</span></span>
-<span id="cb896-2"><a href="confidence-intervals.html#cb896-2"></a>results&lt;-<span class="kw">vector</span>(<span class="st">&#39;list&#39;</span>,<span class="dv">100000</span>)</span>
-<span id="cb896-3"><a href="confidence-intervals.html#cb896-3"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100000</span>){</span>
-<span id="cb896-4"><a href="confidence-intervals.html#cb896-4"></a>results[[i]]  &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">sample</span>(x, <span class="dv">15</span>, <span class="dt">replace =</span> T))  </span>
-<span id="cb896-5"><a href="confidence-intervals.html#cb896-5"></a>}</span>
-<span id="cb896-6"><a href="confidence-intervals.html#cb896-6"></a></span>
-<span id="cb896-7"><a href="confidence-intervals.html#cb896-7"></a>res &lt;-<span class="st"> </span><span class="kw">unlist</span>(results)</span>
-<span id="cb896-8"><a href="confidence-intervals.html#cb896-8"></a></span>
-<span id="cb896-9"><a href="confidence-intervals.html#cb896-9"></a>p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(res), <span class="kw">aes</span>(<span class="dt">x =</span> res)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb896-10"><a href="confidence-intervals.html#cb896-10"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;#4adbe0&quot;</span>, <span class="dt">alpha=</span>.<span class="dv">4</span>, <span class="dt">binwidth =</span> <span class="fl">0.01</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb896-11"><a href="confidence-intervals.html#cb896-11"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">fill =</span> <span class="st">&quot;ghostwhite&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb896-12"><a href="confidence-intervals.html#cb896-12"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
-<span id="cb896-13"><a href="confidence-intervals.html#cb896-13"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Sample Mean&quot;</span>) <span class="op">+</span></span>
-<span id="cb896-14"><a href="confidence-intervals.html#cb896-14"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="op">+</span></span>
-<span id="cb896-15"><a href="confidence-intervals.html#cb896-15"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sampling Distribution of Sample Means for n=15&quot;</span>) <span class="op">+</span></span>
-<span id="cb896-16"><a href="confidence-intervals.html#cb896-16"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(res), <span class="dt">lwd=</span><span class="dv">1</span>)</span>
-<span id="cb896-17"><a href="confidence-intervals.html#cb896-17"></a></span>
-<span id="cb896-18"><a href="confidence-intervals.html#cb896-18"></a>p2</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-403-1.png" width="672" /></p>
+<div class="sourceCode" id="cb953"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb953-1"><a href="confidence-intervals.html#cb953-1"></a><span class="co">#get sample means for sampling distribution</span></span>
+<span id="cb953-2"><a href="confidence-intervals.html#cb953-2"></a>results&lt;-<span class="kw">vector</span>(<span class="st">&#39;list&#39;</span>,<span class="dv">100000</span>)</span>
+<span id="cb953-3"><a href="confidence-intervals.html#cb953-3"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100000</span>){</span>
+<span id="cb953-4"><a href="confidence-intervals.html#cb953-4"></a>results[[i]]  &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">sample</span>(x, <span class="dv">15</span>, <span class="dt">replace =</span> T))  </span>
+<span id="cb953-5"><a href="confidence-intervals.html#cb953-5"></a>}</span>
+<span id="cb953-6"><a href="confidence-intervals.html#cb953-6"></a></span>
+<span id="cb953-7"><a href="confidence-intervals.html#cb953-7"></a>res &lt;-<span class="st"> </span><span class="kw">unlist</span>(results)</span>
+<span id="cb953-8"><a href="confidence-intervals.html#cb953-8"></a></span>
+<span id="cb953-9"><a href="confidence-intervals.html#cb953-9"></a>p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(res), <span class="kw">aes</span>(<span class="dt">x =</span> res)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb953-10"><a href="confidence-intervals.html#cb953-10"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;#4adbe0&quot;</span>, <span class="dt">alpha=</span>.<span class="dv">4</span>, <span class="dt">binwidth =</span> <span class="fl">0.01</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb953-11"><a href="confidence-intervals.html#cb953-11"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">fill =</span> <span class="st">&quot;ghostwhite&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb953-12"><a href="confidence-intervals.html#cb953-12"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb953-13"><a href="confidence-intervals.html#cb953-13"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Sample Mean&quot;</span>) <span class="op">+</span></span>
+<span id="cb953-14"><a href="confidence-intervals.html#cb953-14"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="op">+</span></span>
+<span id="cb953-15"><a href="confidence-intervals.html#cb953-15"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sampling Distribution of Sample Means for n=15&quot;</span>) <span class="op">+</span></span>
+<span id="cb953-16"><a href="confidence-intervals.html#cb953-16"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(res), <span class="dt">lwd=</span><span class="dv">1</span>)</span>
+<span id="cb953-17"><a href="confidence-intervals.html#cb953-17"></a></span>
+<span id="cb953-18"><a href="confidence-intervals.html#cb953-18"></a>p2</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-402-1.png" width="672" /></p>
 <p>According to Central Limit Theorem, this sampling distribution is approximately normally distributed. The mean of this sampling distribution is <span class="math inline">\(\mu_{\overline{x}}=7.8\)</span> which is the same as the population mean <span class="math inline">\(\mu\)</span>. The standard deviation of this sampling distribution <span class="math inline">\(\sigma{\overline{x}} = \frac{\sigma}{\sqrt{n}}\)</span>.</p>
-<div class="sourceCode" id="cb897"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb897-1"><a href="confidence-intervals.html#cb897-1"></a><span class="fl">0.3</span> <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">15</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb954"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb954-1"><a href="confidence-intervals.html#cb954-1"></a><span class="fl">0.3</span> <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">15</span>)</span></code></pre></div>
 <pre><code>## [1] 0.07745967</code></pre>
 <p>Therefore the standard deviation of this sampling distribution is <span class="math inline">\(\sigma{\overline{x}} = 0.077\)</span>.</p>
 <p>Remember, this sampling distribution represents thousands and thousands of potential means from individual samples of size 15 that we could have collected. Each one of them in isolation would be our point estimate of the true population mean <span class="math inline">\(\mu\)</span>. Sometimes we’ll be really close to the true population mean, and other times we might bea quite far away. This is why we like to put confidence intervals around our sample means, to give a range of values that likely contain our population mean.</p>
@@ -430,12 +437,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>According to the standard normal distribution, the values of <code>z</code> that leave 2.5% in each tail are <span class="math inline">\(z=-1.96\)</span> and <span class="math inline">\(z=1.96\)</span>. That means values that 95% of the distribution lie between 1.96 standard deviations below and above the mean.</p>
 <p><img src="img/snd.png" /></p>
 <p>If you didn’t want to take our word for it that +1.96 and -1.96 are the values of <code>z</code> that leave 2.5% in each tail, you could also directly calculate it in R:</p>
-<div class="sourceCode" id="cb899"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb899-1"><a href="confidence-intervals.html#cb899-1"></a><span class="kw">qnorm</span>(<span class="kw">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>)) <span class="co"># get the values of z that are the boundaries of 2.5% to the left, and 97.5% to the left.</span></span></code></pre></div>
+<div class="sourceCode" id="cb956"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb956-1"><a href="confidence-intervals.html#cb956-1"></a><span class="kw">qnorm</span>(<span class="kw">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>)) <span class="co"># get the values of z that are the boundaries of 2.5% to the left, and 97.5% to the left.</span></span></code></pre></div>
 <pre><code>## [1] -1.959964  1.959964</code></pre>
 <p>So if we go back to thinking about our sampling distribution - because we say it is approximately normally distributed, 95% of the distribution will also lie between 1.96 standard deviations below and above the mean. We know that the mean of the sampling distribution is <span class="math inline">\(\mu_{\overline{x}=7.8}\)</span> and the standard deviation of the sampling distribution is <span class="math inline">\(\sigma{\overline{x}} = 0.077\)</span>, as we calculated it above. Therefore, we can use this to calculate which sample mean values in the distribution are 1.96 standard deviations either side of the mean. They are:</p>
-<div class="sourceCode" id="cb901"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb901-1"><a href="confidence-intervals.html#cb901-1"></a><span class="fl">7.8</span> <span class="op">+</span><span class="st">  </span>(<span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.077</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb958"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb958-1"><a href="confidence-intervals.html#cb958-1"></a><span class="fl">7.8</span> <span class="op">+</span><span class="st">  </span>(<span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.077</span>)</span></code></pre></div>
 <pre><code>## [1] 7.95092</code></pre>
-<div class="sourceCode" id="cb903"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb903-1"><a href="confidence-intervals.html#cb903-1"></a><span class="fl">7.8</span> <span class="op">-</span><span class="st">  </span>(<span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.077</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb960"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb960-1"><a href="confidence-intervals.html#cb960-1"></a><span class="fl">7.8</span> <span class="op">-</span><span class="st">  </span>(<span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span><span class="fl">0.077</span>)</span></code></pre></div>
 <pre><code>## [1] 7.64908</code></pre>
 <p>So, 95% of our sample means in our sampling distribution lie between 7.65 and 7.95. That area is represented by the shaded red area on our sampling distribution below:</p>
 <p><img src="img/snd2.png" /></p>
@@ -444,36 +451,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="calculating-a-confidence-interval-with-z-distribution" class="section level2">
 <h2><span class="header-section-number">8.2</span> Calculating a confidence interval with z-distribution</h2>
 <p>Let’s go back to our first sample of size 15 that we collected, with <span class="math inline">\(\overline{x}=7.72\)</span>.</p>
-<div class="sourceCode" id="cb905"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb905-1"><a href="confidence-intervals.html#cb905-1"></a>samp1</span></code></pre></div>
+<div class="sourceCode" id="cb962"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb962-1"><a href="confidence-intervals.html#cb962-1"></a>samp1</span></code></pre></div>
 <pre><code>##  [1] 7.532948 8.233244 8.014278 7.446299 8.294182 7.660900 8.045752 7.251308
 ##  [9] 7.267707 7.742027 8.243312 8.039407 8.367953 8.022449 7.930565</code></pre>
-<div class="sourceCode" id="cb907"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb907-1"><a href="confidence-intervals.html#cb907-1"></a><span class="kw">mean</span>(samp1)</span></code></pre></div>
+<div class="sourceCode" id="cb964"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb964-1"><a href="confidence-intervals.html#cb964-1"></a><span class="kw">mean</span>(samp1)</span></code></pre></div>
 <pre><code>## [1] 7.872822</code></pre>
 <p>What we want to do now is put a confidence interval around 7.72. We want to say that our population mean is equal to <span class="math inline">\(7.72 \pm margin.of.error\)</span> The actual formula for the <span class="math inline">\(z\)</span>-distribution confidence interval is:</p>
 <p><span class="math inline">\(CI_{95\%} = \overline{x} \pm z \times \frac{\sigma}{\sqrt{n}}\)</span></p>
 <p>In this scenario, we are presuming that we don’t know what the population mean <span class="math inline">\(\mu\)</span> is - that’s why we’re building a confidence interval. Consequently, we also don’t precisely know what the mean of the sampling distribution <span class="math inline">\(\mu_{\overline{x}}\)</span> is. What we’ll do instead, is to <em>assume</em> that our sample mean <span class="math inline">\(\overline{x}\)</span> is the mean of the sampling distribution <span class="math inline">\(\mu_{\overline{x}}\)</span>. We already know what the standard deviation of the sampling distribution <span class="math inline">\(\sigma{\overline{x}}\)</span> is because we know the population standard deviation <span class="math inline">\(\sigma\)</span> is. So, <span class="math inline">\(\sigma{\overline{x}} = \frac{\sigma}{\sqrt{n}}\)</span>.</p>
 <p>What value of <span class="math inline">\(z\)</span> should we use? The short answer is 1.96 for the same reasons as above. If our sampling distribution is normally distributed, then we want to know the values that are <span class="math inline">\(\pm 1.96\)</span> of the sample mean <span class="math inline">\(\overline{x}\)</span>.</p>
 <p>So, let’s just do it - this is how we calculate the 95% confidence interval if we have <span class="math inline">\(\overline{x}\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(n\)</span>.</p>
-<div class="sourceCode" id="cb909"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb909-1"><a href="confidence-intervals.html#cb909-1"></a>x_bar &lt;-<span class="st"> </span><span class="kw">mean</span>(samp1)  <span class="co"># sample mean = 7.72</span></span>
-<span id="cb909-2"><a href="confidence-intervals.html#cb909-2"></a>x_bar</span></code></pre></div>
+<div class="sourceCode" id="cb966"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb966-1"><a href="confidence-intervals.html#cb966-1"></a>x_bar &lt;-<span class="st"> </span><span class="kw">mean</span>(samp1)  <span class="co"># sample mean = 7.72</span></span>
+<span id="cb966-2"><a href="confidence-intervals.html#cb966-2"></a>x_bar</span></code></pre></div>
 <pre><code>## [1] 7.872822</code></pre>
-<div class="sourceCode" id="cb911"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb911-1"><a href="confidence-intervals.html#cb911-1"></a>n &lt;-<span class="st"> </span><span class="kw">length</span>(samp1)  <span class="co"># sample size =  n = 15</span></span>
-<span id="cb911-2"><a href="confidence-intervals.html#cb911-2"></a>n</span></code></pre></div>
+<div class="sourceCode" id="cb968"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb968-1"><a href="confidence-intervals.html#cb968-1"></a>n &lt;-<span class="st"> </span><span class="kw">length</span>(samp1)  <span class="co"># sample size =  n = 15</span></span>
+<span id="cb968-2"><a href="confidence-intervals.html#cb968-2"></a>n</span></code></pre></div>
 <pre><code>## [1] 15</code></pre>
-<div class="sourceCode" id="cb913"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb913-1"><a href="confidence-intervals.html#cb913-1"></a>sigma &lt;-<span class="st"> </span><span class="fl">0.3</span>  <span class="co"># the pop SD given in the example</span></span>
-<span id="cb913-2"><a href="confidence-intervals.html#cb913-2"></a></span>
-<span id="cb913-3"><a href="confidence-intervals.html#cb913-3"></a>sem &lt;-<span class="st"> </span>sigma<span class="op">/</span><span class="kw">sqrt</span>(n) <span class="co"># standard error of the mean (SD of sampling distribution)</span></span>
-<span id="cb913-4"><a href="confidence-intervals.html#cb913-4"></a>sem</span></code></pre></div>
+<div class="sourceCode" id="cb970"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb970-1"><a href="confidence-intervals.html#cb970-1"></a>sigma &lt;-<span class="st"> </span><span class="fl">0.3</span>  <span class="co"># the pop SD given in the example</span></span>
+<span id="cb970-2"><a href="confidence-intervals.html#cb970-2"></a></span>
+<span id="cb970-3"><a href="confidence-intervals.html#cb970-3"></a>sem &lt;-<span class="st"> </span>sigma<span class="op">/</span><span class="kw">sqrt</span>(n) <span class="co"># standard error of the mean (SD of sampling distribution)</span></span>
+<span id="cb970-4"><a href="confidence-intervals.html#cb970-4"></a>sem</span></code></pre></div>
 <pre><code>## [1] 0.07745967</code></pre>
-<div class="sourceCode" id="cb915"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb915-1"><a href="confidence-intervals.html#cb915-1"></a>z &lt;-<span class="st"> </span><span class="fl">1.96</span>  <span class="co"># the value of &#39;z&#39; we need to get the middle 95% of the distribution</span></span></code></pre></div>
-<div class="sourceCode" id="cb916"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb916-1"><a href="confidence-intervals.html#cb916-1"></a><span class="co"># margin of error</span></span>
-<span id="cb916-2"><a href="confidence-intervals.html#cb916-2"></a>z <span class="op">*</span><span class="st"> </span>sem</span></code></pre></div>
+<div class="sourceCode" id="cb972"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb972-1"><a href="confidence-intervals.html#cb972-1"></a>z &lt;-<span class="st"> </span><span class="fl">1.96</span>  <span class="co"># the value of &#39;z&#39; we need to get the middle 95% of the distribution</span></span></code></pre></div>
+<div class="sourceCode" id="cb973"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb973-1"><a href="confidence-intervals.html#cb973-1"></a><span class="co"># margin of error</span></span>
+<span id="cb973-2"><a href="confidence-intervals.html#cb973-2"></a>z <span class="op">*</span><span class="st"> </span>sem</span></code></pre></div>
 <pre><code>## [1] 0.1518209</code></pre>
-<div class="sourceCode" id="cb918"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb918-1"><a href="confidence-intervals.html#cb918-1"></a><span class="co"># upper bound of confidence interval</span></span>
-<span id="cb918-2"><a href="confidence-intervals.html#cb918-2"></a>x_bar <span class="op">+</span><span class="st"> </span>(z <span class="op">*</span><span class="st"> </span>sem)</span></code></pre></div>
+<div class="sourceCode" id="cb975"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb975-1"><a href="confidence-intervals.html#cb975-1"></a><span class="co"># upper bound of confidence interval</span></span>
+<span id="cb975-2"><a href="confidence-intervals.html#cb975-2"></a>x_bar <span class="op">+</span><span class="st"> </span>(z <span class="op">*</span><span class="st"> </span>sem)</span></code></pre></div>
 <pre><code>## [1] 8.024643</code></pre>
-<div class="sourceCode" id="cb920"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb920-1"><a href="confidence-intervals.html#cb920-1"></a><span class="co"># lower bound of confidence interval</span></span>
-<span id="cb920-2"><a href="confidence-intervals.html#cb920-2"></a>x_bar <span class="op">-</span><span class="st"> </span>(z <span class="op">*</span><span class="st"> </span>sem)</span></code></pre></div>
+<div class="sourceCode" id="cb977"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb977-1"><a href="confidence-intervals.html#cb977-1"></a><span class="co"># lower bound of confidence interval</span></span>
+<span id="cb977-2"><a href="confidence-intervals.html#cb977-2"></a>x_bar <span class="op">-</span><span class="st"> </span>(z <span class="op">*</span><span class="st"> </span>sem)</span></code></pre></div>
 <pre><code>## [1] 7.721001</code></pre>
 <p>We have just calculated our 95% confidence interval! It has a lower bound of 7.568cm and an upper bound of 7.871cm. We can write this confidence interval in two ways:</p>
 <p><span class="math inline">\(CI_{95\%} = 7.72 \pm 0.152\)</span></p>
@@ -481,14 +488,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Below is a graphical representation of our confidence interval around our sample mean <span class="math inline">\(\overline{x}\)</span>. You can see that the true population mean <span class="math inline">\(\mu\)</span> is within the confidence interval.</p>
 <p><img src="img/ci1.png" /></p>
 <p>Remember we collected a second sample that had a sample mean <span class="math inline">\(\overline{x}=7.95\)</span> ?</p>
-<div class="sourceCode" id="cb922"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb922-1"><a href="confidence-intervals.html#cb922-1"></a><span class="kw">mean</span>(samp2)</span></code></pre></div>
+<div class="sourceCode" id="cb979"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb979-1"><a href="confidence-intervals.html#cb979-1"></a><span class="kw">mean</span>(samp2)</span></code></pre></div>
 <pre><code>## [1] 7.771178</code></pre>
 <p>We could also create a 95% confidence interval for our estimate of the population mean <span class="math inline">\(\mu\)</span> using this sample mean <span class="math inline">\(\overline{x}\)</span>. We just use the same formula:</p>
-<div class="sourceCode" id="cb924"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb924-1"><a href="confidence-intervals.html#cb924-1"></a><span class="co"># upper bound of confidence interval</span></span>
-<span id="cb924-2"><a href="confidence-intervals.html#cb924-2"></a><span class="fl">7.95</span> <span class="op">+</span><span class="st"> </span>(z <span class="op">*</span><span class="st"> </span>sem)</span></code></pre></div>
+<div class="sourceCode" id="cb981"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb981-1"><a href="confidence-intervals.html#cb981-1"></a><span class="co"># upper bound of confidence interval</span></span>
+<span id="cb981-2"><a href="confidence-intervals.html#cb981-2"></a><span class="fl">7.95</span> <span class="op">+</span><span class="st"> </span>(z <span class="op">*</span><span class="st"> </span>sem)</span></code></pre></div>
 <pre><code>## [1] 8.101821</code></pre>
-<div class="sourceCode" id="cb926"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb926-1"><a href="confidence-intervals.html#cb926-1"></a><span class="co"># lower bound of confidence interval</span></span>
-<span id="cb926-2"><a href="confidence-intervals.html#cb926-2"></a><span class="fl">7.95</span> <span class="op">-</span><span class="st"> </span>(z <span class="op">*</span><span class="st"> </span>sem)</span></code></pre></div>
+<div class="sourceCode" id="cb983"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb983-1"><a href="confidence-intervals.html#cb983-1"></a><span class="co"># lower bound of confidence interval</span></span>
+<span id="cb983-2"><a href="confidence-intervals.html#cb983-2"></a><span class="fl">7.95</span> <span class="op">-</span><span class="st"> </span>(z <span class="op">*</span><span class="st"> </span>sem)</span></code></pre></div>
 <pre><code>## [1] 7.798179</code></pre>
 <p><span class="math inline">\(CI_{95\%} = 7.95 \pm 0.152\)</span></p>
 <p><span class="math inline">\(CI_{95\%} = 7.95 [7.798, 8.102]\)</span></p>
@@ -509,24 +516,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math inline">\(CI_{95\%} = \overline{x} \pm 1.96 \times \frac{\sigma}{\sqrt{n}}\)</span></p>
 <p><span class="math inline">\(CI_{99\%} = \overline{x} \pm 2.58 \times \frac{\sigma}{\sqrt{n}}\)</span></p>
 <p>Where did each of these different numbers come from for <span class="math inline">\(z\)</span> ? Well, if we wish to make a 99% CI, we need to know what values of <span class="math inline">\(z\)</span> are the boundaries that leave 99% of the distribution inside them on the standard normal curve. We exclude 0.5% in each tail. Likewise, for the 80%CI, we want to know the values of <span class="math inline">\(z\)</span> that leave 5% in each tail and 10% in the middle. We can calculate these values in R like this:</p>
-<div class="sourceCode" id="cb928"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb928-1"><a href="confidence-intervals.html#cb928-1"></a><span class="kw">qnorm</span>(.<span class="dv">9</span>)<span class="co"># for 80% CI</span></span></code></pre></div>
+<div class="sourceCode" id="cb985"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb985-1"><a href="confidence-intervals.html#cb985-1"></a><span class="kw">qnorm</span>(.<span class="dv">9</span>)<span class="co"># for 80% CI</span></span></code></pre></div>
 <pre><code>## [1] 1.281552</code></pre>
-<div class="sourceCode" id="cb930"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb930-1"><a href="confidence-intervals.html#cb930-1"></a><span class="kw">qnorm</span>(.<span class="dv">95</span>)<span class="co"># for 90% CI</span></span></code></pre></div>
+<div class="sourceCode" id="cb987"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb987-1"><a href="confidence-intervals.html#cb987-1"></a><span class="kw">qnorm</span>(.<span class="dv">95</span>)<span class="co"># for 90% CI</span></span></code></pre></div>
 <pre><code>## [1] 1.644854</code></pre>
-<div class="sourceCode" id="cb932"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb932-1"><a href="confidence-intervals.html#cb932-1"></a><span class="kw">qnorm</span>(.<span class="dv">975</span>)<span class="co"># for 95% CI</span></span></code></pre></div>
+<div class="sourceCode" id="cb989"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb989-1"><a href="confidence-intervals.html#cb989-1"></a><span class="kw">qnorm</span>(.<span class="dv">975</span>)<span class="co"># for 95% CI</span></span></code></pre></div>
 <pre><code>## [1] 1.959964</code></pre>
-<div class="sourceCode" id="cb934"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb934-1"><a href="confidence-intervals.html#cb934-1"></a><span class="kw">qnorm</span>(.<span class="dv">995</span>)<span class="co"># for 99% CI</span></span></code></pre></div>
+<div class="sourceCode" id="cb991"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb991-1"><a href="confidence-intervals.html#cb991-1"></a><span class="kw">qnorm</span>(.<span class="dv">995</span>)<span class="co"># for 99% CI</span></span></code></pre></div>
 <pre><code>## [1] 2.575829</code></pre>
 <p><img src="img/ci4.png" /></p>
 <p>So, if we were to calculate the 80% confidence interval for our first sample, we would do:</p>
-<div class="sourceCode" id="cb936"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb936-1"><a href="confidence-intervals.html#cb936-1"></a><span class="co">#margin of error</span></span>
-<span id="cb936-2"><a href="confidence-intervals.html#cb936-2"></a><span class="fl">1.281552</span> <span class="op">*</span><span class="st"> </span>sem</span></code></pre></div>
+<div class="sourceCode" id="cb993"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb993-1"><a href="confidence-intervals.html#cb993-1"></a><span class="co">#margin of error</span></span>
+<span id="cb993-2"><a href="confidence-intervals.html#cb993-2"></a><span class="fl">1.281552</span> <span class="op">*</span><span class="st"> </span>sem</span></code></pre></div>
 <pre><code>## [1] 0.09926859</code></pre>
-<div class="sourceCode" id="cb938"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb938-1"><a href="confidence-intervals.html#cb938-1"></a><span class="co"># upper bound of confidence interval</span></span>
-<span id="cb938-2"><a href="confidence-intervals.html#cb938-2"></a>x_bar <span class="op">+</span><span class="st"> </span>(<span class="fl">1.281552</span> <span class="op">*</span><span class="st"> </span>sem)</span></code></pre></div>
+<div class="sourceCode" id="cb995"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb995-1"><a href="confidence-intervals.html#cb995-1"></a><span class="co"># upper bound of confidence interval</span></span>
+<span id="cb995-2"><a href="confidence-intervals.html#cb995-2"></a>x_bar <span class="op">+</span><span class="st"> </span>(<span class="fl">1.281552</span> <span class="op">*</span><span class="st"> </span>sem)</span></code></pre></div>
 <pre><code>## [1] 7.972091</code></pre>
-<div class="sourceCode" id="cb940"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb940-1"><a href="confidence-intervals.html#cb940-1"></a><span class="co"># lower bound of confidence interval</span></span>
-<span id="cb940-2"><a href="confidence-intervals.html#cb940-2"></a>x_bar <span class="op">-</span><span class="st"> </span>(<span class="fl">1.281552</span> <span class="op">*</span><span class="st"> </span>sem)</span></code></pre></div>
+<div class="sourceCode" id="cb997"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb997-1"><a href="confidence-intervals.html#cb997-1"></a><span class="co"># lower bound of confidence interval</span></span>
+<span id="cb997-2"><a href="confidence-intervals.html#cb997-2"></a>x_bar <span class="op">-</span><span class="st"> </span>(<span class="fl">1.281552</span> <span class="op">*</span><span class="st"> </span>sem)</span></code></pre></div>
 <pre><code>## [1] 7.773553</code></pre>
 <p>Our 80% confidence interval is:</p>
 <p><span class="math inline">\(CI_{80\%} = 7.72 \pm 0.099\)</span></p>
@@ -570,38 +577,38 @@ isn’t all of this a bit strange? Why are we trying to estimate the population 
 <p>The formula we use is:</p>
 <p><span class="math inline">\(CI95\% = \overline{x} \pm t \times \frac{s}{\sqrt{n}}\)</span></p>
 <p>First, we should calculate the sample standard deviation, which is <span class="math inline">\(s=0.285\)</span>:</p>
-<div class="sourceCode" id="cb942"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb942-1"><a href="confidence-intervals.html#cb942-1"></a>samp1</span></code></pre></div>
+<div class="sourceCode" id="cb999"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb999-1"><a href="confidence-intervals.html#cb999-1"></a>samp1</span></code></pre></div>
 <pre><code>##  [1] 7.532948 8.233244 8.014278 7.446299 8.294182 7.660900 8.045752 7.251308
 ##  [9] 7.267707 7.742027 8.243312 8.039407 8.367953 8.022449 7.930565</code></pre>
-<div class="sourceCode" id="cb944"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb944-1"><a href="confidence-intervals.html#cb944-1"></a><span class="kw">sd</span>(samp1)</span></code></pre></div>
+<div class="sourceCode" id="cb1001"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1001-1"><a href="confidence-intervals.html#cb1001-1"></a><span class="kw">sd</span>(samp1)</span></code></pre></div>
 <pre><code>## [1] 0.3688933</code></pre>
 <p>Next, we need to calculate <span class="math inline">\(t\)</span>. This value will be the value that leaves 2.5% in the tails of a <span class="math inline">\(t\)</span>-distribution for degrees of freedom = 14 (<span class="math inline">\(n-1 = 14\)</span>). We can calculate that in R using the function <code>qt()</code>. We enter <code>0.975</code> to ask it to return the value of <span class="math inline">\(t\)</span> that leaves 2.5% in the upper tail, and then we enter <code>df=14</code> to ensure we are using the correct <span class="math inline">\(t\)</span>-distribution:</p>
-<div class="sourceCode" id="cb946"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb946-1"><a href="confidence-intervals.html#cb946-1"></a><span class="kw">qt</span>(<span class="dt">p =</span> <span class="fl">0.975</span>, <span class="dt">df =</span> <span class="dv">14</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1003"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1003-1"><a href="confidence-intervals.html#cb1003-1"></a><span class="kw">qt</span>(<span class="dt">p =</span> <span class="fl">0.975</span>, <span class="dt">df =</span> <span class="dv">14</span>)</span></code></pre></div>
 <pre><code>## [1] 2.144787</code></pre>
 <p>This shows us that our value of <span class="math inline">\(t=2.145\)</span>.</p>
 <p>We can now create our estimate of the standard error (the standard deviation of the sampling distribution of sample means), and our confidence intervals:</p>
-<div class="sourceCode" id="cb948"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb948-1"><a href="confidence-intervals.html#cb948-1"></a><span class="co">#standard error</span></span>
-<span id="cb948-2"><a href="confidence-intervals.html#cb948-2"></a>sem1 &lt;-<span class="st"> </span><span class="kw">sd</span>(samp1)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">15</span>)</span>
-<span id="cb948-3"><a href="confidence-intervals.html#cb948-3"></a>sem1</span></code></pre></div>
+<div class="sourceCode" id="cb1005"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1005-1"><a href="confidence-intervals.html#cb1005-1"></a><span class="co">#standard error</span></span>
+<span id="cb1005-2"><a href="confidence-intervals.html#cb1005-2"></a>sem1 &lt;-<span class="st"> </span><span class="kw">sd</span>(samp1)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">15</span>)</span>
+<span id="cb1005-3"><a href="confidence-intervals.html#cb1005-3"></a>sem1</span></code></pre></div>
 <pre><code>## [1] 0.09524785</code></pre>
-<div class="sourceCode" id="cb950"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb950-1"><a href="confidence-intervals.html#cb950-1"></a><span class="co"># upper bound of confidence interval</span></span>
-<span id="cb950-2"><a href="confidence-intervals.html#cb950-2"></a><span class="fl">7.72</span> <span class="op">+</span><span class="st"> </span>(<span class="fl">2.144787</span> <span class="op">*</span><span class="st"> </span>sem1)</span></code></pre></div>
+<div class="sourceCode" id="cb1007"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1007-1"><a href="confidence-intervals.html#cb1007-1"></a><span class="co"># upper bound of confidence interval</span></span>
+<span id="cb1007-2"><a href="confidence-intervals.html#cb1007-2"></a><span class="fl">7.72</span> <span class="op">+</span><span class="st"> </span>(<span class="fl">2.144787</span> <span class="op">*</span><span class="st"> </span>sem1)</span></code></pre></div>
 <pre><code>## [1] 7.924286</code></pre>
-<div class="sourceCode" id="cb952"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb952-1"><a href="confidence-intervals.html#cb952-1"></a><span class="co"># lower bound of confidence interval</span></span>
-<span id="cb952-2"><a href="confidence-intervals.html#cb952-2"></a><span class="fl">7.72</span> <span class="op">-</span><span class="st"> </span>(<span class="fl">2.144787</span> <span class="op">*</span><span class="st"> </span>sem1)</span></code></pre></div>
+<div class="sourceCode" id="cb1009"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1009-1"><a href="confidence-intervals.html#cb1009-1"></a><span class="co"># lower bound of confidence interval</span></span>
+<span id="cb1009-2"><a href="confidence-intervals.html#cb1009-2"></a><span class="fl">7.72</span> <span class="op">-</span><span class="st"> </span>(<span class="fl">2.144787</span> <span class="op">*</span><span class="st"> </span>sem1)</span></code></pre></div>
 <pre><code>## [1] 7.515714</code></pre>
 <p>Our confidence interval is therefore:</p>
 <p><span class="math inline">\(CI95\% = 7.72[7.56,7.88]\)</span></p>
 <p>Likewise, for sample 2, which had <span class="math inline">\(\overline{x}=7.95\)</span> our 95% confidence interval would be:</p>
-<div class="sourceCode" id="cb954"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb954-1"><a href="confidence-intervals.html#cb954-1"></a><span class="co">#standard error</span></span>
-<span id="cb954-2"><a href="confidence-intervals.html#cb954-2"></a>sem2 &lt;-<span class="st"> </span><span class="kw">sd</span>(samp2)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">15</span>)</span>
-<span id="cb954-3"><a href="confidence-intervals.html#cb954-3"></a>sem2</span></code></pre></div>
+<div class="sourceCode" id="cb1011"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1011-1"><a href="confidence-intervals.html#cb1011-1"></a><span class="co">#standard error</span></span>
+<span id="cb1011-2"><a href="confidence-intervals.html#cb1011-2"></a>sem2 &lt;-<span class="st"> </span><span class="kw">sd</span>(samp2)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">15</span>)</span>
+<span id="cb1011-3"><a href="confidence-intervals.html#cb1011-3"></a>sem2</span></code></pre></div>
 <pre><code>## [1] 0.1013502</code></pre>
-<div class="sourceCode" id="cb956"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb956-1"><a href="confidence-intervals.html#cb956-1"></a><span class="co"># upper bound of confidence interval</span></span>
-<span id="cb956-2"><a href="confidence-intervals.html#cb956-2"></a><span class="fl">7.95</span> <span class="op">+</span><span class="st"> </span>(<span class="fl">2.144787</span> <span class="op">*</span><span class="st"> </span>sem2)</span></code></pre></div>
+<div class="sourceCode" id="cb1013"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1013-1"><a href="confidence-intervals.html#cb1013-1"></a><span class="co"># upper bound of confidence interval</span></span>
+<span id="cb1013-2"><a href="confidence-intervals.html#cb1013-2"></a><span class="fl">7.95</span> <span class="op">+</span><span class="st"> </span>(<span class="fl">2.144787</span> <span class="op">*</span><span class="st"> </span>sem2)</span></code></pre></div>
 <pre><code>## [1] 8.167375</code></pre>
-<div class="sourceCode" id="cb958"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb958-1"><a href="confidence-intervals.html#cb958-1"></a><span class="co"># lower bound of confidence interval</span></span>
-<span id="cb958-2"><a href="confidence-intervals.html#cb958-2"></a><span class="fl">7.95</span> <span class="op">-</span><span class="st"> </span>(<span class="fl">2.144787</span> <span class="op">*</span><span class="st"> </span>sem2)</span></code></pre></div>
+<div class="sourceCode" id="cb1015"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1015-1"><a href="confidence-intervals.html#cb1015-1"></a><span class="co"># lower bound of confidence interval</span></span>
+<span id="cb1015-2"><a href="confidence-intervals.html#cb1015-2"></a><span class="fl">7.95</span> <span class="op">-</span><span class="st"> </span>(<span class="fl">2.144787</span> <span class="op">*</span><span class="st"> </span>sem2)</span></code></pre></div>
 <pre><code>## [1] 7.732625</code></pre>
 <p>So, our confidence interval for this sample is therefore:</p>
 <p><span class="math inline">\(CI95\% = 7.95[7.796,8.104]\)</span></p>
@@ -615,19 +622,19 @@ isn’t all of this a bit strange? Why are we trying to estimate the population 
 <div id="t-distribution-cis-and-sample-size." class="section level3">
 <h3><span class="header-section-number">8.4.1</span> t-distribution CIs and sample size.</h3>
 <p>With the <span class="math inline">\(z\)</span>-distribution based confidence intervals, when we increased the sample size <span class="math inline">\(n\)</span>, the margin of error always decreased because both <span class="math inline">\(z\)</span> and <span class="math inline">\(\sigma\)</span> are fixed in the formula. For instance, for a 95% CI with a population standard deviation <span class="math inline">\(\sigma=10\)</span> and sample size <span class="math inline">\(n=10\)</span> or <span class="math inline">\(n=30\)</span>, the margin of error using the <span class="math inline">\(z\)</span>-distribution in the CI would be for each sample size:</p>
-<div class="sourceCode" id="cb960"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb960-1"><a href="confidence-intervals.html#cb960-1"></a><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">10</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">10</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1017"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1017-1"><a href="confidence-intervals.html#cb1017-1"></a><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">10</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">10</span>))</span></code></pre></div>
 <pre><code>## [1] 6.198064</code></pre>
-<div class="sourceCode" id="cb962"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb962-1"><a href="confidence-intervals.html#cb962-1"></a><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">10</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">30</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1019"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1019-1"><a href="confidence-intervals.html#cb1019-1"></a><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">10</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">30</span>))</span></code></pre></div>
 <pre><code>## [1] 3.578454</code></pre>
 <p>Clearly, increaseing the sample size reduces the margin of error. The situation is not as consistent when constructing confidence intervals with the <span class="math inline">\(t\)</span>-distribution, although the general pattern remains true.</p>
 <p>When we collect samples of different sample sizes, two things change in the <span class="math inline">\(t\)</span>-distribution confidence interval formula. Firstly, the value of <span class="math inline">\(t\)</span> used is dependent upon the degrees of freedom. As sample sizes increase, the <span class="math inline">\(t\)</span>- distribution becomes more normal shaped and less heavy in the tails. If, for example, we are interested in making 95% Confidence Intervals, then the value of <span class="math inline">\(t\)</span> that leaves 2.5% in each tail (and 95% of the distribution in the middle) is going to get closer to 1.96 (and negative -1.96) as the sample size increases. This is illustrated in the figure below:</p>
 <p><img src="img/ci12.png" /></p>
 <p>Each of these <span class="math inline">\(t\)</span> values can be calculated, by finding the value of <span class="math inline">\(t\)</span> on the <span class="math inline">\(t\)</span>-distribution for the respective degrees of freedom that leaves 2.5% in the upper tail:</p>
-<div class="sourceCode" id="cb964"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb964-1"><a href="confidence-intervals.html#cb964-1"></a><span class="kw">qt</span>(.<span class="dv">975</span>, <span class="dt">df =</span> <span class="dv">9</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1021"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1021-1"><a href="confidence-intervals.html#cb1021-1"></a><span class="kw">qt</span>(.<span class="dv">975</span>, <span class="dt">df =</span> <span class="dv">9</span>)</span></code></pre></div>
 <pre><code>## [1] 2.262157</code></pre>
-<div class="sourceCode" id="cb966"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb966-1"><a href="confidence-intervals.html#cb966-1"></a><span class="kw">qt</span>(.<span class="dv">975</span>, <span class="dt">df =</span> <span class="dv">19</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1023"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1023-1"><a href="confidence-intervals.html#cb1023-1"></a><span class="kw">qt</span>(.<span class="dv">975</span>, <span class="dt">df =</span> <span class="dv">19</span>)</span></code></pre></div>
 <pre><code>## [1] 2.093024</code></pre>
-<div class="sourceCode" id="cb968"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb968-1"><a href="confidence-intervals.html#cb968-1"></a><span class="kw">qt</span>(.<span class="dv">975</span>, <span class="dt">df =</span> <span class="dv">29</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1025"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1025-1"><a href="confidence-intervals.html#cb1025-1"></a><span class="kw">qt</span>(.<span class="dv">975</span>, <span class="dt">df =</span> <span class="dv">29</span>)</span></code></pre></div>
 <pre><code>## [1] 2.04523</code></pre>
 <p>So, as sample size increases, the value of <span class="math inline">\(t\)</span> decreases for a given confidence interval. This would seem to suggest that this would decrease the margin of error for the confidence interval. This is for the most part true, but not always. Remember the <span class="math inline">\(t\)</span> value is multiplied by the estimated standard deviation of the sampling distribution (the standard error) which is <span class="math inline">\(\frac{s}{\sqrt{n}}\)</span>. Now again, it looks like increasing <span class="math inline">\(n\)</span> would lead to a larger denominator and a smaller overall margin of error. This is also true. But, because we are using the sample standard deviation <span class="math inline">\(s\)</span> in the formula to estimate the standard error, then <span class="math inline">\(s\)</span> is going to vary from one sample to another. This means that for any given sample, we may actually end up with a tighter confidence interval even if we increase our sample size. However, the main point remains - generally increasing your sample size, will lead to a tighter confidence interval for a given CI range.</p>
 <p>The final thing that is worth mentioning is a repeat of what is discussed above in the <span class="math inline">\(z\)</span>-distribution section. Increasing sample sizes also leads to sample means that will be, on average, much closer to the true population mean <span class="math inline">\(\mu\)</span> than you get when using smaller sample sizes.</p>
@@ -636,23 +643,23 @@ isn’t all of this a bit strange? Why are we trying to estimate the population 
 <h3><span class="header-section-number">8.4.2</span> Other Confidence Intervals ranges for t-distribution</h3>
 <p>Like with the confidence intervals made with the <span class="math inline">\(z\)</span>-distribution, we can create confidence intervals for any range with the <span class="math inline">\(t\)</span>-distribution. The rationiale is the same. If we were to make an 80% CI around a sample mean, what we are effectively saying is that in 80% of all samples that we could collect, we would capture the true population mean <span class="math inline">\(\mu\)</span>. Practically, we use a different value of <span class="math inline">\(t\)</span> for each CI range. This value of <span class="math inline">\(t\)</span> will be the positive and negative value of the <span class="math inline">\(t\)</span>-distribution for a given degree of freedom that leaves the appropriate percentage in the middle of the distribution. For instance, for an 80% CI for a sample size of 25, which had degrees of freedom 24, the value would be <span class="math inline">\(t=1.32\)</span>.</p>
 <p>We calculated this as follows: For an 80% CI, we wish to have 80% of the distribution in the middle (40% either side of our sample mean), leaving 20% in the tails - i.e. 10% in each tail. Therefore, we wish to know the value of <span class="math inline">\(t\)</span> that demarks this boundary. The easiest way to do that is to use the <code>qt()</code> function in R, and ask for the 90%th percentile (the value that leaves 10% in the upper tail) for a <span class="math inline">\(t\)</span> distribution of degrees of freedom = 24. We do that like this:</p>
-<div class="sourceCode" id="cb970"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb970-1"><a href="confidence-intervals.html#cb970-1"></a><span class="kw">qt</span>(<span class="fl">0.90</span>, <span class="dt">df=</span><span class="dv">24</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1027"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1027-1"><a href="confidence-intervals.html#cb1027-1"></a><span class="kw">qt</span>(<span class="fl">0.90</span>, <span class="dt">df=</span><span class="dv">24</span>)</span></code></pre></div>
 <pre><code>## [1] 1.317836</code></pre>
 <p><img src="img/ci11.png" /></p>
 <p>Thus, if we had a sample mean of <span class="math inline">\(\overline{x}=15.52\)</span>, a sample standard deviation of <span class="math inline">\(s=3.3\)</span> and a sample size of <span class="math inline">\(n=25\)</span>, then our 80% confidence interval of the true population mean <span class="math inline">\(\mu\)</span> would be <span class="math inline">\(CI = 15.52[14.65, 16.39]\)</span>:</p>
-<div class="sourceCode" id="cb972"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb972-1"><a href="confidence-intervals.html#cb972-1"></a><span class="fl">15.52</span> <span class="op">+</span><span class="st"> </span>(<span class="fl">1.32</span> <span class="op">*</span><span class="st"> </span>(<span class="fl">3.3</span> <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">25</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb1029"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1029-1"><a href="confidence-intervals.html#cb1029-1"></a><span class="fl">15.52</span> <span class="op">+</span><span class="st"> </span>(<span class="fl">1.32</span> <span class="op">*</span><span class="st"> </span>(<span class="fl">3.3</span> <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">25</span>)))</span></code></pre></div>
 <pre><code>## [1] 16.3912</code></pre>
-<div class="sourceCode" id="cb974"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb974-1"><a href="confidence-intervals.html#cb974-1"></a><span class="fl">15.52</span> <span class="op">-</span><span class="st"> </span>(<span class="fl">1.32</span> <span class="op">*</span><span class="st"> </span>(<span class="fl">3.3</span> <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">25</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb1031"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1031-1"><a href="confidence-intervals.html#cb1031-1"></a><span class="fl">15.52</span> <span class="op">-</span><span class="st"> </span>(<span class="fl">1.32</span> <span class="op">*</span><span class="st"> </span>(<span class="fl">3.3</span> <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">25</span>)))</span></code></pre></div>
 <pre><code>## [1] 14.6488</code></pre>
 <p>The value of <span class="math inline">\(t\)</span> used in the confidence interval formula therefore changes based on both your confidence interval size, and your degrees of freedom. Below are some other values of <span class="math inline">\(t\)</span> that would be used for different sample sizes and CI ranges:</p>
-<div class="sourceCode" id="cb976"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb976-1"><a href="confidence-intervals.html#cb976-1"></a><span class="co"># 99% CI, n = 20</span></span>
-<span id="cb976-2"><a href="confidence-intervals.html#cb976-2"></a><span class="kw">qt</span>(.<span class="dv">995</span>, <span class="dt">df =</span> <span class="dv">19</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1033"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1033-1"><a href="confidence-intervals.html#cb1033-1"></a><span class="co"># 99% CI, n = 20</span></span>
+<span id="cb1033-2"><a href="confidence-intervals.html#cb1033-2"></a><span class="kw">qt</span>(.<span class="dv">995</span>, <span class="dt">df =</span> <span class="dv">19</span>)</span></code></pre></div>
 <pre><code>## [1] 2.860935</code></pre>
-<div class="sourceCode" id="cb978"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb978-1"><a href="confidence-intervals.html#cb978-1"></a><span class="co"># 90% CI, n = 12</span></span>
-<span id="cb978-2"><a href="confidence-intervals.html#cb978-2"></a><span class="kw">qt</span>(.<span class="dv">95</span>, <span class="dt">df =</span> <span class="dv">11</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1035"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1035-1"><a href="confidence-intervals.html#cb1035-1"></a><span class="co"># 90% CI, n = 12</span></span>
+<span id="cb1035-2"><a href="confidence-intervals.html#cb1035-2"></a><span class="kw">qt</span>(.<span class="dv">95</span>, <span class="dt">df =</span> <span class="dv">11</span>)</span></code></pre></div>
 <pre><code>## [1] 1.795885</code></pre>
-<div class="sourceCode" id="cb980"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb980-1"><a href="confidence-intervals.html#cb980-1"></a><span class="co"># 99.9% CI, n = 35</span></span>
-<span id="cb980-2"><a href="confidence-intervals.html#cb980-2"></a><span class="kw">qt</span>(.<span class="dv">9995</span>, <span class="dt">df =</span> <span class="dv">34</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1037"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1037-1"><a href="confidence-intervals.html#cb1037-1"></a><span class="co"># 99.9% CI, n = 35</span></span>
+<span id="cb1037-2"><a href="confidence-intervals.html#cb1037-2"></a><span class="kw">qt</span>(.<span class="dv">9995</span>, <span class="dt">df =</span> <span class="dv">34</span>)</span></code></pre></div>
 <pre><code>## [1] 3.600716</code></pre>
 </div>
 </div>
