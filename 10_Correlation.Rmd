@@ -20,9 +20,6 @@ The below image shows scatterplots, each with a sample size of 30. The trendline
 
 
 
-## Calculating the Pearson Correlation in R
-
-
 
 ## Cross-products
 
