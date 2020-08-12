@@ -6,7 +6,7 @@ Before we move forward it is important to know a little bit of R syntax. This ch
 
 
 
-## Boring mathematical stuff
+## Simple mathematical syntax
 
 R is, first and foremost, a statistical programming language. So, unsurprisingly, you can do a bunch of mathematical operations fairly easily. Let's do some really tedious math:
 
@@ -95,7 +95,7 @@ Now it **knows** that what you wanted to do was to add 7 and 9 to get 16 and hav
 
 
 
-## assignment
+## Assignment
 e.g. what the assignment operator is.
 
 This symbol `<-` which is just a "greater than sign" followed by a "hyphen" is called an assignment operator. It basically is equivalent to saying you want to save something.  You write what you want to be saved on the right hand side of it, and the name of your newly saved thing on the left of it.  We call the 'thing' that you've saved an 'object' in programming speak.
@@ -140,7 +140,7 @@ hooray
 
 
 
-## vectors
+## Vectors
 
 Of course, you can save even more complex things as the object. For example, if you wished to save the numbers `5, 6, 7, 8, 9, 10`, you have two ways of doing that.  Let's just see them in action, and then we'll explain the syntax:
 
