@@ -48,7 +48,7 @@ mean(samp2)
 
 This time our sample mean (our estimate) is $\overline{x}=7.95$.
 
-If we did this thousands of times, then we'd get our sampling distribution of sample means (see section xxx.xxx). This is what our sampling distribution for sample sizes of $n=15$ looks like:
+If we did this thousands of times, then we'd get our sampling distribution of sample means (see section \@ref(normal-distribution)). This is what our sampling distribution for sample sizes of $n=15$ looks like:
 
 ```{r}
 #get sample means for sampling distribution
