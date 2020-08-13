@@ -176,7 +176,7 @@ What if you just want the first 10 rows of kcal?  Then we could get all the data
 df$kcal[1:10]
 ```
 
-This works, becuase you can think of all the data values in each column as essentially its own vector. The square brackets work just as they would with any other vector indexing (see section xxx.xxx).
+This works, because you can think of all the data values in each column as essentially its own vector. The square brackets work just as they would with any other vector indexing (see section \@ref(vectors)).
 
 
 Square brackets can be used on the whole dataframe to call just certain rows and columns. **Importantly** row numbers need to be written before the comma, and columns after comma.  If you leave anything blank, then it will assume that you mean "all" of the rows or columns.
@@ -464,7 +464,7 @@ bw %>%
 
 `filter()` is a way to subset data. In other words, it is a way to only keep certain rows in your dataset. These are rows that must fulfil specific criteria.  For example, let's say we wish to only keep rows that have values in the `hrate` column that are over 70.
 
-The first step is to take the dataframe `bw()` and then tell R that you are about to do something else with the `%>%` syntax. Then use `filter()` with `hrate > 70` inside it. This mean, *keep* the rows with `hrate>70`.  See section xxx.xxx for a bit more on chaining using `%>%`.
+The first step is to take the dataframe `bw()` and then tell R that you are about to do something else with the `%>%` syntax. Then use `filter()` with `hrate > 70` inside it. This mean, *keep* the rows with `hrate>70`.  See sections \ref(chaining-syntax) and \@ref(chaining-together) for a bit more on chaining using `%>%`.
 
 
 ```{r} 
