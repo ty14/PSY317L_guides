@@ -66,6 +66,7 @@ With statistics stuff, you can never really have enough resources. Although thro
 
 
 **R stuff**
+
 [Rstudio Cheatsheets](https://rstudio.com/resources/cheatsheets/)
 [R Community](https://community.rstudio.com/)
 [R Cookbook](http://www.cookbook-r.com/)
