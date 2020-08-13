@@ -50,73 +50,8 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
-<style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 </head>
 
@@ -386,7 +321,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="img/download_R.png" width="800" /></p>
 <p><br></p>
 <p><strong>R for Windows</strong></p>
-<p>For windows users, after you have clicked the appropriate linke below, you will see the following screen and you should click on <span class="math inline">\(\color{blue}{\text{&quot;install R for the first time&quot;}}\)</span>.</p>
+<p>For windows users, after you have clicked the appropriate link below, you will see the following screen and you should click on <span class="math inline">\(\color{blue}{\text{&quot;install R for the first time&quot;}}\)</span>.</p>
 <p><img src="img/R_windows.png" width="800" /></p>
 <p>After this page, you will see the following page:</p>
 <p><img src="img/R_windows2.png" width="800" /></p>
@@ -394,7 +329,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br></p>
 <p><strong>R for Mac OS X</strong></p>
 <p>If you have a Mac operating system, then you will see the image below. You want to click on <span class="math inline">\(\color{blue}{\text{&quot;R-4.0.2.pkg&quot;}}\)</span>. If a more recent version of R is available, then the version number will be higher than 4.0.2 - click on this instead.</p>
-<p><img src="img/R_mac.png" width="800" /></p>
+<p><img src="img/R_mac.PNG" width="800" /></p>
 <p>Again, follow the instructions. You can accept all the default settings for the installation, you don’t need to change anything. It is also best to leave this in a folder located on your machine such as <code>Documents</code> and not in a cloud based folder.</p>
 <p><br><br></p>
 </div>
@@ -439,7 +374,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Third, you have a Global Environment panel in the top right. When you first open RStudio this will be empty, but it fills up with things once you start working with the code. You will also see some tabs above the Global Environment. You should see the <code>Environment</code> and <code>History</code> tabs. You may also see other tabs up there including <code>Git</code>, <code>Tutorial</code> depending on the version of RStudio you have downloaded and what other programs you have on your machine. There are also some other buttons including the <code>Import Dataset</code> button above this panel.</p>
 <p>Here is an example of a Goblal Environment where you can see dataframes, matrices, values, and functions that are being worked with:</p>
 <p><img src="img/gobal_envi.PNG" width="500" /></p>
-<p>If you click the play arrow next to the dataframe, you can view the entire dataframe. This is the save as running the function <code>View(df)</code> (see section xxx.xxx). Another, important button is the broom icon, if you click this it will clear your global environment and you will have to rerun code to get any dataframes, function, etc. back.</p>
+<p>If you click the play arrow next to the dataframe, you can view the entire dataframe. This is the save as running the function <code>View(df)</code> (see section <a href="introduction-to-data-carpentry.html#importing-data">4.1</a>). Another, important button is the broom icon, if you click this it will clear your global environment and you will have to rerun code to get any dataframes, function, etc. back.</p>
 <p>In the <code>History</code> tab, you can see all the code that was once ran through your console. This tab can be important, because information in the console is never saved and can be deleted easily. Nevertheless, you should get use to saving your code in <strong>R scripts</strong>, which we’ll describe shortly, so you will probably not use this tab to often.</p>
 <p>The fourth pane, is the most compacted and has tabs for <code>Files</code>, <code>Plots</code>, <code>Packages</code>, <code>Help</code> and possibly <code>Viewer</code> depending on your version.</p>
 <p>The file tab, allows you access all files on your computer. The initial location for this is likely to be the folder that you saved R and Rstudio in - usually <code>My Documents</code> or something similar. You can navigate to other folders on your computer using the button with the three dots <code>...</code> that looks like this:</p>
@@ -514,7 +449,7 @@ That will open up your computers folders and you can click to a new folder.</p>
 <p>When working with R, you will hear about different packages that we will utilize to complete a variety of tasks. A package is a collection of code, functions, and sometimes data developed by members of the R community with the purpose of freely sharing with other R users. We install packages to help us work more efficiently in R. You can think of them as similar to apps you’d download from the app-store.</p>
 <p>There are two ways to download packages on to your computer.</p>
 <p>The first way is through the Packages tab in the right bottom panel in your Rstudio environment. In this tab you will see all the packages already installed on your machine.</p>
-<p><img src="img/packages.png" width="500" /></p>
+<p><img src="img/packages.PNG" width="500" /></p>
 <p>Here if you click on install, a box will pop up and your can enter the name of the package you wish to to have then hit install.</p>
 <p><img src="img/packageinstall.PNG" width="500" /></p>
 <p>The second way is through one line of code you can write in the console. For example, to just install the <code>tidyverse</code> package (which is actually a package that contains many packages within it) you would type <code>install.package("tidyverse")</code> into your console like this:</p>
@@ -522,7 +457,7 @@ That will open up your computers folders and you can click to a new folder.</p>
 <p>At the beginning of this class, you will be asked to install all the packages that you will need to run the various scripts used in this class. You’ll only need to do this once. To do this, please copy and paste the following code in your console and hit enter:</p>
 <p><code>install.packages(c("car", "coin", "gridExtra", "lsr", "moments", "ppcor", "psych", "rcompanion", "tidyverse"))</code></p>
 <p>Your Console should look something like this</p>
-<p><img src="img/packcon.png" width="500" /></p>
+<p><img src="img/packcon.PNG" width="500" /></p>
 <p>After you do that, your console should start spurting out lots of red, blue and black text. This may take a while (up to 10 minutes) to complete. You may get a prompt that shows up asking you if you want to <code>download from source</code> or some such statement. It’s ok to hit <code>Y</code> in the console if asked there, or to hit <code>OK</code> or <code>Yes</code> on the dialog box that pops up. If this question doesn’t arise, then that’s fine.</p>
 <p>It should look something like this during the middle of the installation:</p>
 <p><img src="img/r_install3.png" /></p>

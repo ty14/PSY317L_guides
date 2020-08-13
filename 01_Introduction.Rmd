@@ -28,7 +28,7 @@ Go to the [R website](https://cran.r-project.org). The first box has options for
 
 **R for Windows**
 
-For windows users, after you have clicked the appropriate linke below, you will see the following screen and you should click on  $\color{blue}{\text{"install R for the first time"}}$.
+For windows users, after you have clicked the appropriate link below, you will see the following screen and you should click on  $\color{blue}{\text{"install R for the first time"}}$.
 
 ![](img/R_windows.png){width=800px}
 
@@ -130,7 +130,7 @@ Here is an example of a Goblal Environment where you can see dataframes, matrice
 
 ![](img/gobal_envi.PNG){width=500px}
 
-If you click the play arrow next to the dataframe, you can view the entire dataframe. This is the save as running the function `View(df)` (see section xxx.xxx). Another, important button is the broom icon, if you click this it will clear your global environment and you will have to rerun code to get any dataframes, function, etc. back. 
+If you click the play arrow next to the dataframe, you can view the entire dataframe. This is the save as running the function `View(df)` (see section \@ref(importing-data)). Another, important button is the broom icon, if you click this it will clear your global environment and you will have to rerun code to get any dataframes, function, etc. back. 
 
 In the `History` tab, you can see all the code that was once ran through your console. This tab can be important, because information in the console is never saved and can be deleted easily. Nevertheless, you should get use to saving your code in **R scripts**, which we'll describe shortly, so you will probably not use this tab to often. 
 
@@ -140,6 +140,7 @@ The fourth pane, is the most compacted and has tabs for `Files`, `Plots`, `Packa
 The file tab, allows you access all files on your computer. The initial location for this is likely to be the folder that you saved R and Rstudio in - usually `My Documents` or something similar. You can navigate to other folders on your computer using the button with the three dots `...` that looks like this:
 
 ![](img/r_dots.png)
+
 That will open up your computers folders and you can click to a new folder.
 
 
@@ -186,7 +187,7 @@ To open a new Rscript you can:
 ![](img/r_script2.png)
 
 
-3. Hit `"Ctrl"+ "Shift" + "N"` on your keyboard if you have Windows, or `"Ctrl"+ "Shift" + "N"` if you have Mac. 
+3. Hit `"Ctrl"+ "Shift" + "N"` on your keyboard if you have Windows, or `"Command"+ "Shift" + "N"` if you have Mac. 
 
 
 Once you have opened a new Rscript it will looks like this:
