@@ -772,7 +772,7 @@ nrow=1)
 
 
 
-## Central Limit Theorem.
+## Central Limit Theorem
 
 In the previous section we discovered that if you take many, many samples from a normally distributed population and calculated the sample mean of each sample, that you would get a sampling distribution of sample means. We also saw that that sampling distribution was normally distributed with a mean $\mu_{\overline{x}}$  that was approximately equal to the population mean, and a standard deviation $\sigma_{\overline{x}}$   that was equal to the population standard deviation divided by the square root of n $\sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$.
 
@@ -933,7 +933,7 @@ We could keep going with even more types of population distributions. We would f
 
 
 
-## Sampling distribution problems.
+## Sampling distribution problems
 
 We can use our knowledge of sampling distributions and z-scores to determine how likely or unlikely we are to observe any one particular sample mean.
 
