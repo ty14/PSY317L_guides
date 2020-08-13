@@ -666,7 +666,7 @@ This is telling you that it's waiting for something else to finish the code. It 
 *Don't forget commas*
 
 
-Commas need to be watched out for too.  They are usually used to split separate items up, such as numbers in a vector or arguments in a function (see section xxx.xxx).  Missing them out can cause issues! For instance, here we are trying to make the vector `b` have the numbers 3, 6, 9 & 10.  But the way we write it, R might think we mean 3, 6 & 910 because we forgot the comma. Remember, R often ignores spaces. Fortunately, R catches it because it 'knows' numbers need to be paid attention to - and suggests that you've missed out a comma. Well, technically it tells you `Error: unexpected numeric constant in ....` which doesn't help much - but it's because we forgot the comma.
+Commas need to be watched out for too.  They are usually used to split separate items up, such as numbers in a vector or arguments in a function (see section \@ref(functions)).  Missing them out can cause issues! For instance, here we are trying to make the vector `b` have the numbers 3, 6, 9 & 10.  But the way we write it, R might think we mean 3, 6 & 910 because we forgot the comma. Remember, R often ignores spaces. Fortunately, R catches it because it 'knows' numbers need to be paid attention to - and suggests that you've missed out a comma. Well, technically it tells you `Error: unexpected numeric constant in ....` which doesn't help much - but it's because we forgot the comma.
 
 ```{r, error=TRUE}
 b <- c(3, 6, 9 10)
@@ -700,7 +700,7 @@ You get warned that one of your `arguments` are empty. If you scroll away from y
 
 Quote marks `"hello"` or `'hello'` are often used in R when we want to make sure something is a character (i.e. text). Most commonly used when we're inputting data that include words, or when we're stating a color, or when we're adding a title or a label to a graph.
 
-An error that we often see is that quote marks are either missing or not closed. Up to this point in the book, we haven't yet covered the situations in which this is most likely to occur - so don't worry about following this code just yet. We're actually trying to make a scatterplot, that we discuss more in section xxx.xxx. Instead, just focus on the error message:
+An error that we often see is that quote marks are either missing or not closed. Up to this point in the book, we haven't yet covered the situations in which this is most likely to occur - so don't worry about following this code just yet. We're actually trying to make a scatterplot, that we discuss more in section \@ref(scatterplots). Instead, just focus on the error message:
 
 ```{r, message=FALSE, warning=FALSE, error=TRUE}
 library(tidyverse)
@@ -830,7 +830,7 @@ After you have clicked on the thing you want- it will automatically include it i
 
 ## Error Messages
 
-We'll be honest here and say that often times when you get an error message, they aren't massively helpful. Or, at least this was the case until recently.  There still are many error messages that don't really help you too much in learning what you did wrong, but if you make errors when using the `tidyverse` (see section xxx.xxx) such as when making visualization - these error messages are much more helpful now than they once were.
+We'll be honest here and say that often times when you get an error message, they aren't massively helpful. Or, at least this was the case until recently.  There still are many error messages that don't really help you too much in learning what you did wrong, but if you make errors when using the `tidyverse` (see section \@ref(tidyverse)) such as when making visualization - these error messages are much more helpful now than they once were.
 
 Making errors when coding is part of the learning curve though. It's like learning to play the piano. There is almost no way you can do it just by watching somebody else. You have to practice and be ok with making small mistakes. At first they catch you out, but over time you'll realize when you're about to mess up and you'll avoid it. Or, you'll mess up and be faster at working out how to get past it.
 
