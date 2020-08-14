@@ -60,7 +60,7 @@ t.test(anastasia, bernadette, var.equal = T)
 
 This Student's t-test (notice `var.equal=T`) suggests that this is a significant difference, meaning that the groups do differ in their population means.
 
-However, this test relies on several assumptions (see section xx.x.x).  Instead, we could apply a permutation test that is free of assumptions.
+However, this test relies on several assumptions (see section \@ref(assumptions-of-the-independent-t-test)).  Instead, we could apply a permutation test that is free of assumptions.
 
 
 
@@ -451,7 +451,7 @@ ba$difference <- ba$before - ba$after
 shapiro.test(ba$difference)
 ```
 
-With the p-value here being `p<.05`, this suggests that our data are not normally distributed. One option would be to do a non-parametric Wilcoxon-signed rank test (see section xxxx.xxx). Alternatively, we could do a permutation test.
+With the p-value here being `p<.05`, this suggests that our data are not normally distributed. One option would be to do a non-parametric Wilcoxon-signed rank test (see section \@ref(non-parametric-alternatives-to-the-two-sample-t-tests)). Alternatively, we could do a permutation test.
 
 
 Let's look at our data again, and focus on the difference column. 

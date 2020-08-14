@@ -270,7 +270,7 @@ qqline(jayM$Head, col = "steelblue", lwd = 2)
 
 Both of these QQ plots are ok, and indicate normality, as does our Shapiro-Wilk tests. Therefore we would be ok to use a Pearson Correlation test with these data.
 
-What should you do though if either of your continuous variables are not approximately normally distributed? In that case, there are other correlation coefficients and associated significance tests that you could run instead.  We describe these in more detail in Section x.xxx
+What should you do though if either of your continuous variables are not approximately normally distributed? In that case, there are other correlation coefficients and associated significance tests that you could run instead.  We describe these in more detail in Section \@ref(non-parametric-correlations). 
 
 
 
@@ -452,7 +452,7 @@ sqrt(1/12)
 Now we have an approximately normal sampling distribution with a standard deviation, we can start to do similar things to what we did with other sampling distributions such as calculate confidence intervals.
 
 
-Let's calculate a confidence interval around our first sample of $r=0.56$.  What we assume is that the Fisher transformed score of $r=0.56$ is the mean of the sampling distribution. Therefore we assume that $z' = 0.63$ is the mean of the sampling distribution. Because we want to have 95% of the distribution inside the confidence interval, then we want to know which values are 1.96 standard deviations away from the mean. This is because we're assuming the transformed sampling distribution to be approximately normal, and in a standard normal curve 95% of the data is $\pm 1.96$ standard deviations of the mean (see section xxx.xxx).
+Let's calculate a confidence interval around our first sample of $r=0.56$.  What we assume is that the Fisher transformed score of $r=0.56$ is the mean of the sampling distribution. Therefore we assume that $z' = 0.63$ is the mean of the sampling distribution. Because we want to have 95% of the distribution inside the confidence interval, then we want to know which values are 1.96 standard deviations away from the mean. This is because we're assuming the transformed sampling distribution to be approximately normal, and in a standard normal curve 95% of the data is $\pm 1.96$ standard deviations of the mean (see section \@ref(sampling-distribution-of-the-difference-in-sample-means).
 
 The formula is:
 
@@ -787,7 +787,7 @@ cor.test(test$drank, test$testosterone, method = "spearman", alternative = "less
 
 **Non-parametric Partial Correlation**
 
-If you look back to section xxx.xxx you'll see that we used a very long formula to calculate the partial correlation for a Pearson correlation. We also used the funtion `pcor.test()` from the `ppcor` package to do this for us. We can actually use the same formula or function to do partial correlations for non-parametric correlations.
+If you look back to section \@ref(partial-correlations) calculate the partial correlation for a Pearson correlation. We also used the funtion `pcor.test()` from the `ppcor` package to do this for us. We can actually use the same formula or function to do partial correlations for non-parametric correlations.
 
 For example, let's examine the Spearman correlations between anxiety, exam score and revision.
 

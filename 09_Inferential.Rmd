@@ -192,7 +192,7 @@ As you can see, the sampling distribution is approximately symmetrical. If we ra
 
 An obvious next question is what is the standard deviation of this sampling distribution? i.e. the standard deviation of the sampling distribution of the differences in sample means. If we knew this, then we'd be able to describe how likely or unlikely we were to get any particular difference in sample means in terms of how many sampling distribution standard deviations that score is away from the mean.
 
-There are actually two different formulas that we can use to work out the standard deviation - which we will discuss shortly (see section xx.xxx).  In brief, it is a bit trickier to calculate the standard deviation of this sampling distribution compared to the standard deviation of the sampling distribution of sample means, because our difference in sample means uses two different samples each with their own sample standard deviation. 
+There are actually two different formulas that we can use to work out the standard deviation - which we will discuss shortly (see section \@ref(pooled-standard-deviation)). In brief, it is a bit trickier to calculate the standard deviation of this sampling distribution compared to the standard deviation of the sampling distribution of sample means, because our difference in sample means uses two different samples each with their own sample standard deviation. 
 
 Given we just simulated our sampling distribution of the differences in sample means, we could just look at its standard deviation in R:
 
@@ -559,7 +559,7 @@ So our next step is to work out the standard deviation of the sampling distribut
 $\sigma_{\overline{x}_A-\overline{x}_B} = \hat\sigma_p \times \sqrt{\frac{1}{n_1} + \frac{1}{n_2} }$
 
 
-So, the first step in this formula is to calculate the pooled standard deviation $\hat\sigma_p$.  We can either calculate this from first principles (see section xxx.xx) or using the shortcut formula (see section xxx.xxx). Below, we calculate the pooled standard deviation using the first principles:
+So, the first step in this formula is to calculate the pooled standard deviation $\hat\sigma_p$.  We can either calculate this from first principles or using the shortcut formula (see section \@ref(pooled-standard-deviation)). Below, we calculate the pooled standard deviation using the first principles:
 
 ```{r}
 # from first principles, calculating deviations from each group mean
@@ -598,7 +598,7 @@ Lets' visualize what this sampling distribution looks like:
 ![](img/tt5.png)
 
 
-By estimating the standard deviation, we are able to plot what our sampling distribution would look like. We are then able to see that our observed difference in sample means of $\overline{x}_A - \overline{x}_B = 5.48$ is quite far away from the hypothesized mean of 0 in terms of standard deviations.  What we have not discussed so far is what kind of shape that this distribution is other than it is symmetrical.  Similar to when we were looking at sampling distributions of sample means (see section xxx.xxx), the shape of this sampling distribution of the difference in sample means is also $t$-shaped. In the example given above, it is a $t$-distribution with 31 degrees of freedom. The degrees of freedom of these sampling distributions are equal to $df = n_A +  n_B - 2$. So in our case, this is equal to:
+By estimating the standard deviation, we are able to plot what our sampling distribution would look like. We are then able to see that our observed difference in sample means of $\overline{x}_A - \overline{x}_B = 5.48$ is quite far away from the hypothesized mean of 0 in terms of standard deviations.  What we have not discussed so far is what kind of shape that this distribution is other than it is symmetrical.  Similar to when we were looking at sampling distributions of sample means (see section \@ref(sampling-distribution-of-the-difference-in-sample-means)), the shape of this sampling distribution of the difference in sample means is also $t$-shaped. In the example given above, it is a $t$-distribution with 31 degrees of freedom. The degrees of freedom of these sampling distributions are equal to $df = n_A +  n_B - 2$. So in our case, this is equal to:
 
 ```{r}
 nA + nB - 2
@@ -731,7 +731,7 @@ $CI_{95\%} =  \overline{x}_A - \overline{x}_B   \pm   t \times \sigma_{\overline
 
 
 
-As discussed in the previous sections (see xxx.xxx) the standard deviation of the sampling distribution of differences in sample means, can be calculated using the formula:
+As discussed in the previous sections (see \@ref(sampling-distribution-of-the-difference-in-sample-means) and \@ref(pooled-standard-deviation)) the standard deviation of the sampling distribution of differences in sample means, can be calculated using the formula:
 
 $\sigma_{\overline{x}_A - \overline{x}_B}  =  \hat{\sigma_{\rho}} \times \sqrt{\frac{1}{n_A} + \frac{1}{n_B}}$
 
@@ -745,7 +745,7 @@ The below diagram illustrates how this formula determines the 95% confidence int
 
 
 
-The first step is therefore to calculate the pooled estimate of the common standard deviation $\hat{\sigma_{\rho}}$ (see section xxx.xxx). Using the method of calculating deviations from each group mean, we can find that $\hat{\sigma_{\rho}} = 0.73$
+The first step is therefore to calculate the pooled estimate of the common standard deviation $\hat{\sigma_{\rho}}$ (see section \@ref(sampling-Distribution-of-the-ifference-in-sample-eans)). Using the method of calculating deviations from each group mean, we can find that $\hat{\sigma_{\rho}} = 0.73$
 
 ```{r}
 difA2 <- (groupA - mean(groupA))^2
@@ -811,7 +811,7 @@ meandif # this is our observed difference in sample means
 
 We find that $\overline{x}_A - \overline{x}_B=5.48$
 
-Previously in section xxx.xxx we calculated the standard deviation of this sampling distribution to be $\sigma_{\overline{x}_A - \overline{x}_B} = 2.59$. We saved this earlier as `sedm`.
+Previously in section \@ref(theory-behind-student's-t-test) we calculated the standard deviation of this sampling distribution to be $\sigma_{\overline{x}_A - \overline{x}_B} = 2.59$. We saved this earlier as `sedm`.
 
 ```{r}
 sedm  
@@ -895,7 +895,7 @@ Here's how to do it for data stored in vectors. The first two arguments should b
 t.test(anastasia, bernadette, var.equal = T)
 ```
 
-As you can see from the output, the default Student's t-test is to do a 2-tailed test.  In this output you are given the observed $t$-value, the degrees of freedom and the p-value. Also given are the sample means of each sample, as well as a 95% confidence interval of the true difference in population means (see section xxx.xxx for more on this confidence interval).
+As you can see from the output, the default Student's t-test is to do a 2-tailed test.  In this output you are given the observed $t$-value, the degrees of freedom and the p-value. Also given are the sample means of each sample, as well as a 95% confidence interval of the true difference in population means (see section \@ref(confidence-interval-for-difference-in-means) for more on this confidence interval).
 
 
 It's also possible to use `t-test` with data in long format in dataframes.  Here is our data in long data format (we used this to make the boxplot):
@@ -1030,7 +1030,7 @@ The formula for this effect size measure is:
 
 $\delta = \frac{\overline{X}_{1} - \overline{X}_{2}}{\hat{\sigma}_{\rho}}$
 
-This is saying to divide the difference between the means of each group by the pooled standard deviation. For our `anastasia` and `bernadette` samples, we could do this 'by hand' like this (note: we calculated the pooled standard deviation ${\hat{\sigma}_{\rho}}$ for these samples earlier in section xxx.xxx and saved it as `sd.pool`.:
+This is saying to divide the difference between the means of each group by the pooled standard deviation. For our `anastasia` and `bernadette` samples, we could do this 'by hand' like this (note: we calculated the pooled standard deviation ${\hat{\sigma}_{\rho}}$ for these samples earlier in section \@ref(confidence-interval-for-difference-in-means) and saved it as `sd.pool`.:
 
 ```{r}
 (mean(anastasia) - mean(bernadette))  / sd.pool 
@@ -1061,7 +1061,7 @@ Paired data are data where we have two related scores per individual subject. Fo
 
 When we have paired data, we may be interested in knowning if there is a difference between the two groups of scores in means over all subjects. We cannot proceed with an independent t-test to examine this, as the data all violate the assumption of independence.  These data by their very nature are non-independent of each other. Instead, we need to account for the fact the data are paired.
 
-Let's look at the following data which show exam scores in Dr Chico's class. We have 20 students who took two exams during the class. These are called `grade_test1` and `grade_test2`. As you can see below, the data are currently in "wide format" (see section xxx.xxx).
+Let's look at the following data which show exam scores in Dr Chico's class. We have 20 students who took two exams during the class. These are called `grade_test1` and `grade_test2`. As you can see below, the data are currently in "wide format".
 
 
 ```{r, message=FALSE}
@@ -1121,7 +1121,7 @@ What we are looking for in a plot such as this is whether a majority of the line
 
 ### The paired t-test is a one-sample t-test
 
-The general principle behind a paired t-test is that it is not a new test at all. In fact, we will be doing a one-sample t-test based on the difference between the two scores.  We will be testing whether the true population mean difference in scores is likely to include 0. Please see section xxx.xxx for more information on the theory of one-sample t-tests. Here, we'll just walk through how to write the code in R, what assumptions you need to check, and what plots you should make.
+The general principle behind a paired t-test is that it is not a new test at all. In fact, we will be doing a one-sample t-test based on the difference between the two scores.  We will be testing whether the true population mean difference in scores is likely to include 0. Please see section \@ref(one-sample-t-tests) for more information on the theory of one-sample t-tests. Here, we'll just walk through how to write the code in R, what assumptions you need to check, and what plots you should make.
 
 Let's first do this by hand, before we see the very quick way to do this in R.
 
@@ -1172,7 +1172,7 @@ shapiro.test(chico$improvement)
 As the dots fall largely on the line, especially in the middle of our plot, the QQ plot suggests that date are approximately normal. Likewise, because the p-value of the Shapiro-Wilk test is greater than 0.05, this indicates that our data are approximately normal.
 
 
-If you recall back to section xxx.xxx, to run a one-sample t-test in R we use `t.test()` and set `mu=0` to indicate that we are testing whether our sample comes from a population whose mean could be equal to 0.
+If you recall back to section \@ref(one-sample-t-tests), to run a one-sample t-test in R we use `t.test()` and set `mu=0` to indicate that we are testing whether our sample comes from a population whose mean could be equal to 0.
 
 ```{r}
 t.test(chico$improvement, mu=0) 
@@ -1228,14 +1228,14 @@ Therefore for our `chico` dataset, the effect size $\delta = 1.45$.
 mean(chico$improvement) / sd(chico$improvement) 
 ```
 
-This indicates a very large effect.  As with the indendent t-test (see section xxx.xxx) anything above 0.7 can be considered a large effect, anything above 0.5 is a moderate effect, and anything above 0.3 is a small effect.
+This indicates a very large effect.  As with the independent t-test (see section \@ref(effect-size-for-independent-two-sample-t-tests)) anything above 0.7 can be considered a large effect, anything above 0.5 is a moderate effect, and anything above 0.3 is a small effect.
 
 
 <br><br>
 
 ## Non-parametric Alternatives for Independent t-tests
 
-One of the key assumptions of the independent t-test is that the data come from populations that are approximately normally distributed. If your data do not appear to be normal, there are several options still available. One of these is to do a permutation t-test (see section xxx.xxx). Another option is to run a non-parametric statistical test. We won't go into the theory here, instead just focsuing on how to run these tests in R. 
+One of the key assumptions of the independent t-test is that the data come from populations that are approximately normally distributed. If your data do not appear to be normal, there are several options still available. One of these is to do a permutation t-test (see section \@ref(t-test-permutation)). Another option is to run a non-parametric statistical test. We won't go into the theory here, instead just focsuing on how to run these tests in R. 
 
 Let's look at an example dataset of how we would do these non-parametric tests.
 

@@ -120,7 +120,7 @@ $N(\mu=0, \sigma^{2}=1)$
 
 ![](img/stdnorm.png)
 
-How does the standard normal distribution come about?  We will discuss more about this distribution in section xxx.xxx, but briefly it is obtained by converting all the values of a normal distribution into z-scores.  z-scores are calculated by:
+How does the standard normal distribution come about?  We will discuss more about this distribution in section \@ref(normal-distribution), but briefly it is obtained by converting all the values of a normal distribution into z-scores.  z-scores are calculated by:
 
 $z=\frac{x - {\mu}_x}{\sigma_x}$
 
@@ -332,7 +332,7 @@ kurtosis(x1)
 
 
 
-## z-scores
+## Z-scores
 
 z-scores are a useful way of comparing different scores in different distributions. As an example, let's look at the two distributions below. On the left we have the population of all Airedale Terriers that is normally distributed with a mean of 60 lbs with a standard deviation of 6 lbs.  On the right we have the population of all Scottish Terriers that is normally distributed with a mean of 20 lbs and a standard deviation of 0.4 lbs.
 
