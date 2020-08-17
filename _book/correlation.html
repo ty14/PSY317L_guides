@@ -253,15 +253,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.0.3" data-path="distributions.html"><a href="distributions.html#normal-distribution"><i class="fa fa-check"></i><b>7.0.3</b> Normal Distribution</a></li>
 <li class="chapter" data-level="7.0.4" data-path="distributions.html"><a href="distributions.html#standard-normal-distribution"><i class="fa fa-check"></i><b>7.0.4</b> Standard Normal Distribution</a></li>
 <li class="chapter" data-level="7.0.5" data-path="distributions.html"><a href="distributions.html#skewness-and-kurtosis"><i class="fa fa-check"></i><b>7.0.5</b> Skewness and Kurtosis</a></li>
-<li class="chapter" data-level="7.1" data-path="distributions.html"><a href="distributions.html#z-scores"><i class="fa fa-check"></i><b>7.1</b> z-scores</a><ul>
+<li class="chapter" data-level="7.1" data-path="distributions.html"><a href="distributions.html#z-scores"><i class="fa fa-check"></i><b>7.1</b> Z-scores</a><ul>
 <li class="chapter" data-level="7.1.1" data-path="distributions.html"><a href="distributions.html#z-scores-in-samples."><i class="fa fa-check"></i><b>7.1.1</b> z-scores in samples.</a></li>
 <li class="chapter" data-level="7.1.2" data-path="distributions.html"><a href="distributions.html#using-z-scores-to-determine-probabilities"><i class="fa fa-check"></i><b>7.1.2</b> Using z-scores to determine probabilities</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="distributions.html"><a href="distributions.html#what-is-a-sampling-distribution"><i class="fa fa-check"></i><b>7.2</b> What is a Sampling Distribution ?</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="distributions.html"><a href="distributions.html#sample-size-and-the-sampling-distribution"><i class="fa fa-check"></i><b>7.2.1</b> Sample Size and the Sampling Distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="distributions.html"><a href="distributions.html#central-limit-theorem."><i class="fa fa-check"></i><b>7.3</b> Central Limit Theorem.</a></li>
-<li class="chapter" data-level="7.4" data-path="distributions.html"><a href="distributions.html#sampling-distribution-problems."><i class="fa fa-check"></i><b>7.4</b> Sampling distribution problems.</a></li>
+<li class="chapter" data-level="7.3" data-path="distributions.html"><a href="distributions.html#central-limit-theorem"><i class="fa fa-check"></i><b>7.3</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="7.4" data-path="distributions.html"><a href="distributions.html#sampling-distribution-problems"><i class="fa fa-check"></i><b>7.4</b> Sampling distribution problems</a></li>
 <li class="chapter" data-level="7.5" data-path="distributions.html"><a href="distributions.html#the-t-distribution"><i class="fa fa-check"></i><b>7.5</b> The t-distribution</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>8</b> Confidence Intervals</a><ul>
@@ -278,7 +278,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.5" data-path="confidence-intervals.html"><a href="confidence-intervals.html#comparing-cis-using-the-z--and-t-distributions"><i class="fa fa-check"></i><b>8.5</b> Comparing CIs using the z- and t-distributions</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html"><i class="fa fa-check"></i><b>9</b> One Sample Inferential Statistics</a><ul>
-<li class="chapter" data-level="9.1" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#one-sample-z-tests"><i class="fa fa-check"></i><b>9.1</b> One-sample Z-tests</a><ul>
+<li class="chapter" data-level="9.1" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#one-sample-z-tests"><i class="fa fa-check"></i><b>9.1</b> One-sample z-tests</a><ul>
 <li class="chapter" data-level="9.1.1" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#sampling-distribution-recap"><i class="fa fa-check"></i><b>9.1.1</b> Sampling Distribution Recap</a></li>
 <li class="chapter" data-level="9.1.2" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#calculating-p-values-for-z-test"><i class="fa fa-check"></i><b>9.1.2</b> Calculating p-values for z-test</a></li>
 <li class="chapter" data-level="9.1.3" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#using-critical-values"><i class="fa fa-check"></i><b>9.1.3</b> Using critical values</a></li>
@@ -637,7 +637,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1496-2"><a href="correlation.html#cb1496-2"></a><span class="kw">qqline</span>(jayM<span class="op">$</span>Head, <span class="dt">col =</span> <span class="st">&quot;steelblue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-574-1.png" width="672" /></p>
 <p>Both of these QQ plots are ok, and indicate normality, as does our Shapiro-Wilk tests. Therefore we would be ok to use a Pearson Correlation test with these data.</p>
-<p>What should you do though if either of your continuous variables are not approximately normally distributed? In that case, there are other correlation coefficients and associated significance tests that you could run instead. We describe these in more detail in Section x.xxx</p>
+<p>What should you do though if either of your continuous variables are not approximately normally distributed? In that case, there are other correlation coefficients and associated significance tests that you could run instead. We describe these in more detail in Section <a href="correlation.html#non-parametric-correlations">11.7</a>.</p>
 </div>
 <div id="confidence-intervals-for-r" class="section level2">
 <h2><span class="header-section-number">11.5</span> Confidence Intervals for r</h2>
@@ -812,7 +812,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1534-1"><a href="correlation.html#cb1534-1"></a><span class="kw">sqrt</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">12</span>)</span></code></pre></div>
 <pre><code>## [1] 0.2886751</code></pre>
 <p>Now we have an approximately normal sampling distribution with a standard deviation, we can start to do similar things to what we did with other sampling distributions such as calculate confidence intervals.</p>
-<p>Let’s calculate a confidence interval around our first sample of <span class="math inline">\(r=0.56\)</span>. What we assume is that the Fisher transformed score of <span class="math inline">\(r=0.56\)</span> is the mean of the sampling distribution. Therefore we assume that <span class="math inline">\(z&#39; = 0.63\)</span> is the mean of the sampling distribution. Because we want to have 95% of the distribution inside the confidence interval, then we want to know which values are 1.96 standard deviations away from the mean. This is because we’re assuming the transformed sampling distribution to be approximately normal, and in a standard normal curve 95% of the data is <span class="math inline">\(\pm 1.96\)</span> standard deviations of the mean (see section xxx.xxx).</p>
+<p>Let’s calculate a confidence interval around our first sample of <span class="math inline">\(r=0.56\)</span>. What we assume is that the Fisher transformed score of <span class="math inline">\(r=0.56\)</span> is the mean of the sampling distribution. Therefore we assume that <span class="math inline">\(z&#39; = 0.63\)</span> is the mean of the sampling distribution. Because we want to have 95% of the distribution inside the confidence interval, then we want to know which values are 1.96 standard deviations away from the mean. This is because we’re assuming the transformed sampling distribution to be approximately normal, and in a standard normal curve 95% of the data is <span class="math inline">\(\pm 1.96\)</span> standard deviations of the mean (see section <a href="two-sample-inferential-statistics.html#sampling-distribution-of-the-difference-in-sample-means">10.2</a>.</p>
 <p>The formula is:</p>
 <p><span class="math inline">\(CI_{95\%} = z&#39; + (1.96 \times se)\)</span></p>
 <p>In our example, 1.96 standard deviations away from the mean is:</p>
@@ -1118,7 +1118,7 @@ rho=0.75$ which equates to <span class="math inline">\(z&#39;=0.97\)</span> is i
 ##        rho 
 ## -0.9083378</code></pre>
 <p><strong>Non-parametric Partial Correlation</strong></p>
-<p>If you look back to section xxx.xxx you’ll see that we used a very long formula to calculate the partial correlation for a Pearson correlation. We also used the funtion <code>pcor.test()</code> from the <code>ppcor</code> package to do this for us. We can actually use the same formula or function to do partial correlations for non-parametric correlations.</p>
+<p>If you look back to section <a href="correlation.html#partial-correlations">11.6</a> calculate the partial correlation for a Pearson correlation. We also used the funtion <code>pcor.test()</code> from the <code>ppcor</code> package to do this for us. We can actually use the same formula or function to do partial correlations for non-parametric correlations.</p>
 <p>For example, let’s examine the Spearman correlations between anxiety, exam score and revision.</p>
 <p>These are the data:</p>
 <div class="sourceCode" id="cb1624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1624-1"><a href="correlation.html#cb1624-1"></a>exams &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/exams1.csv&quot;</span>)</span></code></pre></div>
