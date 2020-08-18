@@ -53,6 +53,9 @@ Danielle Navarro - [Learning statistics with R: A tutorial for psychology studen
 For more on Data Visualization including using R:
 Claus O Wilke - [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/)
 
+Hadley Wickham - [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/index.html)
+
+
 For more on using R as a programming language:
 Garrett Grolemund & Hadley Wickham - [R for Data Science](https://r4ds.had.co.nz)
 

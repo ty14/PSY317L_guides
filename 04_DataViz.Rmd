@@ -2,8 +2,7 @@
 
 In this chapter we shall discuss how we can make different types of data visualization in R. We will use the package `ggplot2` to visualize data. This is part of the `tidyverse` package, meaning you should load `tidyverse` to ensure you have `ggplot2` loaded.
 
-We shall also discuss a little bit about when to make different types of graphs, and what each type is best suited for. We will also give a few pieces of advice about how to make your visualizations as readable and interpretable as possible. For much more information on the theory of data visualization with excellent examples, please refer to the [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) book by Claus Wilke.
-
+We shall also discuss a little bit about when to make different types of graphs, and what each type is best suited for. We will also give a few pieces of advice about how to make your visualizations as readable and interpretable as possible. For much more information on the theory of data visualization with excellent examples, please refer to the [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) book by Claus Wilke. To understand the power behind `ggplot2` and for more data visualization examples, see the [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/index.html) by Hadley Wickham. 
 
 
 
