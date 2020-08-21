@@ -122,7 +122,7 @@ $N(\mu=0, \sigma^{2}=1)$
 
 How does the standard normal distribution come about?  We will discuss more about this distribution in section \@ref(normal-distribution), but briefly it is obtained by converting all the values of a normal distribution into z-scores.  z-scores are calculated by:
 
-$z=\frac{x - {\mu}_x}{\sigma_x}$
+$\Large z=\frac{x - {\mu}_x}{\sigma_x}$
 
 This standard normal distribution is very useful in statistics because we can precisely calcualte the proportion of the distribution that is to the left or right under the curve at any point of it. This principle forms the basis of several statistical tests.
 
@@ -349,7 +349,7 @@ Looking at things in absolute terms however is misleading. It would be better if
 Let's look at the Airedale Terrier. Your Airedale is 5 lbs heavier than the mean of 60 lbs. This is a bit less than one standard deviation above the mean, as the standard deviation is 6 lbs.  However, your Scottish Terrier is 0.5 lbs heavier than the mean of 20 lbs, which is a bit more than the standard deviation of 0.4 lbs for that breed.  We can calculate precisely how many standard deviations away from the mean they are using z-scores.  This is the formula:
 
 
-$z=\frac{x - {\mu}_x}{\sigma_x}$
+$\Large z=\frac{x - {\mu}_x}{\sigma_x}$
 
 
 Using this formula, let's calculate the z-scores for each of our dogs:
@@ -383,7 +383,7 @@ z-scores can be very useful ways of standardizing observed values into ways that
 
 Often we may not know the population mean or standard deviation. In such cases if all we have is a sample mean and a sample standard deviation, we can still calcualte z-scores for such samples. We effectively use the same formula to calculate the z-scores, just subsituting in the sample mean and standard deviation.
 
-$z=\frac{x - {\mu}_x}{\sigma_x}$
+$\Large z=\frac{x - {\mu}_x}{\sigma_x}$
 
 
 
@@ -685,7 +685,7 @@ Of course, we never in reality actually collect thousands and thousands of sampl
 However, given we already know the population standard deviation of the 1 million archerfish is $\sigma=15$, we can calculate the standard deviation of the sampling distribution of sample means for any sample size. It is calculated using the formula:
 
 
-$\sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$
+$\Large \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$
 
 So in our case it should be equal to:
 
@@ -774,7 +774,7 @@ nrow=1)
 
 ## Central Limit Theorem
 
-In the previous section we discovered that if you take many, many samples from a normally distributed population and calculated the sample mean of each sample, that you would get a sampling distribution of sample means. We also saw that that sampling distribution was normally distributed with a mean $\mu_{\overline{x}}$  that was approximately equal to the population mean, and a standard deviation $\sigma_{\overline{x}}$   that was equal to the population standard deviation divided by the square root of n $\sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$.
+In the previous section we discovered that if you take many, many samples from a normally distributed population and calculated the sample mean of each sample, that you would get a sampling distribution of sample means. We also saw that that sampling distribution was normally distributed with a mean $\mu_{\overline{x}}$  that was approximately equal to the population mean, and a standard deviation $\sigma_{\overline{x}}$   that was equal to the population standard deviation divided by the square root of n $\Large \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$.
 
 Is it just coincidence that both the population distribution and the sampling distribution was approximately normally distributed?  What we will learn in this chapter is that it does not matter at all what the population distribution is - if we take thousands of samples from **any** shaped distribution and calculate the sample mean of each sample, when we create the histogram of those sample means we will find that they are approximately normally distributed.  This is what we refer to as the **central limit theorem**.  Further, the larger the sample size that we take, the closer to a normal distribution the sampling distribution becomes.
 
@@ -845,7 +845,7 @@ mean(res)  # the mean of the sample means is close to 37.5, the population mean
 sd(res)  #3.9 - this is a lot smaller than the population SD
 ```
 
-The mean of our sampling distribution $\mu_{\overline{x}} = 37.5$ which is again approximately equal to the population mean. The sampling distribution standard deviation $\sigma_{\overline{x}} = 3.94$ which is a lot lower than the original population standard deviation. Because we only took 10,000 samples, these values aren't exact, but we could have calculated the standard error by taking the population standard deviation and dividing by the square root of n $\sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$ as follows:
+The mean of our sampling distribution $\mu_{\overline{x}} = 37.5$ which is again approximately equal to the population mean. The sampling distribution standard deviation $\sigma_{\overline{x}} = 3.94$ which is a lot lower than the original population standard deviation. Because we only took 10,000 samples, these values aren't exact, but we could have calculated the standard error by taking the population standard deviation and dividing by the square root of n $\Large \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$ as follows:
 
 
 ```{r}
@@ -917,7 +917,7 @@ mean(res)  # the mean of the sample means is close to 7.5
 sd(res)  #0.79
 ```
 
-$\mu_{\overline{x}} = 7.5$ which is once again approximately equal to the original population mean. The sampling distribution standard deviation $\sigma_{\overline{x}} = 0.79$. We could have directly calculated that using the formula for the standard error, n $\sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$, as we know the original population standard deviation:
+$\mu_{\overline{x}} = 7.5$ which is once again approximately equal to the original population mean. The sampling distribution standard deviation $\sigma_{\overline{x}} = 0.79$. We could have directly calculated that using the formula for the standard error, n $\Large \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$, as we know the original population standard deviation:
 
 ```{r}
 
@@ -988,7 +988,7 @@ grid.arrange(p1,p2,nrow=1)
 
 What are the mean and standard deviation of this sampling distribution of sample means? Well, $\mu_{\overline{x}} = 60$ because that's the population mean, and we know the mean of the sample means is approximately the same. We know we can calculate $\sigma_{\overline{x}$ because we know the population standard deviation $\sigma$.
 
-Again, the formula is $\sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$. Therefore, the standard deviation of the sampling distribution is $\sigma_{\overline{x} = 0.87$:
+Again, the formula is $\Large \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$. Therefore, the standard deviation of the sampling distribution is $\sigma_{\overline{x} = 0.87$:
 
 ```{r}
 sem <- 3 / sqrt(12)
