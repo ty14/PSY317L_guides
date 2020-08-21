@@ -72,7 +72,7 @@ p2
 ```
 
 
-According to Central Limit Theorem, this sampling distribution is approximately normally distributed. The mean of this sampling distribution is $\mu_{\overline{x}}=7.8$ which is the same as the population mean $\mu$. The standard deviation of this sampling distribution $\sigma{\overline{x}} = \frac{\sigma}{\sqrt{n}}$.
+According to Central Limit Theorem, this sampling distribution is approximately normally distributed. The mean of this sampling distribution is $\mu_{\overline{x}}=7.8$ which is the same as the population mean $\mu$. The standard deviation of this sampling distribution $\Large \sigma{\overline{x}} = \frac{\sigma}{\sqrt{n}}$.
 
 ```{r}
 0.3 / sqrt(15)
@@ -126,9 +126,9 @@ mean(samp1)
 
 What we want to do now is put a confidence interval around 7.72. We want to say that our population mean is equal to $7.72 \pm margin.of.error$  The actual formula for the $z$-distribution confidence interval is:
 
-$CI_{95\%} = \overline{x} \pm z \times \frac{\sigma}{\sqrt{n}}$
+$\Large CI_{95\%} = \overline{x} \pm z \times \frac{\sigma}{\sqrt{n}}$
 
-In this scenario, we are presuming that we don't know what the population mean $\mu$ is - that's why we're building a confidence interval. Consequently, we also don't precisely know what the mean of the sampling distribution $\mu_{\overline{x}}$ is.  What we'll do instead, is to *assume* that our sample mean $\overline{x}$ is the mean of the sampling distribution $\mu_{\overline{x}}$.  We already know what the standard deviation of the sampling distribution $\sigma{\overline{x}}$ is because we know the population standard deviation $\sigma$ is.  So, $\sigma{\overline{x}} = \frac{\sigma}{\sqrt{n}}$.
+In this scenario, we are presuming that we don't know what the population mean $\mu$ is - that's why we're building a confidence interval. Consequently, we also don't precisely know what the mean of the sampling distribution $\mu_{\overline{x}}$ is.  What we'll do instead, is to *assume* that our sample mean $\overline{x}$ is the mean of the sampling distribution $\mu_{\overline{x}}$.  We already know what the standard deviation of the sampling distribution $\sigma{\overline{x}}$ is because we know the population standard deviation $\sigma$ is.  So, $\Large \sigma{\overline{x}} = \frac{\sigma}{\sqrt{n}}$.
 
 What value of $z$ should we use?  The short answer is 1.96 for the same reasons as above. If our sampling distribution is normally distributed, then we want to know the values that are $\pm 1.96$ of the sample mean $\overline{x}$.
 
@@ -195,9 +195,9 @@ We could also create a 95% confidence interval for our estimate of the populatio
 
 ```
 
-$CI_{95\%} = 7.95 \pm  0.152$
+$\Large CI_{95\%} = 7.95 \pm  0.152$
 
-$CI_{95\%} = 7.95 [7.798, 8.102]$
+$\Large CI_{95\%} = 7.95 [7.798, 8.102]$
 
 
 Let's compare this confidence interval with the first one we created:
@@ -229,13 +229,13 @@ We can actually construct confidence intervals for any % value. Most commonly pe
 
 The formulas for each of these confidence intervals when using the $z$-distribution are as follows:
 
-$CI_{80\%} = \overline{x} \pm 1.28 \times \frac{\sigma}{\sqrt{n}}$
+$\Large CI_{80\%} = \overline{x} \pm 1.28 \times \frac{\sigma}{\sqrt{n}}$
 
-$CI_{90\%} = \overline{x} \pm 1.64 \times \frac{\sigma}{\sqrt{n}}$
+$\Large CI_{90\%} = \overline{x} \pm 1.64 \times \frac{\sigma}{\sqrt{n}}$
 
-$CI_{95\%} = \overline{x} \pm 1.96 \times \frac{\sigma}{\sqrt{n}}$
+$\Large CI_{95\%} = \overline{x} \pm 1.96 \times \frac{\sigma}{\sqrt{n}}$
 
-$CI_{99\%} = \overline{x} \pm 2.58 \times \frac{\sigma}{\sqrt{n}}$
+$\Large CI_{99\%} = \overline{x} \pm 2.58 \times \frac{\sigma}{\sqrt{n}}$
 
 
 Where did each of these different numbers come from for $z$ ?  Well, if we wish to make a 99% CI, we need to know what values of $z$ are the boundaries that leave 99% of the distribution inside them on the standard normal curve. We exclude 0.5% in each tail.  Likewise, for the 80%CI, we want to know the values of $z$ that leave 5% in each tail and 10% in the middle.  We can calculate these values in R like this:
@@ -272,9 +272,9 @@ x_bar - (1.281552 * sem)
 
 Our 80% confidence interval is:
 
-$CI_{80\%} = 7.72 \pm  0.099$
+$\Large CI_{80\%} = 7.72 \pm  0.099$
 
-$CI_{80\%} = 7.72 [7.620, 7.819]$
+$\Large CI_{80\%} = 7.72 [7.620, 7.819]$
 
 
 Looking at each of these confidence intervals for our first sample mean, we get the following. Clearly, confidence intervals widen with higher percentages:
@@ -296,7 +296,7 @@ As you can see here, this time the 90% and 80% CIs do not inclue the true popula
 
 The other variable inside the confidence interval formula that we should think about is the sample size $n$. Let's look at the formula again:
 
-$CI = \overline{x} \pm z \times \frac{\sigma}{\sqrt{n}}$
+$\Large CI = \overline{x} \pm z \times \frac{\sigma}{\sqrt{n}}$
 
 What happens when we get different sized sample sizes?  For instance, look at the 95% confidence intervals below that all have a sample mean of $\overline{x}=7.72$ but are for different sample sizes:
 
@@ -325,7 +325,7 @@ It turns out that in the real world, that when we collect a sample of data and g
 
 First, let's look at the formula for making a confidence interval with a $t$-distribution:
 
-$CI = \overline{x} \pm t \times \frac{s}{\sqrt{n}}$
+$\Large CI = \overline{x} \pm t \times \frac{s}{\sqrt{n}}$
 
 
 Two things are different about this one compared to the formula for calculating a CI with the $z$-distribution. First, we are using a $t$ value rather than a $z$ value. Secondly, we are using the sample standard deviation $s$ rather than the population standard deviation $\sigma$. If we do not know $\sigma$ then our next best option is to use our estimate of the population standard deviation, which is our sample standard deviation $s$.
@@ -351,7 +351,7 @@ Let's look more practically at how we calculate a 95% confidence interval for a 
 
 The formula we use is:
 
-$CI95\% = \overline{x} \pm t \times \frac{s}{\sqrt{n}}$
+$\Large CI95\% = \overline{x} \pm t \times \frac{s}{\sqrt{n}}$
 
 First, we should calculate the sample standard deviation, which is $s=0.285$:
 
@@ -390,7 +390,7 @@ sem1
 
 Our confidence interval is therefore:  
 
-$CI95\% = 7.72[7.56,7.88]$
+$\Large CI95\% = 7.72[7.56,7.88]$
 
 
 Likewise, for sample 2, which had $\overline{x}=7.95$ our 95% confidence interval would be:
@@ -514,14 +514,14 @@ You might be thinking that using the $t$-distribution to make 95% confidence int
 These are the two formulas that we use to generate confidence intervals:
 
 
-$CI_{95\%} = \overline{x} \pm z \times \frac{\sigma}{\sqrt{n}}$
+$\Large CI_{95\%} = \overline{x} \pm z \times \frac{\sigma}{\sqrt{n}}$
 
-$CI_{95\%} = \overline{x} \pm t \times \frac{s}{\sqrt{n}}$
+$\Large CI_{95\%} = \overline{x} \pm t \times \frac{s}{\sqrt{n}}$
 
 
 But, what if we did just decide to use $z$ when we don't know the population standard deviation $\sigma$ and we used this formula:
 
-$CI_{95\%} = \overline{x} \pm z \times \frac{s}{\sqrt{n}}$
+$\Large CI_{95\%} = \overline{x} \pm z \times \frac{s}{\sqrt{n}}$
 
 
 Well, in the figure below, we did just that for 25 sample means collected from samples of size $n=8$ from a population with a mean of $\mu=4$ and standard deviation of $\sigma=1.5$.  As you can see, the first and third columns that are using the appropriate $z$- and $t$-distribution formulas have 23/25 confidence interals that include the true population mean.  In fact, out of 1000 simulations of these data (i.e. 1000 sample means collected) precisely 95% of confidence intervals included the population mean for both, which is what we would expect.

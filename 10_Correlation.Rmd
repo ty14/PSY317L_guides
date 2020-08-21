@@ -25,13 +25,13 @@ The below image shows scatterplots, each with a sample size of 30. The trendline
 
 The formula for calculating the Pearson's correlation coefficient for a sample is:
 
-$r = \frac{\sum_{}^{} z_{x}z_{y}}{n - 1}$
+$\Large r = \frac{\sum_{}^{} z_{x}z_{y}}{n - 1}$
 
 
 When we have a population, we can use the formula: 
 
 
-$\rho = \frac{\sum_{}^{} z_{x}z_{y}}{N}$
+$\Large \rho = \frac{\sum_{}^{} z_{x}z_{y}}{N}$
 
 
 Notice that for a population we use a different notation for the Pearson's correlation coefficient.
@@ -75,7 +75,7 @@ sd(y)
 
 Now, we can calculate the z-scores, remembering that the formula for that is:  
 
-$z = \frac{x - \overline{x}}{s_{x}}$
+$\Large z = \frac{x - \overline{x}}{s_{x}}$
 
 ```{r}
 # step 2. Calculate z-scores of x, and z-scores of y.
@@ -393,7 +393,7 @@ What is the first thing that you notice about this sampling distribution?  Hopef
 There is however a trick that we can employ to make this sampling distribution approximately normal. We can do something called **Fisher Transform** our sample correlations in the sampling distribution. So for every value of $r$ in our sampling distribution, we can apply the following formula:
 
 
-$z' = 0.5 \times \log(\frac{1 + r}{1 - r})$
+$\Large z' = 0.5 \times \log(\frac{1 + r}{1 - r})$
 
 
 $z'$ is referred to as the Fisher Transformed $r$ value.  So, if we had a sample correlation of $r=0.56$, that would equate to a $z'$ value of $z'=0.63$:
@@ -441,7 +441,7 @@ This distribution is approximately symmetrical. The red line here represents the
 
 The standard deviation of this transformed sampling distribution can be calculated by this formula:
 
-$se = \sqrt{\frac{1}{n-3}}$
+$\Large se = \sqrt{\frac{1}{n-3}}$
 
 So, because we have a sample size of $n=15$ the standard deviation of this sampling distribution is $se = 0.289$:
 
@@ -477,7 +477,7 @@ As with other 95% confidence interval measures, what this really means is that i
 
 Although we can directly determine if a population correlation of $\rho=0$ is within our confidence interval or not, leaving the confidence interval in Fisher transformed $z'$ values isn't that interpretable. Thefore, you can tansform $z'$ values back to $r$ values using the following formula:
 
-$r = \frac{\exp(2z')-1}{1 + \exp(2z')}$
+$\Large r = \frac{\exp(2z')-1}{1 + \exp(2z')}$
 
 So for each bit of our confidence interval, transforming the $z'$ values back to $r$ values we get the following:
 
@@ -555,7 +555,7 @@ An important consideration when running a correlation is the **third variable** 
 If we have measured the correlation between `X` and `Y` (which we'll call $r_{xy}$) as well as each of their correlations with `Z` (which we'll call $r_{xz}$ and $r_{yz}$ respectively) then we can calculate this adjusted partial correlation between `X` and `Y` which we'll call $r_{xy.z}$.  To do this, we use this horrible looking formula:
 
 
-$r_{xy.z} = \frac{r_{xy} - (r_{xz}\times r_{yz}) } {\sqrt{1-r_{xz}^2} \times \sqrt{1-r_{yz}^2}}$
+$\Large r_{xy.z} = \frac{r_{xy} - (r_{xz}\times r_{yz}) } {\sqrt{1-r_{xz}^2} \times \sqrt{1-r_{yz}^2}}$
 
 In reality though, it's pretty easy to plug the correct values for $r$ or $r^2$ into this formula and get the result required.
 

@@ -188,7 +188,7 @@ ggplot(df, aes(x=dif)) +
 ```
 
 
-As you can see, the sampling distribution is approximately symmetrical. If we ran it for more simulations, it would become even more symmetrical. The average (mean) difference in sample means across all samples is $\mu_{\overline{x}_{A} - \overline{x}_{B}}= 2.987$ which is approximately equal to the real difference in population means $\mu_{A} - \mu_{B}$.
+As you can see, the sampling distribution is approximately symmetrical. If we ran it for more simulations, it would become even more symmetrical. The average (mean) difference in sample means across all samples is $\Large \mu_{\overline{x}_{A} - \overline{x}_{B}}= 2.987$ which is approximately equal to the real difference in population means $\mu_{A} - \mu_{B}$.
 
 An obvious next question is what is the standard deviation of this sampling distribution? i.e. the standard deviation of the sampling distribution of the differences in sample means. If we knew this, then we'd be able to describe how likely or unlikely we were to get any particular difference in sample means in terms of how many sampling distribution standard deviations that score is away from the mean.
 
@@ -210,7 +210,7 @@ Our variables in this scenario are the sampling distributions of sample means fo
 sqrt((var(A)/17) + (var(B)/20)) 
 ```
 
-Again, this tells us that $\sigma_{\overline{x}_{A} - \overline{x}_{B}}= 0.82$.  
+Again, this tells us that $\Large  \sigma_{\overline{x}_{A} - \overline{x}_{B}}= 0.82$.  
 
 However, in practice, we only have our two samples (our one sample of population A and our one sample of population B). We don't know anything else about the sampling distribution or the populations. Therefore we cannot use either of the above methods to calculate the standard deviation of the sampling distribution.  We'll get to what method you need to use soon.  
 
@@ -282,7 +282,7 @@ mean(d1)
 mean(c1) - mean(d1)  
 ```
 
-Here we find that the difference in sample means $\overline{x}_C - \overline{x}_D = -0.197$.
+Here we find that the difference in sample means $\Large \overline{x}_C - \overline{x}_D = -0.197$.
 
 If we did this lots of times, we'd sometimes get sample means that were larger in C and sometimes they would be larger in D. Let's do it five more times:
 
@@ -441,7 +441,7 @@ Thus our estimate of the pooled standard deviation is $\hat\sigma_p = 3.56$.   T
 
 You may see the following formula for calculating the pooled standard deviation in the way we just did. 
 
-$\hat\sigma_p = \sqrt{\frac{\Sigma_{ik}(x_{ik} - \overline{x}_k)^2}{n_1 + n_2 -2}}$
+$\Large \hat\sigma_p = \sqrt{\frac{\Sigma_{ik}(x_{ik} - \overline{x}_k)^2}{n_1 + n_2 -2}}$
 
 
 Here, $n_1$ is the sample size of sample 1, $n_2$ is the sample size of sample 2. The $\Sigma_{ik}(x_{ik} - \overline{x}_k)^2$ part of the formula is simply saying to take each data point away from it's sample mean and then square it - and then add all of these up. It looks quite intimidating, but hopefully the steps we outlined above make sense.
@@ -452,7 +452,7 @@ Here, $n_1$ is the sample size of sample 1, $n_2$ is the sample size of sample 2
 
 The second way to calculate the pooled standard deviations doesn't require you to know the raw data. It is a formula that only requires you to know the sample standard deviation of each sample and the sample size of each sample. This is the formula:
 
-$\hat\sigma_p = \sqrt{\frac{w_1s_1^2 + w_2s_2^2 }{w_1 + w_2}}$
+$\Large \hat\sigma_p = \sqrt{\frac{w_1s_1^2 + w_2s_2^2 }{w_1 + w_2}}$
 
 
 Here, $w_1 = n_1-1$ where $n_1$ is the sample size of sample 1. $w_2 = n_2-1$ where $n_2$ is the sample size of sample 2. $s_1$ is the sample standard deviation of sample 1, and $s_1$ is the sample standard deviation of sample 2.
@@ -556,7 +556,7 @@ If we assume that the true difference in population means is 0 (the null hypothe
 
 So our next step is to work out the standard deviation of the sampling distribution. If we assume equal variances between the populations of group A and B, then we can calculate the standard deviation of this sampling distribution as
 
-$\sigma_{\overline{x}_A-\overline{x}_B} = \hat\sigma_p \times \sqrt{\frac{1}{n_1} + \frac{1}{n_2} }$
+$\Large \sigma_{\overline{x}_A-\overline{x}_B} = \hat\sigma_p \times \sqrt{\frac{1}{n_1} + \frac{1}{n_2} }$
 
 
 So, the first step in this formula is to calculate the pooled standard deviation $\hat\sigma_p$.  We can either calculate this from first principles or using the shortcut formula (see section \@ref(pooled-standard-deviation)). Below, we calculate the pooled standard deviation using the first principles:
@@ -608,11 +608,11 @@ Given that the shape of our distribution is $t$-shaped, when we determine how ma
 
 We calculate t by the following formula:
 
-$t = \frac{(\overline{x}_A - \overline{x}_B)  -  (\mu_{\overline{x}_{A} - \overline{x}_{B}})}{\sigma_{\overline{x}_{A} - \overline{x}_{B}}}$
+$\Large t = \frac{(\overline{x}_A - \overline{x}_B)  -  (\mu_{\overline{x}_{A} - \overline{x}_{B}})}{\sigma_{\overline{x}_{A} - \overline{x}_{B}}}$
 
 But because we assume the mean of the sampling distribution of sample means to be zero, we can write it as:
 
-$t = \frac{\overline{x}_A - \overline{x}_B}{\sigma_{\overline{x}_{A} - \overline{x}_{B}}}$
+$\Large t = \frac{\overline{x}_A - \overline{x}_B}{\sigma_{\overline{x}_{A} - \overline{x}_{B}}}$
 
 
 Essentially, it is taking our observed differnce in sample means and dividing it by the standard deviation of the sampling distribution.
@@ -727,13 +727,13 @@ This sampling distribution of differences in sample means, is $t$-shaped with de
 
 
 
-$CI_{95\%} =  \overline{x}_A - \overline{x}_B   \pm   t \times \sigma_{\overline{x}_A - \overline{x}_B}$ 
+$\Large CI_{95\%} =  \overline{x}_A - \overline{x}_B   \pm   t \times \sigma_{\overline{x}_A - \overline{x}_B}$ 
 
 
 
 As discussed in the previous sections (see \@ref(sampling-distribution-of-the-difference-in-sample-means) and \@ref(pooled-standard-deviation)) the standard deviation of the sampling distribution of differences in sample means, can be calculated using the formula:
 
-$\sigma_{\overline{x}_A - \overline{x}_B}  =  \hat{\sigma_{\rho}} \times \sqrt{\frac{1}{n_A} + \frac{1}{n_B}}$
+$\Large \sigma_{\overline{x}_A - \overline{x}_B}  =  \hat{\sigma_{\rho}} \times \sqrt{\frac{1}{n_A} + \frac{1}{n_B}}$
 
 
 where $\hat{\sigma_{\rho}}$ is the pooled estimate of the standard deviation between the two groups.
@@ -745,7 +745,7 @@ The below diagram illustrates how this formula determines the 95% confidence int
 
 
 
-The first step is therefore to calculate the pooled estimate of the common standard deviation $\hat{\sigma_{\rho}}$ (see section \@ref(sampling-Distribution-of-the-ifference-in-sample-eans)). Using the method of calculating deviations from each group mean, we can find that $\hat{\sigma_{\rho}} = 0.73$
+The first step is therefore to calculate the pooled estimate of the common standard deviation $\hat{\sigma_{\rho}}$ (see section \@ref(sampling-Distribution-of-the-difference-in-sample-means)). Using the method of calculating deviations from each group mean, we can find that $\hat{\sigma_{\rho}} = 0.73$
 
 ```{r}
 difA2 <- (groupA - mean(groupA))^2
@@ -1028,7 +1028,7 @@ Just because you observe a “significant” difference in the population means 
 
 The formula for this effect size measure is:
 
-$\delta = \frac{\overline{X}_{1} - \overline{X}_{2}}{\hat{\sigma}_{\rho}}$
+$\Large \delta = \frac{\overline{X}_{1} - \overline{X}_{2}}{\hat{\sigma}_{\rho}}$
 
 This is saying to divide the difference between the means of each group by the pooled standard deviation. For our `anastasia` and `bernadette` samples, we could do this 'by hand' like this (note: we calculated the pooled standard deviation ${\hat{\sigma}_{\rho}}$ for these samples earlier in section \@ref(confidence-interval-for-difference-in-means) and saved it as `sd.pool`.:
 
@@ -1217,7 +1217,7 @@ t.test(chico$grade_test2, chico$grade_test1, paired=T, alternative = "greater") 
 
 As with the independent t-test, just because you observe a 'signficant' difference between the two groups does not indicate that that difference is particularly large or interesting. To get a better indicator of how large or meaningful a difference in group means is, we should calculate an effect size. There are numerous different effect size measures that exist. One that is commonly reported for the paired t-test is another version of Cohen's $\delta$.  For a paired t-test, this is calculated by the formula:
 
-$\delta = \frac{\overline{d}}{s_d}$
+$\Large \delta = \frac{\overline{d}}{s_d}$
 
 where $\overline{d}$ refers to the mean of the differences in scores for each individual, and $s_d$ is the standard deviation of the differences in scores for each individual.
 

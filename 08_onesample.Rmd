@@ -44,13 +44,13 @@ mean(samp2)
 This time the sample mean is $\overline{x}=100.5$.
 
 
-If you remember back to section xxx.xxx, if we were to repeat this process thousands and thousands of times, we would get a **sampling distribution of sample means**. We could visualize all of our sample means from many thousands of samples in a histogram, which shows the shape of the sampling distribution:
+If you remember back to section \@ref(what-is-a-sampling-distribution), if we were to repeat this process thousands and thousands of times, we would get a **sampling distribution of sample means**. We could visualize all of our sample means from many thousands of samples in a histogram, which shows the shape of the sampling distribution:
 
 
 ![](img/zt2.png)
 
 
-Because of Central Limit Theorem (see section \@ref(central-limit-theorem)) then this sampling distribution is normally distributed and it's mean $\mu_{\overline{x}}$ is equal to the population mean $\mu$. Therefore $\mu_{\overline{x}}=10.0$. We also know the standard deviation of this sampling distribution, also known as the **standard error** as it can be calculated by: $\sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$.  Therefore, the sampling distribution standard deviation is $\sigma_{\overline{x}}=3.0$:
+Because of Central Limit Theorem (see section \@ref(central-limit-theorem)) then this sampling distribution is normally distributed and it's mean $\mu_{\overline{x}}$ is equal to the population mean $\mu$. Therefore $\mu_{\overline{x}}=10.0$. We also know the standard deviation of this sampling distribution, also known as the **standard error** as it can be calculated by: $\Large  \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$.  Therefore, the sampling distribution standard deviation is $\sigma_{\overline{x}}=3.0$:
 
 ```{r}
 sem <- 15 / sqrt(25)
@@ -110,7 +110,7 @@ This is saying that the alternative hypothesis $H_{1}$ is that our sample of 25 
 
 For the test, we assume with the null hypothesis that our sample did indeed come from a population with  $\mu=100.0$ and $\sigma=15.0$. We already calculated above that the sampling distribution of sample means for $n=25$ has a $\mu_{\overline{x}}=100.0$ and $\sigma_{\overline{x}}=3.0$. How unusual is our one observed sample mean of $\overline{x}=105.7$?   We need to calculate this in terms of z:
 
-$\large z = \frac{\overline{x} - \mu_{\overline{x}}}{\sigma_{\overline{x}}}$
+$\Large z = \frac{\overline{x} - \mu_{\overline{x}}}{\sigma_{\overline{x}}}$
 
 ```{r}
 (105.7 - 100.0) / 3
@@ -323,7 +323,7 @@ The first step is to think about the sampling distribution. We need to recognize
 
 Next, we need to calculate the standard deviation of the sampling distribution of sample means for n=12 (i.e. the standard error). As we do not know the population standard deviation $\sigma$, we estimate this by using the following formula:
 
-$\large \sigma_{\overline{x}} = \frac{s}{\sqrt{n}}$
+$\Large \sigma_{\overline{x}} = \frac{s}{\sqrt{n}}$
 
 Therefore, our estimate of the standard error is $\sigma_{\overline{x}}=4.14$:
 
@@ -335,7 +335,7 @@ sem
 
 Now that we know both the mean and standard deviation of the t-shaped sampling distribution, next we need to calculate how many standard deviations from this mean is our one observed sample mean. We calculate that using the formula that is similar to the $z$ formula:
 
-$\large t = \frac{\overline{x} - \mu_{\overline{x}}}{\sigma_{\overline{x}}}$
+$\Large t = \frac{\overline{x} - \mu_{\overline{x}}}{\sigma_{\overline{x}}}$
 
 Our sample mean of $\overline{x}=54$ has a $t$ value of $t = 0.965$:
 
@@ -410,7 +410,7 @@ sem
 
 Following this, we need to calculate how expected or unexpected our one sample mean $\overline{x}$ was. We do this by calculating it in terms of how many sampling distribution standard deviations is it away from the sampling distribution mean.  We use the formula:
 
-$\large t = \frac{\overline{x} - \mu_{\overline{x}}}{\sigma_{\overline{x}}}$
+$\Large t = \frac{\overline{x} - \mu_{\overline{x}}}{\sigma_{\overline{x}}}$
 
 ```{r}
 (mean(zeppo) - 65) / sem

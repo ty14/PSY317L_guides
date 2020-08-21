@@ -165,7 +165,7 @@ To think a bit more about these 'a' and 'b' values, we could look at how these v
 
 First, we calculate 'b'. The formula for this requires knowing the sample standard deviation of the X and Y variables, as well as their Pearson correlation.
 
-$b = r\frac{s_{Y}}{s_{X}}$
+$\Large b = r\frac{s_{Y}}{s_{X}}$
 
 
 So for our example, we'd calculate 'b' like this:

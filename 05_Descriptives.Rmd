@@ -494,11 +494,11 @@ In the sections below, we are going to visually demonstrate this.  Hopefully thi
 Before we get to why we need a separate formula for the sample standard deviation, let's show you why we don't need a separate formula for the sample mean compared to the population mean. Both of these formulas are essentially the same:
 
 Sample mean:
-$\overline{x} = \frac{\Sigma{x}}{n}$
+$\Large\overline{x} = \frac{\Sigma{x}}{n}$
 
 
 Population mean:  
-$\mu = \frac{\Sigma{x}}{N}$
+$\Large \mu = \frac{\Sigma{x}}{N}$
 
 
 Let's assume the following data distribution is our population, we'll call it `pop`. The following code creates a population of 10000 numbers drawn from a random normal distribution (see section \@ref(normal-distribution)) with a population mean of 8 and population standard deviation of 2. Because we're randomly drawing numbers to make our population, the final population won't have a mean and standard deviation that are precisely 8 and 2, but we can calculate what they turn out to be:
@@ -597,7 +597,7 @@ Let's calculate the mean of all the 20,000 sample means:
 mean(unlist(results.means))
 ```
 
-It turns out that the average sample mean that we collect using the formula $\overline{x} = \frac{\Sigma{x}}{n}$ is 7.99 which is the same as the population mean $\mu$. What this means is that this formula is perfectly fine to use to **estimate** the population mean. It is what we call an **unbiased estimator**.  Over the long run, it gives us a very good estimate of the population mean $\mu$.  Here is a histogram of our sample means from our 20,000 samples:
+It turns out that the average sample mean that we collect using the formula $\Large \overline{x} = \frac{\Sigma{x}}{n}$ is 7.99 which is the same as the population mean $\mu$. What this means is that this formula is perfectly fine to use to **estimate** the population mean. It is what we call an **unbiased estimator**.  Over the long run, it gives us a very good estimate of the population mean $\mu$.  Here is a histogram of our sample means from our 20,000 samples:
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -612,7 +612,7 @@ ggplot(data.frame(x = unlist(results.means)), aes(x=x)) +
 
 The vertical solid black line represents $\mu=7.99$. This histogram is centered on this value, showing that our sample mean formula is unbiased in estimating the population mean - overall, it isn't under- or over-estimating the population mean.
 
-As a side note - what we just did in the exercise above was to calculate a *sampling distribution of sample means* - something we'll discuss much more in chapter xxx. 
+As a side note - what we just did in the exercise above was to calculate a *sampling distribution of sample means* - something we'll discuss much more in section \@ref(what-is-a-sampling-distribution). 
 
 
 
