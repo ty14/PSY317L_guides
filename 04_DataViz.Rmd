@@ -390,7 +390,7 @@ life <- read_csv("data/lifeexp.csv")
 head(life)
 ```
 
-You can see that one of the columns is called `lifeExp` which is the life expectancy of each country in either 1952 or 2007. The year is shown in the `year` column, and the country is shown in the `country` column.  You'll notice that these data are in long format (see section xxx.xxx).
+You can see that one of the columns is called `lifeExp` which is the life expectancy of each country in either 1952 or 2007. The year is shown in the `year` column, and the country is shown in the `country` column.  You'll notice that these data are in long format (see section \@ref(wide-versus-long-data)).
 
 Perhaps we are interested in the distribution of life expectancies across all countries in the year 1952 compared to the distribution of life expectancies in the year 2007. We have a few options to do this.
 
@@ -480,7 +480,7 @@ Here, the lowest rating we have is 4.0, and the highest is 8.6.
 
 ## Scatterplots
 
-In the introduction to `ggplot2`, we already demonstrated how to make a scatterplot. Here we will show a few extra features of these plots. Scatterplots plot continuous variables on the x- and y-axes, and can be very useful to examine the association between the two continuous variables. We use them a lot when plotting data related to correlation (see section xxx.xxx) or regression (see section xxx.xxx).
+In the introduction to `ggplot2`, we already demonstrated how to make a scatterplot. Here we will show a few extra features of these plots. Scatterplots plot continuous variables on the x- and y-axes, and can be very useful to examine the association between the two continuous variables. We use them a lot when plotting data related to correlation (see section \@ref(correlation)) or regression (see section \@ref(linear-regression)).
 
 As we showed earlier, `geom_point` is used to add datapoints to scatter plots. We'll do this for the `cheese.csv` dataset, that contains nutritional information about various cheeses:
 
@@ -821,7 +821,7 @@ This looks a lot better!.
 
 ### Boxplots
 
-Boxplots are a very useful way of summarizing the distribution of data. The image below summarizes what each line in the boxplot represents. For more details on all of these descriptive measures see section xxx.xxx:
+Boxplots are a very useful way of summarizing the distribution of data. The image below summarizes what each line in the boxplot represents. For more details on all of these descriptive measures see section \@ref(descriptives):
 
 
 ![](img/box2.png)
@@ -829,7 +829,7 @@ Boxplots are a very useful way of summarizing the distribution of data. The imag
 The middle horizontal line is at 6. This represents the **median** of the distribution which is the middle value. 50% of the distribution lies above this value and 50% below it. The higher horizontal line at the top of the box represents the **upper quartile**. This is approximately the median of the upper 50% of the data, so is approximately the 75% percentile.  The lower horizontal line at the bottom of the box represents the **lower quartile**. This is approximately the median of the lower 50% of the data, so is approximately the 25% percentile of the data.  Therefore, the middle 50% of the data (from the 25% percentile to the 75% percentile) lies inside the box.  The long vertical lines represent the **range** of the data. The top of that line is the maximum value in the data, and the bottom of that line is the minimum value in the distribution.
 
 
-The above is a basic boxplot. However, `ggplot2` does things a little bit differently. It turns out there is more than one way to calculate the lower and upper quartiles (see section xxx.xxx). Also, R doesn't necessarily extend the vertical lines (**whiskers**) all the way to the minimum and maximum values. If there are datapoints that  are too far away from the upper or lower quartile, then it truncates the whisker and shows datapoints outside of this range as dots.  Here is an illustration of a ggplot boxplot:
+The above is a basic boxplot. However, `ggplot2` does things a little bit differently. It turns out there is more than one way to calculate the lower and upper quartiles (see section \@ref(interquartile-range)). Also, R doesn't necessarily extend the vertical lines (**whiskers**) all the way to the minimum and maximum values. If there are datapoints that  are too far away from the upper or lower quartile, then it truncates the whisker and shows datapoints outside of this range as dots.  Here is an illustration of a ggplot boxplot:
 
 ![](img/box3.png)
 
@@ -1033,7 +1033,7 @@ head(wheels2)
 
 ```
 
-We need to turn this to **long data** to be able to make the stacked boxplot graph. See section xxx.xxx for more on how to switch between wide and long data formats:
+We need to turn this to **long data** to be able to make the stacked boxplot graph. See section \@ref(wide-versus-long-data) for more on how to switch between wide and long data formats:
 
 ```{r}
 wheels2.long <- wheels2 %>% pivot_longer(cols = 3:4, names_to = "day")

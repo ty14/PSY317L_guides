@@ -501,7 +501,7 @@ Population mean:
 $\mu = \frac{\Sigma{x}}{N}$
 
 
-Let's assume the following data distribution is our population, we'll call it `pop`. The following code creates a population of 10000 numbers drawn from a random normal distribution (see section xxx.xxx) with a population mean of 8 and population standard deviation of 2. Because we're randomly drawing numbers to make our population, the final population won't have a mean and standard deviation that are precisely 8 and 2, but we can calculate what they turn out to be:
+Let's assume the following data distribution is our population, we'll call it `pop`. The following code creates a population of 10000 numbers drawn from a random normal distribution (see section \@ref(normal-distribution)) with a population mean of 8 and population standard deviation of 2. Because we're randomly drawing numbers to make our population, the final population won't have a mean and standard deviation that are precisely 8 and 2, but we can calculate what they turn out to be:
 
 
 ```{r}
