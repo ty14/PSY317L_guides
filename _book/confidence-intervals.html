@@ -427,7 +427,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb953-17"><a href="confidence-intervals.html#cb953-17"></a></span>
 <span id="cb953-18"><a href="confidence-intervals.html#cb953-18"></a>p2</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-402-1.png" width="672" /></p>
-<p>According to Central Limit Theorem, this sampling distribution is approximately normally distributed. The mean of this sampling distribution is <span class="math inline">\(\mu_{\overline{x}}=7.8\)</span> which is the same as the population mean <span class="math inline">\(\mu\)</span>. The standard deviation of this sampling distribution <span class="math inline">\(\sigma{\overline{x}} = \frac{\sigma}{\sqrt{n}}\)</span>.</p>
+<p>According to Central Limit Theorem, this sampling distribution is approximately normally distributed. The mean of this sampling distribution is <span class="math inline">\(\mu_{\overline{x}}=7.8\)</span> which is the same as the population mean <span class="math inline">\(\mu\)</span>. The standard deviation of this sampling distribution <span class="math inline">\(\Large \sigma{\overline{x}} = \frac{\sigma}{\sqrt{n}}\)</span>.</p>
 <div class="sourceCode" id="cb954"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb954-1"><a href="confidence-intervals.html#cb954-1"></a><span class="fl">0.3</span> <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">15</span>)</span></code></pre></div>
 <pre><code>## [1] 0.07745967</code></pre>
 <p>Therefore the standard deviation of this sampling distribution is <span class="math inline">\(\sigma{\overline{x}} = 0.077\)</span>.</p>
@@ -456,8 +456,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb964"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb964-1"><a href="confidence-intervals.html#cb964-1"></a><span class="kw">mean</span>(samp1)</span></code></pre></div>
 <pre><code>## [1] 7.872822</code></pre>
 <p>What we want to do now is put a confidence interval around 7.72. We want to say that our population mean is equal to <span class="math inline">\(7.72 \pm margin.of.error\)</span> The actual formula for the <span class="math inline">\(z\)</span>-distribution confidence interval is:</p>
-<p><span class="math inline">\(CI_{95\%} = \overline{x} \pm z \times \frac{\sigma}{\sqrt{n}}\)</span></p>
-<p>In this scenario, we are presuming that we don’t know what the population mean <span class="math inline">\(\mu\)</span> is - that’s why we’re building a confidence interval. Consequently, we also don’t precisely know what the mean of the sampling distribution <span class="math inline">\(\mu_{\overline{x}}\)</span> is. What we’ll do instead, is to <em>assume</em> that our sample mean <span class="math inline">\(\overline{x}\)</span> is the mean of the sampling distribution <span class="math inline">\(\mu_{\overline{x}}\)</span>. We already know what the standard deviation of the sampling distribution <span class="math inline">\(\sigma{\overline{x}}\)</span> is because we know the population standard deviation <span class="math inline">\(\sigma\)</span> is. So, <span class="math inline">\(\sigma{\overline{x}} = \frac{\sigma}{\sqrt{n}}\)</span>.</p>
+<p><span class="math inline">\(\Large CI_{95\%} = \overline{x} \pm z \times \frac{\sigma}{\sqrt{n}}\)</span></p>
+<p>In this scenario, we are presuming that we don’t know what the population mean <span class="math inline">\(\mu\)</span> is - that’s why we’re building a confidence interval. Consequently, we also don’t precisely know what the mean of the sampling distribution <span class="math inline">\(\mu_{\overline{x}}\)</span> is. What we’ll do instead, is to <em>assume</em> that our sample mean <span class="math inline">\(\overline{x}\)</span> is the mean of the sampling distribution <span class="math inline">\(\mu_{\overline{x}}\)</span>. We already know what the standard deviation of the sampling distribution <span class="math inline">\(\sigma{\overline{x}}\)</span> is because we know the population standard deviation <span class="math inline">\(\sigma\)</span> is. So, <span class="math inline">\(\Large \sigma{\overline{x}} = \frac{\sigma}{\sqrt{n}}\)</span>.</p>
 <p>What value of <span class="math inline">\(z\)</span> should we use? The short answer is 1.96 for the same reasons as above. If our sampling distribution is normally distributed, then we want to know the values that are <span class="math inline">\(\pm 1.96\)</span> of the sample mean <span class="math inline">\(\overline{x}\)</span>.</p>
 <p>So, let’s just do it - this is how we calculate the 95% confidence interval if we have <span class="math inline">\(\overline{x}\)</span>, <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(n\)</span>.</p>
 <div class="sourceCode" id="cb966"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb966-1"><a href="confidence-intervals.html#cb966-1"></a>x_bar &lt;-<span class="st"> </span><span class="kw">mean</span>(samp1)  <span class="co"># sample mean = 7.72</span></span>
@@ -496,8 +496,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb983"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb983-1"><a href="confidence-intervals.html#cb983-1"></a><span class="co"># lower bound of confidence interval</span></span>
 <span id="cb983-2"><a href="confidence-intervals.html#cb983-2"></a><span class="fl">7.95</span> <span class="op">-</span><span class="st"> </span>(z <span class="op">*</span><span class="st"> </span>sem)</span></code></pre></div>
 <pre><code>## [1] 7.798179</code></pre>
-<p><span class="math inline">\(CI_{95\%} = 7.95 \pm 0.152\)</span></p>
-<p><span class="math inline">\(CI_{95\%} = 7.95 [7.798, 8.102]\)</span></p>
+<p><span class="math inline">\(\Large CI_{95\%} = 7.95 \pm 0.152\)</span></p>
+<p><span class="math inline">\(\Large CI_{95\%} = 7.95 [7.798, 8.102]\)</span></p>
 <p>Let’s compare this confidence interval with the first one we created:</p>
 <p><img src="img/ci2.png" /></p>
 <p>Note that both include the true population mean of 7.8 in their confidence interval. In the second sample mean - it’s only just inside, but it’s inside!</p>
@@ -510,10 +510,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">8.2.1</span> Other Confidence Intervals ranges</h3>
 <p>We can actually construct confidence intervals for any % value. Most commonly people make 95% confidence intervals, but other common ones include 80%, 90% and 99% confidence intervals. These have the same interepretation as the 95% CI. For instance, a 99% confidence interval means that if you were to take 100 samples from a population and calculate 99% confidence intervals for each, only 1 out of a 100 on average would not include the true population mean <span class="math inline">\(\mu\)</span>.</p>
 <p>The formulas for each of these confidence intervals when using the <span class="math inline">\(z\)</span>-distribution are as follows:</p>
-<p><span class="math inline">\(CI_{80\%} = \overline{x} \pm 1.28 \times \frac{\sigma}{\sqrt{n}}\)</span></p>
-<p><span class="math inline">\(CI_{90\%} = \overline{x} \pm 1.64 \times \frac{\sigma}{\sqrt{n}}\)</span></p>
-<p><span class="math inline">\(CI_{95\%} = \overline{x} \pm 1.96 \times \frac{\sigma}{\sqrt{n}}\)</span></p>
-<p><span class="math inline">\(CI_{99\%} = \overline{x} \pm 2.58 \times \frac{\sigma}{\sqrt{n}}\)</span></p>
+<p><span class="math inline">\(\Large CI_{80\%} = \overline{x} \pm 1.28 \times \frac{\sigma}{\sqrt{n}}\)</span></p>
+<p><span class="math inline">\(\Large CI_{90\%} = \overline{x} \pm 1.64 \times \frac{\sigma}{\sqrt{n}}\)</span></p>
+<p><span class="math inline">\(\Large CI_{95\%} = \overline{x} \pm 1.96 \times \frac{\sigma}{\sqrt{n}}\)</span></p>
+<p><span class="math inline">\(\Large CI_{99\%} = \overline{x} \pm 2.58 \times \frac{\sigma}{\sqrt{n}}\)</span></p>
 <p>Where did each of these different numbers come from for <span class="math inline">\(z\)</span> ? Well, if we wish to make a 99% CI, we need to know what values of <span class="math inline">\(z\)</span> are the boundaries that leave 99% of the distribution inside them on the standard normal curve. We exclude 0.5% in each tail. Likewise, for the 80%CI, we want to know the values of <span class="math inline">\(z\)</span> that leave 5% in each tail and 10% in the middle. We can calculate these values in R like this:</p>
 <div class="sourceCode" id="cb985"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb985-1"><a href="confidence-intervals.html#cb985-1"></a><span class="kw">qnorm</span>(.<span class="dv">9</span>)<span class="co"># for 80% CI</span></span></code></pre></div>
 <pre><code>## [1] 1.281552</code></pre>
@@ -535,8 +535,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb997-2"><a href="confidence-intervals.html#cb997-2"></a>x_bar <span class="op">-</span><span class="st"> </span>(<span class="fl">1.281552</span> <span class="op">*</span><span class="st"> </span>sem)</span></code></pre></div>
 <pre><code>## [1] 7.773553</code></pre>
 <p>Our 80% confidence interval is:</p>
-<p><span class="math inline">\(CI_{80\%} = 7.72 \pm 0.099\)</span></p>
-<p><span class="math inline">\(CI_{80\%} = 7.72 [7.620, 7.819]\)</span></p>
+<p><span class="math inline">\(\Large CI_{80\%} = 7.72 \pm 0.099\)</span></p>
+<p><span class="math inline">\(\Large CI_{80\%} = 7.72 [7.620, 7.819]\)</span></p>
 <p>Looking at each of these confidence intervals for our first sample mean, we get the following. Clearly, confidence intervals widen with higher percentages:</p>
 <p><img src="img/ci5.png" /></p>
 <p>Let’s look at this same figure, but this time for our second sample that has an sample mean <span class="math inline">\(\overline{x}=7.95\)</span>:</p>
@@ -546,7 +546,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="confidence-intervals-and-sample-size" class="section level3">
 <h3><span class="header-section-number">8.2.2</span> Confidence Intervals and Sample Size</h3>
 <p>The other variable inside the confidence interval formula that we should think about is the sample size <span class="math inline">\(n\)</span>. Let’s look at the formula again:</p>
-<p><span class="math inline">\(CI = \overline{x} \pm z \times \frac{\sigma}{\sqrt{n}}\)</span></p>
+<p><span class="math inline">\(\Large CI = \overline{x} \pm z \times \frac{\sigma}{\sqrt{n}}\)</span></p>
 <p>What happens when we get different sized sample sizes? For instance, look at the 95% confidence intervals below that all have a sample mean of <span class="math inline">\(\overline{x}=7.72\)</span> but are for different sample sizes:</p>
 <p><img src="img/ci7.png" /></p>
 <p>There are two things to note. Firstly, as your sample size increases, for any confidence level (in this situation a 95% CI) the confidence interval is going to shrink. It gets tighter for larger sample sizes. <strong>Increasing sample sizes increases certainty</strong>. This is because the denominator of the confidence interval formula <span class="math inline">\(\sqrt{n}\)</span> gets larger, meaning that the margin of error gets smaller.</p>
@@ -561,7 +561,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 isn’t all of this a bit strange? Why are we trying to estimate the population mean <span class="math inline">\(\mu\)</span> from the sample mean <span class="math inline">\(\overline{x}\)</span> when we also already know the population standard deviation <span class="math inline">\(\sigma\)</span>? How could you know <span class="math inline">\(\sigma\)</span> but not know <span class="math inline">\(\mu\)</span> - that makes no sense, and indeed it doesn’t.</p>
 <p>It turns out that in the real world, that when we collect a sample of data and get our sample mean <span class="math inline">\(\overline{x}\)</span> and we want to create our confidence interval around it to have some certainty about where the population mean <span class="math inline">\(\mu\)</span> might lie, we also do not know <span class="math inline">\(\sigma\)</span>. We need a backup plan for how to construct confidence intervals. This back up plan is making confidence intervals with the <span class="math inline">\(t\)</span>-distribution.</p>
 <p>First, let’s look at the formula for making a confidence interval with a <span class="math inline">\(t\)</span>-distribution:</p>
-<p><span class="math inline">\(CI = \overline{x} \pm t \times \frac{s}{\sqrt{n}}\)</span></p>
+<p><span class="math inline">\(\Large CI = \overline{x} \pm t \times \frac{s}{\sqrt{n}}\)</span></p>
 <p>Two things are different about this one compared to the formula for calculating a CI with the <span class="math inline">\(z\)</span>-distribution. First, we are using a <span class="math inline">\(t\)</span> value rather than a <span class="math inline">\(z\)</span> value. Secondly, we are using the sample standard deviation <span class="math inline">\(s\)</span> rather than the population standard deviation <span class="math inline">\(\sigma\)</span>. If we do not know <span class="math inline">\(\sigma\)</span> then our next best option is to use our estimate of the population standard deviation, which is our sample standard deviation <span class="math inline">\(s\)</span>.</p>
 <p>We briefly introduced the <span class="math inline">\(t\)</span>-distribution in section <a href="distributions.html#the-t-distribution">7.5</a>. Why do we need to use it here? Essentially, the key thing is that when we collect many sample means to create our sampling distribution of sample means, it is not always the case that this samplign distribution will be perfectly normally distributed. In fact, this is especially true for smaller sample sizes. If we collect smaller samples and calculate the sample mean of each, it turns out our sampling distribution will be slighly heavier in the tails than a normal distribution. How far away from normal our sampling distribution will be depends on our sample size. For bigger sample sizes, our sampling distribution will look more normal. This is illustrated below:</p>
 <p><img src="img/t.png" /></p>
@@ -574,7 +574,7 @@ isn’t all of this a bit strange? Why are we trying to estimate the population 
 <h2><span class="header-section-number">8.4</span> Calculating a t-distribution Confidence Interval</h2>
 <p>Let’s look more practically at how we calculate a 95% confidence interval for a <span class="math inline">\(t\)</span>-distribtuion. We’ll use sample 1 from above that had a mean of <span class="math inline">\(\overline{x}=7.72\)</span>.</p>
 <p>The formula we use is:</p>
-<p><span class="math inline">\(CI95\% = \overline{x} \pm t \times \frac{s}{\sqrt{n}}\)</span></p>
+<p><span class="math inline">\(\Large CI95\% = \overline{x} \pm t \times \frac{s}{\sqrt{n}}\)</span></p>
 <p>First, we should calculate the sample standard deviation, which is <span class="math inline">\(s=0.285\)</span>:</p>
 <div class="sourceCode" id="cb999"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb999-1"><a href="confidence-intervals.html#cb999-1"></a>samp1</span></code></pre></div>
 <pre><code>##  [1] 7.532948 8.233244 8.014278 7.446299 8.294182 7.660900 8.045752 7.251308
@@ -597,7 +597,7 @@ isn’t all of this a bit strange? Why are we trying to estimate the population 
 <span id="cb1009-2"><a href="confidence-intervals.html#cb1009-2"></a><span class="fl">7.72</span> <span class="op">-</span><span class="st"> </span>(<span class="fl">2.144787</span> <span class="op">*</span><span class="st"> </span>sem1)</span></code></pre></div>
 <pre><code>## [1] 7.515714</code></pre>
 <p>Our confidence interval is therefore:</p>
-<p><span class="math inline">\(CI95\% = 7.72[7.56,7.88]\)</span></p>
+<p><span class="math inline">\(\Large CI95\% = 7.72[7.56,7.88]\)</span></p>
 <p>Likewise, for sample 2, which had <span class="math inline">\(\overline{x}=7.95\)</span> our 95% confidence interval would be:</p>
 <div class="sourceCode" id="cb1011"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1011-1"><a href="confidence-intervals.html#cb1011-1"></a><span class="co">#standard error</span></span>
 <span id="cb1011-2"><a href="confidence-intervals.html#cb1011-2"></a>sem2 &lt;-<span class="st"> </span><span class="kw">sd</span>(samp2)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">15</span>)</span>
@@ -666,10 +666,10 @@ isn’t all of this a bit strange? Why are we trying to estimate the population 
 <h2><span class="header-section-number">8.5</span> Comparing CIs using the z- and t-distributions</h2>
 <p>You might be thinking that using the <span class="math inline">\(t\)</span>-distribution to make 95% confidence intervals seems like a lot of extra legwork to figure out what value of <span class="math inline">\(t\)</span> to use, compared to just using <span class="math inline">\(z=1.96\)</span> when using the <span class="math inline">\(z\)</span>-distribution. This mini section hopefully is an illustration of why you have to do this.</p>
 <p>These are the two formulas that we use to generate confidence intervals:</p>
-<p><span class="math inline">\(CI_{95\%} = \overline{x} \pm z \times \frac{\sigma}{\sqrt{n}}\)</span></p>
-<p><span class="math inline">\(CI_{95\%} = \overline{x} \pm t \times \frac{s}{\sqrt{n}}\)</span></p>
+<p><span class="math inline">\(\Large CI_{95\%} = \overline{x} \pm z \times \frac{\sigma}{\sqrt{n}}\)</span></p>
+<p><span class="math inline">\(\Large CI_{95\%} = \overline{x} \pm t \times \frac{s}{\sqrt{n}}\)</span></p>
 <p>But, what if we did just decide to use <span class="math inline">\(z\)</span> when we don’t know the population standard deviation <span class="math inline">\(\sigma\)</span> and we used this formula:</p>
-<p><span class="math inline">\(CI_{95\%} = \overline{x} \pm z \times \frac{s}{\sqrt{n}}\)</span></p>
+<p><span class="math inline">\(\Large CI_{95\%} = \overline{x} \pm z \times \frac{s}{\sqrt{n}}\)</span></p>
 <p>Well, in the figure below, we did just that for 25 sample means collected from samples of size <span class="math inline">\(n=8\)</span> from a population with a mean of <span class="math inline">\(\mu=4\)</span> and standard deviation of <span class="math inline">\(\sigma=1.5\)</span>. As you can see, the first and third columns that are using the appropriate <span class="math inline">\(z\)</span>- and <span class="math inline">\(t\)</span>-distribution formulas have 23/25 confidence interals that include the true population mean. In fact, out of 1000 simulations of these data (i.e. 1000 sample means collected) precisely 95% of confidence intervals included the population mean for both, which is what we would expect.</p>
 <p><img src="img/ci13.png" /></p>
 <p>Conversely, the middle column include the confidence intervals calculated using <span class="math inline">\(z=1.96\)</span> and using <span class="math inline">\(s\)</span> as an estimate of the population standard deviation. With this formula, 6/25 confidence intervals fail to include the true population mean. Out of the 1000 simulations of the data, actually 9.X% of CIs failed to capture the true population mean. This shows that the margin of error calculated using this formula is consistently too small. The reason for this is that when we estimate the population standard deviation, we generally are under-estimating the true value. This is another reason why we should be using the <span class="math inline">\(t\)</span>-distribution.</p>

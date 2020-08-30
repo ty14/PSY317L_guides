@@ -955,3 +955,50 @@ vg %>%
 
 ```
 
+<br><br>
+
+
+### Counts by Group
+
+Another common use of `group_by()` is to get counts of how many we have of each categorical variable.  For instance, let's look more at the videogames dataset `vg`.
+
+We have previously seen that we can use `table()` to count simple frequencies.  For instance, the following:
+
+```{r}
+table(vg$genre)
+```
+shows us how many observations of each genre we have. We have 997 Action games, 349 Racing games, 583 shooter games and 573 sports games.
+
+We can look at how these breakdown by platform by adding one more argument into our `table()` function which relates to our second column of interest:
+
+```{r}
+table(vg$genre, vg$platform)
+```
+
+<br>
+
+We can see here that we have 32 Sports games on the PC, 135 racing games on the PS2 and so on.
+
+
+This is a nice and straightforward way of doing this. It's also possible to do it using the `tidyverse()` which can come in handy sometimes in some circumstances. To do it this way, we make use of `group_by()` and `count()`.  We tell it the two columns we wish to group our data by (in this case it is the `genre` and the `platform` columns), and then tell it to count how many observations we have:
+
+```{r}
+vg %>%
+  group_by(genre, platform) %>%
+  count()
+```
+
+These data are presented in a slightly different way, but in a way that can be further manipulated.
+
+cats
+
+
+
+
+
+
+
+counts(filter>44)
+
+
+
