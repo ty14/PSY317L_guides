@@ -988,17 +988,65 @@ vg %>%
   count()
 ```
 
-These data are presented in a slightly different way, but in a way that can be further manipulated.
+<br>
 
-cats
+These data are presented in a slightly different way. The count of each combination is shown in the new `n` column. The nice thing about this tidy approach is that we can further manipulate the data.  This is better illustrated with an even busier dataset, the `catcolor.csv` dataset:
+
+```{r,warning=FALSE, message=FALSE}
+cats <- read_csv("data/catcolor.csv")
+head(cats)
+```
+
+Say we want to know how many male and female cats of each breed we have.  With tidyverse, we would do it like this: 
+
+```{r, warning=FALSE, message=FALSE}
+cats %>%
+  group_by(breed,sex) %>%
+  count()
+
+```
+
+<br>  
+
+This  gives us a lot of information.  In fact, we have 87 rows of data.  However, we could next sort by the newly created `n` column, to see which sex/breed combination we have the highest amount of. We can use `arrange()` to do this:
+
+```{r, warning=FALSE, message=FALSE}
+cats %>%
+  group_by(breed,sex) %>%
+  count() %>%
+  arrange(-n)
+```
+
+<br>
+
+Another thing we can do is to count how many there are of a given category or categories that satisfy certain conditions.  For example, let's say we wanted to know the most popular name of each breed for orange cats.  We could first filter the data by `color1` to only keep orange cats, then group by `name` and `breed` and then use `count()` and `arrange()`:
+
+```{r, warning=FALSE, message=FALSE}
+cats %>%
+  filter(color1 == "orange") %>%
+  group_by(name,breed) %>%
+  count() %>% 
+  arrange(-n)
+```
+
+It turns out that the most popular names overall for orange cats are for domestic shorthairs who are called Oliver, then Oscar, Ginger, Sam, Garfield and so on.
+
+To do exactly what we said above, we can do something a bit different. After we've done all the above, we can then tell the chain that we only want to group by `breed` this time, and we want to keep the highest value with `top_n(1)`.  This returns the following:
 
 
+```{r, warning=FALSE, message=FALSE}
+cats %>%
+  filter(color1 == "orange") %>%
+  group_by(name,breed) %>%
+  count() %>% 
+  arrange(-n) %>% 
+  group_by(breed) %>%
+  top_n(1)
+```
 
+Charlie, Gilbert and Pumpkin are all the most common names for orange domestic longhairs!
 
-
-
-
-counts(filter>44)
-
+<br>
+<br>
 
 
