@@ -527,7 +527,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb74-2"><a href="basic-syntax.html#cb74-2"></a></span>
 <span id="cb74-3"><a href="basic-syntax.html#cb74-3"></a>example</span></code></pre></div>
 <pre><code>## [1] &quot;5&quot;        &quot;9&quot;        &quot;11&quot;       &quot;10&quot;       &quot;james&quot;    &quot;tyler&quot;    &quot;hedgehog&quot;</code></pre>
-<p>Here, each of <code>aa</code> to <code>ee</code> is assigned to be an object and they contain information. When we write <code>c(aa, bb, cc, dd, ee)</code> we don’t need to use commas as we’re referring to the objects and not to words called <code>aa</code>, <code>ee</code> etc. Also notice that we were able to make vectors that mixed together numbers and characters. Also, some of our original vectors like <code>bb</code> and <code>dd</code> contained more than one element. When we put them all together with <code>c(aa, bb, cc, dd, ee)</code> to create the <code>example</code> object, R just stuck them all together in the order we wrote.</p>
+<p>Here, each of <code>aa</code> to <code>ee</code> is assigned to be an object and they contain information. When we write <code>c(aa, bb, cc, dd, ee)</code> we don’t need to use quotes as we’re referring to the objects and not to words called <code>aa</code>, <code>ee</code> etc. Also notice that we were able to make vectors that mixed together numbers and characters. Also, some of our original vectors like <code>bb</code> and <code>dd</code> contained more than one element. When we put them all together with <code>c(aa, bb, cc, dd, ee)</code> to create the <code>example</code> object, R just stuck them all together in the order we wrote.</p>
 <p>It’s pretty unusual though to mix numeric and character vectors together. Let’s get back to talking about vectors tha contain characters only.</p>
 <p>Some functions can work on both character vectors and numeric vectors. One example is <code>length()</code> which counts the number of elements in a vector:</p>
 <div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="basic-syntax.html#cb76-1"></a>v1</span></code></pre></div>
@@ -706,13 +706,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Here’s a simple example of what this looks like.</p>
 <div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="basic-syntax.html#cb157-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
 <span id="cb157-2"><a href="basic-syntax.html#cb157-2"></a></span>
-<span id="cb157-3"><a href="basic-syntax.html#cb157-3"></a>x </span>
-<span id="cb157-4"><a href="basic-syntax.html#cb157-4"></a><span class="op">%&gt;%</span><span class="st"> </span>unique</span>
-<span id="cb157-5"><a href="basic-syntax.html#cb157-5"></a>  </span></code></pre></div>
-<pre><code>## Error: &lt;text&gt;:4:1: unexpected SPECIAL
-## 3: x 
-## 4: %&gt;%
-##    ^</code></pre>
+<span id="cb157-3"><a href="basic-syntax.html#cb157-3"></a>x <span class="op">%&gt;%</span><span class="st"> </span>unique</span></code></pre></div>
+<pre><code>## [1]  3  5  6  7  4 10</code></pre>
 <p>Here we get an error message saying <code>Error: unexpected SPECIAL in "%&gt;%"</code>. What has happened is that R read the lines where we assigned the numbers to <code>x</code> and then on the line that just had <code>x</code> it printed out the numbers. Then when it got to <code>%&gt;% unique</code> it didn’t know what this was referring to. When using chain syntax such as <code>%&gt;%</code> you cannot start a new line with it. Instead you should write:</p>
 <div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="basic-syntax.html#cb159-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
 <span id="cb159-2"><a href="basic-syntax.html#cb159-2"></a></span>

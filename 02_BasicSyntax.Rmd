@@ -300,7 +300,7 @@ example
 
 ```
 
-Here, each of `aa` to `ee` is assigned to be an object and they contain information. When we write `c(aa, bb, cc, dd, ee)` we don't need to use commas as we're referring to the objects and not to words called `aa`, `ee` etc.  Also notice that we were able to make vectors that mixed together numbers and characters.  Also, some of our original vectors like `bb` and `dd` contained more than one element. When we put them all together with `c(aa, bb, cc, dd, ee)` to create the `example` object, R just stuck them all together in the order we wrote.
+Here, each of `aa` to `ee` is assigned to be an object and they contain information. When we write `c(aa, bb, cc, dd, ee)` we don't need to use quotes as we're referring to the objects and not to words called `aa`, `ee` etc.  Also notice that we were able to make vectors that mixed together numbers and characters.  Also, some of our original vectors like `bb` and `dd` contained more than one element. When we put them all together with `c(aa, bb, cc, dd, ee)` to create the `example` object, R just stuck them all together in the order we wrote.
 
 
 It's pretty unusual though to mix numeric and character vectors together.  Let's get back to talking about vectors tha contain characters only.
@@ -616,8 +616,7 @@ Here's a simple example of what this looks like.
 ```{r, error=TRUE}
 x <- c(3, 5, 6, 7, 4, 6, 5, 10, 4, 5, 7)
 
-x 
-%>% unique
+x %>% unique
   
 
 ```
