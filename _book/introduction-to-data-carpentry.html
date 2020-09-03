@@ -50,13 +50,12 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -65,16 +64,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -83,9 +80,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -170,28 +167,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.10" data-path="basic-syntax.html"><a href="basic-syntax.html#chaining-syntax"><i class="fa fa-check"></i><b>3.10</b> Chaining Syntax</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html"><i class="fa fa-check"></i><b>4</b> Introduction to Data Carpentry</a><ul>
-<li class="chapter" data-level="4.1" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#importing-data"><i class="fa fa-check"></i><b>4.1</b> Importing Data</a></li>
-<li class="chapter" data-level="4.2" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#introduction-to-dataframes"><i class="fa fa-check"></i><b>4.2</b> Introduction to Dataframes</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#dataframe-basics"><i class="fa fa-check"></i><b>4.2.1</b> Dataframe basics</a></li>
-<li class="chapter" data-level="4.2.2" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#indexing-dataframes."><i class="fa fa-check"></i><b>4.2.2</b> Indexing dataframes.</a></li>
-<li class="chapter" data-level="4.2.3" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#adding-and-removing-columns"><i class="fa fa-check"></i><b>4.2.3</b> Adding and removing columns</a></li>
-<li class="chapter" data-level="4.2.4" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#structure-of-datasets"><i class="fa fa-check"></i><b>4.2.4</b> Structure of Datasets</a></li>
+<li class="chapter" data-level="4.1" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#data-types"><i class="fa fa-check"></i><b>4.1</b> Data Types</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#categorical-data"><i class="fa fa-check"></i><b>4.1.1</b> Categorical Data</a></li>
+<li class="chapter" data-level="4.1.2" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#numerical-data-discrete-vs.-continuous"><i class="fa fa-check"></i><b>4.1.2</b> Numerical Data (Discrete vs. Continuous)</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#manually-creating-a-dataframe"><i class="fa fa-check"></i><b>4.3</b> Manually creating a Dataframe</a></li>
-<li class="chapter" data-level="4.4" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#tidyverse"><i class="fa fa-check"></i><b>4.4</b> tidyverse</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#table"><i class="fa fa-check"></i><b>4.4.1</b> table()</a></li>
-<li class="chapter" data-level="4.4.2" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#filter---subsetting-data"><i class="fa fa-check"></i><b>4.4.2</b> filter() - Subsetting Data</a></li>
-<li class="chapter" data-level="4.4.3" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#select---selecting-specific-columns"><i class="fa fa-check"></i><b>4.4.3</b> select() - Selecting specific columns</a></li>
-<li class="chapter" data-level="4.4.4" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#mutate---creating-new-columns"><i class="fa fa-check"></i><b>4.4.4</b> mutate() - Creating new columns</a></li>
-<li class="chapter" data-level="4.4.5" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#arrange---sort-data-columns"><i class="fa fa-check"></i><b>4.4.5</b> arrange() - Sort Data Columns</a></li>
-<li class="chapter" data-level="4.4.6" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#chaining-together"><i class="fa fa-check"></i><b>4.4.6</b> Chaining together</a></li>
+<li class="chapter" data-level="4.2" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#importing-data"><i class="fa fa-check"></i><b>4.2</b> Importing Data</a></li>
+<li class="chapter" data-level="4.3" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#introduction-to-dataframes"><i class="fa fa-check"></i><b>4.3</b> Introduction to Dataframes</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#dataframe-basics"><i class="fa fa-check"></i><b>4.3.1</b> Dataframe basics</a></li>
+<li class="chapter" data-level="4.3.2" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#indexing-dataframes."><i class="fa fa-check"></i><b>4.3.2</b> Indexing dataframes.</a></li>
+<li class="chapter" data-level="4.3.3" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#adding-and-removing-columns"><i class="fa fa-check"></i><b>4.3.3</b> Adding and removing columns</a></li>
+<li class="chapter" data-level="4.3.4" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#structure-of-datasets"><i class="fa fa-check"></i><b>4.3.4</b> Structure of Datasets</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#wide-versus-long-data"><i class="fa fa-check"></i><b>4.5</b> Wide versus Long Data</a><ul>
-<li class="chapter" data-level="4.5.1" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#wide-to-long"><i class="fa fa-check"></i><b>4.5.1</b> Wide to Long</a></li>
-<li class="chapter" data-level="4.5.2" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#long-to-wide"><i class="fa fa-check"></i><b>4.5.2</b> Long to Wide</a></li>
-<li class="chapter" data-level="4.5.3" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#real-data-example."><i class="fa fa-check"></i><b>4.5.3</b> Real Data Example.</a></li>
+<li class="chapter" data-level="4.4" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#manually-creating-a-dataframe"><i class="fa fa-check"></i><b>4.4</b> Manually creating a Dataframe</a></li>
+<li class="chapter" data-level="4.5" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#tidyverse"><i class="fa fa-check"></i><b>4.5</b> tidyverse</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#table"><i class="fa fa-check"></i><b>4.5.1</b> table()</a></li>
+<li class="chapter" data-level="4.5.2" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#filter---subsetting-data"><i class="fa fa-check"></i><b>4.5.2</b> filter() - Subsetting Data</a></li>
+<li class="chapter" data-level="4.5.3" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#select---selecting-specific-columns"><i class="fa fa-check"></i><b>4.5.3</b> select() - Selecting specific columns</a></li>
+<li class="chapter" data-level="4.5.4" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#mutate---creating-new-columns"><i class="fa fa-check"></i><b>4.5.4</b> mutate() - Creating new columns</a></li>
+<li class="chapter" data-level="4.5.5" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#arrange---sort-data-columns"><i class="fa fa-check"></i><b>4.5.5</b> arrange() - Sort Data Columns</a></li>
+<li class="chapter" data-level="4.5.6" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#chaining-together"><i class="fa fa-check"></i><b>4.5.6</b> Chaining together</a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#joins"><i class="fa fa-check"></i><b>4.6</b> Joins</a></li>
+<li class="chapter" data-level="4.6" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#wide-versus-long-data"><i class="fa fa-check"></i><b>4.6</b> Wide versus Long Data</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#wide-to-long"><i class="fa fa-check"></i><b>4.6.1</b> Wide to Long</a></li>
+<li class="chapter" data-level="4.6.2" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#long-to-wide"><i class="fa fa-check"></i><b>4.6.2</b> Long to Wide</a></li>
+<li class="chapter" data-level="4.6.3" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#real-data-example."><i class="fa fa-check"></i><b>4.6.3</b> Real Data Example.</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="introduction-to-data-carpentry.html"><a href="introduction-to-data-carpentry.html#joins"><i class="fa fa-check"></i><b>4.7</b> Joins</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a><ul>
 <li class="chapter" data-level="5.1" data-path="data-visualization.html"><a href="data-visualization.html#introduction-to-ggplot2"><i class="fa fa-check"></i><b>5.1</b> Introduction to ggplot2</a><ul>
@@ -376,8 +377,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="introduction-to-data-carpentry" class="section level1">
 <h1><span class="header-section-number">4</span> Introduction to Data Carpentry</h1>
 <p>Data carpentry gives us the tools to work with large data sets. During this chapter you will learn basic concepts and skills to help you import, tidy and manage your data.</p>
+<div id="data-types" class="section level2">
+<h2><span class="header-section-number">4.1</span> Data Types</h2>
+<p>Before learning how to work with data in R, we should know about the different types of data out there.</p>
+<p>Here is a picture that lays out the hierarchical levels of data types.</p>
+<p><img src="img/datatypes.png" width="400" /></p>
+<div id="qualitative-vs.-quantitative-data" class="section level4">
+<h4><span class="header-section-number">4.1.0.1</span> Qualitative vs. Quantitative Data</h4>
+<p>As you can see at the highest level, there are two data types quantitative and qualitative.</p>
+<p>The easiest way to distinguish these data types part is to think of qualitative data as data we subjectively observe or measure and quantitative data as data that we can objectively measure.</p>
+</div>
+<div id="categorical-data" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Categorical Data</h3>
+<p>Under qualitative data, we have two different data types: Nominal and Ordinal. Both of these data types are known as categorical data, which means they represent characteristics such as a person’s gender, education level, language, etc.</p>
+<p>Categorical data can also be represented in a dataset by number. For example, in the gender column 0 can be for male and 1 can be for Female. However, it is important to rememeber those numbers don’t have any mathematical meaning.</p>
+<div id="nominal-data" class="section level4">
+<h4><span class="header-section-number">4.1.1.1</span> Nominal Data</h4>
+<p>Nominal data, sometimes refered to as unordered data are values which represent discrete units and are used to label variable that have no quantitative value.</p>
+<p>Nominal data does not have an natural value or rank, therefore if you change the order of the data, the meaning of the data does not change.
+An example of nominal data would be:
+What languages do you speak?
+French
+English
+Spanish
+German</p>
+</div>
+<div id="ordinal-data" class="section level4">
+<h4><span class="header-section-number">4.1.1.2</span> Ordinal Data</h4>
+<p>Like nominal data, ordinal represents discrete units assigned to categorical label. However, ordinal data does have a natural order. That being said the order in which you represent you data does matter.</p>
+<p>An example of ordinal data would be:
+What is your educational backgroud?
+1- Elementary
+2- High School
+3- Undergraduate
+4- Graduate</p>
+<p>Another example would be any survey data that rates an item on scale.
+If an item on a 1 to 10 scale, with 10 being the best, then this impiles 10 is better than 9, which is better than 8, and so on.</p>
+</div>
+</div>
+<div id="numerical-data-discrete-vs.-continuous" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Numerical Data (Discrete vs. Continuous)</h3>
+<p>Under quantitative data, there is numerical data consist of numbers with real mathematical meaning. There are two types of numerical data.</p>
+<ol style="list-style-type: decimal">
+<li><p>Discrete data is data that is separated e.g, as if this data can only take on certain value. Think about discrete data as count data since it can only be counted and not measured.</p></li>
+<li><p>Continuous data is the opposite of discrete data, it can only be measured not counted.</p></li>
+</ol>
+<p>Additionally, two different data types can fall under discrete and continuous data they are: interval and ratio data.</p>
+<div id="interval-data" class="section level5">
+<h5><span class="header-section-number">4.1.2.0.1</span> Interval Data</h5>
+<p>Interval data represents values that are order and the difference between 2 values has meaning.</p>
+<p>In interval data there is no true zero, which means if you have zero in your data, then zero is just another number. For example, zero on the Fahrenheirt temperature scale means it is zero degress outside, but doesn’t mean the scale stops., there is still a temperature</p>
+<p>Basically, you can have negative numbers in a interval variable.</p>
+</div>
+<div id="ratio-data" class="section level5">
+<h5><span class="header-section-number">4.1.2.0.2</span> Ratio data</h5>
+<p>For a variable to be considered ratio data, it holds all the properties of an interval variable. However, it also has a true meaning of zero. Whenever a variable is zero, it means there is none of that variable.</p>
+<p>For examples on a ratio scale if you have zero friends it means you have absolutely no friends.</p>
+<p>Another example of ratio scale data is temperature in Kelvin, where zero degrees Kelvin means there is no heat being emitted.</p>
+</div>
+</div>
+</div>
 <div id="importing-data" class="section level2">
-<h2><span class="header-section-number">4.1</span> Importing Data</h2>
+<h2><span class="header-section-number">4.2</span> Importing Data</h2>
 <p>There are different options for importing data. It’s possible to import data of all different formats into RStudio. We will primarily use spreadsheet type files that have been saved with the <code>.csv</code> suffix. These are called ‘comma separated files’.</p>
 <p><strong>Option 1. Import Tab</strong> You can click on the “Import Dataset” tab in the top right of RStudio - it’s located just above your global environment.</p>
 <p>Depending on your RStudio version, you will be asked to select from a dropdown menu. When importing <code>.csv</code> files, you want to select <code>From CSV...</code> if your menu looks like this:</p>
@@ -386,11 +447,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="img/import2.png" width="500" /></p>
 <p><br></p>
 <p><strong>Option 2. Writing code.</strong> This is the option that we will use in our scripts for this course. You may notice that all the datasets that we wish to use are in a folder called “data”. To read in any of these datasets, what we need to do is use the <code>read_csv()</code> function. This comes from a package contained with the <code>tidyverse</code> package, so we must have imported that library first. We then tell it which dataset to find within the ‘data’ folder. We use the notation “data/…” to tell it to look inside the data folder. For instance, if we wished to load in the <code>bmi.csv</code> dataset, and assign it the name <code>bmi</code>, we would do it like this - make sure to put quotes around the whole file name and location:</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="introduction-to-data-carpentry.html#cb229-1"></a><span class="kw">library</span>(tidyverse)  <span class="co">#load package</span></span>
-<span id="cb229-2"><a href="introduction-to-data-carpentry.html#cb229-2"></a></span>
-<span id="cb229-3"><a href="introduction-to-data-carpentry.html#cb229-3"></a>bmi &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/bmi.csv&quot;</span>) <span class="co"># bring in data</span></span>
-<span id="cb229-4"><a href="introduction-to-data-carpentry.html#cb229-4"></a></span>
-<span id="cb229-5"><a href="introduction-to-data-carpentry.html#cb229-5"></a><span class="kw">head</span>(bmi) <span class="co"># first six rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(tidyverse)  <span class="co">#load package</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3">bmi &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/bmi.csv&quot;</span>) <span class="co"># bring in data</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="kw">head</span>(bmi) <span class="co"># first six rows</span></a></code></pre></div>
 <pre><code>## # A tibble: 6 x 9
 ##      id   age   bmi  chol insulin   dbp   sbp smoke educ 
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
@@ -400,7 +461,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4     4  21.3  19.5  53.2    4.48  32.0  NA       2 A    
 ## 5     5  21.1  18.6  55.4    5.34  33.7  53.8     1 D    
 ## 6     6  23.9  19.5  54.3    6.29  35.0  56.0     2 C</code></pre>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="introduction-to-data-carpentry.html#cb231-1"></a><span class="kw">tail</span>(bmi) <span class="co"># last six rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">tail</span>(bmi) <span class="co"># last six rows</span></a></code></pre></div>
 <pre><code>## # A tibble: 6 x 9
 ##      id   age   bmi  chol insulin   dbp   sbp smoke educ 
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
@@ -411,18 +472,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5    19  35.0  33.4  NA      21.1  NA    68.4     1 B    
 ## 6    20  37.5  34.1  68.0    22.1  49.3  68.6     2 A</code></pre>
 <p>If you want to see more on what the data looks like the following functions can help.</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="introduction-to-data-carpentry.html#cb233-1"></a><span class="kw">nrow</span>(bmi) <span class="co"># how many rows in dataset</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">nrow</span>(bmi) <span class="co"># how many rows in dataset</span></a></code></pre></div>
 <pre><code>## [1] 20</code></pre>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="introduction-to-data-carpentry.html#cb235-1"></a><span class="kw">ncol</span>(bmi) <span class="co"># how many columns in dataset</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">ncol</span>(bmi) <span class="co"># how many columns in dataset</span></a></code></pre></div>
 <pre><code>## [1] 9</code></pre>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="introduction-to-data-carpentry.html#cb237-1"></a><span class="kw">colnames</span>(bmi) <span class="co"># column names</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">colnames</span>(bmi) <span class="co"># column names</span></a></code></pre></div>
 <pre><code>## [1] &quot;id&quot;      &quot;age&quot;     &quot;bmi&quot;     &quot;chol&quot;    &quot;insulin&quot; &quot;dbp&quot;     &quot;sbp&quot;    
 ## [8] &quot;smoke&quot;   &quot;educ&quot;</code></pre>
 <p>If you just want to view your entire dataset, there is a function for that.</p>
 <p><code>View(bmi)</code></p>
 </div>
 <div id="introduction-to-dataframes" class="section level2">
-<h2><span class="header-section-number">4.2</span> Introduction to Dataframes</h2>
+<h2><span class="header-section-number">4.3</span> Introduction to Dataframes</h2>
 <p>A dataframe, in R is like a spreadsheet that contains your data. Each column contains values or characters for one variable. In R, columns are called <strong>variables</strong>. Rows are called <strong>observations</strong>.</p>
 <p>In R dataframes need to contain the following:</p>
 <ol style="list-style-type: decimal">
@@ -434,13 +495,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Another column type that comes up semi-regularly, although not much in this course, is <strong>logical</strong>. This is when the column contains either <code>TRUE</code> or <code>FALSE</code> values.</p>
 <p>Let’s dive into all the features of a dataframe.</p>
 <p>First import data, using <code>read_csv()</code>.</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="introduction-to-data-carpentry.html#cb239-1"></a>df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/cheese.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/cheese.csv&quot;</span>)</a></code></pre></div>
 <div id="dataframe-basics" class="section level3">
-<h3><span class="header-section-number">4.2.1</span> Dataframe basics</h3>
+<h3><span class="header-section-number">4.3.1</span> Dataframe basics</h3>
 <ol style="list-style-type: decimal">
 <li>Look at top few rows using <code>head()</code>. The default for <code>head()</code> is to look at the top 6 rows. However, if you put a comma, and then a number, you can get that number of rows instead. Here we get the default 6, and then we get 4 and 8 rows.</li>
 </ol>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="introduction-to-data-carpentry.html#cb240-1"></a><span class="kw">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">head</span>(df)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 9
 ##   type      sat_fat polysat_fat monosat_fat protein  carb  chol fiber  kcal
 ##   &lt;chr&gt;       &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -450,7 +511,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 camembert    15.3       0.724        7.02    19.8  0.46    72     0   300
 ## 5 caraway      18.6       0.83         8.28    25.2  3.06    93     0   376
 ## 6 cheddar      21.1       0.942        9.39    24.9  1.28   105     0   403</code></pre>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="introduction-to-data-carpentry.html#cb242-1"></a><span class="kw">head</span>(df, <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">head</span>(df, <span class="dv">4</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 4 x 9
 ##   type      sat_fat polysat_fat monosat_fat protein  carb  chol fiber  kcal
 ##   &lt;chr&gt;       &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -458,7 +519,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2 brick        18.8       0.784        8.60    23.2  2.79    94     0   371
 ## 3 brie         17.4       0.826        8.01    20.8  0.45   100     0   334
 ## 4 camembert    15.3       0.724        7.02    19.8  0.46    72     0   300</code></pre>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="introduction-to-data-carpentry.html#cb244-1"></a><span class="kw">head</span>(df, <span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">head</span>(df, <span class="dv">8</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 8 x 9
 ##   type      sat_fat polysat_fat monosat_fat protein  carb  chol fiber  kcal
 ##   &lt;chr&gt;       &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -471,7 +532,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 7 cheshire     19.5       0.87         8.67    23.4  4.78   103     0   387
 ## 8 colby        20.2       0.953        9.28    23.8  2.57    95     0   394</code></pre>
 <p>You can do the same thing with <code>tail()</code> to look at the bottom rows. The default again is 6, but you can tell it how many rows you wish to look at:</p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="introduction-to-data-carpentry.html#cb246-1"></a><span class="kw">tail</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">tail</span>(df)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 9
 ##   type           sat_fat polysat_fat monosat_fat protein  carb  chol fiber  kcal
 ##   &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -481,7 +542,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 swiss,low sod~  17.7         0.968       7.26     28.4   3.4    92     0   376
 ## 5 swiss,low fat    3.30        0.18        1.35     28.4   3.4    35     0   179
 ## 6 mozzarella,lo~  10.9         0.509       4.84     27.5   3.1    54     0   280</code></pre>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="introduction-to-data-carpentry.html#cb248-1"></a><span class="kw">tail</span>(df, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">tail</span>(df, <span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 10 x 9
 ##    type          sat_fat polysat_fat monosat_fat protein  carb  chol fiber  kcal
 ##    &lt;chr&gt;           &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -496,29 +557,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 swiss,low fat   3.30        0.18        1.35     28.4   3.4    35     0   179
 ## 10 mozzarella,l~  10.9         0.509       4.84     27.5   3.1    54     0   280</code></pre>
 <p>We can also get various dimensions of a dataframe. <code>nrow()</code> gets the number of rows (also termed observations), <code>ncol()</code> gets the number of columns (also called variables), <code>dim()</code> returns both the number of rows and the number of columns, and <code>length()</code> is another way to get the number of columns.</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="introduction-to-data-carpentry.html#cb250-1"></a><span class="kw">nrow</span>(df)  </span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">nrow</span>(df)  </a></code></pre></div>
 <pre><code>## [1] 73</code></pre>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="introduction-to-data-carpentry.html#cb252-1"></a><span class="kw">ncol</span>(df)  </span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">ncol</span>(df)  </a></code></pre></div>
 <pre><code>## [1] 9</code></pre>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="introduction-to-data-carpentry.html#cb254-1"></a><span class="kw">dim</span>(df) </span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">dim</span>(df) </a></code></pre></div>
 <pre><code>## [1] 73  9</code></pre>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="introduction-to-data-carpentry.html#cb256-1"></a><span class="kw">length</span>(df) </span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">length</span>(df) </a></code></pre></div>
 <pre><code>## [1] 9</code></pre>
 <p>As we showed earlier, <code>colnames()</code> is a very useful function for retrieving the names of columns in a dataframe. This is particularly useful when you can’t fit all of the columns onto your screen which is common with big datasets.</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="introduction-to-data-carpentry.html#cb258-1"></a><span class="kw">colnames</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">colnames</span>(df)</a></code></pre></div>
 <pre><code>## [1] &quot;type&quot;        &quot;sat_fat&quot;     &quot;polysat_fat&quot; &quot;monosat_fat&quot; &quot;protein&quot;    
 ## [6] &quot;carb&quot;        &quot;chol&quot;        &quot;fiber&quot;       &quot;kcal&quot;</code></pre>
 <p>Sometimes you may wish to change column names. This is common when you’ve imported some messy data from elsewhere. Hopefully if it is your own data you named your columns well in the first place.</p>
 <p>The way to change column names is to assign the new name to the appropriate column, by indicating which column with square brackets <code>[]</code>:</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="introduction-to-data-carpentry.html#cb260-1"></a><span class="kw">colnames</span>(df)[<span class="dv">6</span>] &lt;-<span class="st"> &quot;carbo&quot;</span></span>
-<span id="cb260-2"><a href="introduction-to-data-carpentry.html#cb260-2"></a></span>
-<span id="cb260-3"><a href="introduction-to-data-carpentry.html#cb260-3"></a><span class="kw">colnames</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">colnames</span>(df)[<span class="dv">6</span>] &lt;-<span class="st"> &quot;carbo&quot;</span></a>
+<a class="sourceLine" id="cb32-2" title="2"></a>
+<a class="sourceLine" id="cb32-3" title="3"><span class="kw">colnames</span>(df)</a></code></pre></div>
 <pre><code>## [1] &quot;type&quot;        &quot;sat_fat&quot;     &quot;polysat_fat&quot; &quot;monosat_fat&quot; &quot;protein&quot;    
 ## [6] &quot;carbo&quot;       &quot;chol&quot;        &quot;fiber&quot;       &quot;kcal&quot;</code></pre>
 <p>In the above example, we changed the name of the 6th column to <code>carbo</code>. You can change all column names by doing the following:</p>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="introduction-to-data-carpentry.html#cb262-1"></a><span class="kw">colnames</span>(df) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;type1&quot;</span>, <span class="st">&quot;sat_fat1&quot;</span>, <span class="st">&quot;polysat_fat1&quot;</span>, <span class="st">&quot;monosat_fat1&quot;</span>, <span class="st">&quot;protein1&quot;</span>, <span class="st">&quot;carb1&quot;</span>, <span class="st">&quot;chol1&quot;</span>, <span class="st">&quot;fiber1&quot;</span>, <span class="st">&quot;kcal1&quot;</span>)</span>
-<span id="cb262-2"><a href="introduction-to-data-carpentry.html#cb262-2"></a></span>
-<span id="cb262-3"><a href="introduction-to-data-carpentry.html#cb262-3"></a><span class="kw">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">colnames</span>(df) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;type1&quot;</span>, <span class="st">&quot;sat_fat1&quot;</span>, <span class="st">&quot;polysat_fat1&quot;</span>, <span class="st">&quot;monosat_fat1&quot;</span>, <span class="st">&quot;protein1&quot;</span>, <span class="st">&quot;carb1&quot;</span>, <span class="st">&quot;chol1&quot;</span>, <span class="st">&quot;fiber1&quot;</span>, <span class="st">&quot;kcal1&quot;</span>)</a>
+<a class="sourceLine" id="cb34-2" title="2"></a>
+<a class="sourceLine" id="cb34-3" title="3"><span class="kw">head</span>(df)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 9
 ##   type1     sat_fat1 polysat_fat1 monosat_fat1 protein1 carb1 chol1 fiber1 kcal1
 ##   &lt;chr&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
@@ -529,9 +590,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 caraway       18.6        0.83          8.28     25.2  3.06    93      0   376
 ## 6 cheddar       21.1        0.942         9.39     24.9  1.28   105      0   403</code></pre>
 <p>Let’s return them back to the original values:</p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="introduction-to-data-carpentry.html#cb264-1"></a><span class="kw">colnames</span>(df) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;type&quot;</span>, <span class="st">&quot;sat_fat&quot;</span>, <span class="st">&quot;polysat_fat&quot;</span>, <span class="st">&quot;monosat_fat&quot;</span>, <span class="st">&quot;protein&quot;</span>, <span class="st">&quot;carb&quot;</span>, <span class="st">&quot;chol&quot;</span>, <span class="st">&quot;fiber&quot;</span>, <span class="st">&quot;kcal&quot;</span>)</span>
-<span id="cb264-2"><a href="introduction-to-data-carpentry.html#cb264-2"></a></span>
-<span id="cb264-3"><a href="introduction-to-data-carpentry.html#cb264-3"></a><span class="kw">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="kw">colnames</span>(df) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;type&quot;</span>, <span class="st">&quot;sat_fat&quot;</span>, <span class="st">&quot;polysat_fat&quot;</span>, <span class="st">&quot;monosat_fat&quot;</span>, <span class="st">&quot;protein&quot;</span>, <span class="st">&quot;carb&quot;</span>, <span class="st">&quot;chol&quot;</span>, <span class="st">&quot;fiber&quot;</span>, <span class="st">&quot;kcal&quot;</span>)</a>
+<a class="sourceLine" id="cb36-2" title="2"></a>
+<a class="sourceLine" id="cb36-3" title="3"><span class="kw">head</span>(df)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 9
 ##   type      sat_fat polysat_fat monosat_fat protein  carb  chol fiber  kcal
 ##   &lt;chr&gt;       &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -545,21 +606,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <br></p>
 </div>
 <div id="indexing-dataframes." class="section level3">
-<h3><span class="header-section-number">4.2.2</span> Indexing dataframes.</h3>
+<h3><span class="header-section-number">4.3.2</span> Indexing dataframes.</h3>
 <p>There are two indexing methods we need to learn. One is the <code>$</code> sign, which indicates we want to get data from a specific column. The other is the square brackets <code>[]</code>.</p>
 <p>The <code>$</code> indicates which column to call. For instance, if we wish to get all the data from the <code>chol</code> column of the dataset <code>df</code>, then we would type <code>df$chol</code> and it returns all the data in that columns:</p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="introduction-to-data-carpentry.html#cb266-1"></a>df<span class="op">$</span>chol</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1">df<span class="op">$</span>chol</a></code></pre></div>
 <pre><code>##  [1]  75  94 100  72  93 105 103  95  17  13   7  10   4 110  89  89 116  94 114
 ## [20] 110  90  89  79  89  64  54  96  74  88  68 123  69  51  31 104  90  92 102
 ## [39]  94  94  85  72  94  85 105  79  46 105 105 105  21 100  12  88  55  62  65
 ## [58]  11   4  63  18  14  54  35  36  79   4  35   3  94  92  35  54</code></pre>
 <p>What if you just want the first 10 rows of kcal? Then we could get all the data from that column with <code>df$kcal</code> but then use the square brackets to tell it to get the values in positions 1 to 10 with <code>[1:10]</code>:</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="introduction-to-data-carpentry.html#cb268-1"></a>df<span class="op">$</span>kcal[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1">df<span class="op">$</span>kcal[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</a></code></pre></div>
 <pre><code>##  [1] 353 371 334 300 376 403 387 394  98  97</code></pre>
 <p>This works, because you can think of all the data values in each column as essentially its own vector. The square brackets work just as they would with any other vector indexing (see section <a href="basic-syntax.html#vectors">3.3</a>).</p>
 <p>Square brackets can be used on the whole dataframe to call just certain rows and columns. <strong>Importantly</strong> row numbers need to be written before the comma, and columns after comma. If you leave anything blank, then it will assume that you mean “all” of the rows or columns.</p>
 <p>Technically, running <code>df</code>, and <code>df[,]</code> all return the whole dataframe. What you’re saying is return all of the rows and all of the columns from <code>df</code>.</p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="introduction-to-data-carpentry.html#cb270-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1">df</a></code></pre></div>
 <pre><code>## # A tibble: 73 x 9
 ##    type          sat_fat polysat_fat monosat_fat protein  carb  chol fiber  kcal
 ##    &lt;chr&gt;           &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -574,7 +635,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 cottage,crmd~    1.72       0.123       0.778    11.1  3.38    17 0        98
 ## 10 cottage,crmd~    2.31       0.124       1.04     10.7  4.61    13 0.200    97
 ## # ... with 63 more rows</code></pre>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="introduction-to-data-carpentry.html#cb272-1"></a>df[,] <span class="co">#return all rows and all columns</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1">df[,] <span class="co">#return all rows and all columns</span></a></code></pre></div>
 <pre><code>## # A tibble: 73 x 9
 ##    type          sat_fat polysat_fat monosat_fat protein  carb  chol fiber  kcal
 ##    &lt;chr&gt;           &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -590,13 +651,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 cottage,crmd~    2.31       0.124       1.04     10.7  4.61    13 0.200    97
 ## # ... with 63 more rows</code></pre>
 <p>To just get the 7th row, you put a <code>7</code> before the comma, and leave after the comma blank:</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="introduction-to-data-carpentry.html#cb274-1"></a>df[<span class="dv">7</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1">df[<span class="dv">7</span>,]</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 9
 ##   type     sat_fat polysat_fat monosat_fat protein  carb  chol fiber  kcal
 ##   &lt;chr&gt;      &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1 cheshire    19.5        0.87        8.67    23.4  4.78   103     0   387</code></pre>
 <p>To get the 10th to 14th rows you can put <code>10:14</code> before the comma and leave after the comma blank:</p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="introduction-to-data-carpentry.html#cb276-1"></a>df[<span class="dv">10</span><span class="op">:</span><span class="dv">14</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1">df[<span class="dv">10</span><span class="op">:</span><span class="dv">14</span>,]</a></code></pre></div>
 <pre><code>## # A tibble: 5 x 9
 ##   type           sat_fat polysat_fat monosat_fat protein  carb  chol fiber  kcal
 ##   &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -606,7 +667,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 cottage,lowfa~   0.645       0.031       0.291   12.4   2.72     4 0        72
 ## 5 cream           19.3         1.44        8.62     5.93  4.07   110 0       342</code></pre>
 <p>To get the 3rd column you can leave before the comma blank, and put a <code>3</code> after the comma:</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="introduction-to-data-carpentry.html#cb278-1"></a>df[,<span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1">df[,<span class="dv">3</span>]</a></code></pre></div>
 <pre><code>## # A tibble: 73 x 1
 ##    polysat_fat
 ##          &lt;dbl&gt;
@@ -622,7 +683,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10       0.124
 ## # ... with 63 more rows</code></pre>
 <p>To get the first and second columns, leave before the comma blank and put a <code>1:2</code> after the comma:</p>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="introduction-to-data-carpentry.html#cb280-1"></a>df[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" title="1">df[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</a></code></pre></div>
 <pre><code>## # A tibble: 73 x 2
 ##    type                         sat_fat
 ##    &lt;chr&gt;                          &lt;dbl&gt;
@@ -638,7 +699,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 cottage,crmd,w/fruit            2.31
 ## # ... with 63 more rows</code></pre>
 <p>If you want to get non-consecutive columns, you need to use <code>c()</code> with your numbers. For example, to get the 3rd, 5th, and 9th columns you leave before the comma blank and put <code>c(3,5,9)</code> after the comma:</p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="introduction-to-data-carpentry.html#cb282-1"></a>df[,<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">9</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1">df[,<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">9</span>)]</a></code></pre></div>
 <pre><code>## # A tibble: 73 x 3
 ##    polysat_fat protein  kcal
 ##          &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
@@ -654,7 +715,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10       0.124    10.7    97
 ## # ... with 63 more rows</code></pre>
 <p>You can also combine these. So, to get the 20th to 22nd row, and the 1st, 5th and 9th column, you put <code>20:22</code> before the comma, and <code>c(1,5,9)</code> after the comma:</p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="introduction-to-data-carpentry.html#cb284-1"></a>df[<span class="dv">20</span><span class="op">:</span><span class="dv">22</span>,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">9</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1">df[<span class="dv">20</span><span class="op">:</span><span class="dv">22</span>,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">9</span>)]</a></code></pre></div>
 <pre><code>## # A tibble: 3 x 3
 ##   type      protein  kcal
 ##   &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;
@@ -663,12 +724,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 3 monterey     24.5   373</code></pre>
 </div>
 <div id="adding-and-removing-columns" class="section level3">
-<h3><span class="header-section-number">4.2.3</span> Adding and removing columns</h3>
+<h3><span class="header-section-number">4.3.3</span> Adding and removing columns</h3>
 <p>As we will see below in the <code>tidyverse</code> section, there is a way to creating new columns using the function <code>mutate()</code> which we recommend. However, there is also a quick way to create and delete new columns which is worth knowing about.</p>
 <p>To create a new column, you can simply type a new name after writing your dataframe name and the dollar sign, and then assign something to it. So, if you wished to create a column called <code>food_type</code> you’d write <code>df$food_type &lt;-</code> and then put whatever you wanted to put into that column. For example, if you wanted it to contain the word ‘cheese’ you’d do the following:</p>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="introduction-to-data-carpentry.html#cb286-1"></a>df<span class="op">$</span>food_type &lt;-<span class="st"> &quot;cheese&quot;</span></span>
-<span id="cb286-2"><a href="introduction-to-data-carpentry.html#cb286-2"></a></span>
-<span id="cb286-3"><a href="introduction-to-data-carpentry.html#cb286-3"></a><span class="kw">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1">df<span class="op">$</span>food_type &lt;-<span class="st"> &quot;cheese&quot;</span></a>
+<a class="sourceLine" id="cb58-2" title="2"></a>
+<a class="sourceLine" id="cb58-3" title="3"><span class="kw">head</span>(df)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 10
 ##   type  sat_fat polysat_fat monosat_fat protein  carb  chol fiber  kcal
 ##   &lt;chr&gt;   &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -682,9 +743,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Now every observation (row) has the entry <code>cheese</code> in the column <code>food_type</code>.</p>
 <p>If you wanted to put in different data for each observation, e.g. the country of origin of each cheese, then you’d need a vector that was the same length as the number of rows of the dataset. See the section on manually creating dataframes just below for some examples of this.</p>
 <p>To delete a column from a dataframe, you just assign the word <code>NULL</code>, which is a special term in R, to that column, and then it will disappear:</p>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="introduction-to-data-carpentry.html#cb288-1"></a>df<span class="op">$</span>food_type &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
-<span id="cb288-2"><a href="introduction-to-data-carpentry.html#cb288-2"></a></span>
-<span id="cb288-3"><a href="introduction-to-data-carpentry.html#cb288-3"></a><span class="kw">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1">df<span class="op">$</span>food_type &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb60-2" title="2"></a>
+<a class="sourceLine" id="cb60-3" title="3"><span class="kw">head</span>(df)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 9
 ##   type      sat_fat polysat_fat monosat_fat protein  carb  chol fiber  kcal
 ##   &lt;chr&gt;       &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -697,10 +758,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br></p>
 </div>
 <div id="structure-of-datasets" class="section level3">
-<h3><span class="header-section-number">4.2.4</span> Structure of Datasets</h3>
+<h3><span class="header-section-number">4.3.4</span> Structure of Datasets</h3>
 <p>This little subsection is a bit more about the inner workings of dataframes. It won’t be coding that we use during this course, but if you ever do any extra R things by yourself, you may run into issues that this section could help you resolve.</p>
 <p>You can see the struture of your data, whether each variable is a number, character, factor, logical, etc. This can be useful when trying to graph and analysis different types of data.</p>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="introduction-to-data-carpentry.html#cb290-1"></a><span class="kw">str</span>(bmi)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" title="1"><span class="kw">str</span>(bmi)</a></code></pre></div>
 <pre><code>## tibble [20 x 9] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ##  $ id     : num [1:20] 1 2 3 4 5 6 7 8 9 10 ...
 ##  $ age    : num [1:20] 18.3 19.4 21.1 21.3 21.1 ...
@@ -725,14 +786,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   .. )</code></pre>
 <p>Here you can see that all variables are <code>numeric</code>, except for education with is a <code>character</code>.</p>
 <p>Another common variable type is <code>factor</code>. This is similar to a <code>character</code> but it has <code>levels</code>. This means, that R knows that there are groups in that variable. You might notice that the variable <code>smoke</code> is currently a numerical variable with values being either a <code>1</code> (non smoker) or <code>2</code> (smoker). If we wanted to make a graph and plot non-smoker or smoker on the x-axis, then this would appear as 1 or 2, which isn’t helpful. In these situations, it can be helpful to convert our <code>numeric</code> variable into a <code>factor</code>. The way to do that is as follows:</p>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="introduction-to-data-carpentry.html#cb292-1"></a>bmi<span class="op">$</span>smoke &lt;-<span class="st"> </span><span class="kw">as.factor</span>(bmi<span class="op">$</span>smoke)</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1">bmi<span class="op">$</span>smoke &lt;-<span class="st"> </span><span class="kw">as.factor</span>(bmi<span class="op">$</span>smoke)</a></code></pre></div>
 <p>The <code>$</code> basically allows you to call certain columns in a dataframe. The code <code>bmi$smoke</code> is allowing us to only change that column, or variable to a factor without changing anything else in the dataframe.</p>
 <p>You can also change variables to characters with <code>as.character()</code> and to numbers with <code>as.numeric()</code>.</p>
 <p><br></p>
 </div>
 </div>
 <div id="manually-creating-a-dataframe" class="section level2">
-<h2><span class="header-section-number">4.3</span> Manually creating a Dataframe</h2>
+<h2><span class="header-section-number">4.4</span> Manually creating a Dataframe</h2>
 <p>Often in R, we don’t want to import a dataset, but rather create a dataset of our own manually in the script. We can do that using the function <code>data.frame()</code>.</p>
 <p>Let’s just do a small example. Say, we want to create a dataframe with four columns. We will have the names of 6 different pets in column 1 and call that column <code>name</code>. In the second column, we want the ages of those pets and we’ll call that column <code>age</code>. In the third column we will have the type of animal that pet is, and we’ll call that column <code>animal</code>. In the fourth column, we’ll have whether it’s a male or female pet and we’ll call that column <code>sex</code>. In the fifth column, we’ll have the main color of the pet, and we’ll call that column <code>color</code>.</p>
 <p>Here are our 6 pets:</p>
@@ -745,16 +806,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Bob, a black male spider who is 10.</li>
 </ol>
 <p>We need to make sure we put each of the column information in the right order in our dataframe. This is how we manually enter the data:</p>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="introduction-to-data-carpentry.html#cb293-1"></a>petdf &lt;-</span>
-<span id="cb293-2"><a href="introduction-to-data-carpentry.html#cb293-2"></a><span class="st">  </span><span class="kw">data.frame</span>(</span>
-<span id="cb293-3"><a href="introduction-to-data-carpentry.html#cb293-3"></a>    <span class="dt">name   =</span> <span class="kw">c</span>(<span class="st">&quot;Steve&quot;</span>, <span class="st">&quot;Hannah&quot;</span>, <span class="st">&quot;Colin&quot;</span>, <span class="st">&quot;Archibald&quot;</span>, <span class="st">&quot;Missy&quot;</span>, <span class="st">&quot;Bob&quot;</span>),</span>
-<span id="cb293-4"><a href="introduction-to-data-carpentry.html#cb293-4"></a>    <span class="dt">age    =</span> <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">10</span>),</span>
-<span id="cb293-5"><a href="introduction-to-data-carpentry.html#cb293-5"></a>    <span class="dt">animal =</span> <span class="kw">c</span>(<span class="st">&quot;goldfish&quot;</span>, <span class="st">&quot;parrot&quot;</span>, <span class="st">&quot;cat&quot;</span>, <span class="st">&quot;terrapin&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;spider&quot;</span>),</span>
-<span id="cb293-6"><a href="introduction-to-data-carpentry.html#cb293-6"></a>    <span class="dt">sex    =</span> <span class="kw">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>),</span>
-<span id="cb293-7"><a href="introduction-to-data-carpentry.html#cb293-7"></a>    <span class="dt">color  =</span> <span class="kw">c</span>(<span class="st">&quot;orange&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;brown&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;black&quot;</span>)</span>
-<span id="cb293-8"><a href="introduction-to-data-carpentry.html#cb293-8"></a>  )</span>
-<span id="cb293-9"><a href="introduction-to-data-carpentry.html#cb293-9"></a></span>
-<span id="cb293-10"><a href="introduction-to-data-carpentry.html#cb293-10"></a>petdf</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" title="1">petdf &lt;-</a>
+<a class="sourceLine" id="cb65-2" title="2"><span class="st">  </span><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb65-3" title="3">    <span class="dt">name   =</span> <span class="kw">c</span>(<span class="st">&quot;Steve&quot;</span>, <span class="st">&quot;Hannah&quot;</span>, <span class="st">&quot;Colin&quot;</span>, <span class="st">&quot;Archibald&quot;</span>, <span class="st">&quot;Missy&quot;</span>, <span class="st">&quot;Bob&quot;</span>),</a>
+<a class="sourceLine" id="cb65-4" title="4">    <span class="dt">age    =</span> <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb65-5" title="5">    <span class="dt">animal =</span> <span class="kw">c</span>(<span class="st">&quot;goldfish&quot;</span>, <span class="st">&quot;parrot&quot;</span>, <span class="st">&quot;cat&quot;</span>, <span class="st">&quot;terrapin&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;spider&quot;</span>),</a>
+<a class="sourceLine" id="cb65-6" title="6">    <span class="dt">sex    =</span> <span class="kw">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>),</a>
+<a class="sourceLine" id="cb65-7" title="7">    <span class="dt">color  =</span> <span class="kw">c</span>(<span class="st">&quot;orange&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;brown&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;black&quot;</span>)</a>
+<a class="sourceLine" id="cb65-8" title="8">  )</a>
+<a class="sourceLine" id="cb65-9" title="9"></a>
+<a class="sourceLine" id="cb65-10" title="10">petdf</a></code></pre></div>
 <pre><code>##        name age   animal sex  color
 ## 1     Steve   5 goldfish   M orange
 ## 2    Hannah  12   parrot   F   blue
@@ -766,7 +827,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br><br><br><br></p>
 </div>
 <div id="tidyverse" class="section level2">
-<h2><span class="header-section-number">4.4</span> tidyverse</h2>
+<h2><span class="header-section-number">4.5</span> tidyverse</h2>
 <p>The package <code>tidyverse</code> is what we will be using for most of our data carpentry. <code>tidyverse</code> is a larger package which includes several packages useful for managing, exploring and visualizing data such as <code>tidyr</code>, <code>dplyr</code>, <code>ggplot2</code>, and more.</p>
 <p>In this section, we will learn the following functions and syntax:</p>
 <p><code>filter()</code> - subsetting data</p>
@@ -779,16 +840,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>!=</code> means “is not equal to”</p>
 <p><code>|</code> means “or”</p>
 <p>First, make sure that you have the <code>tidyverse</code> installed. If you run the following code and do not get an error message saying “tidyverse not found”, then you are good:</p>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="introduction-to-data-carpentry.html#cb295-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" title="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <p>If you did get the error message, then you’ll need to install the library. You only need to do this once, but you will have to load a library on every script you plan to use it.</p>
 <p>To install the package:</p>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="introduction-to-data-carpentry.html#cb296-1"></a><span class="kw">install.package</span>(tidyverse) <span class="co">#install</span></span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1"><span class="kw">install.package</span>(tidyverse) <span class="co">#install</span></a></code></pre></div>
 <p>To load the package to use each time you need it:</p>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="introduction-to-data-carpentry.html#cb297-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" title="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <p>From the <code>tidyverse</code> package <code>readr</code> we can read in our data. We are going to work with a dataset called <code>bloodwork</code> that we will shorten to <code>bw</code>. It contains health information on several subjects:</p>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="introduction-to-data-carpentry.html#cb298-1"></a><span class="kw">library</span>(tidyverse) <span class="co">#load</span></span>
-<span id="cb298-2"><a href="introduction-to-data-carpentry.html#cb298-2"></a>bw &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/bloodwork.csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="introduction-to-data-carpentry.html#cb299-1"></a><span class="kw">head</span>(bw) </span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1"><span class="kw">library</span>(tidyverse) <span class="co">#load</span></a>
+<a class="sourceLine" id="cb70-2" title="2">bw &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/bloodwork.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" title="1"><span class="kw">head</span>(bw) </a></code></pre></div>
 <pre><code>## # A tibble: 6 x 11
 ##   ids     age sex   state children smoker hrate bpsyst cellcount immuncount
 ##   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
@@ -799,7 +860,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 AJF      24 fema~ NJ           0 no        67    108     0.092      6.45 
 ## 6 FJC      25 fema~ NY           1 yes       80    118     0.014      3.97 
 ## # ... with 1 more variable: immuncount2 &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="introduction-to-data-carpentry.html#cb301-1"></a><span class="kw">tail</span>(bw) </span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" title="1"><span class="kw">tail</span>(bw) </a></code></pre></div>
 <pre><code>## # A tibble: 6 x 11
 ##   ids     age sex   state children smoker hrate bpsyst cellcount immuncount
 ##   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
@@ -812,29 +873,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ... with 1 more variable: immuncount2 &lt;dbl&gt;</code></pre>
 <p>As you can see, we have variables such as <code>ids</code>, <code>age</code>, the state people live in, their heart rate, how many children they have etc. etc.</p>
 <div id="table" class="section level3">
-<h3><span class="header-section-number">4.4.1</span> table()</h3>
+<h3><span class="header-section-number">4.5.1</span> table()</h3>
 <p>This function is not a <code>tidyverse</code> function but is a quick summary function that is useful to know - <code>table()</code>. It is good for quickly summarizing categorical or discrete numerical variables.</p>
 <p>For example, to look at the number of smokers and non-smokers, we can do the following:</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="introduction-to-data-carpentry.html#cb303-1"></a><span class="kw">table</span>(bw<span class="op">$</span>smoker)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" title="1"><span class="kw">table</span>(bw<span class="op">$</span>smoker)</a></code></pre></div>
 <pre><code>## 
 ##  no yes 
 ##  15  15</code></pre>
 <p>We have 15 non-smokers and 15 smokers in the dataset.</p>
 <p>To look at the frequency count of how many subjects have 0, 1, 2, 3 children we can do:</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="introduction-to-data-carpentry.html#cb305-1"></a><span class="kw">table</span>(bw<span class="op">$</span>children)</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" title="1"><span class="kw">table</span>(bw<span class="op">$</span>children)</a></code></pre></div>
 <pre><code>## 
 ##  0  1  2  3 
 ## 13 10  5  2</code></pre>
 <p>We have thirteen people with 0 children ten with 1 child, five with 2 children and two with 3 children.</p>
 <p>You can also compare two categories at once. For instance, to look at the smokers and non-smokers that have different numbers of children, we can include both in the <code>table()</code> function and separate by a comma:</p>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="introduction-to-data-carpentry.html#cb307-1"></a><span class="kw">table</span>(bw<span class="op">$</span>smoker, bw<span class="op">$</span>children)</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" title="1"><span class="kw">table</span>(bw<span class="op">$</span>smoker, bw<span class="op">$</span>children)</a></code></pre></div>
 <pre><code>##      
 ##       0 1 2 3
 ##   no  7 4 3 1
 ##   yes 6 6 2 1</code></pre>
 <p>The <code>tidyverse</code> version of <code>table()</code> is to use a function called <code>count()</code>. It does come in useful sometimes, but most of the time you’ll find using <code>table()</code> to be easier. However, here is an example of counting how many individual by each state there are in the data. You first take your dataset, then chain with the pipe <code>%&gt;%</code> the next command which is to <code>count()</code> the column <code>state</code>.</p>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="introduction-to-data-carpentry.html#cb309-1"></a>bw <span class="op">%&gt;%</span></span>
-<span id="cb309-2"><a href="introduction-to-data-carpentry.html#cb309-2"></a><span class="st">  </span><span class="kw">count</span>(state)</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" title="1">bw <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb81-2" title="2"><span class="st">  </span><span class="kw">count</span>(state)</a></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   state     n
 ##   &lt;chr&gt; &lt;int&gt;
@@ -842,8 +903,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2 NJ       10
 ## 3 NY        8</code></pre>
 <p>We can also get frequency counts for more than one column e.g. to see how many children non-smokers and smokers have, though again, the output from <code>table()</code> is nicer to look at:</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="introduction-to-data-carpentry.html#cb311-1"></a>bw <span class="op">%&gt;%</span></span>
-<span id="cb311-2"><a href="introduction-to-data-carpentry.html#cb311-2"></a><span class="st">  </span><span class="kw">count</span>(smoker, children)</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1">bw <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb83-2" title="2"><span class="st">  </span><span class="kw">count</span>(smoker, children)</a></code></pre></div>
 <pre><code>## # A tibble: 8 x 3
 ##   smoker children     n
 ##   &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt;
@@ -858,11 +919,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br><br></p>
 </div>
 <div id="filter---subsetting-data" class="section level3">
-<h3><span class="header-section-number">4.4.2</span> filter() - Subsetting Data</h3>
+<h3><span class="header-section-number">4.5.2</span> filter() - Subsetting Data</h3>
 <p><code>filter()</code> is a way to subset data. In other words, it is a way to only keep certain rows in your dataset. These are rows that must fulfil specific criteria. For example, let’s say we wish to only keep rows that have values in the <code>hrate</code> column that are over 70.</p>
-<p>The first step is to take the dataframe <code>bw()</code> and then tell R that you are about to do something else with the <code>%&gt;%</code> syntax. Then use <code>filter()</code> with <code>hrate &gt; 70</code> inside it. This mean, <em>keep</em> the rows with <code>hrate&gt;70</code>. See sections (chaining-syntax) and <a href="introduction-to-data-carpentry.html#chaining-together">4.4.6</a> for a bit more on chaining using <code>%&gt;%</code>.</p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="introduction-to-data-carpentry.html#cb313-1"></a>bw <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb313-2"><a href="introduction-to-data-carpentry.html#cb313-2"></a><span class="st">  </span><span class="kw">filter</span>(hrate <span class="op">&gt;</span><span class="st"> </span><span class="dv">70</span>)</span></code></pre></div>
+<p>The first step is to take the dataframe <code>bw()</code> and then tell R that you are about to do something else with the <code>%&gt;%</code> syntax. Then use <code>filter()</code> with <code>hrate &gt; 70</code> inside it. This mean, <em>keep</em> the rows with <code>hrate&gt;70</code>. See sections (chaining-syntax) and <a href="introduction-to-data-carpentry.html#chaining-together">4.5.6</a> for a bit more on chaining using <code>%&gt;%</code>.</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb85-2" title="2"><span class="st">  </span><span class="kw">filter</span>(hrate <span class="op">&gt;</span><span class="st"> </span><span class="dv">70</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 16 x 11
 ##    ids     age sex   state children smoker hrate bpsyst cellcount immuncount
 ##    &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
@@ -885,8 +946,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ... with 1 more variable: immuncount2 &lt;dbl&gt;</code></pre>
 <p>To only keep values that are precisely equal to some value (be it a number or a character), we use <code>filter()</code> with <code>==</code> to mean “is equal to”:</p>
 <p>For example, to only keep rows where the state is equal to <code>NJ</code>.</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="introduction-to-data-carpentry.html#cb315-1"></a>bw <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb315-2"><a href="introduction-to-data-carpentry.html#cb315-2"></a><span class="st">  </span><span class="kw">filter</span>(state <span class="op">==</span><span class="st"> &quot;NJ&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-2" title="2"><span class="st">  </span><span class="kw">filter</span>(state <span class="op">==</span><span class="st"> &quot;NJ&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 10 x 11
 ##    ids     age sex   state children smoker hrate bpsyst cellcount immuncount
 ##    &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
@@ -902,8 +963,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 ECD      68 fema~ NJ           2 yes       77    129     0.404      2.02 
 ## # ... with 1 more variable: immuncount2 &lt;dbl&gt;</code></pre>
 <p>If you want to include all subjects that had 3 children, you’d do the following - note that the number does not go in quote marks:</p>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="introduction-to-data-carpentry.html#cb317-1"></a>bw <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb317-2"><a href="introduction-to-data-carpentry.html#cb317-2"></a><span class="st">  </span><span class="kw">filter</span>(children <span class="op">==</span><span class="st"> </span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb89-2" title="2"><span class="st">  </span><span class="kw">filter</span>(children <span class="op">==</span><span class="st"> </span><span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 2 x 11
 ##   ids     age sex   state children smoker hrate bpsyst cellcount immuncount
 ##   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
@@ -911,8 +972,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2 HDG      68 fema~ NY           3 yes       65    129     0.11        2.65
 ## # ... with 1 more variable: immuncount2 &lt;dbl&gt;</code></pre>
 <p>If you want to include rows that are equal to one of two values, you can use <code>|</code> to mean “OR”. The following will include rows where the <code>state</code> column is equal to either “NJ” or “NY” in the bloodwork dataset.</p>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="introduction-to-data-carpentry.html#cb319-1"></a>bw <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb319-2"><a href="introduction-to-data-carpentry.html#cb319-2"></a><span class="st">  </span><span class="kw">filter</span>(state <span class="op">==</span><span class="st"> &quot;NJ&quot;</span>  <span class="op">|</span><span class="st">  </span>state <span class="op">==</span><span class="st"> &quot;NY&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb91-2" title="2"><span class="st">  </span><span class="kw">filter</span>(state <span class="op">==</span><span class="st"> &quot;NJ&quot;</span>  <span class="op">|</span><span class="st">  </span>state <span class="op">==</span><span class="st"> &quot;NY&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 18 x 11
 ##    ids     age sex   state children smoker hrate bpsyst cellcount immuncount
 ##    &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
@@ -936,8 +997,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 18 ECD      68 fema~ NJ           2 yes       77    129     0.404      2.02 
 ## # ... with 1 more variable: immuncount2 &lt;dbl&gt;</code></pre>
 <p>You can also keep rows that are not equal to some value using the syntax <code>!=</code> which means “not equal to”. For example, to keep rows where the <code>children</code> column is not equal to 0:</p>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="introduction-to-data-carpentry.html#cb321-1"></a>bw <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb321-2"><a href="introduction-to-data-carpentry.html#cb321-2"></a><span class="st">  </span><span class="kw">filter</span>(children <span class="op">!=</span><span class="st"> &quot;0&quot;</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb93-2" title="2"><span class="st">  </span><span class="kw">filter</span>(children <span class="op">!=</span><span class="st"> &quot;0&quot;</span> )</a></code></pre></div>
 <pre><code>## # A tibble: 17 x 11
 ##    ids     age sex   state children smoker hrate bpsyst cellcount immuncount
 ##    &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
@@ -960,8 +1021,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 17 HHJ      69 male  CT           2 no        71    121     0.475      0.463
 ## # ... with 1 more variable: immuncount2 &lt;dbl&gt;</code></pre>
 <p>You can also filter several variables at one time. Here, we are keeping all individuals from New York, with a heart rate of over 70, and who have more than 0 children:</p>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="introduction-to-data-carpentry.html#cb323-1"></a>bw <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb323-2"><a href="introduction-to-data-carpentry.html#cb323-2"></a><span class="st">  </span><span class="kw">filter</span>( state <span class="op">==</span><span class="st"> &quot;NY&quot;</span>, hrate <span class="op">&gt;</span><span class="st"> </span><span class="dv">70</span>, children <span class="op">!=</span><span class="st"> &quot;0&quot;</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb95-2" title="2"><span class="st">  </span><span class="kw">filter</span>( state <span class="op">==</span><span class="st"> &quot;NY&quot;</span>, hrate <span class="op">&gt;</span><span class="st"> </span><span class="dv">70</span>, children <span class="op">!=</span><span class="st"> &quot;0&quot;</span> )</a></code></pre></div>
 <pre><code>## # A tibble: 4 x 11
 ##   ids     age sex   state children smoker hrate bpsyst cellcount immuncount
 ##   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
@@ -971,10 +1032,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 AGC      43 male  NY           1 yes       77    108     0.072       1.44
 ## # ... with 1 more variable: immuncount2 &lt;dbl&gt;</code></pre>
 <p>You can create new datasets from filtered data by creating a new object. Here, we create a new dataset called <code>ny1</code> that is based on filtering out rows from our <code>bw</code> dataset.</p>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="introduction-to-data-carpentry.html#cb325-1"></a>ny1 &lt;-<span class="st"> </span>bw <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb325-2"><a href="introduction-to-data-carpentry.html#cb325-2"></a><span class="st">  </span><span class="kw">filter</span>( state <span class="op">==</span><span class="st"> &quot;NY&quot;</span>, hrate <span class="op">&gt;</span><span class="st"> </span><span class="dv">70</span>, children <span class="op">!=</span><span class="st"> &quot;0&quot;</span> )</span>
-<span id="cb325-3"><a href="introduction-to-data-carpentry.html#cb325-3"></a></span>
-<span id="cb325-4"><a href="introduction-to-data-carpentry.html#cb325-4"></a>ny1</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" title="1">ny1 &lt;-<span class="st"> </span>bw <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb97-2" title="2"><span class="st">  </span><span class="kw">filter</span>( state <span class="op">==</span><span class="st"> &quot;NY&quot;</span>, hrate <span class="op">&gt;</span><span class="st"> </span><span class="dv">70</span>, children <span class="op">!=</span><span class="st"> &quot;0&quot;</span> )</a>
+<a class="sourceLine" id="cb97-3" title="3"></a>
+<a class="sourceLine" id="cb97-4" title="4">ny1</a></code></pre></div>
 <pre><code>## # A tibble: 4 x 11
 ##   ids     age sex   state children smoker hrate bpsyst cellcount immuncount
 ##   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
@@ -986,11 +1047,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br><br></p>
 </div>
 <div id="select---selecting-specific-columns" class="section level3">
-<h3><span class="header-section-number">4.4.3</span> select() - Selecting specific columns</h3>
+<h3><span class="header-section-number">4.5.3</span> select() - Selecting specific columns</h3>
 <p>Sometimes datasets are too big and unwieldy to look at all at once. Often, we are just interested in certain columns and it makes more sense just to keep the ones we want to focus on. We can use <code>select()</code> to only keep certain columns:</p>
 <p>For example, to only keep the columsn <code>ids</code>, <code>smoker</code>, <code>hrate</code> and <code>children</code>, we’d do the following:</p>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="introduction-to-data-carpentry.html#cb327-1"></a>bw <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb327-2"><a href="introduction-to-data-carpentry.html#cb327-2"></a><span class="st">  </span><span class="kw">select</span>(ids, smoker,hrate,children)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb99-2" title="2"><span class="st">  </span><span class="kw">select</span>(ids, smoker,hrate,children)</a></code></pre></div>
 <pre><code>## # A tibble: 30 x 4
 ##    ids   smoker hrate children
 ##    &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt;
@@ -1006,8 +1067,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 IEA   yes       74        0
 ## # ... with 20 more rows</code></pre>
 <p>Occasionally, you may just want to get rid of certain columns from your data. To get rid of one column you can use <code>select(-column_name)</code>. To get rid of the <code>children</code> column, we’d do the following:</p>
-<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="introduction-to-data-carpentry.html#cb329-1"></a>bw <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb329-2"><a href="introduction-to-data-carpentry.html#cb329-2"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>children)</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb101-2" title="2"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>children)</a></code></pre></div>
 <pre><code>## # A tibble: 30 x 10
 ##    ids     age sex    state smoker hrate bpsyst cellcount immuncount immuncount2
 ##    &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;
@@ -1023,8 +1084,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 IEA      29 female CT    yes       74    117     0.429      5.15        4.97 
 ## # ... with 20 more rows</code></pre>
 <p>To get rid of the <code>children</code>, <code>bpsyst</code> and <code>smoker</code> columns, we’d do the following:</p>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="introduction-to-data-carpentry.html#cb331-1"></a>bw <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb331-2"><a href="introduction-to-data-carpentry.html#cb331-2"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>children, <span class="op">-</span>bpsyst, <span class="op">-</span>smoker)</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb103-2" title="2"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>children, <span class="op">-</span>bpsyst, <span class="op">-</span>smoker)</a></code></pre></div>
 <pre><code>## # A tibble: 30 x 8
 ##    ids     age sex    state hrate cellcount immuncount immuncount2
 ##    &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;
@@ -1040,8 +1101,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 IEA      29 female CT       74     0.429      5.15        4.97 
 ## # ... with 20 more rows</code></pre>
 <p>You can also select and rename columns as you go. Here, we are selecting the columns <code>ids</code>, <code>sex</code>, <code>smoker</code>, <code>hrate</code> and <code>children</code>. We are renaming <code>sex</code> to be <code>gender</code> and <code>ids</code> to be <code>subject</code>. You rename by just typing the new name and then putting an <code>=</code> sign in front of the old name:</p>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="introduction-to-data-carpentry.html#cb333-1"></a>bw <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb333-2"><a href="introduction-to-data-carpentry.html#cb333-2"></a><span class="st">  </span><span class="kw">select</span>(<span class="dt">subject =</span> ids, <span class="dt">gender =</span> sex, smoker, hrate, children)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb105-2" title="2"><span class="st">  </span><span class="kw">select</span>(<span class="dt">subject =</span> ids, <span class="dt">gender =</span> sex, smoker, hrate, children)</a></code></pre></div>
 <pre><code>## # A tibble: 30 x 5
 ##    subject gender smoker hrate children
 ##    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt;
@@ -1057,10 +1118,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 IEA     female yes       74        0
 ## # ... with 20 more rows</code></pre>
 <p>If you want these selections to be permanent then you need to rewrite selections in new dataframe. Here we call our new datafame <code>bw1</code>. You can see the difference between bw and bw1:</p>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="introduction-to-data-carpentry.html#cb335-1"></a>bw1 &lt;-<span class="st"> </span>bw <span class="op">%&gt;%</span><span class="st">  </span></span>
-<span id="cb335-2"><a href="introduction-to-data-carpentry.html#cb335-2"></a><span class="st">  </span><span class="kw">select</span>(<span class="dt">subject =</span> ids, <span class="dt">gender =</span> sex, smoker,hrate,children)</span>
-<span id="cb335-3"><a href="introduction-to-data-carpentry.html#cb335-3"></a></span>
-<span id="cb335-4"><a href="introduction-to-data-carpentry.html#cb335-4"></a><span class="kw">head</span>(bw)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" title="1">bw1 &lt;-<span class="st"> </span>bw <span class="op">%&gt;%</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb107-2" title="2"><span class="st">  </span><span class="kw">select</span>(<span class="dt">subject =</span> ids, <span class="dt">gender =</span> sex, smoker,hrate,children)</a>
+<a class="sourceLine" id="cb107-3" title="3"></a>
+<a class="sourceLine" id="cb107-4" title="4"><span class="kw">head</span>(bw)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 11
 ##   ids     age sex   state children smoker hrate bpsyst cellcount immuncount
 ##   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
@@ -1071,7 +1132,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 AJF      24 fema~ NJ           0 no        67    108     0.092      6.45 
 ## 6 FJC      25 fema~ NY           1 yes       80    118     0.014      3.97 
 ## # ... with 1 more variable: immuncount2 &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="introduction-to-data-carpentry.html#cb337-1"></a><span class="kw">head</span>(bw1)</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" title="1"><span class="kw">head</span>(bw1)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 5
 ##   subject gender smoker hrate children
 ##   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt;
@@ -1083,7 +1144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6 FJC     female yes       80        1</code></pre>
 <p>Instead of typing out the column name each time you use <code>select()</code>, you can also use the column number.</p>
 <p>The code below selects for columns 1-2, 8, 10, but does not save the information as a new object. Notice that you don’t need to put these numbers inside of <code>c()</code> for this to work:</p>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="introduction-to-data-carpentry.html#cb339-1"></a>bw <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">8</span>,<span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1">bw <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">8</span>,<span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 30 x 4
 ##    ids     age bpsyst immuncount
 ##    &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
@@ -1101,14 +1162,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br><br></p>
 </div>
 <div id="mutate---creating-new-columns" class="section level3">
-<h3><span class="header-section-number">4.4.4</span> mutate() - Creating new columns</h3>
+<h3><span class="header-section-number">4.5.4</span> mutate() - Creating new columns</h3>
 <p>We use <code>mutate()</code> to add new columns to our dataset. Say we wanted to create a new column called <code>totalimmune</code> that is the sum of the two columns <code>immuncount</code> and <code>immuncount2</code>. Basically, we want to add each subject’s <code>immuncount</code> and <code>immuncount2</code> value together to create a new value called <code>totalimmune</code> that we’ll put into the new column.</p>
 <p>The first thing you put inside <code>mutate()</code> is the name we want of the new column. <code>immuncount + immuncount</code> means to add these two columns.</p>
 <p>To make these easier to see, we’ll just select three columns and call the new dataset <code>bw2</code>:</p>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="introduction-to-data-carpentry.html#cb341-1"></a>bw2 &lt;-<span class="st"> </span>bw <span class="op">%&gt;%</span></span>
-<span id="cb341-2"><a href="introduction-to-data-carpentry.html#cb341-2"></a><span class="st">  </span><span class="kw">select</span>(ids, immuncount, immuncount2)</span>
-<span id="cb341-3"><a href="introduction-to-data-carpentry.html#cb341-3"></a></span>
-<span id="cb341-4"><a href="introduction-to-data-carpentry.html#cb341-4"></a>bw2</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1">bw2 &lt;-<span class="st"> </span>bw <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb113-2" title="2"><span class="st">  </span><span class="kw">select</span>(ids, immuncount, immuncount2)</a>
+<a class="sourceLine" id="cb113-3" title="3"></a>
+<a class="sourceLine" id="cb113-4" title="4">bw2</a></code></pre></div>
 <pre><code>## # A tibble: 30 x 3
 ##    ids   immuncount immuncount2
 ##    &lt;chr&gt;      &lt;dbl&gt;       &lt;dbl&gt;
@@ -1123,8 +1184,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 BFB        0.724       0.848
 ## 10 IEA        5.15        4.97 
 ## # ... with 20 more rows</code></pre>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="introduction-to-data-carpentry.html#cb343-1"></a>bw2 <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb343-2"><a href="introduction-to-data-carpentry.html#cb343-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">totalimmune =</span> immuncount <span class="op">+</span><span class="st"> </span>immuncount2)</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1">bw2 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb115-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">totalimmune =</span> immuncount <span class="op">+</span><span class="st"> </span>immuncount2)</a></code></pre></div>
 <pre><code>## # A tibble: 30 x 4
 ##    ids   immuncount immuncount2 totalimmune
 ##    &lt;chr&gt;      &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
@@ -1140,8 +1201,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 IEA        5.15        4.97        10.1 
 ## # ... with 20 more rows</code></pre>
 <p>You can also create new columns in other ways. For example, if you want to create a new column called <code>year</code> and put 2020 into each row, we’d do the following:</p>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="introduction-to-data-carpentry.html#cb345-1"></a>bw2 <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb345-2"><a href="introduction-to-data-carpentry.html#cb345-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="dv">2020</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1">bw2 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb117-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="dv">2020</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 30 x 4
 ##    ids   immuncount immuncount2  year
 ##    &lt;chr&gt;      &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
@@ -1159,14 +1220,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br><br></p>
 </div>
 <div id="arrange---sort-data-columns" class="section level3">
-<h3><span class="header-section-number">4.4.5</span> arrange() - Sort Data Columns</h3>
+<h3><span class="header-section-number">4.5.5</span> arrange() - Sort Data Columns</h3>
 <p>Often it’s easier to see data if the columns are sorted in ascending or descending order. We can do this using <code>arrange()</code>.</p>
 <p>Lets try another example! We’ll use the <code>pga.csv</code> dataset that has historical golf data summary statistics in it. Let’s load in that dataset:</p>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="introduction-to-data-carpentry.html#cb347-1"></a>pga &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/pga.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1">pga &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/pga.csv&quot;</span>)</a></code></pre></div>
 <p>We will select the columns <code>name</code>, <code>year</code>, <code>total.holes</code>, <code>total.putts</code>, and <code>score.avg</code> and save as <code>pga1</code>.</p>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="introduction-to-data-carpentry.html#cb348-1"></a>pga1 &lt;-<span class="st"> </span>pga <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(name, year, total.holes, total.putts, score.avg)  </span>
-<span id="cb348-2"><a href="introduction-to-data-carpentry.html#cb348-2"></a></span>
-<span id="cb348-3"><a href="introduction-to-data-carpentry.html#cb348-3"></a><span class="kw">head</span>(pga1)</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" title="1">pga1 &lt;-<span class="st"> </span>pga <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(name, year, total.holes, total.putts, score.avg)  </a>
+<a class="sourceLine" id="cb120-2" title="2"></a>
+<a class="sourceLine" id="cb120-3" title="3"><span class="kw">head</span>(pga1)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 5
 ##   name            year total.holes total.putts score.avg
 ##   &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;
@@ -1178,8 +1239,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6 Jose Coceres    2004        1152        1819      71.0</code></pre>
 <p>You can see that we have the total number of holes played, the total number of putts made, and the scoring average (lower is better in golf) made each year by various PGA golfers.</p>
 <p>Perhaps we want to know who has the highest or lowest scoring average. We can sort based on the column <code>score.avg</code> in ascending order with <code>arrange()</code> like this:</p>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="introduction-to-data-carpentry.html#cb350-1"></a>pga1 <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb350-2"><a href="introduction-to-data-carpentry.html#cb350-2"></a><span class="st">  </span><span class="kw">arrange</span>(score.avg)  </span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" title="1">pga1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb122-2" title="2"><span class="st">  </span><span class="kw">arrange</span>(score.avg)  </a></code></pre></div>
 <pre><code>## # A tibble: 2,269 x 5
 ##    name            year total.holes total.putts score.avg
 ##    &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;
@@ -1196,8 +1257,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ... with 2,259 more rows</code></pre>
 <p>So, the lowest average score was 67.794 by Tiger Woods in 2007. The second lowest was 68.052 by Tiger Woods in 2009.</p>
 <p>To sort data in descending order, we need to put a negative sign (hyphen) <code>-</code> in front of the column name:</p>
-<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="introduction-to-data-carpentry.html#cb352-1"></a>pga1 <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb352-2"><a href="introduction-to-data-carpentry.html#cb352-2"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>score.avg)  </span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" title="1">pga1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb124-2" title="2"><span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>score.avg)  </a></code></pre></div>
 <pre><code>## # A tibble: 2,269 x 5
 ##    name              year total.holes total.putts score.avg
 ##    &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;
@@ -1214,8 +1275,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ... with 2,259 more rows</code></pre>
 <p>The worst average score on the PGA tour was by David Gossett in 2004 with an average of 75.013.</p>
 <p><code>arrange()</code> can also sort data in ascending alphabetical order, if you put a column with character data into the function, such as the <code>name</code> column in our data:</p>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="introduction-to-data-carpentry.html#cb354-1"></a>pga1 <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb354-2"><a href="introduction-to-data-carpentry.html#cb354-2"></a><span class="st">  </span><span class="kw">arrange</span>(name) </span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" title="1">pga1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb126-2" title="2"><span class="st">  </span><span class="kw">arrange</span>(name) </a></code></pre></div>
 <pre><code>## # A tibble: 2,269 x 5
 ##    name            year total.holes total.putts score.avg
 ##    &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;
@@ -1232,8 +1293,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ... with 2,259 more rows</code></pre>
 <p>It turns out that Aaron Baddeley is the player that is closest to the beginning of the alphabet. You cannot sort in a descending way on character data.</p>
 <p>If you wish to sort over multiple columns, you just need to separate your column names with a comma inside <code>arrange()</code>. So, to first sort by <code>year</code>, and then by <code>score.avg</code>, we’d do the following:</p>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="introduction-to-data-carpentry.html#cb356-1"></a>pga1 <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb356-2"><a href="introduction-to-data-carpentry.html#cb356-2"></a><span class="st">  </span><span class="kw">arrange</span>(year, score.avg)  </span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" title="1">pga1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb128-2" title="2"><span class="st">  </span><span class="kw">arrange</span>(year, score.avg)  </a></code></pre></div>
 <pre><code>## # A tibble: 2,269 x 5
 ##    name            year total.holes total.putts score.avg
 ##    &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;
@@ -1252,12 +1313,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br><br></p>
 </div>
 <div id="chaining-together" class="section level3">
-<h3><span class="header-section-number">4.4.6</span> Chaining together</h3>
+<h3><span class="header-section-number">4.5.6</span> Chaining together</h3>
 <p>Just as an extra note, the real power of these <code>tidyverse</code> commands, is by chaining them all together. So, one thing we could do is select from our original <code>pga</code> dataset the columns above, then create a new column called <code>putt.avg</code> which is equal to the total number of putts <code>total.putts</code> divided by the total number of holes <code>total.holes</code> columns, and then arrange in ascending order by the new <code>putt.avg</code> column. Here it is in one bit of code:</p>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="introduction-to-data-carpentry.html#cb358-1"></a>pga <span class="op">%&gt;%</span></span>
-<span id="cb358-2"><a href="introduction-to-data-carpentry.html#cb358-2"></a><span class="st">  </span><span class="kw">select</span>(name, year, total.holes, total.putts, score.avg)  <span class="op">%&gt;%</span></span>
-<span id="cb358-3"><a href="introduction-to-data-carpentry.html#cb358-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">putt.avg =</span> total.putts <span class="op">/</span><span class="st"> </span>total.holes) <span class="op">%&gt;%</span></span>
-<span id="cb358-4"><a href="introduction-to-data-carpentry.html#cb358-4"></a><span class="st">  </span><span class="kw">arrange</span>(putt.avg)</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" title="1">pga <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb130-2" title="2"><span class="st">  </span><span class="kw">select</span>(name, year, total.holes, total.putts, score.avg)  <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb130-3" title="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">putt.avg =</span> total.putts <span class="op">/</span><span class="st"> </span>total.holes) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb130-4" title="4"><span class="st">  </span><span class="kw">arrange</span>(putt.avg)</a></code></pre></div>
 <pre><code>## # A tibble: 2,269 x 6
 ##    name            year total.holes total.putts score.avg putt.avg
 ##    &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
@@ -1277,7 +1338,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="wide-versus-long-data" class="section level2">
-<h2><span class="header-section-number">4.5</span> Wide versus Long Data</h2>
+<h2><span class="header-section-number">4.6</span> Wide versus Long Data</h2>
 <p>Sometimes you will need to rearrange your data for some data analysis and more commonly for data visualization. Dataframes can come in two broad shapes. There is <strong>wide data</strong> where each row is a separate subject and each column has variables that may or may not contain the same type of data. The other is <strong>long data</strong> where values of the same type are only in one column, and the same subject may appear on several rows.</p>
 <p>This is easier to understand with a visual aid. The image below show data that is in <strong>wide</strong> format. Each row contains all the information for each subject - those being three NHL hockey teams. We see the division that each team belongs to, and the total goals they scored in the seasons beginning in 2016, 2017, 2018.</p>
 <p><img src="img/carp1.png" /></p>
@@ -1288,16 +1349,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Fortunately, the <code>tidyverse</code> has built in functions that can turn your dataframe from long format to wide format and vice versa.</p>
 <p><code>pivot_longer</code> makes the dataframes longer by increasing the number of rows by combing the number of columns. This is called long form data, which is needed to tidy data for graphing and some analysis.</p>
 <p>First, we’ll make some small dataframe examples manually. The first dataframe is a wide dataframe. You could imagine this as showing five subjects and their reaction times at two different timepoints. We call this dataframe <code>df.wide</code>:</p>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="introduction-to-data-carpentry.html#cb360-1"></a><span class="co"># wide data has more than one score of each type per individual in rows</span></span>
-<span id="cb360-2"><a href="introduction-to-data-carpentry.html#cb360-2"></a></span>
-<span id="cb360-3"><a href="introduction-to-data-carpentry.html#cb360-3"></a>df.wide &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb360-4"><a href="introduction-to-data-carpentry.html#cb360-4"></a>                 <span class="dt">name =</span> <span class="kw">c</span>(<span class="st">&quot;James&quot;</span>, <span class="st">&quot;Tyler&quot;</span>, <span class="st">&quot;Stephen&quot;</span>, <span class="st">&quot;Jennifer&quot;</span>, <span class="st">&quot;Carmen&quot;</span>),</span>
-<span id="cb360-5"><a href="introduction-to-data-carpentry.html#cb360-5"></a>                 <span class="dt">time1 =</span> <span class="kw">c</span>(<span class="dv">15</span>, <span class="dv">17</span>, <span class="dv">14</span>, <span class="dv">13</span>, <span class="dv">11</span>),</span>
-<span id="cb360-6"><a href="introduction-to-data-carpentry.html#cb360-6"></a>                 <span class="dt">time2 =</span> <span class="kw">c</span>(<span class="dv">16</span>, <span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">23</span>)</span>
-<span id="cb360-7"><a href="introduction-to-data-carpentry.html#cb360-7"></a>                 )</span>
-<span id="cb360-8"><a href="introduction-to-data-carpentry.html#cb360-8"></a></span>
-<span id="cb360-9"><a href="introduction-to-data-carpentry.html#cb360-9"></a></span>
-<span id="cb360-10"><a href="introduction-to-data-carpentry.html#cb360-10"></a>df.wide</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" title="1"><span class="co"># wide data has more than one score of each type per individual in rows</span></a>
+<a class="sourceLine" id="cb132-2" title="2"></a>
+<a class="sourceLine" id="cb132-3" title="3">df.wide &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb132-4" title="4">                 <span class="dt">name =</span> <span class="kw">c</span>(<span class="st">&quot;James&quot;</span>, <span class="st">&quot;Tyler&quot;</span>, <span class="st">&quot;Stephen&quot;</span>, <span class="st">&quot;Jennifer&quot;</span>, <span class="st">&quot;Carmen&quot;</span>),</a>
+<a class="sourceLine" id="cb132-5" title="5">                 <span class="dt">time1 =</span> <span class="kw">c</span>(<span class="dv">15</span>, <span class="dv">17</span>, <span class="dv">14</span>, <span class="dv">13</span>, <span class="dv">11</span>),</a>
+<a class="sourceLine" id="cb132-6" title="6">                 <span class="dt">time2 =</span> <span class="kw">c</span>(<span class="dv">16</span>, <span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">23</span>)</a>
+<a class="sourceLine" id="cb132-7" title="7">                 )</a>
+<a class="sourceLine" id="cb132-8" title="8"></a>
+<a class="sourceLine" id="cb132-9" title="9"></a>
+<a class="sourceLine" id="cb132-10" title="10">df.wide</a></code></pre></div>
 <pre><code>##       name time1 time2
 ## 1    James    15    16
 ## 2    Tyler    17    19
@@ -1305,16 +1366,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 Jennifer    13    21
 ## 5   Carmen    11    23</code></pre>
 <p>The second dataframe we’ll create manually contains the same data, but in a long tidy format:</p>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="introduction-to-data-carpentry.html#cb362-1"></a><span class="co"># long data (also called tidy data) has only one column for each type of score</span></span>
-<span id="cb362-2"><a href="introduction-to-data-carpentry.html#cb362-2"></a><span class="co"># Every row has the information to make each score unique</span></span>
-<span id="cb362-3"><a href="introduction-to-data-carpentry.html#cb362-3"></a></span>
-<span id="cb362-4"><a href="introduction-to-data-carpentry.html#cb362-4"></a>df.long &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb362-5"><a href="introduction-to-data-carpentry.html#cb362-5"></a>                 <span class="dt">name =</span> <span class="kw">c</span>(<span class="st">&quot;James&quot;</span>, <span class="st">&quot;Tyler&quot;</span>, <span class="st">&quot;Stephen&quot;</span>, <span class="st">&quot;Jennifer&quot;</span>, <span class="st">&quot;Carmen&quot;</span>),</span>
-<span id="cb362-6"><a href="introduction-to-data-carpentry.html#cb362-6"></a>                 <span class="dt">score =</span> <span class="kw">c</span>(<span class="dv">15</span>, <span class="dv">17</span>, <span class="dv">14</span>, <span class="dv">13</span>, <span class="dv">11</span>, <span class="dv">16</span>, <span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">23</span>),</span>
-<span id="cb362-7"><a href="introduction-to-data-carpentry.html#cb362-7"></a>                 <span class="dt">time =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;time1&quot;</span>, <span class="st">&quot;time2&quot;</span>), <span class="dt">each =</span> <span class="dv">5</span>)</span>
-<span id="cb362-8"><a href="introduction-to-data-carpentry.html#cb362-8"></a>)</span>
-<span id="cb362-9"><a href="introduction-to-data-carpentry.html#cb362-9"></a></span>
-<span id="cb362-10"><a href="introduction-to-data-carpentry.html#cb362-10"></a>df.long </span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" title="1"><span class="co"># long data (also called tidy data) has only one column for each type of score</span></a>
+<a class="sourceLine" id="cb134-2" title="2"><span class="co"># Every row has the information to make each score unique</span></a>
+<a class="sourceLine" id="cb134-3" title="3"></a>
+<a class="sourceLine" id="cb134-4" title="4">df.long &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb134-5" title="5">                 <span class="dt">name =</span> <span class="kw">c</span>(<span class="st">&quot;James&quot;</span>, <span class="st">&quot;Tyler&quot;</span>, <span class="st">&quot;Stephen&quot;</span>, <span class="st">&quot;Jennifer&quot;</span>, <span class="st">&quot;Carmen&quot;</span>),</a>
+<a class="sourceLine" id="cb134-6" title="6">                 <span class="dt">score =</span> <span class="kw">c</span>(<span class="dv">15</span>, <span class="dv">17</span>, <span class="dv">14</span>, <span class="dv">13</span>, <span class="dv">11</span>, <span class="dv">16</span>, <span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">23</span>),</a>
+<a class="sourceLine" id="cb134-7" title="7">                 <span class="dt">time =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;time1&quot;</span>, <span class="st">&quot;time2&quot;</span>), <span class="dt">each =</span> <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb134-8" title="8">)</a>
+<a class="sourceLine" id="cb134-9" title="9"></a>
+<a class="sourceLine" id="cb134-10" title="10">df.long </a></code></pre></div>
 <pre><code>##        name score  time
 ## 1     James    15 time1
 ## 2     Tyler    17 time1
@@ -1327,11 +1388,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 9  Jennifer    21 time2
 ## 10   Carmen    23 time2</code></pre>
 <div id="wide-to-long" class="section level3">
-<h3><span class="header-section-number">4.5.1</span> Wide to Long</h3>
+<h3><span class="header-section-number">4.6.1</span> Wide to Long</h3>
 <p>To go from wide to long format we can use <code>pivot_longer</code>. We need to tell R which columns contain the data that are currently in wide format and need to be turned into long format. Here, we put <code>cols = 2:3</code> to indicate that the data are in columns 2 and 3. We also use <code>names_to</code> to tell it that we want the new column to be called <code>time</code>:</p>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="introduction-to-data-carpentry.html#cb364-1"></a><span class="co"># turn columns 2 and 3 into one long column:</span></span>
-<span id="cb364-2"><a href="introduction-to-data-carpentry.html#cb364-2"></a>df.wide <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb364-3"><a href="introduction-to-data-carpentry.html#cb364-3"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">names_to=</span><span class="st">&quot;time&quot;</span>)  </span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" title="1"><span class="co"># turn columns 2 and 3 into one long column:</span></a>
+<a class="sourceLine" id="cb136-2" title="2">df.wide <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb136-3" title="3"><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">names_to=</span><span class="st">&quot;time&quot;</span>)  </a></code></pre></div>
 <pre><code>## # A tibble: 10 x 3
 ##    name     time  value
 ##    &lt;fct&gt;    &lt;chr&gt; &lt;dbl&gt;
@@ -1346,9 +1407,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 Carmen   time1    11
 ## 10 Carmen   time2    23</code></pre>
 <p>Our example dataset was very simple, only containing an identifier (<code>name</code>) column and the two columns with data. What if we had other columns in our dataset? Here we add a column called <code>group</code> that indicates if our subject are in a control or treatment group:</p>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="introduction-to-data-carpentry.html#cb366-1"></a>df.wide<span class="op">$</span>group &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;control&quot;</span>, <span class="st">&quot;control&quot;</span>, <span class="st">&quot;treatment&quot;</span>, <span class="st">&quot;treatment&quot;</span>, <span class="st">&quot;treatment&quot;</span>)</span>
-<span id="cb366-2"><a href="introduction-to-data-carpentry.html#cb366-2"></a></span>
-<span id="cb366-3"><a href="introduction-to-data-carpentry.html#cb366-3"></a>df.wide</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" title="1">df.wide<span class="op">$</span>group &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;control&quot;</span>, <span class="st">&quot;control&quot;</span>, <span class="st">&quot;treatment&quot;</span>, <span class="st">&quot;treatment&quot;</span>, <span class="st">&quot;treatment&quot;</span>)</a>
+<a class="sourceLine" id="cb138-2" title="2"></a>
+<a class="sourceLine" id="cb138-3" title="3">df.wide</a></code></pre></div>
 <pre><code>##       name time1 time2     group
 ## 1    James    15    16   control
 ## 2    Tyler    17    19   control
@@ -1356,8 +1417,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 Jennifer    13    21 treatment
 ## 5   Carmen    11    23 treatment</code></pre>
 <p>To convert this dataframe to a long dataframe, we still use the same code indicating that the data to make long are contained in columns 2 and 3. Because each individual is always in the same group (e.g. James is always a control, Carmen is always in treatment), R will just make this a new column:</p>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="introduction-to-data-carpentry.html#cb368-1"></a>df.wide <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb368-2"><a href="introduction-to-data-carpentry.html#cb368-2"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">names_to=</span><span class="st">&quot;time&quot;</span>)  </span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" title="1">df.wide <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb140-2" title="2"><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">names_to=</span><span class="st">&quot;time&quot;</span>)  </a></code></pre></div>
 <pre><code>## # A tibble: 10 x 4
 ##    name     group     time  value
 ##    &lt;fct&gt;    &lt;chr&gt;     &lt;chr&gt; &lt;dbl&gt;
@@ -1373,9 +1434,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 Carmen   treatment time2    23</code></pre>
 </div>
 <div id="long-to-wide" class="section level3">
-<h3><span class="header-section-number">4.5.2</span> Long to Wide</h3>
+<h3><span class="header-section-number">4.6.2</span> Long to Wide</h3>
 <p>If we start with data in the long format, we can convert the dataframe to wide format using <code>pivot_wider()</code>. Here, we need to provide the name of the column that contains the data to become new wide columns. We do that below with <code>values_from = score</code>. We also need to state which column contains the new column headers. In this example they are in the column <code>time</code>, so we do that with <code>names_from = time</code>.</p>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="introduction-to-data-carpentry.html#cb370-1"></a><span class="kw">head</span>(df.long)</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" title="1"><span class="kw">head</span>(df.long)</a></code></pre></div>
 <pre><code>##       name score  time
 ## 1    James    15 time1
 ## 2    Tyler    17 time1
@@ -1383,8 +1444,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 Jennifer    13 time1
 ## 5   Carmen    11 time1
 ## 6    James    16 time2</code></pre>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="introduction-to-data-carpentry.html#cb372-1"></a>df.long <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb372-2"><a href="introduction-to-data-carpentry.html#cb372-2"></a><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">values_from =</span> score, <span class="dt">names_from =</span> time)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" title="1">df.long <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb144-2" title="2"><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">values_from =</span> score, <span class="dt">names_from =</span> time)</a></code></pre></div>
 <pre><code>## # A tibble: 5 x 3
 ##   name     time1 time2
 ##   &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt;
@@ -1395,10 +1456,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 Carmen      11    23</code></pre>
 <p>Now our data are in a wide format.</p>
 <p>Again, it is more common that we have more columns in our dataset. Say we had rated the confidence of each participant on the tasks prior to testing them. We may have a column called confidence that might look like this:</p>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="introduction-to-data-carpentry.html#cb374-1"></a><span class="co"># if we had more columns in our dataset:</span></span>
-<span id="cb374-2"><a href="introduction-to-data-carpentry.html#cb374-2"></a>df.long<span class="op">$</span>confidence &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">10</span>) <span class="co"># this repeats all the way down the dataset</span></span>
-<span id="cb374-3"><a href="introduction-to-data-carpentry.html#cb374-3"></a></span>
-<span id="cb374-4"><a href="introduction-to-data-carpentry.html#cb374-4"></a>df.long</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" title="1"><span class="co"># if we had more columns in our dataset:</span></a>
+<a class="sourceLine" id="cb146-2" title="2">df.long<span class="op">$</span>confidence &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">10</span>) <span class="co"># this repeats all the way down the dataset</span></a>
+<a class="sourceLine" id="cb146-3" title="3"></a>
+<a class="sourceLine" id="cb146-4" title="4">df.long</a></code></pre></div>
 <pre><code>##        name score  time confidence
 ## 1     James    15 time1          3
 ## 2     Tyler    17 time1          8
@@ -1411,8 +1472,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 9  Jennifer    21 time2          4
 ## 10   Carmen    23 time2         10</code></pre>
 <p>Even when we have more columns, we still can make our data go wide in the same way:</p>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="introduction-to-data-carpentry.html#cb376-1"></a>df.long <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb376-2"><a href="introduction-to-data-carpentry.html#cb376-2"></a><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">values_from =</span> score, <span class="dt">names_from =</span> time)</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" title="1">df.long <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb148-2" title="2"><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">values_from =</span> score, <span class="dt">names_from =</span> time)</a></code></pre></div>
 <pre><code>## # A tibble: 5 x 4
 ##   name     confidence time1 time2
 ##   &lt;fct&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -1424,12 +1485,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Here, it just truncates the <code>confidence</code> column into one column to go along with <code>name</code>.</p>
 </div>
 <div id="real-data-example." class="section level3">
-<h3><span class="header-section-number">4.5.3</span> Real Data Example.</h3>
+<h3><span class="header-section-number">4.6.3</span> Real Data Example.</h3>
 <p>It can be quite hard to work out which columns to select when converting data from long to wide. It mainly comes from practice and from trial-and-error. You can always check if you got it right, and correct yourself if you did not. In this section, we’ll just show an example of converting dataframes between these two formats using some real data.</p>
 <p>The dataset we’ll use is called <code>wheels1.csv</code>. We’ll read it in and assign the name <code>wheel</code>:</p>
-<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="introduction-to-data-carpentry.html#cb378-1"></a>wheel &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/wheels1.csv&quot;</span>)</span>
-<span id="cb378-2"><a href="introduction-to-data-carpentry.html#cb378-2"></a></span>
-<span id="cb378-3"><a href="introduction-to-data-carpentry.html#cb378-3"></a><span class="kw">head</span>(wheel)</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" title="1">wheel &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/wheels1.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb150-2" title="2"></a>
+<a class="sourceLine" id="cb150-3" title="3"><span class="kw">head</span>(wheel)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 14
 ##   strain id      day1  day2   day3   day4 dob   mother sex   wheel startdate
 ##   &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;    
@@ -1441,9 +1502,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6 B6     656al  6517  4440   5334.  9291  12/1~ 554aa  male      8 10/9/2005
 ## # ... with 3 more variables: total &lt;dbl&gt;, age &lt;dbl&gt;, group &lt;chr&gt;</code></pre>
 <p>We’re mainly interested in the <code>id</code>, <code>strain</code> and columns with day in, so we shall use <code>select()</code> to select these columns:</p>
-<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="introduction-to-data-carpentry.html#cb380-1"></a>wheeldf &lt;-<span class="st"> </span>wheel <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(id, strain, day1,day2,day3,day4)</span>
-<span id="cb380-2"><a href="introduction-to-data-carpentry.html#cb380-2"></a></span>
-<span id="cb380-3"><a href="introduction-to-data-carpentry.html#cb380-3"></a><span class="kw">head</span>(wheeldf)</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" title="1">wheeldf &lt;-<span class="st"> </span>wheel <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(id, strain, day1,day2,day3,day4)</a>
+<a class="sourceLine" id="cb152-2" title="2"></a>
+<a class="sourceLine" id="cb152-3" title="3"><span class="kw">head</span>(wheeldf)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 6
 ##   id    strain   day1  day2   day3   day4
 ##   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -1455,11 +1516,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6 656al B6      6517  4440   5334.  9291</code></pre>
 <p>These data represent the number id of individual mice, the strain of that mouse, and the number of wheel revolutions made on day1, day2, day3 and day4. It’s currently in wide format.</p>
 <p>Let’s convert it to long format, by taking the data in each day column and forcing them to go long:</p>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="introduction-to-data-carpentry.html#cb382-1"></a><span class="co">#convert to long</span></span>
-<span id="cb382-2"><a href="introduction-to-data-carpentry.html#cb382-2"></a>wheeldf.long &lt;-<span class="st"> </span>wheeldf <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb382-3"><a href="introduction-to-data-carpentry.html#cb382-3"></a><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">3</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">names_to=</span><span class="st">&quot;day&quot;</span>)  </span>
-<span id="cb382-4"><a href="introduction-to-data-carpentry.html#cb382-4"></a></span>
-<span id="cb382-5"><a href="introduction-to-data-carpentry.html#cb382-5"></a>wheeldf.long</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" title="1"><span class="co">#convert to long</span></a>
+<a class="sourceLine" id="cb154-2" title="2">wheeldf.long &lt;-<span class="st"> </span>wheeldf <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb154-3" title="3"><span class="st">  </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="dv">3</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">names_to=</span><span class="st">&quot;day&quot;</span>)  </a>
+<a class="sourceLine" id="cb154-4" title="4"></a>
+<a class="sourceLine" id="cb154-5" title="5">wheeldf.long</a></code></pre></div>
 <pre><code>## # A tibble: 320 x 4
 ##    id    strain day    value
 ##    &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt;
@@ -1475,12 +1536,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 675ag B6     day2   3054.
 ## # ... with 310 more rows</code></pre>
 <p>If we wished to make our new <code>wheeldf.long</code> dataset to go back to a wide format, we could do this:</p>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="introduction-to-data-carpentry.html#cb384-1"></a><span class="co"># to make it go wider again, we do:</span></span>
-<span id="cb384-2"><a href="introduction-to-data-carpentry.html#cb384-2"></a>wheeldf.long <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb384-3"><a href="introduction-to-data-carpentry.html#cb384-3"></a><span class="st">              </span><span class="kw">pivot_wider</span>(</span>
-<span id="cb384-4"><a href="introduction-to-data-carpentry.html#cb384-4"></a>                 <span class="dt">names_from =</span> day,</span>
-<span id="cb384-5"><a href="introduction-to-data-carpentry.html#cb384-5"></a>                 <span class="dt">values_from =</span> value</span>
-<span id="cb384-6"><a href="introduction-to-data-carpentry.html#cb384-6"></a>                    )</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" title="1"><span class="co"># to make it go wider again, we do:</span></a>
+<a class="sourceLine" id="cb156-2" title="2">wheeldf.long <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb156-3" title="3"><span class="st">              </span><span class="kw">pivot_wider</span>(</a>
+<a class="sourceLine" id="cb156-4" title="4">                 <span class="dt">names_from =</span> day,</a>
+<a class="sourceLine" id="cb156-5" title="5">                 <span class="dt">values_from =</span> value</a>
+<a class="sourceLine" id="cb156-6" title="6">                    )</a></code></pre></div>
 <pre><code>## # A tibble: 80 x 6
 ##    id    strain   day1   day2   day3   day4
 ##    &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -1498,14 +1559,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="joins" class="section level2">
-<h2><span class="header-section-number">4.6</span> Joins</h2>
+<h2><span class="header-section-number">4.7</span> Joins</h2>
 <p>A common requirement in data science is to join together two datasets. Usually these two datasets will have some bits of data in common. For instance, you may have one dataset that contains subject names and lots of demographic information. Another dataset might contain the subject names and their performance on various tests. Ideally, you’d have all of this information in one dataframe. The <code>tidyverse</code> is excellent at joining dataframes quickly and automatically. It is <em>far</em> more foolproof than cutting, copying and pasting in excel which should always be a no-no.</p>
 <p>In this course, we won’t actually ever ask you to do any joining. All the datasets that we provide are already cleaned up. However, we are including this small subsection in this guide to introduce you to the topic, should it be something you ever need to do on your own. Joining is surprisingly a really big topic by itself, so we just scratch the surface here. For much more information on this topic, we highly recommend <a href="https://stat545.com/join-cheatsheet.html">Prof Jenny Bryan’s guides</a> as a good starting point.</p>
 <p>To illustrate the power of joining, lets make up some data.</p>
 <p>The first dataframe, <code>x</code> contains ten subjects who are referred to by an <code>id</code> and their ages (<code>age</code>).</p>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="introduction-to-data-carpentry.html#cb386-1"></a>x &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;id&quot;</span> =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="st">&quot;age&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">21</span>,<span class="dv">25</span>,<span class="dv">17</span>,<span class="dv">34</span>,<span class="dv">25</span>,<span class="dv">33</span>,<span class="dv">22</span>,<span class="dv">27</span>,<span class="dv">29</span>,<span class="dv">24</span>))</span>
-<span id="cb386-2"><a href="introduction-to-data-carpentry.html#cb386-2"></a></span>
-<span id="cb386-3"><a href="introduction-to-data-carpentry.html#cb386-3"></a><span class="kw">head</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" title="1">x &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&quot;id&quot;</span> =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="st">&quot;age&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">21</span>,<span class="dv">25</span>,<span class="dv">17</span>,<span class="dv">34</span>,<span class="dv">25</span>,<span class="dv">33</span>,<span class="dv">22</span>,<span class="dv">27</span>,<span class="dv">29</span>,<span class="dv">24</span>))</a>
+<a class="sourceLine" id="cb158-2" title="2"></a>
+<a class="sourceLine" id="cb158-3" title="3"><span class="kw">head</span>(x)</a></code></pre></div>
 <pre><code>##   id age
 ## 1  1  21
 ## 2  2  25
@@ -1514,14 +1575,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5  5  25
 ## 6  6  33</code></pre>
 <p>The second dataframe, <code>y</code>, contains the <code>id</code> of each individual again, but this time we also have data on their height, as well as how many hours they spent on an activity and some work.</p>
-<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="introduction-to-data-carpentry.html#cb388-1"></a>y &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb388-2"><a href="introduction-to-data-carpentry.html#cb388-2"></a>  <span class="st">&quot;id&quot;</span> =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, </span>
-<span id="cb388-3"><a href="introduction-to-data-carpentry.html#cb388-3"></a>  <span class="st">&quot;height_cm&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">156</span>, <span class="dv">155</span>, <span class="dv">154</span>, <span class="dv">149</span>, <span class="dv">153</span>, <span class="dv">152</span>, <span class="dv">151</span>, <span class="dv">150</span>, <span class="dv">147</span>, <span class="dv">155</span>), </span>
-<span id="cb388-4"><a href="introduction-to-data-carpentry.html#cb388-4"></a>  <span class="st">&quot;activity_hr&quot;</span>=<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">5</span>), </span>
-<span id="cb388-5"><a href="introduction-to-data-carpentry.html#cb388-5"></a>  <span class="st">&quot;work_hr&quot;</span> =<span class="kw">c</span>(<span class="dv">40</span>,<span class="dv">35</span>,<span class="dv">38</span>,<span class="dv">46</span>,<span class="dv">50</span>,<span class="dv">42</span>,<span class="dv">40</span>,<span class="dv">46</span>,<span class="dv">41</span>,<span class="dv">40</span>)</span>
-<span id="cb388-6"><a href="introduction-to-data-carpentry.html#cb388-6"></a>  )</span>
-<span id="cb388-7"><a href="introduction-to-data-carpentry.html#cb388-7"></a></span>
-<span id="cb388-8"><a href="introduction-to-data-carpentry.html#cb388-8"></a><span class="kw">head</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" title="1">y &lt;-<span class="st"> </span><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb160-2" title="2">  <span class="st">&quot;id&quot;</span> =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, </a>
+<a class="sourceLine" id="cb160-3" title="3">  <span class="st">&quot;height_cm&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">156</span>, <span class="dv">155</span>, <span class="dv">154</span>, <span class="dv">149</span>, <span class="dv">153</span>, <span class="dv">152</span>, <span class="dv">151</span>, <span class="dv">150</span>, <span class="dv">147</span>, <span class="dv">155</span>), </a>
+<a class="sourceLine" id="cb160-4" title="4">  <span class="st">&quot;activity_hr&quot;</span>=<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">5</span>), </a>
+<a class="sourceLine" id="cb160-5" title="5">  <span class="st">&quot;work_hr&quot;</span> =<span class="kw">c</span>(<span class="dv">40</span>,<span class="dv">35</span>,<span class="dv">38</span>,<span class="dv">46</span>,<span class="dv">50</span>,<span class="dv">42</span>,<span class="dv">40</span>,<span class="dv">46</span>,<span class="dv">41</span>,<span class="dv">40</span>)</a>
+<a class="sourceLine" id="cb160-6" title="6">  )</a>
+<a class="sourceLine" id="cb160-7" title="7"></a>
+<a class="sourceLine" id="cb160-8" title="8"><span class="kw">head</span>(y)</a></code></pre></div>
 <pre><code>##   id height_cm activity_hr work_hr
 ## 1  1       156           3      40
 ## 2  2       155           5      35
@@ -1530,8 +1591,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5  5       153           7      50
 ## 6  6       152           4      42</code></pre>
 <p>Currently we have ‘age’ in a separate dataframe. Perhaps we want to join it together with all the other information in our dataframe <code>y</code>. We can use <code>full_join()</code> to do this. <code>full_join()</code> joins two different dataframes based on one or more shared variable(s). The following will join based on id.</p>
-<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="introduction-to-data-carpentry.html#cb390-1"></a>x <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb390-2"><a href="introduction-to-data-carpentry.html#cb390-2"></a><span class="st">  </span><span class="kw">full_join</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" title="1">x <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb162-2" title="2"><span class="st">  </span><span class="kw">full_join</span>(y)</a></code></pre></div>
 <pre><code>## Joining, by = &quot;id&quot;</code></pre>
 <pre><code>##    id age height_cm activity_hr work_hr
 ## 1   1  21       156           3      40
@@ -1605,20 +1666,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
