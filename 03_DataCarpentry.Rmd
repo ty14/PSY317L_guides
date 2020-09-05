@@ -1,84 +1,91 @@
 # Introduction to Data Carpentry
 
-
 Data carpentry gives us the tools to work with large data sets. During this chapter you will learn basic concepts and skills to help you import, tidy and manage your data. 
+
+<br>
 
 ## Data Types 
 
-Before learning how to work with data in R, we should know about the different types of data out there. 
+Before learning how to work with data in R, we should know about some of the different types of data there are. 
 
-Here is a picture that lays out the hierarchical levels of data types. 
+Here is a figure that lays out the hierarchical levels of data types. We use the term 'variable' to refer here to data.
 
 ![](img/datatypes.png){width=400px}
 
+<br>
 
 #### Qualitative vs. Quantitative Data
 
-As you can see at the highest level, there are two data types quantitative and qualitative.
+As you can see at the highest level, there are two data types: quantitative and qualitative. The easiest way to distinguish these data types part is to think of qualitative data as data we that are types . In practical terms, you can think of quantitative data as measures such as values or counts that can be expressed as numbers and can be compared on a numeric scale - either whole numbers or numbers with decimal places. Qualitative data are measures or observations of qualities, types or characteristics. They are often cases not numbers but in text form (although they can sometimes be numbers).
 
-The easiest way to distinguish these data types part is to think of qualitative data as data we subjectively observe or measure and quantitative data as data that we can objectively measure. 
+<br>
 
 ### Categorical Data
 
-Under qualitative data, we have two different data types: Nominal and Ordinal. Both of these data types are known as categorical data, which means they represent characteristics such as a person's gender, education level, language, etc. 
+Under qualitative data, we have two different data types: Nominal and Ordinal. Both of these data types are known as categorical data, which means they represent characteristics such as a person's gender, education level, language, ethnicity etc.   
 
-Categorical data can also be represented in a dataset by number. For example, in the gender column 0 can be for male and 1 can be for Female. However, it is important to rememeber those numbers don't have any mathematical meaning. 
+Categorical data can also be represented in a dataset by numbers. For example, if we are studying smokers and non-smokers in a study, the variable "smoking" would be a categorical variable. We could represent that data in text format using "smoker" or "non-smoker" as our data entry, or we could represent smokers as a "0" and non-smokers as a "1". However, it is important to remember that these numbers don't have any mathematical meaning here - it's just a convenient way of representing the data. 
+
+<br>
 
 #### Nominal Data 
 
-Nominal data, sometimes refered to as unordered data are values which represent discrete units and are used to label variable that have no quantitative value.  
+Nominal data, sometimes referred to as unordered data are values which represent discrete units and are used to label a variable that have no quantitative value. The key thing about nominal data is that they do not have any natural value or rank, therefore if you change the order of the data, the meaning of the data does not change. 
 
-Nominal data does not have an natural value or rank, therefore if you change the order of the data, the meaning of the data does not change. 
-An example of nominal data would be:
-What languages do you speak? 
-French
-English
-Spanish
-German 
+An example of nominal data would be the results to: "What languages do you speak at home?". If in our study we got the answers: French, English, Spanish & Hindi from different subjects, then the data type is unordered. There is no sense in that French, English, Spanish, or Hindi are higher in rank than any other - they are simply unordered categories.
+
+
+<br>
 
 #### Ordinal Data 
 
-Like nominal data, ordinal represents discrete units assigned to categorical label. However, ordinal data does have a natural order. That being said the order in which you represent you data does matter. 
+Like nominal data, ordinal data describes discrete units or categories. However, unlike nominal data, ordinal data does have a natural order or ranking to it.  
 
-An example of ordinal data would be: 
-What is your educational backgroud?
+For example, in a study we may ask subjects, "What is the highest level of education you achieved?"  They may be able to choose from the following options:
+
 1- Elementary
 2- High School 
 3- Undergraduate
 4- Graduate 
 
-Another example would be any survey data that rates an item on scale.
-If an item on a 1 to 10 scale, with 10 being the best, then this impiles 10 is better than 9, which is better than 8, and so on. 
+Here, each level of the data is a category, but it is ordered.  Graduate is higher than Undergraduate which is higher than High School which is higher than Elementary.  Therefore this data variable (education) is ordinal data.
 
+
+<br>
 
 ### Numerical Data (Discrete vs. Continuous)
 
 Under quantitative data, there is numerical data consist of numbers with real mathematical meaning. There are two types of numerical data. 
 
-1. Discrete data is data that is separated e.g, as if this data can only take on certain value. Think about discrete data as count data since it can only be counted and not measured. 
+<br>
 
-2. Continuous data is the opposite of discrete data, it can only be measured not counted. 
+1. **Discrete** data is data that is separated such that this data can only take on certain value. Most often, these are things that can only be counted in whole units.  e.g. If you asked subjects in a study - "how many unique people did you text this week?", then the answer has to be an integer (a whole number), e.g. 0,1,2,3,etc.  You cannot text 2.5 people. Think about discrete data as count data since it can only be counted and not measured. 
 
-Additionally, two different data types can fall under discrete and continuous data they are: interval and ratio data. 
+<br>
 
-##### Interval Data
+2. **Continuous** data is the opposite of discrete data, it can only be measured not counted. Continuous quantitative data is most often measured using some instrument. For example, if we collected the body weight or height of each subject in a study, then we would get values that would be measured using a scale or a measuring tape and could include decimal places. e.g. you could be 170.5 lbs heavy and you can be 180.2 cm tall.
 
-Interval data represents values that are order and the difference between 2 values has meaning. 
+Additionally, quantitative data can be described in terms of interval and ratio data. 
 
-In interval data there is no true zero, which means if you have zero in your data, then zero is just another number. For example, zero on the Fahrenheirt temperature scale means it is zero degress outside, but doesn't mean the scale stops., there is still a temperature 
+<br>
 
-Basically, you can have negative numbers in a interval variable. 
+#### Interval Data
 
+Interval data represents values that are ordered on a scale and the differences between any two values has meaning. 
 
-##### Ratio data 
-
-For a variable to be considered ratio data, it holds all the properties of an interval variable. However, it also has a true meaning of zero. Whenever a variable is zero, it means there is none of that variable. 
-
-For examples on a ratio scale if you have zero friends it means you have absolutely no friends. 
-
-Another example of ratio scale data is temperature in Kelvin, where zero degrees Kelvin means there is no heat being emitted. 
+In interval data there is no true zero, which means if you have zero in your data, then zero is just another number. For example, zero on the Fahrenheirt temperature scale means it is zero degrees outside, but doesn't mean the scale stops - 0 actually refers to a temperature. We can also have negative numbers in interval data which are meaningful.
 
 
+<br>
+
+#### Ratio data 
+
+For a variable to be considered ratio data, it holds all the properties of an interval variable - it relates to numbers (including those with decimal places) that can be ordered on a scale. However, ratio data also has a true meaning of zero. Whenever a ratio variable is zero, it means there is none of that variable. 
+
+For example, in a study, if a subject reports that they texted zero people in the last week, then here 0 really means the absence of something - it relates to none. Another example of ratio scale data is temperature in Kelvin, where zero degrees Kelvin means there is no heat being emitted. 
+
+
+<br><br>
 
 ## Importing Data
 
