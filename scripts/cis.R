@@ -1,7 +1,7 @@
 
 # CI 1
 
-d <- data.frame(id = "samp1", mean = 7.79, upper = 7.94, lower = 7.63)
+d <- data.frame(id = "samp1", mean = 7.71, upper = 7.56, lower = 7.86)
 
 library(tidyverse)
 
@@ -16,7 +16,7 @@ ggplot() +
 
 # CI 2
 
-d <- data.frame(id = c("samp1","samp2"), mean = c(7.79,7.87), upper = c(7.94,8.02), lower = c(7.63,7.72))
+d <- data.frame(id = c("samp1","samp2"), mean = c(7.71,7.81), upper = c(7.86,8.02), lower = c(7.56,7.72))
 
 library(tidyverse)
 

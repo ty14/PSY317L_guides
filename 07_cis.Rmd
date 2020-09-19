@@ -37,7 +37,7 @@ samp1
 mean(samp1)
 ```
 
-Our observed sample mean is $\overline{x}=7.79$ which is pretty close to the population mean of $\mu=7.8$.  But if we were to collect another sample, then that sample mean will be slightly different. Let's do it again:
+Our observed sample mean is $\overline{x}=7.71$ which is close to the population mean of $\mu=7.8$.  But if we were to collect another sample, then that sample mean will be slightly different. Let's do it again:
 
 ```{r}
 samp2 <- sample(x, size = 15, replace = T)
@@ -45,7 +45,7 @@ samp2
 mean(samp2)
 ```
 
-This time our sample mean (our estimate) is $\overline{x}=7.87$.
+This time our sample mean (our estimate) is $\overline{x}=7.81$ which is very close.
 
 If we did this thousands of times, then we'd get our sampling distribution of sample means (see section \@ref(normal-distribution)). This is what our sampling distribution for sample sizes of $n=15$ looks like:
 
@@ -71,13 +71,13 @@ p2
 ```
 
 
-According to Central Limit Theorem, this sampling distribution is approximately normally distributed. The mean of this sampling distribution is $\mu_{\overline{x}}=7.8$ which is the same as the population mean $\mu$. The standard deviation of this sampling distribution $\Large \sigma{\overline{x}} = \frac{\sigma}{\sqrt{n}}$.
+According to Central Limit Theorem, this sampling distribution is approximately normally distributed. The mean of this sampling distribution is $\mu_{\overline{x}}=7.8$ which is the same as the population mean $\mu$. The standard deviation of this sampling distribution $\Large \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$.
 
 ```{r}
 0.3 / sqrt(15)
 ```
 
-Therefore the standard deviation of this sampling distribution is $\sigma{\overline{x}} = 0.077$.
+Therefore the standard deviation of this sampling distribution is $\sigma_{\overline{x}} = 0.077$.
 
 
 Remember, this sampling distribution represents thousands and thousands of potential means from individual samples of size 15 that we could have collected. Each one of them in isolation would be our point estimate of the true population mean $\mu$. Sometimes we'll be really close to the true population mean, and other times we might bea quite far away. This is why we like to put confidence intervals around our sample means, to give a range of values that likely contain our population mean.
@@ -112,7 +112,7 @@ So, 95% of our sample means in our sampling distribution lie between 7.65 and 7.
 
 What we have just done is the basic principle behind a confidence interval using a $z$-distribution. Let's look at this in more detail.
 
-
+<br>
 
 ## Calculating a confidence interval with z-distribution
 
@@ -123,11 +123,11 @@ samp1
 mean(samp1)
 ```
 
-What we want to do now is put a confidence interval around 7.79. We want to say that our population mean is equal to $7.79 \pm margin.of.error$  The actual formula for the $z$-distribution confidence interval is:
+What we want to do now is put a confidence interval around 7.71. We want to say that our population mean is equal to $7.71 \pm margin.of.error$  The actual formula for the $z$-distribution confidence interval is:
 
 $\Large CI_{95\%} = \overline{x} \pm z \times \frac{\sigma}{\sqrt{n}}$
 
-In this scenario, we are presuming that we don't know what the population mean $\mu$ is - that's why we're building a confidence interval. Consequently, we also don't precisely know what the mean of the sampling distribution $\mu_{\overline{x}}$ is.  What we'll do instead, is to *assume* that our sample mean $\overline{x}$ is the mean of the sampling distribution $\mu_{\overline{x}}$.  We already know what the standard deviation of the sampling distribution $\sigma{\overline{x}}$ is because we know the population standard deviation $\sigma$ is.  So, $\Large \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$.
+In this scenario, we are presuming that we don't know what the population mean $\mu$ is - that's why we're building a confidence interval. Consequently, we also don't precisely know what the mean of the sampling distribution $\mu_{\overline{x}}$ is.  What we'll do instead, is to *assume* that our sample mean $\overline{x}$ is the mean of the sampling distribution $\mu_{\overline{x}}$.  We already know what the standard deviation of the sampling distribution $\sigma_{\overline{x}}$ is because we know the population standard deviation $\sigma$ is.  So, $\Large \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$.
 
 What value of $z$ should we use?  The short answer is 1.96 for the same reasons as above. If our sampling distribution is normally distributed, then we want to know the values that are $\pm 1.96$ of the sample mean $\overline{x}$.
 
@@ -135,7 +135,7 @@ What value of $z$ should we use?  The short answer is 1.96 for the same reasons 
 So, let's just do it - this is how we calculate the 95% confidence interval if we have $\overline{x}$, $\sigma$ and $n$.
 
 ```{r}
-x_bar <- mean(samp1)  # sample mean = 7.79
+x_bar <- mean(samp1)  # sample mean = 7.71
 x_bar
 
 n <- length(samp1)  # sample size =  n = 15
@@ -163,11 +163,11 @@ x_bar - (z * sem)
 
 ```
 
-We have just calculated our 95% confidence interval! It has a lower bound of 7.63cm and an upper bound of 7.94cm.  We can write this confidence interval in two ways:
+We have just calculated our 95% confidence interval! It has a lower bound of 7.56cm and an upper bound of 7.86cm.  We can write this confidence interval in two ways:
 
-$CI_{95\%} = 7.79 \pm  0.152$
+$CI_{95\%} = 7.71 \pm  0.152$
 
-$CI_{95\%} = 7.79 [7.63, 7.94]$
+$CI_{95\%} = 7.71 [7.56, 7.86]$
 
 
 Below is a graphical representation of our confidence interval around our sample mean $\overline{x}$. You can see that the true population mean $\mu$ is within the confidence interval.
@@ -176,7 +176,8 @@ Below is a graphical representation of our confidence interval around our sample
 
 
 
-Remember we collected a second sample that had a sample mean $\overline{x}=7.87$ ?
+
+Remember we collected a second sample that had a sample mean $\overline{x}=7.81$ ?
 
 ```{r}
 mean(samp2)
@@ -194,9 +195,9 @@ We could also create a 95% confidence interval for our estimate of the populatio
 
 ```
 
-$\Large CI_{95\%} = 7.87 \pm  0.152$
+$\Large CI_{95\%} = 7.81 \pm  0.152$
 
-$\Large CI_{95\%} = 7.87 [7.72, 8.02]$
+$\Large CI_{95\%} = 7.81 [7.72, 8.02]$
 
 
 Let's compare this confidence interval with the first one we created:
@@ -223,7 +224,7 @@ Technically, this is the definition of a 95% confidence interval. That is, in 95
 **Assumptions** We should also briefly just remark on what the assumptions are when generating these $z$-distribution based confidence intervals. We are assuming that our data are normally distributed and that our sample is randomly drawn from the population, and that all data points are independent of each other.
 
 
-
+<br>
 
 ### Other Confidence Intervals ranges
 
@@ -431,26 +432,6 @@ You can see that the $z$-distribution CIs are all equal in length, whereas the $
 
 However, the CIs are not always bigger when using the $t$-distribution. Sometimes, the sample may just have very little variation in it meaning that the sample standard deviation $s$ is very small. This could lead to a smaller margin of error - as seen with the 19th and 20th samples from the top in the figure.
 
-In fact, our very first sample we obtained, `samp1`, has a relatively small sample standard deviation:
-
-```{r}
-mean(samp1)
-sd(samp1)
-```
-
-If we calculate the 95% CIs using a $z$- and $t$- distribution for this sample, we actually see that the $t$-distribution one is smaller.
-
-```{r}
-# 95% t distribution CI
-7.79 + (2.144787 * (sd(samp1)/sqrt(15)) ) 
-7.79 - (2.144787 * (sd(samp1)/sqrt(15)) )
-```
-
-```{r}
-# 95% z distribution CI
-7.79 + (1.96 * sem)
-7.79 - (1.96 * sem)
-```
 
 <br><br>
 
