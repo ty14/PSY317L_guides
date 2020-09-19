@@ -116,7 +116,7 @@ What we have just done is the basic principle behind a confidence interval using
 
 ## Calculating a confidence interval with z-distribution
 
-Let's go back to our first sample of size 15 that we collected, with $\overline{x}=7.79$.  
+Let's go back to our first sample of size 15 that we collected, with $\overline{x}=7.71$.  
 
 ```{r}
 samp1
@@ -195,9 +195,9 @@ We could also create a 95% confidence interval for our estimate of the populatio
 
 ```
 
-$\Large CI_{95\%} = 7.81 \pm  0.152$
+$CI_{95\%} = 7.81 \pm  0.152$
 
-$\Large CI_{95\%} = 7.81 [7.72, 8.02]$
+$CI_{95\%} = 7.81 [7.72, 8.02]$
 
 
 Let's compare this confidence interval with the first one we created:
@@ -471,7 +471,7 @@ The final thing that is worth mentioning is a repeat of what is discussed above 
 
 ### Other Confidence Intervals ranges for t-distribution
 
-Like with the confidence intervals made with the $z$-distribution, we can create confidence intervals for any range with the $t$-distribution.  The rationiale is the same. If we were to make an 80% CI around a sample mean, what we are effectively saying is that in 80% of all samples that we could collect, we would capture the true population mean $\mu$.  Practically, we use a different value of $t$ for each CI range. This value of $t$ will be the positive and negative value of the $t$-distribution for a given degree of freedom that leaves the appropriate percentage in the middle of the distribution.  For instance, for an 80% CI for a sample size of 25, which had degrees of freedom 24, the value would be $t=1.32$. 
+Like with the confidence intervals made with the $z$-distribution, we can create confidence intervals for any range with the $t$-distribution.  The rationale is the same. If we were to make an 80% CI around a sample mean, what we are effectively saying is that in 80% of all samples that we could collect, we would capture the true population mean $\mu$.  Practically, we use a different value of $t$ for each CI range. This value of $t$ will be the positive and negative value of the $t$-distribution for a given degree of freedom that leaves the appropriate percentage in the middle of the distribution.  For instance, for an 80% CI for a sample size of 25, which had degrees of freedom 24, the value would be $t=1.32$. 
 
 We calculated this as follows:  For an 80% CI, we wish to have 80% of the distribution in the middle (40% either side of our sample mean), leaving 20% in the tails - i.e. 10% in each tail. Therefore, we wish to know the value of $t$ that demarks this boundary. The easiest way to do that is to use the `qt()` function in R, and ask for the 90%th percentile (the value that leaves 10% in the upper tail) for a $t$ distribution of degrees of freedom = 24.  We do that like this:
 

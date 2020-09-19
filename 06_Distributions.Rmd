@@ -338,7 +338,7 @@ kurtosis(bats$avg)   # >3 = 'peaky' less in shoulders of tails
 <br>
 
 
-Anothr thing of interest is what happens with small sample sizes. Typically small sample sizes are not that normal - that is they are fairly skewed.  They are also often fairly platykurtic - they have less data in the center and more in the shoulders and tails of the distribution. 
+Another thing of interest is what happens with small sample sizes. Typically small sample sizes are not that normal - that is they are fairly skewed.  They are also often fairly platykurtic - they have less data in the center and more in the shoulders and tails of the distribution. 
 
 The below shows an example for a sample of 10 scores that come from a normal population of $\mu=100$ and $\sigma=5$.
 

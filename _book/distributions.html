@@ -569,7 +569,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb783"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb783-1"><a href="distributions.html#cb783-1"></a><span class="kw">kurtosis</span>(bats<span class="op">$</span>avg)   <span class="co"># &gt;3 = &#39;peaky&#39; less in shoulders of tails</span></span></code></pre></div>
 <pre><code>## [1] 4.18612</code></pre>
 <p><br></p>
-<p>Anothr thing of interest is what happens with small sample sizes. Typically small sample sizes are not that normal - that is they are fairly skewed. They are also often fairly platykurtic - they have less data in the center and more in the shoulders and tails of the distribution.</p>
+<p>Another thing of interest is what happens with small sample sizes. Typically small sample sizes are not that normal - that is they are fairly skewed. They are also often fairly platykurtic - they have less data in the center and more in the shoulders and tails of the distribution.</p>
 <p>The below shows an example for a sample of 10 scores that come from a normal population of <span class="math inline">\(\mu=100\)</span> and <span class="math inline">\(\sigma=5\)</span>.</p>
 <div class="sourceCode" id="cb785"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb785-1"><a href="distributions.html#cb785-1"></a><span class="kw">set.seed</span>(<span class="dv">10</span>)</span>
 <span id="cb785-2"><a href="distributions.html#cb785-2"></a>x1 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="fl">5.0</span>)</span>
