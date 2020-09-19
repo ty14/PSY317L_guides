@@ -598,7 +598,7 @@ So, 82% of the distribution lie between 950g and 1040g.
 
 Another type of distribution that we will discuss a lot! is the sampling distribution. There are different types of sampling distributions, so for now we'll focus on the **sampling distribution of the sample means**.  The best way to illustrate a sampling distribution, is to show it by example.
 
-Say we have a population of 1 million adult Archerfish. The population mean of their bodylength is $\mu = 100.0mm$ is , and the population standard deviation is $\sigma = 15.0mm$.
+Say we have a population of 1 million adult Archerfish. The population mean of their bodylength is $\mu = 100.0mm$, and the population standard deviation is $\sigma = 15.0mm$.
 
 Let's create this population:
 
@@ -629,7 +629,7 @@ ggplot(data.frame(archerfish), aes(x = archerfish)) +
 ```
 
 
-OK, let's say that you didn't have the time to go out and catch 1 million Archerfish and measure the body length of every single fish. What shoudld you do? One thing you might decide is to just go and take a random sample of 10 anglerfish (you could have picked another sample size - let's just stick with 10 for now). Once you have your sample of 10 archerfish, you could then measure them and you will be able to calculate the sample mean of that sample.
+OK, let's say that you didn't have the time to go out and catch 1 million archerfish and measure the body length of every single fish. What should you do? One thing you might decide is to just go and take a random sample of 10 archererfish (you could have picked another sample size - let's just stick with 10 for now). Once you have your sample of 10 archerfish, you could then measure them and you will be able to calculate the sample mean of that sample.
 
 We'll use `sample()` to randomly select 10 archerfish.
 
@@ -642,7 +642,7 @@ samp1
 mean(samp1)
 ```
 
-Our sample mean is $\overline{x}=92.5$ - that's fairly close to the actual population mean of 100.0mm.  Let's grab another three samples of 10 archerfish and see what the sample means are of those sample:
+Our sample mean is $\overline{x}=95.6$ - that's fairly close to the actual population mean of 100.0mm.  Let's grab another three samples of 10 archerfish and see what the sample means are of those sample:
 
 
 
@@ -656,7 +656,7 @@ mean(sample(archerfish, 10, replace = T))  # mean of our 4th sample
 
 ```
 
-These next three samples are closer to 100.0, although it turns out that each of them is below 100.
+These next three samples are closer to 100.0, with one just above and two just below 100.
 
 
 What would happen if we collected thousands and thousands of samples of size 10?  Let's do it - you don't need to follow the exact code here of how we're doing this, but essentially we're grabbing 20,000 samples of size 10. From each of these we're getting the sample mean. That means we'll end up with 20,000 sample means. We're storing those results in the object called `res`.
@@ -700,7 +700,7 @@ sd(res) #standard deviation of the sampling distribution, aka standard error
 ```
 
 
-Let's first focus on the mean.  Our mean of sample means was 100.0, which is very approximately the same as the mean of 1,000,000 archerfish in the population!  It turns out that the mean of the sampling distribution is approximately equal to the population mean.  By the way, the notation that we use to depcit the mean of the sampling distribution of sample means is  $\mu_{\overline{x}}$.  So $\mu_{\overline{x}} = 100.0$.
+Let's first focus on the mean.  Our mean of sample means was 99.996, which is very approximately the same as the mean of 1,000,000 archerfish in the population!  It turns out that the mean of the sampling distribution is approximately equal to the population mean.  By the way, the notation that we use to depcit the mean of the sampling distribution of sample means is  $\mu_{\overline{x}}$.  So $\mu_{\overline{x}} = 100.0$.
 
 
 What is the standard deviation of this distribution (the sampling distribution of the sample means)?  We just calculated it in R to be 4.77.  The notation we use for this is $\sigma_{\overline{x}} = 4.77$. It's called the standard deviation of the sampling distribution of sample means, but for short it gets called the **standard error**.
@@ -769,7 +769,7 @@ mean(res1)  # still same as population mean
 sd(res1)    # smaller with larger sample size
 ```
 
-The mean of the sampling distribution of sample means $\mu_{\overline{x}}$ is still a very good estimate of the population mean - in fact, it's a tiny, tiny bit better than when we had samples of size 10.
+The mean of the sampling distribution of sample means $\mu_{\overline{x}}$ is still a very good estimate of the population mean.
 
 The biggest difference is in the standard deviation of the sampling distribution,  $\sigma_{\overline{x}}$ (the standard error), which is much lower than when we had samples of size 10.  The reason for this is that the variability in our sample means is much more reduced when we have samples of size 50. On average, our sample means are much closer individual estimates to the population mean. This is what drastically reduces the standard deviation of this sampling distribution.
 
@@ -835,7 +835,7 @@ sd(x1) #21.6
 
 ```
 
-We can see that the mean of this population is 37.5, and the population standard deviation is 37.5.
+We can see that the mean of this population is 37.5, and the population standard deviation is 21.6.
 
 Let's take samples of size 30 at random from this population of 1 million.  For each sample, we'll calculate the sample mean. We'll take 10,000 samples (again - we could have picked any really large number here, but 10,000 seems reasonable enough to prove our point). After we get our 10,000 sample means from samples of size 30, we'll plot the histogram of those sample means.
 
@@ -867,10 +867,10 @@ This histogram represents our sampling distribution of sample means when we took
 ```{r}
 mean(res)  # the mean of the sample means is close to 37.5, the population mean
 
-sd(res)  #3.96 - this is a lot smaller than the population SD
+sd(res)  #3.996 - this is a lot smaller than the population SD
 ```
 
-The mean of our sampling distribution $\mu_{\overline{x}} = 37.5$ which is again approximately equal to the population mean. The sampling distribution standard deviation $\sigma_{\overline{x}} = 3.96$ which is a lot lower than the original population standard deviation. Because we only took 10,000 samples, these values aren't exact, but we could have calculated the standard error by taking the population standard deviation and dividing by the square root of n $\Large \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$ as follows:
+The mean of our sampling distribution $\mu_{\overline{x}} = 37.5$ which is again approximately equal to the population mean. The sampling distribution standard deviation $\sigma_{\overline{x}} = 3.99$ which is a lot lower than the original population standard deviation. Because we only took 10,000 samples, these values aren't exact, but we could have calculated the standard error by taking the population standard deviation and dividing by the square root of n $\Large \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$ as follows:
 
 
 ```{r}
@@ -941,14 +941,14 @@ So, it happened again.  This is our sampling distribution of sample means, colle
 ```{r}
 mean(res)  # the mean of the sample means is close to 7.5
 
-sd(res)  #0.79
+sd(res)  #0.799
 ```
 
-$\mu_{\overline{x}} = 7.5$ which is once again approximately equal to the original population mean. The sampling distribution standard deviation $\sigma_{\overline{x}} = 0.79$. We could have directly calculated that using the formula for the standard error, n $\Large \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$, as we know the original population standard deviation:
+$\mu_{\overline{x}} = 7.5$ which is once again approximately equal to the original population mean. The sampling distribution standard deviation $\sigma_{\overline{x}} = 0.799$. We could have directly calculated that using the formula for the standard error, n $\Large \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$, as we know the original population standard deviation:
 
 ```{r}
 
-sd(q)/sqrt(30)  # standard error = 0.79
+sd(q)/sqrt(30)  # standard error = 0.791
 
 ```
 
@@ -1013,9 +1013,9 @@ grid.arrange(p1,p2,nrow=1)
 ```
 
 
-What are the mean and standard deviation of this sampling distribution of sample means? Well, $\mu_{\overline{x}} = 60$ because that's the population mean, and we know the mean of the sample means is approximately the same. We know we can calculate $\sigma_{\overline{x}$ because we know the population standard deviation $\sigma$.
+What are the mean and standard deviation of this sampling distribution of sample means? Well, $\mu_{\overline{x}} = 60$ because that's the population mean, and we know the mean of the sample means is approximately the same. We know we can calculate $\sigma_{\overline{x}}$ because we know the population standard deviation $\sigma$.
 
-Again, the formula is $\Large \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$. Therefore, the standard deviation of the sampling distribution is $\sigma_{\overline{x} = 0.87$:
+Again, the formula is $\Large \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$. Therefore, the standard deviation of the sampling distribution is $\sigma_{\overline{x}} = 0.87$:
 
 ```{r}
 sem <- 3 / sqrt(12)
@@ -1027,7 +1027,7 @@ sem
 
 Now, we're interested in a sample of 12 that has a sample mean of 58g.  Let's visualize what that looks like on the histogram of the sampling distribution:
 
-```{r, eval=FALSE, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE}
 p2 + geom_vline(xintercept = 58, lty=2, lwd=1, color="red") +
   ggtitle("Sampling Distribution of Sample Means \n for sample size = 12")
 ```
