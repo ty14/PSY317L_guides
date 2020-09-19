@@ -932,11 +932,11 @@ ggplot(wheels1, aes(x = strain, y = day4)) +
 
 The boxplot that we made looks ok, but one thing is visually annoying. The boxes are plotted in alphabetical order on the x-axis (B6, F1-129B6..... Swiss). There is no reason why they should be in this order.  A more visually appealing way would be to order the boxplots from the group with the highest median to the lowest median. 
 
-To do this, instead of putting `x=strain` inside of `aes()` we put `x = reorder(strain, strain, median)` inside instead. This is a bit of a mouthful. To break it down, it's saying plot strain on the x-axis, but reorder the groups based on the median of the strain column (that's the second 'strain' in the code).
+To do this, instead of putting `x=strain` inside of `aes()` we put `x = reorder(strain, -day4, median)` inside instead. This is a bit of a mouthful. To break it down, it's saying plot strain on the x-axis, but reorder the groups based on the median of the strain column (that's the '-day4' in the code).
 
 
 ```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
-ggplot(wheels1, aes(x = reorder(strain, strain, median), y = day4)) + 
+ggplot(wheels1, aes(x = reorder(strain, -day4, median), y = day4)) + 
   geom_boxplot(color="navy", fill="lightsteelblue1", alpha = .3) +
   theme_classic()
 ```
@@ -944,7 +944,7 @@ ggplot(wheels1, aes(x = reorder(strain, strain, median), y = day4)) +
 The output looks pretty good - it is now really easy to notice that one of the groups has a much lower distribution than the others. The major issue is that the label of the x-axis is terrible. So let's fix that: 
 
 ```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
-ggplot(wheels1, aes(x = reorder(strain, strain, median), y = day4)) + 
+ggplot(wheels1, aes(x = reorder(strain, -day4, median), y = day4)) + 
   geom_boxplot(color="navy", fill="lightsteelblue1", alpha = .3) +
   theme_classic() +
   xlab("Mouse Strain") +
@@ -955,7 +955,7 @@ ggplot(wheels1, aes(x = reorder(strain, strain, median), y = day4)) +
 Much nicer!
 
 
-
+<br>
 
 #### Flipping Axes
 

@@ -290,18 +290,39 @@ Let's have a look at a quick summary figure of where the mean, median and mode l
 
 
 
-
+<br>
 
 #### Kurtosis
 
+Another measure of the shape of a data distribution is called kurtosis. Kurtosis relates to how heavy or thin the tails of the distribution are. Often people talk about kurtosis being related to how "peaky" the distribution is, because distributions of different kurtosis values often look to have different peaks - but strictly, kurtosis is about the tails.
 
-blah blah blah 
+We can broadly describe three basic patterns of kurtosis. 
+
+*Mesokurtic* - tails are not too thick or too thin - this is the case with the normal distribution.
+
+*Platykurtic* - data is moved more from the center of the distribution to the tails.
+
+*Leptokurtic* - data is taken from the shoulders of the distribution and moved more into the center and slightly to the tails
+
+These are illustrated below:
+
 
 ![](img/kurtosis.png)
 
-need to think what to put into this section
+<br>
 
-probably an image of different kurtoses of different distributions.  don't need much more than that.
+In addition, to using the above funny names to describe the shapes of distributions, we can also actually calculate a kurtosis value. We won't show the formula here, but effectively the values relate to the patterns as follows.
+
+Mesokurtic distributions have a kurtosis value of approximately 3.
+
+Leptokurtic distributions have a kurtosis value greater than 3.
+
+Platykurtic distributions have a kurtosis value lower than 3.
+
+
+We can compute this kurtosis value in R using the `kurtosis()` function from the package `moments`.
+
+Both our distributions of total at bats and averages have kurtosis values above 3, indicating that they are leptokurtic - i.e. quite peaky and have less data in the shoulders of the distribution.
 
 
 ```{r}
@@ -311,26 +332,30 @@ kurtosis(bats$totalAB)   # >3 = 'peaky' less in shoulders of tails
 
 kurtosis(bats$avg)   # >3 = 'peaky' less in shoulders of tails
 
-# kurtosis close to 3
+```
 
-# Note with a smaller sample size, our distribution will
-# not be as normal, i.e. more skewed and not mesokurtic
 
+<br>
+
+
+Anothr thing of interest is what happens with small sample sizes. Typically small sample sizes are not that normal - that is they are fairly skewed.  They are also often fairly platykurtic - they have less data in the center and more in the shoulders and tails of the distribution. 
+
+The below shows an example for a sample of 10 scores that come from a normal population of $\mu=100$ and $\sigma=5$.
+
+```{r}
+set.seed(10)
 x1 <- rnorm(n = 10, mean = 100, sd = 5.0)
 x1
-
-mean(x1)
-sd(x1)
 
 skewness(x1)
 kurtosis(x1)
 
 ```
 
+You can see that this small sample is skewed with a skewness of -0.40 and platykurtic with a kurtosis of 1.85.  
 
 
-
-
+<br><br>
 
 ## Z-scores
 
@@ -383,7 +408,7 @@ z-scores can be very useful ways of standardizing observed values into ways that
 
 Often we may not know the population mean or standard deviation. In such cases if all we have is a sample mean and a sample standard deviation, we can still calcualte z-scores for such samples. We effectively use the same formula to calculate the z-scores, just subsituting in the sample mean and standard deviation.
 
-$\Large z=\frac{x - {\mu}_x}{\sigma_x}$
+$\Large z=\frac{x - {\overline{x}}}{s_{x}}$
 
 
 
@@ -472,7 +497,7 @@ pnorm(zvals)
 
 Hopefully you can see that these values mirror those in the table provided above.
 
-
+<br>
 
 #### z-score and probability problems.
 
@@ -565,7 +590,7 @@ pnorm(z2) - pnorm(z1)  #0.82
 So, 82% of the distribution lie between 950g and 1040g.
 
 
-
+<br><br>
 
 
 
@@ -573,7 +598,7 @@ So, 82% of the distribution lie between 950g and 1040g.
 
 Another type of distribution that we will discuss a lot! is the sampling distribution. There are different types of sampling distributions, so for now we'll focus on the **sampling distribution of the sample means**.  The best way to illustrate a sampling distribution, is to show it by example.
 
-Say we have a population of 1 million adult Archerfish. The population mean $\mu$ is 100.0mm, and the population standard deviation $\sigma$ is equal to 15.0mm.
+Say we have a population of 1 million adult Archerfish. The population mean of their bodylength is $\mu = 100.0mm$ is , and the population standard deviation is $\sigma = 15.0mm$.
 
 Let's create this population:
 
@@ -617,7 +642,7 @@ samp1
 mean(samp1)
 ```
 
-Our sample mean is 95.6 - that's fairly close to the actual population mean of 100.0mm.  Let's grab another three samples of 10 archerfish and see what the sample means are of those sample:
+Our sample mean is $\overline{x}=92.5$ - that's fairly close to the actual population mean of 100.0mm.  Let's grab another three samples of 10 archerfish and see what the sample means are of those sample:
 
 
 
@@ -631,16 +656,16 @@ mean(sample(archerfish, 10, replace = T))  # mean of our 4th sample
 
 ```
 
-These next three samples are closer to 100.0, with some being a little bit less than the population mean, and the other being a bit more.
+These next three samples are closer to 100.0, although it turns out that each of them is below 100.
 
 
-What would happen if we collected thousands and thousands of samples of size 10?  Let's do it - you don't need to follow the exact code here of how we're doing this, but essentially we're grabbing 10,000 samples of size 10. From each of these we're getting the sample mean. That means we'll end up with 10,000 sample means. We're storing those results in the object called `res`.
+What would happen if we collected thousands and thousands of samples of size 10?  Let's do it - you don't need to follow the exact code here of how we're doing this, but essentially we're grabbing 20,000 samples of size 10. From each of these we're getting the sample mean. That means we'll end up with 20,000 sample means. We're storing those results in the object called `res`.
 
 ```{r}
-### What if we were to collect 10,000 samples and for each one get the mean
+### What if we were to collect 20,000 samples and for each one get the mean
 
-results<-vector('list',10000)
-for(i in 1:10000){
+results<-vector('list',20000)
+for(i in 1:20000){
 results[[i]]  <- mean(sample(archerfish, 10, replace = T))  
 }
 
@@ -648,7 +673,7 @@ res <- unlist(results)
 ```
 
 
-Now we have our 10,000 sample means we could make a histogram of these sample means.
+Now we have our 20,000 sample means we could make a histogram of these sample means.
 
 ```{r}
 psd <- ggplot(data.frame(res), aes(x = res)) + 
@@ -663,9 +688,9 @@ psd
 
 ```
 
-This distribution that we've just plotted is the **sampling distribution of sample means for samples of size n=10**.  We picked 10,000 as the number of samples of size 10 to collect as it's reasonably large enough to get enough sample means that we can see the shape of the distribution. We could have picked 100,000 samples to collect, or 1,000,000... in fact the more the better, but 10,000 is enough to get the point across.
+This distribution that we've just plotted is the **sampling distribution of sample means for samples of size n=10**.  We picked 20,000 as the number of samples of size 10 to collect as it's reasonably large enough to get enough sample means that we can see the shape of the distribution. We could have picked 100,000 samples to collect, or 1,000,000... in fact the more the better, but 20,000 is enough to get the point across.
 
-Out of all of these sample means that we "collected", what is the average across all of the 10,000 samples? - and what's more, what is the standard deviation of that distribution?
+Out of all of these sample means that we "collected", what is the average across all of the 20,000 samples? - and what's more, what is the standard deviation of that distribution?
 
 ```{r}
 mean(res)
@@ -675,10 +700,10 @@ sd(res) #standard deviation of the sampling distribution, aka standard error
 ```
 
 
-Let's first focus on the mean.  Our mean of sample means was 100.0, which is the same as the mean of 1,000,000 archerfish in the population!  It turns out that the mean of the sampling distribution is approximately equal to the population mean.  By the way, the notation that we use to depcit the mean of the sampling distribution of sample means is  $\mu_{\overline{x}}$.  So $\mu_{\overline{x}} = 100.0$.
+Let's first focus on the mean.  Our mean of sample means was 100.0, which is very approximately the same as the mean of 1,000,000 archerfish in the population!  It turns out that the mean of the sampling distribution is approximately equal to the population mean.  By the way, the notation that we use to depcit the mean of the sampling distribution of sample means is  $\mu_{\overline{x}}$.  So $\mu_{\overline{x}} = 100.0$.
 
 
-What is the standard deviation of this distribution (the sampling distribution of the sample means)?  We just calculated it in R to be 4.74.  The notation we use for this is $\sigma_{\overline{x}} = 4.74$. It's called the standard deviation of the sampling distribution of sample means, but for short it gets called the **standard error**.
+What is the standard deviation of this distribution (the sampling distribution of the sample means)?  We just calculated it in R to be 4.77.  The notation we use for this is $\sigma_{\overline{x}} = 4.77$. It's called the standard deviation of the sampling distribution of sample means, but for short it gets called the **standard error**.
 
 Of course, we never in reality actually collect thousands and thousands of samples - that defeats the point of sampling. If we had time to collect thousands and thousands of samples, we may as well just measure every archerfish in the population.  Usually, we just collect one sample. In later sections, we'll discuss how you can estimate what $\mu_{\overline{x}}$ and $\sigma_{\overline{x}}$ are when you have only collected one sample. 
 
@@ -695,23 +720,23 @@ So in our case it should be equal to:
 
 ```
 
-As you can see this is the same value that we got in our simulated sampling distribution above.
+As you can see this is very close to the value that we got in our simulated sampling distribution above.
 
-
+<br>
 
 ### Sample Size and the Sampling Distribution
 
-In the previous section we looked at what would happen if we took samples of size 10 from our archerfish population and looked at the sample means of each sample. We found that when we made a histogram out of these sample means, that the mean of the sample means  $\mu_{\overline{x}}$ was approximately equal to the population mean of 100. The standard deviation of the sampling distribution of sample means, or standard error, $\sigma_{\overline{x}}$ was equal to 4.74.
+In the previous section we looked at what would happen if we took samples of size 10 from our archerfish population and looked at the sample means of each sample. We found that when we made a histogram out of these sample means, that the mean of the sample means  $\mu_{\overline{x}}$ was approximately equal to the population mean of 100. The standard deviation of the sampling distribution of sample means, or standard error, $\sigma_{\overline{x}}$ was approximately equal to 4.74.
 
 
-What happens if we were to take a different sized sample each time - say size 50? What would be the mean and standard deviation of this distribution of sample means?  Let's find out. We'll again take 1000 samples of size 50 at random from our population of 1 million archerfish. For each sample we'll record the sample mean length of the 50 fish. We'll end up saving these 10,000 sample means in an R object called `res1`. Again, don't worry about how the code is doing it here, just as long as you follow what we're doing.
+What happens if we were to take a different sized sample each time - say size 50? What would be the mean and standard deviation of this distribution of sample means?  Let's find out. We'll again take 20000 samples of size 50 at random from our population of 1 million archerfish. For each sample we'll record the sample mean length of the 50 fish. We'll end up saving these 20,000 sample means in an R object called `res1`. Again, don't worry about how the code is doing it here, just as long as you follow what we're doing.
 
 
 ```{r}
 
-# ok, get 10,000 samples of size 50
-results1<-vector('list',10000)
-for(i in 1:10000){
+# ok, get 20,000 samples of size 50
+results1<-vector('list',20000)
+for(i in 1:20000){
   results1[[i]]  <- mean(sample(archerfish, 50, replace = T))
 }
 
@@ -720,7 +745,7 @@ res1 <- unlist(results1)
 ```
 
 
-Now we have our 10,000 samples, let's plot the histogram
+Now we have our 20,000 samples, let's plot the histogram
 
 ```{r}
 psd2 <- ggplot(data.frame(res1), aes(x = res1)) + 
@@ -748,7 +773,7 @@ The mean of the sampling distribution of sample means $\mu_{\overline{x}}$ is st
 
 The biggest difference is in the standard deviation of the sampling distribution,  $\sigma_{\overline{x}}$ (the standard error), which is much lower than when we had samples of size 10.  The reason for this is that the variability in our sample means is much more reduced when we have samples of size 50. On average, our sample means are much closer individual estimates to the population mean. This is what drastically reduces the standard deviation of this sampling distribution.
 
-We could have calculated the standard error directly using the formula provided earlier, because we already know the population standard deviation. When we use that formala we get 2.12, essentially the same standard deviation as we got with our simulated sampling distribution:
+We could have calculated the standard error directly using the formula provided earlier, because we already know the population standard deviation. When we use that formala we get 2.12, almost the same standard deviation as we got with our simulated sampling distribution:
 
 ```{r}
 15 / sqrt(50)
@@ -767,7 +792,7 @@ nrow=1)
 
 
 
-
+<br><br>
 
 
 
@@ -780,7 +805,7 @@ Is it just coincidence that both the population distribution and the sampling di
 
 Let's look at this by taking samples from various different population distributions.
 
-
+<br>
 
 **Uniform Distribution**
 
@@ -842,17 +867,19 @@ This histogram represents our sampling distribution of sample means when we took
 ```{r}
 mean(res)  # the mean of the sample means is close to 37.5, the population mean
 
-sd(res)  #3.9 - this is a lot smaller than the population SD
+sd(res)  #3.96 - this is a lot smaller than the population SD
 ```
 
-The mean of our sampling distribution $\mu_{\overline{x}} = 37.5$ which is again approximately equal to the population mean. The sampling distribution standard deviation $\sigma_{\overline{x}} = 3.94$ which is a lot lower than the original population standard deviation. Because we only took 10,000 samples, these values aren't exact, but we could have calculated the standard error by taking the population standard deviation and dividing by the square root of n $\Large \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$ as follows:
+The mean of our sampling distribution $\mu_{\overline{x}} = 37.5$ which is again approximately equal to the population mean. The sampling distribution standard deviation $\sigma_{\overline{x}} = 3.96$ which is a lot lower than the original population standard deviation. Because we only took 10,000 samples, these values aren't exact, but we could have calculated the standard error by taking the population standard deviation and dividing by the square root of n $\Large \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}$ as follows:
 
 
 ```{r}
 sd(x1)/sqrt(30)  # standard error.
 ```
 
+You'll notice that this calculated value is very close to the one we estimated by running our simulation.
 
+<br>
 
 
 **Skewed Distributions**
@@ -929,7 +956,7 @@ sd(q)/sqrt(30)  # standard error = 0.79
 We could keep going with even more types of population distributions. We would find the same thing over and over again. If we take many samples from each population and calculated the sample means of all samples, they would form an approximately normally distribution. This will be especially true for larger samples. This is the basis of the central limit theorem.  In the following sections we'll learn more about what we can do with these sampling distributions.
 
 
-
+<br><br>
 
 
 
@@ -1031,7 +1058,7 @@ So we can see that the probability of getting a sample mean of lower than 58g is
 
 
 
-
+<br><br>
 
 
 
