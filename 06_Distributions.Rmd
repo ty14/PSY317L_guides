@@ -973,7 +973,7 @@ The way to think about these questions is to recognize that we're dealing with a
 
 First, let's plot the population of chicken eggs and then the sampling distribution of samples means for a sample size of 12.
 
-```{r, eval=FALSE, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE}
 set.seed(1) # so you get the same values as my script
 
 
