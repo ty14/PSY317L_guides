@@ -482,7 +482,7 @@ So why are there two formulas, and why do we divide by $n-1$ in the sample stand
 The bottom line is this:  using the population SD formula for a sample generally gives an **underestimate** of the true population standard deviation $\sigma$. The solution is to use a fudge-factor of dividing by $n-1$ which bumps up the standard deviation. This is what we do in the sample standard deviation formula.
 
 
-In the sections below, we are going to visually demonstrate this.  Hopefully this helps to show you that dividing by $n-1$ works. Don't worry too much about any code here, this is just to show you what's going on.
+In the sections below, we are going to visually demonstrate this.  Hopefully this helps to show you that dividing by $n-1$ works. Don't worry too much about any code here, the aim isn't for you to learn how to run simulations such as these, but we want you to be able to visually see what's going on.
 
 
 
@@ -496,6 +496,7 @@ Before we get to why we need a separate formula for the sample standard deviatio
 Sample mean:
 $\Large\overline{x} = \frac{\Sigma{x}}{n}$
 
+<br>
 
 Population mean:  
 $\Large \mu = \frac{\Sigma{x}}{N}$
@@ -535,7 +536,7 @@ mean(samp1)
 
 ```
 
-Here our sample mean $\overline{x}=7.88$ which is close, but a bit below $\mu=7.99$.  
+Here our sample mean $\overline{x}=8.62$ which is close-ish, but a fair bit above $\mu=7.99$.  
 
 Let's do it again:
 
@@ -549,7 +550,7 @@ mean(samp2)
 
 ```
 
-Again our value of $\overline{x}=7.69$ is below $\mu=7.99$.
+Again our value of $\overline{x}=8.10$ is above $\mu=7.99$, but this time much closer.
 
 Let's do a third sample:
 
@@ -564,14 +565,14 @@ mean(samp3)
 ```
 
 
-This time our value of $\overline{x}=8.58$ is higher than $\mu=7.99$.
+This time our value of $\overline{x}=7.86$ is a bit below $\mu=7.99$.
 
 
 What if we did this thousands and thousands of times? Would our sample mean be more often lower or higher than the population mean $\mu=7.99$?
 
 This is what the code below is doing - it's effectively grabbing a sample of size 10 and then calculating the sample mean, but it's doing this 20,000 times. It's storing all the sample means in an object called `results.means`.
 
-Note: you don't need to know how this code works!
+Note: you don't need to know how this code works! though do reach out if you are interested.
 
 ```{r}
 results.means<- vector('list',20000)
@@ -614,7 +615,7 @@ The vertical solid black line represents $\mu=7.99$. This histogram is centered 
 
 As a side note - what we just did in the exercise above was to calculate a *sampling distribution of sample means* - something we'll discuss much more in section \@ref(what-is-a-sampling-distribution). 
 
-
+<br>
 
 #### Sample standard deviation as an unbiased estimator
 
@@ -627,7 +628,7 @@ sd(samp1)
 pop.sd(samp1)
 ```
 
-With the first sample, both estimates are higher than $\sigma=2.02$, with the sample standard deviation being even higher.
+With the first sample, both estimates are lower than $\sigma=2.02$, although the sample standard deviation is a bit closer to $\sigma=2.02$.
 
 
 ```{r}
@@ -636,7 +637,7 @@ sd(samp2)
 pop.sd(samp2)
 ```
 
-With the second sample of 10, both estimates are lower than $\sigma=2.02$, with the sample standard deviation being closer to 2.02.
+With the second sample of 10, both estimates are even lower than $\sigma=2.02$. Again, the sample standard deviation formula produces a result that is closer to 2.02 than does the population deviation formula.
 
 What if we did this for 20,000 samples of size 10?  We'll save the estimates using the sample SD formula in the object `results.samp.sd` and the estimates using the population SD formula in `results.pop.sd`. Again, don't worry about the code here - just focus on the output:
 
@@ -686,7 +687,7 @@ This visualization shows us a few things. First, over all 20,000 samples, some o
 If we were to take larger sample sizes, then our estimates of the population standard deviation $\sigma$, would get better and better when using the sample standard deviation formula.
 
 
-
+<br><br>
 
 
 ## Descriptive Statistics in R
