@@ -965,7 +965,7 @@ Often boxplots look perfectly fine with the categorical grouping variable on the
 Let's add this to the reordered boxplots we just made in the previous section:
 
 ```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
-ggplot(wheels1, aes(x = reorder(strain, strain, median), y = day4)) + 
+ggplot(wheels1, aes(x = reorder(strain, -day4, median), y = day4)) + 
   geom_boxplot(color="navy", fill="lightsteelblue1", alpha = .3) +
   theme_classic() +
   xlab("Mouse Strain") +
@@ -978,7 +978,7 @@ ggplot(wheels1, aes(x = reorder(strain, strain, median), y = day4)) +
 This is OK, but it would be nicer if the highest values were at the top. There may well be a more straightforward way of doing this, but a quick solution is to wrap `reorder(strain, strain, median)` with `fct_rev`, so you now have  `x = fct_rev(reorder(strain, strain, median))`.  It's a whole lot of code, but it does make the graph really pretty, so it's worth it:
 
 ```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
-ggplot(wheels1, aes(x = fct_rev(reorder(strain, strain, median)), y = day4)) + 
+ggplot(wheels1, aes(x = fct_rev(reorder(strain, -day4, median)), y = day4)) + 
   geom_boxplot(color="navy", fill="lightsteelblue1", alpha = .3) +
   theme_classic() +
   xlab("Mouse Strain") +

@@ -598,7 +598,7 @@ Let's calculate the mean of all the 20,000 sample means:
 mean(unlist(results.means))
 ```
 
-It turns out that the average sample mean that we collect using the formula $\Large \overline{x} = \frac{\Sigma{x}}{n}$ is 7.99 which is the same as the population mean $\mu$. What this means is that this formula is perfectly fine to use to **estimate** the population mean. It is what we call an **unbiased estimator**.  Over the long run, it gives us a very good estimate of the population mean $\mu$.  Here is a histogram of our sample means from our 20,000 samples:
+It turns out that the average sample mean that we collect using the formula $\Large \overline{x} = \frac{\Sigma{x}}{n}$ is 7.99 which is the same as the population mean $\mu$. What this means is that this formula is perfectly fine to use to **estimate** the population mean. It is what we call an **unbiased estimator**.  Over the long run, it gives us a very good estimate of the population mean $\mu$.  Here is a histogram of our sample means from our 20,000 samples: 
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
