@@ -386,7 +386,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">7.0.1</span> Uniform Distribution</h3>
 <p>The first distribution we’ll look at is the uniform. A uniform distribution is one where there’s an equal probability of getting each value from the distribution. In the example below, we’ve grabbed 1,000,000 numbers from a uniform distribution that starts at 0 and ends at 100. Let’s look at it’s shape:</p>
 <pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.5.3</code></pre>
-<pre><code>## -- Attaching packages ----------------------------------------------------------------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## -- Attaching packages ---------------------------------------------------------------------------------------------------- tidyverse 1.3.0 --</code></pre>
 <pre><code>## v ggplot2 3.3.2     v purrr   0.3.4
 ## v tibble  3.0.3     v dplyr   0.8.3
 ## v tidyr   1.0.2     v stringr 1.4.0
@@ -397,7 +397,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.3</code></pre>
 <pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.5.3</code></pre>
 <pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.5.3</code></pre>
-<pre><code>## -- Conflicts -------------------------------------------------------------------------------------------------- tidyverse_conflicts() --
+<pre><code>## -- Conflicts ------------------------------------------------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
@@ -444,7 +444,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="img/stdnorm.png" /></p>
 <p>How does the standard normal distribution come about? We will discuss more about this distribution in section <a href="distributions.html#normal-distribution">7.0.3</a>, but briefly it is obtained by converting all the values of a normal distribution into z-scores. z-scores are calculated by:</p>
 <p><span class="math inline">\(\Large z=\frac{x - {\mu}_x}{\sigma_x}\)</span></p>
-<p>This standard normal distribution is very useful in statistics because we can precisely calcualte the proportion of the distribution that is to the left or right under the curve at any point of it. This principle forms the basis of several statistical tests.</p>
+<p>This standard normal distribution is very useful in statistics because we can precisely calculate the proportion of the distribution that is to the left or right under the curve at any point of it. This principle forms the basis of several statistical tests.</p>
 </div>
 <div id="skewness-and-kurtosis" class="section level3">
 <h3><span class="header-section-number">7.0.5</span> Skewness and Kurtosis</h3>
@@ -607,7 +607,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="caption">terriers</p>
 </div>
 <p>If you owned an Airedale Terrier that was 65 lbs and a Scottish Terrier that was 20.5 lbs, would you be able to say which one was relatively larger than their breed average? Both of them are above the mean of their breeds, but by how much? The Airedale Terrier is (65-60) 5 lbs heavier than the mean of the breed, whereas the Scottish Terrier is only (20.5-20) 0.5 lbs heavier than its breed average.</p>
-<p>Looking at things in absolute terms however is misleading. It would be better if we could somehow standardize these differences. This is where z-scores come in. z-scores enable us to calcualte how far any datapoint is from the mean of its distribution by saying how many “standard deviations” away from the mean it is.</p>
+<p>Looking at things in absolute terms however is misleading. It would be better if we could somehow standardize these differences. This is where z-scores come in. z-scores enable us to calculate how far any datapoint is from the mean of its distribution by saying how many “standard deviations” away from the mean it is.</p>
 <p>Let’s look at the Airedale Terrier. Your Airedale is 5 lbs heavier than the mean of 60 lbs. This is a bit less than one standard deviation above the mean, as the standard deviation is 6 lbs. However, your Scottish Terrier is 0.5 lbs heavier than the mean of 20 lbs, which is a bit more than the standard deviation of 0.4 lbs for that breed. We can calculate precisely how many standard deviations away from the mean they are using z-scores. This is the formula:</p>
 <p><span class="math inline">\(\Large z=\frac{x - {\mu}_x}{\sigma_x}\)</span></p>
 <p>Using this formula, let’s calculate the z-scores for each of our dogs:</p>
@@ -627,7 +627,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>z-scores can be very useful ways of standardizing observed values into ways that we can directly compare across different distributions. If we calculate a negative z-score then it’s clear that our observed value is below the population mean, and if we calculate a positive z-score then our value is greater than the population mean. The size of the z-score relates to how many population standard deviations from the mean each value is overall.</p>
 <div id="z-scores-in-samples." class="section level3">
 <h3><span class="header-section-number">7.1.1</span> z-scores in samples.</h3>
-<p>Often we may not know the population mean or standard deviation. In such cases if all we have is a sample mean and a sample standard deviation, we can still calcualte z-scores for such samples. We effectively use the same formula to calculate the z-scores, just subsituting in the sample mean and standard deviation.</p>
+<p>Often we may not know the population mean or standard deviation. In such cases if all we have is a sample mean and a sample standard deviation, we can still calculate z-scores for such samples. We effectively use the same formula to calculate the z-scores, just substituting in the sample mean and standard deviation.</p>
 <p><span class="math inline">\(\Large z=\frac{x - {\overline{x}}}{s_{x}}\)</span></p>
 <p>For instance, let’s look at the following sample of ages for players on a village cricket team:</p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="distributions.html#cb65-1"></a>ages &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">23</span>, <span class="dv">19</span>, <span class="dv">21</span>, <span class="dv">33</span>, <span class="dv">51</span>, <span class="dv">40</span>, <span class="dv">16</span>, <span class="dv">15</span>, <span class="dv">61</span>, <span class="dv">55</span>, <span class="dv">30</span>, <span class="dv">28</span>)</span>
@@ -736,7 +736,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] 100.0061</code></pre>
 <div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="distributions.html#cb99-1"></a><span class="kw">sd</span>(archerfish)</span></code></pre></div>
 <pre><code>## [1] 15.02418</code></pre>
-<p>Let’s also plot what this normally distrubted population looks like by making a histogram:</p>
+<p>Let’s also plot what this normally distrusted population looks like by making a histogram:</p>
 <div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="distributions.html#cb101-1"></a><span class="co"># histogram of the population:</span></span>
 <span id="cb101-2"><a href="distributions.html#cb101-2"></a></span>
 <span id="cb101-3"><a href="distributions.html#cb101-3"></a><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(archerfish), <span class="kw">aes</span>(<span class="dt">x =</span> archerfish)) <span class="op">+</span><span class="st"> </span></span>
@@ -747,7 +747,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb101-8"><a href="distributions.html#cb101-8"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Body Sizes of 1 million Archerfish&quot;</span>) <span class="op">+</span></span>
 <span id="cb101-9"><a href="distributions.html#cb101-9"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="fl">100.0</span>, <span class="dt">lwd=</span><span class="dv">1</span>, <span class="dt">color=</span><span class="st">&#39;black&#39;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
-<p>OK, let’s say that you didn’t have the time to go out and catch 1 million archerfish and measure the body length of every single fish. What should you do? One thing you might decide is to just go and take a random sample of 10 archererfish (you could have picked another sample size - let’s just stick with 10 for now). Once you have your sample of 10 archerfish, you could then measure them and you will be able to calculate the sample mean of that sample.</p>
+<p>OK, let’s say that you didn’t have the time to go out and catch 1 million archerfish and measure the body length of every single fish. What should you do? One thing you might decide is to just go and take a random sample of 10 archerfish (you could have picked another sample size - let’s just stick with 10 for now). Once you have your sample of 10 archerfish, you could then measure them and you will be able to calculate the sample mean of that sample.</p>
 <p>We’ll use <code>sample()</code> to randomly select 10 archerfish.</p>
 <div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="distributions.html#cb102-1"></a><span class="kw">set.seed</span>(<span class="dv">1</span>) <span class="co"># so we all get the same sample.</span></span>
 <span id="cb102-2"><a href="distributions.html#cb102-2"></a>samp1 &lt;-<span class="st"> </span><span class="kw">sample</span>(archerfish, <span class="dv">10</span>, <span class="dt">replace =</span> T)  </span>
@@ -791,7 +791,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] 99.99576</code></pre>
 <div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="distributions.html#cb116-1"></a><span class="kw">sd</span>(res) <span class="co">#standard deviation of the sampling distribution, aka standard error</span></span></code></pre></div>
 <pre><code>## [1] 4.763135</code></pre>
-<p>Let’s first focus on the mean. Our mean of sample means was 99.996, which is very approximately the same as the mean of 1,000,000 archerfish in the population! It turns out that the mean of the sampling distribution is approximately equal to the population mean. By the way, the notation that we use to depcit the mean of the sampling distribution of sample means is <span class="math inline">\(\mu_{\overline{x}}\)</span>. So <span class="math inline">\(\mu_{\overline{x}} = 100.0\)</span>.</p>
+<p>Let’s first focus on the mean. Our mean of sample means was 99.996, which is very approximately the same as the mean of 1,000,000 archerfish in the population! It turns out that the mean of the sampling distribution is approximately equal to the population mean. By the way, the notation that we use to depict the mean of the sampling distribution of sample means is <span class="math inline">\(\mu_{\overline{x}}\)</span>. So <span class="math inline">\(\mu_{\overline{x}} = 100.0\)</span>.</p>
 <p>What is the standard deviation of this distribution (the sampling distribution of the sample means)? We just calculated it in R to be 4.77. The notation we use for this is <span class="math inline">\(\sigma_{\overline{x}} = 4.77\)</span>. It’s called the standard deviation of the sampling distribution of sample means, but for short it gets called the <strong>standard error</strong>.</p>
 <p>Of course, we never in reality actually collect thousands and thousands of samples - that defeats the point of sampling. If we had time to collect thousands and thousands of samples, we may as well just measure every archerfish in the population. Usually, we just collect one sample. In later sections, we’ll discuss how you can estimate what <span class="math inline">\(\mu_{\overline{x}}\)</span> and <span class="math inline">\(\sigma_{\overline{x}}\)</span> are when you have only collected one sample.</p>
 <p>However, given we already know the population standard deviation of the 1 million archerfish is <span class="math inline">\(\sigma=15\)</span>, we can calculate the standard deviation of the sampling distribution of sample means for any sample size. It is calculated using the formula:</p>
@@ -830,7 +830,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] 2.130018</code></pre>
 <p>The mean of the sampling distribution of sample means <span class="math inline">\(\mu_{\overline{x}}\)</span> is still a very good estimate of the population mean.</p>
 <p>The biggest difference is in the standard deviation of the sampling distribution, <span class="math inline">\(\sigma_{\overline{x}}\)</span> (the standard error), which is much lower than when we had samples of size 10. The reason for this is that the variability in our sample means is much more reduced when we have samples of size 50. On average, our sample means are much closer individual estimates to the population mean. This is what drastically reduces the standard deviation of this sampling distribution.</p>
-<p>We could have calculated the standard error directly using the formula provided earlier, because we already know the population standard deviation. When we use that formala we get 2.12, almost the same standard deviation as we got with our simulated sampling distribution:</p>
+<p>We could have calculated the standard error directly using the formula provided earlier, because we already know the population standard deviation. When we use that formula we get 2.12, almost the same standard deviation as we got with our simulated sampling distribution:</p>
 <div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="distributions.html#cb126-1"></a><span class="dv">15</span> <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">50</span>)</span></code></pre></div>
 <pre><code>## [1] 2.12132</code></pre>
 <p>Let’s directly compare the two sampling distributions for the two different sample sizes. We adjusted the x-axis so it is the same for both figures, so you can see the change in the standard deviation between the two sample sizes:</p>
@@ -898,7 +898,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You’ll notice that this calculated value is very close to the one we estimated by running our simulation.</p>
 <p><br></p>
 <p><strong>Skewed Distributions</strong></p>
-<p>We can see that the central limit theorem holds true for skewed distributions also. Here, we have a population of 1 million charity donations. Let’s draw a hisogram of the population distribution and calculate the mean and standard deviation of the population.</p>
+<p>We can see that the central limit theorem holds true for skewed distributions also. Here, we have a population of 1 million charity donations. Let’s draw a histogram of the population distribution and calculate the mean and standard deviation of the population.</p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="distributions.html#cb140-1"></a><span class="kw">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb140-2"><a href="distributions.html#cb140-2"></a><span class="co"># e.g. Donations to a charity (in $s)</span></span>
 <span id="cb140-3"><a href="distributions.html#cb140-3"></a></span>
@@ -1012,7 +1012,7 @@ Q. Say the weight of chicken eggs is normally distributed with mean 60g and stan
 <span id="cb156-4"><a href="distributions.html#cb156-4"></a></span>
 <span id="cb156-5"><a href="distributions.html#cb156-5"></a>z</span></code></pre></div>
 <pre><code>## [1] -2.309401</code></pre>
-<p>The original question asked what probability there was of getting a sample mean of less than 58g. This is basically what area is under the curve of the above sampling distribution to the left of the 58g sample mean. Because we converted that sample mean of 58g to a z-score of -2.31, we can look at that value on a standard normal curve. The area we are iterested in is the filled in area to the left of z = -2.31:</p>
+<p>The original question asked what probability there was of getting a sample mean of less than 58g. This is basically what area is under the curve of the above sampling distribution to the left of the 58g sample mean. Because we converted that sample mean of 58g to a z-score of -2.31, we can look at that value on a standard normal curve. The area we are interested in is the filled in area to the left of z = -2.31:</p>
 <p><img src="img/chicken.png" /></p>
 <p>We can look up this value in R, using the function <code>pnorm</code>.</p>
 <div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="distributions.html#cb158-1"></a><span class="kw">pnorm</span>(z)  <span class="co"># prob = 0.010</span></span></code></pre></div>
@@ -1022,9 +1022,9 @@ Q. Say the weight of chicken eggs is normally distributed with mean 60g and stan
 </div>
 <div id="the-t-distribution" class="section level2">
 <h2><span class="header-section-number">7.5</span> The t-distribution</h2>
-<p>Another distribution that is important to know about is the t-distribution. Like the normal distribution, this is a symmetrical distribution, but it has slighly fatter tails than the normal distribution.</p>
+<p>Another distribution that is important to know about is the t-distribution. Like the normal distribution, this is a symmetrical distribution, but it has slightly fatter tails than the normal distribution.</p>
 <p>The t-distribution comes up most commonly in sampling distributions. In particular, although the central limit theorem prescribes that sampling distributions are approximately normal, it is known that often they aren’t approximately normal enough, and instead they follow a t-distribution shape.</p>
-<p>An important detail about the t-distribution is that there are actually several t-distributions. There are different t-distributions for different degrees of freedom. These differ slightly in how heavy the tails of the distribution are. The degrees of freedom are usually related to the sample size minus one or two (depending upon the test being employed - see sections <a href="one-sample-inferential-statistics.html#one-sample-t-tests">9.2</a> and @ref(theory-behind-student’s-t-test). The higher the degrees of freedom, the more closely the t-distribution looks like a normal distribution. You can see this in the image below. The standard normal distribution is in red, and the t-distribution is in black. Each panel shows a different t-distribution. As the degrees of freedom increase, the t-distribution essentially becomes the normal distribution. At lower degrees of freedom, there is a lot more difference between the t-distribution and the normal distribution in the tails.</p>
+<p>An important detail about the t-distribution is that there are actually several t-distributions. There are different t-distributions for different degrees of freedom. These differ slightly in how heavy the tails of the distribution are. The degrees of freedom are usually related to the sample size minus one or two (depending upon the test being employed - see sections <a href="one-sample-inferential-statistics.html#one-sample-t-tests">9.2</a> and @ref(theory-behind-student’s-t-test). The higher the degrees of freedom, the more closely the t-distribution looks like a normal distribution. You can see this in the image below. The standard normal distribution is in black, and the t-distribution is in red. Each panel shows a different t-distribution. As the degrees of freedom increase, the t-distribution essentially becomes the normal distribution. At lower degrees of freedom, there is a lot more difference between the t-distribution and the normal distribution in the tails.</p>
 <p><img src="img/t.png" /></p>
 
 </div>

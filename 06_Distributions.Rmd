@@ -124,7 +124,7 @@ How does the standard normal distribution come about?  We will discuss more abou
 
 $\Large z=\frac{x - {\mu}_x}{\sigma_x}$
 
-This standard normal distribution is very useful in statistics because we can precisely calcualte the proportion of the distribution that is to the left or right under the curve at any point of it. This principle forms the basis of several statistical tests.
+This standard normal distribution is very useful in statistics because we can precisely calculate the proportion of the distribution that is to the left or right under the curve at any point of it. This principle forms the basis of several statistical tests.
 
 
 
@@ -369,7 +369,7 @@ z-scores are a useful way of comparing different scores in different distributio
 
 If you owned an Airedale Terrier that was 65 lbs and a Scottish Terrier that was 20.5 lbs, would you be able to say which one was relatively larger than their breed average?  Both of them are above the mean of their breeds, but by how much?  The Airedale Terrier is (65-60) 5 lbs heavier than the mean of the breed, whereas the Scottish Terrier is only (20.5-20) 0.5 lbs heavier than its breed average.
 
-Looking at things in absolute terms however is misleading. It would be better if we could somehow standardize these differences. This is where z-scores come in.  z-scores enable us to calcualte how far any datapoint is from the mean of its distribution by saying how many "standard deviations" away from the mean it is.
+Looking at things in absolute terms however is misleading. It would be better if we could somehow standardize these differences. This is where z-scores come in.  z-scores enable us to calculate how far any datapoint is from the mean of its distribution by saying how many "standard deviations" away from the mean it is.
 
 Let's look at the Airedale Terrier. Your Airedale is 5 lbs heavier than the mean of 60 lbs. This is a bit less than one standard deviation above the mean, as the standard deviation is 6 lbs.  However, your Scottish Terrier is 0.5 lbs heavier than the mean of 20 lbs, which is a bit more than the standard deviation of 0.4 lbs for that breed.  We can calculate precisely how many standard deviations away from the mean they are using z-scores.  This is the formula:
 
@@ -406,7 +406,7 @@ z-scores can be very useful ways of standardizing observed values into ways that
 
 ### z-scores in samples.
 
-Often we may not know the population mean or standard deviation. In such cases if all we have is a sample mean and a sample standard deviation, we can still calcualte z-scores for such samples. We effectively use the same formula to calculate the z-scores, just subsituting in the sample mean and standard deviation.
+Often we may not know the population mean or standard deviation. In such cases if all we have is a sample mean and a sample standard deviation, we can still calculate z-scores for such samples. We effectively use the same formula to calculate the z-scores, just substituting in the sample mean and standard deviation.
 
 $\Large z=\frac{x - {\overline{x}}}{s_{x}}$
 
@@ -613,7 +613,7 @@ sd(archerfish)
 
 ```
 
-Let's also plot what this normally distrubted population looks like by making a histogram:
+Let's also plot what this normally distrusted population looks like by making a histogram:
 
 ```{r}
 # histogram of the population:
@@ -629,7 +629,7 @@ ggplot(data.frame(archerfish), aes(x = archerfish)) +
 ```
 
 
-OK, let's say that you didn't have the time to go out and catch 1 million archerfish and measure the body length of every single fish. What should you do? One thing you might decide is to just go and take a random sample of 10 archererfish (you could have picked another sample size - let's just stick with 10 for now). Once you have your sample of 10 archerfish, you could then measure them and you will be able to calculate the sample mean of that sample.
+OK, let's say that you didn't have the time to go out and catch 1 million archerfish and measure the body length of every single fish. What should you do? One thing you might decide is to just go and take a random sample of 10 archerfish (you could have picked another sample size - let's just stick with 10 for now). Once you have your sample of 10 archerfish, you could then measure them and you will be able to calculate the sample mean of that sample.
 
 We'll use `sample()` to randomly select 10 archerfish.
 
@@ -700,7 +700,7 @@ sd(res) #standard deviation of the sampling distribution, aka standard error
 ```
 
 
-Let's first focus on the mean.  Our mean of sample means was 99.996, which is very approximately the same as the mean of 1,000,000 archerfish in the population!  It turns out that the mean of the sampling distribution is approximately equal to the population mean.  By the way, the notation that we use to depcit the mean of the sampling distribution of sample means is  $\mu_{\overline{x}}$.  So $\mu_{\overline{x}} = 100.0$.
+Let's first focus on the mean.  Our mean of sample means was 99.996, which is very approximately the same as the mean of 1,000,000 archerfish in the population!  It turns out that the mean of the sampling distribution is approximately equal to the population mean.  By the way, the notation that we use to depict the mean of the sampling distribution of sample means is  $\mu_{\overline{x}}$.  So $\mu_{\overline{x}} = 100.0$.
 
 
 What is the standard deviation of this distribution (the sampling distribution of the sample means)?  We just calculated it in R to be 4.77.  The notation we use for this is $\sigma_{\overline{x}} = 4.77$. It's called the standard deviation of the sampling distribution of sample means, but for short it gets called the **standard error**.
@@ -773,7 +773,7 @@ The mean of the sampling distribution of sample means $\mu_{\overline{x}}$ is st
 
 The biggest difference is in the standard deviation of the sampling distribution,  $\sigma_{\overline{x}}$ (the standard error), which is much lower than when we had samples of size 10.  The reason for this is that the variability in our sample means is much more reduced when we have samples of size 50. On average, our sample means are much closer individual estimates to the population mean. This is what drastically reduces the standard deviation of this sampling distribution.
 
-We could have calculated the standard error directly using the formula provided earlier, because we already know the population standard deviation. When we use that formala we get 2.12, almost the same standard deviation as we got with our simulated sampling distribution:
+We could have calculated the standard error directly using the formula provided earlier, because we already know the population standard deviation. When we use that formula we get 2.12, almost the same standard deviation as we got with our simulated sampling distribution:
 
 ```{r}
 15 / sqrt(50)
@@ -884,7 +884,7 @@ You'll notice that this calculated value is very close to the one we estimated b
 
 **Skewed Distributions**
 
-We can see that the central limit theorem holds true for skewed distributions also. Here, we have a population of 1 million charity donations. Let's draw a hisogram of the population distribution and calculate the mean and standard deviation of the population.
+We can see that the central limit theorem holds true for skewed distributions also. Here, we have a population of 1 million charity donations. Let's draw a histogram of the population distribution and calculate the mean and standard deviation of the population.
 
 ```{r}
 set.seed(1)
@@ -1043,7 +1043,7 @@ z
 
 ```
 
-The original question asked what probability there was of getting a sample mean of less than 58g. This is basically what area is under the curve of the above sampling distribution to the left of the 58g sample mean. Because we converted that sample mean of 58g to a z-score of -2.31, we can look at that value on a standard normal curve. The area we are iterested in is the filled in area to the left of z = -2.31:
+The original question asked what probability there was of getting a sample mean of less than 58g. This is basically what area is under the curve of the above sampling distribution to the left of the 58g sample mean. Because we converted that sample mean of 58g to a z-score of -2.31, we can look at that value on a standard normal curve. The area we are interested in is the filled in area to the left of z = -2.31:
 
 ![](img/chicken.png)
 
@@ -1064,11 +1064,11 @@ So we can see that the probability of getting a sample mean of lower than 58g is
 
 ## The t-distribution
 
-Another distribution that is important to know about is the t-distribution. Like the normal distribution, this is a symmetrical distribution, but it has slighly fatter tails than the normal distribution. 
+Another distribution that is important to know about is the t-distribution. Like the normal distribution, this is a symmetrical distribution, but it has slightly fatter tails than the normal distribution. 
 
 The t-distribution comes up most commonly in sampling distributions. In particular, although the central limit theorem prescribes that sampling distributions are approximately normal, it is known that often they aren't approximately normal enough, and instead they follow a t-distribution shape.
 
-An important detail about the t-distribution is that there are actually several t-distributions. There are  different t-distributions for different degrees of freedom. These differ slightly in how heavy the tails of the distribution are. The degrees of freedom are usually related to the sample size minus one or two (depending upon the test being employed - see sections \@ref(one-sample-t-tests) and \@ref(theory-behind-student’s-t-test).  The higher the degrees of freedom, the more closely the t-distribution looks like a normal distribution.  You can see this in the image below. The standard normal distribution is in red, and the t-distribution is in black. Each panel shows a different t-distribution. As the degrees of freedom increase, the t-distribution essentially becomes the normal distribution. At lower degrees of freedom, there is a lot more difference between the t-distribution and the normal distribution in the tails.
+An important detail about the t-distribution is that there are actually several t-distributions. There are  different t-distributions for different degrees of freedom. These differ slightly in how heavy the tails of the distribution are. The degrees of freedom are usually related to the sample size minus one or two (depending upon the test being employed - see sections \@ref(one-sample-t-tests) and \@ref(theory-behind-student’s-t-test).  The higher the degrees of freedom, the more closely the t-distribution looks like a normal distribution.  You can see this in the image below. The standard normal distribution is in black, and the t-distribution is in red. Each panel shows a different t-distribution. As the degrees of freedom increase, the t-distribution essentially becomes the normal distribution. At lower degrees of freedom, there is a lot more difference between the t-distribution and the normal distribution in the tails.
 
  ![](img/t.png)
 
