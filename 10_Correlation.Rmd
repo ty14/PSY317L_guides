@@ -177,7 +177,7 @@ cor(df$x,df$y)
 ```
 
 
-
+<br>
 
 ## Conducting a Pearson Correlation Test
 
@@ -367,7 +367,7 @@ Both of these QQ plots are ok, and indicate normality, as does our Shapiro-Wilk 
 What should you do though if either of your continuous variables are not approximately normally distributed? In that case, there are other correlation coefficients and associated significance tests that you could run instead.  We describe these in more detail in Section \@ref(non-parametric-correlations). 
 
 
-
+<br>
 
 ## Confidence Intervals for r
 
@@ -435,7 +435,7 @@ cor(samp1$x, samp1$y)
 
 ```
 
-In our sample we get $r=0.57$ which is quite a bit lower than our population correlation. What if we take a few more samples of size 15? What would we get for those sample correlations?  Let's do it:
+In our sample we get $r=0.80$ which is a little bit higher than our population correlation. What if we take a few more samples of size 15? What would we get for those sample correlations?  Let's do it:
 
 ```{r, message=F, warning=F}
 samp2 <- dfr[sample(1:nrow(dfr),15, T),]
@@ -447,11 +447,13 @@ cor(samp3$x, samp3$y)
 samp4 <- dfr[sample(1:nrow(dfr),15, T),]
 cor(samp4$x, samp4$y)
 
+samp5 <- dfr[sample(1:nrow(dfr),15, T),]
+cor(samp5$x, samp5$y)
 
 
 ```
 
-The next three samples have correlations that are higher, with one of these being higher than the population correlation.  As you might have worked out by now, if we keep doing this over and over again (thousands of times) we would end up with a **sampling distribution of correlation coefficients**.  Let's do that:
+The next three samples have correlations that are also higher than the population correlation.  The fifth sample we collected is much lower with the sample correlation being $r=0.55$. As you might have worked out by now, if we keep doing this over and over again (thousands of times) we would end up with a **sampling distribution of correlation coefficients**.  Let's do that:
 
 ```{r, message=F, warning=F}
 #this code is to get 50,000 correlation coefficients from samples of n=15
@@ -546,7 +548,7 @@ sqrt(1/12)
 Now we have an approximately normal sampling distribution with a standard deviation, we can start to do similar things to what we did with other sampling distributions such as calculate confidence intervals.
 
 
-Let's calculate a confidence interval around our first sample of $r=0.56$.  What we assume is that the Fisher transformed score of $r=0.56$ is the mean of the sampling distribution. Therefore we assume that $z' = 0.63$ is the mean of the sampling distribution. Because we want to have 95% of the distribution inside the confidence interval, then we want to know which values are 1.96 standard deviations away from the mean. This is because we're assuming the transformed sampling distribution to be approximately normal, and in a standard normal curve 95% of the data is $\pm 1.96$ standard deviations of the mean (see section \@ref(sampling-distribution-of-the-difference-in-sample-means).
+Let's calculate a confidence interval around a sample of $r=0.56$.  What we assume is that the Fisher transformed score of $r=0.56$ is the mean of the sampling distribution. Therefore we assume that $z' = 0.63$ is the mean of the sampling distribution. Because we want to have 95% of the distribution inside the confidence interval, then we want to know which values are 1.96 standard deviations away from the mean. This is because we're assuming the transformed sampling distribution to be approximately normal, and in a standard normal curve 95% of the data is $\pm 1.96$ standard deviations of the mean (see section \@ref(sampling-distribution-of-the-difference-in-sample-means).
 
 The formula is:
 
@@ -586,11 +588,13 @@ So for each bit of our confidence interval, transforming the $z'$ values back to
 
 ```
 
+
 Our 95% confidence interval in terms of $r$ is therfore $r = 0.56[0.06, 0.83]$ which is very wide! but doesn't include $r=0$. If we were to increase our sample size then our confidence intervals would get tighter - and our individual estimate of the correlation coefficient would get close to the true population correlation coefficient $\rho$.
 
+<br>
 
 
-**Correlation Confidence Inteval Example**
+**Correlation Confidence Interval Example**
 
 Because the above is a little bit tricky, let's look at a second example.  In a study, researchers found a correlation of $r= -0.654$ based on 34 observations. What is the 95% confidence interval of this correlation ?
 
@@ -636,7 +640,7 @@ So our 95% Confidence interval is $r = -0.65[-0.41, -0.81]$.  Notice with the la
 
 
 
-
+<br>
 
 
 
@@ -739,7 +743,7 @@ numerator/denominator
 We get the same result!
 
 
-
+<br>
 
 
 
@@ -839,7 +843,7 @@ cor.test(cheese$sat_fat, cheese$chol, method = "kendall")
 This output gives you a `tau` value which is the correlation coefficient, and a p-value which you can interpret in the same way as the other tests.
 
 
-
+<br>
 
 **Ranked Data**
 
@@ -877,7 +881,7 @@ cor.test(test$drank, test$testosterone, method = "spearman", alternative = "less
 
 ```
 
-
+<br>
 
 **Non-parametric Partial Correlation**
 
@@ -933,6 +937,7 @@ pcor.test(x=exams$revise, y=exams$exam, z=exams$anxiety, method = "spearman")
 Again, we see that the relationship between these two variables is reduced considerably to $\rho=0.13$ when we controll for each of their relationships with anxiety.
 
 
+<br>
 
 
 ## Point-Biserial Correlation
