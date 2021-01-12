@@ -50,12 +50,13 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,14 +65,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +83,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -398,23 +401,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In most domains, the type of histograms i.e. distributions, that we most commonly observe don’t have 0 peaks like the uniform distribution or 2 peaks like the bimodal distribution, but have just one peak. These are called <strong>unimodal</strong> distributions. One such classic distribution that is very important to statistics is the normal distribution.</p>
 <p>The normal distribution has one peak and is symmetrical, with the same proportion of data on each side of the distribution. In addition, we say that a normal distribution has a <em>skewness of 0</em> and a <em>kurtosis of 3</em>. We’ll talk about what those are a little bit more about what that means very shortly.</p>
 <p>Let’s look at a normal distribution. The following normal distribution has a mean of 100 and a standard deviation of 5. We can generate it by collecting 1,000,000 datapoints in R:</p>
-<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb741-1" title="1"><span class="kw">set.seed</span>(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb741-2" title="2"></a>
-<a class="sourceLine" id="cb741-3" title="3">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1000000</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="fl">5.0</span>)</a>
-<a class="sourceLine" id="cb741-4" title="4"></a>
-<a class="sourceLine" id="cb741-5" title="5"><span class="kw">mean</span>(x) </a></code></pre></div>
+<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb741-1"><a href="distributions.html#cb741-1"></a><span class="kw">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb741-2"><a href="distributions.html#cb741-2"></a></span>
+<span id="cb741-3"><a href="distributions.html#cb741-3"></a>x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1000000</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="fl">5.0</span>)</span>
+<span id="cb741-4"><a href="distributions.html#cb741-4"></a></span>
+<span id="cb741-5"><a href="distributions.html#cb741-5"></a><span class="kw">mean</span>(x) </span></code></pre></div>
 <pre><code>## [1] 100.0002</code></pre>
-<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb743-1" title="1"><span class="kw">sd</span>(x) </a></code></pre></div>
+<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="distributions.html#cb743-1"></a><span class="kw">sd</span>(x) </span></code></pre></div>
 <pre><code>## [1] 5.000926</code></pre>
-<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb745-1" title="1">dfnorm &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">vals =</span> x)</a>
-<a class="sourceLine" id="cb745-2" title="2"></a>
-<a class="sourceLine" id="cb745-3" title="3">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dfnorm, <span class="kw">aes</span>(<span class="dt">x =</span> vals))  <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb745-4" title="4"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;purple&quot;</span>, <span class="dt">alpha=</span>.<span class="dv">4</span>, <span class="dt">binwidth =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb745-5" title="5"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">fill =</span> <span class="st">&quot;mistyrose&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb745-6" title="6"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb745-7" title="7"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;values&quot;</span>)</a>
-<a class="sourceLine" id="cb745-8" title="8"></a>
-<a class="sourceLine" id="cb745-9" title="9">p</a></code></pre></div>
+<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb745-1"><a href="distributions.html#cb745-1"></a>dfnorm &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">vals =</span> x)</span>
+<span id="cb745-2"><a href="distributions.html#cb745-2"></a></span>
+<span id="cb745-3"><a href="distributions.html#cb745-3"></a>p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dfnorm, <span class="kw">aes</span>(<span class="dt">x =</span> vals))  <span class="op">+</span><span class="st"> </span></span>
+<span id="cb745-4"><a href="distributions.html#cb745-4"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;purple&quot;</span>, <span class="dt">alpha=</span>.<span class="dv">4</span>, <span class="dt">binwidth =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb745-5"><a href="distributions.html#cb745-5"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">alpha =</span> <span class="fl">0.7</span>, <span class="dt">fill =</span> <span class="st">&quot;mistyrose&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb745-6"><a href="distributions.html#cb745-6"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb745-7"><a href="distributions.html#cb745-7"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;values&quot;</span>)</span>
+<span id="cb745-8"><a href="distributions.html#cb745-8"></a></span>
+<span id="cb745-9"><a href="distributions.html#cb745-9"></a>p</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-356-1.png" width="672" /></p>
 <p>Normal distributions can vary in their means and standard deviations. Below is an image of a selection of four different normal distributions that all vary in their means and standard deviations. The dotted vertical black line in each graph indicates where their respective means lie.</p>
 <p><img src="img/norm.png" /></p>
@@ -439,27 +442,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We most commonly evaluate skewness for unimodal distributions (those with one peak). The skewness of a distribution can be either negative or positive, or, if it has no skew whatsoever it will be 0.</p>
 <p>It is probably easiest to describe skewness by looking at examples. In the picture below, all distributions have a mean of 100 and a standard deviation of 20. However, they differ in their skewness. The one on the left has a skew of +0.68, the one on the right has a skew of -0.68. The one in the middle has a skew of 0 and is the only one that is normally distributed.</p>
 <div class="figure">
-<img src="img/skew.png" alt="Skewness" />
+<img src="img/skew.png" alt="" />
 <p class="caption">Skewness</p>
 </div>
 <p>Distributions that have negative skew are also called left skewed because their longest tail extends to the left of the distribution. Similarly, distributions that have positive skew are called right skewed because their longest tail extends to the right of the distribution.</p>
 <p>Another thing to consider about the skew of the distribution is what happens to the mean, median and mode of the distributions.</p>
 <p>First, let’s look at the normal distribution we made earlier in this section that had a mean of approximately 100 and a standard deviation of approximately 5. If we get the median, mode and mean of that distribution, we get the following:</p>
-<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb746-1" title="1"><span class="kw">mean</span>(x)</a></code></pre></div>
+<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb746-1"><a href="distributions.html#cb746-1"></a><span class="kw">mean</span>(x)</span></code></pre></div>
 <pre><code>## [1] 100.0002</code></pre>
-<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb748-1" title="1"><span class="kw">median</span>(x)</a></code></pre></div>
+<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="distributions.html#cb748-1"></a><span class="kw">median</span>(x)</span></code></pre></div>
 <pre><code>## [1] 100.0025</code></pre>
-<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb750-1" title="1"><span class="kw">estimate_mode</span>(x) <span class="co"># R doesn&#39;t have a built in mode function, so I&#39;m using this as a proxy</span></a></code></pre></div>
+<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="distributions.html#cb750-1"></a><span class="kw">estimate_mode</span>(x) <span class="co"># R doesn&#39;t have a built in mode function, so I&#39;m using this as a proxy</span></span></code></pre></div>
 <pre><code>## [1] 100.05</code></pre>
 <p>We can see here, that all three values are really close to 100. We can look at this in our plot of the distribution. We’ve overlaid a red line for the mean, a blue line for the median and an orange line for the mode. However, they all lie on top of each other at x=100, so it’s hard to distinguish them:</p>
-<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb752-1" title="1">p <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb752-2" title="2"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">median</span>(x), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)<span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb752-3" title="3"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(x), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)<span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb752-4" title="4"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">estimate_mode</span>(x), <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="distributions.html#cb752-1"></a>p <span class="op">+</span><span class="st"> </span></span>
+<span id="cb752-2"><a href="distributions.html#cb752-2"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">median</span>(x), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)<span class="op">+</span><span class="st"> </span></span>
+<span id="cb752-3"><a href="distributions.html#cb752-3"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(x), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)<span class="op">+</span><span class="st"> </span></span>
+<span id="cb752-4"><a href="distributions.html#cb752-4"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">estimate_mode</span>(x), <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-358-1.png" width="672" /></p>
 <p>Now let’s look at some skewed distributions as to what happens to the mode, median and mean in such distributions.</p>
 <p>In this dataset, we have 7486 rows of data (observations). Each row is a MLB player. The three numerical columns refer to the career total hits (<code>totalH</code>), career total at bats (<code>totalAB</code>), and career batting average (<code>avg</code>) of each player.</p>
-<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb753-1" title="1">bats &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/batting.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb753-1"><a href="distributions.html#cb753-1"></a>bats &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/batting.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   playerID = col_character(),
@@ -467,9 +470,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   totalAB = col_double(),
 ##   avg = col_double()
 ## )</code></pre>
-<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb755-1" title="1"><span class="kw">nrow</span>(bats)</a></code></pre></div>
+<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb755-1"><a href="distributions.html#cb755-1"></a><span class="kw">nrow</span>(bats)</span></code></pre></div>
 <pre><code>## [1] 7486</code></pre>
-<div class="sourceCode" id="cb757"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb757-1" title="1"><span class="kw">head</span>(bats)</a></code></pre></div>
+<div class="sourceCode" id="cb757"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb757-1"><a href="distributions.html#cb757-1"></a><span class="kw">head</span>(bats)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 4
 ##   playerID  totalH totalAB   avg
 ##   &lt;chr&gt;      &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
@@ -479,70 +482,71 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 abbeybe01     38     225 0.169
 ## 5 abbeych01    493    1756 0.281
 ## 6 abbotfr01    107     513 0.209</code></pre>
-<div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb759-1" title="1"><span class="co">#histogram</span></a>
-<a class="sourceLine" id="cb759-2" title="2">p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bats, <span class="kw">aes</span>(<span class="dt">x =</span> avg)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb759-3" title="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), </a>
-<a class="sourceLine" id="cb759-4" title="4">                 <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, </a>
-<a class="sourceLine" id="cb759-5" title="5">                 <span class="dt">fill =</span> <span class="st">&quot;lightseagreen&quot;</span>, </a>
-<a class="sourceLine" id="cb759-6" title="6">                 <span class="dt">alpha =</span> <span class="fl">0.2</span>,</a>
-<a class="sourceLine" id="cb759-7" title="7">                 <span class="dt">binwidth =</span> <span class="fl">.005</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb759-8" title="8"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">colour =</span> <span class="st">&#39;black&#39;</span>, <span class="dt">lwd=</span><span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb759-9" title="9"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb759-10" title="10"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Career Batting Average&quot;</span>)</a>
-<a class="sourceLine" id="cb759-11" title="11"></a>
-<a class="sourceLine" id="cb759-12" title="12">p1</a></code></pre></div>
+<div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb759-1"><a href="distributions.html#cb759-1"></a><span class="co">#histogram</span></span>
+<span id="cb759-2"><a href="distributions.html#cb759-2"></a>p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bats, <span class="kw">aes</span>(<span class="dt">x =</span> avg)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb759-3"><a href="distributions.html#cb759-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), </span>
+<span id="cb759-4"><a href="distributions.html#cb759-4"></a>                 <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, </span>
+<span id="cb759-5"><a href="distributions.html#cb759-5"></a>                 <span class="dt">fill =</span> <span class="st">&quot;lightseagreen&quot;</span>, </span>
+<span id="cb759-6"><a href="distributions.html#cb759-6"></a>                 <span class="dt">alpha =</span> <span class="fl">0.2</span>,</span>
+<span id="cb759-7"><a href="distributions.html#cb759-7"></a>                 <span class="dt">binwidth =</span> <span class="fl">.005</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb759-8"><a href="distributions.html#cb759-8"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">colour =</span> <span class="st">&#39;black&#39;</span>, <span class="dt">lwd=</span><span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb759-9"><a href="distributions.html#cb759-9"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb759-10"><a href="distributions.html#cb759-10"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Career Batting Average&quot;</span>)</span>
+<span id="cb759-11"><a href="distributions.html#cb759-11"></a></span>
+<span id="cb759-12"><a href="distributions.html#cb759-12"></a>p1</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-360-1.png" width="672" /></p>
 <p>As you can see, this distribution is very negatively (left) skewed. This means that there are many players who have career batting averages between 0.2 and 0.3. There are relatively few players with career averages over 0.3. There are more averages that are less than 0.2 causing the skew.</p>
 <p>We can directly measure the skewness using the <code>skewness()</code> function from the <code>moments</code> package. We can see that it is highly negatively skewed with a value of -1.01:</p>
-<div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb760-1" title="1"><span class="kw">library</span>(moments)</a>
-<a class="sourceLine" id="cb760-2" title="2"><span class="kw">skewness</span>(bats<span class="op">$</span>avg) </a></code></pre></div>
+<div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb760-1"><a href="distributions.html#cb760-1"></a><span class="kw">library</span>(moments)</span></code></pre></div>
+<pre><code>## Warning: package &#39;moments&#39; was built under R version 3.5.2</code></pre>
+<div class="sourceCode" id="cb762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb762-1"><a href="distributions.html#cb762-1"></a><span class="kw">skewness</span>(bats<span class="op">$</span>avg) </span></code></pre></div>
 <pre><code>## [1] -1.012683</code></pre>
 <p>Let’s look at where the median, mean and mode are for this negatively skewed distribution.</p>
-<div class="sourceCode" id="cb762"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb762-1" title="1"><span class="kw">median</span>(bats<span class="op">$</span>avg)</a></code></pre></div>
+<div class="sourceCode" id="cb764"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb764-1"><a href="distributions.html#cb764-1"></a><span class="kw">median</span>(bats<span class="op">$</span>avg)</span></code></pre></div>
 <pre><code>## [1] 0.2466792</code></pre>
-<div class="sourceCode" id="cb764"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb764-1" title="1"><span class="kw">mean</span>(bats<span class="op">$</span>avg)</a></code></pre></div>
+<div class="sourceCode" id="cb766"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb766-1"><a href="distributions.html#cb766-1"></a><span class="kw">mean</span>(bats<span class="op">$</span>avg)</span></code></pre></div>
 <pre><code>## [1] 0.237972</code></pre>
-<div class="sourceCode" id="cb766"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb766-1" title="1"><span class="kw">estimate_mode</span>(bats<span class="op">$</span>avg)</a></code></pre></div>
+<div class="sourceCode" id="cb768"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb768-1"><a href="distributions.html#cb768-1"></a><span class="kw">estimate_mode</span>(bats<span class="op">$</span>avg)</span></code></pre></div>
 <pre><code>## [1] 0.2538827</code></pre>
 <p>This time, these descriptive values are not equal. The median and mean are lower than the mode. In fact, the mean is lowest of all.</p>
 <p>In negative skewed distributions, the mean and median get pulled towards the skewed tail of the distribution, but the mean gets pulled further.</p>
-<div class="sourceCode" id="cb768"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb768-1" title="1">p1 <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb768-2" title="2"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">median</span>(bats<span class="op">$</span>avg), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)<span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb768-3" title="3"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(bats<span class="op">$</span>avg), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)<span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb768-4" title="4"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">estimate_mode</span>(bats<span class="op">$</span>avg), <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb770"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb770-1"><a href="distributions.html#cb770-1"></a>p1 <span class="op">+</span><span class="st"> </span></span>
+<span id="cb770-2"><a href="distributions.html#cb770-2"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">median</span>(bats<span class="op">$</span>avg), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)<span class="op">+</span><span class="st"> </span></span>
+<span id="cb770-3"><a href="distributions.html#cb770-3"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(bats<span class="op">$</span>avg), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)<span class="op">+</span><span class="st"> </span></span>
+<span id="cb770-4"><a href="distributions.html#cb770-4"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">estimate_mode</span>(bats<span class="op">$</span>avg), <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-363-1.png" width="672" /></p>
 <p>Now let’s look at what happens to the mode, median and mean in right skewed distributions. Let’s look at the career at-bats of MLB players.</p>
-<div class="sourceCode" id="cb769"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb769-1" title="1"><span class="co">#histogram</span></a>
-<a class="sourceLine" id="cb769-2" title="2">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bats, <span class="kw">aes</span>(<span class="dt">x =</span> totalAB)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb769-3" title="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), </a>
-<a class="sourceLine" id="cb769-4" title="4">                 <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, </a>
-<a class="sourceLine" id="cb769-5" title="5">                 <span class="dt">fill =</span> <span class="st">&quot;plum&quot;</span>, </a>
-<a class="sourceLine" id="cb769-6" title="6">                 <span class="dt">alpha =</span> <span class="fl">0.2</span>,</a>
-<a class="sourceLine" id="cb769-7" title="7">                 <span class="dt">binwidth =</span> <span class="dv">200</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb769-8" title="8"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">colour =</span> <span class="st">&#39;black&#39;</span>, <span class="dt">lwd=</span><span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb769-9" title="9"><span class="st">  </span><span class="kw">theme_classic</span>()</a>
-<a class="sourceLine" id="cb769-10" title="10"></a>
-<a class="sourceLine" id="cb769-11" title="11">p2</a></code></pre></div>
+<div class="sourceCode" id="cb771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb771-1"><a href="distributions.html#cb771-1"></a><span class="co">#histogram</span></span>
+<span id="cb771-2"><a href="distributions.html#cb771-2"></a>p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bats, <span class="kw">aes</span>(<span class="dt">x =</span> totalAB)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb771-3"><a href="distributions.html#cb771-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), </span>
+<span id="cb771-4"><a href="distributions.html#cb771-4"></a>                 <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>, </span>
+<span id="cb771-5"><a href="distributions.html#cb771-5"></a>                 <span class="dt">fill =</span> <span class="st">&quot;plum&quot;</span>, </span>
+<span id="cb771-6"><a href="distributions.html#cb771-6"></a>                 <span class="dt">alpha =</span> <span class="fl">0.2</span>,</span>
+<span id="cb771-7"><a href="distributions.html#cb771-7"></a>                 <span class="dt">binwidth =</span> <span class="dv">200</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb771-8"><a href="distributions.html#cb771-8"></a><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">colour =</span> <span class="st">&#39;black&#39;</span>, <span class="dt">lwd=</span><span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb771-9"><a href="distributions.html#cb771-9"></a><span class="st">  </span><span class="kw">theme_classic</span>()</span>
+<span id="cb771-10"><a href="distributions.html#cb771-10"></a></span>
+<span id="cb771-11"><a href="distributions.html#cb771-11"></a>p2</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-364-1.png" width="672" /></p>
 <p>This distribution is extremely right (positive) skewed. If we measure the skewness we find that the skewness is 1.63.</p>
-<div class="sourceCode" id="cb770"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb770-1" title="1"><span class="kw">skewness</span>(bats<span class="op">$</span>totalAB)</a></code></pre></div>
+<div class="sourceCode" id="cb772"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb772-1"><a href="distributions.html#cb772-1"></a><span class="kw">skewness</span>(bats<span class="op">$</span>totalAB)</span></code></pre></div>
 <pre><code>## [1] 1.626115</code></pre>
 <p>Now, let’s look at the median, mean and mode and plot these on the distribution:</p>
-<div class="sourceCode" id="cb772"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb772-1" title="1"><span class="kw">median</span>(bats<span class="op">$</span>totalAB)</a></code></pre></div>
+<div class="sourceCode" id="cb774"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb774-1"><a href="distributions.html#cb774-1"></a><span class="kw">median</span>(bats<span class="op">$</span>totalAB)</span></code></pre></div>
 <pre><code>## [1] 1037</code></pre>
-<div class="sourceCode" id="cb774"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb774-1" title="1"><span class="kw">mean</span>(bats<span class="op">$</span>totalAB)</a></code></pre></div>
+<div class="sourceCode" id="cb776"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb776-1"><a href="distributions.html#cb776-1"></a><span class="kw">mean</span>(bats<span class="op">$</span>totalAB)</span></code></pre></div>
 <pre><code>## [1] 1958.68</code></pre>
-<div class="sourceCode" id="cb776"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb776-1" title="1"><span class="kw">estimate_mode</span>(bats<span class="op">$</span>totalAB)</a></code></pre></div>
+<div class="sourceCode" id="cb778"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb778-1"><a href="distributions.html#cb778-1"></a><span class="kw">estimate_mode</span>(bats<span class="op">$</span>totalAB)</span></code></pre></div>
 <pre><code>## [1] 454.0069</code></pre>
-<div class="sourceCode" id="cb778"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb778-1" title="1">p2 <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb778-2" title="2"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">median</span>(bats<span class="op">$</span>totalAB), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)<span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb778-3" title="3"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(bats<span class="op">$</span>totalAB), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)<span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb778-4" title="4"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">estimate_mode</span>(bats<span class="op">$</span>totalAB), <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb780"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb780-1"><a href="distributions.html#cb780-1"></a>p2 <span class="op">+</span><span class="st"> </span></span>
+<span id="cb780-2"><a href="distributions.html#cb780-2"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">median</span>(bats<span class="op">$</span>totalAB), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)<span class="op">+</span><span class="st"> </span></span>
+<span id="cb780-3"><a href="distributions.html#cb780-3"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(bats<span class="op">$</span>totalAB), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)<span class="op">+</span><span class="st"> </span></span>
+<span id="cb780-4"><a href="distributions.html#cb780-4"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">estimate_mode</span>(bats<span class="op">$</span>totalAB), <span class="dt">color =</span> <span class="st">&quot;darkorange&quot;</span>, <span class="dt">lwd=</span><span class="dv">1</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-366-1.png" width="672" /></p>
 <p>In these severely right skewed distribution, we again see that the median and mean get pulled towards the tail of the distribution, with the mean getting pulled even further than the median.</p>
 <p>Let’s have a look at a quick summary figure of where the mean, median and mode lie with respect to each other in skewed distributions. As you can see, the mean always gets pulled the furthest to the tail of distributions.The reason for this is that the mean is much more affected by extreme outliers than the median. The median is simply the boundary which divides the top 50% of the data from the bottom 50% of the data. The mean has to include all values in its calculation, so can be largely affected by extreme values more so than the median.</p>
 <div class="figure">
-<img src="img/skew1.png" alt="Skewness" />
+<img src="img/skew1.png" alt="" />
 <p class="caption">Skewness</p>
 </div>
 <p><br></p>
@@ -563,21 +567,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Platykurtic distributions have a kurtosis value lower than 3.</p>
 <p>We can compute this kurtosis value in R using the <code>kurtosis()</code> function from the package <code>moments</code>.</p>
 <p>Both our distributions of total at bats and averages have kurtosis values above 3, indicating that they are leptokurtic - i.e. quite peaky and have less data in the shoulders of the distribution.</p>
-<div class="sourceCode" id="cb779"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb779-1" title="1"><span class="kw">kurtosis</span>(bats<span class="op">$</span>totalAB)   <span class="co"># &gt;3 = &#39;peaky&#39; less in shoulders of tails</span></a></code></pre></div>
+<div class="sourceCode" id="cb781"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb781-1"><a href="distributions.html#cb781-1"></a><span class="kw">kurtosis</span>(bats<span class="op">$</span>totalAB)   <span class="co"># &gt;3 = &#39;peaky&#39; less in shoulders of tails</span></span></code></pre></div>
 <pre><code>## [1] 5.325537</code></pre>
-<div class="sourceCode" id="cb781"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb781-1" title="1"><span class="kw">kurtosis</span>(bats<span class="op">$</span>avg)   <span class="co"># &gt;3 = &#39;peaky&#39; less in shoulders of tails</span></a></code></pre></div>
+<div class="sourceCode" id="cb783"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb783-1"><a href="distributions.html#cb783-1"></a><span class="kw">kurtosis</span>(bats<span class="op">$</span>avg)   <span class="co"># &gt;3 = &#39;peaky&#39; less in shoulders of tails</span></span></code></pre></div>
 <pre><code>## [1] 4.18612</code></pre>
 <p><br></p>
 <p>Another thing of interest is what happens with small sample sizes. Typically small sample sizes are not that normal - that is they are fairly skewed. They are also often fairly platykurtic - they have less data in the center and more in the shoulders and tails of the distribution.</p>
 <p>The below shows an example for a sample of 10 scores that come from a normal population of <span class="math inline">\(\mu=100\)</span> and <span class="math inline">\(\sigma=5\)</span>.</p>
-<div class="sourceCode" id="cb783"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb783-1" title="1"><span class="kw">set.seed</span>(<span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb783-2" title="2">x1 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="fl">5.0</span>)</a>
-<a class="sourceLine" id="cb783-3" title="3">x1</a></code></pre></div>
+<div class="sourceCode" id="cb785"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb785-1"><a href="distributions.html#cb785-1"></a><span class="kw">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb785-2"><a href="distributions.html#cb785-2"></a>x1 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="fl">5.0</span>)</span>
+<span id="cb785-3"><a href="distributions.html#cb785-3"></a>x1</span></code></pre></div>
 <pre><code>##  [1] 100.09373  99.07874  93.14335  97.00416 101.47273 101.94897  93.95962
 ##  [8]  98.18162  91.86664  98.71761</code></pre>
-<div class="sourceCode" id="cb785"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb785-1" title="1"><span class="kw">skewness</span>(x1)</a></code></pre></div>
+<div class="sourceCode" id="cb787"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb787-1"><a href="distributions.html#cb787-1"></a><span class="kw">skewness</span>(x1)</span></code></pre></div>
 <pre><code>## [1] -0.4021377</code></pre>
-<div class="sourceCode" id="cb787"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb787-1" title="1"><span class="kw">kurtosis</span>(x1)</a></code></pre></div>
+<div class="sourceCode" id="cb789"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb789-1"><a href="distributions.html#cb789-1"></a><span class="kw">kurtosis</span>(x1)</span></code></pre></div>
 <pre><code>## [1] 1.848359</code></pre>
 <p>You can see that this small sample is skewed with a skewness of -0.40 and platykurtic with a kurtosis of 1.85.</p>
 <p><br><br></p>
@@ -587,7 +591,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">7.1</span> Z-scores</h2>
 <p>z-scores are a useful way of comparing different scores in different distributions. As an example, let’s look at the two distributions below. On the left we have the population of all Airedale Terriers that is normally distributed with a mean of 60 lbs with a standard deviation of 6 lbs. On the right we have the population of all Scottish Terriers that is normally distributed with a mean of 20 lbs and a standard deviation of 0.4 lbs.</p>
 <div class="figure">
-<img src="img/z1.png" alt="terriers" />
+<img src="img/z1.png" alt="" />
 <p class="caption">terriers</p>
 </div>
 <p>If you owned an Airedale Terrier that was 65 lbs and a Scottish Terrier that was 20.5 lbs, would you be able to say which one was relatively larger than their breed average? Both of them are above the mean of their breeds, but by how much? The Airedale Terrier is (65-60) 5 lbs heavier than the mean of the breed, whereas the Scottish Terrier is only (20.5-20) 0.5 lbs heavier than its breed average.</p>
@@ -595,17 +599,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s look at the Airedale Terrier. Your Airedale is 5 lbs heavier than the mean of 60 lbs. This is a bit less than one standard deviation above the mean, as the standard deviation is 6 lbs. However, your Scottish Terrier is 0.5 lbs heavier than the mean of 20 lbs, which is a bit more than the standard deviation of 0.4 lbs for that breed. We can calculate precisely how many standard deviations away from the mean they are using z-scores. This is the formula:</p>
 <p><span class="math inline">\(\Large z=\frac{x - {\mu}_x}{\sigma_x}\)</span></p>
 <p>Using this formula, let’s calculate the z-scores for each of our dogs:</p>
-<div class="sourceCode" id="cb789"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb789-1" title="1"><span class="co">#Airedale</span></a>
-<a class="sourceLine" id="cb789-2" title="2">(<span class="dv">65</span> <span class="op">-</span><span class="st"> </span><span class="dv">60</span>) <span class="op">/</span><span class="st"> </span><span class="dv">6</span></a></code></pre></div>
+<div class="sourceCode" id="cb791"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb791-1"><a href="distributions.html#cb791-1"></a><span class="co">#Airedale</span></span>
+<span id="cb791-2"><a href="distributions.html#cb791-2"></a>(<span class="dv">65</span> <span class="op">-</span><span class="st"> </span><span class="dv">60</span>) <span class="op">/</span><span class="st"> </span><span class="dv">6</span></span></code></pre></div>
 <pre><code>## [1] 0.8333333</code></pre>
-<div class="sourceCode" id="cb791"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb791-1" title="1"><span class="co">#Scottish</span></a>
-<a class="sourceLine" id="cb791-2" title="2">(<span class="fl">20.5</span> <span class="op">-</span><span class="st"> </span><span class="dv">20</span>) <span class="op">/</span><span class="st"> </span><span class="fl">0.4</span></a></code></pre></div>
+<div class="sourceCode" id="cb793"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb793-1"><a href="distributions.html#cb793-1"></a><span class="co">#Scottish</span></span>
+<span id="cb793-2"><a href="distributions.html#cb793-2"></a>(<span class="fl">20.5</span> <span class="op">-</span><span class="st"> </span><span class="dv">20</span>) <span class="op">/</span><span class="st"> </span><span class="fl">0.4</span></span></code></pre></div>
 <pre><code>## [1] 1.25</code></pre>
 <p>The z-score for our 65 lb Airedale is <code>z=0.83</code>. The z-score for our 20.5 lb Scottish is <code>z=1.25</code>. This shows us that our Scottish Terrier is actual more standard deviations away from its breed mean than is our Airedale Terrier dog.</p>
 <p>We could also plot each of these z-scores on top of the standard normal distribution. Remember, this is the specific case of the normal distribution where the mean of the distribution is 0 and the standard deviation is 1.</p>
 <p>Shown below, we’ve plotted on the top row the breed population histograms with red vertical lines the weights of each of these dogs on their respective population histogram. On the bottom row we have these values converted to their z-scores and still shown with a red line. Each is overlaid on top of a standard normal distribution.</p>
 <div class="figure">
-<img src="img/z2.png" alt="z-scores" />
+<img src="img/z2.png" alt="" />
 <p class="caption">z-scores</p>
 </div>
 <p>z-scores can be very useful ways of standardizing observed values into ways that we can directly compare across different distributions. If we calculate a negative z-score then it’s clear that our observed value is below the population mean, and if we calculate a positive z-score then our value is greater than the population mean. The size of the z-score relates to how many population standard deviations from the mean each value is overall.</p>
@@ -614,16 +618,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Often we may not know the population mean or standard deviation. In such cases if all we have is a sample mean and a sample standard deviation, we can still calculate z-scores for such samples. We effectively use the same formula to calculate the z-scores, just substituting in the sample mean and standard deviation.</p>
 <p><span class="math inline">\(\Large z=\frac{x - {\overline{x}}}{s_{x}}\)</span></p>
 <p>For instance, let’s look at the following sample of ages for players on a village cricket team:</p>
-<div class="sourceCode" id="cb793"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb793-1" title="1">ages &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">23</span>, <span class="dv">19</span>, <span class="dv">21</span>, <span class="dv">33</span>, <span class="dv">51</span>, <span class="dv">40</span>, <span class="dv">16</span>, <span class="dv">15</span>, <span class="dv">61</span>, <span class="dv">55</span>, <span class="dv">30</span>, <span class="dv">28</span>)</a>
-<a class="sourceLine" id="cb793-2" title="2"></a>
-<a class="sourceLine" id="cb793-3" title="3"><span class="kw">mean</span>(ages)</a></code></pre></div>
+<div class="sourceCode" id="cb795"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb795-1"><a href="distributions.html#cb795-1"></a>ages &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">23</span>, <span class="dv">19</span>, <span class="dv">21</span>, <span class="dv">33</span>, <span class="dv">51</span>, <span class="dv">40</span>, <span class="dv">16</span>, <span class="dv">15</span>, <span class="dv">61</span>, <span class="dv">55</span>, <span class="dv">30</span>, <span class="dv">28</span>)</span>
+<span id="cb795-2"><a href="distributions.html#cb795-2"></a></span>
+<span id="cb795-3"><a href="distributions.html#cb795-3"></a><span class="kw">mean</span>(ages)</span></code></pre></div>
 <pre><code>## [1] 32.66667</code></pre>
-<div class="sourceCode" id="cb795"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb795-1" title="1"><span class="kw">sd</span>(ages)</a></code></pre></div>
+<div class="sourceCode" id="cb797"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb797-1"><a href="distributions.html#cb797-1"></a><span class="kw">sd</span>(ages)</span></code></pre></div>
 <pre><code>## [1] 15.74417</code></pre>
 <p>These data clearly don’t look normally distributed, but we still are able to calculate a mean and standard deviation. We can also still calculate the z-scores for each age:</p>
-<div class="sourceCode" id="cb797"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb797-1" title="1">z &lt;-<span class="st"> </span>(ages <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(ages)) <span class="op">/</span><span class="st"> </span><span class="kw">sd</span>(ages)</a>
-<a class="sourceLine" id="cb797-2" title="2"></a>
-<a class="sourceLine" id="cb797-3" title="3">z</a></code></pre></div>
+<div class="sourceCode" id="cb799"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb799-1"><a href="distributions.html#cb799-1"></a>z &lt;-<span class="st"> </span>(ages <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(ages)) <span class="op">/</span><span class="st"> </span><span class="kw">sd</span>(ages)</span>
+<span id="cb799-2"><a href="distributions.html#cb799-2"></a></span>
+<span id="cb799-3"><a href="distributions.html#cb799-3"></a>z</span></code></pre></div>
 <pre><code>##  [1] -0.61398401 -0.86804636 -0.74101519  0.02117186  1.16445243  0.46578097
 ##  [7] -1.05859312 -1.12210871  1.79960831  1.41851478 -0.16937490 -0.29640607</code></pre>
 <p>You’ll notice that those individuals that have negative z-scores are younger than the mean age of 32.67. Those individuals with positive z-scores are older than the mean age of 32.67. The largest z-score in terms of magnitude (either in the positive or negative direction) is 1.8. This person was 61 and was 1.8 standard deviations older than the average age.</p>
@@ -641,18 +645,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="img/ztable.png" style="width:50.0%" /></p>
 <p>The above table and histogram are obviously useful guides for knowing what proportion of the data exist at certain breakpoints. But, what if you had a value of <span class="math inline">\(x=17.5\)</span> in the above distribution? What proportion of the data are below this value?</p>
 <p>Well we can actually work this out if we convert our raw scores to z-scores. Once we have a z-score, we can calculate the area to the left of any point on the standard normal curve. Our value of <span class="math inline">\(x=17.5\)</span> has a z-score of 0.875, so it is 0.875 standard deviations above the mean.</p>
-<div class="sourceCode" id="cb799"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb799-1" title="1">(<span class="fl">17.5</span> <span class="op">-</span><span class="st"> </span><span class="dv">14</span>) <span class="op">/</span><span class="dv">4</span></a></code></pre></div>
+<div class="sourceCode" id="cb801"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb801-1"><a href="distributions.html#cb801-1"></a>(<span class="fl">17.5</span> <span class="op">-</span><span class="st"> </span><span class="dv">14</span>) <span class="op">/</span><span class="dv">4</span></span></code></pre></div>
 <pre><code>## [1] 0.875</code></pre>
 <p>Let’s look at that on the standard normal curve, with the value <span class="math inline">\(z = 0.875\)</span> represented by the red solid line. We can obtain the area in the distribution to the left of this value that is shaded in light red in R, using the function <code>pnorm()</code>.</p>
 <p><img src="img/z3.png" /></p>
-<div class="sourceCode" id="cb801"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb801-1" title="1"><span class="kw">pnorm</span>(<span class="fl">0.875</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb803"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb803-1"><a href="distributions.html#cb803-1"></a><span class="kw">pnorm</span>(<span class="fl">0.875</span>)</span></code></pre></div>
 <pre><code>## [1] 0.809213</code></pre>
 <p>This shows us that 80.92% of the distribution lie to the left of <span class="math inline">\(z=0.875\)</span>. To get what proportion of the distribution lie to the right of this value, we just subtract it from 1.</p>
-<div class="sourceCode" id="cb803"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb803-1" title="1"><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="fl">0.875</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb805-1"><a href="distributions.html#cb805-1"></a><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="fl">0.875</span>)</span></code></pre></div>
 <pre><code>## [1] 0.190787</code></pre>
 <p>Let’s look at the proportions under the curve to the left of plus or minus 0, 1, 2, or 3 standard deviations from the mean.</p>
-<div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb805-1" title="1">zvals &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb805-2" title="2"><span class="kw">pnorm</span>(zvals)</a></code></pre></div>
+<div class="sourceCode" id="cb807"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb807-1"><a href="distributions.html#cb807-1"></a>zvals &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb807-2"><a href="distributions.html#cb807-2"></a><span class="kw">pnorm</span>(zvals)</span></code></pre></div>
 <pre><code>## [1] 0.001349898 0.022750132 0.158655254 0.500000000 0.841344746 0.977249868
 ## [7] 0.998650102</code></pre>
 <p>Hopefully you can see that these values mirror those in the table provided above.</p>
@@ -664,43 +668,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s assume that the weights of pineapples are normally distributed with a mean of 1003.5g and a standard deviation of 35g. You bought a random pineapple and it turned out to only be 940g. What proportion of pineapples are less than 940g? How unlucky did you get to buy such a small pineapple?</p>
 <p>First, let’s take a look at the population distribution of pineapples with <span class="math inline">\(\mu=1003.5\)</span> and <span class="math inline">\(\sigma=35\)</span>. Our pineapple is 940g and is shown with the solid red line below. As our distribution is normal, if we convert this to a z-score we can compare it to where z is in the standard normal distribution on the right.</p>
 <p><img src="img/z4.png" /></p>
-<div class="sourceCode" id="cb807"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb807-1" title="1">(<span class="dv">940</span> <span class="op">-</span><span class="st"> </span><span class="fl">1003.5</span>) <span class="op">/</span><span class="st"> </span><span class="dv">35</span></a></code></pre></div>
+<div class="sourceCode" id="cb809"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb809-1"><a href="distributions.html#cb809-1"></a>(<span class="dv">940</span> <span class="op">-</span><span class="st"> </span><span class="fl">1003.5</span>) <span class="op">/</span><span class="st"> </span><span class="dv">35</span></span></code></pre></div>
 <pre><code>## [1] -1.814286</code></pre>
 <p>So we calculated that <span class="math inline">\(z = -1.81\)</span>, and we visualize that on our standard normal distribution. We’re interested in what proportion of pineapples from the distribution are 940g or less. That is the light red shaded area. To calculate that we can just use <code>pnorm()</code> in R:</p>
-<div class="sourceCode" id="cb809"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb809-1" title="1"><span class="kw">pnorm</span>(<span class="op">-</span><span class="fl">1.81</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb811"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb811-1"><a href="distributions.html#cb811-1"></a><span class="kw">pnorm</span>(<span class="op">-</span><span class="fl">1.81</span>)</span></code></pre></div>
 <pre><code>## [1] 0.03514789</code></pre>
 <p>From this we can see that only 3.5% of pineapples are less than 940g. We got super unlucky to get such a tiny pineapple.</p>
 <p><strong>Example 2</strong></p>
 <p>What is the probability of getting a pineapple of greater than 1050g ?</p>
 <p>To answer this we first get the z-score for a pineapple of 1050g, and find that <span class="math inline">\(z = 1.33\)</span>.</p>
-<div class="sourceCode" id="cb811"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb811-1" title="1">(<span class="dv">1050</span> <span class="op">-</span><span class="st"> </span><span class="fl">1003.5</span>) <span class="op">/</span><span class="st"> </span><span class="dv">35</span></a></code></pre></div>
+<div class="sourceCode" id="cb813"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb813-1"><a href="distributions.html#cb813-1"></a>(<span class="dv">1050</span> <span class="op">-</span><span class="st"> </span><span class="fl">1003.5</span>) <span class="op">/</span><span class="st"> </span><span class="dv">35</span></span></code></pre></div>
 <pre><code>## [1] 1.328571</code></pre>
 <p>Next we recognize that if we’re interested in what proportion of pineapples weigh more than 1050g, we need to know what proportion of the standard normal curve is greater than <span class="math inline">\(z = 1.33\)</span> (the shaded light red area below).</p>
 <p><img src="img/z5.png" /></p>
 <p>We can calculate that by using <code>pnorm()</code> to figure out what proportion is to the left of <span class="math inline">\(z = 1.33\)</span>, and then subtract that from 1 to get what proportion is to the right.</p>
-<div class="sourceCode" id="cb813"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb813-1" title="1"><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="fl">1.33</span>)   <span class="co">#0.003  (so 9.18% chance)</span></a></code></pre></div>
+<div class="sourceCode" id="cb815"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb815-1"><a href="distributions.html#cb815-1"></a><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="fl">1.33</span>)   <span class="co">#0.003  (so 9.18% chance)</span></span></code></pre></div>
 <pre><code>## [1] 0.09175914</code></pre>
 <p><strong>Example 3</strong></p>
 <p>What is the probability of getting a pineapple between 950g and 1045g ?</p>
 <p>For this question, we’re interested in the shaded light red area between <span class="math inline">\(z = x\)</span> and <span class="math inline">\(z = z\)</span> on the standard normal curve. Why these z-values? Because these are the z scores you get if you convert a 950g and a 1045g pineapple to z scores.</p>
-<div class="sourceCode" id="cb815"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb815-1" title="1">z1 &lt;-<span class="st"> </span>(<span class="dv">950</span> <span class="op">-</span><span class="st"> </span><span class="fl">1003.5</span>)  <span class="op">/</span><span class="st"> </span><span class="dv">35</span></a>
-<a class="sourceLine" id="cb815-2" title="2">z2 &lt;-<span class="st"> </span>(<span class="dv">1045</span> <span class="op">-</span><span class="st"> </span><span class="fl">1003.5</span>)  <span class="op">/</span><span class="st"> </span><span class="dv">35</span></a>
-<a class="sourceLine" id="cb815-3" title="3"></a>
-<a class="sourceLine" id="cb815-4" title="4">z1 <span class="co">#-1.53</span></a></code></pre></div>
+<div class="sourceCode" id="cb817"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb817-1"><a href="distributions.html#cb817-1"></a>z1 &lt;-<span class="st"> </span>(<span class="dv">950</span> <span class="op">-</span><span class="st"> </span><span class="fl">1003.5</span>)  <span class="op">/</span><span class="st"> </span><span class="dv">35</span></span>
+<span id="cb817-2"><a href="distributions.html#cb817-2"></a>z2 &lt;-<span class="st"> </span>(<span class="dv">1045</span> <span class="op">-</span><span class="st"> </span><span class="fl">1003.5</span>)  <span class="op">/</span><span class="st"> </span><span class="dv">35</span></span>
+<span id="cb817-3"><a href="distributions.html#cb817-3"></a></span>
+<span id="cb817-4"><a href="distributions.html#cb817-4"></a>z1 <span class="co">#-1.53</span></span></code></pre></div>
 <pre><code>## [1] -1.528571</code></pre>
-<div class="sourceCode" id="cb817"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb817-1" title="1">z2 <span class="co">#1.19</span></a></code></pre></div>
+<div class="sourceCode" id="cb819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb819-1"><a href="distributions.html#cb819-1"></a>z2 <span class="co">#1.19</span></span></code></pre></div>
 <pre><code>## [1] 1.185714</code></pre>
 <p><img src="img/z6.png" /></p>
 <p>In R we can calculate the proportion to the left of each of these z-scores using <code>pnorm()</code>. What we need is the shaded area, which we can get if we subtract the area to the left of <span class="math inline">\(z = -1.53\)</span> from the area to the left of <span class="math inline">\(z = 1.19\)</span>. We do it like this:</p>
-<div class="sourceCode" id="cb819"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb819-1" title="1"><span class="co">## get proportion of curve to left of each z-score</span></a>
-<a class="sourceLine" id="cb819-2" title="2"></a>
-<a class="sourceLine" id="cb819-3" title="3"><span class="kw">pnorm</span>(z1) <span class="co"># 0.06</span></a></code></pre></div>
+<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb821-1"><a href="distributions.html#cb821-1"></a><span class="co">## get proportion of curve to left of each z-score</span></span>
+<span id="cb821-2"><a href="distributions.html#cb821-2"></a></span>
+<span id="cb821-3"><a href="distributions.html#cb821-3"></a><span class="kw">pnorm</span>(z1) <span class="co"># 0.06</span></span></code></pre></div>
 <pre><code>## [1] 0.06318536</code></pre>
-<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb821-1" title="1"><span class="kw">pnorm</span>(z2) <span class="co"># 0.88</span></a></code></pre></div>
+<div class="sourceCode" id="cb823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb823-1"><a href="distributions.html#cb823-1"></a><span class="kw">pnorm</span>(z2) <span class="co"># 0.88</span></span></code></pre></div>
 <pre><code>## [1] 0.8821324</code></pre>
-<div class="sourceCode" id="cb823"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb823-1" title="1"><span class="co"># so the area between them is:</span></a>
-<a class="sourceLine" id="cb823-2" title="2"></a>
-<a class="sourceLine" id="cb823-3" title="3"><span class="kw">pnorm</span>(z2) <span class="op">-</span><span class="st"> </span><span class="kw">pnorm</span>(z1)  <span class="co">#0.82</span></a></code></pre></div>
+<div class="sourceCode" id="cb825"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb825-1"><a href="distributions.html#cb825-1"></a><span class="co"># so the area between them is:</span></span>
+<span id="cb825-2"><a href="distributions.html#cb825-2"></a></span>
+<span id="cb825-3"><a href="distributions.html#cb825-3"></a><span class="kw">pnorm</span>(z2) <span class="op">-</span><span class="st"> </span><span class="kw">pnorm</span>(z1)  <span class="co">#0.82</span></span></code></pre></div>
 <pre><code>## [1] 0.8189471</code></pre>
 <p>So, 82% of the distribution lie between 950g and 1040g.</p>
 <p><br><br></p>
@@ -712,76 +716,76 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Another type of distribution that we will discuss a lot! is the sampling distribution. There are different types of sampling distributions, so for now we’ll focus on the <strong>sampling distribution of the sample means</strong>. The best way to illustrate a sampling distribution, is to show it by example.</p>
 <p>Say we have a population of 1 million adult Archerfish. The population mean of their bodylength is <span class="math inline">\(\mu = 100.0mm\)</span>, and the population standard deviation is <span class="math inline">\(\sigma = 15.0mm\)</span>.</p>
 <p>Let’s create this population:</p>
-<div class="sourceCode" id="cb825"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb825-1" title="1"><span class="kw">set.seed</span>(<span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb825-2" title="2"></a>
-<a class="sourceLine" id="cb825-3" title="3">archerfish &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1000000</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>)</a>
-<a class="sourceLine" id="cb825-4" title="4"></a>
-<a class="sourceLine" id="cb825-5" title="5"><span class="kw">mean</span>(archerfish)</a></code></pre></div>
+<div class="sourceCode" id="cb827"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb827-1"><a href="distributions.html#cb827-1"></a><span class="kw">set.seed</span>(<span class="dv">3</span>)</span>
+<span id="cb827-2"><a href="distributions.html#cb827-2"></a></span>
+<span id="cb827-3"><a href="distributions.html#cb827-3"></a>archerfish &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1000000</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>)</span>
+<span id="cb827-4"><a href="distributions.html#cb827-4"></a></span>
+<span id="cb827-5"><a href="distributions.html#cb827-5"></a><span class="kw">mean</span>(archerfish)</span></code></pre></div>
 <pre><code>## [1] 100.0061</code></pre>
-<div class="sourceCode" id="cb827"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb827-1" title="1"><span class="kw">sd</span>(archerfish)</a></code></pre></div>
+<div class="sourceCode" id="cb829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb829-1"><a href="distributions.html#cb829-1"></a><span class="kw">sd</span>(archerfish)</span></code></pre></div>
 <pre><code>## [1] 15.02418</code></pre>
 <p>Let’s also plot what this normally distrusted population looks like by making a histogram:</p>
-<div class="sourceCode" id="cb829"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb829-1" title="1"><span class="co"># histogram of the population:</span></a>
-<a class="sourceLine" id="cb829-2" title="2"></a>
-<a class="sourceLine" id="cb829-3" title="3"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(archerfish), <span class="kw">aes</span>(<span class="dt">x =</span> archerfish)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb829-4" title="4"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, <span class="dt">fill=</span><span class="st">&#39;#f584ed&#39;</span>, <span class="dt">alpha=</span>.<span class="dv">5</span>, <span class="dt">binwidth =</span><span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb829-5" title="5"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb829-6" title="6"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Body Length mm&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb829-7" title="7"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb829-8" title="8"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Body Sizes of 1 million Archerfish&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb829-9" title="9"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="fl">100.0</span>, <span class="dt">lwd=</span><span class="dv">1</span>, <span class="dt">color=</span><span class="st">&#39;black&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb831"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb831-1"><a href="distributions.html#cb831-1"></a><span class="co"># histogram of the population:</span></span>
+<span id="cb831-2"><a href="distributions.html#cb831-2"></a></span>
+<span id="cb831-3"><a href="distributions.html#cb831-3"></a><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(archerfish), <span class="kw">aes</span>(<span class="dt">x =</span> archerfish)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb831-4"><a href="distributions.html#cb831-4"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, <span class="dt">fill=</span><span class="st">&#39;#f584ed&#39;</span>, <span class="dt">alpha=</span>.<span class="dv">5</span>, <span class="dt">binwidth =</span><span class="dv">2</span>) <span class="op">+</span></span>
+<span id="cb831-5"><a href="distributions.html#cb831-5"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb831-6"><a href="distributions.html#cb831-6"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Body Length mm&quot;</span>) <span class="op">+</span></span>
+<span id="cb831-7"><a href="distributions.html#cb831-7"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="op">+</span></span>
+<span id="cb831-8"><a href="distributions.html#cb831-8"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Body Sizes of 1 million Archerfish&quot;</span>) <span class="op">+</span></span>
+<span id="cb831-9"><a href="distributions.html#cb831-9"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="fl">100.0</span>, <span class="dt">lwd=</span><span class="dv">1</span>, <span class="dt">color=</span><span class="st">&#39;black&#39;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-383-1.png" width="672" /></p>
 <p>OK, let’s say that you didn’t have the time to go out and catch 1 million archerfish and measure the body length of every single fish. What should you do? One thing you might decide is to just go and take a random sample of 10 archerfish (you could have picked another sample size - let’s just stick with 10 for now). Once you have your sample of 10 archerfish, you could then measure them and you will be able to calculate the sample mean of that sample.</p>
 <p>We’ll use <code>sample()</code> to randomly select 10 archerfish.</p>
-<div class="sourceCode" id="cb830"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb830-1" title="1"><span class="kw">set.seed</span>(<span class="dv">1</span>) <span class="co"># so we all get the same sample.</span></a>
-<a class="sourceLine" id="cb830-2" title="2">samp1 &lt;-<span class="st"> </span><span class="kw">sample</span>(archerfish, <span class="dv">10</span>, <span class="dt">replace =</span> T)  </a>
-<a class="sourceLine" id="cb830-3" title="3"></a>
-<a class="sourceLine" id="cb830-4" title="4">samp1</a></code></pre></div>
-<pre><code>##  [1]  95.84601 106.80884  95.77485  89.09022  94.47476  85.87588  90.68373
-##  [8]  98.53963  91.73568  75.49939</code></pre>
-<div class="sourceCode" id="cb832"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb832-1" title="1"><span class="kw">mean</span>(samp1)</a></code></pre></div>
-<pre><code>## [1] 92.4329</code></pre>
+<div class="sourceCode" id="cb832"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb832-1"><a href="distributions.html#cb832-1"></a><span class="kw">set.seed</span>(<span class="dv">1</span>) <span class="co"># so we all get the same sample.</span></span>
+<span id="cb832-2"><a href="distributions.html#cb832-2"></a>samp1 &lt;-<span class="st"> </span><span class="kw">sample</span>(archerfish, <span class="dv">10</span>, <span class="dt">replace =</span> T)  </span>
+<span id="cb832-3"><a href="distributions.html#cb832-3"></a></span>
+<span id="cb832-4"><a href="distributions.html#cb832-4"></a>samp1</span></code></pre></div>
+<pre><code>##  [1]  83.93889 103.18896  77.19206 104.34995  98.54528 111.00236  85.95220
+##  [8]  94.26505  99.79486  97.50949</code></pre>
+<div class="sourceCode" id="cb834"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb834-1"><a href="distributions.html#cb834-1"></a><span class="kw">mean</span>(samp1)</span></code></pre></div>
+<pre><code>## [1] 95.57391</code></pre>
 <p>Our sample mean is <span class="math inline">\(\overline{x}=95.6\)</span> - that’s fairly close to the actual population mean of 100.0mm. Let’s grab another three samples of 10 archerfish and see what the sample means are of those sample:</p>
-<div class="sourceCode" id="cb834"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb834-1" title="1"><span class="kw">mean</span>(<span class="kw">sample</span>(archerfish, <span class="dv">10</span>, <span class="dt">replace =</span> T))  <span class="co"># mean of our 2nd sample</span></a></code></pre></div>
-<pre><code>## [1] 99.65941</code></pre>
-<div class="sourceCode" id="cb836"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb836-1" title="1"><span class="kw">mean</span>(<span class="kw">sample</span>(archerfish, <span class="dv">10</span>, <span class="dt">replace =</span> T))  <span class="co"># mean of our 3rd sample</span></a></code></pre></div>
-<pre><code>## [1] 98.52547</code></pre>
-<div class="sourceCode" id="cb838"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb838-1" title="1"><span class="kw">mean</span>(<span class="kw">sample</span>(archerfish, <span class="dv">10</span>, <span class="dt">replace =</span> T))  <span class="co"># mean of our 4th sample</span></a></code></pre></div>
-<pre><code>## [1] 96.3643</code></pre>
+<div class="sourceCode" id="cb836"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb836-1"><a href="distributions.html#cb836-1"></a><span class="kw">mean</span>(<span class="kw">sample</span>(archerfish, <span class="dv">10</span>, <span class="dt">replace =</span> T))  <span class="co"># mean of our 2nd sample</span></span></code></pre></div>
+<pre><code>## [1] 98.35256</code></pre>
+<div class="sourceCode" id="cb838"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb838-1"><a href="distributions.html#cb838-1"></a><span class="kw">mean</span>(<span class="kw">sample</span>(archerfish, <span class="dv">10</span>, <span class="dt">replace =</span> T))  <span class="co"># mean of our 3rd sample</span></span></code></pre></div>
+<pre><code>## [1] 100.4263</code></pre>
+<div class="sourceCode" id="cb840"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb840-1"><a href="distributions.html#cb840-1"></a><span class="kw">mean</span>(<span class="kw">sample</span>(archerfish, <span class="dv">10</span>, <span class="dt">replace =</span> T))  <span class="co"># mean of our 4th sample</span></span></code></pre></div>
+<pre><code>## [1] 99.98449</code></pre>
 <p>These next three samples are closer to 100.0, with one just above and two just below 100.</p>
 <p>What would happen if we collected thousands and thousands of samples of size 10? Let’s do it - you don’t need to follow the exact code here of how we’re doing this, but essentially we’re grabbing 20,000 samples of size 10. From each of these we’re getting the sample mean. That means we’ll end up with 20,000 sample means. We’re storing those results in the object called <code>res</code>.</p>
-<div class="sourceCode" id="cb840"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb840-1" title="1"><span class="co">### What if we were to collect 20,000 samples and for each one get the mean</span></a>
-<a class="sourceLine" id="cb840-2" title="2"></a>
-<a class="sourceLine" id="cb840-3" title="3">results&lt;-<span class="kw">vector</span>(<span class="st">&#39;list&#39;</span>,<span class="dv">20000</span>)</a>
-<a class="sourceLine" id="cb840-4" title="4"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">20000</span>){</a>
-<a class="sourceLine" id="cb840-5" title="5">results[[i]]  &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">sample</span>(archerfish, <span class="dv">10</span>, <span class="dt">replace =</span> T))  </a>
-<a class="sourceLine" id="cb840-6" title="6">}</a>
-<a class="sourceLine" id="cb840-7" title="7"></a>
-<a class="sourceLine" id="cb840-8" title="8">res &lt;-<span class="st"> </span><span class="kw">unlist</span>(results)</a></code></pre></div>
+<div class="sourceCode" id="cb842"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb842-1"><a href="distributions.html#cb842-1"></a><span class="co">### What if we were to collect 20,000 samples and for each one get the mean</span></span>
+<span id="cb842-2"><a href="distributions.html#cb842-2"></a></span>
+<span id="cb842-3"><a href="distributions.html#cb842-3"></a>results&lt;-<span class="kw">vector</span>(<span class="st">&#39;list&#39;</span>,<span class="dv">20000</span>)</span>
+<span id="cb842-4"><a href="distributions.html#cb842-4"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">20000</span>){</span>
+<span id="cb842-5"><a href="distributions.html#cb842-5"></a>results[[i]]  &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">sample</span>(archerfish, <span class="dv">10</span>, <span class="dt">replace =</span> T))  </span>
+<span id="cb842-6"><a href="distributions.html#cb842-6"></a>}</span>
+<span id="cb842-7"><a href="distributions.html#cb842-7"></a></span>
+<span id="cb842-8"><a href="distributions.html#cb842-8"></a>res &lt;-<span class="st"> </span><span class="kw">unlist</span>(results)</span></code></pre></div>
 <p>Now we have our 20,000 sample means we could make a histogram of these sample means.</p>
-<div class="sourceCode" id="cb841"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb841-1" title="1">psd &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(res), <span class="kw">aes</span>(<span class="dt">x =</span> res)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb841-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, <span class="dt">fill=</span><span class="st">&#39;#4adbe0&#39;</span>, <span class="dt">alpha=</span>.<span class="dv">5</span>, <span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb841-3" title="3"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb841-4" title="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Mean Body Length of each sample - mm&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb841-5" title="5"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb841-6" title="6"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sampling Distribution of Sample Means for n=10&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb841-7" title="7"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(res), <span class="dt">lwd=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb841-8" title="8"></a>
-<a class="sourceLine" id="cb841-9" title="9">psd</a></code></pre></div>
+<div class="sourceCode" id="cb843"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb843-1"><a href="distributions.html#cb843-1"></a>psd &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(res), <span class="kw">aes</span>(<span class="dt">x =</span> res)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb843-2"><a href="distributions.html#cb843-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, <span class="dt">fill=</span><span class="st">&#39;#4adbe0&#39;</span>, <span class="dt">alpha=</span>.<span class="dv">5</span>, <span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb843-3"><a href="distributions.html#cb843-3"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb843-4"><a href="distributions.html#cb843-4"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Mean Body Length of each sample - mm&quot;</span>) <span class="op">+</span></span>
+<span id="cb843-5"><a href="distributions.html#cb843-5"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="op">+</span></span>
+<span id="cb843-6"><a href="distributions.html#cb843-6"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sampling Distribution of Sample Means for n=10&quot;</span>) <span class="op">+</span></span>
+<span id="cb843-7"><a href="distributions.html#cb843-7"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(res), <span class="dt">lwd=</span><span class="dv">1</span>)</span>
+<span id="cb843-8"><a href="distributions.html#cb843-8"></a></span>
+<span id="cb843-9"><a href="distributions.html#cb843-9"></a>psd</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-387-1.png" width="672" /></p>
 <p>This distribution that we’ve just plotted is the <strong>sampling distribution of sample means for samples of size n=10</strong>. We picked 20,000 as the number of samples of size 10 to collect as it’s reasonably large enough to get enough sample means that we can see the shape of the distribution. We could have picked 100,000 samples to collect, or 1,000,000… in fact the more the better, but 20,000 is enough to get the point across.</p>
 <p>Out of all of these sample means that we “collected”, what is the average across all of the 20,000 samples? - and what’s more, what is the standard deviation of that distribution?</p>
-<div class="sourceCode" id="cb842"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb842-1" title="1"><span class="kw">mean</span>(res)</a></code></pre></div>
-<pre><code>## [1] 100.0479</code></pre>
-<div class="sourceCode" id="cb844"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb844-1" title="1"><span class="kw">sd</span>(res) <span class="co">#standard deviation of the sampling distribution, aka standard error</span></a></code></pre></div>
-<pre><code>## [1] 4.77202</code></pre>
+<div class="sourceCode" id="cb844"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb844-1"><a href="distributions.html#cb844-1"></a><span class="kw">mean</span>(res)</span></code></pre></div>
+<pre><code>## [1] 99.99576</code></pre>
+<div class="sourceCode" id="cb846"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb846-1"><a href="distributions.html#cb846-1"></a><span class="kw">sd</span>(res) <span class="co">#standard deviation of the sampling distribution, aka standard error</span></span></code></pre></div>
+<pre><code>## [1] 4.763135</code></pre>
 <p>Let’s first focus on the mean. Our mean of sample means was 99.996, which is very approximately the same as the mean of 1,000,000 archerfish in the population! It turns out that the mean of the sampling distribution is approximately equal to the population mean. By the way, the notation that we use to depict the mean of the sampling distribution of sample means is <span class="math inline">\(\mu_{\overline{x}}\)</span>. So <span class="math inline">\(\mu_{\overline{x}} = 100.0\)</span>.</p>
 <p>What is the standard deviation of this distribution (the sampling distribution of the sample means)? We just calculated it in R to be 4.77. The notation we use for this is <span class="math inline">\(\sigma_{\overline{x}} = 4.77\)</span>. It’s called the standard deviation of the sampling distribution of sample means, but for short it gets called the <strong>standard error</strong>.</p>
 <p>Of course, we never in reality actually collect thousands and thousands of samples - that defeats the point of sampling. If we had time to collect thousands and thousands of samples, we may as well just measure every archerfish in the population. Usually, we just collect one sample. In later sections, we’ll discuss how you can estimate what <span class="math inline">\(\mu_{\overline{x}}\)</span> and <span class="math inline">\(\sigma_{\overline{x}}\)</span> are when you have only collected one sample.</p>
 <p>However, given we already know the population standard deviation of the 1 million archerfish is <span class="math inline">\(\sigma=15\)</span>, we can calculate the standard deviation of the sampling distribution of sample means for any sample size. It is calculated using the formula:</p>
 <p><span class="math inline">\(\Large \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}\)</span></p>
 <p>So in our case it should be equal to:</p>
-<div class="sourceCode" id="cb846"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb846-1" title="1"><span class="dv">15</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">10</span>) <span class="co"># 4.74</span></a></code></pre></div>
+<div class="sourceCode" id="cb848"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb848-1"><a href="distributions.html#cb848-1"></a><span class="dv">15</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">10</span>) <span class="co"># 4.74</span></span></code></pre></div>
 <pre><code>## [1] 4.743416</code></pre>
 <p>As you can see this is very close to the value that we got in our simulated sampling distribution above.</p>
 <p><br></p>
@@ -789,33 +793,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">7.2.1</span> Sample Size and the Sampling Distribution</h3>
 <p>In the previous section we looked at what would happen if we took samples of size 10 from our archerfish population and looked at the sample means of each sample. We found that when we made a histogram out of these sample means, that the mean of the sample means <span class="math inline">\(\mu_{\overline{x}}\)</span> was approximately equal to the population mean of 100. The standard deviation of the sampling distribution of sample means, or standard error, <span class="math inline">\(\sigma_{\overline{x}}\)</span> was approximately equal to 4.74.</p>
 <p>What happens if we were to take a different sized sample each time - say size 50? What would be the mean and standard deviation of this distribution of sample means? Let’s find out. We’ll again take 20000 samples of size 50 at random from our population of 1 million archerfish. For each sample we’ll record the sample mean length of the 50 fish. We’ll end up saving these 20,000 sample means in an R object called <code>res1</code>. Again, don’t worry about how the code is doing it here, just as long as you follow what we’re doing.</p>
-<div class="sourceCode" id="cb848"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb848-1" title="1"><span class="co"># ok, get 20,000 samples of size 50</span></a>
-<a class="sourceLine" id="cb848-2" title="2">results1&lt;-<span class="kw">vector</span>(<span class="st">&#39;list&#39;</span>,<span class="dv">20000</span>)</a>
-<a class="sourceLine" id="cb848-3" title="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">20000</span>){</a>
-<a class="sourceLine" id="cb848-4" title="4">  results1[[i]]  &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">sample</span>(archerfish, <span class="dv">50</span>, <span class="dt">replace =</span> T))</a>
-<a class="sourceLine" id="cb848-5" title="5">}</a>
-<a class="sourceLine" id="cb848-6" title="6"></a>
-<a class="sourceLine" id="cb848-7" title="7">res1 &lt;-<span class="st"> </span><span class="kw">unlist</span>(results1)</a></code></pre></div>
+<div class="sourceCode" id="cb850"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb850-1"><a href="distributions.html#cb850-1"></a><span class="co"># ok, get 20,000 samples of size 50</span></span>
+<span id="cb850-2"><a href="distributions.html#cb850-2"></a>results1&lt;-<span class="kw">vector</span>(<span class="st">&#39;list&#39;</span>,<span class="dv">20000</span>)</span>
+<span id="cb850-3"><a href="distributions.html#cb850-3"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">20000</span>){</span>
+<span id="cb850-4"><a href="distributions.html#cb850-4"></a>  results1[[i]]  &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">sample</span>(archerfish, <span class="dv">50</span>, <span class="dt">replace =</span> T))</span>
+<span id="cb850-5"><a href="distributions.html#cb850-5"></a>}</span>
+<span id="cb850-6"><a href="distributions.html#cb850-6"></a></span>
+<span id="cb850-7"><a href="distributions.html#cb850-7"></a>res1 &lt;-<span class="st"> </span><span class="kw">unlist</span>(results1)</span></code></pre></div>
 <p>Now we have our 20,000 samples, let’s plot the histogram</p>
-<div class="sourceCode" id="cb849"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb849-1" title="1">psd2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(res1), <span class="kw">aes</span>(<span class="dt">x =</span> res1)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb849-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, <span class="dt">fill=</span><span class="st">&#39;#4adbe0&#39;</span>, <span class="dt">alpha=</span>.<span class="dv">5</span>, <span class="dt">binwidth =</span> <span class="fl">.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb849-3" title="3"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb849-4" title="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Mean Body Length of each sample - mm&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb849-5" title="5"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb849-6" title="6"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sampling Distribution of Sample Means for n=50&quot;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb849-7" title="7"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(res1),<span class="dt">lwd=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb849-8" title="8"></a>
-<a class="sourceLine" id="cb849-9" title="9">psd2</a></code></pre></div>
+<div class="sourceCode" id="cb851"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb851-1"><a href="distributions.html#cb851-1"></a>psd2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(res1), <span class="kw">aes</span>(<span class="dt">x =</span> res1)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb851-2"><a href="distributions.html#cb851-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, <span class="dt">fill=</span><span class="st">&#39;#4adbe0&#39;</span>, <span class="dt">alpha=</span>.<span class="dv">5</span>, <span class="dt">binwidth =</span> <span class="fl">.5</span>) <span class="op">+</span></span>
+<span id="cb851-3"><a href="distributions.html#cb851-3"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb851-4"><a href="distributions.html#cb851-4"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Mean Body Length of each sample - mm&quot;</span>) <span class="op">+</span></span>
+<span id="cb851-5"><a href="distributions.html#cb851-5"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="op">+</span></span>
+<span id="cb851-6"><a href="distributions.html#cb851-6"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sampling Distribution of Sample Means for n=50&quot;</span>)<span class="op">+</span></span>
+<span id="cb851-7"><a href="distributions.html#cb851-7"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(res1),<span class="dt">lwd=</span><span class="dv">1</span>)</span>
+<span id="cb851-8"><a href="distributions.html#cb851-8"></a></span>
+<span id="cb851-9"><a href="distributions.html#cb851-9"></a>psd2</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-391-1.png" width="672" /></p>
 <p>If we look at the mean and standard deviation of this sampling distribution, we get the following values:</p>
-<div class="sourceCode" id="cb850"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb850-1" title="1"><span class="kw">mean</span>(res1)  <span class="co"># still same as population mean</span></a></code></pre></div>
-<pre><code>## [1] 100.0038</code></pre>
-<div class="sourceCode" id="cb852"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb852-1" title="1"><span class="kw">sd</span>(res1)    <span class="co"># smaller with larger sample size</span></a></code></pre></div>
-<pre><code>## [1] 2.125566</code></pre>
+<div class="sourceCode" id="cb852"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb852-1"><a href="distributions.html#cb852-1"></a><span class="kw">mean</span>(res1)  <span class="co"># still same as population mean</span></span></code></pre></div>
+<pre><code>## [1] 100.0088</code></pre>
+<div class="sourceCode" id="cb854"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb854-1"><a href="distributions.html#cb854-1"></a><span class="kw">sd</span>(res1)    <span class="co"># smaller with larger sample size</span></span></code></pre></div>
+<pre><code>## [1] 2.130018</code></pre>
 <p>The mean of the sampling distribution of sample means <span class="math inline">\(\mu_{\overline{x}}\)</span> is still a very good estimate of the population mean.</p>
 <p>The biggest difference is in the standard deviation of the sampling distribution, <span class="math inline">\(\sigma_{\overline{x}}\)</span> (the standard error), which is much lower than when we had samples of size 10. The reason for this is that the variability in our sample means is much more reduced when we have samples of size 50. On average, our sample means are much closer individual estimates to the population mean. This is what drastically reduces the standard deviation of this sampling distribution.</p>
 <p>We could have calculated the standard error directly using the formula provided earlier, because we already know the population standard deviation. When we use that formula we get 2.12, almost the same standard deviation as we got with our simulated sampling distribution:</p>
-<div class="sourceCode" id="cb854"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb854-1" title="1"><span class="dv">15</span> <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">50</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb856"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb856-1"><a href="distributions.html#cb856-1"></a><span class="dv">15</span> <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">50</span>)</span></code></pre></div>
 <pre><code>## [1] 2.12132</code></pre>
 <p>Let’s directly compare the two sampling distributions for the two different sample sizes. We adjusted the x-axis so it is the same for both figures, so you can see the change in the standard deviation between the two sample sizes:</p>
 <p><img src="_main_files/figure-html/unnamed-chunk-394-1.png" width="672" /></p>
@@ -830,106 +834,106 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br></p>
 <p><strong>Uniform Distribution</strong></p>
 <p>First we’ll look at a uniform distribution of 1 million numbers between 0 and 75. You might like to think of this as the distance of trees from the center of a forest in km. Let’s graph the distribution and calculate the mean and standard deviation.</p>
-<div class="sourceCode" id="cb856"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb856-1" title="1"><span class="kw">set.seed</span>(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb856-2" title="2"></a>
-<a class="sourceLine" id="cb856-3" title="3"><span class="co">#get data from uniform distribution</span></a>
-<a class="sourceLine" id="cb856-4" title="4">x1 &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">1000000</span>, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">75</span>)</a>
-<a class="sourceLine" id="cb856-5" title="5"></a>
-<a class="sourceLine" id="cb856-6" title="6"><span class="co"># histogram</span></a>
-<a class="sourceLine" id="cb856-7" title="7"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(x1), <span class="kw">aes</span>(<span class="dt">x =</span> x1)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb856-8" title="8"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, </a>
-<a class="sourceLine" id="cb856-9" title="9">                 <span class="dt">fill =</span> <span class="st">&quot;#894ae0&quot;</span>, </a>
-<a class="sourceLine" id="cb856-10" title="10">                 <span class="dt">alpha=</span>.<span class="dv">3</span>, </a>
-<a class="sourceLine" id="cb856-11" title="11">                 <span class="dt">binwidth =</span> <span class="dv">5</span>,</a>
-<a class="sourceLine" id="cb856-12" title="12">                 <span class="dt">boundary =</span> <span class="dv">0</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb856-13" title="13"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb856-14" title="14"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Distance from Center of Forest km&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb858"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb858-1"><a href="distributions.html#cb858-1"></a><span class="kw">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb858-2"><a href="distributions.html#cb858-2"></a></span>
+<span id="cb858-3"><a href="distributions.html#cb858-3"></a><span class="co">#get data from uniform distribution</span></span>
+<span id="cb858-4"><a href="distributions.html#cb858-4"></a>x1 &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">1000000</span>, <span class="dt">min =</span> <span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">75</span>)</span>
+<span id="cb858-5"><a href="distributions.html#cb858-5"></a></span>
+<span id="cb858-6"><a href="distributions.html#cb858-6"></a><span class="co"># histogram</span></span>
+<span id="cb858-7"><a href="distributions.html#cb858-7"></a><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(x1), <span class="kw">aes</span>(<span class="dt">x =</span> x1)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb858-8"><a href="distributions.html#cb858-8"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, </span>
+<span id="cb858-9"><a href="distributions.html#cb858-9"></a>                 <span class="dt">fill =</span> <span class="st">&quot;#894ae0&quot;</span>, </span>
+<span id="cb858-10"><a href="distributions.html#cb858-10"></a>                 <span class="dt">alpha=</span>.<span class="dv">3</span>, </span>
+<span id="cb858-11"><a href="distributions.html#cb858-11"></a>                 <span class="dt">binwidth =</span> <span class="dv">5</span>,</span>
+<span id="cb858-12"><a href="distributions.html#cb858-12"></a>                 <span class="dt">boundary =</span> <span class="dv">0</span>) <span class="op">+</span></span>
+<span id="cb858-13"><a href="distributions.html#cb858-13"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb858-14"><a href="distributions.html#cb858-14"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Distance from Center of Forest km&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-395-1.png" width="672" /></p>
-<div class="sourceCode" id="cb857"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb857-1" title="1"><span class="co">### Population Mean &amp; SD</span></a>
-<a class="sourceLine" id="cb857-2" title="2"><span class="kw">mean</span>(x1)  <span class="co">#37.5</span></a></code></pre></div>
+<div class="sourceCode" id="cb859"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb859-1"><a href="distributions.html#cb859-1"></a><span class="co">### Population Mean &amp; SD</span></span>
+<span id="cb859-2"><a href="distributions.html#cb859-2"></a><span class="kw">mean</span>(x1)  <span class="co">#37.5</span></span></code></pre></div>
 <pre><code>## [1] 37.49417</code></pre>
-<div class="sourceCode" id="cb859"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb859-1" title="1"><span class="kw">sd</span>(x1) <span class="co">#21.6</span></a></code></pre></div>
+<div class="sourceCode" id="cb861"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb861-1"><a href="distributions.html#cb861-1"></a><span class="kw">sd</span>(x1) <span class="co">#21.6</span></span></code></pre></div>
 <pre><code>## [1] 21.6472</code></pre>
 <p>We can see that the mean of this population is 37.5, and the population standard deviation is 21.6.</p>
 <p>Let’s take samples of size 30 at random from this population of 1 million. For each sample, we’ll calculate the sample mean. We’ll take 10,000 samples (again - we could have picked any really large number here, but 10,000 seems reasonable enough to prove our point). After we get our 10,000 sample means from samples of size 30, we’ll plot the histogram of those sample means.</p>
-<div class="sourceCode" id="cb861"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb861-1" title="1"><span class="co">## Let&#39;s get 10,000 samples of size 30</span></a>
-<a class="sourceLine" id="cb861-2" title="2"></a>
-<a class="sourceLine" id="cb861-3" title="3">results&lt;-<span class="kw">vector</span>(<span class="st">&#39;list&#39;</span>,<span class="dv">10000</span>)</a>
-<a class="sourceLine" id="cb861-4" title="4"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>){</a>
-<a class="sourceLine" id="cb861-5" title="5">  results[[i]]  &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">sample</span>(x1, <span class="dv">30</span>, <span class="dt">replace =</span> T))  </a>
-<a class="sourceLine" id="cb861-6" title="6">}</a>
-<a class="sourceLine" id="cb861-7" title="7"></a>
-<a class="sourceLine" id="cb861-8" title="8">res &lt;-<span class="st"> </span><span class="kw">unlist</span>(results)</a>
-<a class="sourceLine" id="cb861-9" title="9"></a>
-<a class="sourceLine" id="cb861-10" title="10"></a>
-<a class="sourceLine" id="cb861-11" title="11"><span class="co"># This is the sampling distribution.</span></a>
-<a class="sourceLine" id="cb861-12" title="12"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(res), <span class="kw">aes</span>(<span class="dt">x =</span> res)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb861-13" title="13"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, <span class="dt">fill=</span><span class="st">&#39;#894ae0&#39;</span>, <span class="dt">alpha=</span>.<span class="dv">5</span>, <span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb861-14" title="14"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb861-15" title="15"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(res), <span class="dt">lwd=</span><span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb861-16" title="16"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Mean of each sample&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb861-17" title="17"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb861-18" title="18"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sampling Distribution of Sample Means for n=30&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb863"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb863-1"><a href="distributions.html#cb863-1"></a><span class="co">## Let&#39;s get 10,000 samples of size 30</span></span>
+<span id="cb863-2"><a href="distributions.html#cb863-2"></a></span>
+<span id="cb863-3"><a href="distributions.html#cb863-3"></a>results&lt;-<span class="kw">vector</span>(<span class="st">&#39;list&#39;</span>,<span class="dv">10000</span>)</span>
+<span id="cb863-4"><a href="distributions.html#cb863-4"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>){</span>
+<span id="cb863-5"><a href="distributions.html#cb863-5"></a>  results[[i]]  &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">sample</span>(x1, <span class="dv">30</span>, <span class="dt">replace =</span> T))  </span>
+<span id="cb863-6"><a href="distributions.html#cb863-6"></a>}</span>
+<span id="cb863-7"><a href="distributions.html#cb863-7"></a></span>
+<span id="cb863-8"><a href="distributions.html#cb863-8"></a>res &lt;-<span class="st"> </span><span class="kw">unlist</span>(results)</span>
+<span id="cb863-9"><a href="distributions.html#cb863-9"></a></span>
+<span id="cb863-10"><a href="distributions.html#cb863-10"></a></span>
+<span id="cb863-11"><a href="distributions.html#cb863-11"></a><span class="co"># This is the sampling distribution.</span></span>
+<span id="cb863-12"><a href="distributions.html#cb863-12"></a><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(res), <span class="kw">aes</span>(<span class="dt">x =</span> res)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb863-13"><a href="distributions.html#cb863-13"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, <span class="dt">fill=</span><span class="st">&#39;#894ae0&#39;</span>, <span class="dt">alpha=</span>.<span class="dv">5</span>, <span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb863-14"><a href="distributions.html#cb863-14"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb863-15"><a href="distributions.html#cb863-15"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(res), <span class="dt">lwd=</span><span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb863-16"><a href="distributions.html#cb863-16"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Mean of each sample&quot;</span>) <span class="op">+</span></span>
+<span id="cb863-17"><a href="distributions.html#cb863-17"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="op">+</span></span>
+<span id="cb863-18"><a href="distributions.html#cb863-18"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sampling Distribution of Sample Means for n=30&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-396-1.png" width="672" /></p>
 <p>This histogram represents our sampling distribution of sample means when we took samples of size 30 from a uniform distribution. Hopefully you notice that it is approximately normally distributed - even though the original population was uniformally distributed! Let’s calculate the mean and standard deviation of this sampling distribution:</p>
-<div class="sourceCode" id="cb862"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb862-1" title="1"><span class="kw">mean</span>(res)  <span class="co"># the mean of the sample means is close to 37.5, the population mean</span></a></code></pre></div>
-<pre><code>## [1] 37.54835</code></pre>
-<div class="sourceCode" id="cb864"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb864-1" title="1"><span class="kw">sd</span>(res)  <span class="co">#3.996 - this is a lot smaller than the population SD</span></a></code></pre></div>
-<pre><code>## [1] 3.956685</code></pre>
+<div class="sourceCode" id="cb864"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb864-1"><a href="distributions.html#cb864-1"></a><span class="kw">mean</span>(res)  <span class="co"># the mean of the sample means is close to 37.5, the population mean</span></span></code></pre></div>
+<pre><code>## [1] 37.49964</code></pre>
+<div class="sourceCode" id="cb866"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb866-1"><a href="distributions.html#cb866-1"></a><span class="kw">sd</span>(res)  <span class="co">#3.996 - this is a lot smaller than the population SD</span></span></code></pre></div>
+<pre><code>## [1] 3.995888</code></pre>
 <p>The mean of our sampling distribution <span class="math inline">\(\mu_{\overline{x}} = 37.5\)</span> which is again approximately equal to the population mean. The sampling distribution standard deviation <span class="math inline">\(\sigma_{\overline{x}} = 3.99\)</span> which is a lot lower than the original population standard deviation. Because we only took 10,000 samples, these values aren’t exact, but we could have calculated the standard error by taking the population standard deviation and dividing by the square root of n <span class="math inline">\(\Large \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}\)</span> as follows:</p>
-<div class="sourceCode" id="cb866"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb866-1" title="1"><span class="kw">sd</span>(x1)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">30</span>)  <span class="co"># standard error.</span></a></code></pre></div>
+<div class="sourceCode" id="cb868"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb868-1"><a href="distributions.html#cb868-1"></a><span class="kw">sd</span>(x1)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">30</span>)  <span class="co"># standard error.</span></span></code></pre></div>
 <pre><code>## [1] 3.952219</code></pre>
 <p>You’ll notice that this calculated value is very close to the one we estimated by running our simulation.</p>
 <p><br></p>
 <p><strong>Skewed Distributions</strong></p>
 <p>We can see that the central limit theorem holds true for skewed distributions also. Here, we have a population of 1 million charity donations. Let’s draw a histogram of the population distribution and calculate the mean and standard deviation of the population.</p>
-<div class="sourceCode" id="cb868"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb868-1" title="1"><span class="kw">set.seed</span>(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb868-2" title="2"><span class="co"># e.g. Donations to a charity (in $s)</span></a>
-<a class="sourceLine" id="cb868-3" title="3"></a>
-<a class="sourceLine" id="cb868-4" title="4">q &lt;-<span class="st"> </span><span class="kw">rnbinom</span>(<span class="dv">1000000</span>, <span class="dv">5</span>, <span class="fl">.4</span>)</a>
-<a class="sourceLine" id="cb868-5" title="5"></a>
-<a class="sourceLine" id="cb868-6" title="6"><span class="co"># histogram</span></a>
-<a class="sourceLine" id="cb868-7" title="7"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(q), <span class="kw">aes</span>(<span class="dt">x =</span> q)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb868-8" title="8"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, </a>
-<a class="sourceLine" id="cb868-9" title="9">                 <span class="dt">fill =</span> <span class="st">&quot;#1ad665&quot;</span>, </a>
-<a class="sourceLine" id="cb868-10" title="10">                 <span class="dt">alpha=</span>.<span class="dv">3</span>, </a>
-<a class="sourceLine" id="cb868-11" title="11">                 <span class="dt">binwidth =</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb868-12" title="12">                 <span class="dt">boundary =</span> <span class="dv">0</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb868-13" title="13"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb868-14" title="14"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Charity Donation in $&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb870"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb870-1"><a href="distributions.html#cb870-1"></a><span class="kw">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb870-2"><a href="distributions.html#cb870-2"></a><span class="co"># e.g. Donations to a charity (in $s)</span></span>
+<span id="cb870-3"><a href="distributions.html#cb870-3"></a></span>
+<span id="cb870-4"><a href="distributions.html#cb870-4"></a>q &lt;-<span class="st"> </span><span class="kw">rnbinom</span>(<span class="dv">1000000</span>, <span class="dv">5</span>, <span class="fl">.4</span>)</span>
+<span id="cb870-5"><a href="distributions.html#cb870-5"></a></span>
+<span id="cb870-6"><a href="distributions.html#cb870-6"></a><span class="co"># histogram</span></span>
+<span id="cb870-7"><a href="distributions.html#cb870-7"></a><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(q), <span class="kw">aes</span>(<span class="dt">x =</span> q)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb870-8"><a href="distributions.html#cb870-8"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, </span>
+<span id="cb870-9"><a href="distributions.html#cb870-9"></a>                 <span class="dt">fill =</span> <span class="st">&quot;#1ad665&quot;</span>, </span>
+<span id="cb870-10"><a href="distributions.html#cb870-10"></a>                 <span class="dt">alpha=</span>.<span class="dv">3</span>, </span>
+<span id="cb870-11"><a href="distributions.html#cb870-11"></a>                 <span class="dt">binwidth =</span> <span class="dv">1</span>,</span>
+<span id="cb870-12"><a href="distributions.html#cb870-12"></a>                 <span class="dt">boundary =</span> <span class="dv">0</span>) <span class="op">+</span></span>
+<span id="cb870-13"><a href="distributions.html#cb870-13"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb870-14"><a href="distributions.html#cb870-14"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Charity Donation in $&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-399-1.png" width="672" /></p>
-<div class="sourceCode" id="cb869"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb869-1" title="1"><span class="co">### Population Mean</span></a>
-<a class="sourceLine" id="cb869-2" title="2"><span class="kw">mean</span>(q)  <span class="co">#7.5</span></a></code></pre></div>
+<div class="sourceCode" id="cb871"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb871-1"><a href="distributions.html#cb871-1"></a><span class="co">### Population Mean</span></span>
+<span id="cb871-2"><a href="distributions.html#cb871-2"></a><span class="kw">mean</span>(q)  <span class="co">#7.5</span></span></code></pre></div>
 <pre><code>## [1] 7.504368</code></pre>
-<div class="sourceCode" id="cb871"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb871-1" title="1"><span class="kw">sd</span>(q)  <span class="co">#4.33</span></a></code></pre></div>
+<div class="sourceCode" id="cb873"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb873-1"><a href="distributions.html#cb873-1"></a><span class="kw">sd</span>(q)  <span class="co">#4.33</span></span></code></pre></div>
 <pre><code>## [1] 4.331767</code></pre>
 <p>It is clear that this population distribution is highly positively skewed. The mean of the population is 7.5 and the standard deviation is 4.33.</p>
 <p>In the following code we takes samples of size 30 and calculate the sample mean of each sample. This time, we’ll collect 50,000 samples, just to be a bit different.</p>
-<div class="sourceCode" id="cb873"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb873-1" title="1">results&lt;-<span class="kw">vector</span>(<span class="st">&#39;list&#39;</span>,<span class="dv">50000</span>)</a>
-<a class="sourceLine" id="cb873-2" title="2"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>){</a>
-<a class="sourceLine" id="cb873-3" title="3">  results[[i]]  &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">sample</span>(q, <span class="dv">30</span>, <span class="dt">replace =</span> T))  </a>
-<a class="sourceLine" id="cb873-4" title="4">}</a>
-<a class="sourceLine" id="cb873-5" title="5"></a>
-<a class="sourceLine" id="cb873-6" title="6">res &lt;-<span class="st"> </span><span class="kw">unlist</span>(results)</a>
-<a class="sourceLine" id="cb873-7" title="7"></a>
-<a class="sourceLine" id="cb873-8" title="8"></a>
-<a class="sourceLine" id="cb873-9" title="9"><span class="co">### Let&#39;s Draw this as a histogram.</span></a>
-<a class="sourceLine" id="cb873-10" title="10"></a>
-<a class="sourceLine" id="cb873-11" title="11"><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(res), <span class="kw">aes</span>(<span class="dt">x =</span> res)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb873-12" title="12"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, <span class="dt">fill=</span><span class="st">&#39;#31e8d0&#39;</span>, <span class="dt">alpha=</span>.<span class="dv">5</span>, <span class="dt">binwidth =</span> <span class="fl">.1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb873-13" title="13"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb873-14" title="14"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(res), <span class="dt">lwd=</span><span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb873-15" title="15"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Mean of each sample&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb873-16" title="16"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb873-17" title="17"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sampling Distribution of Sample Means for n=30&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb875"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb875-1"><a href="distributions.html#cb875-1"></a>results&lt;-<span class="kw">vector</span>(<span class="st">&#39;list&#39;</span>,<span class="dv">50000</span>)</span>
+<span id="cb875-2"><a href="distributions.html#cb875-2"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>){</span>
+<span id="cb875-3"><a href="distributions.html#cb875-3"></a>  results[[i]]  &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">sample</span>(q, <span class="dv">30</span>, <span class="dt">replace =</span> T))  </span>
+<span id="cb875-4"><a href="distributions.html#cb875-4"></a>}</span>
+<span id="cb875-5"><a href="distributions.html#cb875-5"></a></span>
+<span id="cb875-6"><a href="distributions.html#cb875-6"></a>res &lt;-<span class="st"> </span><span class="kw">unlist</span>(results)</span>
+<span id="cb875-7"><a href="distributions.html#cb875-7"></a></span>
+<span id="cb875-8"><a href="distributions.html#cb875-8"></a></span>
+<span id="cb875-9"><a href="distributions.html#cb875-9"></a><span class="co">### Let&#39;s Draw this as a histogram.</span></span>
+<span id="cb875-10"><a href="distributions.html#cb875-10"></a></span>
+<span id="cb875-11"><a href="distributions.html#cb875-11"></a><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(res), <span class="kw">aes</span>(<span class="dt">x =</span> res)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb875-12"><a href="distributions.html#cb875-12"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, <span class="dt">fill=</span><span class="st">&#39;#31e8d0&#39;</span>, <span class="dt">alpha=</span>.<span class="dv">5</span>, <span class="dt">binwidth =</span> <span class="fl">.1</span>) <span class="op">+</span></span>
+<span id="cb875-13"><a href="distributions.html#cb875-13"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb875-14"><a href="distributions.html#cb875-14"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(res), <span class="dt">lwd=</span><span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb875-15"><a href="distributions.html#cb875-15"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Mean of each sample&quot;</span>) <span class="op">+</span></span>
+<span id="cb875-16"><a href="distributions.html#cb875-16"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="op">+</span></span>
+<span id="cb875-17"><a href="distributions.html#cb875-17"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sampling Distribution of Sample Means for n=30&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-400-1.png" width="672" /></p>
 <p>So, it happened again. This is our sampling distribution of sample means, collected from samples of size 30 from a highly skewed distribution. But once again, the sampling distribution is approximately normally distributed. It might not be perfectly normally distributed, but it is close to being normal. We can calculate the mean and the standard deviation of this sampling distribution:</p>
-<div class="sourceCode" id="cb874"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb874-1" title="1"><span class="kw">mean</span>(res)  <span class="co"># the mean of the sample means is close to 7.5</span></a></code></pre></div>
-<pre><code>## [1] 7.514097</code></pre>
-<div class="sourceCode" id="cb876"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb876-1" title="1"><span class="kw">sd</span>(res)  <span class="co">#0.799</span></a></code></pre></div>
-<pre><code>## [1] 0.7850946</code></pre>
+<div class="sourceCode" id="cb876"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb876-1"><a href="distributions.html#cb876-1"></a><span class="kw">mean</span>(res)  <span class="co"># the mean of the sample means is close to 7.5</span></span></code></pre></div>
+<pre><code>## [1] 7.504313</code></pre>
+<div class="sourceCode" id="cb878"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb878-1"><a href="distributions.html#cb878-1"></a><span class="kw">sd</span>(res)  <span class="co">#0.799</span></span></code></pre></div>
+<pre><code>## [1] 0.7981555</code></pre>
 <p><span class="math inline">\(\mu_{\overline{x}} = 7.5\)</span> which is once again approximately equal to the original population mean. The sampling distribution standard deviation <span class="math inline">\(\sigma_{\overline{x}} = 0.799\)</span>. We could have directly calculated that using the formula for the standard error, n <span class="math inline">\(\Large \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}\)</span>, as we know the original population standard deviation:</p>
-<div class="sourceCode" id="cb878"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb878-1" title="1"><span class="kw">sd</span>(q)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">30</span>)  <span class="co"># standard error = 0.791</span></a></code></pre></div>
+<div class="sourceCode" id="cb880"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb880-1"><a href="distributions.html#cb880-1"></a><span class="kw">sd</span>(q)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">30</span>)  <span class="co"># standard error = 0.791</span></span></code></pre></div>
 <pre><code>## [1] 0.7908688</code></pre>
 <p>We could keep going with even more types of population distributions. We would find the same thing over and over again. If we take many samples from each population and calculated the sample means of all samples, they would form an approximately normally distribution. This will be especially true for larger samples. This is the basis of the central limit theorem. In the following sections we’ll learn more about what we can do with these sampling distributions.</p>
 <p><br><br></p>
@@ -943,63 +947,63 @@ Q. Say the weight of chicken eggs is normally distributed with mean 60g and stan
 </p>
 <p>The way to think about these questions is to recognize that we’re dealing with a sampling distribution. We’re really being asked what proportion of the sampling distribution is less than a sample mean of 58g, when your sample size is 12 (a dozen).</p>
 <p>First, let’s plot the population of chicken eggs and then the sampling distribution of samples means for a sample size of 12.</p>
-<div class="sourceCode" id="cb880"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb880-1" title="1"><span class="kw">set.seed</span>(<span class="dv">1</span>) <span class="co"># so you get the same values as my script</span></a>
-<a class="sourceLine" id="cb880-2" title="2"></a>
-<a class="sourceLine" id="cb880-3" title="3"></a>
-<a class="sourceLine" id="cb880-4" title="4"><span class="co">### First, I&#39;ll make some plots of the &#39;population&#39; and &#39;sampling distribution&#39;</span></a>
-<a class="sourceLine" id="cb880-5" title="5"></a>
-<a class="sourceLine" id="cb880-6" title="6"></a>
-<a class="sourceLine" id="cb880-7" title="7"><span class="co">## Population</span></a>
-<a class="sourceLine" id="cb880-8" title="8">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000000</span>, <span class="dt">mean =</span> <span class="dv">60</span>, <span class="dt">sd =</span> <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb880-9" title="9"></a>
-<a class="sourceLine" id="cb880-10" title="10">p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(x), <span class="kw">aes</span>(<span class="dt">x =</span> x)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb880-11" title="11"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, <span class="dt">fill=</span><span class="st">&#39;mistyrose&#39;</span>, <span class="dt">alpha=</span>.<span class="dv">4</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb880-12" title="12"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">60</span>, <span class="dt">lwd=</span><span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb880-13" title="13"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Population of chicken eggs&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb880-14" title="14"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb880-15" title="15"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Weight&quot;</span>)</a>
-<a class="sourceLine" id="cb880-16" title="16"></a>
-<a class="sourceLine" id="cb880-17" title="17"></a>
-<a class="sourceLine" id="cb880-18" title="18"><span class="co">## Sampling Distribution of sample means with Sample size of 12 (a dozen).</span></a>
-<a class="sourceLine" id="cb880-19" title="19"></a>
-<a class="sourceLine" id="cb880-20" title="20">results&lt;-<span class="kw">vector</span>(<span class="st">&#39;list&#39;</span>,<span class="dv">10000</span>)</a>
-<a class="sourceLine" id="cb880-21" title="21"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>){</a>
-<a class="sourceLine" id="cb880-22" title="22">  results[[i]] &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">sample</span>(x, <span class="dv">12</span>, <span class="dt">replace =</span> T))</a>
-<a class="sourceLine" id="cb880-23" title="23">}</a>
-<a class="sourceLine" id="cb880-24" title="24"></a>
-<a class="sourceLine" id="cb880-25" title="25">res &lt;-<span class="st"> </span><span class="kw">unlist</span>(results)</a>
-<a class="sourceLine" id="cb880-26" title="26"></a>
-<a class="sourceLine" id="cb880-27" title="27">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(res), <span class="kw">aes</span>(<span class="dt">x=</span>res)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb880-28" title="28"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="st">&#39;lightseagreen&#39;</span>, <span class="dt">alpha=</span>.<span class="dv">4</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb880-29" title="29"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(res),<span class="dt">lwd=</span><span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb880-30" title="30"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sampling Distribution of Sample Means&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb880-31" title="31"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb880-32" title="32"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;sample mean&quot;</span>)</a>
-<a class="sourceLine" id="cb880-33" title="33"></a>
-<a class="sourceLine" id="cb880-34" title="34"><span class="kw">library</span>(gridExtra)</a>
-<a class="sourceLine" id="cb880-35" title="35"><span class="kw">grid.arrange</span>(p1,p2,<span class="dt">nrow=</span><span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb882"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb882-1"><a href="distributions.html#cb882-1"></a><span class="kw">set.seed</span>(<span class="dv">1</span>) <span class="co"># so you get the same values as my script</span></span>
+<span id="cb882-2"><a href="distributions.html#cb882-2"></a></span>
+<span id="cb882-3"><a href="distributions.html#cb882-3"></a></span>
+<span id="cb882-4"><a href="distributions.html#cb882-4"></a><span class="co">### First, I&#39;ll make some plots of the &#39;population&#39; and &#39;sampling distribution&#39;</span></span>
+<span id="cb882-5"><a href="distributions.html#cb882-5"></a></span>
+<span id="cb882-6"><a href="distributions.html#cb882-6"></a></span>
+<span id="cb882-7"><a href="distributions.html#cb882-7"></a><span class="co">## Population</span></span>
+<span id="cb882-8"><a href="distributions.html#cb882-8"></a>x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000000</span>, <span class="dt">mean =</span> <span class="dv">60</span>, <span class="dt">sd =</span> <span class="dv">3</span>)</span>
+<span id="cb882-9"><a href="distributions.html#cb882-9"></a></span>
+<span id="cb882-10"><a href="distributions.html#cb882-10"></a>p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(x), <span class="kw">aes</span>(<span class="dt">x =</span> x)) <span class="op">+</span></span>
+<span id="cb882-11"><a href="distributions.html#cb882-11"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&#39;black&#39;</span>, <span class="dt">fill=</span><span class="st">&#39;mistyrose&#39;</span>, <span class="dt">alpha=</span>.<span class="dv">4</span>)<span class="op">+</span></span>
+<span id="cb882-12"><a href="distributions.html#cb882-12"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">60</span>, <span class="dt">lwd=</span><span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb882-13"><a href="distributions.html#cb882-13"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Population of chicken eggs&quot;</span>) <span class="op">+</span></span>
+<span id="cb882-14"><a href="distributions.html#cb882-14"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb882-15"><a href="distributions.html#cb882-15"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Weight&quot;</span>)</span>
+<span id="cb882-16"><a href="distributions.html#cb882-16"></a></span>
+<span id="cb882-17"><a href="distributions.html#cb882-17"></a></span>
+<span id="cb882-18"><a href="distributions.html#cb882-18"></a><span class="co">## Sampling Distribution of sample means with Sample size of 12 (a dozen).</span></span>
+<span id="cb882-19"><a href="distributions.html#cb882-19"></a></span>
+<span id="cb882-20"><a href="distributions.html#cb882-20"></a>results&lt;-<span class="kw">vector</span>(<span class="st">&#39;list&#39;</span>,<span class="dv">10000</span>)</span>
+<span id="cb882-21"><a href="distributions.html#cb882-21"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>){</span>
+<span id="cb882-22"><a href="distributions.html#cb882-22"></a>  results[[i]] &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">sample</span>(x, <span class="dv">12</span>, <span class="dt">replace =</span> T))</span>
+<span id="cb882-23"><a href="distributions.html#cb882-23"></a>}</span>
+<span id="cb882-24"><a href="distributions.html#cb882-24"></a></span>
+<span id="cb882-25"><a href="distributions.html#cb882-25"></a>res &lt;-<span class="st"> </span><span class="kw">unlist</span>(results)</span>
+<span id="cb882-26"><a href="distributions.html#cb882-26"></a></span>
+<span id="cb882-27"><a href="distributions.html#cb882-27"></a>p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(res), <span class="kw">aes</span>(<span class="dt">x=</span>res)) <span class="op">+</span></span>
+<span id="cb882-28"><a href="distributions.html#cb882-28"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">fill=</span><span class="st">&#39;lightseagreen&#39;</span>, <span class="dt">alpha=</span>.<span class="dv">4</span>)<span class="op">+</span></span>
+<span id="cb882-29"><a href="distributions.html#cb882-29"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(res),<span class="dt">lwd=</span><span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb882-30"><a href="distributions.html#cb882-30"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sampling Distribution of Sample Means&quot;</span>) <span class="op">+</span></span>
+<span id="cb882-31"><a href="distributions.html#cb882-31"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb882-32"><a href="distributions.html#cb882-32"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;sample mean&quot;</span>)</span>
+<span id="cb882-33"><a href="distributions.html#cb882-33"></a></span>
+<span id="cb882-34"><a href="distributions.html#cb882-34"></a><span class="kw">library</span>(gridExtra)</span>
+<span id="cb882-35"><a href="distributions.html#cb882-35"></a><span class="kw">grid.arrange</span>(p1,p2,<span class="dt">nrow=</span><span class="dv">1</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-403-1.png" width="672" /></p>
 <p>What are the mean and standard deviation of this sampling distribution of sample means? Well, <span class="math inline">\(\mu_{\overline{x}} = 60\)</span> because that’s the population mean, and we know the mean of the sample means is approximately the same. We know we can calculate <span class="math inline">\(\sigma_{\overline{x}}\)</span> because we know the population standard deviation <span class="math inline">\(\sigma\)</span>.</p>
 <p>Again, the formula is <span class="math inline">\(\Large \sigma_{\overline{x}} = \frac{\sigma}{\sqrt{n}}\)</span>. Therefore, the standard deviation of the sampling distribution is <span class="math inline">\(\sigma_{\overline{x}} = 0.87\)</span>:</p>
-<div class="sourceCode" id="cb881"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb881-1" title="1">sem &lt;-<span class="st"> </span><span class="dv">3</span> <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">12</span>)</a>
-<a class="sourceLine" id="cb881-2" title="2"></a>
-<a class="sourceLine" id="cb881-3" title="3">sem</a></code></pre></div>
+<div class="sourceCode" id="cb883"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb883-1"><a href="distributions.html#cb883-1"></a>sem &lt;-<span class="st"> </span><span class="dv">3</span> <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">12</span>)</span>
+<span id="cb883-2"><a href="distributions.html#cb883-2"></a></span>
+<span id="cb883-3"><a href="distributions.html#cb883-3"></a>sem</span></code></pre></div>
 <pre><code>## [1] 0.8660254</code></pre>
 <p>Now, we’re interested in a sample of 12 that has a sample mean of 58g. Let’s visualize what that looks like on the histogram of the sampling distribution:</p>
-<div class="sourceCode" id="cb883"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb883-1" title="1">p2 <span class="op">+</span><span class="st"> </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">58</span>, <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">lwd=</span><span class="dv">1</span>, <span class="dt">color=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb883-2" title="2"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sampling Distribution of Sample Means </span><span class="ch">\n</span><span class="st"> for sample size = 12&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb885"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb885-1"><a href="distributions.html#cb885-1"></a>p2 <span class="op">+</span><span class="st"> </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">58</span>, <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">lwd=</span><span class="dv">1</span>, <span class="dt">color=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span></span>
+<span id="cb885-2"><a href="distributions.html#cb885-2"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Sampling Distribution of Sample Means </span><span class="ch">\n</span><span class="st"> for sample size = 12&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-405-1.png" width="672" /></p>
 <p>Because we know the mean and standard deviation of this distribution, we can actually calculate the sample mean of 58g as a z-score. Doing this we find that <span class="math inline">\(z = -2.31\)</span>, which means that a sample mean of 58g is 2.31 standard deviations below the mean.</p>
-<div class="sourceCode" id="cb884"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb884-1" title="1"><span class="co"># so, 58g as a z-score is...</span></a>
-<a class="sourceLine" id="cb884-2" title="2"></a>
-<a class="sourceLine" id="cb884-3" title="3">z &lt;-<span class="st"> </span>(<span class="dv">58</span> <span class="op">-</span><span class="st"> </span><span class="dv">60</span>) <span class="op">/</span><span class="st"> </span>sem  <span class="co"># -2.31</span></a>
-<a class="sourceLine" id="cb884-4" title="4"></a>
-<a class="sourceLine" id="cb884-5" title="5">z</a></code></pre></div>
+<div class="sourceCode" id="cb886"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb886-1"><a href="distributions.html#cb886-1"></a><span class="co"># so, 58g as a z-score is...</span></span>
+<span id="cb886-2"><a href="distributions.html#cb886-2"></a></span>
+<span id="cb886-3"><a href="distributions.html#cb886-3"></a>z &lt;-<span class="st"> </span>(<span class="dv">58</span> <span class="op">-</span><span class="st"> </span><span class="dv">60</span>) <span class="op">/</span><span class="st"> </span>sem  <span class="co"># -2.31</span></span>
+<span id="cb886-4"><a href="distributions.html#cb886-4"></a></span>
+<span id="cb886-5"><a href="distributions.html#cb886-5"></a>z</span></code></pre></div>
 <pre><code>## [1] -2.309401</code></pre>
 <p>The original question asked what probability there was of getting a sample mean of less than 58g. This is basically what area is under the curve of the above sampling distribution to the left of the 58g sample mean. Because we converted that sample mean of 58g to a z-score of -2.31, we can look at that value on a standard normal curve. The area we are interested in is the filled in area to the left of z = -2.31:</p>
 <p><img src="img/chicken.png" /></p>
 <p>We can look up this value in R, using the function <code>pnorm</code>.</p>
-<div class="sourceCode" id="cb886"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb886-1" title="1"><span class="kw">pnorm</span>(z)  <span class="co"># prob = 0.010</span></a></code></pre></div>
+<div class="sourceCode" id="cb888"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb888-1"><a href="distributions.html#cb888-1"></a><span class="kw">pnorm</span>(z)  <span class="co"># prob = 0.010</span></span></code></pre></div>
 <pre><code>## [1] 0.01046067</code></pre>
 <p>So we can see that the probability of getting a sample mean of lower than 58g is <code>p=0.0105</code>.</p>
 <p><br><br></p>
