@@ -11,10 +11,11 @@ As questions begin to arise from observation made in the world around, you may w
 
 A statistical hypothesis is a clear prediction to specific claims about a population parameter. This prediction may or may not be true. There is two types of statistical hypotheses. 
 
-  -*Null Hypothesis (_H~0_)*: a statistical hypothesis that states there is *_no_* difference between a parameter and a specific value, or there is *_no_* difference between two parameters. 
-  
-  -*Alternative Hypothesis (_H~1_)*: a statistical hypothesis that states there is a difference between a parameter and a specific value, or states that there is a difference between two parameters. 
-
+<br>
+  **Null Hypothesis (_H~0~_)**: a statistical hypothesis that states there is **_no_** difference between a parameter and a specific value, or there is **_no_** difference between two parameters. 
+<br>  
+  **Alternative Hypothesis (_H~1~_)**: a statistical hypothesis that states there is a difference between a parameter and a specific value, or states that there is a difference between two parameters. 
+<br>
 
 Normally in statistics, we tend to want to reject the null hypothesis so we assume it is true then run an experiment to gather enough evidence to conclude the null hypothesis is incorrect. If the null hypothesis is rejected then we must accept the the alternative hypothesis is true. These hypotheses are always stated together.
 
@@ -28,29 +29,28 @@ Thus, what would be the null and alternative hypotheses for the following situat
 
 1. If a biologists was interested in determining whether mice given a dopamine infusion directly into the nucleus accumbens would result in an increase of aggressive interaction per minute than the standard 3 aggressive interactions pre minute. The biologist hypotheses are:
           <br>
-          _H~0_:$\mu = 3$
+          _H~0~_:$\mu = 3$
           <br>
-          _H~1_:$\mu > 3$
+          _H~1~_:$\mu > 3$
           <br>
 2. A botanist was interested in determining whether sunflower seedlings treated with an Epsom salt fertilizer resulted in a lower average height of sunflower seedlings than the standard height of 23 cm. The botanist hypotheses are:
           <br>
-          _H~0_:$\mu = 23$
+          _H~0~_:$\mu = 23$
           <br>
-          _H~1_:$\mu < 23$
+          _H~1~_:$\mu < 23$
           <br>
 3. A ecologist claims that the migration distance of the Arctic tern is 22,000 km. Another group of ecologist regularly check this claim. The ecologist hypotheses are:
-<br>
-          _H~0_:$\mu = 22,000$
-<br>    
-          _H~1_:$\mu \ne  22,000$
-<br>
-          
-<br>
+          <br>
+          _H~0~_:$\mu = 22,000$
+          <br>    
+          _H~1~_:$\mu \ne  22,000$
+          <br>
+
 Once stating the hypotheses, it is time to design and run a research study. This is where its important formulate a plan for conducting the study, choose an appropriate number of subjects for a certain level of significance, and a statistical test. 
 
 Once the statistical test is run you can now make a decision on whether or not you reject the null hypothesis. It is important to know there are two types of errors we could make here. 
 
-The first error is called Type I error this is when you reject the null hypothesis when it is actually true. The other error is Type II this is when you do not reject the null hypothesis when it is false. The maximum probability of committing a Type I error is set at the Significant level, symbolized as _\u03B1/_. For instance if you were to say you have a 95 % confident of receiving an A in this course you have a significant level of 5% or an _\u03B1/_ of 0.05 leaving you with a 5% chance of not receiving an A in this course. 
+The first error is called Type I error this is when you reject the null hypothesis when it is actually true. The other error is Type II this is when you do not reject the null hypothesis when it is false. The maximum probability of committing a Type I error is set at the Significant level, symbolized as $\alpha$. For instance if you were to say you have a 95 % confident of receiving an A in this course you have a significant level of 5% or an $\alpha$ of 0.05 leaving you with a 5% chance of not receiving an A in this course. 
 
 <br>
 
@@ -60,7 +60,7 @@ Visually, we can depict the actual area under the normal distribution curve of t
 
 In this chapter and throughout the rest of the book we will take you through examples for finding P-Values using the _z_ and _t_ distributions. But for now lets reconsider hypothesis testing with the P-Value method.  
 
-If we were run an experiment and calculate a test statistic with a P-Value which is \le _\u03B1/_ then we would reject the null hypothesis. However, if the test statistic corresponded with a P-Value < _\u03B1/_ then we would accept the null hypothesis.
+If we were run an experiment and calculate a test statistic with a P-Value which is \le $\alpha$ then we would reject the null hypothesis. However, if the test statistic corresponded with a P-Value < $\alpha$ then we would accept the null hypothesis.
 
 We will continue to use different test statistics and P-values to interpret and provide quantitative evidence to explain the significance of our findings. The following sections will explain how to calculate these statistics by hand and with R. 
 
