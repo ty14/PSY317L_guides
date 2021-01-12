@@ -27,16 +27,23 @@ The image below gives a null and alternative hypothesis formula for means where 
 Thus, what would be the null and alternative hypotheses for the following situations?
 
 1. If a biologists was interested in determining whether mice given a dopamine infusion directly into the nucleus accumbens would result in an increase of aggressive interaction per minute than the standard 3 aggressive interactions pre minute. The biologist hypotheses are:
+          <br>
           _H~0_:$\mu = 3$
+          <br>
           _H~1_:$\mu > 3$
-          
+          <br>
 2. A botanist was interested in determining whether sunflower seedlings treated with an Epsom salt fertilizer resulted in a lower average height of sunflower seedlings than the standard height of 23 cm. The botanist hypotheses are:
+          <br>
           _H~0_:$\mu = 23$
+          <br>
           _H~1_:$\mu < 23$
-          
+          <br>
 3. A ecologist claims that the migration distance of the Arctic tern is 22,000 km. Another group of ecologist regularly check this claim. The ecologist hypotheses are:
+<br>
           _H~0_:$\mu = 22,000$
+<br>    
           _H~1_:$\mu \ne  22,000$
+<br>
           
 <br>
 Once stating the hypotheses, it is time to design and run a research study. This is where its important formulate a plan for conducting the study, choose an appropriate number of subjects for a certain level of significance, and a statistical test. 
