@@ -1,11 +1,64 @@
 # One Sample Inferential Statistics
 
 
-The general question at hand with one-sample inferential tests, is that we wish to test the probability that  our one sample of data comes from a population that has a true population mean $\mu$ that is equal to, greater than, or less than, some specific value.
+The general question at hand with one-sample inferential tests, is that we wish to test the probability that our one sample of data comes from a population that has a true population mean $\mu$ that is equal to, greater than, or less than, some specific value.
+
+## Hypothesis Testing 
+
+Descriptive statistics allows you to describe your data, where inferential statistics allows you to make predictions from the data. 
+
+As questions begin to arise from observation made in the world around, you may wish to create predictions about your observations and further investigate such predictions using statistics methods that provide confidence or likelihood about your observations. In general, these statistics methods are known as statistical hypothesis testing or significance testings. 
+
+A statistical hypothesis is a clear prediction to specific claims about a population parameter. This prediction may or may not be true. There is two types of statistical hypotheses. 
+
+  -*Null Hypothesis (_H~0_)*: a statistical hypothesis that states there is *_no_* difference between a parameter and a specific value, or there is *_no_* difference between two parameters. 
+  
+  -*Alternative Hypothesis (_H~1_)*: a statistical hypothesis that states there is a difference between a parameter and a specific value, or states that there is a difference between two parameters. 
+
+
+Normally in statistics, we tend to want to reject the null hypothesis so we assume it is true then run an experiment to gather enough evidence to conclude the null hypothesis is incorrect. If the null hypothesis is rejected then we must accept the the alternative hypothesis is true. These hypotheses are always stated together.
+
+The image below gives a null and alternative hypothesis formula for means where _k_ is a specified number.  
 
 
 
+![](img/hypotesting.png)
 
+Thus, what would be the null and alternative hypotheses for the following situations?
+
+1. If a biologists was interested in determining whether mice given a dopamine infusion directly into the nucleus accumbens would result in an increase of aggressive interaction per minute than the standard 3 aggressive interactions pre minute. The biologist hypotheses are:
+          _H~0_:$\mu = 3$
+          _H~1_:$\mu > 3$
+          
+2. A botanist was interested in determining whether sunflower seedlings treated with an Epsom salt fertilizer resulted in a lower average height of sunflower seedlings than the standard height of 23 cm. The botanist hypotheses are:
+          _H~0_:$\mu = 23$
+          _H~1_:$\mu < 23$
+          
+3. A ecologist claims that the migration distance of the Arctic tern is 22,000 km. Another group of ecologist regularly check this claim. The ecologist hypotheses are:
+          _H~0_:$\mu = 22,000$
+          _H~1_:$\mu \ne  22,000$
+          
+<br>
+Once stating the hypotheses, it is time to design and run a research study. This is where its important formulate a plan for conducting the study, choose an appropriate number of subjects for a certain level of significance, and a statistical test. 
+
+Once the statistical test is run you can now make a decision on whether or not you reject the null hypothesis. It is important to know there are two types of errors we could make here. 
+
+The first error is called Type I error this is when you reject the null hypothesis when it is actually true. The other error is Type II this is when you do not reject the null hypothesis when it is false. The maximum probability of committing a Type I error is set at the Significant level, symbolized as _\u03B1/_. For instance if you were to say you have a 95 % confident of receiving an A in this course you have a significant level of 5% or an _\u03B1/_ of 0.05 leaving you with a 5% chance of not receiving an A in this course. 
+
+<br>
+
+One other method for evaluating these hypotheses is through the P-Value (or probability value). This is the probability of getting a sample mean which has a more extreme sample statistic in the direction of the alternative hypothesis when the null hypothesis is true. 
+
+Visually, we can depict the actual area under the normal distribution curve of the test value or extreme value (further in the tail) as a significant P-Value. 
+
+In this chapter and throughout the rest of the book we will take you through examples for finding P-Values using the _z_ and _t_ distributions. But for now lets reconsider hypothesis testing with the P-Value method.  
+
+If we were run an experiment and calculate a test statistic with a P-Value which is \le _\u03B1/_ then we would reject the null hypothesis. However, if the test statistic corresponded with a P-Value < _\u03B1/_ then we would accept the null hypothesis.
+
+We will continue to use different test statistics and P-values to interpret and provide quantitative evidence to explain the significance of our findings. The following sections will explain how to calculate these statistics by hand and with R. 
+
+
+          
 ## One-sample z-tests
 
 
