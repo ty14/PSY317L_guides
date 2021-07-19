@@ -593,7 +593,7 @@ You can also keep rows that are not equal to some value using the syntax `!=` wh
 
 ```{r}
 bw %>% 
-  filter(children != "0" )
+  filter(children != 0)
 
 
 ```
