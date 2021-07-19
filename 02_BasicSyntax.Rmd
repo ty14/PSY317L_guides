@@ -617,7 +617,8 @@ Here's a simple example of what this looks like.
 ```{r, error=TRUE}
 x <- c(3, 5, 6, 7, 4, 6, 5, 10, 4, 5, 7)
 
-x %>% unique
+x 
+%>% unique
   
 
 ```
