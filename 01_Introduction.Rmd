@@ -288,11 +288,22 @@ It should look something like this during the middle of the installation:
 If it has finished installing the packages successfully, then you should see something like this at the end:
 
 
+![](img/packagesyes.png)
 
+To test whether the main package that we will use `tidyverse` is downloaded correctly, then type the following in the console after the blue >
+
+```{r, eval=F}
+library(tidyverse)
+```
+
+You should see something like the following appear - the red X under "Conflicts" are ok in this instance (they are just saying that the functions `filter()` and `lag()` are used by more than one package:
+
+![](img/tidyverseyes.png)
 
 
 
 If you have any issues with the installation process then please reach out to a TA or Professor Curley through the discussion page. We will get back to you and help.
+
 
 
 
