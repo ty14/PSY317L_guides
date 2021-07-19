@@ -99,7 +99,7 @@ Now it **knows** that what you wanted to do was to add 7 and 9 to get 16 and hav
 
 e.g. what the assignment operator is.
 
-This symbol `<-` which is just a "greater than sign" followed by a "hyphen" is called an assignment operator. It basically is equivalent to saying you want to save something.  You write what you want to be saved on the right hand side of it, and the name of your newly saved thing on the left of it.  We call the 'thing' that you've saved an 'object' in programming speak.
+This symbol `<-` which is just a "less than sign" followed by a "hyphen" is called an assignment operator. It basically is equivalent to saying you want to save something.  You write what you want to be saved on the right hand side of it, and the name of your newly saved thing on the left of it.  We call the 'thing' that you've saved an 'object' in programming speak.
 
 For instance, say you wanted to save the number `17`, and you wanted to call that saved number an object called `x`. You'd do it like this:
 
