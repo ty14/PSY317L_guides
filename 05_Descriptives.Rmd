@@ -310,7 +310,7 @@ sum((A - mean(A))^2)
 
 The total of the squared differences is 64. The notation for this is:
 
-$\Sigma(x-\mu)^2)$
+$\Sigma(x-\mu)^2$
 
 
 To get a sense of the average squared difference, we then divide the total of the squared differences by our $N$:
@@ -319,7 +319,7 @@ To get a sense of the average squared difference, we then divide the total of th
 sum((A - mean(A))^2) / 12
 ```
 
-The average squared difference is 5.33. The notation for this is $\frac{\Sigma(x-\mu)^2)}{N}$.
+The average squared difference is 5.33. The notation for this is $\frac{\Sigma(x-\mu)^2}{N}$.
 
 This is a useful measure of deviation, but unfortunately it is still in the units of "squared differences". To get it back to the original units of the distribution we just square root it and we call this the "standard deviation":
 
@@ -329,7 +329,7 @@ sqrt(5.333333)
 
 The standard deviation $\sigma=2.309$.  The notation for this is:
 
-$\sigma = \sqrt{\frac{\Sigma(x-\mu)^2)}{N}}$
+$\sigma = \sqrt{\frac{\Sigma(x-\mu)^2}{N}}$
 
 We are using $\sigma$ to represent the **population standard deviation**.
 
@@ -368,7 +368,7 @@ which is a bit ridiculous. Variance is denoted by $\sigma^2$ and is calculated b
 It's actually the value you get before you do the square root step when calculating standard deviation. Therefore, we can actually say:
 
 
-$\sigma^2 = \frac{\Sigma(x-\mu)^2)}{N}$
+$\sigma^2 = \frac{\Sigma(x-\mu)^2}{N}$
 
 
 
@@ -383,13 +383,13 @@ So why do we have two methods for calculating the deviation from the mean. We ha
 Something that is often confusing in introductory statistics is that there are two different formulas for calculating the standard deviation. The one we have already introduced above is called the **population standard deviation** and its formula is:
 
 
-$\sigma = \sqrt{\frac{\Sigma(x-\mu)^2)}{N}}$
+$\sigma = \sqrt{\frac{\Sigma(x-\mu)^2}{N}}$
 
 
 But, we use a different formula when we are calculating the standard deviation for a *sample*. This is called the **sample standard deviation**:
 
 
-$s = \sqrt{\frac{\Sigma(x-\mu)^2)}{n-1}}$
+$s = \sqrt{\frac{\Sigma(x-\mu)^2}{n-1}}$
 
 
 Notice two things. First, we use the notation $s$ to indicate a sample standard deviation. Second, instead of dividing by $N$ in the formula, we divide by $n-1$.  
