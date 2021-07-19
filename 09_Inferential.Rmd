@@ -27,9 +27,9 @@ It is also possible to have the situation where the means are different to each 
 
 ## Independent Samples t-test
 
-The most typical situation where we are interested in comparing two means is when we collect two samples of data. Perhaps we collect data on the reaction times of subjects after drinking water or coffee.  We would be able to directly calculate the sample means $\overline{x}$ of both samples and could find out if there was a different or not in these values. But, what we really want to know is whether the respective populations that these two samples come from (i.e. the population of water drinkers vs the population of coffee drinkers) acually differ in their population means $\mu$.
+The most typical situation where we are interested in comparing two means is when we collect two samples of data. Perhaps we collect data on the reaction times of subjects after drinking water or coffee.  We would be able to directly calculate the sample means $\overline{x}$ of both samples and could find out if there was a different or not in these values. But, what we really want to know is whether the respective populations that these two samples come from (i.e. the population of water drinkers vs the population of coffee drinkers) actually differ in their population means $\mu$.
 
-This is the situation that we will discuss more in this chaper. **Independent t-tests** examine whether two independent samples (meaning different individuals in each group) could theoretically have come from populations with the same population mean $\mu$, or whether this is unlikely and their populations likely had different population means $\mu$. Independent t-tests also get called **two-sample t-tests**.
+This is the situation that we will discuss more in this chapter. **Independent t-tests** examine whether two independent samples (meaning different individuals in each group) could theoretically have come from populations with the same population mean $\mu$, or whether this is unlikely and their populations likely had different population means $\mu$. Independent t-tests also get called **two-sample t-tests**.
 
 There are two types of independent t-tests. The first, and the one that we will discuss most extensively, is called the **Student's t-test**. This test assumes that the populations we are comparing have the same variances $\sigma^2$. The other independent t-test is called the **Welch's t-test** and makes a correction that allows for the two populations we are comparing to have different variances $\sigma^2$.  We will talk more about this version when performing t-tests in R, as it is actually the default version that R performs. For now, we shall dive deeper into the principles behind the Student's t-test. 
 
@@ -145,7 +145,7 @@ mean(a2) - mean(b2)
 
 ```
 
-This time, $\overline{x}_{A} - \overline{x}_{B} = 3.37$  This is again pretty close to the true difference in population means, but a bit higher tis time.
+This time, $\overline{x}_{A} - \overline{x}_{B} = 3.37$  This is again pretty close to the true difference in population means, but a bit higher this time.
 
 
 We can keep drawing samples of size 17 from A, and size 20 from B and examining the difference in sample means $\overline{x}_{A} - \overline{x}_{B}$.  A quick way of writing that code in R is as follows - where we repeat it 5 more times:
@@ -369,7 +369,7 @@ sd(samp2)
 
 It's clear that our sample standard deviations differ, with sample 1 having a sample standard deviation $s=4.82$ and sample 2 having a sample standard deviation of $s=1.83$.
 
-So, if we assumed that they both come from populations with the same SD, how do we estimate that value? We have to pool the standard devation.  Essentially, we want to calculate a value that is likely somewhere in between the two sample SDs. In practice we use a weighted average.
+So, if we assumed that they both come from populations with the same SD, how do we estimate that value? We have to pool the standard deviation.  Essentially, we want to calculate a value that is likely somewhere in between the two sample SDs. In practice we use a weighted average.
 
 There are two ways of going about calculating this pooled standard deviation value.  The first is to use first principles as to what a standard deviation is. This is the one that makes most sense logically (to us at least), but it is also the more long-winded way.  The second way is to use a shortcut formula.
 
@@ -379,7 +379,7 @@ There are two ways of going about calculating this pooled standard deviation val
 
 Let's first calculate the pooled standard deviation based on first principles.  Remember, a standard deviation is the square root of the average squared deviation of each value from the mean.
 
-What we could do is to get the difference of every score from it's group mean, then square those differences, then add them all up, then divide by $n-2$, and then square root.  We divide by $n-2$ instead of $n-1$ because we have two samples that we are using and we are usings two different estimated means to determine the standard deviation. Therefore, to avoid underestimating our standard deviation we divide by $n-2$.
+What we could do is to get the difference of every score from it's group mean, then square those differences, then add them all up, then divide by $n-2$, and then square root.  We divide by $n-2$ instead of $n-1$ because we have two samples that we are using and we are using two different estimated means to determine the standard deviation. Therefore, to avoid underestimating our standard deviation we divide by $n-2$.
 
 Here, we break this down step by step:
 
@@ -431,7 +431,7 @@ asd <- ssq/n2
 asd
 ```
 
-vi) Finally, we get the pooled standard devation by squarerooting this:
+vi) Finally, we get the pooled standard deviation by square-rooting this:
 
 ```{r}
 sqrt(asd)
@@ -540,7 +540,7 @@ mean(anastasia)  - mean(bernadette)
 We can see that Anastasia students have on average 5.48 higher scores than Bernadette students. But how meaningful is this difference?
 
 
-What we are going to do is to work out how unusual or usual our one observed sample mean difference is.  We need to construct the sampling distribution of differences in sample means. We hypothesise that the true mean difference in population means is 0 (no difference between groups).
+What we are going to do is to work out how unusual or usual our one observed sample mean difference is.  We need to construct the sampling distribution of differences in sample means. We hypothesize that the true mean difference in population means is 0 (no difference between groups).
 
 These are our hypotheses:
 
@@ -551,7 +551,7 @@ $H_{1}: \mu_A \ne \mu_A$
 <br>
 
 
-If we assume that the true difference in population means is 0 (the null hypothesis), then this will mean that the mean of the sampling distribution of the difference in sample means will also be 0 ($\mu_{\overline{x}_A-\overline{x}_B}=0$). If we know the standard deviation of this sampling distribution, then we could work out how many standard deviations away our one observed sample mean differnce of 5.48 is from 0. That would enable us to work out the probability of getting a value that extreme.
+If we assume that the true difference in population means is 0 (the null hypothesis), then this will mean that the mean of the sampling distribution of the difference in sample means will also be 0 ($\mu_{\overline{x}_A-\overline{x}_B}=0$). If we know the standard deviation of this sampling distribution, then we could work out how many standard deviations away our one observed sample mean difference of 5.48 is from 0. That would enable us to work out the probability of getting a value that extreme.
 
 
 So our next step is to work out the standard deviation of the sampling distribution. If we assume equal variances between the populations of group A and B, then we can calculate the standard deviation of this sampling distribution as
@@ -615,7 +615,7 @@ But because we assume the mean of the sampling distribution of sample means to b
 $\Large t = \frac{\overline{x}_A - \overline{x}_B}{\sigma_{\overline{x}_{A} - \overline{x}_{B}}}$
 
 
-Essentially, it is taking our observed differnce in sample means and dividing it by the standard deviation of the sampling distribution.
+Essentially, it is taking our observed difference in sample means and dividing it by the standard deviation of the sampling distribution.
 
 
 ```{r}
@@ -998,7 +998,7 @@ A p-value of $p>.05$ indicates that there is not sufficient evidence to suggest 
 
 ## Welch's t-test
 
-It is important to mention that the Student's t-test is only on version of an Independent t-test. It is the one that is taught first because computationally it is the most straightforward (even though it has several strange formulas in it).  An issue with the Student's t-test is that we assume equal variances betwen the groups. As we saw in the previous section, we can test for this formally with a Levene's test, and proceed with a Student's t-test if we pass that.  However, a more commonly taken approach is to computationally account for any difference in variance between the groups using the Welch's test. We won't go into how this is done, but you can do this in R using `t.test()`.
+It is important to mention that the Student's t-test is only on version of an Independent t-test. It is the one that is taught first because computationally it is the most straightforward (even though it has several strange formulas in it).  An issue with the Student's t-test is that we assume equal variances between the groups. As we saw in the previous section, we can test for this formally with a Levene's test, and proceed with a Student's t-test if we pass that.  However, a more commonly taken approach is to computationally account for any difference in variance between the groups using the Welch's test. We won't go into how this is done, but you can do this in R using `t.test()`.
 
 To do the Welch's test, just remove the `var.equal=T`:
 
@@ -1017,7 +1017,7 @@ t.test(anastasia, bernadette, alternative = "greater")
 Again, the t-value and degrees of freedom are the same of the two-tailed Welch's t-test, and the p-value is halved. 
 
 
-We actually recommend that if you are doing an independent t-test then you should do a Welch's test rather than a Student's t-test, even though we've spent a lot of time in this chapter outlining how to do a Student's t-test by hand!  There is no real penalty for doing a Welch's test, and it is technially more accurate.
+We actually recommend that if you are doing an independent t-test then you should do a Welch's test rather than a Student's t-test, even though we've spent a lot of time in this chapter outlining how to do a Student's t-test by hand!  There is no real penalty for doing a Welch's test, and it is technically more accurate.
 
 
 <br><br>
@@ -1059,7 +1059,7 @@ When reporting results of your t-test, you should always give the effect size to
 
 Paired data are data where we have two related scores per individual subject. For instance, we may have a 'before' and 'after' score on some test. Importantly, the scores need to be measured on the same scale. For instance, if we had 'height' and 'weight' of each subject, then these would not be paired data as they are measured on different scales.
 
-When we have paired data, we may be interested in knowning if there is a difference between the two groups of scores in means over all subjects. We cannot proceed with an independent t-test to examine this, as the data all violate the assumption of independence.  These data by their very nature are non-independent of each other. Instead, we need to account for the fact the data are paired.
+When we have paired data, we may be interested in knowing if there is a difference between the two groups of scores in means over all subjects. We cannot proceed with an independent t-test to examine this, as the data all violate the assumption of independence.  These data by their very nature are non-independent of each other. Instead, we need to account for the fact the data are paired.
 
 Let's look at the following data which show exam scores in Dr Chico's class. We have 20 students who took two exams during the class. These are called `grade_test1` and `grade_test2`. As you can see below, the data are currently in "wide format".
 
@@ -1125,7 +1125,7 @@ The general principle behind a paired t-test is that it is not a new test at all
 
 Let's first do this by hand, before we see the very quick way to do this in R.
 
-The first step is to calculate the difference scores. We create a new column called `improvement` that shows whether the test 2 score is higher or lower than the test 2 score. Positive scores indidcate that subjects scored more highly on test 2 than on test 1.
+The first step is to calculate the difference scores. We create a new column called `improvement` that shows whether the test 2 score is higher or lower than the test 2 score. Positive scores indicate that subjects scored more highly on test 2 than on test 1.
 
 
 ```{r}
@@ -1134,7 +1134,7 @@ chico$improvement <- chico$grade_test2 - chico$grade_test1
 chico
 ```
 
-We can visually inspect these data by doing a historam of the difference scores:
+We can visually inspect these data by doing a histogram of the difference scores:
 
 
 ```{r}
@@ -1215,7 +1215,7 @@ t.test(chico$grade_test2, chico$grade_test1, paired=T, alternative = "greater") 
 
 ### Calculating effect sizes
 
-As with the independent t-test, just because you observe a 'signficant' difference between the two groups does not indicate that that difference is particularly large or interesting. To get a better indicator of how large or meaningful a difference in group means is, we should calculate an effect size. There are numerous different effect size measures that exist. One that is commonly reported for the paired t-test is another version of Cohen's $\delta$.  For a paired t-test, this is calculated by the formula:
+As with the independent t-test, just because you observe a 'significant' difference between the two groups does not indicate that that difference is particularly large or interesting. To get a better indicator of how large or meaningful a difference in group means is, we should calculate an effect size. There are numerous different effect size measures that exist. One that is commonly reported for the paired t-test is another version of Cohen's $\delta$.  For a paired t-test, this is calculated by the formula:
 
 $\Large \delta = \frac{\overline{d}}{s_d}$
 
@@ -1235,7 +1235,7 @@ This indicates a very large effect.  As with the independent t-test (see section
 
 ## Non-parametric Alternatives for Independent t-tests
 
-One of the key assumptions of the independent t-test is that the data come from populations that are approximately normally distributed. If your data do not appear to be normal, there are several options still available. One of these is to do a permutation t-test (see section \@ref(t-test-permutation)). Another option is to run a non-parametric statistical test. We won't go into the theory here, instead just focsuing on how to run these tests in R. 
+One of the key assumptions of the independent t-test is that the data come from populations that are approximately normally distributed. If your data do not appear to be normal, there are several options still available. One of these is to do a permutation t-test (see section \@ref(t-test-permutation)). Another option is to run a non-parametric statistical test. We won't go into the theory here, instead just focusing on how to run these tests in R. 
 
 Let's look at an example dataset of how we would do these non-parametric tests.
 
@@ -1360,7 +1360,7 @@ df1 <- read_csv("data/bloodwork.csv") %>% select(ids, immuncount, immuncount2)
 head(df1)
 ```
 
-If we examine whether the data are approximately normal, we find out that they are definitely not approximately normally distributed as the Shapio-Wilk test on each give p-values far below 0.05:
+If we examine whether the data are approximately normal, we find out that they are definitely not approximately normally distributed as the Shapiro-Wilk test on each give p-values far below 0.05:
 
 ```{r}
 shapiro.test(df1$immuncount)
@@ -1387,7 +1387,7 @@ We can next test if the population median of the difference scores is equal to 0
 wilcox.test(df1$immuncount, df1$immuncount2,  paired=T, conf.int = T) #with CIs
 ```
 
-This gives us confidence intervals of the population median in differences cores of -0.135[-1.162, 0.137] which includes 0 and therefore suggets that there is no difference in medians between the paired groups. The p-value confirms this being $p=0.54$. The $V$ value is the test-statistic.
+This gives us confidence intervals of the population median in differences cores of -0.135[-1.162, 0.137] which includes 0 and therefore suggests that there is no difference in medians between the paired groups. The p-value confirms this being $p=0.54$. The $V$ value is the test-statistic.
 
 Should you need a 1-tailed test you can do it this way - this time we use `alternative="less"` as we're seeing if time point 1 has a lower median that time point 2 across individuals:
 
@@ -1396,7 +1396,7 @@ wilcox.test(df1$immuncount, df1$immuncount2,  paired=T, alternative = "less") # 
 ```
 
 
-Again, we have an effct size measure for this test. This can be done using the `wilcoxonPairedR()` function from the `rcompanion` package. 
+Again, we have an effect size measure for this test. This can be done using the `wilcoxonPairedR()` function from the `rcompanion` package. 
 
 The downside of this function is that it requires the data to be ordered specifically. The top half of the data are the values for group1. The bottom half of the data are the values for group2. Then the id variable needs to be in the same order for both groups.
 

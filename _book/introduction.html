@@ -24,7 +24,7 @@
 <meta name="author" content="James P. Curley &amp; Tyler M. Milewski" />
 
 
-<meta name="date" content="2020-08-01" />
+<meta name="date" content="2021-08-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="basic-syntax.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -59,6 +59,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -132,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to PSY317!</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to PSY317 / PSY120R !</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#what-this-book-includes-and-what-it-doesnt"><i class="fa fa-check"></i><b>1.1</b> What this book includes and what it doesn’t</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i><b>1.2</b> How to use this guide</a></li>
@@ -430,7 +431,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This chapter will show you how to get started with <code>R</code> and <code>Rstudio</code>.</p>
 <p><code>R</code> is the programming language. It is what enables us to write code and make things happen.</p>
 <p><code>RStudio</code> is the piece of software that we use to make working with <code>R</code> simpler. It is a graphical interface.</p>
-<p>When both of these are downloaded and installed, we always work by openinng <code>RStudio</code>. <code>R</code> just lives happily in the background and we never need to directly open it.</p>
+<p>When both of these are downloaded and installed, we always work by opening <code>RStudio</code>. <code>R</code> just lives happily in the background and we never need to directly open it.</p>
 <p>The first thing to do is to download and install R and RStudio. You should do it in that order - download R first, and then RStudio. The exact steps you need to take for each will differ depending on if you’re using a Windows, Mac or Linux. This is explained below.</p>
 <p>One extra thing to note. At the time of writing this book, the latest R version is <code>R4.0.2</code> and the latest RStudio version is <code>RStudio.1.3.1056</code>. These numbers will almost certainly be different by the time you come to install each of these. That’s not a problem - just download the most recent version that exists - these will be at the top of the screen at the links we explain below.</p>
 <div id="downloading-r" class="section level2" number="2.1">
@@ -443,7 +444,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="img/R_windows.PNG" width="800" /></p>
 <p>After this page, you will see the following page:</p>
 <p><img src="img/R_windows2.png" width="800" /></p>
-<p>You want to click the link that says <span class="math inline">\(\color{blue}{\text{&quot;Download R 4.0.2 for Windows&quot;}}\)</span> that is right at the top of the screen. If the version is more recent than 4.0.2, then click on that instead - just make sure it’s the link at the very top of the page in the grey box. This will start downloading R. Just follow the instructions. You do not need to change any of the default settings, just click accept for each. One piece of advice is to try and keep R in a folder on your machine such as <code>Documents</code> and don’t put it in a cloud folder. We have seen some students have issues when R has been located in cloud folders.</p>
+<p>You want to click the link that says <span class="math inline">\(\color{blue}{\text{&quot;Download R 4.0.2 for Windows&quot;}}\)</span> that is right at the top of the screen. If the version is more recent than 4.0.2, then click on that instead - just make sure it’s the link at the very top of the page in the gray box. This will start downloading R. Just follow the instructions. You do not need to change any of the default settings, just click accept for each. One piece of advice is to try and keep R in a folder on your machine such as <code>Documents</code> and don’t put it in a cloud folder. We have seen some students have issues when R has been located in cloud folders.</p>
 <p><br></p>
 <p><strong>R for Mac OS X</strong></p>
 <p>If you have a Mac operating system, then you will see the image below. You want to click on <span class="math inline">\(\color{blue}{\text{&quot;R-4.0.2.pkg&quot;}}\)</span>. If a more recent version of R is available, then the version number will be higher than 4.0.2 - click on this instead.</p>
@@ -490,7 +491,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>First, in the top left, you have a source pane. This is where you will be writing most of your <strong>code</strong>. You will have to run the code, before seeing the output in the console. This pane is important because this is where you can write and save code for future use.</p>
 <p>Second, on the bottom left, there is the Console. All of the code and the code’s output that you run from the source panel will show up in the console. You can also directly write code in the console. However, objects in the console will not be saved.</p>
 <p>Third, you have a Global Environment panel in the top right. When you first open RStudio this will be empty, but it fills up with things once you start working with the code. You will also see some tabs above the Global Environment. You should see the <code>Environment</code> and <code>History</code> tabs. You may also see other tabs up there including <code>Git</code>, <code>Tutorial</code> depending on the version of RStudio you have downloaded and what other programs you have on your machine. There are also some other buttons including the <code>Import Dataset</code> button above this panel.</p>
-<p>Here is an example of a Goblal Environment where you can see dataframes, matrices, values, and functions that are being worked with:</p>
+<p>Here is an example of a Global Environment where you can see dataframes, matrices, values, and functions that are being worked with:</p>
 <p><img src="img/gobal_envi.PNG" width="500" /></p>
 <p>If you click the play arrow next to the dataframe, you can view the entire dataframe. This is the save as running the function <code>View(df)</code> (see section <a href="introduction-to-data-carpentry.html#importing-data">4.2</a>). Another, important button is the broom icon, if you click this it will clear your global environment and you will have to rerun code to get any dataframes, function, etc. back.</p>
 <p>In the <code>History</code> tab, you can see all the code that was once ran through your console. This tab can be important, because information in the console is never saved and can be deleted easily. Nevertheless, you should get use to saving your code in <strong>R scripts</strong>, which we’ll describe shortly, so you will probably not use this tab to often.</p>
@@ -530,10 +531,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>Once you have opened a new Rscript it will looks like this:</p>
 <p><img src="img/r_script3.png" /></p>
-<p>You will see that it says <code>Untitled1</code> which means this is a new script file and you haven’t saved it yet. You’ll also see a grey <code>1</code> on the side. This means that that is line 1 of the code. At the moment there is no code.</p>
+<p>You will see that it says <code>Untitled1</code> which means this is a new script file and you haven’t saved it yet. You’ll also see a gray <code>1</code> on the side. This means that that is line 1 of the code. At the moment there is no code.</p>
 <p>Here is a script that has a few lines of code in it:</p>
 <p><img src="img/r_script4.png" /></p>
-<p>There are a few things to point out here. First, notice that the grey numbers now go to <code>11</code>. This means we have 11 lines in the script. Some lines start with a <code>#</code> sign. These lines contain text (in green in our version) that is not code. After you put a <code>#</code> you can write notes to yourself or to others and R will ignore them - it will not run them as code. Anything else that is written, e.g. the <code>x &lt;- 3 + 5</code> and the <code>x + 1</code> is in black or blue text and can be run as code.</p>
+<p>There are a few things to point out here. First, notice that the gray numbers now go to <code>11</code>. This means we have 11 lines in the script. Some lines start with a <code>#</code> sign. These lines contain text (in green in our version) that is not code. After you put a <code>#</code> you can write notes to yourself or to others and R will ignore them - it will not run them as code. Anything else that is written, e.g. the <code>x &lt;- 3 + 5</code> and the <code>x + 1</code> is in black or blue text and can be run as code.</p>
 <p><br></p>
 </div>
 <div id="saving-an-rscript" class="section level3" number="2.5.3">

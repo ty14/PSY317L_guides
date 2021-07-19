@@ -1,8 +1,8 @@
 # Permutation Testing
 
-Permutation tests are a type of randomization test. The theoretial difference between permutation tests and inferential tests is that with permutation tests we build the sampling distribution from the observed data, rather than infering or assuming that a sampling distribution exist.
+Permutation tests are a type of randomization test. The theoretical difference between permutation tests and inferential tests is that with permutation tests we build the sampling distribution from the observed data, rather than inferring or assuming that a sampling distribution exist.
 
-In practice, what a permutation test does is to take your observed data and then shuffle (or permute) part of it. After each shuffle, some aspect of the data is recalculated. That could be for instance the correlation coefficient, or it could be a difference in means between two groups. The data then get randomly reshuffled again, and the test-statistic is recalculated again. This goes on for thousands of times - for as many shuffles are deemed acceptable. This is usually a minimum of 1,000 but typically at least 10,000 shuffles are done.  After all the permutations (shuffles) are performed, a distribution of the statistic of interest is generated from the permutations. This is comapred to the original observed statistics (e.g. correlation coefficient, difference in group means) to see if the observed value is unusually large compared to the permuted data.
+In practice, what a permutation test does is to take your observed data and then shuffle (or permute) part of it. After each shuffle, some aspect of the data is recalculated. That could be for instance the correlation coefficient, or it could be a difference in means between two groups. The data then get randomly reshuffled again, and the test-statistic is recalculated again. This goes on for thousands of times - for as many shuffles are deemed acceptable. This is usually a minimum of 1,000 but typically at least 10,000 shuffles are done.  After all the permutations (shuffles) are performed, a distribution of the statistic of interest is generated from the permutations. This is compared to the original observed statistics (e.g. correlation coefficient, difference in group means) to see if the observed value is unusually large compared to the permuted data.
 
 If this seems a little confusing, hopefully seeing it in action will help...
 
@@ -291,7 +291,7 @@ ggplot(df, aes(x = time, y = score)) +
  
 ```
 
-Using a standard approach, we could find the correlation of these two variables and run a signficance test using `cor.test()`.  We can see that there is a moderate Pearson's r of `r=0.55` which is statistically significant (p=0.031).
+Using a standard approach, we could find the correlation of these two variables and run a significance test using `cor.test()`.  We can see that there is a moderate Pearson's r of `r=0.55` which is statistically significant (p=0.031).
 
 ```{r}
 # regular significance test
@@ -343,7 +343,7 @@ cor.test(df$time, df$shuffle1) # now relationship is a bit negative
 ```
 
 
-We could shuffle the score variable even more times, and directly calculate the `r` value aginst the time variable for each shuffle using `cor()`.
+We could shuffle the score variable even more times, and directly calculate the `r` value against the time variable for each shuffle using `cor()`.
 
 ```{r}
 # we can do this many times
@@ -398,13 +398,13 @@ sum(unlist(results) > 0.56)  / 10000  #0.0163
 
 We can use this value as our p-value. Because it is relatively low, we could argue that we were very unlikely by chance alone to have got a `r` value of 0.56 from our data. This suggests that the correlation between time and score is significant.
 
-The advantages of running a permutation test is that it is free of the assumptions of normality for the Pearson's r correlation signifiance test.  It's also a cool method, and pretty intuitive.
+The advantages of running a permutation test is that it is free of the assumptions of normality for the Pearson's r correlation significance test.  It's also a cool method, and pretty intuitive.
 
 
 
 ## Permutation test for a Paired t-test
 
-We can apply the same principle of permutation to the paired t-test. Rememeber, essentially the paired t-test is focused on performing a one-sample t-test on the difference in scores between the paired data - testing whether the mean of the differences could potentially come from a population with $\mu=0$.
+We can apply the same principle of permutation to the paired t-test. Remember, essentially the paired t-test is focused on performing a one-sample t-test on the difference in scores between the paired data - testing whether the mean of the differences could potentially come from a population with $\mu=0$.
 
 Let's look at the following data that record scores for the same individual over two time points - 'before' and 'after'.
 
@@ -467,7 +467,7 @@ Our observed mean for the differences scores is 0.8.
 mean(ba$difference)
 ```
 
-How likely were we to get this mean difference if our 'before' and 'after' conditions were randomized?  For example, for individaul 'mj', their before score was 6.6 and after was 3.9 leading to a difference of 2.7. But what if their before and after were switched?  Then the difference score would be -2.7.  What we would like to do, is to randomly flip the before and after columns for each individual and recalculate the difference scores. Each time we do this, we will calculate the mean of the difference scores.  A programmatic shortcut to doing this is to multiple each difference score randomly by either +1 or -1. Here is the first shuffle we could perform:
+How likely were we to get this mean difference if our 'before' and 'after' conditions were randomized?  For example, for individual 'mj', their before score was 6.6 and after was 3.9 leading to a difference of 2.7. But what if their before and after were switched?  Then the difference score would be -2.7.  What we would like to do, is to randomly flip the before and after columns for each individual and recalculate the difference scores. Each time we do this, we will calculate the mean of the difference scores.  A programmatic shortcut to doing this is to multiple each difference score randomly by either +1 or -1. Here is the first shuffle we could perform:
 
 ```{r}
 set.seed(1)

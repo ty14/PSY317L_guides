@@ -80,7 +80,7 @@ According to Central Limit Theorem, this sampling distribution is approximately 
 Therefore the standard deviation of this sampling distribution is $\sigma_{\overline{x}} = 0.077$.
 
 
-Remember, this sampling distribution represents thousands and thousands of potential means from individual samples of size 15 that we could have collected. Each one of them in isolation would be our point estimate of the true population mean $\mu$. Sometimes we'll be really close to the true population mean, and other times we might bea quite far away. This is why we like to put confidence intervals around our sample means, to give a range of values that likely contain our population mean.
+Remember, this sampling distribution represents thousands and thousands of potential means from individual samples of size 15 that we could have collected. Each one of them in isolation would be our point estimate of the true population mean $\mu$. Sometimes we'll be really close to the true population mean, and other times we might be quite far away. This is why we like to put confidence intervals around our sample means, to give a range of values that likely contain our population mean.
 
 
 One thing we can do first is to think about this - between which two values on the sampling distribution shown above would 95% of the data lie?  That is the same as asking, which two values represent the part where 2.5% of the distribution is in each tail (leaving 95% in the middle).  To answer this, we just need to remember that according to Central Limit Theorem that our sampling distribution is normally distributed. Therefore we can use the standard normal curve.
@@ -228,7 +228,7 @@ Technically, this is the definition of a 95% confidence interval. That is, in 95
 
 ### Other Confidence Intervals ranges
 
-We can actually construct confidence intervals for any % value. Most commonly people make 95% confidence intervals, but other common ones include 80%, 90% and 99% confidence intervals.  These have the same interepretation as the 95% CI. For instance, a 99% confidence interval means that if you were to take 100 samples from a population and calculate 99% confidence intervals for each, only 1 out of a 100 on average would not include the true population mean $\mu$.
+We can actually construct confidence intervals for any % value. Most commonly people make 95% confidence intervals, but other common ones include 80%, 90% and 99% confidence intervals.  These have the same interpretation as the 95% CI. For instance, a 99% confidence interval means that if you were to take 100 samples from a population and calculate 99% confidence intervals for each, only 1 out of a 100 on average would not include the true population mean $\mu$.
 
 The formulas for each of these confidence intervals when using the $z$-distribution are as follows:
 
@@ -293,7 +293,7 @@ Let's look at this same figure, but this time for a sample that has an sample me
 
 
 
-As you can see here, this time the 90% and 80% CIs do not inclue the true population mean $\mu$. We increase the chances of including the true population mean $\mu$ inside our confidence interval by increasing the level of our confidence interval. A 99% confidence interval has an increased probability of including the confidence interval compared to a 95% confidence interval and so on.
+As you can see here, this time the 90% and 80% CIs do not include the true population mean $\mu$. We increase the chances of including the true population mean $\mu$ inside our confidence interval by increasing the level of our confidence interval. A 99% confidence interval has an increased probability of including the confidence interval compared to a 95% confidence interval and so on.
 
 <br>
 
@@ -310,7 +310,7 @@ What happens when we get different sized sample sizes?  For instance, look at th
 
 There are two things to note. First, as your sample size increases, for any confidence level (in this situation a 95% CI) the confidence interval is going to shrink. It gets tighter for larger sample sizes. **Increasing sample sizes increases certainty**. This is because the denominator of the confidence interval formula $\sqrt{n}$ gets larger, meaning that the margin of error gets smaller.
 
-The second thing might seem counterintuitive. Why does it look like in the graph above that a sample size of $n=50$ is only just able to have $\mu$ contained within it?  It would seem that a larger sample size should do a better job of including $\mu$.  Well, remember, that a 95% CI really means that 95% of your sample means will contain $\mu$.... so across all these sample sizes you have a 95% chance of having captured $\mu$ inside your CI.  
+The second thing might seem counter-intuitive. Why does it look like in the graph above that a sample size of $n=50$ is only just able to have $\mu$ contained within it?  It would seem that a larger sample size should do a better job of including $\mu$.  Well, remember, that a 95% CI really means that 95% of your sample means will contain $\mu$.... so across all these sample sizes you have a 95% chance of having captured $\mu$ inside your CI.  
 
 The key thing to remember is that with a bigger sample size you are much more likely to get a sample mean $\overline{x}$ that is close to the population mean $\mu$.  That's because the sampling distribution of sample means is much tighter. In some ways the figure above is a bit misleading as all the sample means are at 7.72. What is more likely to be the case for many samples is that they will be closer to the true population mean.  Look at the figure below, that compares samples sizes of 10 with sample sizes of 50.  Larger samples lead to CIs that have a sample mean closer to $\mu$ and that are tighter - but still with a 95% chance of having captured $\mu$.
 
@@ -335,7 +335,7 @@ $\Large CI = \overline{x} \pm t \times \frac{s}{\sqrt{n}}$
 Two things are different about this one compared to the formula for calculating a CI with the $z$-distribution. First, we are using a $t$ value rather than a $z$ value. Secondly, we are using the sample standard deviation $s$ rather than the population standard deviation $\sigma$. If we do not know $\sigma$ then our next best option is to use our estimate of the population standard deviation, which is our sample standard deviation $s$.
 
 
-We briefly introduced the $t$-distribution in section \@ref(the-t-distribution).  Why do we need to use it here?  Essentially, the key thing is that when we collect many sample means to create our sampling distribution of sample means, it is not always the case that this sampling distribution will be perfectly normally distributed. In fact, this is especially true for smaller sample sizes. If we collect smaller samples and calculate the sample mean of each, it turns out our sampling distribution will be slighly heavier in the tails than a normal distribution. How far away from normal our sampling distribution will be depends on our sample size. For bigger sample sizes, our sampling distribution will look more normal. This is illustrated below:
+We briefly introduced the $t$-distribution in section \@ref(the-t-distribution).  Why do we need to use it here?  Essentially, the key thing is that when we collect many sample means to create our sampling distribution of sample means, it is not always the case that this sampling distribution will be perfectly normally distributed. In fact, this is especially true for smaller sample sizes. If we collect smaller samples and calculate the sample mean of each, it turns out our sampling distribution will be slightly heavier in the tails than a normal distribution. How far away from normal our sampling distribution will be depends on our sample size. For bigger sample sizes, our sampling distribution will look more normal. This is illustrated below:
 
 ![](img/t.png)
 
@@ -353,7 +353,7 @@ As we can see, the value of $t$ that leaves 2.5% in each tail is 2.145 which is 
 
 ## Calculating a t-distribution Confidence Interval
 
-Let's look more practically at how we calculate a 95% confidence interval for a $t$-distribtuion. 
+Let's look more practically at how we calculate a 95% confidence interval for a $t$-distribution. 
 
 The formula we use is:
 
@@ -428,7 +428,7 @@ We can illustrate this below. Here are 20 95% confidence intervals made using ei
 
 ![](img/ci10.png)
 
-You can see that the $z$-distribution CIs are all equal in length, whereas the $t$-distribution ones vary from sample to sample. This is because of the use of the sample standard deviation $s$ in the formula. Most of the time, because of the higher $t$ value in the formula than the $z$ value, it leads to the CIs being wider for those calculated with the $t$-distribution. This sometimes has important implications. For intance, notice the 9th sample down from the top. Using the $z$-distribution, this CI does not capture the true population mean $\mu$, but using the $t$-distribution does capture it.  
+You can see that the $z$-distribution CIs are all equal in length, whereas the $t$-distribution ones vary from sample to sample. This is because of the use of the sample standard deviation $s$ in the formula. Most of the time, because of the higher $t$ value in the formula than the $z$ value, it leads to the CIs being wider for those calculated with the $t$-distribution. This sometimes has important implications. For instance, notice the 9th sample down from the top. Using the $z$-distribution, this CI does not capture the true population mean $\mu$, but using the $t$-distribution does capture it.  
 
 However, the CIs are not always bigger when using the $t$-distribution. Sometimes, the sample may just have very little variation in it meaning that the sample standard deviation $s$ is very small. This could lead to a smaller margin of error - as seen with the 19th and 20th samples from the top in the figure.
 
@@ -528,7 +528,7 @@ But, what if we did just decide to use $z$ when we don't know the population sta
 $\Large CI_{95\%} = \overline{x} \pm z \times \frac{s}{\sqrt{n}}$
 
 
-Well, in the figure below, we did just that for 25 sample means collected from samples of size $n=8$ from a population with a mean of $\mu=4$ and standard deviation of $\sigma=1.5$.  As you can see, the first and third columns that are using the appropriate $z$- and $t$-distribution formulas have 23/25 confidence interals that include the true population mean.  In fact, out of 1000 simulations of these data (i.e. 1000 sample means collected) precisely 95% of confidence intervals included the population mean for both, which is what we would expect.
+Well, in the figure below, we did just that for 25 sample means collected from samples of size $n=8$ from a population with a mean of $\mu=4$ and standard deviation of $\sigma=1.5$.  As you can see, the first and third columns that are using the appropriate $z$- and $t$-distribution formulas have 23/25 confidence intervals that include the true population mean.  In fact, out of 1000 simulations of these data (i.e. 1000 sample means collected) precisely 95% of confidence intervals included the population mean for both, which is what we would expect.
 
 
 ![](img/ci13.png)

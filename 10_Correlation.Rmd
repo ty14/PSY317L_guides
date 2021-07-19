@@ -1,11 +1,11 @@
 # Correlation
 
-Correlation is the simplest measure of association between two continuous variables. There are a number of different types of correlation measures that will explore in this chapter. All of these measures attempt to define how changess in one variable are associated with changes in another variable.
+Correlation is the simplest measure of association between two continuous variables. There are a number of different types of correlation measures that will explore in this chapter. All of these measures attempt to define how changes in one variable are associated with changes in another variable.
 
 
 ## Pearson Correlation
 
-Pearson's correlation is measured by $r$ and ranges between -1 and +1.  +1 indicates that the variables `X` and `Y` are maximally positively correlated, such that as values of X increase so do values of Y. -1 indicates a compleltely negative correlation such that as values of `X` increase, values of `Y` decrease.  A value of 0 indicates that there is no overall relationship.
+Pearson's correlation is measured by $r$ and ranges between -1 and +1.  +1 indicates that the variables `X` and `Y` are maximally positively correlated, such that as values of X increase so do values of Y. -1 indicates a completely negative correlation such that as values of `X` increase, values of `Y` decrease.  A value of 0 indicates that there is no overall relationship.
 
 
 The below image shows a positive correlation of $r=0.6$, a zero correlation of $r=0$ and a negative correlation of $r=-0.6$ for 20 datapoints in each scatterplot.
@@ -39,7 +39,7 @@ Notice that for a population we use a different notation for the Pearson's corre
 Essentially, the steps are to convert all the `X` and `Y` scores into their respective z-scores. Then you multiply these two values together to get the `cross-product`.  After summing up all the cross-products for each data point, we divide this number by `n-1` if we're dealing with a sample (we usually are), or `N` if we're dealing with a population.  
 
 
-The sum of the cross-products will therefore be largely positive if positive z-scores are multiple together or if negative z-scores are multiplied together.  The sum of the cross-products will be largely negative if negative z-scores are multipled with positive z-scores.
+The sum of the cross-products will therefore be largely positive if positive z-scores are multiple together or if negative z-scores are multiplied together.  The sum of the cross-products will be largely negative if negative z-scores are multiplied with positive z-scores.
 
 
 
@@ -571,7 +571,7 @@ rho=0.75$ which equates to $z'=0.97$ is included within the correlation coeffici
 
 As with other 95% confidence interval measures, what this really means is that in 95% of our samples we will capture the true population correlation coefficient when we create confidence intervals around our sample correlation coefficient.
 
-Although we can directly determine if a population correlation of $\rho=0$ is within our confidence interval or not, leaving the confidence interval in Fisher transformed $z'$ values isn't that interpretable. Thefore, you can tansform $z'$ values back to $r$ values using the following formula:
+Although we can directly determine if a population correlation of $\rho=0$ is within our confidence interval or not, leaving the confidence interval in Fisher transformed $z'$ values isn't that interpretable. Therefore, you can transform $z'$ values back to $r$ values using the following formula:
 
 $\Large r = \frac{\exp(2z')-1}{1 + \exp(2z')}$
 
@@ -589,7 +589,7 @@ So for each bit of our confidence interval, transforming the $z'$ values back to
 ```
 
 
-Our 95% confidence interval in terms of $r$ is therfore $r = 0.56[0.06, 0.83]$ which is very wide! but doesn't include $r=0$. If we were to increase our sample size then our confidence intervals would get tighter - and our individual estimate of the correlation coefficient would get close to the true population correlation coefficient $\rho$.
+Our 95% confidence interval in terms of $r$ is therefore $r = 0.56[0.06, 0.83]$ which is very wide! but doesn't include $r=0$. If we were to increase our sample size then our confidence intervals would get tighter - and our individual estimate of the correlation coefficient would get close to the true population correlation coefficient $\rho$.
 
 <br>
 
@@ -647,7 +647,7 @@ So our 95% Confidence interval is $r = -0.65[-0.41, -0.81]$.  Notice with the la
 
 ## Partial Correlations
 
-An important consideration when running a correlation is the **third variable** problem. In brief, this is when we have the situation that a purported association between `X` and `Y` is actually being driven by both of their association with a third variable `Z`. It is important to consider that a correlation may only exist because both variables are correlated with something else. Alternatively, we may wish to get an "adjusted" correlation between `X` and `Y` based on their relationship with `Z`. This is essentially the theory behing partial correlations.
+An important consideration when running a correlation is the **third variable** problem. In brief, this is when we have the situation that a purported association between `X` and `Y` is actually being driven by both of their association with a third variable `Z`. It is important to consider that a correlation may only exist because both variables are correlated with something else. Alternatively, we may wish to get an "adjusted" correlation between `X` and `Y` based on their relationship with `Z`. This is essentially the theory behind partial correlations.
 
 
 If we have measured the correlation between `X` and `Y` (which we'll call $r_{xy}$) as well as each of their correlations with `Z` (which we'll call $r_{xz}$ and $r_{yz}$ respectively) then we can calculate this adjusted partial correlation between `X` and `Y` which we'll call $r_{xy.z}$.  To do this, we use this horrible looking formula:
@@ -705,9 +705,9 @@ cor(gs$tiredness, gs$score) # r = -0.21
 cor(gs$hours, gs$tiredness) # r = -0.29
 ```
 
-As you can see, tiredness is negatively correlated with score, meaning individuals who reporte themselves as more tired scored lower in the task. Hours was also negatively correlated with tiredness, meaning individuals who were more tired spent fewer hours on the task.
+As you can see, tiredness is negatively correlated with score, meaning individuals who report themselves as more tired scored lower in the task. Hours was also negatively correlated with tiredness, meaning individuals who were more tired spent fewer hours on the task.
 
-It's therefore possible that an individual's tiredness could affect both the number of hours that an individual engages in the task, as well as their overall performance.  These relationships may affect the overall obseved relationship between `hours` and `score`.
+It's therefore possible that an individual's tiredness could affect both the number of hours that an individual engages in the task, as well as their overall performance.  These relationships may affect the overall observed relationship between `hours` and `score`.
 
 
 If we were to do this in R, we'd use the `pcor.test()` function from the `ppcor` package. We just need to tell it what our original `X` and `Y` are as well as our third variable `Z`.
@@ -720,7 +720,7 @@ pcor.test(x=gs$hours, y=gs$score, z=gs$tiredness)
 
 ```
 
-This output tells us that the adjust correlation, i.e. the `partial correlation` for $r_{xy}$ is 0.19.  There is a p-value associated with that correlation of `p=0.194` which indicates that the correlation is no longer significant. This means that the relationship between test score and hours is no longer signficant after you take into account that they are both related to tiredness.
+This output tells us that the adjust correlation, i.e. the `partial correlation` for $r_{xy}$ is 0.19.  There is a p-value associated with that correlation of `p=0.194` which indicates that the correlation is no longer significant. This means that the relationship between test score and hours is no longer significant after you take into account that they are both related to tiredness.
 
 
 We can also look at this 'by hand' using the formula above:
@@ -777,7 +777,7 @@ shapiro.test(cheese$sat_fat)  # P < 0.05, therefore data may not be normal
 shapiro.test(cheese$chol)  # P < 0.05,  therefore data may not be normal
 ```
 
-Secondly, we have quite dramatic deviation from the straight line of our datapoints in our QQ plots. This indicates that our dat are likley skewed.
+Secondly, we have quite dramatic deviation from the straight line of our datapoints in our QQ plots. This indicates that our data are likely skewed.
 
 ```{r, message=F, warning=F}
 
@@ -809,7 +809,7 @@ Because our data do not appear to be normal, we cannot do a Pearson correlation 
 
 Probably the most commonly used non-parametric correlation test is called the Spearman Rank Correlation test.
 
-To run this, we can use `cor()` to get the correlation or `cor.test()` to run the signficance test in the same way we did the Pearson test. However, the difference here is that we specify `method="spearman"` at the end.
+To run this, we can use `cor()` to get the correlation or `cor.test()` to run the significance test in the same way we did the Pearson test. However, the difference here is that we specify `method="spearman"` at the end.
 
 ```{r, message=F, warning=F}
 cor(cheese$sat_fat, cheese$chol, method = "spearman")      
@@ -818,7 +818,7 @@ cor.test(cheese$sat_fat, cheese$chol, method = "spearman")
 
 ```
 
-The correlation coefficient here is 0.87 and is termed `rho` instead of `r`. With the significance test, you get a test-statistic `S` which relates to how well ordered the ranked data are. Also provided is a p-value. As with the Pearson, the default is a 2-tailed test, testing whether the obsvered correlation could have come from a population with a correlation of 0. If the p-value is below 0.05 (using alpha = 0.05 as our criterion), then that is reasonable evidence that there is a significant correlation. 
+The correlation coefficient here is 0.87 and is termed `rho` instead of `r`. With the significance test, you get a test-statistic `S` which relates to how well ordered the ranked data are. Also provided is a p-value. As with the Pearson, the default is a 2-tailed test, testing whether the observed correlation could have come from a population with a correlation of 0. If the p-value is below 0.05 (using alpha = 0.05 as our criterion), then that is reasonable evidence that there is a significant correlation. 
 
 You may also notice with Spearman Rank correlations that you are forever getting warnings about computing p-values with ties. Don't worry at all about this - although this is an issue with the test and how it calculates the p-value, it isn't of any real practical concern.
 
@@ -885,7 +885,7 @@ cor.test(test$drank, test$testosterone, method = "spearman", alternative = "less
 
 **Non-parametric Partial Correlation**
 
-If you look back to section \@ref(partial-correlations) calculate the partial correlation for a Pearson correlation. We also used the funtion `pcor.test()` from the `ppcor` package to do this for us. We can actually use the same formula or function to do partial correlations for non-parametric correlations.
+If you look back to section \@ref(partial-correlations) calculate the partial correlation for a Pearson correlation. We also used the function `pcor.test()` from the `ppcor` package to do this for us. We can actually use the same formula or function to do partial correlations for non-parametric correlations.
 
 For example, let's examine the Spearman correlations between anxiety, exam score and revision.
 
@@ -934,7 +934,7 @@ If we were interested in the correlation between revision time and exam performa
 pcor.test(x=exams$revise, y=exams$exam, z=exams$anxiety, method = "spearman")
 ```
 
-Again, we see that the relationship between these two variables is reduced considerably to $\rho=0.13$ when we controll for each of their relationships with anxiety.
+Again, we see that the relationship between these two variables is reduced considerably to $\rho=0.13$ when we control for each of their relationships with anxiety.
 
 
 <br>

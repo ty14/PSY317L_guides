@@ -1,6 +1,6 @@
 # Descriptives
 
-Descriptive statistics describe basic features of the data in simple summaries. Examples include reporting measures of **central tendency** such as the mean, median, and mode. These are values that represent the most typical or most central point of a data distribution. Another class of descriptives are measures of **variability** or **variation** such as variance, standard deviation, ranges or interquartile ranges. These measures describe the spread of data. As well as being useful summaries in their own right, descirptive statistics are also used in data visualization to summarize distributions. There are several functions in R and other packages that help to get descriptive statistics from data. Before we go into detail about how to use R to get descriptives, we'll describe these measures of central tendency and variation in a bit more detail.
+Descriptive statistics describe basic features of the data in simple summaries. Examples include reporting measures of **central tendency** such as the mean, median, and mode. These are values that represent the most typical or most central point of a data distribution. Another class of descriptives are measures of **variability** or **variation** such as variance, standard deviation, ranges or interquartile ranges. These measures describe the spread of data. As well as being useful summaries in their own right, descriptive statistics are also used in data visualization to summarize distributions. There are several functions in R and other packages that help to get descriptive statistics from data. Before we go into detail about how to use R to get descriptives, we'll describe these measures of central tendency and variation in a bit more detail.
 
 
 
@@ -101,7 +101,7 @@ And for a population it looks like this:
 
 $\mu = \frac{\Sigma{x}}{N}$
 
-Notice that we use $\overline{x}$ to denote the mean of a sample, and $\mu$ to denote the mean of a population. Despite these notational differences, the formula is essentially exactly the same.
+Notice that we use $\overline{x}$ to denote the mean of a sample, and $\mu$ to denote the mean of a population. Despite these notation differences, the formula is essentially exactly the same.
 
 
 Let's calculate the arithmetic mean of our distribution `x`:
@@ -168,7 +168,7 @@ The interquartile range or IQR is another measure of spread. It is roughly equiv
 The median of the bottom half of our data is 3.5 (the average of 3 and 4). The median of the top half is 11 (the average of 11 and 11). This makes the IQR equal to $11-3.5 = 7.5$.
 
 
-If we start with an even number of numbers in our distribution, then we include each of the middle numbers in their respective lower and upper halfs.  The image below represents this:
+If we start with an even number of numbers in our distribution, then we include each of the middle numbers in their respective lower and upper halves.  The image below represents this:
 
 ![](img/des7.png)
 
@@ -374,7 +374,7 @@ $\sigma^2 = \frac{\Sigma(x-\mu)^2)}{N}$
 
 ### Average versus Standard Deviation
 
-So why do we have two methods for calculating the deviation from the mean. We have the "average devation" and the "standard deviation".  One thing you should notice is that the standard deviation is larger than the average deviation.  Distribution A had an average deviation of 4.5 and a standard deviation of 5.3.  Distibution B had an average deviation of 1.83 and a standard deviation of 2.3.  The reason for this is that squaring difference scores leads to larger values than just taking absolute values.  So why do we do the squaring thing?  The main reason is that it emphasizes datapoints that are further away from the mean, and this can be an important aspect of spread that we need to take account for. Because of that, it is favored to use the 'standard deviation' above the 'average deviation'.
+So why do we have two methods for calculating the deviation from the mean. We have the "average deviation" and the "standard deviation".  One thing you should notice is that the standard deviation is larger than the average deviation.  Distribution A had an average deviation of 4.5 and a standard deviation of 5.3.  Distribution B had an average deviation of 1.83 and a standard deviation of 2.3.  The reason for this is that squaring difference scores leads to larger values than just taking absolute values.  So why do we do the squaring thing?  The main reason is that it emphasizes datapoints that are further away from the mean, and this can be an important aspect of spread that we need to take account for. Because of that, it is favored to use the 'standard deviation' above the 'average deviation'.
 
 
 
@@ -392,7 +392,7 @@ But, we use a different formula when we are calculating the standard deviation f
 $s = \sqrt{\frac{\Sigma(x-\mu)^2)}{n-1}}$
 
 
-Notice two things. First, we use the notation $s$ to indicate a sample standard deviation. Second, instead of divding by $N$ in the formula, we divide by $n-1$.  
+Notice two things. First, we use the notation $s$ to indicate a sample standard deviation. Second, instead of dividing by $N$ in the formula, we divide by $n-1$.  
 
 
 So, for our example data distribution of `A`, this is how we would calculate $s$:
@@ -435,7 +435,7 @@ Finally, we square root this value to get the sample standard deviation - a meas
 sqrt((sum((A - mean(A))^2))/(12-1))
 ```
 
-Here we have manually calculated the sample standard deviation $s=2.412$. Earlier in this chapter we calculated the population standard devation of this same distribution to be $\sigma=2.309$. Notice that the sample standard deviation $s$ is larger than the population standard deviation $\sigma$. This is because $n-1$ will always be smaller than $N$, inflating the final result.
+Here we have manually calculated the sample standard deviation $s=2.412$. Earlier in this chapter we calculated the population standard deviation of this same distribution to be $\sigma=2.309$. Notice that the sample standard deviation $s$ is larger than the population standard deviation $\sigma$. This is because $n-1$ will always be smaller than $N$, inflating the final result.
 
 So far, we haven't shown you the shortcut for calculating the standard deviation in R.  It's actually just the function `sd()`:
 
@@ -792,7 +792,7 @@ Remember there are several ways of calculating the quartiles (see above).
 
 ### Dealing with Missing Data
 
-Often in datasets we have missing data. In R, missing data in our dataframes or vectors is represented by `NA` or somtimes `NaN`.  A slightly annoying feature of many of the descriptive summary functions is that they do not work if there is missing data.
+Often in datasets we have missing data. In R, missing data in our dataframes or vectors is represented by `NA` or sometimes `NaN`.  A slightly annoying feature of many of the descriptive summary functions is that they do not work if there is missing data.
 
 Here's an illustration. We've created a vector of data called `q` that has some numbers but also a 'missing' piece of data:
 
@@ -849,7 +849,7 @@ length(q[!is.na(q)])
 
 ## Descriptives for Datasets
 
-Often in studies, we are interested in many different outcome variables at once. We are also interested in how groups differ in various descriptive statistics. The following code will show you how to get descriptive statistics for several columns. In the next section we'll discsus getting descriptives for different groups from data. 
+Often in studies, we are interested in many different outcome variables at once. We are also interested in how groups differ in various descriptive statistics. The following code will show you how to get descriptive statistics for several columns. In the next section we'll discuss getting descriptives for different groups from data. 
 
 
 First read in these data that are looking at various sales of different video games.
@@ -870,7 +870,7 @@ summary(vg)
 ```
 
 
-You'll notice here that it just gives you some summary information for different columns, even those that have no numerical data in them. It's also not broken down by groups.  However, `summary()` can be a quick way to get some summary infomation.
+You'll notice here that it just gives you some summary information for different columns, even those that have no numerical data in them. It's also not broken down by groups.  However, `summary()` can be a quick way to get some summary information.
 
 
 A slightly better function is `Describe()` in the `psych` package. Remember to install the `psych` package before using it.  Also, here we are telling it only to provide summaries of the relevant numeric columns (which are the 6th through 11th columns):

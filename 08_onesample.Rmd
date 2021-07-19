@@ -9,7 +9,7 @@ The general question at hand with one-sample inferential tests, is that we wish 
 
 Descriptive statistics allows you to describe your data, whereas inferential statistics allows you to make predictions or draw inferences from the data. 
 
-As questions begin to arise from observation made in the world around, you may wish to create predictions about your observations and further investigate such predictions using statistical methods that provide confidence or likelihood about your observations. We often do this using a procedure called *hypothesis testing* or *signficance testing*.
+As questions begin to arise from observation made in the world around, you may wish to create predictions about your observations and further investigate such predictions using statistical methods that provide confidence or likelihood about your observations. We often do this using a procedure called *hypothesis testing* or *significance testing*.
 
 A statistical hypothesis is a clear prediction to specific claims about a population parameter (e.g. a population mean). This prediction may or may not be true. There are two types of statistical hypotheses. 
 
@@ -202,7 +202,7 @@ So, our sample mean of  $\overline{x}=102.5$ is 0.833 standard deviations above 
 ![](img/zt3.png)
 
 
-If we were asked what proportion of sample means were at least as big as 102.5, then we'd be interested in knowning what proportion of sample means are to the right of the red lines above. We can calculate the area under a standard normal curve to the left of any `z` value in R using `pnorm()`:
+If we were asked what proportion of sample means were at least as big as 102.5, then we'd be interested in knowing what proportion of sample means are to the right of the red lines above. We can calculate the area under a standard normal curve to the left of any `z` value in R using `pnorm()`:
 
 ```{r}
 pnorm(0.833)
@@ -259,7 +259,7 @@ We can do this with `pnorm()`:
 
 ```
 
-This shows that only 2.9% of sample means are greater than our observed sample mean, given the population data of $\mu=100.0$ and $\sigma=15.0$. Therefore, our observed sample mean is quite surprising. We can write the likelihood of getting this sample mean as `p = 0.029`. Because we a priori had a prediction as to the direction of the mean in our sample (we predicted it to be higher than the population mean of 100.0), then we have in fact just done a one-tailed test. If we decide that any p-values that are below `p=0.05` are 'significant', then we can say that our reading program in the school has a 'signficant effect' on improving IQ scores.  
+This shows that only 2.9% of sample means are greater than our observed sample mean, given the population data of $\mu=100.0$ and $\sigma=15.0$. Therefore, our observed sample mean is quite surprising. We can write the likelihood of getting this sample mean as `p = 0.029`. Because we a priori had a prediction as to the direction of the mean in our sample (we predicted it to be higher than the population mean of 100.0), then we have in fact just done a one-tailed test. If we decide that any p-values that are below `p=0.05` are 'significant', then we can say that our reading program in the school has a 'significant effect' on improving IQ scores.  
 
 
 <br><br>
@@ -306,7 +306,7 @@ But is this really true?   It is important to consider two things here.  One, it
 
 ### Using critical values
 
-In the preceding section, we ran one-tailed and two-tailed z-tests and calculated exact p-values. It is reasonably straightforward to do this in R. There is no reason not to use that approach. We prefer it. However, most often in introductory textbooks, a different approach is used. In this approach, the step of calculating the p-value is missed out. Instead, you are asked to just determine whether your obseved z-value is more extreme than you'd expect by chance.  "By chance" in this context means, that your observed z-value is less than 5% likely to occur.
+In the preceding section, we ran one-tailed and two-tailed z-tests and calculated exact p-values. It is reasonably straightforward to do this in R. There is no reason not to use that approach. We prefer it. However, most often in introductory textbooks, a different approach is used. In this approach, the step of calculating the p-value is missed out. Instead, you are asked to just determine whether your observed z-value is more extreme than you'd expect by chance.  "By chance" in this context means, that your observed z-value is less than 5% likely to occur.
 
 <br>
 
@@ -363,7 +363,7 @@ If we get back to our observed $z$ value of $z=1.77$, we can overlay this over t
 
 ![](img/zt7.png)
 
-As you can see, our observed $z$ value is more extreme than the 'critical value' of $z=1.645$. We say that our observed value is therefore in the 'region of rejection' and we can therefore reject the null hypothesis with a p-value of $p<0.05$ and accept the alternate hypothesis that our sample comes from a population with a population mean that is greater than 500. In other words, the tutoring program appears to have a population mean of SAT scroes greater than 500.
+As you can see, our observed $z$ value is more extreme than the 'critical value' of $z=1.645$. We say that our observed value is therefore in the 'region of rejection' and we can therefore reject the null hypothesis with a p-value of $p<0.05$ and accept the alternate hypothesis that our sample comes from a population with a population mean that is greater than 500. In other words, the tutoring program appears to have a population mean of SAT scores greater than 500.
 
 <br><br>
 
@@ -729,10 +729,10 @@ t.test(zeppo, mu = 65)  # two tailed test
 ```
 
 
-Again, we see the same t-value, degrees of freedom and p-value as we calculated by hand.  Also with a two-taield t-test we get the 95% confidence interval of the true population mean (see section  \@ref(calculating -a-t-distribution-confidence-interval).
+Again, we see the same t-value, degrees of freedom and p-value as we calculated by hand.  Also with a two-tailed t-test we get the 95% confidence interval of the true population mean (see section  \@ref(calculating -a-t-distribution-confidence-interval).
 
 
-Finally, if we wished to do a one-taile t-test where we were testing whether the sample came from a population with a population mean of less than some value, we would use `alternative = "less"`. For example, to test if the sample of puzzle competitors came from a population that completed their puzzles in less than 16 minutes:
+Finally, if we wished to do a one-tailed t-test where we were testing whether the sample came from a population with a population mean of less than some value, we would use `alternative = "less"`. For example, to test if the sample of puzzle competitors came from a population that completed their puzzles in less than 16 minutes:
 
 ```{r}
 t.test(xt$time3, mu = 16, alternative = "less")

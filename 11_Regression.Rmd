@@ -100,7 +100,7 @@ ggplot(df, aes(x = dan.sleep, y = dan.grump)) +
 
 
 
-In reality, we do not ever extend the reression lines like this. In fact, a regression line by definition only fits the range of datapoints along the x-axis that we have - it should not extend beyond those points.  This is more a theoretical construct to help us understand where the line is on the graph. 
+In reality, we do not ever extend the regression lines like this. In fact, a regression line by definition only fits the range of datapoints along the x-axis that we have - it should not extend beyond those points.  This is more a theoretical construct to help us understand where the line is on the graph. 
 
 
 To think a bit more about `a` and `b` let's compare these regression lines and their respective equations.
@@ -210,7 +210,7 @@ Therefore, we have an equation for our trendline which is `y' = 125.96 + -8.94b`
 
 ## Residuals
 
-Once we fit a trendline to the data it's clear that not all the datapoints fit to the line. In fact, almost none of the datapoints are on the line!  This is because the trendline is our prediction of the value of y based on the value of x.  Eeach datapoint actually is either larger or smaller in terms of y than the regression line. Sometimes it's a bit bigger or smaller, other times it might be a lot bigger or smaller. Occasionally, the predicted value of y might be on the regression line.
+Once we fit a trendline to the data it's clear that not all the datapoints fit to the line. In fact, almost none of the datapoints are on the line!  This is because the trendline is our prediction of the value of y based on the value of x.  Each datapoint actually is either larger or smaller in terms of y than the regression line. Sometimes it's a bit bigger or smaller, other times it might be a lot bigger or smaller. Occasionally, the predicted value of y might be on the regression line.
 
 Because our trendline isn't a perfect fit for the data, the formula for the regression line could technically be written as:
 
@@ -248,7 +248,7 @@ head(df)
 ```
 
 
-Next, getting the raw residual is simply a matter of taking each observed value of $y$ and subracting the predicted value of $y$.
+Next, getting the raw residual is simply a matter of taking each observed value of $y$ and subtracting the predicted value of $y$.
 
 
 ```{r}
@@ -288,9 +288,9 @@ p1
 
 ### Comparing our trendline to other trendlines
 
-An important question to consider is why did we end up with our trendline and not some other trendline? The answer is that ours is the 'best fit', but what does that really mean? In short, it means that the best-fit regression line is the one that has the smallest squared residuals.  The squared residuals are calcualted by squaring every residual and then summing these all up.
+An important question to consider is why did we end up with our trendline and not some other trendline? The answer is that ours is the 'best fit', but what does that really mean? In short, it means that the best-fit regression line is the one that has the smallest squared residuals.  The squared residuals are calculated by squaring every residual and then summing these all up.
 
-Let's look at this by looking at one possible trendline that we could have used. The one that we'll choose is a trendline that goes horizonatally through the data with a y value that is the mean of Y. 
+Let's look at this by looking at one possible trendline that we could have used. The one that we'll choose is a trendline that goes horizontally through the data with a y value that is the mean of Y. 
 
 ```{r}
 mean(df$dan.grump)
@@ -351,7 +351,7 @@ grid.arrange(p1,p2,nrow=1)
 
 
  In fact, let's actually quantify the difference in residuals between these two trendlines.
-Because we have both positive and neagative residuals, if we just added them together we'd end up with 0. In statistics, one common way to make numbers positive is to square them. As we saw with standard deviation, this also has the advantage of emphasizing large values.
+Because we have both positive and negative residuals, if we just added them together we'd end up with 0. In statistics, one common way to make numbers positive is to square them. As we saw with standard deviation, this also has the advantage of emphasizing large values.
 
 What we do to compare our residuals, is to therefore square them.  We call the residuals from our trendline the raw residuals. We call the residuals from the horizontal line the total residuals.
 
@@ -449,7 +449,7 @@ s_est
 
 Therefore $\sigma_{est} = 4.332$ for our model.
 
-It's acutally possible to see this value in the output of the summary of the model in R. Here, it's called the 'residual standard error':
+It's actually possible to see this value in the output of the summary of the model in R. Here, it's called the 'residual standard error':
 
 ```{r}
 summary(mod1) 
@@ -458,7 +458,7 @@ summary(mod1)
 
 ### What to do with the Standard Error of the Estimate ?
 
-What we are generally looking for with $\sigma_{est}$ is a number as small as possible.  This is because what essentially it is a measure of is an approximate estimate of the average raw residual. The question is, how small is small?  This is difficult to answer. One reason is because $\sigma_{est}$ is actually in the original units of the Y-axis (the outcome variable). Thefore it's not as simple as saying that it should be close to 0, because the Y-axis may be in units that are very large. In other ways, having this value in the original units of Y can be quite helpful as it is easy to envisage what the size of the average residual is.
+What we are generally looking for with $\sigma_{est}$ is a number as small as possible.  This is because what essentially it is a measure of is an approximate estimate of the average raw residual. The question is, how small is small?  This is difficult to answer. One reason is because $\sigma_{est}$ is actually in the original units of the Y-axis (the outcome variable). Therefore it's not as simple as saying that it should be close to 0, because the Y-axis may be in units that are very large. In other ways, having this value in the original units of Y can be quite helpful as it is easy to envisage what the size of the average residual is.
 
 However, a good rule of thumb is that approximately 95% of the observations (raw datapoints) should fall within plus or minus 2 times the standard error of the estimates from the regression line.  We can illustrate this with the following plot:
 
@@ -476,7 +476,7 @@ ggplot(df, aes(x = dan.sleep, y = dan.grump)) +
 
 This is our original scatterplot again. The blue line is still the best fitting trendline. The two dashed red lines are two times  $\sigma_{est}$ above and below the blue line respectively. That is they are 2 * 4.332 = 8.644 units of grumpiness above or below the trendline.
 
-If we count up the number of datapoints that our outside of the dotted red lines, we can see that there are six datapoints out of our 100 datapoints that are just outside, although some of htese are very close indeed to the red line. This is probably ok as we're only expecting 95% of datapoints on average to be inside the red lines.
+If we count up the number of datapoints that our outside of the dotted red lines, we can see that there are six datapoints out of our 100 datapoints that are just outside, although some of these are very close indeed to the red line. This is probably ok as we're only expecting 95% of datapoints on average to be inside the red lines.
 
 
 
@@ -506,7 +506,7 @@ That is, it's the difference between the total sum of squares (the sum of the sq
 
 The `d.f.SSM` refers to the degrees of freedom for the model sum of squares, which is equal to the number of predictors in the model. We only have one predictor (`dan.sleep`), so that means the degrees of freedom are 1.
 
-The `d.f.SSR` refers to the degrees of freedom for the raw residuals. This is equal to the number of observations minus the number of predictors minus 1. Therefore it is equal to 100 - 1 - 1 = 98 as we had 100 datapoints (or obsevations).
+The `d.f.SSR` refers to the degrees of freedom for the raw residuals. This is equal to the number of observations minus the number of predictors minus 1. Therefore it is equal to 100 - 1 - 1 = 98 as we had 100 datapoints (or observations).
 
 Let's calculate this in R. Firstly, we'll calculate the model sum of squares:
 
@@ -599,14 +599,14 @@ First up, we could plot a histogram and see if we think it's approximately norma
 ggplot(df, aes(x=std_resids)) + geom_histogram(color='white') # possibly ok
 ```
 
-This looks possibly ok.  It's not **too** skewed, but it can be harded from a histogram with just 100 datapoints to get a sense of the shape.  A second approach would be to use a Shapiro-Wilk test which more formally test whether the data are approximately normally distributed:
+This looks possibly ok.  It's not **too** skewed, but it can be hard from a histogram with just 100 datapoints to get a sense of the shape.  A second approach would be to use a Shapiro-Wilk test which more formally test whether the data are approximately normally distributed:
 
 ```{r}
 #b) Shapiro-Wilk test
 shapiro.test(df$std_resids)  # shapiro test says normal.
 ```
 
-Given that the p-value here is above our cut-off of 0.05, this suggests that we have no evidence to reject the hypothesis that our data came from a normal distribution. An easier way of saying this is, our residuals are likey approximately normally distributed.
+Given that the p-value here is above our cut-off of 0.05, this suggests that we have no evidence to reject the hypothesis that our data came from a normal distribution. An easier way of saying this is, our residuals are likely approximately normally distributed.
 
 The other method we can employ to check normality is to use a QQ plot:
 
@@ -760,13 +760,13 @@ ggplot(ddf, aes(x = x, y = y)) +
   geom_segment(aes(x = x[6], y = y[6], xend = x[6], yend = x6y), lty=2, alpha=.4)
 ```
 
-As you can see from this small example, outliers are datapoints that have very large residuals from the trendline. They have an unusually large Y.  Notice though that the slope of the trendline hasn't change too much at all. It is slighly shifted down after you remove that outlier from the calculations, but overall the coefficient of 'b' is similar to before. This type of outlier is not necessarily a big deal.
+As you can see from this small example, outliers are datapoints that have very large residuals from the trendline. They have an unusually large Y.  Notice though that the slope of the trendline hasn't change too much at all. It is slightly shifted down after you remove that outlier from the calculations, but overall the coefficient of 'b' is similar to before. This type of outlier is not necessarily a big deal.
 
 
 
 ####  ii. High Leverage
 
-Datapoints that have high leverage are those that have a high influence on the regression line's trajectory, but don't necessarily affect the angle of the slope. They are typically unsual in terms of their X value, but not necessarily in terms of Y, meaning that they don't have to have a high residual.
+Datapoints that have high leverage are those that have a high influence on the regression line's trajectory, but don't necessarily affect the angle of the slope. They are typically unusual in terms of their X value, but not necessarily in terms of Y, meaning that they don't have to have a high residual.
 
 We can measure the leverage of datapoints using the function `hatvalues()` on the model object. For the scatterplot above, the hat values of each datapoint can be calculated as follows:
 
@@ -904,7 +904,7 @@ How is this 95% confidence interval calculated?  To do this we need to think abo
 
 ### Standard Error of b
 
-As we've discussed earlier, our one single estimate of `b` is just one possible estimate. We estimated this value based on our one single sample of 100 days.  However, if we had sampled a different sample of 100 days, we would have got a slighlty (or maybe greatly) different estimate of `b`.  If we repeated this procedure thousands of times, then we'd have a sampling distribution of `b`'s. 
+As we've discussed earlier, our one single estimate of `b` is just one possible estimate. We estimated this value based on our one single sample of 100 days.  However, if we had sampled a different sample of 100 days, we would have got a slightly (or maybe greatly) different estimate of `b`.  If we repeated this procedure thousands of times, then we'd have a sampling distribution of `b`'s. 
 
 This sampling distribution will be t-distribution shaped and has degrees of freedom = number of observations - the number of predictors (1) - 1.  Therefore it is t-distribution shaped with d.f.=98.  If we know the standard deviation of this sampling distribution (which is known as the standard error of `b` - $s_{b}$), then we can create confidence intervals.
 
@@ -949,7 +949,7 @@ tval <- qt(.975, df = 98)
 tval
 ```
 
-We've now calculated everyting we need to for the Confidence Interval
+We've now calculated everything we need to for the Confidence Interval
 
 ```{r}
 b + (tval * sb)  #upper bound
@@ -967,7 +967,7 @@ confint(mod1)
 
 ### Signifcance Testing b
 
-We can also use this sampling distribution to apply a signifiance test.  Our null hypothesis will be that the population value of `b` is 0. Our alternative hypothesis will be that `b` is not equal to 0.
+We can also use this sampling distribution to apply a significance test.  Our null hypothesis will be that the population value of `b` is 0. Our alternative hypothesis will be that `b` is not equal to 0.
 
 <br>
 $H_{0}: b=0$ 
@@ -1012,7 +1012,7 @@ Essentially what we can conclude here is that our one value of `b` is extremely 
 
 
 
-The preceding information was provided to help you think about what's really going on when we calculate the t-statistic. However, tt turns out there is actually a shortcut way of calculating `t` using `n` and the Pearson's correlation coefficient `r`.  
+The preceding information was provided to help you think about what's really going on when we calculate the t-statistic. However, it turns out there is actually a shortcut way of calculating `t` using `n` and the Pearson's correlation coefficient `r`.  
 
 It's the following formula:
 
