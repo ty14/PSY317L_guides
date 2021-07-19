@@ -246,7 +246,7 @@ head(df)
 There are two indexing methods we need to learn. One is the `$` sign, which indicates we want to get data from a specific column. The other is the square brackets `[]`.
 
 
- The `$` indicates which column to call.  For instance, if we wish to get all the data from the `chol` column of the dataset `df`, then we would type `df$chol` and it returns all the data in that columns:
+ The `$` indicates which column to call.  For instance, if we wish to get all the data from the `chol` column of the dataset `df`, then we would type `df$chol` and it returns all the data in that column:
 
 ```{r}
 df$chol
