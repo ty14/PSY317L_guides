@@ -73,7 +73,7 @@ Additionally, quantitative data can be described in terms of interval and ratio 
 
 Interval data represents values that are ordered on a scale and the differences between any two values has meaning. 
 
-In interval data there is no true zero, which means if you have zero in your data, then zero is just another number. For example, zero on the Fahrenheirt temperature scale means it is zero degrees outside, but doesn't mean the scale stops - 0 actually refers to a temperature. We can also have negative numbers in interval data which are meaningful.
+In interval data there is no true zero, which means if you have zero in your data, then zero is just another number. For example, zero on the Fahrenheit temperature scale means it is zero degrees outside, but doesn't mean the scale stops - 0 actually refers to a temperature. We can also have negative numbers in interval data which are meaningful.
 
 
 <br>
@@ -353,7 +353,7 @@ head(df)
 
 This little subsection is a bit more about the inner workings of dataframes. It won't be coding that we use during this course, but if you ever do any extra R things by yourself, you may run into issues that this section could help you resolve.
 
-You can see the struture of your data, whether each variable is a number, character, factor, logical, etc. This can be useful when trying to graph and analysis different types of data.  
+You can see the structure of your data, whether each variable is a number, character, factor, logical, etc. This can be useful when trying to graph and analysis different types of data.  
 
 ```{r}
 str(bmi)
@@ -545,7 +545,7 @@ bw %>%
 
 ### filter()  - Subsetting Data
 
-`filter()` is a way to subset data. In other words, it is a way to only keep certain rows in your dataset. These are rows that must fulfil specific criteria.  For example, let's say we wish to only keep rows that have values in the `hrate` column that are over 70.
+`filter()` is a way to subset data. In other words, it is a way to only keep certain rows in your dataset. These are rows that must fulfill specific criteria.  For example, let's say we wish to only keep rows that have values in the `hrate` column that are over 70.
 
 The first step is to take the dataframe `bw()` and then tell R that you are about to do something else with the `%>%` syntax. Then use `filter()` with `hrate > 70` inside it. This mean, *keep* the rows with `hrate>70`.  See sections \ref(chaining-syntax) and \@ref(chaining-together) for a bit more on chaining using `%>%`.
 
@@ -627,7 +627,7 @@ ny1
 Sometimes datasets are too big and unwieldy to look at all at once. Often, we are just interested in certain columns and it makes more sense just to keep the ones we want to focus on. We can use `select()` to only keep certain columns:
 
 
-For example, to only keep the columsn `ids`, `smoker`, `hrate` and `children`, we'd do the following:
+For example, to only keep the columns `ids`, `smoker`, `hrate` and `children`, we'd do the following:
 
 ```{r}
 bw %>% 
@@ -660,7 +660,7 @@ bw %>%
 ```
 
 
-If you want these selections to be permanent then you need to rewrite selections in new dataframe. Here we call our new datafame `bw1`. You can see the difference between bw and bw1:
+If you want these selections to be permanent then you need to rewrite selections in new dataframe. Here we call our new dataframe `bw1`. You can see the difference between bw and bw1:
 
 ```{r}
 bw1 <- bw %>%  

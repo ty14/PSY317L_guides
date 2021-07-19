@@ -347,10 +347,10 @@ We could shuffle the score variable even more times, and directly calculate the 
 
 ```{r}
 # we can do this many times
-cor(df$time, sample(df$score)) # r = 0.35
-cor(df$time, sample(df$score)) # r = 0.04
-cor(df$time, sample(df$score)) # r = -0.06
-cor(df$time, sample(df$score)) # r = 0.15
+cor(df$time, sample(df$score))
+cor(df$time, sample(df$score)) 
+cor(df$time, sample(df$score)) 
+cor(df$time, sample(df$score)) 
 
 
 ```
@@ -536,6 +536,8 @@ library(coin)
 
 head(ddf)
 
+# for some reason, the coin package makes you make the 'group' column/variable a factor
+ddf$group <- factor(ddf$group) 
 
 independence_test(anxiety ~ group, data = ddf, alternative = "less")
 

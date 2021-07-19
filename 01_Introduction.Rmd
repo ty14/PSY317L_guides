@@ -11,7 +11,7 @@ This chapter will show you how to get started with `R` and `Rstudio`.
 
 `RStudio` is the piece of software that we use to make working with `R` simpler. It is a graphical interface.
 
-When both of these are downloaded and installed, we always work by openinng `RStudio`. `R` just lives happily in the background and we never need to directly open it.
+When both of these are downloaded and installed, we always work by opening `RStudio`. `R` just lives happily in the background and we never need to directly open it.
 
 The first thing to do is to download and install R and RStudio. You should do it in that order - download R first, and then RStudio. The exact steps you need to take for each will differ depending on if you're using a Windows, Mac or Linux. This is explained below.
 
@@ -38,7 +38,7 @@ After this page, you will see the following page:
 ![](img/R_windows2.png){width=800px}
 
 
-You want to click the link that says  $\color{blue}{\text{"Download R 4.0.2 for Windows"}}$ that is right at the top of the screen. If the version is more recent than 4.0.2, then click on that instead - just make sure it's the link at the very top of the page in the grey box. This will start downloading R. Just follow the instructions. You do not need to change any of the default settings, just click accept for each.  One piece of advice is to try and keep R in a folder on your machine such as `Documents` and don't put it in a cloud folder. We have seen some students have issues when R has been located in cloud folders.
+You want to click the link that says  $\color{blue}{\text{"Download R 4.0.2 for Windows"}}$ that is right at the top of the screen. If the version is more recent than 4.0.2, then click on that instead - just make sure it's the link at the very top of the page in the gray box. This will start downloading R. Just follow the instructions. You do not need to change any of the default settings, just click accept for each.  One piece of advice is to try and keep R in a folder on your machine such as `Documents` and don't put it in a cloud folder. We have seen some students have issues when R has been located in cloud folders.
 
 <br>
 
@@ -126,7 +126,7 @@ Second, on the bottom left, there is the Console. All of the code and the code's
 
 Third, you have a Global Environment panel in the top right. When you first open RStudio this will be empty, but it fills up with things once you start working with the code. You will also see some tabs above the Global Environment. You should see the `Environment` and `History` tabs. You may also see other tabs up there including `Git`, `Tutorial` depending on the version of RStudio you have downloaded and what other programs you have on your machine. There are also some other buttons including the `Import Dataset` button above this panel.
 
-Here is an example of a Goblal Environment where you can see dataframes, matrices, values, and functions that are being worked with: 
+Here is an example of a Global Environment where you can see dataframes, matrices, values, and functions that are being worked with: 
 
 ![](img/gobal_envi.PNG){width=500px}
 
@@ -194,13 +194,13 @@ Once you have opened a new Rscript it will looks like this:
 
 ![](img/r_script3.png)
 
-You will see that it says `Untitled1` which means this is a new script file and you haven't saved it yet. You'll also see a grey `1` on the side. This means that that is line 1 of the code. At the moment there is no code.
+You will see that it says `Untitled1` which means this is a new script file and you haven't saved it yet. You'll also see a gray `1` on the side. This means that that is line 1 of the code. At the moment there is no code.
 
 Here is a script that has a few lines of code in it:
 
 ![](img/r_script4.png)
 
-There are a few things to point out here.  First, notice that the grey numbers now go to `11`. This means we have 11 lines in the script.  Some lines start with a `#` sign. These lines contain text (in green in our version) that is not code. After you put a `#` you can write notes to yourself or to others and R will ignore them - it will not run them as code.  Anything else that is written, e.g. the `x <- 3 + 5` and the `x + 1` is in black or blue text and can be run as code.
+There are a few things to point out here.  First, notice that the gray numbers now go to `11`. This means we have 11 lines in the script.  Some lines start with a `#` sign. These lines contain text (in green in our version) that is not code. After you put a `#` you can write notes to yourself or to others and R will ignore them - it will not run them as code.  Anything else that is written, e.g. the `x <- 3 + 5` and the `x + 1` is in black or blue text and can be run as code.
 
 <br>
 

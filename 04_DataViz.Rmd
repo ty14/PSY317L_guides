@@ -312,7 +312,7 @@ ggplot(film, aes(x=imdb)) +
 ```
 
 
-Now let's fix that bindwidth.  To resolve this, inside `geom_histogram()` we write `binwidth = 0.2`.
+Now let's fix that binwidth.  To resolve this, inside `geom_histogram()` we write `binwidth = 0.2`.
 
 
 ```{r, fig.width = 5, fig.height = 3}
@@ -490,7 +490,7 @@ cheese <- read_csv("data/cheese.csv")
 head(cheese)
 ```
 
-We'll start with a simple scatterplot looking at the association betweeen saturated fat on the x-axis and cholesterol on the y-axis intake. 
+We'll start with a simple scatterplot looking at the association between saturated fat on the x-axis and cholesterol on the y-axis intake. 
 
 ```{r, fig.width = 5, fig.height = 3}
 ggplot(cheese, aes(x=sat_fat, y=chol) ) + 
@@ -653,7 +653,7 @@ ggplot(jennifer, aes(x=year, y=n) ) +
   geom_line() 
 ```
 
-You can adjust the colors of the lines and the points independently by suppling `color=` inside of each geom:
+You can adjust the colors of the lines and the points independently by supplying `color=` inside of each geom:
 
 e.g. Changing the color of the line, but *not* the points:
 
@@ -711,7 +711,7 @@ jenlinda <- read_csv("data/jenlinda.csv")
 tail(jenlinda)
 ```
 
-Here, we have data in **long** format. We still have our continous outcome variable of `n` in one column. We also have `year` in another column. So we can plot these two against each other. Importantly, we can split our lines based on our grouping variable, which is the `name` column. In that column we have two different groups - Jennifer and Linda.
+Here, we have data in **long** format. We still have our continuous outcome variable of `n` in one column. We also have `year` in another column. So we can plot these two against each other. Importantly, we can split our lines based on our grouping variable, which is the `name` column. In that column we have two different groups - Jennifer and Linda.
 
 To plot separate lines based on the `name` column, we need to add `group=name` to our `aes()`. We've also added some custom labels, titles and a theme.
 
@@ -780,7 +780,7 @@ Let's have a look at how many datapoints we have in each strain:
 table(wheels$strain)
 ```
 
-We hae 80 mice in five different strains.
+We have 80 mice in five different strains.
 
 
 
@@ -1004,7 +1004,7 @@ ggplot(wheels1, aes(x = strain, y = day4)) +
   theme_classic()
 ```
 
-You can do all the customizing, reordering, coloring, tranparency-ing, etc that you do with boxplots:
+You can do all the customizing, reordering, coloring, transparency-ing, etc that you do with boxplots:
 
 ```{r, fig.width = 5, fig.height = 3, warning=FALSE, message=FALSE}
 ggplot(wheels1, aes(x = fct_rev(reorder(strain, strain, median)), y = day4)) + 

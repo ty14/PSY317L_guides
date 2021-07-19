@@ -1,7 +1,7 @@
 ---
 title: "PSY317L Guidebook"
 author: "James P. Curley & Tyler M. Milewski"
-date: "August 1, 2020"
+date: "August 1, 2021"
 output: bookdown::gitbook
 site: bookdown::bookdown_site
 ---
@@ -13,13 +13,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-# Welcome to PSY317! 
+# Welcome to PSY317 / PSY120R ! 
 
 
- **This books is still in progress !!!   This is a draft. Several sections are still incomplete or unedited.**
-
-
-This book is written to help students enrolled in the University of Texas at Austin **Introduction to Statistics for the Behavioral Sciences** (PSY317L) course led by Professor James Curley.
+This book is written to help students enrolled in the University of Texas at Austin **Introduction to Statistics for the Behavioral Sciences** (PSY317L) course or **R Programming for Behavioral Sciences** (PSY120R) led by Professor James Curley.
 
 We hope that the book will be a useful resource to help you learn both R and statistics. If you have any suggestions for improvements, please get in touch with Professor Curley.
 
@@ -28,7 +25,7 @@ We hope that the book will be a useful resource to help you learn both R and sta
 
 This is in between a textbook and a study guide. We're trying to build materials that will enable students to quickly find what they're looking for to help them understand these statistical concepts.
 
-This book is primarily aimed at the content in PSY317L (and PSY1XXR), but occasionally we describe concepts that we don't directly cover in these courses.  This is when we feel that it's worth explaining things in a bit more detail for those students that want to know a bit more about a subject.
+This book is primarily aimed at the content in PSY317L and PSY120R, but occasionally we describe concepts that we don't directly cover in these courses.  This is when we feel that it's worth explaining things in a bit more detail for those students that want to know a bit more about a subject.
 
 
 ## How to use this guide
@@ -44,7 +41,7 @@ This guidebook is built upon the work of several others' teaching materials.  In
 
 ## References
 
-The following books are all freely avaiable online (like this one!) and are helpful resources. 
+The following books are all freely available online (like this one!) and are helpful resources. 
 
 For Statistics and R Help:
 Danielle Navarro - [Learning statistics with R: A tutorial for psychology students and other beginners](https://learningstatisticswithr.com/book/)
@@ -65,7 +62,7 @@ Garrett Grolemund & Hadley Wickham - [R for Data Science](https://r4ds.had.co.nz
 
 ## Other places to find help about R and Statistics
 
-With statistics stuff, you can never really have enough resources. Although throughout this course we try to explain difficult concepts in terms we hope all students can understand, sometimes you just need to read or hear about these concepts several times before they sink in. Othertimes, it's not until somebody else explains it in a slightly different way that it finally finds a home in your brain.  To that end, we recommend looking over some other help tutorials and reading. You certainly don't have to go looking at these materials - but if you feel like hearing a different voice, then these are some that I recommend.
+With statistics stuff, you can never really have enough resources. Although throughout this course we try to explain difficult concepts in terms we hope all students can understand, sometimes you just need to read or hear about these concepts several times before they sink in. Other times, it's not until somebody else explains it in a slightly different way that it finally finds a home in your brain.  To that end, we recommend looking over some other help tutorials and reading. You certainly don't have to go looking at these materials - but if you feel like hearing a different voice, then these are some that I recommend.
 
 
 **R stuff**

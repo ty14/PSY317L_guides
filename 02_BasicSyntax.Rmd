@@ -96,6 +96,7 @@ Now it **knows** that what you wanted to do was to add 7 and 9 to get 16 and hav
 
 
 ## Assignment
+
 e.g. what the assignment operator is.
 
 This symbol `<-` which is just a "greater than sign" followed by a "hyphen" is called an assignment operator. It basically is equivalent to saying you want to save something.  You write what you want to be saved on the right hand side of it, and the name of your newly saved thing on the left of it.  We call the 'thing' that you've saved an 'object' in programming speak.
@@ -130,7 +131,7 @@ y = 10 - 2
 y
 ```
 
-So, as you can see, we created an object called `y` that was equal to 10 minus 2, that is 8. Using `=` seems so much easier than using `<-` so what is the reason not to do it?  Well, the equal sign gets used for a ton of other commands and sometimes it gets a little messy and confusing if too many equal signs fly around.  Thefore, we're going to politely ask that whenever you assign things, please use the `<-` operator, even though it's two bits of punctuation stuck together:
+So, as you can see, we created an object called `y` that was equal to 10 minus 2, that is 8. Using `=` seems so much easier than using `<-` so what is the reason not to do it?  Well, the equal sign gets used for a ton of other commands and sometimes it gets a little messy and confusing if too many equal signs fly around.  Therefore, we're going to politely ask that whenever you assign things, please use the `<-` operator, even though it's two bits of punctuation stuck together:
 
 ```{r}
 
@@ -303,7 +304,7 @@ example
 Here, each of `aa` to `ee` is assigned to be an object and they contain information. When we write `c(aa, bb, cc, dd, ee)` we don't need to use quotes as we're referring to the objects and not to words called `aa`, `ee` etc.  Also notice that we were able to make vectors that mixed together numbers and characters.  Also, some of our original vectors like `bb` and `dd` contained more than one element. When we put them all together with `c(aa, bb, cc, dd, ee)` to create the `example` object, R just stuck them all together in the order we wrote.
 
 
-It's pretty unusual though to mix numeric and character vectors together.  Let's get back to talking about vectors tha contain characters only.
+It's pretty unusual though to mix numeric and character vectors together.  Let's get back to talking about vectors that contain characters only.
 
 Some functions can work on both character vectors and numeric vectors. One example is `length()` which counts the number of elements in a vector:
 
@@ -399,7 +400,7 @@ There are some important rules for the naming of objects. These are some DOs and
 
 - try to use lower case ideally
 
-- do not use any puncutation in names for objects, dataframes or column names except for the period `.` or underscore `_`. Everything else is forbidden.
+- do not use any punctuation in names for objects, dataframes or column names except for the period `.` or underscore `_`. Everything else is forbidden.
 
 - if you do use an underscore `_` it cannot go at the beginning, e.g.
 
@@ -487,7 +488,7 @@ x >= 10
 ```
 
 
-You can also add up the logical output.   Say you wanted to know how many of your vector of `x` were equal to 10. You can use `sum()` to add up. With the `TRUE` AND `FALSE` output, `sum()` will count up the number of `TRUE`s you have. (It considerds `TRUE` to be 1's and `FALSE` to be 0's)
+You can also add up the logical output.   Say you wanted to know how many of your vector of `x` were equal to 10. You can use `sum()` to add up. With the `TRUE` AND `FALSE` output, `sum()` will count up the number of `TRUE`s you have. (It considers `TRUE` to be 1's and `FALSE` to be 0's)
 
 ```{r}
 x <- c(5, 10, 15, 10, 1, 11, 10)
@@ -763,7 +764,7 @@ Notice in this title that one of the words requires an apostrophe `'`. If you ha
 
 *Typos are bad!*
 
-R can only run the code that you tell it to run.....  (well this is not 100% true... but wait until the end of the paragraph for that).  If you don't precisely tell it what you want, it will get confused or angry. If you typo, then this can cause problems. Let's do an example. Say we want to make two vectors called `apples` and `oranges` and we want to add them togeher. This works:
+R can only run the code that you tell it to run.....  (well this is not 100% true... but wait until the end of the paragraph for that).  If you don't precisely tell it what you want, it will get confused or angry. If you typo, then this can cause problems. Let's do an example. Say we want to make two vectors called `apples` and `oranges` and we want to add them together. This works:
 
 ```{r}
 apples <- c(4, 7, 10)
@@ -781,7 +782,7 @@ oranges <- c(3, 1, 2)
 appless + oranges
 ```
 
-You'll get the error saying `object 'blah' not found`. This is the most common error that we see. Basically, it cannot find an object (be it a vector or a dataframe) if it's not spelled correctly. This also applies to column names of dataframes and so on.  R is also case sensisitive. The following doesn't work:
+You'll get the error saying `object 'blah' not found`. This is the most common error that we see. Basically, it cannot find an object (be it a vector or a dataframe) if it's not spelled correctly. This also applies to column names of dataframes and so on.  R is also case sensitive. The following doesn't work:
 
 
 ```{r, error=TRUE}
@@ -812,7 +813,7 @@ Actually, when you first start to type the first letter of any object, you can h
 
 ### Tab is your friend
 
-As seen from the example above, the `Tab` key can be used to get help as you're writing code. This is a super useful little trick as it can be hard to remember the names of some of the commands (functions) in R.  Earlier in this section we saw that it was possible to calculate ths `sum` of a vector with a function called `sum()`. However, what if you forgot the name of this but you just had a vague recollection that it began with an `s` ?  You could start to type `s` and then hit the `Tab` key. Scroll through the list that pops up by your code until you find the one that you think is correct!
+As seen from the example above, the `Tab` key can be used to get help as you're writing code. This is a super useful little trick as it can be hard to remember the names of some of the commands (functions) in R.  Earlier in this section we saw that it was possible to calculate the `sum` of a vector with a function called `sum()`. However, what if you forgot the name of this but you just had a vague recollection that it began with an `s` ?  You could start to type `s` and then hit the `Tab` key. Scroll through the list that pops up by your code until you find the one that you think is correct!
 
 
 
@@ -851,7 +852,7 @@ There is usually (although not always) an object that is the focus of the functi
 `sqrt()`
 
 
-As we go through the course, we'll see lots more functions and it will become second nature to use them.  There is one additional thing that we'll bring up at this point. The things that you put inside functions are called `arguments`. Sometimes you'll see them called `parameters` - but that has other meaninings in statistics, so let's use 'arguments'.  Some functions have one argument, others have more.  Most functions have defaults for these arguments, so if you don't include them, it will still run using it's predefined default.
+As we go through the course, we'll see lots more functions and it will become second nature to use them.  There is one additional thing that we'll bring up at this point. The things that you put inside functions are called `arguments`. Sometimes you'll see them called `parameters` - but that has other meanings in statistics, so let's use 'arguments'.  Some functions have one argument, others have more.  Most functions have defaults for these arguments, so if you don't include them, it will still run using it's predefined default.
 
 Let's illustrate this by introducing you to the function called `round()`.  This function will round numbers to various decimal places. Let's use the number   `17.10771947` as an example. What does round do to this number?
 
