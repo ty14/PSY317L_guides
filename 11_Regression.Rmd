@@ -59,7 +59,7 @@ The line also has the equation:
 
 $y' = a + xb$
 
-You may also se this written in other ways such as:
+You may also see this written in other ways such as:
 
 $y' = \beta_{0} + x\beta_{1}$
 
@@ -105,15 +105,15 @@ In reality, we do not ever extend the regression lines like this. In fact, a reg
 
 To think a bit more about `a` and `b` let's compare these regression lines and their respective equations.
 
-![comparing a and b](img/ab.png)
+![](img/ab.png)
 
 
 In the top left image, you can see three parallel regression lines. These all have the same slope value (b = 0.704).  How they differ is in their y-intercept. The different values of 'a' indicate that they are at different heights.  In the top right, we've extended the regression lines in red back to where the x-axis is 0. Where the lines cross here (x=0) is the value of each y-intercept i.e. 'a'.
 
-In the bottom right image, you can see that all the plots have the same y-intercept value (8.32).  How they differ is in their slope b. Two are positive values of b, with the larger value having a steeper slope. The negative value of b (-0.622) has a slope going downwards. In the bottom right we extend these trendlines back to where x=0, and you can see that all have the same y-intercept.
+In the bottom right image, you can see that all the plots have the same y-intercept value (8.32).  How they differ is in their slope b. Two are positive values of b, with the larger value having a steeper slope. The negative value of b (-0.622) has a slope going downwards. In the bottom right we extend these trendlines back to where x=0, and you can see that all have the same y-intercept (x=0, y=8.32).
 
 
-
+<br>
 
 ### How to calculate a and b in R
 
@@ -155,7 +155,7 @@ mod1$coefficients
 
 Now, we should also mention one other thing about these values. These regression coefficients are 'estimates'. We have one sample of 100 subjects from which we estimated the true population values of 'a' and 'b'. The true population values of 'a' and 'b' are parameters. 
 
-
+<br>
 
 
 
@@ -202,7 +202,7 @@ a
 ```
 
 
-Therefore, we have an equation for our trendline which is `y' = 125.96 + -8.94b`, which means that for every 1 unit increase of sleep, Dan's grumpiness decreases by 8.94.
+Therefore, we have an equation for our trendline which is `y' = 125.96 + -8.94x`, which means that for every 1 unit increase of sleep, Dan's grumpiness decreases by 8.94.
 
 
 
@@ -229,7 +229,7 @@ This essentially is the difference of each data point from the predicted value.
 
 ### How to calculate the residuals
 
-Using our regression line equation of  `y' = 125.96 + -8.94b`, we can manually calculate the raw residuals. 
+Using our regression line equation of  `y' = 125.96 + -8.94x`, we can manually calculate the raw residuals. 
 
 Firstly, we calculate the predicted values of y $y'$ for each value of $x$. We can put these back into our original dataframe.
 
