@@ -89,7 +89,7 @@ For example, in a study, if a subject reports that they texted zero people in th
 
 ## Importing Data
 
-There are different options for importing data. It's possible to import data of all different formats into RStudio. We will primarily use spreadsheet type files that have been saved with the `.csv` suffix.  These are called 'comma separated files'.  
+There are different options for importing data. It's possible to import data of all different formats into RStudio. We will primarily use spreadsheet type files that have been saved with the `.csv` suffix.  These are called 'comma separated values'.  
 
 **Option 1. Import Tab** You can click on the "Import Dataset" tab in the top right of RStudio - it's located just above your global environment. 
 
