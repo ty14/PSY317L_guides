@@ -302,7 +302,7 @@ Next, we square these difference scores to get positive values:
 Notice that the datapoints that are furthest from the mean get proportionally larger than values that are close to the mean. Squaring has this effect.
 
 
-We need to sum these "squared differences" to get a measure of how much deviation there is in total:
+We need to sum these "squared differences" to get a measure of how much deviation there is in total - this figure can also be called the **Sum of Squares** or **Sum of Squared Differences**:
 
 ```{r}
 sum((A - mean(A))^2)
