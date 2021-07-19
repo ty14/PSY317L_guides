@@ -1046,7 +1046,7 @@ library(lsr)
 cohensD(values ~ group, data = d)  
 ```
 
-Again, $\delta = 0.74$.  This would be considered a large effect size. Any value of $\delta$ above 0.7 is considered to be a large effect size. Anything above 0.5 is a moderate effect size, and anything above 0.3 is a small effect size.
+Again, $\delta = 0.74$.  This would be considered a large effect size. Any value of $\delta$ above 0.7 or 0.8 is considered to be a large effect size. Anything above 0.5 is a moderate effect size, and anything above 0.2 or 0.3 is a small effect size. The precise boundaries were not exactly defined by Cohen, so they are a little fuzzy.
 
 When reporting results of your t-test, you should always give the effect size too.
 
