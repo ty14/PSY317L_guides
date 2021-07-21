@@ -205,3 +205,4 @@ t-test-permutation
 correlation-coefficient-permutation-tests
 permutation-test-for-a-paired-t-test
 permutation-tests-in-packages
+multiple-groups-on-a-scatterplot
