@@ -33,7 +33,7 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="basic-syntax.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -59,7 +59,6 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -581,6 +580,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>It should look something like this during the middle of the installation:</p>
 <p><img src="img/r_install3.png" /></p>
 <p>If it has finished installing the packages successfully, then you should see something like this at the end:</p>
+<p><img src="img/packagesyes.png" /></p>
+<p>To test whether the main package that we will use <code>tidyverse</code> is downloaded correctly, then type the following in the console after the blue &gt;</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introduction.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p>You should see something like the following appear - the red X under “Conflicts” are ok in this instance (they are just saying that the functions <code>filter()</code> and <code>lag()</code> are used by more than one package:</p>
+<p><img src="img/tidyverseyes.png" /></p>
 <p>If you have any issues with the installation process then please reach out to a TA or Professor Curley through the discussion page. We will get back to you and help.</p>
 </div>
 <div id="working-with-rstudio-in-psy317l" class="section level2" number="2.7">
