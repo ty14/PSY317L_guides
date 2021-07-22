@@ -71,6 +71,7 @@ density-curves
 comparing-distributions
 stem-and-leaf-plots
 scatterplots
+multiple-groups-on-a-scatterplot
 bubble-charts
 line-graphs
 multiple-line-graphs
@@ -82,6 +83,7 @@ reordering-categorical-x-axes
 flipping-axes
 violin-plots
 stacked-boxplots
+ridgeline-plots
 bar-graphs
 small-multiples
 saving-and-exporting-ggplot2-graphs
@@ -135,8 +137,11 @@ calculating-a-t-distribution-confidence-interval
 t-distribution-cis-and-sample-size.
 other-confidence-intervals-ranges-for-t-distribution
 comparing-cis-using-the-z--and-t-distributions
-one-sample-inferential-statistics
 hypothesis-testing
+two-tailed-and-one-tailed-tests
+examples-of-1--and-2-tailed-tests
+significance-levels-and-p-values
+one-sample-inferential-statistics
 one-sample-z-tests
 sampling-distribution-recap
 calculating-p-values-for-z-test
@@ -205,4 +210,3 @@ t-test-permutation
 correlation-coefficient-permutation-tests
 permutation-test-for-a-paired-t-test
 permutation-tests-in-packages
-multiple-groups-on-a-scatterplot

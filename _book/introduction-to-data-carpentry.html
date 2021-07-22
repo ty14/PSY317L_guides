@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Introduction to Data Carpentry | PSY317L Guidebook</title>
-  <meta name="description" content="4 Introduction to Data Carpentry | PSY317L Guidebook" />
+  <title>4 Introduction to Data Carpentry | PSY317L &amp; PSY120R Guidebook</title>
+  <meta name="description" content="4 Introduction to Data Carpentry | PSY317L &amp; PSY120R Guidebook" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Introduction to Data Carpentry | PSY317L Guidebook" />
+  <meta property="og:title" content="4 Introduction to Data Carpentry | PSY317L &amp; PSY120R Guidebook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Introduction to Data Carpentry | PSY317L Guidebook" />
+  <meta name="twitter:title" content="4 Introduction to Data Carpentry | PSY317L &amp; PSY120R Guidebook" />
   
   
   
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="basic-syntax.html"/>
 <link rel="next" href="data-visualization.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -59,6 +59,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -240,6 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5.2" data-path="data-visualization.html"><a href="data-visualization.html#boxplots"><i class="fa fa-check"></i><b>5.5.2</b> Boxplots</a></li>
 <li class="chapter" data-level="5.5.3" data-path="data-visualization.html"><a href="data-visualization.html#violin-plots"><i class="fa fa-check"></i><b>5.5.3</b> Violin Plots</a></li>
 <li class="chapter" data-level="5.5.4" data-path="data-visualization.html"><a href="data-visualization.html#stacked-boxplots"><i class="fa fa-check"></i><b>5.5.4</b> Stacked Boxplots</a></li>
+<li class="chapter" data-level="5.5.5" data-path="data-visualization.html"><a href="data-visualization.html#ridgeline-plots"><i class="fa fa-check"></i><b>5.5.5</b> Ridgeline Plots</a></li>
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="data-visualization.html"><a href="data-visualization.html#bar-graphs"><i class="fa fa-check"></i><b>5.6</b> Bar Graphs</a></li>
 <li class="chapter" data-level="5.7" data-path="data-visualization.html"><a href="data-visualization.html#small-multiples"><i class="fa fa-check"></i><b>5.7</b> Small Multiples</a></li>
@@ -312,101 +314,106 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="confidence-intervals.html"><a href="confidence-intervals.html#comparing-cis-using-the-z--and-t-distributions"><i class="fa fa-check"></i><b>8.5</b> Comparing CIs using the z- and t-distributions</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html"><i class="fa fa-check"></i><b>9</b> One Sample Inferential Statistics</a>
+<li class="chapter" data-level="9" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>9</b> Hypothesis Testing</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#hypothesis-testing"><i class="fa fa-check"></i><b>9.1</b> Hypothesis Testing</a></li>
-<li class="chapter" data-level="9.2" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#one-sample-z-tests"><i class="fa fa-check"></i><b>9.2</b> One-sample z-tests</a>
-<ul>
-<li class="chapter" data-level="9.2.1" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#sampling-distribution-recap"><i class="fa fa-check"></i><b>9.2.1</b> Sampling Distribution Recap</a></li>
-<li class="chapter" data-level="9.2.2" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#calculating-p-values-for-z-test"><i class="fa fa-check"></i><b>9.2.2</b> Calculating p-values for z-test</a></li>
-<li class="chapter" data-level="9.2.3" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#using-critical-values"><i class="fa fa-check"></i><b>9.2.3</b> Using critical values</a></li>
+<li class="chapter" data-level="9.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#two-tailed-and-one-tailed-tests"><i class="fa fa-check"></i><b>9.1</b> Two-tailed and One-tailed tests</a></li>
+<li class="chapter" data-level="9.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#examples-of-1--and-2-tailed-tests"><i class="fa fa-check"></i><b>9.2</b> Examples of 1- and 2-tailed tests</a></li>
+<li class="chapter" data-level="9.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#significance-levels-and-p-values"><i class="fa fa-check"></i><b>9.3</b> Significance Levels and p-values</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#one-sample-t-tests"><i class="fa fa-check"></i><b>9.3</b> One-sample t-tests</a>
+<li class="chapter" data-level="10" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html"><i class="fa fa-check"></i><b>10</b> One Sample Inferential Statistics</a>
 <ul>
-<li class="chapter" data-level="9.3.1" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#critical-values-for-the-one-sample-t-test"><i class="fa fa-check"></i><b>9.3.1</b> Critical values for the one-sample t-test</a></li>
-</ul></li>
-<li class="chapter" data-level="9.4" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#conducting-one-sample-t-tests-in-r"><i class="fa fa-check"></i><b>9.4</b> Conducting one-sample t-tests in R</a></li>
-<li class="chapter" data-level="9.5" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#assumptions-of-the-one-sample-t-test"><i class="fa fa-check"></i><b>9.5</b> Assumptions of the one-sample t-test</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html"><i class="fa fa-check"></i><b>10</b> Two Sample Inferential Statistics</a>
+<li class="chapter" data-level="10.1" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#one-sample-z-tests"><i class="fa fa-check"></i><b>10.1</b> One-sample z-tests</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#independent-samples-t-test"><i class="fa fa-check"></i><b>10.1</b> Independent Samples t-test</a></li>
-<li class="chapter" data-level="10.2" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#sampling-distribution-of-the-difference-in-sample-means"><i class="fa fa-check"></i><b>10.2</b> Sampling Distribution of the Difference in Sample Means</a>
-<ul>
-<li class="chapter" data-level="10.2.1" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#visualizing-the-sampling-distribution"><i class="fa fa-check"></i><b>10.2.1</b> Visualizing the Sampling Distribution</a></li>
+<li class="chapter" data-level="10.1.1" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#sampling-distribution-recap"><i class="fa fa-check"></i><b>10.1.1</b> Sampling Distribution Recap</a></li>
+<li class="chapter" data-level="10.1.2" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#calculating-p-values-for-z-test"><i class="fa fa-check"></i><b>10.1.2</b> Calculating p-values for z-test</a></li>
+<li class="chapter" data-level="10.1.3" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#using-critical-values"><i class="fa fa-check"></i><b>10.1.3</b> Using critical values</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#pooled-standard-deviation"><i class="fa fa-check"></i><b>10.3</b> Pooled Standard Deviation</a></li>
-<li class="chapter" data-level="10.4" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#theory-behind-students-t-test"><i class="fa fa-check"></i><b>10.4</b> Theory behind Student’s t-test</a></li>
-<li class="chapter" data-level="10.5" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#confidence-interval-for-difference-in-means"><i class="fa fa-check"></i><b>10.5</b> Confidence Interval for Difference in Means</a></li>
-<li class="chapter" data-level="10.6" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#conducting-the-student-t-test-in-r"><i class="fa fa-check"></i><b>10.6</b> Conducting the Student t-test in R</a></li>
-<li class="chapter" data-level="10.7" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#assumptions-of-the-independent-t-test"><i class="fa fa-check"></i><b>10.7</b> Assumptions of the Independent t-test</a></li>
-<li class="chapter" data-level="10.8" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#welchs-t-test"><i class="fa fa-check"></i><b>10.8</b> Welch’s t-test</a></li>
-<li class="chapter" data-level="10.9" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#effect-size-for-independent-two-sample-t-tests"><i class="fa fa-check"></i><b>10.9</b> Effect Size for Independent two sample t-tests:</a></li>
-<li class="chapter" data-level="10.10" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#paired-t-tests"><i class="fa fa-check"></i><b>10.10</b> Paired t-tests</a>
+<li class="chapter" data-level="10.2" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#one-sample-t-tests"><i class="fa fa-check"></i><b>10.2</b> One-sample t-tests</a>
 <ul>
-<li class="chapter" data-level="10.10.1" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#the-paired-t-test-is-a-one-sample-t-test"><i class="fa fa-check"></i><b>10.10.1</b> The paired t-test is a one-sample t-test</a></li>
-<li class="chapter" data-level="10.10.2" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#one-tailed-paired-t-tests"><i class="fa fa-check"></i><b>10.10.2</b> One-tailed paired t-tests</a></li>
-<li class="chapter" data-level="10.10.3" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#calculating-effect-sizes"><i class="fa fa-check"></i><b>10.10.3</b> Calculating effect sizes</a></li>
+<li class="chapter" data-level="10.2.1" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#critical-values-for-the-one-sample-t-test"><i class="fa fa-check"></i><b>10.2.1</b> Critical values for the one-sample t-test</a></li>
 </ul></li>
-<li class="chapter" data-level="10.11" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#non-parametric-alternatives-for-independent-t-tests"><i class="fa fa-check"></i><b>10.11</b> Non-parametric Alternatives for Independent t-tests</a></li>
-<li class="chapter" data-level="10.12" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#non-parametric-alternatives-to-the-two-sample-t-tests"><i class="fa fa-check"></i><b>10.12</b> Non-parametric Alternatives to the Two Sample t-tests</a></li>
+<li class="chapter" data-level="10.3" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#conducting-one-sample-t-tests-in-r"><i class="fa fa-check"></i><b>10.3</b> Conducting one-sample t-tests in R</a></li>
+<li class="chapter" data-level="10.4" data-path="one-sample-inferential-statistics.html"><a href="one-sample-inferential-statistics.html#assumptions-of-the-one-sample-t-test"><i class="fa fa-check"></i><b>10.4</b> Assumptions of the one-sample t-test</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>11</b> Correlation</a>
+<li class="chapter" data-level="11" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html"><i class="fa fa-check"></i><b>11</b> Two Sample Inferential Statistics</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="correlation.html"><a href="correlation.html#pearson-correlation"><i class="fa fa-check"></i><b>11.1</b> Pearson Correlation</a></li>
-<li class="chapter" data-level="11.2" data-path="correlation.html"><a href="correlation.html#cross-products"><i class="fa fa-check"></i><b>11.2</b> Cross-products</a></li>
-<li class="chapter" data-level="11.3" data-path="correlation.html"><a href="correlation.html#conducting-a-pearson-correlation-test"><i class="fa fa-check"></i><b>11.3</b> Conducting a Pearson Correlation Test</a>
+<li class="chapter" data-level="11.1" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#independent-samples-t-test"><i class="fa fa-check"></i><b>11.1</b> Independent Samples t-test</a></li>
+<li class="chapter" data-level="11.2" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#sampling-distribution-of-the-difference-in-sample-means"><i class="fa fa-check"></i><b>11.2</b> Sampling Distribution of the Difference in Sample Means</a>
 <ul>
-<li class="chapter" data-level="11.3.1" data-path="correlation.html"><a href="correlation.html#significance-testing-a-pearson-correlation"><i class="fa fa-check"></i><b>11.3.1</b> Significance Testing a Pearson Correlation</a></li>
+<li class="chapter" data-level="11.2.1" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#visualizing-the-sampling-distribution"><i class="fa fa-check"></i><b>11.2.1</b> Visualizing the Sampling Distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="correlation.html"><a href="correlation.html#assumptions-of-pearsons-correlation"><i class="fa fa-check"></i><b>11.4</b> Assumptions of Pearson’s Correlation</a></li>
-<li class="chapter" data-level="11.5" data-path="correlation.html"><a href="correlation.html#confidence-intervals-for-r"><i class="fa fa-check"></i><b>11.5</b> Confidence Intervals for r</a></li>
-<li class="chapter" data-level="11.6" data-path="correlation.html"><a href="correlation.html#partial-correlations"><i class="fa fa-check"></i><b>11.6</b> Partial Correlations</a></li>
-<li class="chapter" data-level="11.7" data-path="correlation.html"><a href="correlation.html#non-parametric-correlations"><i class="fa fa-check"></i><b>11.7</b> Non-parametric Correlations</a></li>
-<li class="chapter" data-level="11.8" data-path="correlation.html"><a href="correlation.html#point-biserial-correlation"><i class="fa fa-check"></i><b>11.8</b> Point-Biserial Correlation</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>12</b> Linear Regression</a>
+<li class="chapter" data-level="11.3" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#pooled-standard-deviation"><i class="fa fa-check"></i><b>11.3</b> Pooled Standard Deviation</a></li>
+<li class="chapter" data-level="11.4" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#theory-behind-students-t-test"><i class="fa fa-check"></i><b>11.4</b> Theory behind Student’s t-test</a></li>
+<li class="chapter" data-level="11.5" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#confidence-interval-for-difference-in-means"><i class="fa fa-check"></i><b>11.5</b> Confidence Interval for Difference in Means</a></li>
+<li class="chapter" data-level="11.6" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#conducting-the-student-t-test-in-r"><i class="fa fa-check"></i><b>11.6</b> Conducting the Student t-test in R</a></li>
+<li class="chapter" data-level="11.7" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#assumptions-of-the-independent-t-test"><i class="fa fa-check"></i><b>11.7</b> Assumptions of the Independent t-test</a></li>
+<li class="chapter" data-level="11.8" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#welchs-t-test"><i class="fa fa-check"></i><b>11.8</b> Welch’s t-test</a></li>
+<li class="chapter" data-level="11.9" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#effect-size-for-independent-two-sample-t-tests"><i class="fa fa-check"></i><b>11.9</b> Effect Size for Independent two sample t-tests:</a></li>
+<li class="chapter" data-level="11.10" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#paired-t-tests"><i class="fa fa-check"></i><b>11.10</b> Paired t-tests</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="linear-regression.html"><a href="linear-regression.html#introduction-to-linear-regression"><i class="fa fa-check"></i><b>12.1</b> Introduction to Linear Regression</a></li>
-<li class="chapter" data-level="12.2" data-path="linear-regression.html"><a href="linear-regression.html#a-and-b"><i class="fa fa-check"></i><b>12.2</b> a and b</a>
-<ul>
-<li class="chapter" data-level="12.2.1" data-path="linear-regression.html"><a href="linear-regression.html#how-to-calculate-a-and-b-in-r"><i class="fa fa-check"></i><b>12.2.1</b> How to calculate a and b in R</a></li>
-<li class="chapter" data-level="12.2.2" data-path="linear-regression.html"><a href="linear-regression.html#how-to-calculate-a-and-b-by-hand"><i class="fa fa-check"></i><b>12.2.2</b> How to calculate a and b ‘by hand’</a></li>
+<li class="chapter" data-level="11.10.1" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#the-paired-t-test-is-a-one-sample-t-test"><i class="fa fa-check"></i><b>11.10.1</b> The paired t-test is a one-sample t-test</a></li>
+<li class="chapter" data-level="11.10.2" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#one-tailed-paired-t-tests"><i class="fa fa-check"></i><b>11.10.2</b> One-tailed paired t-tests</a></li>
+<li class="chapter" data-level="11.10.3" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#calculating-effect-sizes"><i class="fa fa-check"></i><b>11.10.3</b> Calculating effect sizes</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="linear-regression.html"><a href="linear-regression.html#residuals"><i class="fa fa-check"></i><b>12.3</b> Residuals</a>
-<ul>
-<li class="chapter" data-level="12.3.1" data-path="linear-regression.html"><a href="linear-regression.html#how-to-calculate-the-residuals"><i class="fa fa-check"></i><b>12.3.1</b> How to calculate the residuals</a></li>
-<li class="chapter" data-level="12.3.2" data-path="linear-regression.html"><a href="linear-regression.html#visualizing-the-residuals"><i class="fa fa-check"></i><b>12.3.2</b> Visualizing the Residuals</a></li>
-<li class="chapter" data-level="12.3.3" data-path="linear-regression.html"><a href="linear-regression.html#comparing-our-trendline-to-other-trendlines"><i class="fa fa-check"></i><b>12.3.3</b> Comparing our trendline to other trendlines</a></li>
-<li class="chapter" data-level="12.3.4" data-path="linear-regression.html"><a href="linear-regression.html#coefficient-of-determination-r2"><i class="fa fa-check"></i><b>12.3.4</b> Coefficient of Determination R2</a></li>
+<li class="chapter" data-level="11.11" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#non-parametric-alternatives-for-independent-t-tests"><i class="fa fa-check"></i><b>11.11</b> Non-parametric Alternatives for Independent t-tests</a></li>
+<li class="chapter" data-level="11.12" data-path="two-sample-inferential-statistics.html"><a href="two-sample-inferential-statistics.html#non-parametric-alternatives-to-the-two-sample-t-tests"><i class="fa fa-check"></i><b>11.12</b> Non-parametric Alternatives to the Two Sample t-tests</a></li>
 </ul></li>
-<li class="chapter" data-level="12.4" data-path="linear-regression.html"><a href="linear-regression.html#standard-error-of-the-estimate"><i class="fa fa-check"></i><b>12.4</b> Standard Error of the Estimate</a>
+<li class="chapter" data-level="12" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>12</b> Correlation</a>
 <ul>
-<li class="chapter" data-level="12.4.1" data-path="linear-regression.html"><a href="linear-regression.html#what-to-do-with-the-standard-error-of-the-estimate"><i class="fa fa-check"></i><b>12.4.1</b> What to do with the Standard Error of the Estimate ?</a></li>
-</ul></li>
-<li class="chapter" data-level="12.5" data-path="linear-regression.html"><a href="linear-regression.html#goodness-of-fit-test---f-ratio"><i class="fa fa-check"></i><b>12.5</b> Goodness of Fit Test - F-ratio</a></li>
-<li class="chapter" data-level="12.6" data-path="linear-regression.html"><a href="linear-regression.html#assumptions-of-linear-regression"><i class="fa fa-check"></i><b>12.6</b> Assumptions of Linear Regression</a>
+<li class="chapter" data-level="12.1" data-path="correlation.html"><a href="correlation.html#pearson-correlation"><i class="fa fa-check"></i><b>12.1</b> Pearson Correlation</a></li>
+<li class="chapter" data-level="12.2" data-path="correlation.html"><a href="correlation.html#cross-products"><i class="fa fa-check"></i><b>12.2</b> Cross-products</a></li>
+<li class="chapter" data-level="12.3" data-path="correlation.html"><a href="correlation.html#conducting-a-pearson-correlation-test"><i class="fa fa-check"></i><b>12.3</b> Conducting a Pearson Correlation Test</a>
 <ul>
-<li class="chapter" data-level="12.6.1" data-path="linear-regression.html"><a href="linear-regression.html#normality-of-residuals"><i class="fa fa-check"></i><b>12.6.1</b> Normality of Residuals</a></li>
-<li class="chapter" data-level="12.6.2" data-path="linear-regression.html"><a href="linear-regression.html#linearity"><i class="fa fa-check"></i><b>12.6.2</b> 2. Linearity —</a></li>
-<li class="chapter" data-level="12.6.3" data-path="linear-regression.html"><a href="linear-regression.html#homogeneity-of-variance-homoscedasticity"><i class="fa fa-check"></i><b>12.6.3</b> 3. Homogeneity of Variance / Homoscedasticity</a></li>
-<li class="chapter" data-level="12.6.4" data-path="linear-regression.html"><a href="linear-regression.html#no-colinearity"><i class="fa fa-check"></i><b>12.6.4</b> No Colinearity</a></li>
-<li class="chapter" data-level="12.6.5" data-path="linear-regression.html"><a href="linear-regression.html#unusual-datapoints"><i class="fa fa-check"></i><b>12.6.5</b> Unusual Datapoints</a></li>
+<li class="chapter" data-level="12.3.1" data-path="correlation.html"><a href="correlation.html#significance-testing-a-pearson-correlation"><i class="fa fa-check"></i><b>12.3.1</b> Significance Testing a Pearson Correlation</a></li>
 </ul></li>
-<li class="chapter" data-level="12.7" data-path="linear-regression.html"><a href="linear-regression.html#examining-individual-predictor-estimates"><i class="fa fa-check"></i><b>12.7</b> Examining individual predictor estimates</a>
+<li class="chapter" data-level="12.4" data-path="correlation.html"><a href="correlation.html#assumptions-of-pearsons-correlation"><i class="fa fa-check"></i><b>12.4</b> Assumptions of Pearson’s Correlation</a></li>
+<li class="chapter" data-level="12.5" data-path="correlation.html"><a href="correlation.html#confidence-intervals-for-r"><i class="fa fa-check"></i><b>12.5</b> Confidence Intervals for r</a></li>
+<li class="chapter" data-level="12.6" data-path="correlation.html"><a href="correlation.html#partial-correlations"><i class="fa fa-check"></i><b>12.6</b> Partial Correlations</a></li>
+<li class="chapter" data-level="12.7" data-path="correlation.html"><a href="correlation.html#non-parametric-correlations"><i class="fa fa-check"></i><b>12.7</b> Non-parametric Correlations</a></li>
+<li class="chapter" data-level="12.8" data-path="correlation.html"><a href="correlation.html#point-biserial-correlation"><i class="fa fa-check"></i><b>12.8</b> Point-Biserial Correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>13</b> Linear Regression</a>
 <ul>
-<li class="chapter" data-level="12.7.1" data-path="linear-regression.html"><a href="linear-regression.html#confidence-interval-of-b."><i class="fa fa-check"></i><b>12.7.1</b> 95% confidence interval of ‘b’.</a></li>
-<li class="chapter" data-level="12.7.2" data-path="linear-regression.html"><a href="linear-regression.html#standard-error-of-b"><i class="fa fa-check"></i><b>12.7.2</b> Standard Error of b</a></li>
-<li class="chapter" data-level="12.7.3" data-path="linear-regression.html"><a href="linear-regression.html#calculating-95-confidence-interval-of-b-by-hand"><i class="fa fa-check"></i><b>12.7.3</b> Calculating 95% confidence interval of ‘b’ by hand</a></li>
-<li class="chapter" data-level="12.7.4" data-path="linear-regression.html"><a href="linear-regression.html#signifcance-testing-b"><i class="fa fa-check"></i><b>12.7.4</b> Signifcance Testing b</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="permutation-testing.html"><a href="permutation-testing.html"><i class="fa fa-check"></i><b>13</b> Permutation Testing</a>
+<li class="chapter" data-level="13.1" data-path="linear-regression.html"><a href="linear-regression.html#introduction-to-linear-regression"><i class="fa fa-check"></i><b>13.1</b> Introduction to Linear Regression</a></li>
+<li class="chapter" data-level="13.2" data-path="linear-regression.html"><a href="linear-regression.html#a-and-b"><i class="fa fa-check"></i><b>13.2</b> a and b</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="permutation-testing.html"><a href="permutation-testing.html#t-test-permutation"><i class="fa fa-check"></i><b>13.1</b> t-test Permutation</a></li>
-<li class="chapter" data-level="13.2" data-path="permutation-testing.html"><a href="permutation-testing.html#correlation-coefficient-permutation-tests"><i class="fa fa-check"></i><b>13.2</b> Correlation Coefficient Permutation Tests</a></li>
-<li class="chapter" data-level="13.3" data-path="permutation-testing.html"><a href="permutation-testing.html#permutation-test-for-a-paired-t-test"><i class="fa fa-check"></i><b>13.3</b> Permutation test for a Paired t-test</a></li>
-<li class="chapter" data-level="13.4" data-path="permutation-testing.html"><a href="permutation-testing.html#permutation-tests-in-packages"><i class="fa fa-check"></i><b>13.4</b> Permutation tests in Packages</a></li>
+<li class="chapter" data-level="13.2.1" data-path="linear-regression.html"><a href="linear-regression.html#how-to-calculate-a-and-b-in-r"><i class="fa fa-check"></i><b>13.2.1</b> How to calculate a and b in R</a></li>
+<li class="chapter" data-level="13.2.2" data-path="linear-regression.html"><a href="linear-regression.html#how-to-calculate-a-and-b-by-hand"><i class="fa fa-check"></i><b>13.2.2</b> How to calculate a and b ‘by hand’</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="linear-regression.html"><a href="linear-regression.html#residuals"><i class="fa fa-check"></i><b>13.3</b> Residuals</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="linear-regression.html"><a href="linear-regression.html#how-to-calculate-the-residuals"><i class="fa fa-check"></i><b>13.3.1</b> How to calculate the residuals</a></li>
+<li class="chapter" data-level="13.3.2" data-path="linear-regression.html"><a href="linear-regression.html#visualizing-the-residuals"><i class="fa fa-check"></i><b>13.3.2</b> Visualizing the Residuals</a></li>
+<li class="chapter" data-level="13.3.3" data-path="linear-regression.html"><a href="linear-regression.html#comparing-our-trendline-to-other-trendlines"><i class="fa fa-check"></i><b>13.3.3</b> Comparing our trendline to other trendlines</a></li>
+<li class="chapter" data-level="13.3.4" data-path="linear-regression.html"><a href="linear-regression.html#coefficient-of-determination-r2"><i class="fa fa-check"></i><b>13.3.4</b> Coefficient of Determination R2</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="linear-regression.html"><a href="linear-regression.html#standard-error-of-the-estimate"><i class="fa fa-check"></i><b>13.4</b> Standard Error of the Estimate</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="linear-regression.html"><a href="linear-regression.html#what-to-do-with-the-standard-error-of-the-estimate"><i class="fa fa-check"></i><b>13.4.1</b> What to do with the Standard Error of the Estimate ?</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="linear-regression.html"><a href="linear-regression.html#goodness-of-fit-test---f-ratio"><i class="fa fa-check"></i><b>13.5</b> Goodness of Fit Test - F-ratio</a></li>
+<li class="chapter" data-level="13.6" data-path="linear-regression.html"><a href="linear-regression.html#assumptions-of-linear-regression"><i class="fa fa-check"></i><b>13.6</b> Assumptions of Linear Regression</a>
+<ul>
+<li class="chapter" data-level="13.6.1" data-path="linear-regression.html"><a href="linear-regression.html#normality-of-residuals"><i class="fa fa-check"></i><b>13.6.1</b> Normality of Residuals</a></li>
+<li class="chapter" data-level="13.6.2" data-path="linear-regression.html"><a href="linear-regression.html#linearity"><i class="fa fa-check"></i><b>13.6.2</b> 2. Linearity —</a></li>
+<li class="chapter" data-level="13.6.3" data-path="linear-regression.html"><a href="linear-regression.html#homogeneity-of-variance-homoscedasticity"><i class="fa fa-check"></i><b>13.6.3</b> 3. Homogeneity of Variance / Homoscedasticity</a></li>
+<li class="chapter" data-level="13.6.4" data-path="linear-regression.html"><a href="linear-regression.html#no-colinearity"><i class="fa fa-check"></i><b>13.6.4</b> No Colinearity</a></li>
+<li class="chapter" data-level="13.6.5" data-path="linear-regression.html"><a href="linear-regression.html#unusual-datapoints"><i class="fa fa-check"></i><b>13.6.5</b> Unusual Datapoints</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="linear-regression.html"><a href="linear-regression.html#examining-individual-predictor-estimates"><i class="fa fa-check"></i><b>13.7</b> Examining individual predictor estimates</a>
+<ul>
+<li class="chapter" data-level="13.7.1" data-path="linear-regression.html"><a href="linear-regression.html#confidence-interval-of-b."><i class="fa fa-check"></i><b>13.7.1</b> 95% confidence interval of ‘b’.</a></li>
+<li class="chapter" data-level="13.7.2" data-path="linear-regression.html"><a href="linear-regression.html#standard-error-of-b"><i class="fa fa-check"></i><b>13.7.2</b> Standard Error of b</a></li>
+<li class="chapter" data-level="13.7.3" data-path="linear-regression.html"><a href="linear-regression.html#calculating-95-confidence-interval-of-b-by-hand"><i class="fa fa-check"></i><b>13.7.3</b> Calculating 95% confidence interval of ‘b’ by hand</a></li>
+<li class="chapter" data-level="13.7.4" data-path="linear-regression.html"><a href="linear-regression.html#signifcance-testing-b"><i class="fa fa-check"></i><b>13.7.4</b> Signifcance Testing b</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="permutation-testing.html"><a href="permutation-testing.html"><i class="fa fa-check"></i><b>14</b> Permutation Testing</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="permutation-testing.html"><a href="permutation-testing.html#t-test-permutation"><i class="fa fa-check"></i><b>14.1</b> t-test Permutation</a></li>
+<li class="chapter" data-level="14.2" data-path="permutation-testing.html"><a href="permutation-testing.html#correlation-coefficient-permutation-tests"><i class="fa fa-check"></i><b>14.2</b> Correlation Coefficient Permutation Tests</a></li>
+<li class="chapter" data-level="14.3" data-path="permutation-testing.html"><a href="permutation-testing.html#permutation-test-for-a-paired-t-test"><i class="fa fa-check"></i><b>14.3</b> Permutation test for a Paired t-test</a></li>
+<li class="chapter" data-level="14.4" data-path="permutation-testing.html"><a href="permutation-testing.html#permutation-tests-in-packages"><i class="fa fa-check"></i><b>14.4</b> Permutation tests in Packages</a></li>
 </ul></li>
 </ul>
 
@@ -417,7 +424,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PSY317L Guidebook</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PSY317L &amp; PSY120R Guidebook</a>
           </h1>
         </div>
 
