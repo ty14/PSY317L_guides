@@ -739,6 +739,7 @@ This illustration shows some of the linetype options:
 
 Just a quick reminder:  Please only connect datapoints into a line if it is meaningful to do so! This is almost always when your x-axis is some measure of time.  
 
+<br>
 
 ### Multiple Line Graphs
 
@@ -823,7 +824,7 @@ table(wheels$strain)
 
 We have 80 mice in five different strains.
 
-
+<br>
 
 ### Strip Plots
 
@@ -858,7 +859,7 @@ ggplot(wheels1, aes(x = strain, y = day4)) +
 This looks a lot better!. 
 
 
-
+<br>
 
 ### Boxplots
 
@@ -915,7 +916,7 @@ ggplot(wheels1, aes(x = strain, y = day4)) +
   theme_classic()
 ```
 
-
+<br>
 
 #### Overlaying points
 
@@ -967,7 +968,7 @@ ggplot(wheels1, aes(x = strain, y = day4)) +
 
 
 
-
+<br>
 
 #### Reordering categorical x-axes
 
@@ -1032,7 +1033,7 @@ ggplot(wheels1, aes(x = fct_rev(reorder(strain, -day4, median)), y = day4)) +
 
 
 
-
+<br>
 
 ### Violin Plots
 
@@ -1105,6 +1106,74 @@ ggplot(wheels2.long, aes(x = strain, y = value, fill=day)) +
 ```
 
 It turns out all the strains increase their overall running in wheels from day 1 to day 4, except the S129 strain who get bored with wheel running - probably similar to how you're bored of seeing graphs about wheel running.
+
+
+<br>
+
+
+### Ridgeline Plots
+
+Another useful way of displaying distributions of data across groups is using ridgeline plots. These are essentially density histogram plots for each categorical group plotted side by side. To do this we need to use a package called `ggridges`. This can be installed by going to the `Packages` tab, selecting `Install` and typing in `ggridges` in the box.
+
+Let's go back to the `olives` data.  Say we are interested in displaying the distribution of `oleic` acid content by `macro.area`.  We plot the categorical group of interest (here `macro.area`) on the y-axis, and the continuous variable whose distribution we are interested in (`oleic`) on the x-axis. We then use `stat_density_ridges()` to plot the ridgeline plots.
+
+
+```{r, warning=FALSE, message=FALSE, fig.width = 6, fig.height = 4}
+library(ggridges)
+
+ggplot(olives, aes(x = oleic, y = macro.area)) +
+  stat_density_ridges() +
+  theme_classic()
+
+```
+You can add color by adding in a `fill=` to the `aes()`. 
+
+```{r, message=FALSE, warning=FALSE, fig.width = 6, fig.height = 4}
+
+ggplot(olives, aes(x = oleic, y = macro.area, fill = macro.area)) +
+  stat_density_ridges() +
+  theme_classic() 
+```
+... and perhaps we can manually override the default color scheme - here I'm using hex codes to pick a very purpley color scheme:
+
+```{r, message=FALSE, warning=FALSE, fig.width = 6, fig.height = 4}
+
+ggplot(olives, aes(x = oleic, y = macro.area, fill = macro.area)) +
+  stat_density_ridges() +
+  theme_classic() +
+  scale_fill_manual(values=c("#D1B8D0", "#F78EF2", "#AC33FF"))
+```
+A nice thing about these ridgeline plots is that we can easily add on lines that represent the lower quartile, median  and upper quartile by adding in the argument `quantile_lines = TRUE` like this:
+
+```{r, message=FALSE, warning=FALSE, fig.width = 6, fig.height = 4}
+
+ggplot(olives, aes(x = oleic, y = macro.area, fill = macro.area)) +
+  stat_density_ridges(quantile_lines = TRUE) +
+  theme_classic() +
+  scale_fill_manual(values=c("#D1B8D0", "#F78EF2", "#AC33FF"))
+```
+The final ridgeline plot below plots the distributions of oleic acid by region. There are 9 regions. It's best in these plots to try and plot the categories from highest to lowest median, as it looks nicer. The following code is a bit tricky, and if you're not interested - then you can safely ignore. However, just in case it is of interest to anyone:  to do that you need to make sure `ggplot` recognizes the categorical variable `region` in this case to be a factor (a grouped variable) and that they are in the right order. It can be done using using this line: `fct_reorder(region, -oleic, .fun = median)`. Essentially this says, make the `region` variable a factor, and reorder it to be from highest median of oleic acid to lowest.  One final thing - you have to do this for both the `y` axis category, and the `fill` - otherwise your colors won't match your y-axis categories.
+
+In the below code, I also added quantiles, x-axis and y-axis titles, a title and I removed the legend as it didn't add any extra information that isn't already on the plot.
+
+
+```{r, message=FALSE, warning=FALSE, fig.width = 6, fig.height = 4}
+
+ggplot(olives, aes(x = oleic, 
+                   y = fct_reorder(region, -oleic, .fun = median), 
+                   fill = fct_reorder(region, -oleic, .fun = median)
+                   )) +
+  stat_density_ridges(quantile_lines = TRUE) +
+  theme_classic() +
+  scale_fill_manual(values=c("#0000FF", "#2000DF", "#4000BF", "#60009F", "#800080", "#9F0060", "#BF0040", "#DF0020", "#FF0000")) +
+  theme(legend.position = "none") +
+  ylab("Region") +
+  xlab("Oleic Acid Content") +
+  ggtitle("Oleic Acid Content of Italian Olives by Region")
+
+```
+
+For more information about these plots, you can look up the help documentation for this [package here](https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html).
 
 
 
