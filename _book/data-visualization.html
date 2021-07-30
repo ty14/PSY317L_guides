@@ -1351,14 +1351,14 @@ The final ridgeline plot below plots the distributions of oleic acid by region. 
 <div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="data-visualization.html#cb525-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/penguins.csv&quot;</span>)</span>
 <span id="cb525-2"><a href="data-visualization.html#cb525-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(penguins)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 7
-##   species island   culmen_length_mm culmen_depth_mm flipper_length_~ body_mass_g
-##   &lt;chr&gt;   &lt;chr&gt;               &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt;       &lt;dbl&gt;
-## 1 Adelie  Torgers~             39.1            18.7              181        3750
-## 2 Adelie  Torgers~             39.5            17.4              186        3800
-## 3 Adelie  Torgers~             40.3            18                195        3250
-## 4 Adelie  Torgers~             36.7            19.3              193        3450
-## 5 Adelie  Torgers~             39.3            20.6              190        3650
-## 6 Adelie  Torgers~             38.9            17.8              181        3625
+##   species island    culmen_length_mm culmen_depth_mm flipper_length_~ body_mass_g
+##   &lt;chr&gt;   &lt;chr&gt;                &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt;       &lt;dbl&gt;
+## 1 Adelie  Torgersen             39.1            18.7              181        3750
+## 2 Adelie  Torgersen             39.5            17.4              186        3800
+## 3 Adelie  Torgersen             40.3            18                195        3250
+## 4 Adelie  Torgersen             36.7            19.3              193        3450
+## 5 Adelie  Torgersen             39.3            20.6              190        3650
+## 6 Adelie  Torgersen             38.9            17.8              181        3625
 ## # ... with 1 more variable: sex &lt;chr&gt;</code></pre>
 <p>The dataset contains three different species:</p>
 <div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="data-visualization.html#cb527-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(penguins<span class="sc">$</span>species)</span></code></pre></div>

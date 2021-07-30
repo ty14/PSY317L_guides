@@ -843,7 +843,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   ..   sbp = col_double(),
 ##   ..   smoke = col_double(),
 ##   ..   educ = col_character()
-##   .. )</code></pre>
+##   .. )
+##  - attr(*, &quot;problems&quot;)=&lt;externalptr&gt;</code></pre>
 <p>Here you can see that all variables are <code>numeric</code>, except for education with is a <code>character</code>.</p>
 <p>Another common variable type is <code>factor</code>. This is similar to a <code>character</code> but it has <code>levels</code>. This means, that R knows that there are groups in that variable. You might notice that the variable <code>smoke</code> is currently a numerical variable with values being either a <code>1</code> (non smoker) or <code>2</code> (smoker). If we wanted to make a graph and plot non-smoker or smoker on the x-axis, then this would appear as 1 or 2, which isn’t helpful. In these situations, it can be helpful to convert our <code>numeric</code> variable into a <code>factor</code>. The way to do that is as follows:</p>
 <div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="introduction-to-data-carpentry.html#cb293-1" aria-hidden="true" tabindex="-1"></a>bmi<span class="sc">$</span>smoke <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(bmi<span class="sc">$</span>smoke)</span></code></pre></div>
@@ -1552,14 +1553,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb379-2"><a href="introduction-to-data-carpentry.html#cb379-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb379-3"><a href="introduction-to-data-carpentry.html#cb379-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(wheel)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 14
-##   strain id      day1  day2   day3   day4 dob       mother sex   wheel startdate
-##   &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;    
-## 1 B6     692ao 12853  8156.  9028. 12516. 4/18/2005 633ax  male      9 10/9/2005
-## 2 B6     656aa  2644  4012.  5237   7404. 12/16/20~ 593ar  male      1 9/12/2005
-## 3 B6     675ag  4004. 3054.  3816.  3761  2/9/2005  593ad  male      5 10/13/20~
-## 4 B6     675ai 11754. 8863  11784  11684  2/9/2005  593ad  male      4 10/13/20~
-## 5 B6     656af  6906. 5322. 10424.  8468. 12/16/20~ 593ar  male      2 10/13/20~
-## 6 B6     656al  6517  4440   5334.  9291  12/19/20~ 554aa  male      8 10/9/2005
+##   strain id      day1  day2   day3   day4 dob        mother sex   wheel startdate
+##   &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;    
+## 1 B6     692ao 12853  8156.  9028. 12516. 4/18/2005  633ax  male      9 10/9/2005
+## 2 B6     656aa  2644  4012.  5237   7404. 12/16/2004 593ar  male      1 9/12/2005
+## 3 B6     675ag  4004. 3054.  3816.  3761  2/9/2005   593ad  male      5 10/13/20~
+## 4 B6     675ai 11754. 8863  11784  11684  2/9/2005   593ad  male      4 10/13/20~
+## 5 B6     656af  6906. 5322. 10424.  8468. 12/16/2004 593ar  male      2 10/13/20~
+## 6 B6     656al  6517  4440   5334.  9291  12/19/2004 554aa  male      8 10/9/2005
 ## # ... with 3 more variables: total &lt;dbl&gt;, age &lt;dbl&gt;, group &lt;chr&gt;</code></pre>
 <p>We’re mainly interested in the <code>id</code>, <code>strain</code> and columns with day in, so we shall use <code>select()</code> to select these columns:</p>
 <div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="introduction-to-data-carpentry.html#cb381-1" aria-hidden="true" tabindex="-1"></a>wheeldf <span class="ot">&lt;-</span> wheel <span class="sc">%&gt;%</span> <span class="fu">select</span>(id, strain, day1,day2,day3,day4)</span>
